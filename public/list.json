@@ -1,0 +1,45 @@
+[{
+        "id": 1,
+        "name": "Coursera",
+        "title": "Free course for your career growth",
+        "price": 0,
+        "category": "Free",
+        "image": ""
+    },
+
+    {
+        "id": 2,
+        "name": "EdX",
+        "title": "Free course for your career growth",
+        "price": 0,
+        "category": "Free",
+        "image": ""
+    },
+
+    {
+        "id": 3,
+        "name": "Future Learn",
+        "title": "Free course for your career growth",
+        "price": 0,
+        "category": "Free",
+        "image": ""
+    },
+
+    {
+        "id": 4,
+        "name": "intrac",
+        "title": "Free course for your career growth",
+        "price": 0,
+        "category": "Free",
+        "image": ""
+    },
+
+    {
+        "id": 5,
+        "name": "OpenEDU",
+        "title": "Free course for your career growth",
+        "price": 0,
+        "category": "Free",
+        "image": ""
+    } 
+]
