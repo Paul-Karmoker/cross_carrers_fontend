@@ -1,22 +1,22 @@
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { useAuth } from '../context/AuthProvider';
-import { useNavigate, Link } from 'react-router-dom';
-import { FiUser, FiMail, FiLock, FiArrowRight, FiCheck } from 'react-icons/fi';
-import { toast } from 'react-hot-toast';
-import { FcGoogle } from 'react-icons/fc';
-import { FaFacebook, FaLinkedin } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+import { FiUser, FiMail, FiLock, FiArrowRight, FiCheck } from "react-icons/fi";
+import { toast } from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FiTag } from 'react-icons/fi';
 
 export default function ProfessionalSignupMembership() {
   // Signup form state
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    referralCode: "",
   });
-  
-  const { signup } = useAuth();
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -25,34 +25,34 @@ export default function ProfessionalSignupMembership() {
   const [selectedPlan, setSelectedPlan] = useState("free");
 
   const pricingOptions = {
-    free: { 
-      title: "Free Trial", 
-      price: "0", 
+    free: {
+      title: "freeTrial",
+      price: "0",
       period: "7 days",
       features: [
         "Full platform access",
         "All premium features",
         "Cancel anytime",
-        "No credit card required"
+        "No credit card required",
       ],
-      cta: "Start Free Trial"
+      cta: "Start Free Trial",
     },
     paid: {
-      title: "Premium Plan", 
-      prices: { 
-        monthly: { amount: "52", perMonth: "52" }, 
-        quarterly: { amount: "150", perMonth: "50", save: "Save 6" }, 
+      title: "premium",
+      prices: {
+        monthly: { amount: "52", perMonth: "52" },
+        quarterly: { amount: "150", perMonth: "50", save: "Save 6" },
         halfYearly: { amount: "270", perMonth: "45", save: "Save 42" },
-        yearly: { amount: "490", perMonth: "41", save: "Save 134" } 
+        yearly: { amount: "490", perMonth: "41", save: "Save 134" },
       },
       features: [
         "Unlimited content access",
         "Ad-free experience",
         "Priority customer support",
         "Exclusive content library",
-        "Early feature access"
+        "Early feature access",
       ],
-      cta: "Get Premium"
+      cta: "Get Premium",
     },
   };
 
@@ -65,43 +65,71 @@ export default function ProfessionalSignupMembership() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    const userData = {
-      ...formData,
-      plan: selectedPlan,
-      billingCycle: selectedPlan === "paid" ? billingCycle : null
-    };
-    
+
     try {
-      const result = await signup(userData);
-      if (!result.success) {
-        toast.error(result.message || 'Signup failed');
+      // 1. Sign up the user
+      const signupRes = await axios.post("http://localhost:4001/auth/signup", {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        password: formData.password,
+        referralCode: formData.referralCode,
+      });
+      toast.success("Signup successful");
+
+      // pull the new user’s ID out of the response
+      const userId =
+        signupRes.data.userId || signupRes.data._id || signupRes.data.id;
+
+      // 2. If they chose premium, kick off bKash payment
+      if (selectedPlan === "paid") {
+        const amount = Number(pricingOptions.paid.prices[billingCycle].amount);
+        const paymentBody = {
+          userId,
+          plan: billingCycle,
+          amount,
+          phoneNumber: "01315974775", // replace as needed
+          paymentReference: `INV-${Date.now()}`, // or your own ref generator
+        };
+
+        const bkashRes = await axios.post(
+          "http://localhost:4001/bkash/create",
+          paymentBody
+        );
+
+        // assume the API returns a paymentUrl
+        const { paymentUrl } = bkashRes.data;
+        window.location.href = paymentUrl;
       } else {
-        navigate('/signinhome');
-        toast.success(`Welcome! Your ${selectedPlan === "free" ? 'free trial' : 'premium membership'} is active`);
+        // 3. Free trial: just go to dashboard/sign‑in
+        navigate("/signinhome");
+        toast.success("Welcome! Your free trial is active");
       }
-    } catch (error) {
-      toast.error('An error occurred during signup');
+    } catch (err) {
+      console.error(err);
+      toast.error(
+        err.response?.data?.message || "An error occurred during signup"
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handleSocialLogin = (provider) => {
-    toast(`Continue with ${provider}`, { icon: '🔐' });
+    toast(`Continue with ${provider}`, { icon: "🔐" });
     // Implement your social login logic here
   };
 
   const cardVariants = {
     initial: { y: 20, opacity: 0 },
     animate: { y: 0, opacity: 1 },
-    hover: { y: -5 }
+    hover: { y: -5 },
   };
 
   return (
@@ -116,7 +144,9 @@ export default function ProfessionalSignupMembership() {
         <div className="w-full lg:w-2/5 bg-gradient-to-b from-indigo-900 to-indigo-700 text-white p-8 md:p-10">
           <div className="mb-5">
             <h1 className="text-3xl font-bold mb-2">Choose Your Plan</h1>
-            <p className="text-indigo-200">Select the perfect option for your needs</p>
+            <p className="text-indigo-200">
+              Select the perfect option for your needs
+            </p>
           </div>
 
           {/* Billing Cycle Toggle */}
@@ -158,7 +188,7 @@ export default function ProfessionalSignupMembership() {
                     MOST POPULAR
                   </div>
                 )}
-                
+
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h3 className="text-xl font-bold mb-1">{plan.title}</h3>
@@ -168,7 +198,10 @@ export default function ProfessionalSignupMembership() {
                   </div>
                   <div className="text-right">
                     <p className="text-2xl font-bold">
-                      ৳{key === "free" ? plan.price : plan.prices[billingCycle].amount}
+                      ৳
+                      {key === "free"
+                        ? plan.price
+                        : plan.prices[billingCycle].amount}
                     </p>
                     {key === "paid" && plan.prices[billingCycle].save && (
                       <p className="text-xs text-indigo-200">
@@ -187,11 +220,13 @@ export default function ProfessionalSignupMembership() {
                   ))}
                 </ul>
 
-                <div className={`text-center py-2 px-4 rounded-lg font-medium text-sm ${
-                  selectedPlan === key 
-                    ? "bg-white text-indigo-800" 
-                    : "bg-indigo-800/50 text-white"
-                }`}>
+                <div
+                  className={`text-center py-2 px-4 rounded-lg font-medium text-sm ${
+                    selectedPlan === key
+                      ? "bg-white text-indigo-800"
+                      : "bg-indigo-800/50 text-white"
+                  }`}
+                >
                   {selectedPlan === key ? "Selected" : plan.cta}
                 </div>
               </motion.div>
@@ -207,16 +242,19 @@ export default function ProfessionalSignupMembership() {
                 Create Your Account
               </h1>
               <p className="text-gray-500">
-                {selectedPlan === "free" 
-                  ? "Start your 7-day free trial today" 
+                {selectedPlan === "free"
+                  ? "Start your 7-day free trial today"
                   : "Get started with premium access"}
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="firstName">
+                  <label
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                    htmlFor="firstName"
+                  >
                     First Name
                   </label>
                   <div className="relative">
@@ -237,7 +275,10 @@ export default function ProfessionalSignupMembership() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="lastName">
+                  <label
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                    htmlFor="lastName"
+                  >
                     Last Name
                   </label>
                   <div className="relative">
@@ -259,7 +300,10 @@ export default function ProfessionalSignupMembership() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">
+                <label
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                  htmlFor="email"
+                >
                   Email Address
                 </label>
                 <div className="relative">
@@ -278,9 +322,11 @@ export default function ProfessionalSignupMembership() {
                   />
                 </div>
               </div>
-
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="password">
+                <label
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                  htmlFor="password"
+                >
                   Password
                 </label>
                 <div className="relative">
@@ -299,9 +345,35 @@ export default function ProfessionalSignupMembership() {
                     minLength="6"
                   />
                 </div>
-                <p className="mt-1 text-xs text-gray-500">Minimum 6 characters</p>
+                <p className="mt-1 text-xs text-gray-500">
+                  Minimum 6 characters
+                </p>
               </div>
-
+              <div>
+                <label
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                  htmlFor="referralCode"
+                >
+                  Referral Code{" "}
+                  <span className="text-gray-400">(optional)</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <FiTag className="text-gray-400" />
+                  </div>
+                  <input
+                    id="referralCode"
+                    name="referralCode"
+                    type="text"
+                    className="w-full pl-10 pr-3 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    placeholder="5‑digit code"
+                    value={formData.referralCode}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+              {/* ... your existing form inputs for firstName, lastName, email, password, referralCode */}
+              {/* unchanged */}
               <motion.button
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
@@ -311,74 +383,40 @@ export default function ProfessionalSignupMembership() {
               >
                 {isSubmitting ? (
                   <>
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
                     </svg>
                     Processing...
                   </>
                 ) : (
                   <>
-                    {selectedPlan === "free" ? "Start Free Trial" : "Get Premium Access"} <FiArrowRight className="ml-2" />
+                    {selectedPlan === "free"
+                      ? "Start Free Trial"
+                      : "Get Premium Access"}{" "}
+                    <FiArrowRight className="ml-2" />
                   </>
                 )}
               </motion.button>
 
-              <div className="relative my-6">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-200"></div>
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">Or sign up with</span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-3">
-                <motion.button
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="button"
-                  onClick={() => handleSocialLogin("Google")}
-                  className="flex items-center justify-center py-2 px-4 border border-gray-200 rounded-lg bg-white text-gray-700 font-medium hover:bg-gray-50 transition-colors"
-                >
-                  <FcGoogle className="h-5 w-5" />
-                  <span className="ml-2 sr-only">Google</span>
-                </motion.button>
-                <motion.button
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="button"
-                  onClick={() => handleSocialLogin("Facebook")}
-                  className="flex items-center justify-center py-2 px-4 border border-gray-200 rounded-lg bg-white text-gray-700 font-medium hover:bg-gray-50 transition-colors"
-                >
-                  <FaFacebook className="h-5 w-5 text-blue-600" />
-                  <span className="ml-2 sr-only">Facebook</span>
-                </motion.button>
-                <motion.button
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="button"
-                  onClick={() => handleSocialLogin("LinkedIn")}
-                  className="flex items-center justify-center py-2 px-4 border border-gray-200 rounded-lg bg-white text-gray-700 font-medium hover:bg-gray-50 transition-colors"
-                >
-                  <FaLinkedin className="h-5 w-5 text-blue-700" />
-                  <span className="ml-2 sr-only">LinkedIn</span>
-                </motion.button>
-              </div>
+              {/* ... rest of your “Or sign up with” social buttons and links */}
             </form>
-
-            <div className="mt-8 text-center text-sm text-gray-500">
-              Already have an account?{' '}
-              <Link to="/signinhome" className="text-indigo-600 hover:text-indigo-500 font-medium">
-                Sign in
-              </Link>
-            </div>
-
-            <div className="mt-6 text-center text-xs text-gray-400">
-              By continuing, you agree to our{' '}
-              <a href="#" className="text-indigo-500 hover:underline">Terms</a> and{' '}
-              <a href="#" className="text-indigo-500 hover:underline">Privacy Policy</a>.
-            </div>
           </div>
         </div>
       </motion.div>

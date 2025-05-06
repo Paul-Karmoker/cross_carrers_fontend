@@ -21,8 +21,10 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+import { useAuth } from '../context/AuthProvider';
 
 function Db() {
+  const { user, logout } = useAuth();
   // Mock data for member profile (will be replaced with backend data)
   const [member, setMember] = useState({
     name: 'John Doe',
@@ -78,6 +80,13 @@ function Db() {
     //   .then(data => console.log(data));
     setWithdrawAmount('');
   };
+  if (!user) return null;
+   const getInitials = () => {
+    const fi = user.firstName?.[0] ?? '';
+    const li = user.lastName?.[0] ?? '';
+    return (fi + li).toUpperCase() || 'U';
+  };
+  
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6 mt-20">
@@ -99,13 +108,9 @@ function Db() {
                   ✏️
                 </button>
               </div>
-              <h2 className="text-xl font-bold">{member.name}</h2>
+              <h2 className="text-xl font-bold">{user.firstName} {user.lastName}</h2>
               <div className="mt-2">
-                {member.membership === 'free' && (
-                  <span className="px-3 py-1 text-sm bg-gray-700 text-gray-300 rounded-full">
-                    Free Member
-                  </span>
-                )}
+                {(user.subscriptionPlan === 'premium' || user.subscriptionPlan === 'freeTrial')}
                 {member.membership === 'premium' && (
                   <span className="px-3 py-1 text-sm bg-blue-900 text-blue-300 rounded-full flex items-center justify-center">
                     <span className="mr-2">Premium Member</span>
@@ -128,7 +133,7 @@ function Db() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-gradient-to-r from-blue-800 to-blue-600 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
                 <h3 className="text-lg font-semibold text-blue-200">Current Earnings</h3>
-                <p className="text-3xl font-bold text-white">${member.earnings}</p>
+                <p className="text-3xl font-bold text-white">${user.points}</p>
               </div>
               <div className="bg-gradient-to-r from-green-800 to-green-600 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
                 <h3 className="text-lg font-semibold text-green-200">Active Referrals</h3>

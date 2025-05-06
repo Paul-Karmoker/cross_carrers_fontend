@@ -11,74 +11,112 @@ function Navbar() {
   const dropdownRefs = useRef({});
   const navigate = useNavigate();
 
-  // UserDropdown component
-  const UserDropdown = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  // inside Navbar.js
 
-    if (!user) return null;
+const UserDropdown = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  if (!user) return null;
 
-    const getInitials = () => {
-      if (!user.firstName && !user.lastName) return 'U';
-      return `${user.firstName ? user.firstName[0] : ''}${user.lastName ? user.lastName[0] : ''}`;
-    };
+  const getInitials = () => {
+    const fi = user.firstName?.[0] ?? '';
+    const li = user.lastName?.[0] ?? '';
+    return (fi + li).toUpperCase() || 'U';
+  };
 
-    return (
-      <div className="relative">
+  return (
+    <div className="relative">
+      {/* avatar + badge wrapper */}
+      <div className="relative inline-block">
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-600 text-white font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          className="relative flex items-center justify-center w-10 h-10 rounded-full bg-indigo-600 text-white font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           {getInitials()}
         </motion.button>
 
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.2 }}
-              className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50"
-            >
-              <div className="py-1">
-                <div className="px-4 py-2 border-b border-gray-100">
-                  <p className="text-sm font-medium text-gray-700">
-                    {user.firstName} {user.lastName}
-                  </p>
-                  <p className="text-xs text-gray-500 truncate">{user.email}</p>
-                </div>
-                <motion.button
-                  whileHover={{ x: 5 }}
-                  onClick={() => {
-                    navigate('/dbhome');
-                    setIsOpen(false);
-                  }}
-                  className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  <FiLayout className="mr-3 text-gray-400" />
-                  Dashboard
-                </motion.button>
-                <motion.button
-                  whileHover={{ x: 5 }}
-                  onClick={() => {
-                    logout();
-                    setIsOpen(false);
-                    navigate('/');
-                  }}
-                  className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  <FiLogOut className="mr-3 text-gray-400" />
-                  Logout
-                </motion.button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* only for premium or freeTrial */}
+        {(user.subscriptionPlan === 'premium' || user.subscriptionPlan === 'freeTrial') && (
+          <span
+            className={`
+              absolute top-0 right-0 
+              transform translate-x-1/2 -translate-y-1/2 
+              bg-white text-xs font-bold px-2 py-0.5 rounded-full shadow
+              ${user.subscriptionPlan === 'premium'
+                ? 'text-purple-600 border border-purple-600'
+                : 'text-green-600 border border-green-600'}
+            `}
+          >
+            {user.subscriptionPlan === 'premium' ? 'PLUS' : 'FREE'}
+          </span>
+        )}
       </div>
-    );
-  };
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.2 }}
+            className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50"
+          >
+            <p className="px-4 py-2 text-sm font-medium text-gray-700">
+              {user.subscriptionPlan === 'premium'
+                ? 'Premium Member'
+                : user.subscriptionPlan === 'freeTrial'
+                ? 'Free Trial'
+                : ''}
+            </p>
+            {/* …rest of dropdown… */}
+            <div className="py-1 border-t border-gray-100">
+              <div className="px-4 py-2">
+                <p className="text-sm font-medium text-gray-700">
+                  {user.firstName} {user.lastName}
+                </p>
+                <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                <p className="text-xs font-bold text-gray-500 truncate">
+                  Referral Code: {user.referralCode}
+                </p>
+              </div>
+              <motion.button
+                whileHover={{ x: 5 }}
+                onClick={() => {
+                  navigate('/dbhome');
+                  setIsOpen(false);
+                }}
+                className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              >
+                <FiLayout className="mr-3 text-gray-400" />
+                Dashboard
+              </motion.button>
+              <motion.button
+                whileHover={{ x: 5 }}
+                onClick={() => {
+                  logout();
+                  setIsOpen(false);
+                  navigate('/');
+                }}
+                className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              >
+                <FiLogOut className="mr-3 text-gray-400" />
+                Logout
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+  
+
+
+
+
+
 
   useEffect(() => {
     const handleScroll = () => {

@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:4001/user/login', {
+      const response = await axios.post('http://localhost:4001/auth/login', {
         email,
         password
       }, {
@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (userData) => {
     try {
-      const response = await axios.post('http://localhost:4001/user/signup', userData, {
+      const response = await axios.post('http://localhost:4001/auth/signup', userData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -121,11 +121,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  
+
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);
     navigate('/');
   };
+
+  
 
   const refresh_token = async () => {
     try {
