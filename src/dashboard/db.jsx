@@ -1,232 +1,338 @@
-import React, { useState } from 'react';
-import { Line } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import React, { useState, useEffect } from 'react';
 
-// Register Chart.js components
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-import { useAuth } from '../context/AuthProvider';
+const BASE_URL ='http://localhost:4001';
 
-function Db() {
-  const { user, logout } = useAuth();
-  // Mock data for member profile (will be replaced with backend data)
-  const [member, setMember] = useState({
-    name: 'John Doe',
-    picture: 'https://via.placeholder.com/150', // Placeholder image
-    membership: 'premium', // Can be 'free', 'premium', or 'advance'
-    earnings: 1200, // Current earnings
-    referrals: 15, // Number of active referrals
+export default function Dashboard() {
+  // User state
+  const [user, setUser] = useState({
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'john.doe@example.com',
+    mobileNumber: '+88017XXXXXXXX',
+    address: '123 Main St, Dhaka, Bangladesh',
+    points: 1200,
+    subscriptionPlan: 'premium',
+    picture: 'https://via.placeholder.com/150',
   });
 
-  // Mock data for resume (will be replaced with backend data)
-  const [resume, setResume] = useState({
-    title: 'My Resume',
-    thumbnail: 'https://via.placeholder.com/200x150', // Placeholder thumbnail
-  });
+  // Form states
+  const [passwordForm, setPasswordForm] = useState({ oldPassword: '', newPassword: '', confirmPassword: '' });
+  const [profileForm, setProfileForm] = useState({ firstName: '', lastName: '', email: '', mobileNumber: '', address: '' });
+  const [withdrawForm, setWithdrawForm] = useState({ points: '', paymentProvider: 'bkash', paymentNumber: '' });
 
-  // Mock data for referrals graph (will be replaced with backend data)
-  const referralsData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-    datasets: [
-      {
-        label: 'Referrals',
-        data: [5, 10, 8, 15, 12, 18, 20],
-        borderColor: '#4F46E5', // Indigo color
-        backgroundColor: 'rgba(79, 70, 229, 0.2)',
-        tension: 0.4,
-      },
-    ],
-  };
+  // Loading states
+  const [isChangingPassword, setIsChangingPassword] = useState(false);
+  const [isUpdatingProfile, setIsUpdatingProfile] = useState(false);
+  const [isWithdrawing, setIsWithdrawing] = useState(false);
 
-  // State for withdraw amount
-  const [withdrawAmount, setWithdrawAmount] = useState('');
+  // Withdrawal history
+  const [withdrawalHistory, setWithdrawalHistory] = useState([]);
 
-  // Handle profile picture change (placeholder for backend integration)
-  const handlePictureChange = () => {
-    alert('Profile picture change functionality will be added after backend setup.');
-  };
+  // Fetch initial data
+  useEffect(() => {
+    async function fetchProfile() {
+      try {
+        const res = await fetch(`${BASE_URL}/auth/profile`, {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        });
+        if (res.ok) setUser(await res.json());
+      } catch (err) {
+        console.error(err);
+      }
+    }
 
-  // Handle withdraw amount submission
-  const handleWithdraw = (e) => {
+    async function fetchHistory() {
+      try {
+        const res = await fetch(`${BASE_URL}/user/withdrawals`, {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        });
+        if (res.ok) setWithdrawalHistory(await res.json());
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fetchProfile();
+    fetchHistory();
+  }, []);
+
+  // Initialize profile form
+  useEffect(() => {
+    setProfileForm({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      mobileNumber: user.mobileNumber,
+      address: user.address,
+    });
+  }, [user]);
+
+  const handleChangePassword = async (e) => {
     e.preventDefault();
-    if (!withdrawAmount || isNaN(withdrawAmount)) {
-      alert('Please enter a valid amount.');
-      return;
+    if (passwordForm.newPassword !== passwordForm.confirmPassword) return alert("Passwords don't match");
+    setIsChangingPassword(true);
+    try {
+      const res = await fetch(`${BASE_URL}/auth/change-password`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify({ oldPassword: passwordForm.oldPassword, newPassword: passwordForm.newPassword }),
+      });
+      if (!res.ok) throw new Error((await res.json()).message);
+      alert('Password updated');
+      setPasswordForm({ oldPassword: '', newPassword: '', confirmPassword: '' });
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      setIsChangingPassword(false);
     }
-    if (parseFloat(withdrawAmount) > member.earnings) {
-      alert('You cannot withdraw more than your current earnings.');
-      return;
+  };
+
+  const handleUpdateProfile = async (e) => {
+    e.preventDefault();
+    setIsUpdatingProfile(true);
+    try {
+      const res = await fetch(`${BASE_URL}/auth/profile`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(profileForm),
+      });
+      if (!res.ok) throw new Error((await res.json()).message);
+      const updated = await res.json();
+      setUser(updated);
+      alert('Profile updated');
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      setIsUpdatingProfile(false);
     }
-    alert(`Withdraw request for $${withdrawAmount} submitted.`);
-    // Placeholder for backend integration
-    // fetch('/api/withdraw', { method: 'POST', body: JSON.stringify({ amount: withdrawAmount }) })
-    //   .then(response => response.json())
-    //   .then(data => console.log(data));
-    setWithdrawAmount('');
   };
-  if (!user) return null;
-   const getInitials = () => {
-    const fi = user.firstName?.[0] ?? '';
-    const li = user.lastName?.[0] ?? '';
-    return (fi + li).toUpperCase() || 'U';
+
+  const handleWithdraw = async (e) => {
+    e.preventDefault();
+    const pts = parseInt(withdrawForm.points, 10);
+    if (!pts || pts > user.points) return alert('Invalid withdraw amount');
+    setIsWithdrawing(true);
+    try {
+      const res = await fetch(`${BASE_URL}/user/withdraw`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify({ points: pts, ...withdrawForm }),
+      });
+      if (!res.ok) throw new Error((await res.json()).message);
+      const record = await res.json();
+      setUser((u) => ({ ...u, points: u.points - pts }));
+      setWithdrawalHistory((h) => [record, ...h]);
+      alert('Withdrawal requested');
+      setWithdrawForm({ points: '', paymentProvider: 'bkash', paymentNumber: '' });
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      setIsWithdrawing(false);
+    }
   };
-  
+
+  // Tab state
+  const [tab, setTab] = useState('dashboard');
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6 mt-20">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {/* Left Side - Member Profile */}
-          <div className="md:col-span-1 bg-gray-800 p-6 rounded-lg shadow-lg">
-            <div className="text-center">
-              <div className="relative inline-block">
-                <img
-                  src={member.picture}
-                  alt="Profile"
-                  className="w-24 h-24 rounded-full mx-auto mb-4"
-                />
-                <button
-                  onClick={handlePictureChange}
-                  className="absolute bottom-2 right-2 bg-blue-600 text-white p-1 rounded-full hover:bg-blue-700 transition duration-300"
-                >
-                  ✏️
-                </button>
-              </div>
-              <h2 className="text-xl font-bold">{user.firstName} {user.lastName}</h2>
-              <div className="mt-2">
-                {(user.subscriptionPlan === 'premium' || user.subscriptionPlan === 'freeTrial')}
-                {member.membership === 'premium' && (
-                  <span className="px-3 py-1 text-sm bg-blue-900 text-blue-300 rounded-full flex items-center justify-center">
-                    <span className="mr-2">Premium Member</span>
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  </span>
-                )}
-                {member.membership === 'advance' && (
-                  <span className="px-3 py-1 text-sm bg-yellow-900 text-yellow-300 rounded-full flex items-center justify-center">
-                    <span className="mr-2">Advance Member</span>
-                    <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
-                  </span>
-                )}
+    <div className="min-h-screen mt-12 bg-gray-50 p-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-6">
+       
+          <div className="md:w-1/3 bg-white shadow rounded-lg p-6">
+            <div className="flex flex-col items-center">
+              <img
+                src={user.picture}
+                alt="avatar"
+                className="w-24 h-24 rounded-full mb-4 object-cover"
+              />
+              <h2 className="text-xl font-semibold">{user.firstName} {user.lastName}</h2>
+              <p className="text-gray-500 mb-2">{user.email}</p>
+              <p className="text-sm mb-4">{user.mobileNumber}</p>
+              <p className="text-sm text-gray-600">{user.address}</p>
+              <span className="mt-4 inline-block px-4 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">
+                {user.subscriptionPlan.charAt(0).toUpperCase() + user.subscriptionPlan.slice(1)} Member
+              </span>
+              <div className="mt-6 text-center">
+                <p className="text-gray-500">Points</p>
+                <p className="text-2xl font-bold">{user.points}</p>
               </div>
             </div>
           </div>
 
-          {/* Right Side - Earnings, Referrals, and Resume */}
-          <div className="md:col-span-3 space-y-6">
-            {/* First Row - Earnings and Referrals */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-gradient-to-r from-blue-800 to-blue-600 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-                <h3 className="text-lg font-semibold text-blue-200">Current Earnings</h3>
-                <p className="text-3xl font-bold text-white">${user.points}</p>
-              </div>
-              <div className="bg-gradient-to-r from-green-800 to-green-600 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-                <h3 className="text-lg font-semibold text-green-200">Active Referrals</h3>
-                <p className="text-3xl font-bold text-white">{member.referrals}</p>
-              </div>
+          {/* Main Content */}
+          <div className="md:w-2/3">
+            {/* Tabs */}
+            <div className="flex space-x-4 mb-6">
+              {['dashboard','profile','withdraw','history'].map((key) => (
+                <button
+                  key={key}
+                  onClick={() => setTab(key)}
+                  className={`px-4 py-2 font-medium rounded ${tab===key? 'bg-blue-600 text-white' : 'bg-white text-gray-700'} shadow`}
+                >{key.charAt(0).toUpperCase()+key.slice(1)}</button>
+              ))}
             </div>
-
-            {/* Second Row - Referrals Graph */}
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h3 className="text-lg font-semibold text-gray-200 mb-4">Monthly Referrals</h3>
-              <Line
-                data={referralsData}
-                options={{
-                  responsive: true,
-                  plugins: {
-                    legend: {
-                      position: 'top',
-                      labels: {
-                        color: '#E5E7EB', // Light gray color for legend text
-                      },
-                    },
-                  },
-                  scales: {
-                    x: {
-                      grid: {
-                        color: '#4B5563', // Gray grid lines
-                      },
-                      ticks: {
-                        color: '#E5E7EB', // Light gray color for x-axis labels
-                      },
-                    },
-                    y: {
-                      grid: {
-                        color: '#4B5563', // Gray grid lines
-                      },
-                      ticks: {
-                        color: '#E5E7EB', // Light gray color for y-axis labels
-                      },
-                    },
-                  },
-                }}
-              />
-            </div>
-
-            {/* Third Row - Resume Builder */}
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h3 className="text-lg font-semibold text-gray-200 mb-4">Resume Builder</h3>
-              <div className="flex items-center space-x-4">
-                <img
-                  src={resume.thumbnail}
-                  alt="Resume Thumbnail"
-                  className="w-32 h-24 rounded-lg object-cover"
-                />
-                <div>
-                  <p className="text-gray-300">{resume.title}</p>
-                  <button
-                    className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300"
-                    onClick={() => alert('Edit Resume')} // Placeholder for edit functionality
-                  >
-                    Edit Resume
-                  </button>
+            {/* Panels */}
+            {tab === 'dashboard' && (
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="bg-white p-4 rounded shadow">
+                    <h3 className="text-gray-500">Current Points</h3>
+                    <p className="text-2xl font-bold">{user.points}</p>
+                  </div>
+                  <div className="bg-white p-4 rounded shadow">
+                    <h3 className="text-gray-500">Active Referrals</h3>
+                    <p className="text-2xl font-bold">15</p>
+                  </div>
+                </div>
+                {/* Chart placeholder */}
+                <div className="bg-white p-4 rounded shadow">
+                  <h3 className="text-lg font-medium mb-4">Monthly Referrals</h3>
+                  <div className="h-64 flex items-center justify-center text-gray-400">
+                    Chart goes here
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
-            {/* Fourth Row - Withdraw Section */}
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h3 className="text-lg font-semibold text-gray-200 mb-4">Withdraw Earnings</h3>
-              <form onSubmit={handleWithdraw}>
-                <div className="flex items-center space-x-4">
+            {tab === 'profile' && (
+              <div className="space-y-6">
+                {/* Update Profile */}
+                <form onSubmit={handleUpdateProfile} className="bg-white p-6 rounded shadow space-y-4">
+                  <h3 className="text-lg font-medium">Update Profile</h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <input
+                      type="text"
+                      placeholder="First Name"
+                      value={profileForm.firstName}
+                      onChange={(e) => setProfileForm({ ...profileForm, firstName: e.target.value })}
+                      required
+                      className="w-full p-2 border rounded"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Last Name"
+                      value={profileForm.lastName}
+                      onChange={(e) => setProfileForm({ ...profileForm, lastName: e.target.value })}
+                      required
+                      className="w-full p-2 border rounded"
+                    />
+                  </div>
                   <input
-                    type="number"
-                    value={withdrawAmount}
-                    onChange={(e) => setWithdrawAmount(e.target.value)}
-                    className="w-full px-3 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter amount to withdraw"
-                    min="0"
-                    step="0.01"
+                    type="email"
+                    placeholder="Email"
+                    value={profileForm.email}
+                    onChange={(e) => setProfileForm({ ...profileForm, email: e.target.value })}
+                    required
+                    className="w-full p-2 border rounded"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Mobile Number"
+                    value={profileForm.mobileNumber}
+                    onChange={(e) => setProfileForm({ ...profileForm, mobileNumber: e.target.value })}
+                    required
+                    className="w-full p-2 border rounded"
+                  />
+                  <textarea
+                    placeholder="Address"
+                    value={profileForm.address}
+                    onChange={(e) => setProfileForm({ ...profileForm, address: e.target.value })}
+                    rows={3}
+                    className="w-full p-2 border rounded"
                   />
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300"
-                  >
-                    Withdraw
-                  </button>
-                </div>
+                    disabled={isUpdatingProfile}
+                    className="px-6 py-2 bg-blue-600 text-white rounded font-medium"
+                  >{isUpdatingProfile ? 'Updating...' : 'Update Profile'}</button>
+                </form>
+
+                {/* Change Password */}
+                <form onSubmit={handleChangePassword} className="bg-white p-6 rounded shadow space-y-4">
+                  <h3 className="text-lg font-medium">Change Password</h3>
+                  <input
+                    type="password"
+                    placeholder="Current Password"
+                    value={passwordForm.oldPassword}
+                    onChange={(e) => setPasswordForm({ ...passwordForm, oldPassword: e.target.value })}
+                    required
+                    className="w-full p-2 border rounded"
+                  />
+                  <input
+                    type="password"
+                    placeholder="New Password"
+                    value={passwordForm.newPassword}
+                    onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
+                    required
+                    className="w-full p-2 border rounded"
+                  />
+                  <input
+                    type="password"
+                    placeholder="Confirm New Password"
+                    value={passwordForm.confirmPassword}
+                    onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
+                    required
+                    className="w-full p-2 border rounded"
+                  />
+                  <button
+                    type="submit"
+                    disabled={isChangingPassword}
+                    className="px-6 py-2 bg-blue-600 text-white rounded font-medium"
+                  >{isChangingPassword ? 'Changing...' : 'Change Password'}</button>
+                </form>
+              </div>
+            )}
+
+            {tab === 'withdraw' && (
+              <form onSubmit={handleWithdraw} className="bg-white p-6 rounded shadow space-y-4">
+                <h3 className="text-lg font-medium">Withdraw Points</h3>
+                <p className="text-gray-600">Available: {user.points}</p>
+                <input
+                  type="number"
+                  placeholder="Points to withdraw"
+                  value={withdrawForm.points}
+                  onChange={(e) => setWithdrawForm({ ...withdrawForm, points: e.target.value })}
+                  required
+                  className="w-full p-2 border rounded"
+                />
+                <select
+                  value={withdrawForm.paymentProvider}
+                  onChange={(e) => setWithdrawForm({ ...withdrawForm, paymentProvider: e.target.value })}
+                  className="w-full p-2 border rounded"
+                >
+                  <option value="bkash">bKash</option>
+                  <option value="nagad">Nagad</option>
+                  <option value="rocket">Rocket</option>
+                </select>
+                <input
+                  type="text"
+                  placeholder="Payment Number"
+                  value={withdrawForm.paymentNumber}
+                  onChange={(e) => setWithdrawForm({ ...withdrawForm, paymentNumber: e.target.value })}
+                  required
+                  className="w-full p-2 border rounded"
+                />
+                <button
+                  type="submit"
+                  disabled={isWithdrawing}
+                  className="px-6 py-2 bg-blue-600 text-white rounded font-medium"
+                >{isWithdrawing ? 'Processing...' : 'Submit'}</button>
               </form>
-            </div>
+            )}
+
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default Db;

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
-import AuthProvider from "./context/AuthProvider.jsx";
+import  AuthProvider  from "./context/AuthProvider"; // This now works with default export
 import { HelmetProvider } from "react-helmet-async";
 import { ErrorBoundary } from "react-error-boundary";
 import { Toaster } from "react-hot-toast";
@@ -27,7 +27,7 @@ function ErrorFallback({ error, resetErrorBoundary }) {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <>
+  <React.StrictMode>
     <ErrorBoundary
       FallbackComponent={ErrorFallback}
       onReset={() => window.location.reload()}
@@ -63,5 +63,5 @@ root.render(
         </HelmetProvider>
       </BrowserRouter>
     </ErrorBoundary>
-  </>
+  </React.StrictMode>
 );

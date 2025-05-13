@@ -1,27 +1,38 @@
 import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  // Base API configuration
+  const api = axios.create({
+    baseURL: 'http://localhost:4001',
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+  // Check authentication on initial load
   useEffect(() => {
     const checkAuth = async () => {
       try {
         const token = localStorage.getItem('token');
         if (token) {
-          const response = await axios.get('http://localhost:4001/user/validate', {
+          const response = await api.get('/auth/validate', {
             headers: { Authorization: `Bearer ${token}` }
           });
           setUser(response.data.user);
         }
       } catch (error) {
         console.error('Auth verification failed:', error);
-        // localStorage.removeItem('token');
+        localStorage.removeItem('token');
         setUser(null);
       } finally {
         setLoading(false);
@@ -31,111 +42,98 @@ export const AuthProvider = ({ children }) => {
     checkAuth();
   }, []);
 
+  // Login function
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:4001/auth/login', {
-        email,
-        password
-      }, {
-        withCredentials: true
-      });
-
-
-      // Make sure the response contains what you expect
+      const response = await api.post('/auth/login', { email, password });
+      
       if (!response.data.token || !response.data.user) {
-        throw new Error('Invalid response structure from server');
+        throw new Error('Invalid response from server');
       }
 
       localStorage.setItem('token', response.data.token);
       setUser(response.data.user);
+      toast.success('Login successful');
       navigate('/');
-      return { success: true };
+      
+      return { success: true, user: response.data.user };
     } catch (error) {
-      console.error('Detailed login error:', {
-        message: error.message,
-        response: error.response?.data,
-        status: error.response?.status,
-        stack: error.stack
-      });
+      console.error('Login error:', error);
+      
+      let errorMessage = 'Login failed. Please try again.';
+      if (error.response) {
+        errorMessage = error.response.data?.message || 
+                     error.response.data?.error || 
+                     `Error: ${error.response.status}`;
+      }
 
-      return {
-        success: false,
-        message: error.response?.data?.message ||
-          error.response?.data?.error ||
-          'Login failed. Please try again.'
-      };
+      toast.error(errorMessage);
+      return { success: false, message: errorMessage };
     }
   };
 
+  // Signup function
   const signup = async (userData) => {
     try {
-      const response = await axios.post('http://localhost:4001/auth/signup', userData, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
+      const response = await api.post('/auth/signup', {
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        email: userData.email,
+        password: userData.password,
+        referralCode: userData.referralCode || undefined // Send undefined if empty
       });
 
-      // Modified to match your backend response structure
       if (!response.data.user) {
         throw new Error('Invalid response from server');
       }
 
-      // Optional: If you add token later
+      // If token is returned (optional)
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
       }
 
       setUser(response.data.user);
-      // navigate('/signin');
-
+      toast.success('Signup successful!');
+      
       return {
         success: true,
         user: response.data.user,
         message: response.data.message || 'Signup successful'
       };
-
     } catch (error) {
       console.error('Signup error:', error);
-
-      // Clear auth state on error
-      // localStorage.removeItem('token');
-      // setUser(null);
-
-      // Enhanced error message handling
+      
       let errorMessage = 'Signup failed. Please try again.';
-
       if (error.response) {
-        // Handle HTTP errors (4xx, 5xx)
-        errorMessage = error.response.data?.message ||
-          error.response.statusText ||
-          `Server error (${error.response.status})`;
-      } else if (error.request) {
-        // The request was made but no response received
-        errorMessage = 'Network error - no response from server';
+        errorMessage = error.response.data?.message || 
+                      error.response.data?.error || 
+                      `Error: ${error.response.status}`;
+        
+        // Handle specific error cases
+        if (error.response.status === 409) {
+          errorMessage = 'Email already exists';
+        }
       }
 
-      return {
-        success: false,
-        message: errorMessage
-      };
+      toast.error(errorMessage);
+      return { success: false, message: errorMessage };
     }
   };
 
-  
-
+  // Logout function
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);
+    toast.success('Logged out successfully');
     navigate('/');
   };
 
-  
-
-  const refresh_token = async () => {
+  // Token refresh function
+  const refreshToken = async () => {
     try {
       const token = localStorage.getItem('token');
       if (token) {
-        const response = await axios.get('http://localhost:4001/user/refresh-token', {
+        const response = await api.get('/auth/refresh-token', {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (response.data.token) {
@@ -149,14 +147,17 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Set up token refresh interval
   useEffect(() => {
-    const intervalId = setInterval(refresh_token, 1000 * 60 * 10); // Refresh token every 10 minutes
+    const intervalId = setInterval(refreshToken, 1000 * 60 * 10); // Refresh every 10 minutes
     return () => clearInterval(intervalId);
   }, []);
 
+  // Memoized context value
   const value = useMemo(() => ({
     user,
     loading,
+    isAuthenticated: !!user,
     login,
     signup,
     logout
