@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Navbar from '../Components/navbar';
 import Footer from '../Components/footer';
 
@@ -16,7 +16,7 @@ const About = () => {
           
           <div className="bg-blue-50 p-8 rounded-xl shadow-sm">
             <p className="text-lg leading-relaxed text-gray-700">
-              "Empowering Future Leaders in the Development & Humanitarian Sector" - with this vision, 
+              &quot;Empowering Future Leaders in the Development & Humanitarian Sector&quot; - with this vision, 
               <span className="font-bold text-blue-600"> Cross Careers</span> emerges as a dynamic 
               social enterprise committed to equipping young professionals with the skills, knowledge, 
               and practical experience needed to thrive.
@@ -73,7 +73,7 @@ const About = () => {
               <li>Information bridges to connect talent with meaningful opportunities</li>
             </ul>
             <p className="text-lg leading-relaxed text-gray-700 mt-4">
-              While we don't facilitate direct applications, we empower you with the knowledge to pursue 
+              While we don&apos;t facilitate direct applications, we empower you with the knowledge to pursue 
               opportunities aligned with your passion for creating positive change.
             </p>
           </div>
@@ -166,7 +166,7 @@ const About = () => {
         <section className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-8 text-white">
           <h2 className="text-3xl font-bold mb-4">Elevate Your Humanitarian Career</h2>
           <p className="text-lg mb-6 leading-relaxed">
-            Cross Careers is more than a job search platform - we're your partner in professional growth. 
+            Cross Careers is more than a job search platform - we&apos;re your partner in professional growth. 
             Join us today to access the support, resources, and insights you need to advance your career in the 
             humanitarian and development sector.
           </p>

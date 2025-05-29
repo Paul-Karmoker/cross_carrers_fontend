@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
 import { toast } from "react-hot-toast";
-import { useAuth } from "../context/AuthProvider"; // Import the auth context
-
+import { useSignupMutation } from "../context/authApi";
 import {
   FiUser,
   FiMail,
@@ -13,11 +11,10 @@ import {
   FiCheck,
   FiTag,
 } from "react-icons/fi";
-
 import PaymentModal from "../Membership/paymentmodel";
 
 export default function Signup() {
-  const { signup } = useAuth(); // Use the auth context
+  const [signup, { isLoading, error }] = useSignupMutation();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -27,7 +24,6 @@ export default function Signup() {
     referralCode: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const [billingCycle, setBillingCycle] = useState("monthly");
   const [selectedPlan, setSelectedPlan] = useState("free");
   const [showPaymentModal, setShowPaymentModal] = useState(false);
@@ -55,10 +51,10 @@ export default function Signup() {
     paid: {
       title: "Premium",
       prices: {
-        monthly: { amount: "150", perMonth: "150", label: "1 Month" },
-        quarterly: { amount: "260", perMonth: "65", save: "Save ৳340", label: "4 Months" },
-        halfYearly: { amount: "450", perMonth: "75", save: "Save ৳450", label: "6 Months" },
-        yearly: { amount: "520", perMonth: "43", save: "Save ৳1280", label: "Annual" },
+        monthly: { amount: "150", label: "monthly" },
+        quarterly: { amount: "260", label: "quarterly" },
+        semiannual: { amount: "450", label: "semiannual" },
+        yearly: { amount: "520", label: "yearly" },
       },
       features: [
         "Unlimited content access",
@@ -72,15 +68,15 @@ export default function Signup() {
   };
 
   const billingCycles = [
-    { id: "monthly", label: "1 Month" },
-    { id: "quarterly", label: "4 Months" },
-    { id: "halfYearly", label: "6 Months" },
-    { id: "yearly", label: "Annual" },
+    { id: "monthly", label: "Monthly" },
+    { id: "quarterly", label: "Quarterly" },
+    { id: "semiannual", label: "Semiannual" },
+    { id: "yearly", label: "Yearly" },
   ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((p) => ({ ...p, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -88,40 +84,36 @@ export default function Signup() {
     setIsSubmitting(true);
 
     try {
-      // Use the auth context's signup function
       const result = await signup({
         ...formData,
         plan: selectedPlan,
-        billingCycle: selectedPlan === "paid" ? billingCycle : undefined
+        billingCycle: selectedPlan === "paid" ? billingCycle : undefined,
       });
 
-      if (!result.success) {
-        throw new Error(result.message || "Signup failed");
+      if (result.error) {
+        throw new Error(result.error.data?.message || "Signup failed");
       }
 
-      const userId = result.user._id || result.user.id;
-      const userName = `${result.user.firstName} ${result.user.lastName}`;
+      const userId = result.data?.user?._id || result.data?.user?.id;
+      const userName = `${result.data?.user?.firstName} ${result.data?.user?.lastName}`;
 
-      // If free plan, go straight to dashboard
       if (selectedPlan === "free") {
         toast.success("Welcome! Your free trial is active");
-        navigate("/signinhome");
+        navigate("/signin"); // Redirect to login page
         return;
       }
 
-      // Paid plan → show modal with all the details
       const planInfo = pricingOptions.paid.prices[billingCycle];
       setPaymentDetails({
         userId,
         userName,
         amount: Number(planInfo.amount),
-        plan: billingCycle,
+        subscriptionPlan: billingCycle,
         durationLabel: planInfo.label,
       });
       setShowPaymentModal(true);
-
     } catch (err) {
-      console.error(err);
+      console.error("Signup error:", err);
       toast.error(err.message || "An error occurred during signup");
     } finally {
       setIsSubmitting(false);
@@ -143,23 +135,24 @@ export default function Signup() {
         transition={{ duration: 0.6 }}
         className="w-full max-w-6xl bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col lg:flex-row"
       >
-        {/* LEFT: plan selection */}
+        {/* LEFT: Plan Selection */}
         <div className="w-full lg:w-2/5 bg-gradient-to-b from-indigo-900 to-indigo-700 text-white p-8">
           <h1 className="text-3xl font-bold mb-2">Choose Your Plan</h1>
           <p className="text-indigo-200 mb-6">Select the perfect option for your needs</p>
 
           <div className="bg-indigo-800/30 rounded-xl p-1 mb-8 grid grid-cols-4 gap-1">
-            {billingCycles.map((c) => (
+            {billingCycles.map((cycle) => (
               <button
-                key={c.id}
-                onClick={() => setBillingCycle(c.id)}
+                key={cycle.id}
+                onClick={() => setBillingCycle(cycle.id)}
+                disabled={selectedPlan === "free"}
                 className={`py-2 px-1 text-sm rounded-lg transition-all ${
-                  billingCycle === c.id
+                  billingCycle === cycle.id && selectedPlan !== "free"
                     ? "bg-white text-indigo-800 font-medium shadow-sm"
-                    : "text-indigo-200 hover:text-white"
+                    : "text-indigo-200 hover:text-white disabled:opacity-50"
                 }`}
               >
-                {c.label}
+                {cycle.label}
               </button>
             ))}
           </div>
@@ -191,24 +184,16 @@ export default function Signup() {
                   </div>
                   <div className="text-right">
                     <p className="text-2xl font-bold">
-                      ৳
-                      {key === "free"
-                        ? plan.price
-                        : plan.prices[billingCycle].amount}
+                      ৳{key === "free" ? plan.price : plan.prices[billingCycle].amount}
                     </p>
-                    {key === "paid" && plan.prices[billingCycle].save && (
-                      <p className="text-xs text-indigo-200">
-                        {plan.prices[billingCycle].save}
-                      </p>
-                    )}
                   </div>
                 </div>
 
                 <ul className="space-y-3 mb-6">
-                  {plan.features.map((f, i) => (
-                    <li key={i} className="flex items-start">
+                  {plan.features.map((feature, index) => (
+                    <li key={index} className="flex items-start">
                       <FiCheck className="mt-0.5 mr-2 text-indigo-300" />
-                      <span className="text-sm">{f}</span>
+                      <span className="text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -227,7 +212,7 @@ export default function Signup() {
           </div>
         </div>
 
-        {/* RIGHT: signup form */}
+        {/* RIGHT: Signup Form */}
         <div className="w-full lg:w-3/5 p-8">
           <div className="max-w-md mx-auto">
             <h1 className="text-3xl font-bold text-gray-800 mb-2 text-center">
@@ -239,26 +224,26 @@ export default function Signup() {
                 : "Get started with premium access"}
             </p>
             <form onSubmit={handleSubmit} className="space-y-5">
-              {/* name fields */}
+              {/* Name Fields */}
               <div className="grid grid-cols-2 gap-4">
-                {["firstName", "lastName"].map((f) => (
-                  <div key={f}>
+                {["firstName", "lastName"].map((field) => (
+                  <div key={field}>
                     <label
-                      htmlFor={f}
+                      htmlFor={field}
                       className="block text-sm font-medium text-gray-700 mb-1"
                     >
-                      {f === "firstName" ? "First Name" : "Last Name"}
+                      {field === "firstName" ? "First Name" : "Last Name"}
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <FiUser className="text-gray-400" />
                       </div>
                       <input
-                        id={f}
-                        name={f}
+                        id={field}
+                        name={field}
                         type="text"
                         className="w-full pl-10 pr-3 py-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                        value={formData[f]}
+                        value={formData[field]}
                         onChange={handleChange}
                         required
                       />
@@ -267,7 +252,7 @@ export default function Signup() {
                 ))}
               </div>
 
-              {/* email, password, referral */}
+              {/* Email, Password, Referral */}
               {[
                 {
                   id: "email",
@@ -288,7 +273,7 @@ export default function Signup() {
                   id: "referralCode",
                   type: "text",
                   icon: <FiTag className="text-gray-400" />,
-                  placeholder: "5‑digit code",
+                  placeholder: "5-digit code",
                   required: false,
                 },
               ].map(({ id, type, icon, placeholder, required, minLength }) => (
@@ -325,54 +310,61 @@ export default function Signup() {
                 </div>
               ))}
 
+              {error && (
+                <p className="text-red-500 text-sm text-center">
+                  {error.data?.message || "An error occurred. Please try again."}
+                </p>
+              )}
+
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 rounded-lg shadow-md flex items-center justify-center transition-all"
+                disabled={isSubmitting || isLoading}
+                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 rounded-lg shadow-md flex items-center justify-center transition-all disabled:opacity-50"
               >
-                {isSubmitting && (
-                  <svg
-                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    />
-                  </svg>
+                {isSubmitting || isLoading ? (
+                  <>
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    Processing...
+                  </>
+                ) : (
+                  <>
+                    {selectedPlan === "free" ? "Start Free Trial" : "Get Premium Access"}
+                    <FiArrowRight className="ml-2" />
+                  </>
                 )}
-                {isSubmitting
-                  ? "Processing..."
-                  : selectedPlan === "free"
-                  ? "Start Free Trial"
-                  : "Get Premium Access"}
-                {!isSubmitting && <FiArrowRight className="ml-2" />}
               </button>
 
               <p className="text-center text-sm text-gray-500">
-                Or{" "}
+                Already have an account?{" "}
                 <Link to="/signin" className="text-indigo-600 hover:underline">
-                  sign in
-                </Link>{" "}
-                if you already have an account.
+                  Sign in
+                </Link>
               </p>
             </form>
           </div>
         </div>
       </motion.div>
 
-      {/** Payment Modal **/}
+      {/* Payment Modal */}
       <PaymentModal
         isOpen={showPaymentModal}
         onClose={() => setShowPaymentModal(false)}
