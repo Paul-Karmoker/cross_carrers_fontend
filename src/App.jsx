@@ -7,7 +7,7 @@ import { useGetWithdrawalsQuery } from './context/authApi';
 import Home from '../src/home/home';
 import Training from './Components/trainings';
 import About from './Components/about';
-import Contact from './Components/Contact';
+import Contact from './Components/contact';
 import Membership from './Membership/membership';
 import Earn from './Components/earn';
 import Ngo from './Components/ngo';
