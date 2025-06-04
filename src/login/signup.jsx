@@ -35,6 +35,11 @@ export default function Signup() {
     durationLabel: "",
   });
 
+  const handlePaymentSuccess = () => {
+  toast.success("Payment successful! Your premium account is now active.");
+  navigate("/dashboard");
+};
+
   const pricingOptions = {
     free: {
       title: "Free Trial",
@@ -68,10 +73,10 @@ export default function Signup() {
   };
 
   const billingCycles = [
-    { id: "monthly", label: "Monthly" },
-    { id: "quarterly", label: "Quarterly" },
-    { id: "semiannual", label: "Semiannual" },
-    { id: "yearly", label: "Yearly" },
+    { id: "monthly", label: "monthly" },
+    { id: "quarterly", label: "quarterly" },
+    { id: "semiannual", label: "semiannual" },
+    { id: "yearly", label: "yearly" },
   ];
 
   const handleChange = (e) => {
@@ -95,7 +100,7 @@ export default function Signup() {
       }
 
       const userId = result.data?.user?._id || result.data?.user?.id;
-      const userName = `${result.data?.user?.firstName} ${result.data?.user?.lastName}`;
+
 
       if (selectedPlan === "free") {
         toast.success("Welcome! Your free trial is active");
@@ -105,12 +110,10 @@ export default function Signup() {
 
       const planInfo = pricingOptions.paid.prices[billingCycle];
       setPaymentDetails({
-        userId,
-        userName,
-        amount: Number(planInfo.amount),
-        subscriptionPlan: billingCycle,
-        durationLabel: planInfo.label,
-      });
+     userId,
+     subscriptionPlan: billingCycle,
+     amount: Number(planInfo.amount),
+});
       setShowPaymentModal(true);
     } catch (err) {
       console.error("Signup error:", err);
@@ -365,11 +368,12 @@ export default function Signup() {
       </motion.div>
 
       {/* Payment Modal */}
-      <PaymentModal
-        isOpen={showPaymentModal}
-        onClose={() => setShowPaymentModal(false)}
-        paymentDetails={paymentDetails}
-      />
+     <PaymentModal
+  isOpen={showPaymentModal}
+  onClose={() => setShowPaymentModal(false)}
+  paymentDetails={paymentDetails}
+  onPaymentSuccess={handlePaymentSuccess}  // নতুন যোগ করা
+/>
     </div>
   );
 }

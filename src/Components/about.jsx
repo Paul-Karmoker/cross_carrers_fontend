@@ -2,7 +2,7 @@
 import Navbar from '../Components/navbar';
 import Footer from '../Components/footer';
 
-const About = () => {
+const about = () => {
   return (
     <>
       <Navbar />
@@ -181,4 +181,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default about;

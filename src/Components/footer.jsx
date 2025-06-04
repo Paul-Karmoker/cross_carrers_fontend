@@ -1,61 +1,124 @@
-import React from 'react'
+import { FaLinkedin, FaYoutube, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
-function footer() {
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
+  const socialLinks = [
+    { icon: <FaLinkedin size={20} />, url: "https://linkedin.com/company/youth-in-development" },
+    { icon: <FaYoutube size={20} />, url: "https://youtube.com/youth-in-development" },
+    { icon: <FaFacebook size={20} />, url: "https://facebook.com/youth-in-development" },
+    { icon: <FaTwitter size={20} />, url: "https://twitter.com/youthindev" },
+    { icon: <FaInstagram size={20} />, url: "https://instagram.com/youth_in_development" }
+  ];
+
+  const paymentMethods = [
+    
+    { icon: <img src="https://i.ibb.co/M5NmvgDZ/bkash-logo-png-seeklogo-382709.png" alt="Nagad"  /> },
+    { icon: <img src="https://i.ibb.co/kV1cts7H/Nagad-Logo-wine.png" alt="Rocket"  />},
+    { icon: <img src="https://i.ibb.co/5WpxCB80/dutch-bangla-rocket-logo-png-seeklogo-317692.png" alt="Visa"  /> },
+  
+  ];
+
+  const footerLinks = [
+    { label: "About", path: "/about" },
+    { label: "Terms & Conditions", path: "/terms" },
+    { label: "Privacy & Payment Policy", path: "/privacy" },
+    { label: "Contact", path: "/contact" },
+    { label: "Membership", path: "/membership" },
+    { label: "Payment Methods", path: "/payment-methods" },
+    { label: "Refund Policy", path: "/refund-policy" }
+  ];
+
   return (
-    <div>
-        <hr />
-        <footer className="footer footer-center text-base-content rounded p-10">
-    <nav className="grid grid-flow-col gap-4">
-      <a href='./about' className="link link-hover">About</a>
-      <a href='./terms' className="link link-hover">Terms & Conditions</a>
-      <a href='./privacy' className="link link-hover">Privacy & Payment Policy</a>
-      <a href='./' className="link link-hover hidden">Advertisment Policy</a>
-      <a href='./contact' className="link link-hover">Contact</a>
-      <a href='./membership' className="link link-hover">Membership</a>
-      <a href='./earn' className="link link-hover font-bold hidden">Earn Money</a>
-    </nav>
-    <nav>
-      <div className="grid grid-flow-col gap-4">
-        <a>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            className="fill-current">
-            <path
-              d="M21,21H17V14.25C17,13.19 15.81,12.31 14.75,12.31C13.69,12.31 13,13.19 13,14.25V21H9V9H13V11C13.66,9.93 15.36,9.24 16.5,9.24C19,9.24 21,11.28 21,13.75V21M7,21H3V9H7V21M5,3A2,2 0 0,1 7,5A2,2 0 0,1 5,7A2,2 0 0,1 3,5A2,2 0 0,1 5,3Z"></path>
-          </svg>
-        </a>
-        <a>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            className="fill-current">
-            <path
-              d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-          </svg>
-        </a>
-        <a>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            className="fill-current">
-            <path
-              d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-          </svg>
-        </a>
-      </div>
-    </nav>
-    <aside>
-      <p>Copyright © {new Date().getFullYear()} - All right reserved by Youth in Development </p>
-    </aside>
-  </footer></div>
-  )
-}
+    <footer className="bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-t border-gray-200 dark:border-gray-800">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Organization Info */}
+          <div>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Youth in Development</h2>
+            <p className="text-sm mb-4">Empowering youth for sustainable development through education and opportunity.</p>
+            <div className="flex space-x-4">
+              {socialLinks.map((social, index) => (
+                <a 
+                  key={index} 
+                  href={social.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-primary-500 hover:text-white transition-colors"
+                  aria-label={social.icon.type.displayName}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
 
-export default footer
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Quick Links</h3>
+            <nav className="grid grid-cols-1 gap-2">
+              {footerLinks.map((link, index) => (
+                <a 
+                  key={index} 
+                  href={link.path} 
+                  className="text-sm hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Contact Us</h3>
+            <address className="not-italic">
+              <p className="text-sm mb-2">123 Development Street</p>
+              <p className="text-sm mb-2">Dhaka 1212, Bangladesh</p>
+              <p className="text-sm mb-2">Email: info@youthindev.org</p>
+              <p className="text-sm mb-2">Phone: +880 2XXXX-XXXXX</p>
+              <p className="text-sm">Helpline: 16XXX (9AM-6PM)</p>
+            </address>
+          </div>
+
+          {/* Payment Methods */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Payment Methods</h3>
+            <div className="mb-2">
+              <p className="text-sm mb-3">We accept the following payment methods:</p>
+              <div className="grid grid-cols-3 gap-1">
+                {paymentMethods.map((method, index) => (
+                  <div key={index} className="flex flex-col items-center">
+                    <div className="p-2 bg-white dark:bg-gray-800 rounded-md shadow-sm flex items-center justify-center h-16  w-24">
+                      {method.icon}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-4">
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                All transactions are secured with SSL encryption. Your payment information is processed securely.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright and Legal */}
+        <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800 text-center text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p>© {currentYear} Youth in Development. All rights reserved.</p>
+            <div className="mt-2 md:mt-0 flex flex-wrap justify-center space-x-4">
+              <a href="/privacy" className="hover:underline">Privacy Policy</a>
+              <a href="/terms" className="hover:underline">Terms of Service</a>
+              <a href="/payment-policy" className="hover:underline">Payment Policy</a>
+              <a href="/refund-policy" className="hover:underline">Refund Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

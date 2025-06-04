@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 
-const BASE_URL = 'http://localhost:4001/api/v1/auth/';
+const BASE_URL = 'https://api.crosscareers.com/api/v1/auth/';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -52,17 +52,22 @@ export const authApi = createApi({
       },
     }),
 
-    logout: builder.mutation({
-      query: () => ({
-        url: 'logout',
-        method: 'POST',
-      }),
-      transformResponse: () => {
-        localStorage.removeItem('token');
-        return { success: true };
-      },
-      invalidatesTags: ['Profile', 'Withdrawals'], // Invalidate Profile and Withdrawals
+    
+     // OAuth Endpoints
+    getGoogleAuthUrl: builder.query({
+      query: () => 'google',
     }),
+
+    getFacebookAuthUrl: builder.query({
+      query: () => 'facebook',
+    }),
+
+    getLinkedInAuthUrl: builder.query({
+      query: () => 'linkedin',
+    }),
+
+   
+    
 
     forgotPassword: builder.mutation({
       query: ({ email }) => ({
@@ -85,17 +90,22 @@ export const authApi = createApi({
     }),
 
     getprofile: builder.query({
-        query: () => 'get-profile',
-        providesTags: ['Withdrawals'],
+      query: () => 'get-profile',
+      providesTags: ['Profile'],
     }),
 
     updateProfile: builder.mutation({
-      query: (profile) => ({
-        url: 'profile',
-        method: 'PATCH',
-        body: profile,
-      }),
-    }),
+  query: (profileData) => ({
+    url: '/profile', // Ensure this matches your backend endpoint
+    method: 'PATCH',
+    body: profileData,
+    headers: {
+      'Content-Type': 'application/json',
+      
+    },
+  }), // Add transform if needed to match backend expectations
+  transformResponse: (response) => response.data,
+}),
 
     changePassword: builder.mutation({
       query: (data) => ({
@@ -107,7 +117,7 @@ export const authApi = createApi({
 
     subscribe: builder.mutation({
       query: (data) => ({
-        url: 'subscribe',
+        url: 'subcribe',
         method: 'POST',
         body: data,
       }),
@@ -140,6 +150,15 @@ export const {
   useChangePasswordMutation,
   useSubscribeMutation,
   useWithdrawMutation,
-    useGetWithdrawalsQuery,
-  useLogoutMutation
+  useGetWithdrawalsQuery,
+  useGetGoogleAuthUrlQuery,
+  useGetFacebookAuthUrlQuery,
+  useGetLinkedInAuthUrlQuery
 } = authApi;
+
+
+export function logout() {
+  localStorage.removeItem('token');
+  // Optional: navigate or reload
+  window.location.href = '/login'; // or use navigate('/login') from React Router
+}

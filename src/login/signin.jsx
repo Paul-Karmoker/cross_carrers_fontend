@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useLoginMutation } from '../context/authApi';
+import { useGetGoogleAuthUrlQuery, useGetFacebookAuthUrlQuery, useGetLinkedInAuthUrlQuery } from '../context/authApi';
 import { useNavigate, Link } from 'react-router-dom';
 import { FiMail, FiLock, FiArrowRight } from 'react-icons/fi';
 import { toast } from 'react-hot-toast';
@@ -11,30 +12,40 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [login, { isLoading: isSubmitting, error }] = useLoginMutation();
+  const { dataG: googleAuthUrl } = useGetGoogleAuthUrlQuery();
+  const { dataFB: facebookAuthUrl } = useGetFacebookAuthUrlQuery();
+  const { dataLI: linkedInAuthUrl } = useGetLinkedInAuthUrlQuery();
   const navigate = useNavigate();
 
-  // ত্রুটি হ্যান্ডলিং এবং টোস্ট নোটিফিকেশন
+  // Error handling and toast notifications
   useEffect(() => {
     if (error) {
-      toast.error(error.data?.message || 'লগইন ব্যর্থ হয়েছে');
+      toast.error(error.data?.message || 'Login failed');
     }
   }, [error]);
+
+  const handleLoginGoogle = () => {
+    window.location.href = googleAuthUrl || 'http://localhost:4001/api/v1/auth/google';
+  };
+
+  const handleLoginFacebook = () => {
+    window.location.href = facebookAuthUrl || 'http://localhost:4001/api/v1/auth/facebook';
+  };
+
+  const handleLoginLinkedIn = () => {
+    window.location.href = linkedInAuthUrl || 'http://localhost:4001/api/v1/auth/linkedin';
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await login({ email, password }).unwrap();
-      toast.success('লগইন সফল!');
+      toast.success('Login successful!');
       navigate('/dashboard');
     } catch (err) {
-      // ত্রুটি টোস্ট useEffect এ হ্যান্ডল করা হবে
-      console.error('লগইন ত্রুটি:', err);
+      // Error toast is handled in useEffect
+      console.error('Login error:', err);
     }
-  };
-
-  const handleSocialLogin = (provider) => {
-    toast(`Continue with ${provider}`, { icon: '🔐' });
-    // এখানে সোশ্যাল লগইন লজিক ইমপ্লিমেন্ট করুন
   };
 
   return (
@@ -54,9 +65,9 @@ export default function LoginPage() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                স্বাগতম
+                Welcome Back
               </motion.h1>
-              <p className="text-gray-600">আপনার অ্যাকাউন্টে সাইন ইন করুন</p>
+              <p className="text-gray-600">Sign in to your account</p>
             </div>
 
             <form onSubmit={handleSubmit}>
@@ -67,7 +78,7 @@ export default function LoginPage() {
                 className="mb-6"
               >
                 <label className="block text-gray-700 text-sm font-medium mb-2" htmlFor="email">
-                  ইমেইল ঠিকানা
+                  Email Address
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -92,7 +103,7 @@ export default function LoginPage() {
                 className="mb-6"
               >
                 <label className="block text-gray-700 text-sm font-medium mb-2" htmlFor="password">
-                  পাসওয়ার্ড
+                  Password
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -110,7 +121,7 @@ export default function LoginPage() {
                 </div>
                 <div className="text-right mt-2">
                   <Link to="/forgetPassword" className="text-sm text-indigo-600 hover:text-indigo-500">
-                    পাসওয়ার্ড ভুলে গেছেন?
+                    Forgot password?
                   </Link>
                 </div>
               </motion.div>
@@ -137,11 +148,11 @@ export default function LoginPage() {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       ></path>
                     </svg>
-                    সাইন ইন হচ্ছে...
+                    Signing in...
                   </span>
                 ) : (
                   <span className="flex items-center">
-                    সাইন ইন <FiArrowRight className="ml-2" />
+                    Sign In <FiArrowRight className="ml-2" />
                   </span>
                 )}
               </motion.button>
@@ -151,7 +162,7 @@ export default function LoginPage() {
                   <div className="w-full border-t border-gray-300"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">অথবা এর মাধ্যমে চালিয়ে যান</span>
+                  <span className="px-2 bg-white text-gray-500">Or continue with</span>
                 </div>
               </div>
 
@@ -160,7 +171,7 @@ export default function LoginPage() {
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   type="button"
-                  onClick={() => handleSocialLogin('Google')}
+                  onClick={handleLoginGoogle}
                   className="w-full py-2 px-4 border border-gray-300 rounded-lg bg-white text-gray-700 font-medium flex items-center justify-center hover:bg-gray-50"
                 >
                   <FcGoogle className="h-5 w-5 mr-2" />
@@ -170,7 +181,7 @@ export default function LoginPage() {
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   type="button"
-                  onClick={() => handleSocialLogin('Facebook')}
+                  onClick={handleLoginFacebook}
                   className="w-full py-2 px-4 border border-gray-300 rounded-lg bg-white text-gray-700 font-medium flex items-center justify-center hover:bg-gray-50"
                 >
                   <FaFacebook className="h-5 w-5 mr-2 text-blue-600" />
@@ -180,7 +191,7 @@ export default function LoginPage() {
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   type="button"
-                  onClick={() => handleSocialLogin('LinkedIn')}
+                  onClick={handleLoginLinkedIn}
                   className="w-full py-2 px-4 border border-gray-300 rounded-lg bg-white text-gray-700 font-medium flex items-center justify-center hover:bg-gray-50"
                 >
                   <FaLinkedin className="h-5 w-5 mr-2 text-blue-700" />
@@ -196,9 +207,9 @@ export default function LoginPage() {
               className="mt-6 text-center"
             >
               <p className="text-gray-600">
-                অ্যাকাউন্ট নেই?{' '}
+                Don&apos;t have an account?{' '}
                 <Link to="/signuphome" className="text-indigo-600 hover:text-indigo-500 font-medium">
-                  সাইন আপ
+                  Sign Up
                 </Link>
               </p>
             </motion.div>
@@ -211,15 +222,14 @@ export default function LoginPage() {
               transition={{ delay: 0.7 }}
               className="text-gray-600 text-sm"
             >
-              সাইন ইন করে, আপনি আমাদের{' '}
+              By signing in, you agree to our{' '}
               <a href="/terms" className="text-indigo-600 hover:text-indigo-500">
-                সেবার শর্তাবলী
+                Terms of Service
               </a>{' '}
-              এবং{' '}
+              and{' '}
               <a href="/privacy" className="text-indigo-600 hover:text-indigo-500">
-                গোপনীয়তা নীতি
-              </a>{' '}
-              এর সাথে সম্মত হচ্ছেন।
+                Privacy Policy
+              </a>.
             </motion.p>
           </div>
         </div>

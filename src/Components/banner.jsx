@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -44,10 +44,10 @@ function Banner() {
     <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row mt-10 -mb-4">
       <div className="w-full md:w-1/2 mt-4 md:mt-14">
         <div>
-          <h1 className="text-5xl font-bold mt-20 md:mt-8" ><img src="./public/banner/banner.gif" alt="banner" /></h1>
+          <h1 className="text-5xl font-bold mt-20 md:mt-8" ><img src="https://i.ibb.co/279KyNKC/Logo.gif" alt="banner" /></h1>
           <br />
           <p className="text-2xl font-bold font-serif text-foreground-600 text-center -mt-2">
-            "<span className="text-green-700">Empowering </span> Future Leaders in the Development & Humanitarian Sector."
+            &quot;<span className="text-green-700">Empowering </span> Future Leaders in the Development &amp; Humanitarian Sector.&quot;
           </p>
         </div>
       </div>

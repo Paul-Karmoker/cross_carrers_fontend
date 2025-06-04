@@ -99,7 +99,7 @@ const InterviewPractice = () => {
       
       formData.append('practiceMode', practiceMode);
       
-      const response = await axios.post('http://localhost:4001/insm/generate-questions', formData, {
+      const response = await axios.post('https://api.crosscareers.com/insm/generate-questions', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -228,7 +228,7 @@ const InterviewPractice = () => {
       
     // Improved speech recognition
     if ('webkitSpeechRecognition' in window) {
-      const recognition = new webkitSpeechRecognition();
+      const recognition = new speechRecognitionRef();
       recognition.continuous = true;
       recognition.interimResults = true;
       recognition.lang = 'en-US';
@@ -317,7 +317,7 @@ const InterviewPractice = () => {
     try {
       setIsLoading(true);
       
-      const response = await axios.post('http://localhost:4001/insm/submit-answer', {
+      const response = await axios.post('https://api.crosscareers.com/insm/submit-answer', {
         question: questions[currentQuestionIndex].question,
         questionType: questions[currentQuestionIndex].type,
         transcript,
@@ -368,7 +368,7 @@ const InterviewPractice = () => {
   const completeInterview = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.post('http://localhost:4001/insm/complete', {
+      const response = await axios.post('https://api.crosscareers.com/insm/complete', {
         questions: questions.map((q, idx) => ({
           question: q.question,
           type: q.type,
@@ -380,7 +380,7 @@ const InterviewPractice = () => {
       setAnalysis(response.data);
       setStep(3);
       
-      await axios.post('http://localhost:4001/insm/save-history', {
+      await axios.post('https://api.crosscareers.com/insm/save-history', {
         questions,
         analysis: response.data,
         date: new Date().toISOString()
@@ -757,7 +757,7 @@ const InterviewPractice = () => {
             <div ref={resultsRef} className="space-y-8 p-4 bg-white">
               <div className="text-center">
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">Interview Results</h2>
-                <p className="text-gray-600">Here's your performance analysis and feedback</p>
+                <p className="text-gray-600">Here&apos;s your performance analysis and feedback</p>
               </div>
               
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">

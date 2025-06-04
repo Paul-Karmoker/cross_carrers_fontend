@@ -125,7 +125,7 @@ const InterviewQuestionsGenerator = () => {
     setError("");
     
     try {
-      const response = await axios.post("http://localhost:4001/qa/generate", {
+      const response = await axios.post("https://api.crosscareers.com/qa/generate", {
         jobDescription,
         jobTitle,
         experienceLevel,

@@ -1,12 +1,12 @@
 
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
+
 import { useGetWithdrawalsQuery } from './context/authApi';
 
 // Public Components
 import Home from '../src/home/home';
 import Training from './Components/trainings';
-import About from './Components/About';
+import About from './Components/about';
 import Contact from './Components/Contact';
 import Membership from './Membership/membership';
 import Earn from './Components/earn';
@@ -18,6 +18,8 @@ import Marqueer from './Components/marqueer';
 import Marqueel from './Components/marqueel';
 import Terms from './Components/terms';
 import Privacy from './Components/privacy';
+import ForgotPassword from './login/forgetpassword';
+import ResetPassword from './login/resetpasswordpage';
 
 // Authentication Components
 import Signin from './login/signin';
@@ -43,6 +45,7 @@ import Excelhome from './excel/excelhome';
 import Consult from './consult/consult';
 import Insm from './insm/InterviewSimulator';
 import Payment from './Membership/paymentmodel';
+import Upgradeplan from './Components/upgradeplan';
 
 
 import PropTypes from 'prop-types';
@@ -64,7 +67,7 @@ const App = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen bg-gray-100">
-        <h1 className="text-2xl font-medium text-gray-700">লোড হচ্ছে...</h1>
+        <h1 className="text-2xl font-medium text-gray-700">Loading...</h1>
       </div>
     );
   }
@@ -88,6 +91,8 @@ const App = () => {
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path='/forgetPassword' element={<ForgotPassword />} />
+        <Route path='/reset-password/:token' element={<ResetPassword />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signinhome" element={<Signinhome />} />
         <Route path="/signuphome" element={<Signuphome />} />
@@ -98,6 +103,7 @@ const App = () => {
         <Route path="/excel" element={<Excel />} />
         <Route path="/excelhome" element={<Excelhome />} />
         <Route path="/consult" element={<Consult />} />
+        
 
         {/* প্রোটেক্টেড রাউট */}
         <Route
@@ -105,6 +111,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Un />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/priceing"
+          element={
+            <ProtectedRoute>
+              <Upgradeplan />
             </ProtectedRoute>
           }
         />
@@ -184,31 +198,6 @@ const App = () => {
         {/* ক্যাচ-অল রাউট */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      <Toaster
-        position="top-right"
-        toastOptions={{
-          duration: 3000,
-          style: {
-            background: '#ffffff',
-            color: '#1f2937',
-            borderRadius: '8px',
-            padding: '12px',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-          },
-          success: {
-            iconTheme: {
-              primary: '#10b981',
-              secondary: '#ffffff',
-            },
-          },
-          error: {
-            iconTheme: {
-              primary: '#ef4444',
-              secondary: '#ffffff',
-            },
-          },
-        }}
-      />
     </>
   );
 };
