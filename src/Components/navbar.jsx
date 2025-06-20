@@ -400,10 +400,10 @@ function Navbar() {
       </li>
 
       {/* Career Consultant Link */}
-      <li className="hidden" >
+      <li className="" >
         <Link
           to="/consult"
-          className={`hover:text-purple-400 text-[17px] text-[17px] transition duration-300 font-medium ${
+          className={`hover:text-purple-400 text-[17px] transition duration-300 font-medium ${
             isRestricted("/consult") ? "opacity-50 cursor-not-allowed" : ""
           }`}
           onClick={isRestricted("/consult") ? (e) => handleRestrictedClick(e, "/consult") : undefined}
