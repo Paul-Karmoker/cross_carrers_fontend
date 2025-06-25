@@ -97,9 +97,9 @@ function JobTrainingPortals() {
     },
     {
       id: 7,
-      name: 'Youth in Development',
+      name: 'CrossCareers',
       url: '/bdjobs',
-      logo: '../public/logo.png',
+      logo: 'https://i.ibb.co/Y75Y5NSb/banner.gif',
       category: 'National'
     }
   ];
@@ -142,10 +142,10 @@ function JobTrainingPortals() {
     },
     {
       id: 6,
-      name: 'Youth in Development',
+      name: 'CrossCareers',
       url: '/intjobs',
-      logo: '../public/logo.png',
-      category: 'National'
+      logo: 'https://i.ibb.co/Y75Y5NSb/banner.gif',
+      category: 'International'
     }
   ];
 
@@ -187,10 +187,10 @@ function JobTrainingPortals() {
     },
     {
       id: 6,
-      name: 'Youth in Development',
+      name: 'CrossCareers',
       url: '/paid',
-      logo: '../public/logo.png',
-      category: 'National'
+      logo: 'https://i.ibb.co/Y75Y5NSb/banner.gif',
+      category: 'Training'
     }
   ];
 

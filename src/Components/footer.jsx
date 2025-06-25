@@ -14,8 +14,8 @@ const Footer = () => {
   const paymentMethods = [
     
     { icon: <img src="https://i.ibb.co/M5NmvgDZ/bkash-logo-png-seeklogo-382709.png" alt="Nagad"  /> },
-    { icon: <img src="https://i.ibb.co/kV1cts7H/Nagad-Logo-wine.png" alt="Rocket"  />},
-    { icon: <img src="https://i.ibb.co/5WpxCB80/dutch-bangla-rocket-logo-png-seeklogo-317692.png" alt="Visa"  /> },
+    { icon: <img src="https://i.ibb.co/kV1cts7H/Nagad-Logo-wine.png" alt="Rocket" className='hidden' />},
+    { icon: <img src="https://i.ibb.co/5WpxCB80/dutch-bangla-rocket-logo-png-seeklogo-317692.png" alt="Visa" className='hidden' /> },
   
   ];
 
@@ -26,7 +26,7 @@ const Footer = () => {
     { label: "Contact", path: "/contact" },
     { label: "Membership", path: "/membership" },
     { label: "Payment Methods", path: "/payment-methods" },
-    { label: "Refund Policy", path: "/refund-policy" }
+    { label: "Refund Policy", path: "/terms" }
   ];
 
   return (
@@ -35,8 +35,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Organization Info */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Youth in Development</h2>
-            <p className="text-sm mb-4">Empowering youth for sustainable development through education and opportunity.</p>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Cross Careers</h2>
+            <p className="text-sm mb-4">Empowering Future Leaders in the Development &amp; Humanitarian Sector.</p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <a 
@@ -73,11 +73,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Contact Us</h3>
             <address className="not-italic">
-              <p className="text-sm mb-2">123 Development Street</p>
-              <p className="text-sm mb-2">Dhaka 1212, Bangladesh</p>
-              <p className="text-sm mb-2">Email: info@youthindev.org</p>
-              <p className="text-sm mb-2">Phone: +880 2XXXX-XXXXX</p>
-              <p className="text-sm">Helpline: 16XXX (9AM-6PM)</p>
+              <p className="text-sm mb-2">32/2, Senpara Porbota, Mirpur-10</p>
+              <p className="text-sm mb-2">Dhaka 1216, Bangladesh</p>
+              <p className="text-sm mb-2">Email: info@crosscareers.com</p>
+              <p className="text-sm mb-2">Phone: +880 1841 994979</p>
+              <p className="text-sm hidden">Helpline: 16XXX (9AM-6PM)</p>
             </address>
           </div>
 
@@ -107,8 +107,8 @@ const Footer = () => {
         {/* Copyright and Legal */}
         <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800 text-center text-sm">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p>© {currentYear} Youth in Development. All rights reserved.</p>
-            <div className="mt-2 md:mt-0 flex flex-wrap justify-center space-x-4">
+            <p>© {currentYear} CrossCareers. All rights reserved.</p>
+            <div className="mt-2 md:mt-0 flex flex-wrap justify-center space-x-4 hidden">
               <a href="/privacy" className="hover:underline">Privacy Policy</a>
               <a href="/terms" className="hover:underline">Terms of Service</a>
               <a href="/payment-policy" className="hover:underline">Payment Policy</a>

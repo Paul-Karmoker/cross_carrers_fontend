@@ -400,7 +400,7 @@ function Navbar() {
       </li>
 
       {/* Career Consultant Link */}
-      <li className="" >
+      <li className="hidden" >
         <Link
           to="/consult"
           className={`hover:text-purple-400 text-[17px] transition duration-300 font-medium ${
@@ -451,7 +451,7 @@ function Navbar() {
             </ul>
           </div>
           <Link to="/" className="text-3xl font-bold text-indigo-600">
-            <img src="https://i.ibb.co/279KyNKC/Logo.gif" className="w-44 h-auto" alt="Logo" />
+            <img src="https://i.ibb.co/Y75Y5NSb/banner.gif" className="w-48 h-10" alt="Logo" />
           </Link>
         </div>
 
