@@ -54,7 +54,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className=''>
             <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Quick Links</h3>
             <nav className="grid grid-cols-1 gap-2">
               {footerLinks.map((link, index) => (
@@ -68,7 +68,6 @@ const Footer = () => {
               ))}
             </nav>
           </div>
-
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Contact Us</h3>
@@ -85,7 +84,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Payment Methods</h3>
             <div className="mb-2">
-              <p className="text-sm mb-3">We accept the following payment methods:</p>
+              <p className="text-sm mb-3">We accept the following payment methods: <br/> Bkash: 01886795620 (Personal)</p>
               <div className="grid grid-cols-3 gap-1">
                 {paymentMethods.map((method, index) => (
                   <div key={index} className="flex flex-col items-center">
@@ -107,12 +106,13 @@ const Footer = () => {
         {/* Copyright and Legal */}
         <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800 text-center text-sm">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p>© {currentYear} CrossCareers. All rights reserved.</p>
-            <div className="mt-2 md:mt-0 flex flex-wrap justify-center space-x-4 hidden">
+            <p>© {currentYear} CrossCareers All rights reserved.</p>
+            <div className="mt-2 md:mt-0 flex flex-wrap justify-center space-x-4">
+              <a href="/about" className="hover:underline">About</a>
               <a href="/privacy" className="hover:underline">Privacy Policy</a>
               <a href="/terms" className="hover:underline">Terms of Service</a>
-              <a href="/payment-policy" className="hover:underline">Payment Policy</a>
-              <a href="/refund-policy" className="hover:underline">Refund Policy</a>
+              <a href="/contact" className="hover:underline">Contact Us</a>
+              <a href="/earn" className="hover:underline">Earn Money</a>
             </div>
           </div>
         </div>

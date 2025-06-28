@@ -10,32 +10,32 @@ function Banner() {
   const advertisements = [
     {
       id: 0,
-      image: '../public/youth/6.svg',
+      image: 'https://i.ibb.co/HkMRZnb/6.jpg',
       alt: 'Advertisement 2',
     },
     {
       id: 1,
-      image: '../public/youth/1.svg',
+      image: 'https://i.ibb.co/7x4CmDy8/1.jpg',
       alt: 'Advertisement 1',
     },
     {
       id: 2,
-      image: '../public/youth/2.svg',
+      image: 'https://i.ibb.co/KxyNXQfz/2.jpg',
       alt: 'Advertisement 2',
     },
     {
       id: 3,
-      image: '../public/youth/3.svg',
+      image: 'https://i.ibb.co/ZpXSHBPj/3.jpg',
       alt: 'Advertisement 3',
     },
     {
       id: 4,
-      image: './public/youth/4.svg',
+      image: 'https://i.ibb.co/ZpHcHMXM/4.jpg',
       alt: 'Advertisement 1',
     },
     {
       id: 5,
-      image: './public/youth/5.svg',
+      image: 'https://i.ibb.co/Z6VmScGF/5.jpg',
       alt: 'Advertisement 1',
     },
   ];

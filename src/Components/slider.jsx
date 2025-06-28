@@ -123,21 +123,21 @@ function JobTrainingPortals() {
       id: 3,
       name: 'Impactpool',
       url: 'https://www.impactpool.org/',
-      logo: '../public/intjobs/2.png',
+      logo: 'https://i.ibb.co/DHvsmtqQ/2.png',
       category: 'International'
     },
     {
       id: 4,
       name: 'Devex',
       url: 'https://www.devex.com/jobs/search',
-      logo: '../train/dev.png',
+      logo: 'https://i.ibb.co/N85f06w/dev.png',
       category: 'International'
     },
     {
       id: 5,
       name: 'DevNetJOBS',
       url: 'https://devnetjobs.org/',
-      logo: '../train/DJ.png',
+      logo: 'https://i.ibb.co/cKvPr0B4/DJ.png',
       category: 'International'
     },
     {
@@ -154,7 +154,7 @@ function JobTrainingPortals() {
       id: 1,
       name: 'Coursera',
       url: 'https://www.coursera.org/',
-      logo: '../train/course.png',
+      logo: 'https://i.ibb.co/1GjPmFww/course.png',
       category: 'Training'
     },
     {

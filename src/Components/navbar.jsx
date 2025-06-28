@@ -385,7 +385,7 @@ function Navbar() {
             <li>
               <Link
                 to="/excelhome"
-                className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 ${
+                className={`hover:bg-gray-100 hidden text-[17px] p-2 rounded-md block text-gray-700 ${
                   isRestricted("/excelhome") ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 onClick={
@@ -423,7 +423,7 @@ function Navbar() {
       }`}
     >
 
-      <div className="navbar py-4">
+      <div className="navbar py-3">
         {/* Mobile Menu Button and Logo */}
         <div className="navbar-start">
           <div className="dropdown lg:hidden">

@@ -7,38 +7,50 @@ const JobPortalMarquee = () => {
       id: 1,
       name: 'Open for Advertisement',
       url: '',
-      logo: '../public/add/add.png',
+      logo: 'https://i.ibb.co/08JP22L/Open-for-Advertisements.png',
       type: 'image'
     },
     {
       id: 2,
       name: 'Open for Advertisement',
       url: '',
-      logo: '../public/add/add.png',
+      logo: 'https://i.ibb.co/08JP22L/Open-for-Advertisements.png',
       type: 'image'
     }, {
       id: 3,
       name: 'Open for Advertisement',
       url: '',
-      logo: '../public/add/add.png',
+      logo: 'https://i.ibb.co/08JP22L/Open-for-Advertisements.png',
       type: 'image'
     }, {
       id: 4,
       name: 'Open for Advertisement',
       url: '',
-      logo: '../public/add/add.png',
+      logo: 'https://i.ibb.co/08JP22L/Open-for-Advertisements.png',
       type: 'image'
     }, {
       id: 5,
       name: 'Open for Advertisement',
       url: '',
-      logo: '../public/add/add.png',
+      logo: 'https://i.ibb.co/08JP22L/Open-for-Advertisements.png',
       type: 'image'
     }, {
       id: 6,
       name: 'Open for Advertisement',
       url: '',
-      logo: '../public/add/add.png',
+      logo: 'https://i.ibb.co/08JP22L/Open-for-Advertisements.png',
+      type: 'image'
+    }, {
+      id: 7,
+      name: 'Open for Advertisement',
+      url: '',
+      logo: 'https://i.ibb.co/08JP22L/Open-for-Advertisements.png',
+      type: 'image'
+    }, {
+      id: 8,
+      name: 'Open for Advertisement',
+      url: '',
+      logo: 'https://i.ibb.co/08JP22L/Open-for-Advertisements.png',
       type: 'image'
     },
     
