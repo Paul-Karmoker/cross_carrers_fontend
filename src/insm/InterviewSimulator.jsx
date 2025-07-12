@@ -99,7 +99,7 @@ const InterviewPractice = () => {
       
       formData.append('practiceMode', practiceMode);
       
-      const response = await axios.post('https://api.crosscareers.com/insm/generate-questions', formData, {
+      const response = await axios.post('https://backend-server-deploy.onrender.com/insm/generate-questions', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

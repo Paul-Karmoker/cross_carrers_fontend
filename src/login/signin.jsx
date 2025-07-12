@@ -25,15 +25,15 @@ export default function LoginPage() {
   }, [error]);
 
   const handleLoginGoogle = () => {
-    window.location.href = googleAuthUrl || 'http://localhost:4001/api/v1/auth/google';
+    window.location.href = googleAuthUrl || 'https://backend-server-deploy.onrender.com/api/v1/auth/google';
   };
 
   const handleLoginFacebook = () => {
-    window.location.href = facebookAuthUrl || 'http://localhost:4001/api/v1/auth/facebook';
+    window.location.href = facebookAuthUrl || 'https://backend-server-deploy.onrender.com/api/v1/auth/facebook';
   };
 
   const handleLoginLinkedIn = () => {
-    window.location.href = linkedInAuthUrl || 'http://localhost:4001/api/v1/auth/linkedin';
+    window.location.href = linkedInAuthUrl || 'https://backend-server-deploy.onrender.com/api/v1/auth/linkedin';
   };
 
   const handleSubmit = async (e) => {

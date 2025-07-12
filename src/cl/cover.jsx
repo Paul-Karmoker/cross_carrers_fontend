@@ -139,7 +139,7 @@ const Cover = () => {
     setError("");
     
     try {
-      const response = await axios.post("http://localhost:4001/cover/generate-cover-letter", {
+      const response = await axios.post("https://backend-server-deploy.onrender.com/cover/generate-cover-letter", {
         jobDescription,
         resumeText,
         style: coverLetterStyle,
@@ -170,7 +170,7 @@ const Cover = () => {
   // DOCX download
   const downloadDocx = async () => {
     try {
-      const response = await axios.post("http://localhost:4001/cover/generate-docx", {
+      const response = await axios.post("https://backend-server-deploy.onrender.com/cover/generate-docx", {
         content: coverLetter
       }, {
         responseType: "blob",
