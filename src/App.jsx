@@ -20,7 +20,7 @@ import Terms from './Components/terms';
 import Privacy from './Components/privacy';
 import ForgotPassword from './login/forgetpassword';
 import ResetPassword from './login/resetpasswordpage';
-
+import ResumeForm from './ResumeMaker/resumeForm';
 // Authentication Components
 import Signin from './login/signin';
 import SignUp from './login/signup';
@@ -62,16 +62,7 @@ ProtectedRoute.propTypes = {
 };
 
 const App = () => {
-  const { isLoading } = useGetWithdrawalsQuery();
-
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen bg-gray-100">
-        <h1 className="text-2xl font-medium text-gray-700">Loading...</h1>
-      </div>
-    );
-  }
-
+  
   return (
     <>
       <Routes>
@@ -99,6 +90,7 @@ const App = () => {
         <Route path="/coverhome" element={<Coverhome />} />
         <Route path="/pptmaker" element={<PPTmaker />} />
         <Route path="/doc" element={<Doc />} />
+        <Route path="/resume" element={<ResumeForm />} />
         <Route path="/dochome" element={<Dochome />} />
         <Route path="/excel" element={<Excel />} />
         <Route path="/excelhome" element={<Excelhome />} />

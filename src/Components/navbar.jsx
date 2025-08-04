@@ -78,7 +78,7 @@ function Navbar() {
   const isRestricted = (path) => {
     const restrictedPaths = [
       "/matchhome",
-      "/resume-maker",
+      "/resume",
       "/un",
       "/emb",
       "/donor",
@@ -281,17 +281,17 @@ function Navbar() {
         <ul className={`bg-white shadow-2xl rounded-lg min-w-[220px] z-50 ${openDropdown === "resume" ? 'block' : 'hidden'} md:hidden group-hover:block absolute left-0 md:left-auto top-full md:top-auto p-3 md:absolute`}>
           <li>
             <Link
-              to="/resume-maker"
+              to="/resume"
               className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200 ${
-                isRestricted("/resume-maker") ? "opacity-50 cursor-not-allowed" : ""
+                isRestricted("/resume") ? "opacity-50 cursor-not-allowed" : ""
               }`}
               onClick={
-                isRestricted("/resume-maker")
-                  ? (e) => handleRestrictedClick(e, "/resume-maker")
+                isRestricted("/resume")
+                  ? (e) => handleRestrictedClick(e, "/resume")
                   : undefined
               }
             >
-              Resume Maker {isRestricted("/resume-maker") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
+              Resume Maker {isRestricted("/resume") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
             </Link>
           </li>
           <li>

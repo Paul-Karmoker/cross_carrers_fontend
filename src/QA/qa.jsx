@@ -125,7 +125,7 @@ const InterviewQuestionsGenerator = () => {
     setError("");
     
     try {
-      const response = await axios.post("https://backend-server-deploy.onrender.com/qa/generate", {
+      const response = await axios.post("http://localhost:4001/api/v1/interview/generate-questions", {
         jobDescription,
         jobTitle,
         experienceLevel,
