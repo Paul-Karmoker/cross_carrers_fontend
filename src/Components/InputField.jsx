@@ -1,26 +1,39 @@
-// src/components/InputField.js
+/* eslint-disable react/prop-types */
+// src/components/InputField.jsx
 
-// eslint-disable-next-line react/prop-types
-const InputField = ({ label, name, value, onChange, type = 'text', className = '' }) => (
-  <div className={`mb-4 ${className}`}>
-    <label className="block text-sm font-medium text-gray-700">{label}</label>
-    {type === 'textarea' ? (
-      <textarea
-        name={name}
-        value={value}
-        onChange={onChange}
-        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      />
-    ) : (
-      <input
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      />
-    )}
-  </div>
-);
+const InputField = ({ label, name, value, onChange, type = 'text', className = '', required = false }) => {
+  const id = `input-${name}`;
+  return (
+    <div className={`flex flex-col ${className}`}>
+      <label htmlFor={id} className="text-sm font-medium text-gray-700 mb-1">
+        {label}
+        {required && <span className="text-red-500 ml-1">*</span>}
+      </label>
+      {type === 'textarea' ? (
+        <textarea
+          id={id}
+          name={name}
+          value={value}
+          onChange={onChange}
+          className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-y"
+          rows="4"
+          required={required}
+          aria-required={required}
+        />
+      ) : (
+        <input
+          id={id}
+          type={type}
+          name={name}
+          value={value}
+          onChange={onChange}
+          className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          required={required}
+          aria-required={required}
+        />
+      )}
+    </div>
+  );
+};
 
 export default InputField;

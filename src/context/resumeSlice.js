@@ -8,18 +8,6 @@ const initialState = {
     professionalTitle: '',
     phoneNumber: '',
     emailAddress: '',
-    address: {
-      street: '',
-      city: '',
-      postal: '',
-      country: ''
-    },
-    permanentAddress: {
-      street: '',
-      city: '',
-      postal: '',
-      country: ''
-    },
     skype: '',
     linkedIn: '',
     portfolio: '',
@@ -28,33 +16,35 @@ const initialState = {
     motherName: '',
     spouseName: '',
     nid: '',
-    passport: ''
+    passport: '',
+    address: { street: '', city: '', postal: '', country: '' },
+    permanentAddress: { street: '', city: '', postal: '', country: '' },
   },
+  careerObjective: '',
+  careerSummary: '',
   workExperience: [],
   education: [],
   trainings: [],
   certifications: [],
   skills: [],
   references: [],
-  careerObjective: '',
-  careerSummary: ''
 };
 
 const resumeSlice = createSlice({
   name: 'resume',
   initialState,
   reducers: {
-    updatePersonalInfo: (state, action) => {
+    resetResume: () => initialState,
+    updatePersonalInfo(state, action) {
       state.personalInfo = { ...state.personalInfo, ...action.payload };
     },
-    updateCareerObjective: (state, action) => {
+    updateCareerObjective(state, action) {
       state.careerObjective = action.payload;
     },
-    updateCareerSummary: (state, action) => {
+    updateCareerSummary(state, action) {
       state.careerSummary = action.payload;
     },
-    // Work Experience
-    addWorkExperience: (state) => {
+    addWorkExperience(state) {
       state.workExperience.push({
         companyName: '',
         position: '',
@@ -63,30 +53,28 @@ const resumeSlice = createSlice({
         from: '',
         to: '',
         currentlyWorking: false,
-        description: []
+        description: [],
       });
     },
-    updateWorkExperience: (state, action) => {
-      const { index, data } = action.payload;
-      state.workExperience[index] = { ...state.workExperience[index], ...data };
+    updateWorkExperience(state, action) {
+      state.workExperience[action.payload.index] = {
+        ...state.workExperience[action.payload.index],
+        ...action.payload.data,
+      };
     },
-    removeWorkExperience: (state, action) => {
+    removeWorkExperience(state, action) {
       state.workExperience.splice(action.payload, 1);
     },
-    addDescriptionToWork: (state, action) => {
-      const { index } = action.payload;
-      state.workExperience[index].description.push('');
+    addDescriptionToWork(state, action) {
+      state.workExperience[action.payload.index].description.push('');
     },
-    updateDescriptionToWork: (state, action) => {
-      const { workIndex, descIndex, value } = action.payload;
-      state.workExperience[workIndex].description[descIndex] = value;
+    updateDescriptionToWork(state, action) {
+      state.workExperience[action.payload.workIndex].description[action.payload.descIndex] = action.payload.value;
     },
-    removeDescriptionFromWork: (state, action) => {
-      const { workIndex, descIndex } = action.payload;
-      state.workExperience[workIndex].description.splice(descIndex, 1);
+    removeDescriptionFromWork(state, action) {
+      state.workExperience[action.payload.workIndex].description.splice(action.payload.descIndex, 1);
     },
-    // Education
-    addEducation: (state) => {
+    addEducation(state) {
       state.education.push({
         institutionName: '',
         fieldOfStudy: '',
@@ -95,135 +83,130 @@ const resumeSlice = createSlice({
         country: '',
         from: '',
         to: '',
-        currentlyStudying: false,
         gpa: '',
         honors: '',
-        description: []
+        currentlyStudying: false,
+        description: [],
       });
     },
-    updateEducation: (state, action) => {
-      const { index, data } = action.payload;
-      state.education[index] = { ...state.education[index], ...data };
+    updateEducation(state, action) {
+      state.education[action.payload.index] = {
+        ...state.education[action.payload.index],
+        ...action.payload.data,
+      };
     },
-    removeEducation: (state, action) => {
+    removeEducation(state, action) {
       state.education.splice(action.payload, 1);
     },
-    addDescriptionToEducation: (state, action) => {
-      const { index } = action.payload;
-      state.education[index].description.push('');
+    addDescriptionToEducation(state, action) {
+      state.education[action.payload.index].description.push('');
     },
-    updateDescriptionToEducation: (state, action) => {
-      const { eduIndex, descIndex, value } = action.payload;
-      state.education[eduIndex].description[descIndex] = value;
+    updateDescriptionToEducation(state, action) {
+      state.education[action.payload.educationIndex].description[action.payload.descIndex] = action.payload.value;
     },
-    removeDescriptionFromEducation: (state, action) => {
-      const { eduIndex, descIndex } = action.payload;
-      state.education[eduIndex].description.splice(descIndex, 1);
+    removeDescriptionFromEducation(state, action) {
+      state.education[action.payload.educationIndex].description.splice(action.payload.descIndex, 1);
     },
-    // Trainings
-    addTraining: (state) => {
+    addTraining(state) {
       state.trainings.push({
         name: '',
         institution: '',
         duration: '',
         from: '',
         to: '',
-        description: []
+        description: [],
       });
     },
-    updateTraining: (state, action) => {
-      const { index, data } = action.payload;
-      state.trainings[index] = { ...state.trainings[index], ...data };
+    updateTraining(state, action) {
+      state.trainings[action.payload.index] = {
+        ...state.trainings[action.payload.index],
+        ...action.payload.data,
+      };
     },
-    removeTraining: (state, action) => {
+    removeTraining(state, action) {
       state.trainings.splice(action.payload, 1);
     },
-    addDescriptionToTraining: (state, action) => {
-      const { index } = action.payload;
-      state.trainings[index].description.push('');
+    addDescriptionToTraining(state, action) {
+      state.trainings[action.payload.index].description.push('');
     },
-    updateDescriptionToTraining: (state, action) => {
-      const { trainIndex, descIndex, value } = action.payload;
-      state.trainings[trainIndex].description[descIndex] = value;
+    updateDescriptionToTraining(state, action) {
+      state.trainings[action.payload.trainingIndex].description[action.payload.descIndex] = action.payload.value;
     },
-    removeDescriptionFromTraining: (state, action) => {
-      const { trainIndex, descIndex } = action.payload;
-      state.trainings[trainIndex].description.splice(descIndex, 1);
+    removeDescriptionFromTraining(state, action) {
+      state.trainings[action.payload.trainingIndex].description.splice(action.payload.descIndex, 1);
     },
-    // Certifications
-    addCertification: (state) => {
+    addCertification(state) {
       state.certifications.push({
         name: '',
         authority: '',
         urlCode: '',
         date: '',
-        description: []
+        description: [],
       });
     },
-    updateCertification: (state, action) => {
-      const { index, data } = action.payload;
-      state.certifications[index] = { ...state.certifications[index], ...data };
+    updateCertification(state, action) {
+      state.certifications[action.payload.index] = {
+        ...state.certifications[action.payload.index],
+        ...action.payload.data,
+      };
     },
-    removeCertification: (state, action) => {
+    removeCertification(state, action) {
       state.certifications.splice(action.payload, 1);
     },
-    addDescriptionToCertification: (state, action) => {
-      const { index } = action.payload;
-      state.certifications[index].description.push('');
+    addDescriptionToCertification(state, action) {
+      state.certifications[action.payload.index].description.push('');
     },
-    updateDescriptionToCertification: (state, action) => {
-      const { certIndex, descIndex, value } = action.payload;
-      state.certifications[certIndex].description[descIndex] = value;
+    updateDescriptionToCertification(state, action) {
+      state.certifications[action.payload.certificationIndex].description[action.payload.descIndex] = action.payload.value;
     },
-    removeDescriptionFromCertification: (state, action) => {
-      const { certIndex, descIndex } = action.payload;
-      state.certifications[certIndex].description.splice(descIndex, 1);
+    removeDescriptionFromCertification(state, action) {
+      state.certifications[action.payload.certificationIndex].description.splice(action.payload.descIndex, 1);
     },
-    // Skills
-    addSkillCategory: (state) => {
+    addSkillCategory(state) {
       state.skills.push({ category: '', skills: [] });
     },
-    updateSkillCategory: (state, action) => {
-      const { index, category } = action.payload;
-      state.skills[index].category = category;
+    updateSkillCategory(state, action) {
+      state.skills[action.payload.index].category = action.payload.category;
     },
-    removeSkillCategory: (state, action) => {
+    removeSkillCategory(state, action) {
       state.skills.splice(action.payload, 1);
     },
-    addSkillToCategory: (state, action) => {
-      const { index } = action.payload;
-      state.skills[index].skills.push({ name: '', level: '' });
+    addSkillToCategory(state, action) {
+      state.skills[action.payload.index].skills.push({ name: '', level: '' });
     },
-    updateSkillInCategory: (state, action) => {
-      const { catIndex, skillIndex, data } = action.payload;
-      state.skills[catIndex].skills[skillIndex] = { ...state.skills[catIndex].skills[skillIndex], ...data };
+    updateSkillInCategory(state, action) {
+      state.skills[action.payload.catIndex].skills[action.payload.skillIndex] = {
+        ...state.skills[action.payload.catIndex].skills[action.payload.skillIndex],
+        ...action.payload.data,
+      };
     },
-    removeSkillFromCategory: (state, action) => {
-      const { catIndex, skillIndex } = action.payload;
-      state.skills[catIndex].skills.splice(skillIndex, 1);
+    removeSkillFromCategory(state, action) {
+      state.skills[action.payload.catIndex].skills.splice(action.payload.skillIndex, 1);
     },
-    // References
-    addReference: (state) => {
+    addReference(state) {
       state.references.push({
         name: '',
         position: '',
         company: '',
         phone: '',
         email: '',
-        relationship: ''
+        relationship: '',
       });
     },
-    updateReference: (state, action) => {
-      const { index, data } = action.payload;
-      state.references[index] = { ...state.references[index], ...data };
+    updateReference(state, action) {
+      state.references[action.payload.index] = {
+        ...state.references[action.payload.index],
+        ...action.payload.data,
+      };
     },
-    removeReference: (state, action) => {
+    removeReference(state, action) {
       state.references.splice(action.payload, 1);
     },
   },
 });
 
 export const {
+  resetResume,
   updatePersonalInfo,
   updateCareerObjective,
   updateCareerSummary,
@@ -261,5 +244,4 @@ export const {
   updateReference,
   removeReference,
 } = resumeSlice.actions;
-
 export default resumeSlice.reducer;
