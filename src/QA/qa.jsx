@@ -4,8 +4,10 @@ import { jsPDF } from "jspdf";
 import { getDocument, GlobalWorkerOptions } from "pdfjs-dist";
 import * as mammoth from "mammoth";
 
-// Set up the PDF.js worker
-GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js";
+// Set up the PDF.js worker with latest version
+GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.5.136/pdf.worker.min.js";
+
+const baseUrl = "http://localhost:4001"; // Change this to your actual base URL if needed
 
 const InterviewQuestionsGenerator = () => {
   const [jobDescription, setJobDescription] = useState("");
@@ -18,6 +20,8 @@ const InterviewQuestionsGenerator = () => {
   const [success, setSuccess] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [experienceLevel, setExperienceLevel] = useState("Mid-Level");
+  const [techCount, setTechCount] = useState(7);
+  const [sitCount, setSitCount] = useState(3);
 
   // PDF text extraction
   const extractTextFromPDF = async (file) => {
@@ -126,22 +130,13 @@ const InterviewQuestionsGenerator = () => {
     setSuccess("");
 
     try {
-      // Normalize experienceLevel to match common API expectations
-      const normalizedExperienceLevel = experienceLevel.replace(/-/g, "_").toLowerCase();
-      
+      const promptText = `Generate ${techCount} technical questions and ${sitCount} situational questions for the ${experienceLevel} ${jobTitle || "Software Engineer"} position based on the following job description:\n${jobDescription}`;
+
       const response = await axios.post(
-        "http://localhost:4001/api/v1/interview/generate-questions",
+        `${baseUrl}/api/v1/interview/generate-questions`,
+        { text: promptText },
         {
-          job_description: jobDescription, // Changed to snake_case to match common API conventions
-          job_title: jobTitle || "Generic Position", // Provide default if empty
-          experience_level: normalizedExperienceLevel, // Use normalized value
-          requirements: {
-            technical_count: 7, // Changed to snake_case
-            situational_count: 3, // Changed to snake_case
-          },
-        },
-        {
-          timeout: 30000,
+          timeout: 60000,
           headers: {
             "Content-Type": "application/json",
           },
@@ -149,7 +144,20 @@ const InterviewQuestionsGenerator = () => {
       );
 
       if (response.data?.questions) {
-        setQuestions(response.data.questions);
+        const techQuestions = (response.data.questions.technical || []).map(q => ({
+          question: typeof q === 'string' ? q : q.question,
+          answer: "",
+          feedback: ""
+        }));
+        const sitQuestions = (response.data.questions.situational || []).map(q => ({
+          question: typeof q === 'string' ? q : q.question,
+          answer: "",
+          feedback: ""
+        }));
+        setQuestions({
+          technical: techQuestions,
+          situational: sitQuestions
+        });
         setSuccess("Interview questions generated successfully!");
         setTimeout(() => setSuccess(""), 3000);
       } else {
@@ -166,6 +174,71 @@ const InterviewQuestionsGenerator = () => {
         error.message ||
         "Failed to generate questions. Please check your input and try again.";
       setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleAnswerChange = (category, index, value) => {
+    setQuestions(prev => {
+      const newCategory = [...prev[category]];
+      newCategory[index].answer = value;
+      return { ...prev, [category]: newCategory };
+    });
+  };
+
+  const analyzeAnswers = async () => {
+    const allAnswers = [
+      ...questions.technical.map(q => ({ question: q.question, answer: q.answer })),
+      ...questions.situational.map(q => ({ question: q.question, answer: q.answer }))
+    ].filter(a => a.answer.trim());
+
+    if (!allAnswers.length) {
+      setError("Please provide at least one answer to analyze.");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+    setSuccess("");
+
+    try {
+      const response = await axios.post(
+        `${baseUrl}/api/v1/interview/analyze-answers`,
+        { answers: allAnswers },
+        {
+          timeout: 60000,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.data?.analyses) {
+        setQuestions(prev => {
+          const newTech = [...prev.technical];
+          const newSit = [...prev.situational];
+          response.data.analyses.forEach(ana => {
+            const techIndex = newTech.findIndex(q => q.question === ana.question);
+            if (techIndex !== -1) {
+              newTech[techIndex].feedback = ana.feedback || "Analysis received";
+            } else {
+              const sitIndex = newSit.findIndex(q => q.question === ana.question);
+              if (sitIndex !== -1) {
+                newSit[sitIndex].feedback = ana.feedback || "Analysis received";
+              }
+            }
+          });
+          return { technical: newTech, situational: newSit };
+        });
+        setSuccess("Answers analyzed successfully!");
+        setTimeout(() => setSuccess(""), 3000);
+      } else {
+        throw new Error("No analysis received from server");
+      }
+    } catch (error) {
+      console.error("Analysis API Error:", error);
+      setError(error.response?.data?.message || error.message || "Failed to analyze answers.");
     } finally {
       setLoading(false);
     }
@@ -211,11 +284,15 @@ const InterviewQuestionsGenerator = () => {
           
           const questionLines = doc.splitTextToSize(`${i + 1}. ${q.question}`, 170);
           doc.text(questionLines, 20, yPosition);
-          yPosition += questionLines.length * 7;
+          yPosition += questionLines.length * 7 + 5;
           
           const answerLines = doc.splitTextToSize(`Answer: ${q.answer || "No answer provided"}`, 170);
           doc.text(answerLines, 25, yPosition);
-          yPosition += (answerLines.length * 7) + 10;
+          yPosition += answerLines.length * 7 + 5;
+          
+          const feedbackLines = doc.splitTextToSize(`Feedback: ${q.feedback || "No feedback provided"}`, 170);
+          doc.text(feedbackLines, 25, yPosition);
+          yPosition += feedbackLines.length * 7 + 10;
         });
       }
       
@@ -241,11 +318,15 @@ const InterviewQuestionsGenerator = () => {
           
           const questionLines = doc.splitTextToSize(`${i + 1}. ${q.question}`, 170);
           doc.text(questionLines, 20, yPosition);
-          yPosition += questionLines.length * 7;
+          yPosition += questionLines.length * 7 + 5;
           
           const answerLines = doc.splitTextToSize(`Answer: ${q.answer || "No answer provided"}`, 170);
           doc.text(answerLines, 25, yPosition);
-          yPosition += (answerLines.length * 7) + 10;
+          yPosition += answerLines.length * 7 + 5;
+          
+          const feedbackLines = doc.splitTextToSize(`Feedback: ${q.feedback || "No feedback provided"}`, 170);
+          doc.text(feedbackLines, 25, yPosition);
+          yPosition += feedbackLines.length * 7 + 10;
         });
       }
       
@@ -262,7 +343,7 @@ const InterviewQuestionsGenerator = () => {
     <div className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">
-          Interview Questions Generator
+          Professional Interview Questions Generator
         </h1>
 
         <div className="card bg-white shadow-xl rounded-lg mb-10 transition-all duration-300 hover:shadow-2xl">
@@ -271,7 +352,7 @@ const InterviewQuestionsGenerator = () => {
               Job Information
             </h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
               <div>
                 <label className="block text-sm font-medium text-gray-600 mb-2">
                   Job Title (Optional)
@@ -299,6 +380,32 @@ const InterviewQuestionsGenerator = () => {
                   <option value="Senior-Level">Senior-Level</option>
                   <option value="Executive">Executive</option>
                 </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-600 mb-2">
+                  Technical Questions Count
+                </label>
+                <input
+                  type="number"
+                  className="input input-bordered w-full bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
+                  value={techCount}
+                  onChange={(e) => setTechCount(Math.max(1, parseInt(e.target.value) || 1))}
+                  min="1"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-600 mb-2">
+                  Situational Questions Count
+                </label>
+                <input
+                  type="number"
+                  className="input input-bordered w-full bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
+                  value={sitCount}
+                  onChange={(e) => setSitCount(Math.max(1, parseInt(e.target.value) || 1))}
+                  min="1"
+                />
               </div>
             </div>
 
@@ -369,8 +476,8 @@ const InterviewQuestionsGenerator = () => {
           </div>
         )}
 
-        {/* Generate Button */}
-        <div className="flex justify-center mb-10">
+        {/* Action Buttons */}
+        <div className="flex justify-center space-x-4 mb-10">
           <button
             className={`btn btn-primary text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 ${
               loading || !jobDescription.trim()
@@ -383,12 +490,30 @@ const InterviewQuestionsGenerator = () => {
             {loading ? (
               <>
                 <span className="loading loading-spinner loading-sm mr-2"></span>
-                Generating Questions...
+                Generating...
               </>
             ) : (
               "Generate Questions"
             )}
           </button>
+          {(questions.technical.length > 0 || questions.situational.length > 0) && (
+            <button
+              className={`btn btn-secondary text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 ${
+                loading ? "opacity-50 cursor-not-allowed" : "hover:scale-105 hover:bg-purple-700"
+              }`}
+              onClick={analyzeAnswers}
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <span className="loading loading-spinner loading-sm mr-2"></span>
+                  Analyzing...
+                </>
+              ) : (
+                "Analyze Answers"
+              )}
+            </button>
+          )}
         </div>
 
         {/* Generated Questions */}
@@ -412,19 +537,26 @@ const InterviewQuestionsGenerator = () => {
                   <h3 className="text-lg font-semibold text-blue-800 mb-4">
                     Technical Questions ({questions.technical.length})
                   </h3>
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     {questions.technical.map((q, i) => (
                       <div
                         key={`tech-${i}`}
                         className="bg-gray-50 p-4 rounded-lg border border-gray-200"
                       >
-                        <p className="font-medium text-gray-800">
+                        <p className="font-medium text-gray-800 mb-2">
                           {i + 1}. {q.question}
                         </p>
-                        <p className="mt-2 text-gray-600">
-                          <span className="font-semibold">Answer:</span>{" "}
-                          {q.answer || "No answer provided"}
-                        </p>
+                        <textarea
+                          className="textarea textarea-bordered w-full h-24 p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
+                          placeholder="Type your answer here..."
+                          value={q.answer}
+                          onChange={(e) => handleAnswerChange("technical", i, e.target.value)}
+                        />
+                        {q.feedback && (
+                          <p className="mt-2 text-green-600">
+                            <span className="font-semibold">Feedback:</span> {q.feedback}
+                          </p>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -436,19 +568,26 @@ const InterviewQuestionsGenerator = () => {
                   <h3 className="text-lg font-semibold text-blue-800 mb-4">
                     Situational Questions ({questions.situational.length})
                   </h3>
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     {questions.situational.map((q, i) => (
                       <div
                         key={`sit-${i}`}
                         className="bg-gray-50 p-4 rounded-lg border border-gray-200"
                       >
-                        <p className="font-medium text-gray-800">
+                        <p className="font-medium text-gray-800 mb-2">
                           {i + 1}. {q.question}
                         </p>
-                        <p className="mt-2 text-gray-600">
-                          <span className="font-semibold">Answer:</span>{" "}
-                          {q.answer || "No answer provided"}
-                        </p>
+                        <textarea
+                          className="textarea textarea-bordered w-full h-24 p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
+                          placeholder="Type your answer here..."
+                          value={q.answer}
+                          onChange={(e) => handleAnswerChange("situational", i, e.target.value)}
+                        />
+                        {q.feedback && (
+                          <p className="mt-2 text-green-600">
+                            <span className="font-semibold">Feedback:</span> {q.feedback}
+                          </p>
+                        )}
                       </div>
                     ))}
                   </div>
