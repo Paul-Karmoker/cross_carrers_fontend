@@ -94,7 +94,7 @@ const App = () => {
         <Route path="/doc" element={<Doc />} />
         <Route path="/resume" element={<ResumeMakerHome />} />
         <Route path="/templates" element={<TemplateSelector />} />
-        <Route path="/editor/:resumeId?" element={<ResumeEditor />} />
+        <Route path="/editor" element={<ResumeEditor />} />
         <Route path="/dochome" element={<Dochome />} />
         <Route path="/excel" element={<Excel />} />
         <Route path="/excelhome" element={<Excelhome />} />
