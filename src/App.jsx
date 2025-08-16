@@ -20,13 +20,15 @@ import Terms from './Components/terms';
 import Privacy from './Components/privacy';
 import ForgotPassword from './login/forgetpassword';
 import ResetPassword from './login/resetpasswordpage';
-import ResumeForm from './ResumeMaker/resumeForm';
+import ResumeMakerHome from './ResumeMaker/Dashboard';
 // Authentication Components
 import Signin from './login/signin';
 import SignUp from './login/signup';
 import Signinhome from './login/signinhome';
 import Signuphome from './login/signuphome';
 import Logout from './login/signout';
+import TemplateSelector from './ResumeMaker/TemplateSelector';
+import ResumeEditor from './ResumeMaker/ResumeEditor';
 
 // Protected Components
 import Un from './Components/un';
@@ -90,7 +92,9 @@ const App = () => {
         <Route path="/coverhome" element={<Coverhome />} />
         <Route path="/pptmaker" element={<PPTmaker />} />
         <Route path="/doc" element={<Doc />} />
-        <Route path="/resume" element={<ResumeForm />} />
+        <Route path="/resume" element={<ResumeMakerHome />} />
+        <Route path="/templates" element={<TemplateSelector />} />
+        <Route path="/editor/:resumeId?" element={<ResumeEditor />} />
         <Route path="/dochome" element={<Dochome />} />
         <Route path="/excel" element={<Excel />} />
         <Route path="/excelhome" element={<Excelhome />} />

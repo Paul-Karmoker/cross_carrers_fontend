@@ -21,6 +21,7 @@
     "chart.js": "^4.4.8",
     "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.1",
+    "docx": "^9.5.1",
     "docxtemplater": "^3.60.2",
     "exceljs": "^4.4.0",
     "file-saver": "^2.0.5",
