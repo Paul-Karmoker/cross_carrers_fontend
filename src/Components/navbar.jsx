@@ -331,6 +331,11 @@ function Navbar() {
             </Link>
           </li>
           <li>
+            <Link to="/writtenTest" className="hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200">
+              Written Test
+            </Link>
+          </li>
+          <li>
             <Link
               to="/InterviewSimulator"
               className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200 ${

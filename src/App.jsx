@@ -48,6 +48,7 @@ import Consult from './consult/consult';
 import Insm from './insm/InterviewSimulator';
 import Payment from './Membership/paymentmodel';
 import Upgradeplan from './Components/upgradeplan';
+import WrittenTestHome from './writtenTest/writtenTestHome';
 
 
 import PropTypes from 'prop-types';
@@ -92,6 +93,7 @@ const App = () => {
         <Route path="/coverhome" element={<Coverhome />} />
         <Route path="/pptmaker" element={<PPTmaker />} />
         <Route path="/doc" element={<Doc />} />
+        <Route path='/writtenTest' element={<WrittenTestHome/>}/>
         <Route path="/resume" element={<ResumeMakerHome />} />
         <Route path="/templates" element={<TemplateSelector />} />
         <Route path="/editor" element={<ResumeEditor />} />
