@@ -7,7 +7,7 @@ import {
   useSubmitAnswerMutation,
   useGetResultQuery,
   useGetTimeLeftQuery,
-  useLazyDownloadPdfQuery,
+  useLazyDownloadPdfQuery
 } from "../context/writtenTestApi.js";
 
 // A utility function to format time for better readability

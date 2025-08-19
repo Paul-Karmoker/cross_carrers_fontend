@@ -58,5 +58,5 @@ export const {
   useSubmitAnswerMutation,
   useGetResultQuery,
   useGetTimeLeftQuery,
-  useDownloadPdfQuery,
+  useLazyDownloadPdfQuery
 } = writtenTestApi;
