@@ -20,13 +20,15 @@ import Terms from './Components/terms';
 import Privacy from './Components/privacy';
 import ForgotPassword from './login/forgetpassword';
 import ResetPassword from './login/resetpasswordpage';
-
+import ResumeMakerHome from './ResumeMaker/Dashboard';
 // Authentication Components
 import Signin from './login/signin';
 import SignUp from './login/signup';
 import Signinhome from './login/signinhome';
 import Signuphome from './login/signuphome';
 import Logout from './login/signout';
+import TemplateSelector from './ResumeMaker/TemplateSelector';
+import ResumeEditor from './ResumeMaker/ResumeEditor';
 
 // Protected Components
 import Un from './Components/un';
@@ -46,6 +48,7 @@ import Consult from './consult/consult';
 import Insm from './insm/InterviewSimulator';
 import Payment from './Membership/paymentmodel';
 import Upgradeplan from './Components/upgradeplan';
+import WrittenTestHome from './writtenTest/writtenTestHome';
 
 
 import PropTypes from 'prop-types';
@@ -62,16 +65,7 @@ ProtectedRoute.propTypes = {
 };
 
 const App = () => {
-  const { isLoading } = useGetWithdrawalsQuery();
-
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen bg-gray-100">
-        <h1 className="text-2xl font-medium text-gray-700">Loading...</h1>
-      </div>
-    );
-  }
-
+  
   return (
     <>
       <Routes>
@@ -99,6 +93,10 @@ const App = () => {
         <Route path="/coverhome" element={<Coverhome />} />
         <Route path="/pptmaker" element={<PPTmaker />} />
         <Route path="/doc" element={<Doc />} />
+        <Route path='/writtenTest' element={<WrittenTestHome/>}/>
+        <Route path="/resume" element={<ResumeMakerHome />} />
+        <Route path="/templates" element={<TemplateSelector />} />
+        <Route path="/editor" element={<ResumeEditor />} />
         <Route path="/dochome" element={<Dochome />} />
         <Route path="/excel" element={<Excel />} />
         <Route path="/excelhome" element={<Excelhome />} />
