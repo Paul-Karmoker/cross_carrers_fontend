@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   useInitSessionMutation,
   useStartSessionMutation,
@@ -15,9 +15,7 @@ const formatTime = (seconds) => {
   if (seconds === null || seconds === undefined) return "00:00";
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
-  return `${String(minutes).padStart(2, "0")}:${String(
-    remainingSeconds
-  ).padStart(2, "0")}`;
+  return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
 };
 
 const WrittenTest = () => {
@@ -32,47 +30,47 @@ const WrittenTest = () => {
     durationMinutes: "",
   });
   const [formError, setFormError] = useState("");
+  const [showResult, setShowResult] = useState(false);
 
   const [initSession, { isLoading: isInitLoading }] = useInitSessionMutation();
   const [startSession, { isLoading: isStartLoading }] = useStartSessionMutation();
   const [submitAnswer, { isLoading: isSubmitting }] = useSubmitAnswerMutation();
+  
   const [triggerDownload, { isLoading: isDownloadingPdf }] = useLazyDownloadPdfQuery();
 
-  const { data: currentQ, isFetching: isQuestionLoading } = useGetCurrentQuery(
-    sessionId,
-    {
-      skip: !sessionId || !isTestStarted,
-      pollingInterval: 5000,
-    }
-  );
+  const { data: currentQ, isFetching: isQuestionLoading } = useGetCurrentQuery(sessionId, {
+    skip: !sessionId || !isTestStarted || showResult,
+    pollingInterval: 5000,
+  });
   const { data: timeLeft } = useGetTimeLeftQuery(sessionId, {
-    skip: !sessionId || !isTestStarted,
+    skip: !sessionId || !isTestStarted || showResult,
     pollingInterval: 1000,
   });
-  const { data: result } = useGetResultQuery(sessionId, {
-    skip: !sessionId || !currentQ?.completed,
+  const { 
+    data: result, 
+    isLoading: isResultLoading, 
+    isError: isResultError, 
+    error: resultError 
+  } = useGetResultQuery(sessionId, {
+    skip: !sessionId || !showResult,
   });
+  console.log("result", result);
 
-  // Handle form input changes
+  useEffect(() => {
+    if (timeLeft?.remaining <= 0 && isTestStarted && !showResult) {
+      setShowResult(true);
+    }
+  }, [timeLeft, isTestStarted, showResult]);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setFormError(""); // Clear error on input change
+    setFormError("");
   };
 
-  // Validate and initialize the test session
   const handleInit = async () => {
-    const { jobTitle, experienceYears, skills, jobDescription, durationMinutes } =
-      formData;
-
-    // Validation
-    if (
-      !jobTitle ||
-      !experienceYears ||
-      !skills ||
-      !jobDescription ||
-      !durationMinutes
-    ) {
+    const { jobTitle, experienceYears, skills, jobDescription, durationMinutes } = formData;
+    if (!jobTitle || !experienceYears || !skills || !jobDescription || !durationMinutes) {
       setFormError("All fields are required.");
       return;
     }
@@ -84,7 +82,6 @@ const WrittenTest = () => {
       setFormError("Duration must be a positive number.");
       return;
     }
-
     try {
       const res = await initSession({
         jobTitle,
@@ -100,7 +97,6 @@ const WrittenTest = () => {
     }
   };
 
-  // Start the test
   const handleStart = async () => {
     try {
       await startSession(sessionId).unwrap();
@@ -111,24 +107,25 @@ const WrittenTest = () => {
     }
   };
 
-  // Submit an answer
   const handleSubmitAnswer = async () => {
     if (!answer.trim()) return;
     try {
-      await submitAnswer({ sessionId, answer }).unwrap();
+      const res = await submitAnswer({ sessionId, answer }).unwrap();
       setAnswer("");
+      if (res.nextIndex >= res.total) {
+        setShowResult(true);
+      }
     } catch (error) {
       console.error("Failed to submit answer:", error);
       setFormError("Failed to submit answer. Please try again.");
     }
   };
 
-  // Download PDF from backend API
   const handleDownloadPDF = async () => {
     try {
-      const { data } = await triggerDownload(sessionId).unwrap();
-      if (data) {
-        const url = window.URL.createObjectURL(new Blob([data], { type: 'application/pdf' }));
+      const blob = await triggerDownload(sessionId).unwrap();
+      if (blob) {
+        const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
         link.download = 'test_results.pdf';
@@ -143,71 +140,62 @@ const WrittenTest = () => {
     }
   };
 
-  // Prevent copy, cut, and paste
   const preventCheating = (e) => {
     e.preventDefault();
-    // alert("Copying and pasting is disabled for this test.");
   };
 
-  // Render the main content
   const renderContent = () => {
-    // State 3: Test is finished, show results
-    if (result) {
+    if (showResult) {
+      if (isResultLoading) {
+        return (
+          <div className="text-center">
+            <p className="text-gray-600">Loading results...</p>
+          </div>
+        );
+      }
+      if (isResultError) {
+        console.error("Error loading results:", resultError);
+        return (
+          <div className="text-center">
+            <p className="text-red-600">Error loading results: {resultError?.message || "Unknown error"}</p>
+          </div>
+        );
+      }
+      if (result) {
+        return (
+          <div className="text-center">
+            <h2 className="text-xl font-bold text-gray-800 mb-2">Test Completed!</h2>
+            <p className="text-gray-600 mb-6">Here is your performance summary.</p>
+            {formError && <p className="text-red-600 mb-4">{formError}</p>}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-left">
+              <h3 className="font-bold text-lg text-blue-800 mb-3">Your Result</h3>
+              <div className="space-y-2">
+                <p><span className="font-semibold">Job Title:</span> {result.jobTitle}</p>
+                <p><span className="font-semibold">Experience Years:</span> {result.experienceYears}</p>
+                <p><span className="font-semibold">Skills:</span> {result.skills.join(", ")}</p>
+                <p><span className="font-semibold">Job Description:</span> {result.jobDescription}</p>
+                <p><span className="font-semibold">Duration:</span> {result.durationMinutes} minutes</p>
+                <p><span className="font-semibold">Total Score:</span> <span className="font-bold text-2xl text-blue-700">{result.totalScore}</span></p>
+              </div>
+              <button
+                onClick={handleDownloadPDF}
+                disabled={isDownloadingPdf}
+                className="mt-4 w-full py-3 px-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 disabled:opacity-60 transition-colors"
+              >
+                {isDownloadingPdf ? "Downloading..." : "Download Results as PDF"}
+              </button>
+            </div>
+          </div>
+        );
+      }
       return (
         <div className="text-center">
-          <h2 className="text-xl font-bold text-gray-800 mb-2">Test Completed!</h2>
-          <p className="text-gray-600 mb-6">Here is your performance summary.</p>
-          {formError && (
-            <p className="text-red-600 mb-4">{formError}</p>
-          )}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-left">
-            <h3 className="font-bold text-lg text-blue-800 mb-3">Your Result</h3>
-            <div className="space-y-2">
-              <p>
-                <span className="font-semibold">Job Title:</span>{" "}
-                {formData.jobTitle}
-              </p>
-              <p>
-                <span className="font-semibold">Experience Years:</span>{" "}
-                {formData.experienceYears}
-              </p>
-              <p>
-                <span className="font-semibold">Skills:</span>{" "}
-                {formData.skills}
-              </p>
-              <p>
-                <span className="font-semibold">Job Description:</span>{" "}
-                {formData.jobDescription}
-              </p>
-              <p>
-                <span className="font-semibold">Duration:</span>{" "}
-                {formData.durationMinutes} minutes
-              </p>
-              <p>
-                <span className="font-semibold">Score:</span>{" "}
-                <span className="font-bold text-2xl text-blue-700">
-                  {result.score}
-                </span>
-              </p>
-              <p>
-                <span className="font-semibold">Feedback:</span>{" "}
-                {result.feedback}
-              </p>
-            </div>
-            <button
-              onClick={handleDownloadPDF}
-              disabled={isDownloadingPdf}
-              className="mt-4 w-full py-3 px-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 disabled:opacity-60 transition-colors"
-            >
-              {isDownloadingPdf ? "Downloading..." : "Download Results as PDF"}
-            </button>
-          </div>
+          <p className="text-gray-600">No results available.</p>
         </div>
       );
     }
 
-    // State 2: Test is in progress
-    if (isTestStarted) {
+    if (isTestStarted && !showResult) {
       return (
         <>
           <div className="flex justify-between items-center mb-4">
@@ -218,19 +206,11 @@ const WrittenTest = () => {
               </div>
             )}
           </div>
-          {formError && (
-            <p className="text-red-600 mb-4">{formError}</p>
-          )}
+          {formError && <p className="text-red-600 mb-4">{formError}</p>}
           {isQuestionLoading && <p>Loading question...</p>}
-          {currentQ && !currentQ.completed && (
-            <div
-              className="p-6 border rounded-lg bg-gray-50"
-              onCopy={preventCheating}
-              onCut={preventCheating}
-            >
-              <p className="font-medium mb-4 text-lg text-gray-800 select-none">
-                {currentQ.question}
-              </p>
+          {currentQ && (
+            <div className="p-6 border rounded-lg bg-gray-50" onCopy={preventCheating} onCut={preventCheating}>
+              <p className="font-medium mb-4 text-lg text-gray-800 select-none">{currentQ.question}</p>
               <textarea
                 className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
                 rows="6"
@@ -254,17 +234,12 @@ const WrittenTest = () => {
       );
     }
 
-    // State 1: Test is initialized but not started
     if (sessionId) {
       return (
         <div className="text-center">
           <h2 className="text-xl font-bold text-gray-800 mb-2">Ready to Begin?</h2>
-          <p className="text-gray-600 mb-6">
-            The test is initialized. Click the button below to start.
-          </p>
-          {formError && (
-            <p className="text-red-600 mb-4">{formError}</p>
-          )}
+          <p className="text-gray-600 mb-6">The test is initialized. Click the button below to start.</p>
+          {formError && <p className="text-red-600 mb-4">{formError}</p>}
           <button
             onClick={handleStart}
             disabled={isStartLoading}
@@ -276,18 +251,11 @@ const WrittenTest = () => {
       );
     }
 
-    // Default State: Input form
     return (
       <div className="text-center">
-        <h2 className="text-xl font-bold text-gray-800 mb-2">
-          Node.js Developer Test
-        </h2>
-        <p className="text-gray-600 mb-6">
-          Fill in the details below to initialize your written test session.
-        </p>
-        {formError && (
-          <p className="text-red-600 mb-4">{formError}</p>
-        )}
+        <h2 className="text-xl font-bold text-gray-800 mb-2">Node.js Developer Test</h2>
+        <p className="text-gray-600 mb-6">Fill in the details below to initialize your written test session.</p>
+        {formError && <p className="text-red-600 mb-4">{formError}</p>}
         <div className="space-y-4">
           <input
             type="text"
@@ -344,9 +312,7 @@ const WrittenTest = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="w-full max-w-3xl bg-white shadow-xl rounded-2xl p-8">
-        <h1 className="text-3xl font-bold mb-6 text-gray-800 text-center border-b pb-4">
-          Written Assessment
-        </h1>
+        <h1 className="text-3xl font-bold mb-6 text-gray-800 text-center border-b pb-4">Written Assessment</h1>
         <div className="mt-6">{renderContent()}</div>
       </div>
     </div>
