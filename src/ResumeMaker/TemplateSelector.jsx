@@ -43,14 +43,14 @@ const TemplateSelector = () => {
 
   const handleConfirm = () => {
     if (selectedTemplate) {
-      navigate('/editor/1'); // Navigate with a sample resumeId
+      navigate('/editor'); // Navigate with a sample resumeId
     } else {
       alert('Please select a template before proceeding!');
     }
   };
 
   const handleSkip = () => {
-    navigate('/editor/1'); // Skip to editor with default template
+    navigate('/editor'); // Skip to editor with default template
   };
 
   return (

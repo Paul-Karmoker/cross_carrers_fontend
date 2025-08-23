@@ -135,7 +135,7 @@ const Cover = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4001/api/v1/cover/generate-cover-letter",
+        "api/v1/cover/generate-cover-letter",
         {
           jobDescription,
           resumeText,
@@ -176,7 +176,7 @@ const Cover = () => {
 
     try {
       const response = await axios.post(
-        "https://backend-server-deploy.onrender.com/cover/generate-docx",
+        "http://api.crosscareers.com/cover/generate-docx",
         { content: coverLetter },
         { responseType: "blob", timeout: 15000 }
       );
