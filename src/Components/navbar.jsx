@@ -542,7 +542,7 @@ function Navbar() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="lg:hidden menu menu-sm z-[1] p-3 shadow-2xl bg-white rounded-box w-full md:w-64 absolute left-0 top-full overflow-y-auto max-h-[calc(100vh-80px)]"
+          className="lg:hidden menu menu-sm z-[1] p-3 shadow-2xl bg-white rounded-box w-full md:w-64 absolute left-0 top-full"
         >
           {navItems}
         </motion.ul>

@@ -7,7 +7,7 @@ import * as mammoth from "mammoth";
 // Set up the PDF.js worker with latest version
 GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.5.136/pdf.worker.min.js";
 
-const baseUrl = "http://localhost:4001"; // Change this to your actual base URL if needed
+const baseUrl = "http://api.crosscareers.com"; // Change this to your actual base URL if needed
 
 const InterviewQuestionsGenerator = () => {
   const [jobDescription, setJobDescription] = useState("");
