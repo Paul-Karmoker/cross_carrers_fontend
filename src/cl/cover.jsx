@@ -176,7 +176,7 @@ const Cover = () => {
 
     try {
       const response = await axios.post(
-        "http://api.crosscareers.com/cover/generate-docx",
+        "https://api.crosscareers.com/cover/generate-docx",
         { content: coverLetter },
         { responseType: "blob", timeout: 15000 }
       );
