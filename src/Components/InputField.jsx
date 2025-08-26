@@ -30,6 +30,7 @@ const InputField = ({ label, name, value, onChange, type = 'text', className = '
           className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           required={required}
           aria-required={required}
+          placeholder={`Enter ${label.toLowerCase()}`}
         />
       )}
     </div>
