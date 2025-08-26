@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const BASE_URL = "http://api.crosscareers.com/api/v1/writtenTest";
+const BASE_URL = "https://api.crosscareers.com/api/v1/writtenTest";
 
 export const writtenTestApi = createApi({
   reducerPath: "writtenTestApi",

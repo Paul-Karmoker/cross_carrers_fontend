@@ -1,7 +1,10 @@
-// src/components/ResumeForm.js
-import  { useEffect, useState, useCallback, useRef } from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
 import {
   useCreateResumeMutation,
   useGetResumeQuery,
@@ -62,7 +65,227 @@ import SectionItem from '../Components/SectionItem';
 import jsPDF from 'jspdf';
 import '../assets/ResumeForm.css';
 
-// eslint-disable-next-line react/prop-types
+// ResumePreview Component
+const ResumePreview = ({ resume }) => {
+  return (
+    <div className="w-full bg-white p-6 rounded-lg shadow-md border border-gray-200 h-full overflow-auto">
+      {/* Header */}
+      <div className="text-center border-b-2 border-gray-300 pb-4 mb-4">
+        <h1 className="text-2xl font-bold text-gray-800">
+          {resume.personalInfo.firstName || 'First Name'} {resume.personalInfo.lastName || 'Last Name'}
+        </h1>
+        {resume.personalInfo.professionalTitle && (
+          <p className="text-md text-gray-600">{resume.personalInfo.professionalTitle}</p>
+        )}
+        <div className="flex justify-center gap-4 text-sm text-gray-500 mt-2">
+          {resume.personalInfo.emailAddress && (
+            <p>{resume.personalInfo.emailAddress}</p>
+          )}
+          {resume.personalInfo.phoneNumber && (
+            <p>{resume.personalInfo.phoneNumber}</p>
+          )}
+        </div>
+        {resume.personalInfo.address && (
+          <p className="text-sm text-gray-500">
+            {resume.personalInfo.address.street && `${resume.personalInfo.address.street}, `}
+            {resume.personalInfo.address.city && `${resume.personalInfo.address.city}, `}
+            {resume.personalInfo.address.postal && `${resume.personalInfo.address.postal}, `}
+            {resume.personalInfo.address.country}
+          </p>
+        )}
+        <div className="flex justify-center gap-4 text-sm text-blue-600 mt-1">
+          {resume.personalInfo.linkedIn && (
+            <a href={resume.personalInfo.linkedIn} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          )}
+          {resume.personalInfo.portfolio && (
+            <a href={resume.personalInfo.portfolio} target="_blank" rel="noopener noreferrer">
+              Portfolio
+            </a>
+          )}
+        </div>
+      </div>
+
+      {/* Career Objective */}
+      {resume.careerObjective && (
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
+            Career Objective
+          </h2>
+          <p className="text-sm text-gray-600 mt-2">{resume.careerObjective}</p>
+        </section>
+      )}
+
+      {/* Career Summary */}
+      {resume.careerSummary && (
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
+            Career Summary
+          </h2>
+          <p className="text-sm text-gray-600 mt-2">{resume.careerSummary}</p>
+        </section>
+      )}
+
+      {/* Work Experience */}
+      {resume.workExperience.length > 0 && (
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
+            Work Experience
+          </h2>
+          {resume.workExperience.map((exp, index) => (
+            <div key={index} className="mt-3">
+              <h3 className="text-md font-medium text-gray-800">
+                {exp.position || 'Position'} at {exp.companyName || 'Company'}
+              </h3>
+              <p className="text-sm text-gray-500">
+                {exp.city && `${exp.city}, `}{exp.country} | {exp.from || 'Start Date'} - {exp.to || 'Present'}
+              </p>
+              {exp.description.length > 0 && (
+                <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
+                  {exp.description.map((desc, idx) => (
+                    <li key={idx}>{desc}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </section>
+      )}
+
+      {/* Education */}
+      {resume.education.length > 0 && (
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
+            Education
+          </h2>
+          {resume.education.map((edu, index) => (
+            <div key={index} className="mt-3">
+              <h3 className="text-md font-medium text-gray-800">
+                {edu.degree || 'Degree'} in {edu.fieldOfStudy || 'Field of Study'}
+              </h3>
+              <p className="text-sm text-gray-500">
+                {edu.institutionName || 'Institution'}, {edu.city && `${edu.city}, `}{edu.country} | {edu.from || 'Start Date'} - {edu.to || 'Present'}
+              </p>
+              {edu.gpa && <p className="text-sm text-gray-600">GPA: {edu.gpa}</p>}
+              {edu.honors && <p className="text-sm text-gray-600">Honors: {edu.honors}</p>}
+              {edu.description.length > 0 && (
+                <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
+                  {edu.description.map((desc, idx) => (
+                    <li key={idx}>{desc}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </section>
+      )}
+
+      {/* Trainings */}
+      {resume.trainings.length > 0 && (
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
+            Trainings
+          </h2>
+          {resume.trainings.map((train, index) => (
+            <div key={index} className="mt-3">
+              <h3 className="text-md font-medium text-gray-800">
+                {train.name || 'Training Name'}, {train.institution || 'Institution'}
+              </h3>
+              <p className="text-sm text-gray-500">
+                Duration: {train.duration || 'Duration'} | {train.from || 'Start Date'} - {train.to || 'End Date'}
+              </p>
+              {train.description.length > 0 && (
+                <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
+                  {train.description.map((desc, idx) => (
+                    <li key={idx}>{desc}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </section>
+      )}
+
+      {/* Certifications */}
+      {resume.certifications.length > 0 && (
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
+            Certifications
+          </h2>
+          {resume.certifications.map((cert, index) => (
+            <div key={index} className="mt-3">
+              <h3 className="text-md font-medium text-gray-800">
+                {cert.name || 'Certification Name'}, {cert.authority || 'Authority'}
+              </h3>
+              <p className="text-sm text-gray-500">Date: {cert.date || 'Date'}</p>
+              {cert.urlCode && (
+                <p className="text-sm text-blue-600">
+                  <a href={cert.urlCode} target="_blank" rel="noopener noreferrer">
+                    URL/Code
+                  </a>
+                </p>
+              )}
+              {cert.description.length > 0 && (
+                <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
+                  {cert.description.map((desc, idx) => (
+                    <li key={idx}>{desc}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </section>
+      )}
+
+      {/* Skills */}
+      {resume.skills.length > 0 && (
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
+            Skills
+          </h2>
+          {resume.skills.map((cat, index) => (
+            <div key={index} className="mt-3">
+              <h3 className="text-md font-medium text-gray-800">{cat.category || 'Category'}</h3>
+              <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
+                {cat.skills.map((skill, idx) => (
+                  <li key={idx}>
+                    {skill.name || 'Skill'} - {skill.level || 'Level'}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {/* References */}
+      {resume.references.length > 0 && (
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
+            References
+          </h2>
+          {resume.references.map((ref, index) => (
+            <div key={index} className="mt-3">
+              <h3 className="text-md font-medium text-gray-800">
+                {ref.name || 'Name'}, {ref.position || 'Position'} at {ref.company || 'Company'}
+              </h3>
+              <p className="text-sm text-gray-500">
+                {ref.phone && `Phone: ${ref.phone}, `}
+                {ref.email && `Email: ${ref.email}`}
+              </p>
+              {ref.relationship && (
+                <p className="text-sm text-gray-600">Relationship: {ref.relationship}</p>
+              )}
+            </div>
+          ))}
+        </section>
+      )}
+    </div>
+  );
+};
+
+// ResumeForm Component
 const ResumeForm = ({ resumeId }) => {
   const resume = useSelector((state) => state.resume);
   const dispatch = useDispatch();
@@ -90,7 +313,6 @@ const ResumeForm = ({ resumeId }) => {
   // Sync API data with Redux store
   useEffect(() => {
     if (resumeData) {
-      // Clear existing state
       dispatch(resetResume());
       dispatch(updatePersonalInfo(resumeData.personalInfo || {}));
       dispatch(updateCareerObjective(resumeData.careerObjective || ''));
@@ -124,7 +346,7 @@ const ResumeForm = ({ resumeId }) => {
         dispatch(updateReference({ index: resume.references.length, data: ref }));
       });
     }
-  }, [resumeData, dispatch]);
+  }, [resumeData, dispatch, resume]);
 
   // Focus on first error
   useEffect(() => {
@@ -136,21 +358,18 @@ const ResumeForm = ({ resumeId }) => {
   // Validation
   const validateForm = useCallback(() => {
     const newErrors = {};
-    // Personal Info
     if (!resume.personalInfo.firstName) newErrors.firstName = 'First Name is required';
     if (!resume.personalInfo.lastName) newErrors.lastName = 'Last Name is required';
     if (!resume.personalInfo.emailAddress) newErrors.emailAddress = 'Email Address is required';
     else if (!/\S+@\S+\.\S+/.test(resume.personalInfo.emailAddress)) newErrors.emailAddress = 'Invalid email format';
     if (resume.personalInfo.phoneNumber && !/^\+?[\d\s-]{10,}$/.test(resume.personalInfo.phoneNumber)) newErrors.phoneNumber = 'Invalid phone number format';
 
-    // Work Experience
     resume.workExperience.forEach((exp, index) => {
       if (!exp.companyName) newErrors[`workExperience[${index}].companyName`] = 'Company Name is required';
       if (!exp.position) newErrors[`workExperience[${index}].position`] = 'Position is required';
       if (!exp.from) newErrors[`workExperience[${index}].from`] = 'Start date is required';
     });
 
-    // Education
     resume.education.forEach((edu, index) => {
       if (!edu.institutionName) newErrors[`education[${index}].institutionName`] = 'Institution Name is required';
       if (!edu.fieldOfStudy) newErrors[`education[${index}].fieldOfStudy`] = 'Field of Study is required';
@@ -158,7 +377,6 @@ const ResumeForm = ({ resumeId }) => {
       if (!edu.from) newErrors[`education[${index}].from`] = 'Start date is required';
     });
 
-    // References
     resume.references.forEach((ref, index) => {
       if (!ref.name) newErrors[`reference[${index}].name`] = 'Name is required';
       if (!ref.position) newErrors[`reference[${index}].position`] = 'Position is required';
@@ -181,27 +399,28 @@ const ResumeForm = ({ resumeId }) => {
     dispatch(updatePersonalInfo({ [addrType]: { ...resume.personalInfo[addrType], [name]: value } }));
   }, [dispatch, resume.personalInfo]);
 
-  const handleSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
-      if (!validateForm()) return;
-      try {
-        let response;
-        if (resumeId) {
-          response = await updateResume({ id: resumeId, data: resume }).unwrap();
-        } else {
-          // eslint-disable-next-line no-unused-vars
-          response = await createResume(resume).unwrap();
-        }
-        setErrors({});
-        generatePDF(resume);
-        alert('Resume saved successfully!');
-      } catch (err) {
-        setErrors({ form: 'Error submitting resume: ' + (err.data?.message || err.message) });
+const handleSubmit = useCallback(
+  async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+    console.log('Submitting resume:', resume); // Log the resume object
+    try {
+      let response;
+      if (resumeId) {
+        response = await updateResume({ id: resumeId, data: resume }).unwrap();
+      } else {
+        response = await createResume(resume).unwrap();
       }
-    },
-    [createResume, updateResume, resumeId, resume, validateForm]
-  );
+      setErrors({});
+      generatePDF(resume);
+      alert('Resume saved successfully!');
+    } catch (err) {
+      console.error('Submission error:', err);
+      setErrors({ form: `Error submitting resume: ${JSON.stringify(err, null, 2)}` });
+    }
+  },
+  [createResume, updateResume, resumeId, resume, validateForm]
+);
 
   const handleDelete = useCallback(async () => {
     if (resumeId && window.confirm('Are you sure you want to delete this resume?')) {
@@ -210,7 +429,7 @@ const ResumeForm = ({ resumeId }) => {
         setErrors({});
         alert('Resume deleted successfully!');
         dispatch(resetResume());
-        navigate('/dashboard'); // Redirect to dashboard
+        navigate('/dashboard');
       } catch (err) {
         setErrors({ form: 'Error deleting resume: ' + (err.data?.message || err.message) });
       }
@@ -339,7 +558,7 @@ const ResumeForm = ({ resumeId }) => {
     let yPos = 20;
 
     const addText = (text, x, y, options = {}) => {
-      if (!text || text === 'undefined') return y; // Skip empty or invalid text
+      if (!text || text === 'undefined') return y;
       const lines = doc.splitTextToSize(text, options.maxWidth || 170);
       doc.text(lines, x, y, options);
       return y + (options.lineHeight || 7) * lines.length;
@@ -352,7 +571,6 @@ const ResumeForm = ({ resumeId }) => {
       }
     };
 
-    // Header
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(16);
     yPos = addText(`${data.personalInfo.firstName || ''} ${data.personalInfo.lastName || ''}`, 20, yPos, { lineHeight: 12 });
@@ -370,7 +588,6 @@ const ResumeForm = ({ resumeId }) => {
     yPos += 5;
     checkPage();
 
-    // Career Objective
     if (data.careerObjective) {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(14);
@@ -381,7 +598,6 @@ const ResumeForm = ({ resumeId }) => {
       checkPage();
     }
 
-    // Career Summary
     if (data.careerSummary) {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(14);
@@ -392,7 +608,6 @@ const ResumeForm = ({ resumeId }) => {
       checkPage();
     }
 
-    // Work Experience
     if (data.workExperience.length) {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(14);
@@ -412,7 +627,6 @@ const ResumeForm = ({ resumeId }) => {
       checkPage();
     }
 
-    // Education
     if (data.education.length) {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(14);
@@ -434,7 +648,6 @@ const ResumeForm = ({ resumeId }) => {
       checkPage();
     }
 
-    // Trainings
     if (data.trainings.length) {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(14);
@@ -454,7 +667,6 @@ const ResumeForm = ({ resumeId }) => {
       checkPage();
     }
 
-    // Certifications
     if (data.certifications.length) {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(14);
@@ -475,7 +687,6 @@ const ResumeForm = ({ resumeId }) => {
       checkPage();
     }
 
-    // Skills
     if (data.skills.length) {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(14);
@@ -494,7 +705,6 @@ const ResumeForm = ({ resumeId }) => {
       checkPage();
     }
 
-    // References
     if (data.references.length) {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(14);
@@ -517,438 +727,465 @@ const ResumeForm = ({ resumeId }) => {
   if (fetchError) return <div className="text-center p-6 text-red-500" role="alert">Error: {fetchError.data?.message || fetchError.message}</div>;
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md" aria-labelledby="resume-form-title">
-      <h2 id="resume-form-title" className="text-2xl font-bold mb-6 text-center text-gray-800">Resume Builder</h2>
-      <div role="alert" aria-live="assertive" className="mb-4">
-        {errors.form && <div className="text-red-500 text-center">{errors.form}</div>}
-      </div>
+    <>
+      <Navbar />
+      <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-6 mt-12">
+        {/* Form Section */}
+        <div className="lg:w-1/2">
+          <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-6" aria-labelledby="resume-form-title">
+            <h2 id="resume-form-title" className="text-2xl font-bold mb-6 text-center text-gray-800">Resume Builder</h2>
+            <div role="alert" aria-live="assertive" className="mb-4">
+              {errors.form && <div className="text-red-500 text-center">{errors.form}</div>}
+            </div>
 
-      {/* Personal Information */}
-      <section className="mb-8">
-        <h3 className="text-lg font-semibold mb-4 text-gray-700">Personal Information</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <InputField
-            label="First Name"
-            name="firstName"
-            value={resume.personalInfo.firstName}
-            onChange={handlePersonalChange}
-            required
-            error={errors.firstName}
-            ref={errors.firstName ? firstErrorRef : null}
-          />
-          <InputField label="Last Name" name="lastName" value={resume.personalInfo.lastName} onChange={handlePersonalChange} required error={errors.lastName} />
-          <InputField label="Professional Title" name="professionalTitle" value={resume.personalInfo.professionalTitle} onChange={handlePersonalChange} />
-          <InputField label="Phone Number" name="phoneNumber" value={resume.personalInfo.phoneNumber} onChange={handlePersonalChange} type="tel" error={errors.phoneNumber} />
-          <InputField label="Email Address" name="emailAddress" value={resume.personalInfo.emailAddress} onChange={handlePersonalChange} type="email" required error={errors.emailAddress} />
-          <InputField label="Skype" name="skype" value={resume.personalInfo.skype} onChange={handlePersonalChange} />
-          <InputField label="LinkedIn" name="linkedIn" value={resume.personalInfo.linkedIn} onChange={handlePersonalChange} />
-          <InputField label="Portfolio" name="portfolio" value={resume.personalInfo.portfolio} onChange={handlePersonalChange} />
-          <InputField label="Profile Picture URL" name="profilePicture" value={resume.personalInfo.profilePicture} onChange={handlePersonalChange} />
-          <InputField label="Father's Name" name="fatherName" value={resume.personalInfo.fatherName} onChange={handlePersonalChange} />
-          <InputField label="Mother's Name" name="motherName" value={resume.personalInfo.motherName} onChange={handlePersonalChange} />
-          <InputField label="Spouse's Name" name="spouseName" value={resume.personalInfo.spouseName} onChange={handlePersonalChange} />
-          <InputField label="NID" name="nid" value={resume.personalInfo.nid} onChange={handlePersonalChange} />
-          <InputField label="Passport" name="passport" value={resume.personalInfo.passport} onChange={handlePersonalChange} />
-        </div>
-        <h4 className="text-md font-medium mt-4 mb-2 text-gray-700">Address</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <InputField label="Street" name="street" value={resume.personalInfo.address.street} onChange={(e) => handleAddressChange(e, 'address')} />
-          <InputField label="City" name="city" value={resume.personalInfo.address.city} onChange={(e) => handleAddressChange(e, 'address')} />
-          <InputField label="Postal" name="postal" value={resume.personalInfo.address.postal} onChange={(e) => handleAddressChange(e, 'address')} />
-          <InputField label="Country" name="country" value={resume.personalInfo.address.country} onChange={(e) => handleAddressChange(e, 'address')} />
-        </div>
-        <h4 className="text-md font-medium mt-4 mb-2 text-gray-700">Permanent Address</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <InputField label="Street" name="street" value={resume.personalInfo.permanentAddress.street} onChange={(e) => handleAddressChange(e, 'permanentAddress')} />
-          <InputField label="City" name="city" value={resume.personalInfo.permanentAddress.city} onChange={(e) => handleAddressChange(e, 'permanentAddress')} />
-          <InputField label="Postal" name="postal" value={resume.personalInfo.permanentAddress.postal} onChange={(e) => handleAddressChange(e, 'permanentAddress')} />
-          <InputField label="Country" name="country" value={resume.personalInfo.permanentAddress.country} onChange={(e) => handleAddressChange(e, 'permanentAddress')} />
-        </div>
-      </section>
-
-      {/* Career Objective and Summary */}
-      <section className="mb-8">
-        <h3 className="text-lg font-semibold mb-4 text-gray-700">Career Objective & Summary</h3>
-        <div className="space-y-4">
-          <div>
-            <InputField label="Career Objective" type="textarea" value={resume.careerObjective} onChange={(e) => dispatch(updateCareerObjective(e.target.value))} error={errors.careerObjective} />
-            <button
-              type="button"
-              className="mt-2 bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 disabled:bg-indigo-400 flex items-center"
-              onClick={handleGetCareerObjective}
-              disabled={loadingStates.careerObjective}
-              aria-label="Get AI-generated career objective"
-            >
-              {loadingStates.careerObjective ? (
-                <>
-                  <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
-                  </svg>
-                  Generating...
-                </>
-              ) : (
-                'Get AI Career Objective'
-              )}
-            </button>
-            {errors.careerObjective && <div className="text-red-500 text-sm mt-1">{errors.careerObjective}</div>}
-          </div>
-          <div>
-            <InputField label="Career Summary" type="textarea" value={resume.careerSummary} onChange={(e) => dispatch(updateCareerSummary(e.target.value))} error={errors.careerSummary} />
-            <button
-              type="button"
-              className="mt-2 bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 disabled:bg-indigo-400 flex items-center"
-              onClick={handleGetCareerSummary}
-              disabled={loadingStates.careerSummary}
-              aria-label="Get AI-generated career summary"
-            >
-              {loadingStates.careerSummary ? (
-                <>
-                  <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
-                  </svg>
-                  Generating...
-                </>
-              ) : (
-                'Get AI Career Summary'
-              )}
-            </button>
-            {errors.careerSummary && <div className="text-red-500 text-sm mt-1">{errors.careerSummary}</div>}
-          </div>
-        </div>
-      </section>
-
-      {/* Work Experience */}
-      <section className="mb-8">
-        <h3 className="text-lg font-semibold mb-4 text-gray-700">Work Experience</h3>
-        {resume.workExperience.map((exp, index) => (
-          <div key={index}>
-            <SectionItem
-              item={exp}
-              index={index}
-              fields={[
-                { label: 'Company Name', name: 'companyName', required: true },
-                { label: 'Position', name: 'position', required: true },
-                { label: 'City', name: 'city' },
-                { label: 'Country', name: 'country' },
-                { label: 'From', name: 'from', type: 'date', required: true },
-                { label: 'To', name: 'to', type: 'date' },
-              ]}
-              updateAction={updateWorkExperience}
-              removeAction={removeWorkExperience}
-              addDescAction={addDescriptionToWork}
-              updateDescAction={updateDescriptionToWork}
-              removeDescAction={removeDescriptionFromWork}
-              checkboxField={{ name: 'currentlyWorking', label: 'Currently Working' }}
-              onSave={resumeId ? handleSaveSectionItem.bind(null, 'workExperience') : null}
-              onDelete={resumeId ? handleDeleteSectionItem.bind(null, 'workExperience') : null}
-              onGetDescription={handleGetJobDescription}
-              isSaving={loadingStates[`workExperience-${index}`]}
-              isDeleting={loadingStates[`workExperience-${index}-delete`]}
-              isSuggestingDesc={loadingStates[`workExperience-${index}-desc`]}
-              sectionName="Work Experience"
-              dispatch={dispatch}
-            />
-            {errors[`workExperience-${index}`] && <div className="text-red-500 text-sm mt-1">{errors[`workExperience-${index}`]}</div>}
-          </div>
-        ))}
-        <button
-          type="button"
-          className="text-blue-600 hover:text-blue-800 font-medium"
-          onClick={() => dispatch(addWorkExperience())}
-          aria-label="Add Work Experience"
-        >
-          Add Work Experience
-        </button>
-      </section>
-
-      {/* Education */}
-      <section className="mb-8">
-        <h3 className="text-lg font-semibold mb-4 text-gray-700">Education</h3>
-        {resume.education.map((edu, index) => (
-          <div key={index}>
-            <SectionItem
-              item={edu}
-              index={index}
-              fields={[
-                { label: 'Institution Name', name: 'institutionName', required: true },
-                { label: 'Field of Study', name: 'fieldOfStudy', required: true },
-                { label: 'Degree', name: 'degree', required: true },
-                { label: 'City', name: 'city' },
-                { label: 'Country', name: 'country' },
-                { label: 'From', name: 'from', type: 'date', required: true },
-                { label: 'To', name: 'to', type: 'date' },
-                { label: 'GPA', name: 'gpa' },
-                { label: 'Honors', name: 'honors' },
-              ]}
-              updateAction={updateEducation}
-              removeAction={removeEducation}
-              addDescAction={addDescriptionToEducation}
-              updateDescAction={updateDescriptionToEducation}
-              removeDescAction={removeDescriptionFromEducation}
-              checkboxField={{ name: 'currentlyStudying', label: 'Currently Studying' }}
-              onSave={resumeId ? handleSaveSectionItem.bind(null, 'education') : null}
-              onDelete={resumeId ? handleDeleteSectionItem.bind(null, 'education') : null}
-              isSaving={loadingStates[`education-${index}`]}
-              isDeleting={loadingStates[`education-${index}-delete`]}
-              sectionName="Education"
-              dispatch={dispatch}
-            />
-            {errors[`education-${index}`] && <div className="text-red-500 text-sm mt-1">{errors[`education-${index}`]}</div>}
-          </div>
-        ))}
-        <button
-          type="button"
-          className="text-blue-600 hover:text-blue-800 font-medium"
-          onClick={() => dispatch(addEducation())}
-          aria-label="Add Education"
-        >
-          Add Education
-        </button>
-      </section>
-
-      {/* Trainings */}
-      <section className="mb-8">
-        <h3 className="text-lg font-semibold mb-4 text-gray-700">Trainings</h3>
-        {resume.trainings.map((train, index) => (
-          <div key={index}>
-            <SectionItem
-              item={train}
-              index={index}
-              fields={[
-                { label: 'Name', name: 'name', required: true },
-                { label: 'Institution', name: 'institution', required: true },
-                { label: 'Duration', name: 'duration' },
-                { label: 'From', name: 'from', type: 'date', required: true },
-                { label: 'To', name: 'to', type: 'date' },
-              ]}
-              updateAction={updateTraining}
-              removeAction={removeTraining}
-              addDescAction={addDescriptionToTraining}
-              updateDescAction={updateDescriptionToTraining}
-              removeDescAction={removeDescriptionFromTraining}
-              sectionName="Training"
-              dispatch={dispatch}
-            />
-            {errors[`training-${index}`] && <div className="text-red-500 text-sm mt-1">{errors[`training-${index}`]}</div>}
-          </div>
-        ))}
-        <button
-          type="button"
-          className="text-blue-600 hover:text-blue-800 font-medium"
-          onClick={() => dispatch(addTraining())}
-          aria-label="Add Training"
-        >
-          Add Training
-        </button>
-      </section>
-
-      {/* Certifications */}
-      <section className="mb-8">
-        <h3 className="text-lg font-semibold mb-4 text-gray-700">Certifications</h3>
-        {resume.certifications.map((cert, index) => (
-          <div key={index}>
-            <SectionItem
-              item={cert}
-              index={index}
-              fields={[
-                { label: 'Name', name: 'name', required: true },
-                { label: 'Authority', name: 'authority', required: true },
-                { label: 'URL/Code', name: 'urlCode' },
-                { label: 'Date', name: 'date', type: 'date', required: true },
-              ]}
-              updateAction={updateCertification}
-              removeAction={removeCertification}
-              addDescAction={addDescriptionToCertification}
-              updateDescAction={updateDescriptionToCertification}
-              removeDescAction={removeDescriptionFromCertification}
-              sectionName="Certification"
-              dispatch={dispatch}
-            />
-            {errors[`certification-${index}`] && <div className="text-red-500 text-sm mt-1">{errors[`certification-${index}`]}</div>}
-          </div>
-        ))}
-        <button
-          type="button"
-          className="text-blue-600 hover:text-blue-800 font-medium"
-          onClick={() => dispatch(addCertification())}
-          aria-label="Add Certification"
-        >
-          Add Certification
-        </button>
-      </section>
-
-      {/* Skills */}
-      <section className="mb-8">
-        <h3 className="text-lg font-semibold mb-4 text-gray-700">Skills</h3>
-        <button
-          type="button"
-          className="mb-4 bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 disabled:bg-indigo-400 flex items-center"
-          onClick={handleGetSkillsSuggestion}
-          disabled={loadingStates.skills}
-          aria-label="Get AI-generated skills suggestion"
-        >
-          {loadingStates.skills ? (
-            <>
-              <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
-              </svg>
-              Generating...
-            </>
-          ) : (
-            'Get AI Skills Suggestion'
-          )}
-        </button>
-        {errors.skills && <div className="text-red-500 text-sm mb-2">{errors.skills}</div>}
-        {resume.skills.map((cat, catIndex) => (
-          <div key={catIndex} className="border p-4 mb-4 rounded-md bg-gray-50">
-            <InputField
-              label="Category"
-              name="category"
-              value={cat.category}
-              onChange={(e) => dispatch(updateSkillCategory({ index: catIndex, category: e.target.value }))}
-              required
-              error={errors[`skills[${catIndex}].category`]}
-            />
-            {cat.skills.map((skill, skillIndex) => (
-              <div key={skillIndex} className="flex gap-4 mb-2 items-end">
+            {/* Personal Information */}
+            <section className="mb-8">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">Personal Information</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <InputField
-                  label="Skill Name"
-                  name="name"
-                  value={skill.name}
-                  onChange={(e) => dispatch(updateSkillInCategory({ catIndex, skillIndex, data: { name: e.target.value } }))}
-                  className="flex-1"
+                  label="First Name"
+                  name="firstName"
+                  value={resume.personalInfo.firstName}
+                  onChange={handlePersonalChange}
                   required
-                  error={errors[`skills[${catIndex}][${skillIndex}].name`]}
+                  error={errors.firstName}
+                  ref={errors.firstName ? firstErrorRef : null}
                 />
-                <InputField
-                  label="Level"
-                  name="level"
-                  value={skill.level}
-                  onChange={(e) => dispatch(updateSkillInCategory({ catIndex, skillIndex, data: { level: e.target.value } }))}
-                  className="flex-1"
-                />
+                <InputField label="Last Name" name="lastName" value={resume.personalInfo.lastName} onChange={handlePersonalChange} required error={errors.lastName} />
+                <InputField label="Professional Title" name="professionalTitle" value={resume.personalInfo.professionalTitle} onChange={handlePersonalChange} />
+                <InputField label="Phone Number" name="phoneNumber" value={resume.personalInfo.phoneNumber} onChange={handlePersonalChange} type="tel" error={errors.phoneNumber} />
+                <InputField label="Email Address" name="emailAddress" value={resume.personalInfo.emailAddress} onChange={handlePersonalChange} type="email" required error={errors.emailAddress} />
+                <InputField label="Skype" name="skype" value={resume.personalInfo.skype} onChange={handlePersonalChange} />
+                <InputField label="LinkedIn" name="linkedIn" value={resume.personalInfo.linkedIn} onChange={handlePersonalChange} />
+                <InputField label="Portfolio" name="portfolio" value={resume.personalInfo.portfolio} onChange={handlePersonalChange} />
+                <InputField label="Profile Picture URL" name="profilePicture" value={resume.personalInfo.profilePicture} onChange={handlePersonalChange} />
+                <InputField label="Father's Name" name="fatherName" value={resume.personalInfo.fatherName} onChange={handlePersonalChange} />
+                <InputField label="Mother's Name" name="motherName" value={resume.personalInfo.motherName} onChange={handlePersonalChange} />
+                <InputField label="Spouse's Name" name="spouseName" value={resume.personalInfo.spouseName} onChange={handlePersonalChange} />
+                <InputField label="NID" name="nid" value={resume.personalInfo.nid} onChange={handlePersonalChange} />
+                <InputField label="Passport" name="passport" value={resume.personalInfo.passport} onChange={handlePersonalChange} />
+              </div>
+              <h4 className="text-md font-medium mt-4 mb-2 text-gray-700">Address</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <InputField label="Street" name="street" value={resume.personalInfo.address.street} onChange={(e) => handleAddressChange(e, 'address')} />
+                <InputField label="City" name="city" value={resume.personalInfo.address.city} onChange={(e) => handleAddressChange(e, 'address')} />
+                <InputField label="Postal" name="postal" value={resume.personalInfo.address.postal} onChange={(e) => handleAddressChange(e, 'address')} />
+                <InputField label="Country" name="country" value={resume.personalInfo.address.country} onChange={(e) => handleAddressChange(e, 'address')} />
+              </div>
+              <h4 className="text-md font-medium mt-4 mb-2 text-gray-700">Permanent Address</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <InputField label="Street" name="street" value={resume.personalInfo.permanentAddress.street} onChange={(e) => handleAddressChange(e, 'permanentAddress')} />
+                <InputField label="City" name="city" value={resume.personalInfo.permanentAddress.city} onChange={(e) => handleAddressChange(e, 'permanentAddress')} />
+                <InputField label="Postal" name="postal" value={resume.personalInfo.permanentAddress.postal} onChange={(e) => handleAddressChange(e, 'permanentAddress')} />
+                <InputField label="Country" name="country" value={resume.personalInfo.permanentAddress.country} onChange={(e) => handleAddressChange(e, 'permanentAddress')} />
+              </div>
+            </section>
+
+            {/* Career Objective and Summary */}
+            <section className="mb-8">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">Career Objective & Summary</h3>
+              <div className="space-y-4">
+                <div>
+                  <InputField
+                    label="Career Objective"
+                    type="textarea"
+                    value={resume.careerObjective}
+                    onChange={(e) => dispatch(updateCareerObjective(e.target.value))}
+                    error={errors.careerObjective}
+                  />
+                  <button
+                    type="button"
+                    className="mt-2 bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 disabled:bg-indigo-400 flex items-center"
+                    onClick={handleGetCareerObjective}
+                    disabled={loadingStates.careerObjective}
+                    aria-label="Get AI-generated career objective"
+                  >
+                    {loadingStates.careerObjective ? (
+                      <>
+                        <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                        </svg>
+                        Generating...
+                      </>
+                    ) : (
+                      'Get AI Career Objective'
+                    )}
+                  </button>
+                  {errors.careerObjective && <div className="text-red-500 text-sm mt-1">{errors.careerObjective}</div>}
+                </div>
+                <div>
+                  <InputField
+                    label="Career Summary"
+                    type="textarea"
+                    value={resume.careerSummary}
+                    onChange={(e) => dispatch(updateCareerSummary(e.target.value))}
+                    error={errors.careerSummary}
+                  />
+                  <button
+                    type="button"
+                    className="mt-2 bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 disabled:bg-indigo-400 flex items-center"
+                    onClick={handleGetCareerSummary}
+                    disabled={loadingStates.careerSummary}
+                    aria-label="Get AI-generated career summary"
+                  >
+                    {loadingStates.careerSummary ? (
+                      <>
+                        <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                        </svg>
+                        Generating...
+                      </>
+                    ) : (
+                      'Get AI Career Summary'
+                    )}
+                  </button>
+                  {errors.careerSummary && <div className="text-red-500 text-sm mt-1">{errors.careerSummary}</div>}
+                </div>
+              </div>
+            </section>
+
+            {/* Work Experience */}
+            <section className="mb-8">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">Work Experience</h3>
+              {resume.workExperience.map((exp, index) => (
+                <div key={index}>
+                  <SectionItem
+                    item={exp}
+                    index={index}
+                    fields={[
+                      { label: 'Company Name', name: 'companyName', required: true },
+                      { label: 'Position', name: 'position', required: true },
+                      { label: 'City', name: 'city' },
+                      { label: 'Country', name: 'country' },
+                      { label: 'From', name: 'from', type: 'date', required: true },
+                      { label: 'To', name: 'to', type: 'date' },
+                    ]}
+                    updateAction={updateWorkExperience}
+                    removeAction={removeWorkExperience}
+                    addDescAction={addDescriptionToWork}
+                    updateDescAction={updateDescriptionToWork}
+                    removeDescAction={removeDescriptionFromWork}
+                    checkboxField={{ name: 'currentlyWorking', label: 'Currently Working' }}
+                    onSave={resumeId ? handleSaveSectionItem.bind(null, 'workExperience') : null}
+                    onDelete={resumeId ? handleDeleteSectionItem.bind(null, 'workExperience') : null}
+                    onGetDescription={handleGetJobDescription}
+                    isSaving={loadingStates[`workExperience-${index}`]}
+                    isDeleting={loadingStates[`workExperience-${index}-delete`]}
+                    isSuggestingDesc={loadingStates[`workExperience-${index}-desc`]}
+                    sectionName="Work Experience"
+                    dispatch={dispatch}
+                  />
+                  {errors[`workExperience-${index}`] && <div className="text-red-500 text-sm mt-1">{errors[`workExperience-${index}`]}</div>}
+                </div>
+              ))}
+              <button
+                type="button"
+                className="text-blue-600 hover:text-blue-800 font-medium"
+                onClick={() => dispatch(addWorkExperience())}
+                aria-label="Add Work Experience"
+              >
+                Add Work Experience
+              </button>
+            </section>
+
+            {/* Education */}
+            <section className="mb-8">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">Education</h3>
+              {resume.education.map((edu, index) => (
+                <div key={index}>
+                  <SectionItem
+                    item={edu}
+                    index={index}
+                    fields={[
+                      { label: 'Institution Name', name: 'institutionName', required: true },
+                      { label: 'Field of Study', name: 'fieldOfStudy', required: true },
+                      { label: 'Degree', name: 'degree', required: true },
+                      { label: 'City', name: 'city' },
+                      { label: 'Country', name: 'country' },
+                      { label: 'From', name: 'from', type: 'date', required: true },
+                      { label: 'To', name: 'to', type: 'date' },
+                      { label: 'GPA', name: 'gpa' },
+                      { label: 'Honors', name: 'honors' },
+                    ]}
+                    updateAction={updateEducation}
+                    removeAction={removeEducation}
+                    addDescAction={addDescriptionToEducation}
+                    updateDescAction={updateDescriptionToEducation}
+                    removeDescAction={removeDescriptionFromEducation}
+                    checkboxField={{ name: 'currentlyStudying', label: 'Currently Studying' }}
+                    onSave={resumeId ? handleSaveSectionItem.bind(null, 'education') : null}
+                    onDelete={resumeId ? handleDeleteSectionItem.bind(null, 'education') : null}
+                    isSaving={loadingStates[`education-${index}`]}
+                    isDeleting={loadingStates[`education-${index}-delete`]}
+                    sectionName="Education"
+                    dispatch={dispatch}
+                  />
+                  {errors[`education-${index}`] && <div className="text-red-500 text-sm mt-1">{errors[`education-${index}`]}</div>}
+                </div>
+              ))}
+              <button
+                type="button"
+                className="text-blue-600 hover:text-blue-800 font-medium"
+                onClick={() => dispatch(addEducation())}
+                aria-label="Add Education"
+              >
+                Add Education
+              </button>
+            </section>
+
+            {/* Trainings */}
+            <section className="mb-8">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">Trainings</h3>
+              {resume.trainings.map((train, index) => (
+                <div key={index}>
+                  <SectionItem
+                    item={train}
+                    index={index}
+                    fields={[
+                      { label: 'Name', name: 'name', required: true },
+                      { label: 'Institution', name: 'institution', required: true },
+                      { label: 'Duration', name: 'duration' },
+                      { label: 'From', name: 'from', type: 'date', required: true },
+                      { label: 'To', name: 'to', type: 'date' },
+                    ]}
+                    updateAction={updateTraining}
+                    removeAction={removeTraining}
+                    addDescAction={addDescriptionToTraining}
+                    updateDescAction={updateDescriptionToTraining}
+                    removeDescAction={removeDescriptionFromTraining}
+                    sectionName="Training"
+                    dispatch={dispatch}
+                  />
+                  {errors[`training-${index}`] && <div className="text-red-500 text-sm mt-1">{errors[`training-${index}`]}</div>}
+                </div>
+              ))}
+              <button
+                type="button"
+                className="text-blue-600 hover:text-blue-800 font-medium"
+                onClick={() => dispatch(addTraining())}
+                aria-label="Add Training"
+              >
+                Add Training
+              </button>
+            </section>
+
+            {/* Certifications */}
+            <section className="mb-8">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">Certifications</h3>
+              {resume.certifications.map((cert, index) => (
+                <div key={index}>
+                  <SectionItem
+                    item={cert}
+                    index={index}
+                    fields={[
+                      { label: 'Name', name: 'name', required: true },
+                      { label: 'Authority', name: 'authority', required: true },
+                      { label: 'URL/Code', name: 'urlCode' },
+                      { label: 'Date', name: 'date', type: 'date', required: true },
+                    ]}
+                    updateAction={updateCertification}
+                    removeAction={removeCertification}
+                    addDescAction={addDescriptionToCertification}
+                    updateDescAction={updateDescriptionToCertification}
+                    removeDescAction={removeDescriptionFromCertification}
+                    sectionName="Certification"
+                    dispatch={dispatch}
+                  />
+                  {errors[`certification-${index}`] && <div className="text-red-500 text-sm mt-1">{errors[`certification-${index}`]}</div>}
+                </div>
+              ))}
+              <button
+                type="button"
+                className="text-blue-600 hover:text-blue-800 font-medium"
+                onClick={() => dispatch(addCertification())}
+                aria-label="Add Certification"
+              >
+                Add Certification
+              </button>
+            </section>
+
+            {/* Skills */}
+            <section className="mb-8">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">Skills</h3>
+              <button
+                type="button"
+                className="mb-4 bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 disabled:bg-indigo-400 flex items-center"
+                onClick={handleGetSkillsSuggestion}
+                disabled={loadingStates.skills}
+                aria-label="Get AI-generated skills suggestion"
+              >
+                {loadingStates.skills ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                    </svg>
+                    Generating...
+                  </>
+                ) : (
+                  'Get AI Skills Suggestion'
+                )}
+              </button>
+              {errors.skills && <div className="text-red-500 text-sm mb-2">{errors.skills}</div>}
+              {resume.skills.map((cat, catIndex) => (
+                <div key={catIndex} className="border p-4 mb-4 rounded-md bg-gray-50">
+                  <InputField
+                    label="Category"
+                    name="category"
+                    value={cat.category}
+                    onChange={(e) => dispatch(updateSkillCategory({ index: catIndex, category: e.target.value }))}
+                    required
+                    error={errors[`skills[${catIndex}].category`]}
+                  />
+                  {cat.skills.map((skill, skillIndex) => (
+                    <div key={skillIndex} className="flex gap-4 mb-2 items-end">
+                      <InputField
+                        label="Skill Name"
+                        name="name"
+                        value={skill.name}
+                        onChange={(e) => dispatch(updateSkillInCategory({ catIndex, skillIndex, data: { name: e.target.value } }))}
+                        className="flex-1"
+                        required
+                        error={errors[`skills[${catIndex}][${skillIndex}].name`]}
+                      />
+                      <InputField
+                        label="Level"
+                        name="level"
+                        value={skill.level}
+                        onChange={(e) => dispatch(updateSkillInCategory({ catIndex, skillIndex, data: { level: e.target.value } }))}
+                        className="flex-1"
+                      />
+                      <button
+                        type="button"
+                        className="text-red-500 hover:text-red-700 text-sm"
+                        onClick={() => dispatch(removeSkillFromCategory({ catIndex, skillIndex }))}
+                        aria-label={`Remove skill ${skillIndex + 1}`}
+                      >
+                        Remove Skill
+                      </button>
+                    </div>
+                  ))}
+                  <button
+                    type="button"
+                    className="mt-2 text-blue-500 hover:text-blue-700 text-sm"
+                    onClick={() => dispatch(addSkillToCategory({ index: catIndex }))}
+                    aria-label={`Add skill to category ${cat.category}`}
+                  >
+                    Add Skill
+                  </button>
+                  <button
+                    type="button"
+                    className="mt-2 ml-4 text-red-500 hover:text-red-700 text-sm"
+                    onClick={() => dispatch(removeSkillCategory(catIndex))}
+                    aria-label={`Remove category ${cat.category}`}
+                  >
+                    Remove Category
+                  </button>
+                </div>
+              ))}
+              <button
+                type="button"
+                className="text-blue-600 hover:text-blue-800 font-medium"
+                onClick={() => dispatch(addSkillCategory())}
+                aria-label="Add Skill Category"
+              >
+                Add Skill Category
+              </button>
+            </section>
+
+            {/* References */}
+            <section className="mb-8">
+              <h3 className="text-lg font-semibold mb-4 text-gray-700">References</h3>
+              {resume.references.map((ref, index) => (
+                <div key={index}>
+                  <SectionItem
+                    item={ref}
+                    index={index}
+                    fields={[
+                      { label: 'Name', name: 'name', required: true },
+                      { label: 'Position', name: 'position', required: true },
+                      { label: 'Company', name: 'company', required: true },
+                      { label: 'Phone', name: 'phone', type: 'tel' },
+                      { label: 'Email', name: 'email', type: 'email' },
+                      { label: 'Relationship', name: 'relationship' },
+                    ]}
+                    updateAction={updateReference}
+                    removeAction={removeReference}
+                    onSave={resumeId ? handleSaveSectionItem.bind(null, 'reference') : null}
+                    onDelete={resumeId ? handleDeleteSectionItem.bind(null, 'reference') : null}
+                    isSaving={loadingStates[`reference-${index}`]}
+                    isDeleting={loadingStates[`reference-${index}-delete`]}
+                    sectionName="Reference"
+                    dispatch={dispatch}
+                  />
+                  {errors[`reference-${index}`] && <div className="text-red-500 text-sm mt-1">{errors[`reference-${index}`]}</div>}
+                </div>
+              ))}
+              <button
+                type="button"
+                className="text-blue-600 hover:text-blue-800 font-medium"
+                onClick={() => dispatch(addReference())}
+                aria-label="Add Reference"
+              >
+                Add Reference
+              </button>
+            </section>
+
+            {/* Form Actions */}
+            <div className="flex gap-4 justify-center">
+              <button
+                type="submit"
+                className="bg-indigo-600 text-white py-2 px-6 rounded-md hover:bg-indigo-700 disabled:bg-indigo-400 flex items-center"
+                disabled={isCreating || isUpdating}
+                aria-label="Save and Generate Resume"
+              >
+                {isCreating || isUpdating ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                    </svg>
+                    Saving...
+                  </>
+                ) : (
+                  'Save & Generate Resume'
+                )}
+              </button>
+              {resumeId && (
                 <button
                   type="button"
-                  className="text-red-500 hover:text-red-700 text-sm"
-                  onClick={() => dispatch(removeSkillFromCategory({ catIndex, skillIndex }))}
-                  aria-label={`Remove skill ${skillIndex + 1}`}
+                  className="bg-red-600 text-white py-2 px-6 rounded-md hover:bg-red-700 disabled:bg-red-400 flex items-center"
+                  onClick={handleDelete}
+                  disabled={isDeleting}
+                  aria-label="Delete Resume"
                 >
-                  Remove Skill
+                  {isDeleting ? (
+                    <>
+                      <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                      </svg>
+                      Deleting...
+                    </>
+                  ) : (
+                    'Delete Resume'
+                  )}
                 </button>
-              </div>
-            ))}
-            <button
-              type="button"
-              className="mt-2 text-blue-500 hover:text-blue-700 text-sm"
-              onClick={() => dispatch(addSkillToCategory({ index: catIndex }))}
-              aria-label={`Add skill to category ${cat.category}`}
-            >
-              Add Skill
-            </button>
-            <button
-              type="button"
-              className="mt-2 ml-4 text-red-500 hover:text-red-700 text-sm"
-              onClick={() => dispatch(removeSkillCategory(catIndex))}
-              aria-label={`Remove category ${cat.category}`}
-            >
-              Remove Category
-            </button>
-          </div>
-        ))}
-        <button
-          type="button"
-          className="text-blue-600 hover:text-blue-800 font-medium"
-          onClick={() => dispatch(addSkillCategory())}
-          aria-label="Add Skill Category"
-        >
-          Add Skill Category
-        </button>
-      </section>
+              )}
+            </div>
+          </form>
+        </div>
 
-      {/* References */}
-      <section className="mb-8">
-        <h3 className="text-lg font-semibold mb-4 text-gray-700">References</h3>
-        {resume.references.map((ref, index) => (
-          <div key={index}>
-            <SectionItem
-              item={ref}
-              index={index}
-              fields={[
-                { label: 'Name', name: 'name', required: true },
-                { label: 'Position', name: 'position', required: true },
-                { label: 'Company', name: 'company', required: true },
-                { label: 'Phone', name: 'phone', type: 'tel' },
-                { label: 'Email', name: 'email', type: 'email' },
-                { label: 'Relationship', name: 'relationship' },
-              ]}
-              updateAction={updateReference}
-              removeAction={removeReference}
-              onSave={resumeId ? handleSaveSectionItem.bind(null, 'reference') : null}
-              onDelete={resumeId ? handleDeleteSectionItem.bind(null, 'reference') : null}
-              isSaving={loadingStates[`reference-${index}`]}
-              isDeleting={loadingStates[`reference-${index}-delete`]}
-              sectionName="Reference"
-              dispatch={dispatch}
-            />
-            {errors[`reference-${index}`] && <div className="text-red-500 text-sm mt-1">{errors[`reference-${index}`]}</div>}
-          </div>
-        ))}
-        <button
-          type="button"
-          className="text-blue-600 hover:text-blue-800 font-medium"
-          onClick={() => dispatch(addReference())}
-          aria-label="Add Reference"
-        >
-          Add Reference
-        </button>
-      </section>
-
-      {/* Form Actions */}
-      <div className="flex gap-4 justify-center">
-        <button
-          type="submit"
-          className="bg-indigo-600 text-white py-2 px-6 rounded-md hover:bg-indigo-700 disabled:bg-indigo-400 flex items-center"
-          disabled={isCreating || isUpdating}
-          aria-label="Save and Generate Resume"
-        >
-          {isCreating || isUpdating ? (
-            <>
-              <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
-              </svg>
-              Saving...
-            </>
-          ) : (
-            'Save & Generate Resume'
-          )}
-        </button>
-        {resumeId && (
-          <button
-            type="button"
-            className="bg-red-600 text-white py-2 px-6 rounded-md hover:bg-red-700 disabled:bg-red-400 flex items-center"
-            onClick={handleDelete}
-            disabled={isDeleting}
-            aria-label="Delete Resume"
-          >
-            {isDeleting ? (
-              <>
-                <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
-                </svg>
-                Deleting...
-              </>
-            ) : (
-              'Delete Resume'
-            )}
-          </button>
-        )}
+        {/* Preview Section */}
+        <div className="lg:w-1/2">
+          {/* <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">Resume Preview</h2> */}
+          <ResumePreview resume={resume} />
+        </div>
       </div>
-    </form>
+      <Footer />
+    </>
   );
 };
 

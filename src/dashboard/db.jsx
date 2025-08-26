@@ -223,7 +223,7 @@ export default function Dashboard() {
                 className="relative mb-4"
               >
                 <img
-                  src={user.photo || "https://i.ibb.co/qYThsT7Q/4196591.png"}
+                  src={user.photo || "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}
                   alt="User avatar"
                   className="w-28 h-28 rounded-full object-cover shadow-lg border-4 border-indigo-100"
                 />
