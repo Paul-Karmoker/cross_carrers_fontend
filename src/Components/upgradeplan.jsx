@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import { toast } from "react-hot-toast";
 import { useGetprofileQuery, useSubscribeMutation } from "../context/authApi";
 import { FaPaypal } from "react-icons/fa";
+import Navbar from "./navbar";
+import Footer from "./footer";
 
 
 const CheckoutForm = ({ plan, onSuccess, onClose }) => {
@@ -183,6 +185,9 @@ export default function UpgradePlan() {
   };
 
   return (
+    <div>
+        <Navbar/>
+      
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 text-gray-900 p-6 md:p-10 flex items-center justify-center">
       <div className="max-w-7xl w-full">
         <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-indigo-900 tracking-tight drop-shadow-sm">
@@ -266,5 +271,8 @@ export default function UpgradePlan() {
         </p>
       </div>
     </div>
+        <Footer/>
+    </div>
+  
   );
 }

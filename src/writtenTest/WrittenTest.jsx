@@ -252,9 +252,13 @@ const WrittenTest = () => {
     }
 
     return (
-      <div className="text-center">
-        <h2 className="text-xl font-bold text-gray-800 mb-2">Node.js Developer Test</h2>
-        <p className="text-gray-600 mb-6">Fill in the details below to initialize your written test session.</p>
+      <div className="text-center mt-8">
+        <h2 className="text-xl font-bold text-gray-800 mb-2">
+          The Smarter Way to Stay Covered
+        </h2>
+        <p className="text-gray-600 mb-6">
+          Fill in the details below to initialize your written test session.
+        </p>
         {formError && <p className="text-red-600 mb-4">{formError}</p>}
         <div className="space-y-4">
           <input
