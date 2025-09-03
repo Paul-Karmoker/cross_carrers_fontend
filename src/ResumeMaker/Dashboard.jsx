@@ -1,8 +1,9 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGetAllResumesQuery } from '../context/resumeApi'; // Using absolute path
 import { FiPlus, FiStar, FiLinkedin, FiFileText, FiMoreHorizontal } from 'react-icons/fi';
 import { FaFileInvoice } from 'react-icons/fa';
+import Navbar from "../Components/navbar";
+import Footer from "../Components/footer.jsx";
 
 // A component for the skeleton loader
 const ResumeCardSkeleton = () => (
@@ -14,7 +15,7 @@ const ResumeCardSkeleton = () => (
 
 const Dashboard = () => {
     const navigate = useNavigate();
-    const { data: response, isLoading, isError, error } = useGetAllResumesQuery();
+    const { data: response, isLoading, isError } = useGetAllResumesQuery();
     
     // START: CORRECTED CODE BLOCK
     // Get the data object/array from the response
@@ -24,10 +25,14 @@ const Dashboard = () => {
     // END: CORRECTED CODE BLOCK
 
     const handleCreateNew = () => {
-        navigate('/templates');
+        navigate('/editor');
     };
 
     return (
+
+        <>
+            <Navbar />
+             
         <div className="bg-gray-50 min-h-screen">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Header Section */}
@@ -120,6 +125,10 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
+            <Footer/>
+            
+        </>
+       
     );
 };
 

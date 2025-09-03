@@ -641,7 +641,7 @@ const ResumeForm = ({ resumeId }) => {
   return (
     <>
       <Navbar />
-      <div className="max-w-full p-6 flex flex-col lg:flex-row gap-6 mt-12">
+      <div className="max-w-full p-6 flex flex-col lg:flex-row gap-6 mt-[90px]">
         {/* Sidebar Navigation */}
         <div className="lg:w-1/6 mb-6 lg:mb-0">
           <div className="bg-white rounded-lg shadow-md p-4">
