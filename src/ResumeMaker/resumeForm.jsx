@@ -51,6 +51,7 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import "../assets/ResumeForm.css";
 import ResumePreview from "./resume-form-preview.jsx";
+import ResumeFormPreviewTwo from "./resume-form-previewTwo.jsx";
 
 const ResumeForm = ({ resumeId }) => {
   const resume = useSelector((state) => state.resume);
@@ -1617,8 +1618,8 @@ const ResumeForm = ({ resumeId }) => {
             
           </button>
           <button>
-            <div>
-              Hello
+            <div ref={previewRef}>
+            <ResumeFormPreviewTwo resume={resume} />
             </div>
           </button>
           
