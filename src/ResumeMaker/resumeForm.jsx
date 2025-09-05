@@ -51,7 +51,7 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import "../assets/ResumeForm.css";
 import ResumePreview from "./resume-form-preview.jsx";
-import ResumeFormPreviewTwo from "./resume-form-previewTwo.jsx";
+import ResumeTemp3 from "./resumeTemp3.jsx";
 
 const ResumeForm = ({ resumeId }) => {
   const resume = useSelector((state) => state.resume);
@@ -59,7 +59,8 @@ const ResumeForm = ({ resumeId }) => {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [loadingStates, setLoadingStates] = useState({});
-  const [activePreview, setActivePreview] = useState<"preview1" | "preview2">("preview1");
+  const [activePreview, setActivePreview] = useState("preview1");
+
   const firstErrorRef = useRef(null);
   const [activeSection, setActiveSection] = useState("personal");
   const [isUploading, setIsUploading] = useState(false);
@@ -106,7 +107,7 @@ const ResumeForm = ({ resumeId }) => {
     }
   };
 
-  // API hooks (unchanged from your original code)
+  // API hooks
   const {
     data: resumeData,
     isLoading: isFetching,
@@ -128,7 +129,7 @@ const ResumeForm = ({ resumeId }) => {
     useGetCareerObjectiveSuggestionMutation();
   const [getCareerSummarySuggestion] = useGetCareerSummarySuggestionMutation();
 
-  // Sync API data with Redux store (fixed indexing bugs)
+  // Sync API data with Redux store - FIXED: Safely access nested properties
   useEffect(() => {
     if (resumeData) {
       dispatch(resetResume());
@@ -136,47 +137,53 @@ const ResumeForm = ({ resumeId }) => {
       dispatch(updateCareerObjective(resumeData.careerObjective || ""));
       dispatch(updateCareerSummary(resumeData.careerSummary || ""));
       
-      // Work Experience
-      let workCount = resume.workExperience.length;
-      resumeData.workExperience?.forEach((exp, i) => {
-        dispatch(addWorkExperience());
-        dispatch(updateWorkExperience({ index: workCount + i, data: exp }));
-      });
+      // Work Experience - FIXED: Check if array exists before iterating
+      if (Array.isArray(resumeData.workExperience)) {
+        resumeData.workExperience.forEach((exp, i) => {
+          dispatch(addWorkExperience());
+          dispatch(updateWorkExperience({ index: i, data: exp }));
+        });
+      }
       
-      // Education
-      let eduCount = resume.education.length;
-      resumeData.education?.forEach((edu, i) => {
-        dispatch(addEducation());
-        dispatch(updateEducation({ index: eduCount + i, data: edu }));
-      });
+      // Education - FIXED: Check if array exists before iterating
+      if (Array.isArray(resumeData.education)) {
+        resumeData.education.forEach((edu, i) => {
+          dispatch(addEducation());
+          dispatch(updateEducation({ index: i, data: edu }));
+        });
+      }
       
-      // Trainings
-      let trainCount = resume.trainings.length;
-      resumeData.trainings?.forEach((train, i) => {
-        dispatch(addTraining());
-        dispatch(updateTraining({ index: trainCount + i, data: train }));
-      });
+      // Trainings - FIXED: Check if array exists before iterating
+      if (Array.isArray(resumeData.trainings)) {
+        resumeData.trainings.forEach((train, i) => {
+          dispatch(addTraining());
+          dispatch(updateTraining({ index: i, data: train }));
+        });
+      }
       
-      // Certifications
-      let certCount = resume.certifications.length;
-      resumeData.certifications?.forEach((cert, i) => {
-        dispatch(addCertification());
-        dispatch(updateCertification({ index: certCount + i, data: cert }));
-      });
+      // Certifications - FIXED: Check if array exists before iterating
+      if (Array.isArray(resumeData.certifications)) {
+        resumeData.certifications.forEach((cert, i) => {
+          dispatch(addCertification());
+          dispatch(updateCertification({ index: i, data: cert }));
+        });
+      }
       
-      // Skills
-      let skillCount = resume.skills.length;
-      resumeData.skills?.forEach((skill, i) => {
-        dispatch(addSkill());
-        dispatch(updateSkill({ index: skillCount + i, data: skill }));
-      });
+      // Skills - FIXED: Check if array exists before iterating
+      if (Array.isArray(resumeData.skills)) {
+        resumeData.skills.forEach((skill, i) => {
+          dispatch(addSkill());
+          dispatch(updateSkill({ index: i, data: skill }));
+        });
+      }
       
-      // References
-      let refCount = resume.references.length;
-      resumeData.references?.forEach((ref, i) => {
-        dispatch(addReference());
-        dispatch(updateReference({ index: refCount + i, data: ref }));
-      });
+      // References - FIXED: Check if array exists before iterating
+      if (Array.isArray(resumeData.references)) {
+        resumeData.references.forEach((ref, i) => {
+          dispatch(addReference());
+          dispatch(updateReference({ index: i, data: ref }));
+        });
+      }
     }
   }, [resumeData, dispatch]);
 
@@ -187,133 +194,145 @@ const ResumeForm = ({ resumeId }) => {
     }
   }, [errors]);
 
-  // Strong Validation (fixed education validation logic and messages)
+  // Strong Validation - FIXED: Safely access array properties
   const validateForm = useCallback(() => {
     const newErrors = {};
     // Personal Info
-    if (!resume.personalInfo.firstName)
+    if (!resume.personalInfo?.firstName)
       newErrors.firstName = "First Name is required";
-    if (!resume.personalInfo.lastName)
+    if (!resume.personalInfo?.lastName)
       newErrors.lastName = "Last Name is required";
-    if (!resume.personalInfo.emailAddress)
+    if (!resume.personalInfo?.emailAddress)
       newErrors.emailAddress = "Email Address is required";
     else if (!/\S+@\S+\.\S+/.test(resume.personalInfo.emailAddress))
       newErrors.emailAddress = "Invalid email format";
     if (
-      resume.personalInfo.phoneNumber &&
+      resume.personalInfo?.phoneNumber &&
       !/^\+?[\d\s-]{10,}$/.test(resume.personalInfo.phoneNumber)
     )
       newErrors.phoneNumber = "Invalid phone number format";
 
-    // Work Experience
-    resume.workExperience.forEach((exp, index) => {
-      if (!exp.companyName)
-        newErrors[`workExperience[${index}].companyName`] =
-          "Company Name is required";
-      if (!exp.position)
-        newErrors[`workExperience[${index}].position`] = "Position is required";
-      if (!exp.from)
-        newErrors[`workExperience[${index}].from`] = "Start date is required";
-      if (exp.from && exp.to && new Date(exp.from) > new Date(exp.to))
-        newErrors[`workExperience[${index}].dates`] =
-          "Start date cannot be after end date";
-      if (!Array.isArray(exp.description))
-        newErrors[`workExperience[${index}].description`] =
-          "Description must be an array";
-    });
+    // Work Experience - FIXED: Check if array exists before iterating
+    if (Array.isArray(resume.workExperience)) {
+      resume.workExperience.forEach((exp, index) => {
+        if (!exp?.companyName)
+          newErrors[`workExperience[${index}].companyName`] =
+            "Company Name is required";
+        if (!exp?.position)
+          newErrors[`workExperience[${index}].position`] = "Position is required";
+        if (!exp?.from)
+          newErrors[`workExperience[${index}].from`] = "Start date is required";
+        if (exp?.from && exp?.to && new Date(exp.from) > new Date(exp.to))
+          newErrors[`workExperience[${index}].dates`] =
+            "Start date cannot be after end date";
+        if (!Array.isArray(exp?.description))
+          newErrors[`workExperience[${index}].description`] =
+            "Description must be an array";
+      });
+    }
 
-    // Education
-    resume.education.forEach((edu, index) => {
-      if (!edu.institutionName)
-        newErrors[`education[${index}].institutionName`] =
-          "Institution Name is required";
-      if (!edu.fieldOfStudy)
-        newErrors[`education[${index}].fieldOfStudy`] =
-          "Field of Study is required";
-      if (!edu.degree)
-        newErrors[`education[${index}].degree`] = "Degree is required";
-      if (!edu.city)
-        newErrors[`education[${index}].city`] = "City is required";
-      if (!edu.country)
-        newErrors[`education[${index}].country`] = "Country is required";
-      if (!edu.passingYear)
-        newErrors[`education[${index}].passingYear`] =
-          "Passing Year is required";
-      if (edu.gpa) {
-        const gpaValue = parseFloat(edu.gpa);
-        if (isNaN(gpaValue) || gpaValue < 0 || gpaValue > 4) {
-          newErrors[`education[${index}].gpa`] =
-            "GPA must be a number between 0 and 4";
+    // Education - FIXED: Check if array exists before iterating
+    if (Array.isArray(resume.education)) {
+      resume.education.forEach((edu, index) => {
+        if (!edu?.institutionName)
+          newErrors[`education[${index}].institutionName`] =
+            "Institution Name is required";
+        if (!edu?.fieldOfStudy)
+          newErrors[`education[${index}].fieldOfStudy`] =
+            "Field of Study is required";
+        if (!edu?.degree)
+          newErrors[`education[${index}].degree`] = "Degree is required";
+        if (!edu?.city)
+          newErrors[`education[${index}].city`] = "City is required";
+        if (!edu?.country)
+          newErrors[`education[${index}].country`] = "Country is required";
+        if (!edu?.passingYear)
+          newErrors[`education[${index}].passingYear`] =
+            "Passing Year is required";
+        if (edu?.gpa) {
+          const gpaValue = parseFloat(edu.gpa);
+          if (isNaN(gpaValue) || gpaValue < 0 || gpaValue > 4) {
+            newErrors[`education[${index}].gpa`] =
+              "GPA must be a number between 0 and 4";
+          }
         }
-      }
-    });
+      });
+    }
 
-    // Trainings
-    resume.trainings.forEach((train, index) => {
-      if (!train.name)
-        newErrors[`trainings[${index}].name`] = "Training Name is required";
-      if (!train.institution)
-        newErrors[`trainings[${index}].institution`] =
-          "Institution is required";
-      if (!train.from)
-        newErrors[`trainings[${index}].from`] = "Start date is required";
-      if (train.from && train.to && new Date(train.from) > new Date(train.to))
-        newErrors[`trainings[${index}].dates`] =
-          "Start date cannot be after end date";
-      if (!Array.isArray(train.description))
-        newErrors[`trainings[${index}].description`] =
-          "Description must be an array";
-    });
+    // Trainings - FIXED: Check if array exists before iterating
+    if (Array.isArray(resume.trainings)) {
+      resume.trainings.forEach((train, index) => {
+        if (!train?.name)
+          newErrors[`trainings[${index}].name`] = "Training Name is required";
+        if (!train?.institution)
+          newErrors[`trainings[${index}].institution`] =
+            "Institution is required";
+        if (!train?.from)
+          newErrors[`trainings[${index}].from`] = "Start date is required";
+        if (train?.from && train?.to && new Date(train.from) > new Date(train.to))
+          newErrors[`trainings[${index}].dates`] =
+            "Start date cannot be after end date";
+        if (!Array.isArray(train?.description))
+          newErrors[`trainings[${index}].description`] =
+            "Description must be an array";
+      });
+    }
 
-    // Certifications
-    resume.certifications.forEach((cert, index) => {
-      if (!cert.name)
-        newErrors[`certifications[${index}].name`] =
-          "Certification Name is required";
-      if (!cert.authority)
-        newErrors[`certifications[${index}].authority`] =
-          "Authority is required";
-      if (!cert.date)
-        newErrors[`certifications[${index}].date`] = "Date is required";
-      if (!Array.isArray(cert.description))
-        newErrors[`certifications[${index}].description`] =
-          "Description must be an array";
-    });
+    // Certifications - FIXED: Check if array exists before iterating
+    if (Array.isArray(resume.certifications)) {
+      resume.certifications.forEach((cert, index) => {
+        if (!cert?.name)
+          newErrors[`certifications[${index}].name`] =
+            "Certification Name is required";
+        if (!cert?.authority)
+          newErrors[`certifications[${index}].authority`] =
+            "Authority is required";
+        if (!cert?.date)
+          newErrors[`certifications[${index}].date`] = "Date is required";
+        if (!Array.isArray(cert?.description))
+          newErrors[`certifications[${index}].description`] =
+            "Description must be an array";
+      });
+    }
 
-    // Skills (flat array)
-    resume.skills.forEach((skill, index) => {
-      if (!skill.name)
-        newErrors[`skills[${index}].name`] = "Skill Name is required";
-      if (
-        skill.level &&
-        !["Beginner", "Intermediate", "Advanced", "Expert"].includes(
-          skill.level
-        )
-      ) {
-        newErrors[`skills[${index}].level`] =
-          "Skill Level must be Beginner, Intermediate, Advanced, or Expert";
-      }
-    });
+    // Skills - FIXED: Check if array exists before iterating
+    if (Array.isArray(resume.skills)) {
+      resume.skills.forEach((skill, index) => {
+        if (!skill?.name)
+          newErrors[`skills[${index}].name`] = "Skill Name is required";
+        if (
+          skill?.level &&
+          !["Beginner", "Intermediate", "Advanced", "Expert"].includes(
+            skill.level
+          )
+        ) {
+          newErrors[`skills[${index}].level`] =
+            "Skill Level must be Beginner, Intermediate, Advanced, or Expert";
+        }
+      });
+    }
 
-    // References
-    resume.references.forEach((ref, index) => {
-      if (!ref.name)
-        newErrors[`references[${index}].name`] = "Name is required";
-      if (!ref.position)
-        newErrors[`references[${index}].position`] = "Position is required";
-      if (!ref.company)
-        newErrors[`references[${index}].company`] = "Company is required";
-      if (ref.email && !/\S+@\S+\.\S+/.test(ref.email))
-        newErrors[`references[${index}].email`] = "Invalid email format";
-      if (ref.phone && !/^\+?[\d\s-]{10,}$/.test(ref.phone))
-        newErrors[`references[${index}].phone`] = "Invalid phone number format";
-    });
+    // References - FIXED: Check if array exists before iterating
+    if (Array.isArray(resume.references)) {
+      resume.references.forEach((ref, index) => {
+        if (!ref?.name)
+          newErrors[`references[${index}].name`] = "Name is required";
+        if (!ref?.position)
+          newErrors[`references[${index}].position`] = "Position is required";
+        if (!ref?.company)
+          newErrors[`references[${index}].company`] = "Company is required";
+        if (ref?.email && !/\S+@\S+\.\S+/.test(ref.email))
+          newErrors[`references[${index}].email`] = "Invalid email format";
+        if (ref?.phone && !/^\+?[\d\s-]{10,}$/.test(ref.phone))
+          newErrors[`references[${index}].phone`] = "Invalid phone number format";
+      });
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   }, [resume]);
 
-  // Handlers (unchanged from your original code)
+  // Handlers
   const handlePersonalChange = useCallback(
     (e) => {
       const { name, value } = e.target;
@@ -328,7 +347,7 @@ const ResumeForm = ({ resumeId }) => {
       const { name, value } = e.target;
       dispatch(
         updatePersonalInfo({
-          [addrType]: { ...resume.personalInfo[addrType], [name]: value },
+          [addrType]: { ...(resume.personalInfo?.[addrType] || {}), [name]: value },
         })
       );
     },
@@ -468,7 +487,7 @@ const ResumeForm = ({ resumeId }) => {
         response.data.suggestions.forEach((desc) => {
           const updatedWorkExp = {
             ...workExp,
-            description: [...workExp.description, desc]
+            description: [...(workExp.description || []), desc]
           };
           dispatch(updateWorkExperience({ index, data: updatedWorkExp }));
         });
@@ -497,7 +516,7 @@ const ResumeForm = ({ resumeId }) => {
       ).unwrap();
       
       // Clear existing skills by removing from the end to avoid index issues
-      for (let i = resume.skills.length - 1; i >= 0; i--) {
+      for (let i = (resume.skills?.length || 0) - 1; i >= 0; i--) {
         dispatch(removeSkill(i));
       }
       
@@ -505,7 +524,7 @@ const ResumeForm = ({ resumeId }) => {
         dispatch(addSkill());
         dispatch(
           updateSkill({
-            index: resume.skills.length,
+            index: resume.skills?.length || 0,
             data: { name: skill, level: "Advanced" },
           })
         );
@@ -515,7 +534,7 @@ const ResumeForm = ({ resumeId }) => {
         dispatch(addSkill());
         dispatch(
           updateSkill({
-            index: resume.skills.length,
+            index: resume.skills?.length || 0,
             data: { name: skill, level: "Advanced" },
           })
         );
@@ -531,7 +550,7 @@ const ResumeForm = ({ resumeId }) => {
     } finally {
       setLoadingStates((prev) => ({ ...prev, skills: false }));
     }
-  }, [getSkillsSuggestion, resume.workExperience, dispatch]);
+  }, [getSkillsSuggestion, resume.workExperience, resume.skills, dispatch]);
 
   const handleGetCareerObjective = useCallback(async () => {
     setLoadingStates((prev) => ({ ...prev, careerObjective: true }));
@@ -610,8 +629,8 @@ const ResumeForm = ({ resumeId }) => {
       
       pdf.addImage(imgData, 'JPEG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
       pdf.save(
-        `${resume.personalInfo.firstName || "resume"}_${
-          resume.personalInfo.lastName || ""
+        `${resume.personalInfo?.firstName || "resume"}_${
+          resume.personalInfo?.lastName || ""
         }_resume.pdf`
       );
     } catch (error) {
@@ -704,7 +723,7 @@ const ResumeForm = ({ resumeId }) => {
                 <InputField
                   label="First Name"
                   name="firstName"
-                  value={resume.personalInfo.firstName}
+                  value={resume.personalInfo?.firstName || ""}
                   onChange={handlePersonalChange}
                   required
                   error={errors.firstName}
@@ -713,7 +732,7 @@ const ResumeForm = ({ resumeId }) => {
                 <InputField
                   label="Last Name"
                   name="lastName"
-                  value={resume.personalInfo.lastName}
+                  value={resume.personalInfo?.lastName || ""}
                   onChange={handlePersonalChange}
                   required
                   error={errors.lastName}
@@ -721,14 +740,14 @@ const ResumeForm = ({ resumeId }) => {
                 <InputField
                   label="Professional Title"
                   name="professionalTitle"
-                  value={resume.personalInfo.professionalTitle}
+                  value={resume.personalInfo?.professionalTitle || ""}
                   onChange={handlePersonalChange}
                   placeholder="e.g. Senior Software Engineer"
                 />
                 <InputField
                   label="Phone Number"
                   name="phoneNumber"
-                  value={resume.personalInfo.phoneNumber}
+                  value={resume.personalInfo?.phoneNumber || ""}
                   onChange={handlePersonalChange}
                   type="tel"
                   error={errors.phoneNumber}
@@ -737,7 +756,7 @@ const ResumeForm = ({ resumeId }) => {
                 <InputField
                   label="Email Address"
                   name="emailAddress"
-                  value={resume.personalInfo.emailAddress}
+                  value={resume.personalInfo?.emailAddress || ""}
                   onChange={handlePersonalChange}
                   type="email"
                   required
@@ -747,21 +766,21 @@ const ResumeForm = ({ resumeId }) => {
                 <InputField
                   label="Skype"
                   name="skype"
-                  value={resume.personalInfo.skype}
+                  value={resume.personalInfo?.skype || ""}
                   onChange={handlePersonalChange}
                   placeholder="live:yourusername"
                 />
                 <InputField
                   label="LinkedIn"
                   name="linkedIn"
-                  value={resume.personalInfo.linkedIn}
+                  value={resume.personalInfo?.linkedIn || ""}
                   onChange={handlePersonalChange}
                   placeholder="https://linkedin.com/in/yourprofile"
                 />
                 <InputField
                   label="Portfolio"
                   name="portfolio"
-                  value={resume.personalInfo.portfolio}
+                  value={resume.personalInfo?.portfolio || ""}
                   onChange={handlePersonalChange}
                   placeholder="https://yourportfolio.com"
                 />
@@ -783,7 +802,7 @@ const ResumeForm = ({ resumeId }) => {
                 hover:file:bg-indigo-100
                 disabled:opacity-50"
                     />
-                    {resume.personalInfo.profilePicture && (
+                    {resume.personalInfo?.profilePicture && (
                       <div className="flex-shrink-0">
                         <img
                           src={resume.personalInfo.profilePicture}
@@ -830,25 +849,25 @@ const ResumeForm = ({ resumeId }) => {
                 <InputField
                   label="Street"
                   name="street"
-                  value={resume.personalInfo.address.street}
+                  value={resume.personalInfo?.address?.street || ""}
                   onChange={(e) => handleAddressChange(e, "address")}
                 />
                 <InputField
                   label="City"
                   name="city"
-                  value={resume.personalInfo.address.city}
+                  value={resume.personalInfo?.address?.city || ""}
                   onChange={(e) => handleAddressChange(e, "address")}
                 />
                 <InputField
                   label="Postal Code"
                   name="postal"
-                  value={resume.personalInfo.address.postal}
+                  value={resume.personalInfo?.address?.postal || ""}
                   onChange={(e) => handleAddressChange(e, "address")}
                 />
                 <InputField
                   label="Country"
                   name="country"
-                  value={resume.personalInfo.address.country}
+                  value={resume.personalInfo?.address?.country || ""}
                   onChange={(e) => handleAddressChange(e, "address")}
                 />
               </div>
@@ -859,25 +878,25 @@ const ResumeForm = ({ resumeId }) => {
                 <InputField
                   label="Street"
                   name="street"
-                  value={resume.personalInfo.permanentAddress.street}
+                  value={resume.personalInfo?.permanentAddress?.street || ""}
                   onChange={(e) => handleAddressChange(e, "permanentAddress")}
                 />
                 <InputField
                   label="City"
                   name="city"
-                  value={resume.personalInfo.permanentAddress.city}
+                  value={resume.personalInfo?.permanentAddress?.city || ""}
                   onChange={(e) => handleAddressChange(e, "permanentAddress")}
                 />
                 <InputField
                   label="Postal Code"
                   name="postal"
-                  value={resume.personalInfo.permanentAddress.postal}
+                  value={resume.personalInfo?.permanentAddress?.postal || ""}
                   onChange={(e) => handleAddressChange(e, "permanentAddress")}
                 />
                 <InputField
                   label="Country"
                   name="country"
-                  value={resume.personalInfo.permanentAddress.country}
+                  value={resume.personalInfo?.permanentAddress?.country || ""}
                   onChange={(e) => handleAddressChange(e, "permanentAddress")}
                 />
               </div>
@@ -893,7 +912,7 @@ const ResumeForm = ({ resumeId }) => {
                   <InputField
                     label="Career Objective"
                     type="textarea"
-                    value={resume.careerObjective}
+                    value={resume.careerObjective || ""}
                     onChange={(e) =>
                       dispatch(updateCareerObjective(e.target.value))
                     }
@@ -943,7 +962,7 @@ const ResumeForm = ({ resumeId }) => {
                   <InputField
                     label="Career Summary"
                     type="textarea"
-                    value={resume.careerSummary}
+                    value={resume.careerSummary || ""}
                     onChange={(e) =>
                       dispatch(updateCareerSummary(e.target.value))
                     }
@@ -1011,7 +1030,7 @@ const ResumeForm = ({ resumeId }) => {
                 </button>
               </div>
               
-              {resume.workExperience.length === 0 ? (
+              {(!resume.workExperience || resume.workExperience.length === 0) ? (
                 <div className="bg-gray-50 p-6 rounded-lg text-center border border-dashed border-gray-300">
                   <svg className="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -1190,7 +1209,7 @@ const ResumeForm = ({ resumeId }) => {
                 </button>
               </div>
               
-              {resume.trainings.length === 0 ? (
+              {(!resume.trainings || resume.trainings.length === 0) ? (
                 <div className="bg-gray-50 p-6 rounded-lg text-center border border-dashed border-gray-300">
                   <svg className="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -1260,7 +1279,7 @@ const ResumeForm = ({ resumeId }) => {
                 </button>
               </div>
               
-              {resume.certifications.length === 0 ? (
+              {(!resume.certifications || resume.certifications.length === 0) ? (
                 <div className="bg-gray-50 p-6 rounded-lg text-center border border-dashed border-gray-300">
                   <svg className="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -1364,7 +1383,7 @@ const ResumeForm = ({ resumeId }) => {
                 <div className="text-red-500 text-sm mb-4 bg-red-50 p-2 rounded-md">{errors.skills}</div>
               )}
               
-              {resume.skills.length === 0 ? (
+              {(!resume.skills || resume.skills.length === 0) ? (
                 <div className="bg-gray-50 p-6 rounded-lg text-center border border-dashed border-gray-300">
                   <svg className="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -1386,7 +1405,7 @@ const ResumeForm = ({ resumeId }) => {
                         <InputField
                           label="Skill Name"
                           name="name"
-                          value={skill.name}
+                          value={skill?.name || ""}
                           onChange={(e) =>
                             dispatch(
                               updateSkill({
@@ -1409,7 +1428,7 @@ const ResumeForm = ({ resumeId }) => {
                           <select
                             id={`skill-level-${index}`}
                             name="level"
-                            value={skill.level || ""}
+                            value={skill?.level || ""}
                             onChange={(e) =>
                               dispatch(
                                 updateSkill({
@@ -1442,7 +1461,7 @@ const ResumeForm = ({ resumeId }) => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                           </svg>
                         </button>
-                      </div>
+                        </div>
                     </div>
                   ))}
                 </div>
@@ -1468,7 +1487,7 @@ const ResumeForm = ({ resumeId }) => {
                 </button>
               </div>
               
-              {resume.references.length === 0 ? (
+              {(!resume.references || resume.references.length === 0) ? (
                 <div className="bg-gray-50 p-6 rounded-lg text-center border border-dashed border-gray-300">
                   <svg className="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -1556,7 +1575,7 @@ const ResumeForm = ({ resumeId }) => {
                 ) : (
                   <>
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 极狐 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                     Save & Generate Resume
                   </>
@@ -1574,7 +1593,7 @@ const ResumeForm = ({ resumeId }) => {
                     <>
                       <svg
                         className="animate-spin h-5 w-5 mr-2"
-                        viewBox="0 0 24 24"
+                        viewBox="极狐 0 0 24 24"
                       >
                         <circle
                           className="opacity-25"
@@ -1587,7 +1606,7 @@ const ResumeForm = ({ resumeId }) => {
                         <path
                           className="opacity-75"
                           fill="currentColor"
-                          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                          d="M4 12a8 8 0 018-8v4a4 4 极狐 00-4 4H4z"
                         />
                       </svg>
                       Deleting...
@@ -1595,7 +1614,7 @@ const ResumeForm = ({ resumeId }) => {
                   ) : (
                     <>
                       <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 极狐 1v3M4 7h16" />
                       </svg>
                       Delete Resume
                     </>
@@ -1608,34 +1627,34 @@ const ResumeForm = ({ resumeId }) => {
 
         {/* Preview Section */}
         <div className="lg:w-2/3 h-[130vh] overflow-y-auto p-4">
-      {/* Buttons */}
-      <div className="flex gap-3 mb-4">
-        <button
-          onClick={() => setActivePreview("preview1")}
-          className={`px-4 py-2 rounded-md font-medium ${
-            activePreview === "preview1" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
-          }`}
-        >
-          Preview 1
-        </button>
+          {/* Buttons */}
+          <div className="flex gap-3 mb-4">
+            <button
+              onClick={() => setActivePreview("preview1")}
+              className={`px-4 py-2 rounded-md font-medium ${
+                activePreview === "preview1" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+              }`}
+            >
+              Template 1
+            </button>
+            <button
+              onClick={() => setActivePreview("preview2")}
+              className={`px-4 py-2 rounded-md font-medium ${
+                activePreview === "preview2" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+              }`}
+            >
+              Template 2
+            </button>
+          </div>
 
-        <button
-          onClick={() => setActivePreview("preview2")}
-          className={`px-4 py-2 rounded-md font-medium ${
-            activePreview === "preview2" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
-          }`}
-        >
-          Preview 2
-        </button>
-      </div>
-
-      {/* Preview */}
-      <div className="border rounded-md shadow-sm p-3">
-        {activePreview === "preview1" && <ResumePreview resume={resume} />}
-        {activePreview === "preview2" && <ResumeFormPreviewTwo resume={resume} />}
-      </div>
-    </div>
-
+          {/* Render Preview */}
+          <div className="mt-4" ref={previewRef}>
+            {activePreview === "preview1" && <ResumePreview resume={resume ?? {}} />}
+            {activePreview === "preview2" && (
+              <ResumeTemp3 resume={resume ?? {}} />
+            )}
+          </div>
+        </div>
       </div>
       <Footer />
     </>
