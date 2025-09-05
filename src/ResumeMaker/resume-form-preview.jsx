@@ -1,108 +1,103 @@
 /* eslint-disable react/prop-types */
-
-export default function ResumePreview({ resume }) {
+import React, { useRef, useState } from 'react';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import { asBlob } from 'html-to-docx';
+import { saveAs } from 'file-saver';
+import { Download, Mail, Phone, MapPin, Linkedin, Globe, Briefcase, GraduationCap, Star, Award, Wrench, UserCheck } from 'lucide-react';
+export default function ResumeFormPreview({ resume }) {
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg border border-gray-200 h-full overflow-auto font-sans">
+    <div className="w-full bg-white p-6 rounded-lg shadow-md border border-gray-200 h-full overflow-auto">
       {/* Header */}
-      <div className="flex items-center border-b-2 border-gray-300 pb-4 mb-6">
-        {/* Profile Picture */}
+      <div className="text-center border-b-2 border-gray-300 pb-4 mb-4">
         {resume.personalInfo.profilePicture && (
-          <div className="w-[100px] h-[100px]">
+          <div className="mb-4 flex justify-center">
             <img
               src={resume.personalInfo.profilePicture}
-              alt="Profile"
-              className="w-full h-full object-cover rounded-md border-1 border-gray-200"
+              alt="Profile Picture"
+              className="w-24 h-24 object-cover rounded-full border-2 border-indigo-500 shadow-md"
             />
           </div>
         )}
-        {/* Personal Info */}
-        <div className="flex-1 pr-10 flex flex-col items-center justify-center text-center">
-          <h1 className="text-3xl font-bold text-gray-800">
-            {resume.personalInfo.firstName || "First Name"}{" "}
-            {resume.personalInfo.lastName || "Last Name"}
-          </h1>
-          {resume.personalInfo.professionalTitle && (
-            <p className="text-lg text-gray-600">
-              {resume.personalInfo.professionalTitle}
-            </p>
+        <h1 className="text-2xl font-bold text-gray-800">
+          {resume.personalInfo.firstName || "First Name"}{" "}
+          {resume.personalInfo.lastName || "Last Name"}
+        </h1>
+        {resume.personalInfo.professionalTitle && (
+          <p className="text-md text-gray-600">
+            {resume.personalInfo.professionalTitle}
+          </p>
+        )}
+        <div className="flex justify-center gap-4 text-sm text-gray-500 mt-2">
+          {resume.personalInfo.emailAddress && (
+            <p>{resume.personalInfo.emailAddress}</p>
           )}
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
-            {resume.personalInfo.emailAddress && (
-              <p>{resume.personalInfo.emailAddress}</p>
-            )}
-            {resume.personalInfo.phoneNumber && (
-              <p>{resume.personalInfo.phoneNumber}</p>
-            )}
-            {resume.personalInfo.address && (
-              <p>
-                {resume.personalInfo.address.street &&
-                  `${resume.personalInfo.address.street}, `}
-                {resume.personalInfo.address.city &&
-                  `${resume.personalInfo.address.city}, `}
-                {resume.personalInfo.address.postal &&
-                  `${resume.personalInfo.address.postal}, `}
-                {resume.personalInfo.address.country}
-              </p>
-            )}
-          </div>
-          <div className="flex justify-center gap-4 text-sm text-blue-600">
-            {resume.personalInfo.linkedIn && (
-              <a
-                href={resume.personalInfo.linkedIn}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                LinkedIn
-              </a>
-            )}
-            {resume.personalInfo.portfolio && (
-              <a
-                href={resume.personalInfo.portfolio}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                Portfolio
-              </a>
-            )}
-          </div>
+          {resume.personalInfo.phoneNumber && (
+            <p>{resume.personalInfo.phoneNumber}</p>
+          )}
+        </div>
+        {resume.personalInfo.address && (
+          <p className="text-sm text-gray-500">
+            {resume.personalInfo.address.street &&
+              `${resume.personalInfo.address.street}, `}
+            {resume.personalInfo.address.city &&
+              `${resume.personalInfo.address.city}, `}
+            {resume.personalInfo.address.postal &&
+              `${resume.personalInfo.address.postal}, `}
+            {resume.personalInfo.address.country}
+          </p>
+        )}
+        <div className="flex justify-center gap-4 text-sm text-blue-600 mt-1">
+          {resume.personalInfo.linkedIn && (
+            <a
+              href={resume.personalInfo.linkedIn}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          )}
+          {resume.personalInfo.portfolio && (
+            <a
+              href={resume.personalInfo.portfolio}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Portfolio
+            </a>
+          )}
         </div>
       </div>
 
       {/* Career Objective */}
       {resume.careerObjective && (
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-700 border-b border-gray-300 pb-2">
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
             Career Objective
           </h2>
-          <p className="text-base text-gray-600 mt-3 leading-relaxed">
-            {resume.careerObjective}
-          </p>
+          <p className="text-sm text-gray-600 mt-2">{resume.careerObjective}</p>
         </section>
       )}
 
       {/* Career Summary */}
       {resume.careerSummary && (
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-700 border-b border-gray-300 pb-2">
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
             Career Summary
           </h2>
-          <p className="text-base text-gray-600 mt-3 leading-relaxed">
-            {resume.careerSummary}
-          </p>
+          <p className="text-sm text-gray-600 mt-2">{resume.careerSummary}</p>
         </section>
       )}
 
       {/* Work Experience */}
       {resume.workExperience.length > 0 && (
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-700 border-b border-gray-300 pb-2">
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
             Work Experience
           </h2>
           {resume.workExperience.map((exp, index) => (
-            <div key={index} className="mt-4">
-              <h3 className="text-lg font-medium text-gray-800">
+            <div key={index} className="mt-3">
+              <h3 className="text-md font-medium text-gray-800">
                 {exp.position || "Position"} at {exp.companyName || "Company"}
               </h3>
               <p className="text-sm text-gray-500">
@@ -111,7 +106,7 @@ export default function ResumePreview({ resume }) {
                 {exp.to || "Present"}
               </p>
               {exp.description.length > 0 && (
-                <ul className="list-disc list-inside text-base text-gray-600 mt-2 space-y-1">
+                <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
                   {exp.description.map((desc, idx) => (
                     <li key={idx}>{desc}</li>
                   ))}
@@ -123,43 +118,50 @@ export default function ResumePreview({ resume }) {
       )}
 
       {/* Education */}
-      {Array.isArray(resume.education) && resume.education.length > 0 && (
-  <section className="mb-8">
-    <h2 className="text-xl font-semibold text-gray-700 border-b border-gray-300 pb-2">
-      Education
-    </h2>
-    {resume.education.map((edu, index) => (
-      <div key={index} className="mt-4">
-        <h3 className="text-lg font-medium text-gray-800">
-          {edu.degree || "Degree"} in {edu.fieldOfStudy || "Field of Study"}
-        </h3>
-        <p className="text-sm text-gray-500">
-          {edu.institutionName || "Institution"}
-          {edu.city ? `, ${edu.city}` : ""}
-          {edu.country ? `, ${edu.country}` : ""}
-          {edu.passingYear ? ` | ${edu.passingYear}` : ""}
-        </p>
-        {edu.gpa && (
-          <p className="text-base text-gray-600 mt-1">GPA: {edu.gpa}</p>
-        )}
-        {edu.honors && (
-          <p className="text-base text-gray-600 mt-1">Honors: {edu.honors}</p>
-        )}
-      </div>
-    ))}
-  </section>
-)}
-
+      {resume.education.length > 0 && (
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
+            Education
+          </h2>
+          {resume.education.map((edu, index) => (
+            <div key={index} className="mt-3">
+              <h3 className="text-md font-medium text-gray-800">
+                {edu.degree || "Degree"} in{" "}
+                {edu.fieldOfStudy || "Field of Study"}
+              </h3>
+              <p className="text-sm text-gray-500">
+                {edu.institutionName || "Institution"},{" "}
+                {edu.city && `${edu.city}, `}
+                {edu.country} | {edu.from || "Start Date"} -{" "}
+                {edu.to || "Present"}
+              </p>
+              {edu.gpa && (
+                <p className="text-sm text-gray-600">GPA: {edu.gpa}</p>
+              )}
+              {edu.honors && (
+                <p className="text-sm text-gray-600">Honors: {edu.honors}</p>
+              )}
+              {edu.description.length > 0 && (
+                <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
+                  {edu.description.map((desc, idx) => (
+                    <li key={idx}>{desc}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </section>
+      )}
 
       {/* Trainings */}
       {resume.trainings.length > 0 && (
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-700 border-b border-gray-300 pb-2">
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
             Trainings
           </h2>
           {resume.trainings.map((train, index) => (
-            <div key={index} className="mt-4">
-              <h3 className="text-lg font-medium text-gray-800">
+            <div key={index} className="mt-3">
+              <h3 className="text-md font-medium text-gray-800">
                 {train.name || "Training Name"},{" "}
                 {train.institution || "Institution"}
               </h3>
@@ -168,7 +170,7 @@ export default function ResumePreview({ resume }) {
                 {train.from || "Start Date"} - {train.to || "End Date"}
               </p>
               {train.description.length > 0 && (
-                <ul className="list-disc list-inside text-base text-gray-600 mt-2 space-y-1">
+                <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
                   {train.description.map((desc, idx) => (
                     <li key={idx}>{desc}</li>
                   ))}
@@ -181,13 +183,13 @@ export default function ResumePreview({ resume }) {
 
       {/* Certifications */}
       {resume.certifications.length > 0 && (
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-700 border-b border-gray-300 pb-2">
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
             Certifications
           </h2>
           {resume.certifications.map((cert, index) => (
-            <div key={index} className="mt-4">
-              <h3 className="text-lg font-medium text-gray-800">
+            <div key={index} className="mt-3">
+              <h3 className="text-md font-medium text-gray-800">
                 {cert.name || "Certification Name"},{" "}
                 {cert.authority || "Authority"}
               </h3>
@@ -200,14 +202,13 @@ export default function ResumePreview({ resume }) {
                     href={cert.urlCode}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline"
                   >
                     URL/Code
                   </a>
                 </p>
               )}
               {cert.description.length > 0 && (
-                <ul className="list-disc list-inside text-base text-gray-600 mt-2 space-y-1">
+                <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
                   {cert.description.map((desc, idx) => (
                     <li key={idx}>{desc}</li>
                   ))}
@@ -220,29 +221,36 @@ export default function ResumePreview({ resume }) {
 
       {/* Skills */}
       {resume.skills.length > 0 && (
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-700 border-b border-gray-300 pb-2">
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
             Skills
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
-            {resume.skills.map((skill, index) => (
-              <div key={index} className="text-base text-gray-600">
-                • {skill.name || "Skill"} - {skill.level || "Level"}
-              </div>
-            ))}
-          </div>
+          {resume.skills.map((cat, index) => (
+            <div key={index} className="mt-3">
+              <h3 className="text-md font-medium text-gray-800">
+                {cat.category || "Category"}
+              </h3>
+              <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
+                {cat.skills.map((skill, idx) => (
+                  <li key={idx}>
+                    {skill.name || "Skill"} - {skill.level || "Level"}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </section>
       )}
 
       {/* References */}
       {resume.references.length > 0 && (
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-700 border-b border-gray-300 pb-2">
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
             References
           </h2>
           {resume.references.map((ref, index) => (
-            <div key={index} className="mt-4">
-              <h3 className="text-lg font-medium text-gray-800">
+            <div key={index} className="mt-3">
+              <h3 className="text-md font-medium text-gray-800">
                 {ref.name || "Name"}, {ref.position || "Position"} at{" "}
                 {ref.company || "Company"}
               </h3>
@@ -251,7 +259,7 @@ export default function ResumePreview({ resume }) {
                 {ref.email && `Email: ${ref.email}`}
               </p>
               {ref.relationship && (
-                <p className="text-base text-gray-600 mt-1">
+                <p className="text-sm text-gray-600">
                   Relationship: {ref.relationship}
                 </p>
               )}
@@ -261,4 +269,4 @@ export default function ResumePreview({ resume }) {
       )}
     </div>
   );
-};
+}
