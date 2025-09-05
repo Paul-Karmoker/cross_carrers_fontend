@@ -59,6 +59,7 @@ const ResumeForm = ({ resumeId }) => {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [loadingStates, setLoadingStates] = useState({});
+  const [activePreview, setActivePreview] = useState<"preview1" | "preview2">("preview1");
   const firstErrorRef = useRef(null);
   const [activeSection, setActiveSection] = useState("personal");
   const [isUploading, setIsUploading] = useState(false);
@@ -1606,24 +1607,34 @@ const ResumeForm = ({ resumeId }) => {
         </div>
 
         {/* Preview Section */}
-        <div className="lg:w-2/3 h-[130vh] overflow-y-auto">
-          <div className=" flex justify-center items-center">
-            <h3>Temp1</h3>
-            <h3>Temp2</h3>
-          </div>
-          <button>
-            <div ref={previewRef}>
-            <ResumePreview resume={resume} />
-            </div>
-            
-          </button>
-          <button>
-            <div ref={previewRef}>
-            <ResumeFormPreviewTwo resume={resume} />
-            </div>
-          </button>
-          
-        </div>
+        <div className="lg:w-2/3 h-[130vh] overflow-y-auto p-4">
+      {/* Buttons */}
+      <div className="flex gap-3 mb-4">
+        <button
+          onClick={() => setActivePreview("preview1")}
+          className={`px-4 py-2 rounded-md font-medium ${
+            activePreview === "preview1" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+          }`}
+        >
+          Preview 1
+        </button>
+
+        <button
+          onClick={() => setActivePreview("preview2")}
+          className={`px-4 py-2 rounded-md font-medium ${
+            activePreview === "preview2" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+          }`}
+        >
+          Preview 2
+        </button>
+      </div>
+
+      {/* Preview */}
+      <div className="border rounded-md shadow-sm p-3">
+        {activePreview === "preview1" && <ResumePreview resume={resume} />}
+        {activePreview === "preview2" && <ResumeFormPreviewTwo resume={resume} />}
+      </div>
+    </div>
 
       </div>
       <Footer />
