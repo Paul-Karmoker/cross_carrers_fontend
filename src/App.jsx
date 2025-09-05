@@ -27,7 +27,7 @@ import SignUp from './login/signup';
 import Signinhome from './login/signinhome';
 import Signuphome from './login/signuphome';
 import Logout from './login/signout';
-import TemplateSelector from './ResumeMaker/TemplateSelector';
+
 //import ResumeEditor from './ResumeMaker/ResumeEditor';
 import ResumeForm from './ResumeMaker/resumeForm';
 
@@ -96,7 +96,7 @@ const App = () => {
         <Route path="/doc" element={<Doc />} />
         <Route path='/writtenTest' element={<WrittenTestHome/>}/>
         <Route path="/resume" element={<ResumeMakerHome />} />
-        <Route path="/templates" element={<TemplateSelector />} />
+        
         <Route path="/editor" element={<ResumeForm />} />
         <Route path="/dochome" element={<Dochome />} />
         <Route path="/excel" element={<Excel />} />

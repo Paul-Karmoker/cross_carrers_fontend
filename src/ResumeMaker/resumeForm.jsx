@@ -1606,6 +1606,10 @@ const ResumeForm = ({ resumeId }) => {
 
         {/* Preview Section */}
         <div className="lg:w-2/3 h-[130vh] overflow-y-auto">
+          <div className=" flex justify-center items-center">
+            <h3>Temp1</h3>
+            <h3>Temp2</h3>
+          </div>
           <div ref={previewRef}>
             <ResumePreview resume={resume} />
           </div>

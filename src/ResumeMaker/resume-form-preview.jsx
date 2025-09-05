@@ -1,10 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useRef, useState } from 'react';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
-import { asBlob } from 'html-to-docx';
-import { saveAs } from 'file-saver';
-import { Download, Mail, Phone, MapPin, Linkedin, Globe, Briefcase, GraduationCap, Star, Award, Wrench, UserCheck } from 'lucide-react';
+
 export default function ResumeFormPreview({ resume }) {
   return (
     <div className="w-full bg-white p-6 rounded-lg shadow-md border border-gray-200 h-full overflow-auto">
