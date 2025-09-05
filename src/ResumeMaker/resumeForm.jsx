@@ -1610,9 +1610,18 @@ const ResumeForm = ({ resumeId }) => {
             <h3>Temp1</h3>
             <h3>Temp2</h3>
           </div>
-          <div ref={previewRef}>
+          <button>
+            <div ref={previewRef}>
             <ResumePreview resume={resume} />
-          </div>
+            </div>
+            
+          </button>
+          <button>
+            <div>
+              Hello
+            </div>
+          </button>
+          
         </div>
 
       </div>
