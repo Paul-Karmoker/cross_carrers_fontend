@@ -1,20 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
 import { jsPDF } from "jspdf";
-import { getDocument, GlobalWorkerOptions } from "pdfjs-dist";
-import * as mammoth from "mammoth";
+import { GlobalWorkerOptions } from "pdfjs-dist";
 
 // Set up the PDF.js worker with latest version
 GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.5.136/pdf.worker.min.js";
 
-const baseUrl = "https://api.crosscareers.com"; // Change this to your actual base URL if needed
+const baseUrl = "https://api.crosscareers.com";
 
 const InterviewQuestionsGenerator = () => {
   const [jobDescription, setJobDescription] = useState("");
-  const [questions, setQuestions] = useState({
-    technical: [],
-    situational: [],
-  });
+  const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -23,6 +19,8 @@ const InterviewQuestionsGenerator = () => {
   const [techCount, setTechCount] = useState(7);
   const [sitCount, setSitCount] = useState(3);
   const [hasGeneratedQuestions, setHasGeneratedQuestions] = useState(false);
+  const [analysisResults, setAnalysisResults] = useState(null);
+  const [userAnswers, setUserAnswers] = useState({});
 
   // PDF text extraction
   const extractTextFromPDF = async (file) => {
@@ -34,36 +32,28 @@ const InterviewQuestionsGenerator = () => {
         throw new Error("PDF file too large (max 10MB)");
       }
 
-      const arrayBuffer = await file.arrayBuffer();
-      const pdf = await getDocument({
-        data: arrayBuffer,
-        disableAutoFetch: true,
-        disableStream: true,
-      }).promise;
+      // Use the extract-text API for PDF files
+      const formData = new FormData();
+      formData.append("file", file);
 
-      let fullText = "";
-      const pageTextPromises = [];
-      for (let i = 1; i <= pdf.numPages; i++) {
-        pageTextPromises.push(
-          pdf.getPage(i).then(async (page) => {
-            const content = await page.getTextContent();
-            return content.items.map((item) => item.str).join(" ") + "\n\n";
-          })
-        );
-      }
+      const response = await axios.post(
+        `${baseUrl}/api/v1/interview/extract-text`,
+        formData,
+        {
+          timeout: 60000,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
-      const pagesText = await Promise.all(pageTextPromises);
-      fullText = pagesText.join("");
-      if (!fullText.trim()) {
-        throw new Error("No text found - PDF may be image-based");
+      if (response.data?.text) {
+        return response.data.text;
+      } else {
+        throw new Error("No text extracted from PDF");
       }
-      return fullText;
     } catch (error) {
-      console.error("PDF Extraction Error:", {
-        error: error.message,
-        fileName: file?.name,
-        size: file?.size,
-      });
+      console.error("PDF Extraction Error:", error);
       throw new Error(`PDF extraction failed: ${error.message}`);
     }
   };
@@ -75,12 +65,26 @@ const InterviewQuestionsGenerator = () => {
         throw new Error("Please upload a valid DOCX file");
       }
 
-      const arrayBuffer = await file.arrayBuffer();
-      const result = await mammoth.extractRawText({ arrayBuffer });
-      if (!result.value.trim()) {
-        throw new Error("No text found in DOCX file");
+      // Use the extract-text API for DOCX files
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await axios.post(
+        `${baseUrl}/api/v1/interview/extract-text`,
+        formData,
+        {
+          timeout: 60000,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      if (response.data?.text) {
+        return response.data.text;
+      } else {
+        throw new Error("No text extracted from DOCX");
       }
-      return result.value;
     } catch (error) {
       console.error("DOCX Extraction Error:", error);
       throw new Error(`DOCX extraction failed: ${error.message}`);
@@ -130,6 +134,8 @@ const InterviewQuestionsGenerator = () => {
     setError("");
     setSuccess("");
     setHasGeneratedQuestions(false);
+    setAnalysisResults(null);
+    setUserAnswers({});
 
     try {
       const promptText = `Generate ${techCount} technical questions and ${sitCount} situational questions for the ${experienceLevel} ${jobTitle || "Software Engineer"} position based on the following job description:\n${jobDescription}`;
@@ -146,21 +152,17 @@ const InterviewQuestionsGenerator = () => {
       );
 
       if (response.data?.questions) {
-        const techQuestions = (response.data.questions.technical || []).map(q => ({
-          question: typeof q === 'string' ? q : q.question || q,
+        // Transform the API response to our format
+        const formattedQuestions = response.data.questions.map(q => ({
+          id: Math.random().toString(36).substr(2, 9),
+          type: q.type,
+          question: q.question,
           answer: "",
-          feedback: ""
-        }));
-        const sitQuestions = (response.data.questions.situational || []).map(q => ({
-          question: typeof q === 'string' ? q : q.question || q,
-          answer: "",
-          feedback: ""
+          feedback: "",
+          score: 0
         }));
         
-        setQuestions({
-          technical: techQuestions,
-          situational: sitQuestions
-        });
+        setQuestions(formattedQuestions);
         setHasGeneratedQuestions(true);
         setSuccess("Interview questions generated successfully!");
         setTimeout(() => setSuccess(""), 3000);
@@ -183,24 +185,25 @@ const InterviewQuestionsGenerator = () => {
     }
   };
 
-  const handleAnswerChange = (category, index, value) => {
-    setQuestions(prev => {
-      const newCategory = [...prev[category]];
-      newCategory[index].answer = value;
-      return { ...prev, [category]: newCategory };
-    });
+  const handleAnswerChange = (questionId, value) => {
+    setUserAnswers(prev => ({
+      ...prev,
+      [questionId]: value
+    }));
   };
 
   const analyzeAnswers = async () => {
-    const allAnswers = [
-      ...questions.technical.map(q => ({ question: q.question, answer: q.answer })),
-      ...questions.situational.map(q => ({ question: q.question, answer: q.answer }))
-    ].filter(a => a.answer.trim());
-
-    if (!allAnswers.length) {
+    const answeredQuestions = questions.filter(q => userAnswers[q.id]?.trim());
+    
+    if (!answeredQuestions.length) {
       setError("Please provide at least one answer to analyze.");
       return;
     }
+
+    const answersPayload = answeredQuestions.map(q => ({
+      question: q.question,
+      answer: userAnswers[q.id]
+    }));
 
     setLoading(true);
     setError("");
@@ -209,7 +212,7 @@ const InterviewQuestionsGenerator = () => {
     try {
       const response = await axios.post(
         `${baseUrl}/api/v1/interview/analyze-answers`,
-        { answers: allAnswers },
+        { answers: answersPayload },
         {
           timeout: 60000,
           headers: {
@@ -219,24 +222,33 @@ const InterviewQuestionsGenerator = () => {
       );
 
       if (response.data?.analyses) {
-        setQuestions(prev => {
-          const newTech = [...prev.technical];
-          const newSit = [...prev.situational];
-          
-          response.data.analyses.forEach(ana => {
-            const techIndex = newTech.findIndex(q => q.question === ana.question);
-            if (techIndex !== -1) {
-              newTech[techIndex].feedback = ana.feedback || "Analysis received";
-            } else {
-              const sitIndex = newSit.findIndex(q => q.question === ana.question);
-              if (sitIndex !== -1) {
-                newSit[sitIndex].feedback = ana.feedback || "Analysis received";
-              }
-            }
-          });
-          
-          return { technical: newTech, situational: newSit };
+        // Update questions with feedback and scores
+        const updatedQuestions = questions.map(q => {
+          const analysis = response.data.analyses.find(a => a.question === q.question);
+          if (analysis) {
+            return {
+              ...q,
+              feedback: analysis.feedback || "No feedback provided",
+              score: analysis.score || 0
+            };
+          }
+          return q;
         });
+        
+        setQuestions(updatedQuestions);
+        
+        // Calculate overall score
+        const scoredQuestions = updatedQuestions.filter(q => q.score > 0);
+        const totalScore = scoredQuestions.reduce((sum, q) => sum + q.score, 0);
+        const averageScore = scoredQuestions.length > 0 ? totalScore / scoredQuestions.length : 0;
+        
+        setAnalysisResults({
+          totalAnswered: answeredQuestions.length,
+          totalQuestions: questions.length,
+          averageScore: Math.round(averageScore * 10) / 10,
+          maxScore: 10
+        });
+        
         setSuccess("Answers analyzed successfully!");
         setTimeout(() => setSuccess(""), 3000);
       } else {
@@ -252,7 +264,7 @@ const InterviewQuestionsGenerator = () => {
 
   // Download questions as PDF
   const downloadPdf = () => {
-    if (!questions.technical.length && !questions.situational.length) {
+    if (!questions.length) {
       setError("No questions to download.");
       return;
     }
@@ -263,26 +275,27 @@ const InterviewQuestionsGenerator = () => {
       
       // Add title
       doc.setFontSize(18);
-      doc.setTextColor(0, 0, 128); // Navy blue
+      doc.setTextColor(0, 0, 128);
       doc.text(`Interview Questions for ${jobTitle || "the Position"}`, 105, 20, { align: "center" });
       
       // Add experience level
       doc.setFontSize(12);
-      doc.setTextColor(0, 0, 0); // Black
+      doc.setTextColor(0, 0, 0);
       doc.text(`Experience Level: ${experienceLevel}`, 105, 30, { align: "center" });
       
       let yPosition = 45;
       
       // Add technical questions section
-      if (questions.technical.length) {
+      const technicalQuestions = questions.filter(q => q.type === "technical" || q.type === "tech");
+      if (technicalQuestions.length) {
         doc.setFontSize(14);
-        doc.setTextColor(0, 0, 128); // Navy blue
+        doc.setTextColor(0, 0, 128);
         doc.text("Technical Questions", 20, yPosition);
         yPosition += 10;
         
         doc.setFontSize(12);
-        doc.setTextColor(0, 0, 0); // Black
-        questions.technical.forEach((q, i) => {
+        doc.setTextColor(0, 0, 0);
+        technicalQuestions.forEach((q, i) => {
           if (yPosition > doc.internal.pageSize.getHeight() - 30) {
             doc.addPage();
             yPosition = 20;
@@ -292,8 +305,8 @@ const InterviewQuestionsGenerator = () => {
           doc.text(questionLines, 20, yPosition);
           yPosition += questionLines.length * 7 + 5;
           
-          if (q.answer) {
-            const answerLines = doc.splitTextToSize(`Answer: ${q.answer}`, 170);
+          if (userAnswers[q.id]) {
+            const answerLines = doc.splitTextToSize(`Answer: ${userAnswers[q.id]}`, 170);
             doc.text(answerLines, 25, yPosition);
             yPosition += answerLines.length * 7 + 5;
           }
@@ -301,7 +314,14 @@ const InterviewQuestionsGenerator = () => {
           if (q.feedback) {
             const feedbackLines = doc.splitTextToSize(`Feedback: ${q.feedback}`, 170);
             doc.text(feedbackLines, 25, yPosition);
-            yPosition += feedbackLines.length * 7 + 10;
+            yPosition += feedbackLines.length * 7 + 5;
+          }
+          
+          if (q.score > 0) {
+            doc.setTextColor(0, 100, 0);
+            doc.text(`Score: ${q.score}/10`, 25, yPosition);
+            doc.setTextColor(0, 0, 0);
+            yPosition += 10;
           } else {
             yPosition += 5;
           }
@@ -309,20 +329,21 @@ const InterviewQuestionsGenerator = () => {
       }
       
       // Add situational questions section
-      if (questions.situational.length) {
+      const situationalQuestions = questions.filter(q => q.type === "situational" || q.type === "scenario");
+      if (situationalQuestions.length) {
         if (yPosition > doc.internal.pageSize.getHeight() - 40) {
           doc.addPage();
           yPosition = 20;
         }
         
         doc.setFontSize(14);
-        doc.setTextColor(0, 0, 128); // Navy blue
+        doc.setTextColor(0, 0, 128);
         doc.text("Situational Questions", 20, yPosition);
         yPosition += 10;
         
         doc.setFontSize(12);
-        doc.setTextColor(0, 0, 0); // Black
-        questions.situational.forEach((q, i) => {
+        doc.setTextColor(0, 0, 0);
+        situationalQuestions.forEach((q, i) => {
           if (yPosition > doc.internal.pageSize.getHeight() - 30) {
             doc.addPage();
             yPosition = 20;
@@ -332,8 +353,8 @@ const InterviewQuestionsGenerator = () => {
           doc.text(questionLines, 20, yPosition);
           yPosition += questionLines.length * 7 + 5;
           
-          if (q.answer) {
-            const answerLines = doc.splitTextToSize(`Answer: ${q.answer}`, 170);
+          if (userAnswers[q.id]) {
+            const answerLines = doc.splitTextToSize(`Answer: ${userAnswers[q.id]}`, 170);
             doc.text(answerLines, 25, yPosition);
             yPosition += answerLines.length * 7 + 5;
           }
@@ -341,11 +362,37 @@ const InterviewQuestionsGenerator = () => {
           if (q.feedback) {
             const feedbackLines = doc.splitTextToSize(`Feedback: ${q.feedback}`, 170);
             doc.text(feedbackLines, 25, yPosition);
-            yPosition += feedbackLines.length * 7 + 10;
+            yPosition += feedbackLines.length * 7 + 5;
+          }
+          
+          if (q.score > 0) {
+            doc.setTextColor(0, 100, 0);
+            doc.text(`Score: ${q.score}/10`, 25, yPosition);
+            doc.setTextColor(0, 0, 0);
+            yPosition += 10;
           } else {
             yPosition += 5;
           }
         });
+      }
+      
+      // Add summary if analysis was done
+      if (analysisResults) {
+        if (yPosition > doc.internal.pageSize.getHeight() - 40) {
+          doc.addPage();
+          yPosition = 20;
+        }
+        
+        doc.setFontSize(14);
+        doc.setTextColor(0, 0, 128);
+        doc.text("Performance Summary", 105, yPosition, { align: "center" });
+        yPosition += 15;
+        
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.text(`Answered Questions: ${analysisResults.totalAnswered}/${analysisResults.totalQuestions}`, 20, yPosition);
+        yPosition += 10;
+        doc.text(`Average Score: ${analysisResults.averageScore}/${analysisResults.maxScore}`, 20, yPosition);
       }
       
       const fileName = `Interview_Questions_${(jobTitle || "Position").replace(/\s+/g, "_")}.pdf`;
@@ -357,6 +404,10 @@ const InterviewQuestionsGenerator = () => {
       setError("Failed to generate PDF file");
     }
   };
+
+  // Group questions by type
+  const technicalQuestions = questions.filter(q => q.type === "technical" || q.type === "tech");
+  const situationalQuestions = questions.filter(q => q.type === "situational" || q.type === "scenario");
 
   return (
     <div className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen">
@@ -535,8 +586,33 @@ const InterviewQuestionsGenerator = () => {
           )}
         </div>
 
+        {/* Performance Summary */}
+        {analysisResults && (
+          <div className="card bg-white shadow-xl rounded-lg mb-8 animate-fade-in">
+            <div className="card-body p-6">
+              <h2 className="card-title text-xl font-semibold text-gray-700 mb-4">
+                Performance Summary
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-blue-50 p-4 rounded-lg text-center">
+                  <p className="text-3xl font-bold text-blue-700">{analysisResults.totalAnswered}</p>
+                  <p className="text-gray-600">Answered Questions</p>
+                </div>
+                <div className="bg-green-50 p-4 rounded-lg text-center">
+                  <p className="text-3xl font-bold text-green-700">{analysisResults.averageScore}/{analysisResults.maxScore}</p>
+                  <p className="text-gray-600">Average Score</p>
+                </div>
+                <div className="bg-purple-50 p-4 rounded-lg text-center">
+                  <p className="text-3xl font-bold text-purple-700">{Math.round((analysisResults.averageScore / analysisResults.maxScore) * 100)}%</p>
+                  <p className="text-gray-600">Overall Performance</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Generated Questions */}
-        {hasGeneratedQuestions && (questions.technical.length > 0 || questions.situational.length > 0) && (
+        {hasGeneratedQuestions && questions.length > 0 && (
           <div className="card bg-white shadow-xl rounded-lg mt-8 animate-fade-in transition-all duration-300 hover:shadow-2xl">
             <div className="card-body p-6">
               <div className="flex justify-between items-center mb-6">
@@ -551,15 +627,15 @@ const InterviewQuestionsGenerator = () => {
                 </button>
               </div>
 
-              {questions.technical.length > 0 && (
+              {technicalQuestions.length > 0 && (
                 <div className="mb-8">
                   <h3 className="text-lg font-semibold text-blue-800 mb-4">
-                    Technical Questions ({questions.technical.length})
+                    Technical Questions ({technicalQuestions.length})
                   </h3>
                   <div className="space-y-6">
-                    {questions.technical.map((q, i) => (
+                    {technicalQuestions.map((q, i) => (
                       <div
-                        key={`tech-${i}`}
+                        key={q.id}
                         className="bg-gray-50 p-4 rounded-lg border border-gray-200"
                       >
                         <p className="font-medium text-gray-800 mb-2">
@@ -568,13 +644,18 @@ const InterviewQuestionsGenerator = () => {
                         <textarea
                           className="textarea textarea-bordered w-full h-24 p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
                           placeholder="Type your answer here..."
-                          value={q.answer}
-                          onChange={(e) => handleAnswerChange("technical", i, e.target.value)}
+                          value={userAnswers[q.id] || ""}
+                          onChange={(e) => handleAnswerChange(q.id, e.target.value)}
                         />
                         {q.feedback && (
                           <div className="mt-3 p-3 bg-green-50 rounded-lg">
                             <p className="font-semibold text-green-800">Feedback:</p>
                             <p className="text-green-700">{q.feedback}</p>
+                            {q.score > 0 && (
+                              <p className="font-semibold text-green-800 mt-2">
+                                Score: {q.score}/10
+                              </p>
+                            )}
                           </div>
                         )}
                       </div>
@@ -583,15 +664,15 @@ const InterviewQuestionsGenerator = () => {
                 </div>
               )}
 
-              {questions.situational.length > 0 && (
+              {situationalQuestions.length > 0 && (
                 <div>
                   <h3 className="text-lg font-semibold text-blue-800 mb-4">
-                    Situational Questions ({questions.situational.length})
+                    Situational Questions ({situationalQuestions.length})
                   </h3>
                   <div className="space-y-6">
-                    {questions.situational.map((q, i) => (
+                    {situationalQuestions.map((q, i) => (
                       <div
-                        key={`sit-${i}`}
+                        key={q.id}
                         className="bg-gray-50 p-4 rounded-lg border border-gray-200"
                       >
                         <p className="font-medium text-gray-800 mb-2">
@@ -600,13 +681,18 @@ const InterviewQuestionsGenerator = () => {
                         <textarea
                           className="textarea textarea-bordered w-full h-24 p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
                           placeholder="Type your answer here..."
-                          value={q.answer}
-                          onChange={(e) => handleAnswerChange("situational", i, e.target.value)}
+                          value={userAnswers[q.id] || ""}
+                          onChange={(e) => handleAnswerChange(q.id, e.target.value)}
                         />
                         {q.feedback && (
                           <div className="mt-3 p-3 bg-green-50 rounded-lg">
                             <p className="font-semibold text-green-800">Feedback:</p>
                             <p className="text-green-700">{q.feedback}</p>
+                            {q.score > 0 && (
+                              <p className="font-semibold text-green-800 mt-2">
+                                Score: {q.score}/10
+                              </p>
+                            )}
                           </div>
                         )}
                       </div>
