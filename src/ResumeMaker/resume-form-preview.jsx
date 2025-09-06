@@ -112,41 +112,37 @@ export default function ResumeFormPreview({ resume }) {
         </section>
       )}
 
-      {/* Education */}
-      {resume.education.length > 0 && (
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
-            Education
-          </h2>
-          {resume.education.map((edu, index) => (
-            <div key={index} className="mt-3">
-              <h3 className="text-md font-medium text-gray-800">
-                {edu.degree || "Degree"} in{" "}
-                {edu.fieldOfStudy || "Field of Study"}
-              </h3>
-              <p className="text-sm text-gray-500">
-                {edu.institutionName || "Institution"},{" "}
-                {edu.city && `${edu.city}, `}
-                {edu.country} | {edu.from || "Start Date"} -{" "}
-                {edu.to || "Present"}
-              </p>
-              {edu.gpa && (
-                <p className="text-sm text-gray-600">GPA: {edu.gpa}</p>
-              )}
-              {edu.honors && (
-                <p className="text-sm text-gray-600">Honors: {edu.honors}</p>
-              )}
-              {edu.description.length > 0 && (
-                <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
-                  {edu.description.map((desc, idx) => (
-                    <li key={idx}>{desc}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </section>
-      )}
+    {/* Education */}
+{resume?.education?.length > 0 && (
+  <section className="mb-6">
+    <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
+      Education
+    </h2>
+    {resume.education.map((edu, index) => (
+      <div key={index} className="mt-3">
+        <h3 className="text-md font-medium text-gray-800">
+          {edu.degree || "Degree"} in {edu.fieldOfStudy || "Field of Study"}
+        </h3>
+        <p className="text-sm text-gray-500">
+          {edu.institutionName || "Institution"},{" "}
+          {edu.city && `${edu.city}, `}
+          {edu.country} | {edu.from || "Start Date"} - {edu.to || "Present"}
+        </p>
+        {edu.gpa && <p className="text-sm text-gray-600">GPA: {edu.gpa}</p>}
+        {edu.honors && (
+          <p className="text-sm text-gray-600">Honors: {edu.honors}</p>
+        )}
+        {Array.isArray(edu.description) && edu.description.length > 0 && (
+          <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
+            {edu.description.map((desc, idx) => (
+              <li key={idx}>{desc}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+    ))}
+  </section>
+)}
 
       {/* Trainings */}
       {resume.trainings.length > 0 && (
@@ -215,27 +211,20 @@ export default function ResumeFormPreview({ resume }) {
       )}
 
       {/* Skills */}
-      {resume.skills.length > 0 && (
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold text-gray-700 border-b border-gray-300 pb-1">
-            Skills
-          </h2>
-          {resume.skills.map((cat, index) => (
-            <div key={index} className="mt-3">
-              <h3 className="text-md font-medium text-gray-800">
-                {cat.category || "Category"}
-              </h3>
-              <ul className="list-disc list-inside text-sm text-gray-600 mt-1">
-                {cat.skills.map((skill, idx) => (
-                  <li key={idx}>
-                    {skill.name || "Skill"} - {skill.level || "Level"}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </section>
-      )}
+      {resume?.skills?.length > 0 && (
+  <section className="bg-white/10 p-4 rounded-lg shadow-md">
+    <h2 className="text-xl font-semibold text-yellow-500 border-b border-yellow-500/50 pb-2 mb-2">
+      Skills
+    </h2>
+    <ul className="list-disc list-inside text-sm text-gray-300 mt-1">
+      {resume.skills.map((skill, index) => (
+        <li key={index}>
+          {skill.name || "Skill"} - {skill.level || "Level"}
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
 
       {/* References */}
       {resume.references.length > 0 && (

@@ -52,6 +52,8 @@ import html2canvas from "html2canvas";
 import "../assets/ResumeForm.css";
 import ResumePreview from "./resume-form-preview.jsx";
 import ResumeTemp3 from "./resumeTemp3.jsx";
+import ResumeTemp4 from "./resumeTemp4";
+import ResumeTemp5 from "./resumeTemp5.jsx";
 
 const ResumeForm = ({ resumeId }) => {
   const resume = useSelector((state) => state.resume);
@@ -1645,6 +1647,22 @@ const ResumeForm = ({ resumeId }) => {
             >
               Template 2
             </button>
+            <button
+              onClick={() => setActivePreview("preview3")}
+              className={`px-4 py-2 rounded-md font-medium ${
+                activePreview === "preview3" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+              }`}
+            >
+              Template 3
+            </button>
+            <button
+              onClick={() => setActivePreview("preview4")}
+              className={`px-4 py-2 rounded-md font-medium ${
+                activePreview === "preview4" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+              }`}
+            >
+              Template 4
+            </button>
           </div>
 
           {/* Render Preview */}
@@ -1652,6 +1670,12 @@ const ResumeForm = ({ resumeId }) => {
             {activePreview === "preview1" && <ResumePreview resume={resume ?? {}} />}
             {activePreview === "preview2" && (
               <ResumeTemp3 resume={resume ?? {}} />
+            )}
+             {activePreview === "preview3" && (
+              <ResumeTemp4 resume={resume ?? {}} />
+            )}
+            {activePreview === "preview4" && (
+              <ResumeTemp5 resume={resume ?? {}} />
             )}
           </div>
         </div>
