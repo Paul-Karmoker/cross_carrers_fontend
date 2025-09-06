@@ -210,7 +210,6 @@ export default function ResumeFormPreview({ resume }) {
         </section>
       )}
 
-      {/* Skills */}
       {resume?.skills?.length > 0 && (
   <section className="bg-white/10 p-4 rounded-lg shadow-md">
     <h2 className="text-xl font-semibold text-yellow-500 border-b border-yellow-500/50 pb-2 mb-2">

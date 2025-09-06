@@ -1633,33 +1633,49 @@ const ResumeForm = ({ resumeId }) => {
           <div className="flex gap-3 mb-4">
             <button
               onClick={() => setActivePreview("preview1")}
-              className={`px-4 py-2 rounded-md font-medium ${
-                activePreview === "preview1" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
-              }`}
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ease-in-out transform hover:scale-105
+    ${
+      activePreview === "preview1"
+        ? "bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-lg"
+        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+    }
+  `}
             >
               Template 1
             </button>
             <button
               onClick={() => setActivePreview("preview2")}
-              className={`px-4 py-2 rounded-md font-medium ${
-                activePreview === "preview2" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
-              }`}
+               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ease-in-out transform hover:scale-105
+    ${
+      activePreview === "preview2"
+        ? "bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-lg"
+        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+    }
+  `}
             >
               Template 2
             </button>
             <button
               onClick={() => setActivePreview("preview3")}
-              className={`px-4 py-2 rounded-md font-medium ${
-                activePreview === "preview3" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
-              }`}
+               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ease-in-out transform hover:scale-105
+    ${
+      activePreview === "preview3"
+        ? "bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-lg"
+        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+    }
+  `}
             >
               Template 3
             </button>
             <button
               onClick={() => setActivePreview("preview4")}
-              className={`px-4 py-2 rounded-md font-medium ${
-                activePreview === "preview4" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
-              }`}
+               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ease-in-out transform hover:scale-105
+    ${
+      activePreview === "preview4"
+        ? "bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-lg"
+        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+    }
+  `}
             >
               Template 4
             </button>
