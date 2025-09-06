@@ -22,6 +22,7 @@ const InterviewQuestionsGenerator = () => {
   const [experienceLevel, setExperienceLevel] = useState("Mid-Level");
   const [techCount, setTechCount] = useState(7);
   const [sitCount, setSitCount] = useState(3);
+  const [hasGeneratedQuestions, setHasGeneratedQuestions] = useState(false);
 
   // PDF text extraction
   const extractTextFromPDF = async (file) => {
@@ -128,6 +129,7 @@ const InterviewQuestionsGenerator = () => {
     setLoading(true);
     setError("");
     setSuccess("");
+    setHasGeneratedQuestions(false);
 
     try {
       const promptText = `Generate ${techCount} technical questions and ${sitCount} situational questions for the ${experienceLevel} ${jobTitle || "Software Engineer"} position based on the following job description:\n${jobDescription}`;
@@ -145,19 +147,21 @@ const InterviewQuestionsGenerator = () => {
 
       if (response.data?.questions) {
         const techQuestions = (response.data.questions.technical || []).map(q => ({
-          question: typeof q === 'string' ? q : q.question,
+          question: typeof q === 'string' ? q : q.question || q,
           answer: "",
           feedback: ""
         }));
         const sitQuestions = (response.data.questions.situational || []).map(q => ({
-          question: typeof q === 'string' ? q : q.question,
+          question: typeof q === 'string' ? q : q.question || q,
           answer: "",
           feedback: ""
         }));
+        
         setQuestions({
           technical: techQuestions,
           situational: sitQuestions
         });
+        setHasGeneratedQuestions(true);
         setSuccess("Interview questions generated successfully!");
         setTimeout(() => setSuccess(""), 3000);
       } else {
@@ -218,6 +222,7 @@ const InterviewQuestionsGenerator = () => {
         setQuestions(prev => {
           const newTech = [...prev.technical];
           const newSit = [...prev.situational];
+          
           response.data.analyses.forEach(ana => {
             const techIndex = newTech.findIndex(q => q.question === ana.question);
             if (techIndex !== -1) {
@@ -229,6 +234,7 @@ const InterviewQuestionsGenerator = () => {
               }
             }
           });
+          
           return { technical: newTech, situational: newSit };
         });
         setSuccess("Answers analyzed successfully!");
@@ -286,13 +292,19 @@ const InterviewQuestionsGenerator = () => {
           doc.text(questionLines, 20, yPosition);
           yPosition += questionLines.length * 7 + 5;
           
-          const answerLines = doc.splitTextToSize(`Answer: ${q.answer || "No answer provided"}`, 170);
-          doc.text(answerLines, 25, yPosition);
-          yPosition += answerLines.length * 7 + 5;
+          if (q.answer) {
+            const answerLines = doc.splitTextToSize(`Answer: ${q.answer}`, 170);
+            doc.text(answerLines, 25, yPosition);
+            yPosition += answerLines.length * 7 + 5;
+          }
           
-          const feedbackLines = doc.splitTextToSize(`Feedback: ${q.feedback || "No feedback provided"}`, 170);
-          doc.text(feedbackLines, 25, yPosition);
-          yPosition += feedbackLines.length * 7 + 10;
+          if (q.feedback) {
+            const feedbackLines = doc.splitTextToSize(`Feedback: ${q.feedback}`, 170);
+            doc.text(feedbackLines, 25, yPosition);
+            yPosition += feedbackLines.length * 7 + 10;
+          } else {
+            yPosition += 5;
+          }
         });
       }
       
@@ -320,17 +332,24 @@ const InterviewQuestionsGenerator = () => {
           doc.text(questionLines, 20, yPosition);
           yPosition += questionLines.length * 7 + 5;
           
-          const answerLines = doc.splitTextToSize(`Answer: ${q.answer || "No answer provided"}`, 170);
-          doc.text(answerLines, 25, yPosition);
-          yPosition += answerLines.length * 7 + 5;
+          if (q.answer) {
+            const answerLines = doc.splitTextToSize(`Answer: ${q.answer}`, 170);
+            doc.text(answerLines, 25, yPosition);
+            yPosition += answerLines.length * 7 + 5;
+          }
           
-          const feedbackLines = doc.splitTextToSize(`Feedback: ${q.feedback || "No feedback provided"}`, 170);
-          doc.text(feedbackLines, 25, yPosition);
-          yPosition += feedbackLines.length * 7 + 10;
+          if (q.feedback) {
+            const feedbackLines = doc.splitTextToSize(`Feedback: ${q.feedback}`, 170);
+            doc.text(feedbackLines, 25, yPosition);
+            yPosition += feedbackLines.length * 7 + 10;
+          } else {
+            yPosition += 5;
+          }
         });
       }
       
-      doc.save(`Interview_Questions_${jobTitle.replace(/\s+/g, "_") || "Position"}.pdf`);
+      const fileName = `Interview_Questions_${(jobTitle || "Position").replace(/\s+/g, "_")}.pdf`;
+      doc.save(fileName);
       setSuccess("PDF downloaded successfully!");
       setTimeout(() => setSuccess(""), 3000);
     } catch (error) {
@@ -416,7 +435,7 @@ const InterviewQuestionsGenerator = () => {
               className="textarea textarea-bordered w-full h-48 p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
               placeholder="Paste job description here or upload a file..."
               value={jobDescription}
-              onChange={handleJobDescriptionInput}
+              onChange={(e) => setJobDescription(e.target.value)}
             />
             <div className="mt-4">
               <label className="block text-sm font-medium text-gray-600 mb-2">
@@ -496,7 +515,7 @@ const InterviewQuestionsGenerator = () => {
               "Generate Questions"
             )}
           </button>
-          {(questions.technical.length > 0 || questions.situational.length > 0) && (
+          {hasGeneratedQuestions && (
             <button
               className={`btn btn-secondary text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 ${
                 loading ? "opacity-50 cursor-not-allowed" : "hover:scale-105 hover:bg-purple-700"
@@ -517,7 +536,7 @@ const InterviewQuestionsGenerator = () => {
         </div>
 
         {/* Generated Questions */}
-        {(questions.technical.length > 0 || questions.situational.length > 0) && (
+        {hasGeneratedQuestions && (questions.technical.length > 0 || questions.situational.length > 0) && (
           <div className="card bg-white shadow-xl rounded-lg mt-8 animate-fade-in transition-all duration-300 hover:shadow-2xl">
             <div className="card-body p-6">
               <div className="flex justify-between items-center mb-6">
@@ -553,9 +572,10 @@ const InterviewQuestionsGenerator = () => {
                           onChange={(e) => handleAnswerChange("technical", i, e.target.value)}
                         />
                         {q.feedback && (
-                          <p className="mt-2 text-green-600">
-                            <span className="font-semibold">Feedback:</span> {q.feedback}
-                          </p>
+                          <div className="mt-3 p-3 bg-green-50 rounded-lg">
+                            <p className="font-semibold text-green-800">Feedback:</p>
+                            <p className="text-green-700">{q.feedback}</p>
+                          </div>
                         )}
                       </div>
                     ))}
@@ -584,9 +604,10 @@ const InterviewQuestionsGenerator = () => {
                           onChange={(e) => handleAnswerChange("situational", i, e.target.value)}
                         />
                         {q.feedback && (
-                          <p className="mt-2 text-green-600">
-                            <span className="font-semibold">Feedback:</span> {q.feedback}
-                          </p>
+                          <div className="mt-3 p-3 bg-green-50 rounded-lg">
+                            <p className="font-semibold text-green-800">Feedback:</p>
+                            <p className="text-green-700">{q.feedback}</p>
+                          </div>
                         )}
                       </div>
                     ))}
