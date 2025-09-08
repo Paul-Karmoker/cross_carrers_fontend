@@ -29,10 +29,8 @@ const Dashboard = () => {
     };
 
     return (
-
         <>
-            <Navbar />
-             
+        <Navbar />
         <div className="bg-gray-50 min-h-screen">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Header Section */}
@@ -55,12 +53,7 @@ const Dashboard = () => {
                         >
                             Resumes
                         </a>
-                        <a
-                            href="#"
-                            className="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                        >
-                            Cover Letters
-                        </a>
+                        
                     </nav>
                 </div>
 
@@ -114,14 +107,6 @@ const Dashboard = () => {
                                 </div>
                             );
                         })}
-
-                    {/* Premium Card remains the same */}
-                    <div className="bg-gradient-to-br from-purple-600 to-indigo-700 text-white p-6 rounded-lg flex flex-col justify-center shadow-lg">
-                        <h2 className="text-xl font-bold">Land a better job with <span className="bg-white text-purple-700 px-2 py-0.5 rounded-md">PREMIUM</span></h2>
-                        <p className="mt-2 text-indigo-100">Unlock all templates and AI tools, from</p>
-                        <p className="text-4xl font-bold mt-2">USD 4<span className="text-lg font-normal text-indigo-200"> / month</span></p>
-                        <button className="bg-white text-purple-600 font-bold px-4 py-2 rounded-md mt-6 w-full hover:bg-gray-100 transition-colors">Go Premium!</button>
-                    </div>
                 </div>
             </div>
         </div>
