@@ -157,7 +157,7 @@ const InterviewQuestionsGenerator = () => {
           id: Math.random().toString(36).substr(2, 9),
           type: q.type,
           question: q.question,
-          answer: "",
+          answer:q.answer,
           feedback: "",
           score: 0
         }));
@@ -640,6 +640,9 @@ const InterviewQuestionsGenerator = () => {
                       >
                         <p className="font-medium text-gray-800 mb-2">
                           {i + 1}. {q.question}
+                        </p>
+                        <p className="font-medium text-gray-800 mb-2">
+                        {i+1}.{q.answer}
                         </p>
                         <textarea
                           className="textarea textarea-bordered w-full h-24 p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
