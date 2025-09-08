@@ -29,11 +29,11 @@ const Membership = () => {
         yearly: "750 (Save 198)" 
       },
       features: [
-        "Full content access",
-        "Ad-free experience",
-        "Premium support",
-        "Exclusive content",
-        "Early access to new features"
+        "Full content access -",
+        "Interview Practice",
+        "Written Test Practice",
+        "Resume Building",
+        "Match & Insights"
       ],
     },
   };

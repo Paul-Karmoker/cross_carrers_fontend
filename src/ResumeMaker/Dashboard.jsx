@@ -72,18 +72,6 @@ const Dashboard = () => {
                             <FiPlus className="text-red-500" size={20} />
                             <span className="font-medium">New Resume</span>
                         </button>
-                         <button className="flex items-center space-x-3 hover:text-red-500 w-full text-left">
-                            <FiStar className="text-red-500" size={20} />
-                            <span className="font-medium">New Resume with AI</span>
-                        </button>
-                         <button className="flex items-center space-x-3 hover:text-red-500 w-full text-left">
-                            <FiLinkedin className="text-red-500" size={20} />
-                            <span className="font-medium">Import from LinkedIn</span>
-                        </button>
-                         <button className="flex items-center space-x-3 hover:text-red-500 w-full text-left">
-                            <FiFileText className="text-red-500" size={20} />
-                            <span className="font-medium">Use Example</span>
-                        </button>
                     </div>
 
                     {/* Loading and Error States remain the same */}
