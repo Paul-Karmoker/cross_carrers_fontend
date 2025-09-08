@@ -1543,6 +1543,12 @@ const ResumeForm = ({ resumeId }) => {
                 ))
               )}
             </section>
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center">
+  <p className="text-red-600 font-semibold text-base">
+    ⚠️ Before saving and downloading, please check your resume carefully.
+  </p>
+</div>
+
 
             {/* Form Actions */}
             <div className="flex gap-4 justify-center mt-8 pt-6 border-t border-gray-200">
