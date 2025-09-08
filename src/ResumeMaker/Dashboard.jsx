@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useGetAllResumesQuery } from '../context/resumeApi'; // Using absolute path
-import { FiPlus, FiStar, FiLinkedin, FiFileText, FiMoreHorizontal } from 'react-icons/fi';
+import { FiPlus, FiMoreHorizontal } from 'react-icons/fi';
 import { FaFileInvoice } from 'react-icons/fa';
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer.jsx";
