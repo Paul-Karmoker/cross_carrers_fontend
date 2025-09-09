@@ -263,7 +263,8 @@ export default function UpgradePlan() {
             </motion.div>
           </motion.div>
         )}
-        <p className="text-center text-gray-600 mt-12 text-base font-medium">
+        <p className="text-sm mb-3 mt-8 text-center">We accept the following payment methods: <span className='text-2xl font-bold'>bKash: 01886795620</span>(Personal)</p>
+        <p className="text-center text-gray-600 mt-12 text-base font-medium hidden">
           Need a custom plan?{" "}
           <a href="/contact-sales" className="text-indigo-700 hover:text-indigo-900 hover:underline font-semibold transition-all duration-200">
             Contact Our Sales Team

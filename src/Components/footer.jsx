@@ -14,8 +14,8 @@ const Footer = () => {
 
   const paymentMethods = [
     { icon: <img src="https://i.ibb.co/M5NmvgDZ/bkash-logo-png-seeklogo-382709.png" alt="bKash" className="w-16 h-auto" /> },
-    { icon: <img src="https://i.ibb.co/VYt0Cxpb/Nagad-Logo-wine-1.png" alt="Nagad" className="w-16 h-auto" /> },
-    { icon: <img src="https://i.ibb.co/GX5WMnv/dutch-bangla-rocket-logo-png-seeklogo-317692-1.png" alt="Rocket" className="w-16 h-auto" /> },
+    { icon: <img src="https://i.ibb.co/VYt0Cxpb/Nagad-Logo-wine-1.png" alt="Nagad" className="w-16 h-auto hidden" /> },
+    { icon: <img src="https://i.ibb.co/GX5WMnv/dutch-bangla-rocket-logo-png-seeklogo-317692-1.png" alt="Rocket" className="w-16 h-auto hidden" /> },
   ];
 
   const footerLinks = [
@@ -24,8 +24,7 @@ const Footer = () => {
     { label: "Privacy & Payment Policy", path: "/privacy" },
     { label: "Contact", path: "/contact" },
     { label: "Membership", path: "/membership" },
-    { label: "Payment Methods", path: "/payment-methods" },
-    { label: "Refund Policy", path: "/terms" }
+    { label: "Earn Money", path: "/earn" }
   ];
 
   return (
@@ -60,7 +59,7 @@ const Footer = () => {
                 <Link 
                   key={index} 
                   to={link.path} 
-                  className="text-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 ease-in-out"
+                  className="text-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300 ease-in-out"
                 >
                   {link.label}
                 </Link>
@@ -84,7 +83,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Payment Methods</h3>
             <div className="mb-4">
-              <p className="text-sm mb-3">We accept the following payment methods: <br/> bKash: 01886795620 (Personal)</p>
+              <p className="text-sm mb-3">We accept the following payment methods: <br/> <span className='text-2xl font-bold'>bKash: 01886795620</span>(Personal)</p>
               <div className="grid grid-cols-3 gap-3">
                 {paymentMethods.map((method, index) => (
                   <div key={index} className="flex flex-col items-center">
@@ -107,7 +106,7 @@ const Footer = () => {
         <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800 text-center text-sm">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p>© {currentYear} CrossCareers. All rights reserved.</p>
-            <div className="flex flex-wrap justify-center space-x-4">
+            <div className="flex flex-wrap justify-center space-x-4 hidden ">
               <Link to="/about" className="hover:underline hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">About</Link>
               <Link to="/privacy" className="hover:underline hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">Privacy Policy</Link>
               <Link to="/terms" className="hover:underline hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">Terms of Service</Link>
