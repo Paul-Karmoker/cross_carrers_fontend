@@ -363,6 +363,7 @@ export default function Signup() {
                   Sign in
                 </Link>
               </p>
+              <p className="text-medium text-center text-red-600">After start Trial, Please confirm your email address by clicking the verification link we’ve sent your email</p>
             </form>
           </div>
         </div>
