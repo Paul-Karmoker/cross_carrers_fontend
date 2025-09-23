@@ -13,6 +13,7 @@ import {
 } from "react-icons/fi";
 import PaymentModal from "../Membership/paymentmodel";
 
+
 export default function Signup() {
   const [signup, { isLoading, error }] = useSignupMutation();
   const navigate = useNavigate();

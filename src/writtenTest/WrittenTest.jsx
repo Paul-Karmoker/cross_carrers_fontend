@@ -254,7 +254,7 @@ const WrittenTest = () => {
     return (
       <div className="text-center mt-8">
         <h2 className="text-xl font-bold text-gray-800 mb-2">
-          The Smarter Way to Stay Covered
+          Provide the necessary informatio
         </h2>
         <p className="text-gray-600 mb-6">
           Fill in the details below to initialize your written test session.
@@ -266,7 +266,7 @@ const WrittenTest = () => {
             name="jobTitle"
             value={formData.jobTitle}
             onChange={handleInputChange}
-            placeholder="Job Title (e.g., Node.js Backend Developer)"
+            placeholder="Job Title (published position example: Program manager, finance officer, GBV assistant etc. )"
             className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
           <input
@@ -274,7 +274,7 @@ const WrittenTest = () => {
             name="experienceYears"
             value={formData.experienceYears}
             onChange={handleInputChange}
-            placeholder="Years of Experience"
+            placeholder="Years of Experience (Check in the Job Advert in required experience section0 "
             className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
           <input
@@ -282,14 +282,14 @@ const WrittenTest = () => {
             name="skills"
             value={formData.skills}
             onChange={handleInputChange}
-            placeholder="Skills (comma-separated, e.g., Node.js, Express, MongoDB)"
+            placeholder="Skills (check Job advert. more then one, use Comma. eg; team manage, Reporting )"
             className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
           <textarea
             name="jobDescription"
             value={formData.jobDescription}
             onChange={handleInputChange}
-            placeholder="Job Description"
+            placeholder="Job Description. copy from the Job Advertisement"
             rows="4"
             className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
