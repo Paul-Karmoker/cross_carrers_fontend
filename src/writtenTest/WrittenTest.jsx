@@ -314,7 +314,7 @@ const WrittenTest = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center mt-4 p-4">
       <div className="w-full max-w-3xl bg-white shadow-xl rounded-2xl p-8">
         <h1 className="text-3xl font-bold mb-6 text-gray-800 text-center border-b pb-4">Written Assessment</h1>
         <div className="mt-6">{renderContent()}</div>

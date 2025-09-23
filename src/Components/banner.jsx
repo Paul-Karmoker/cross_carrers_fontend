@@ -35,7 +35,7 @@ function Banner() {
     },
     {
       id: 5,
-      image: 'https://i.ibb.co/Z6VmScGF/5.jpg',
+      image: 'https://i.ibb.co.com/FkL4xXDX/5.jpg',
       alt: 'Advertisement 1',
     },
   ];
