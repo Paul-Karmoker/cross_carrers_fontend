@@ -1,192 +1,203 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import { useGetprofileQuery } from "../context/authApi";
+import { useGetprofileQuery, logout } from "../context/authApi";
 import { motion, AnimatePresence } from "framer-motion";
-import { RiShieldStarLine } from "react-icons/ri";
-import { FiLogOut, FiLayout, FiLogIn } from "react-icons/fi";
-import { logout } from "../context/authApi";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import {
+  RiShieldStarLine,
+  RiMenu3Line,
+  RiCloseLine,
+  RiArrowDownSLine,
+  RiDashboardLine,
+} from "react-icons/ri";
+import { FiLogOut, FiLogIn } from "react-icons/fi";
+
+// --- Navigation Configuration ---
+const NAV_CONFIG = [
+  { label: "Home", path: "/", type: "link" },
+  {
+    label: "Jobs Here",
+    key: "jobs",
+    type: "dropdown",
+    items: [
+      { label: "BDjobs Sites", path: "/bdjobs" },
+      { label: "Int. Jobs Sites", path: "/intjobs" },
+      { label: "NGO Jobs", path: "/ngo" },
+      { label: "INGO Jobs", path: "/ingo" },
+      { label: "UN-Jobs", path: "/un", restricted: true },
+      { label: "Embassy Jobs", path: "/emb", restricted: true },
+      { label: "Donor Jobs", path: "/donor", restricted: true },
+    ],
+  },
+  {
+    label: "Resume Kit",
+    key: "resume",
+    type: "dropdown",
+    items: [
+      { label: "Resume Maker", path: "/resume", restricted: true },
+      { label: "Cover Letter Maker", path: "/coverhome" },
+      { label: "Match & Insights", path: "/matchhome", restricted: true },
+    ],
+  },
+  {
+    label: "Candidate Kit",
+    key: "candidate",
+    type: "dropdown",
+    items: [
+      { label: "Training Sites", path: "/trainings" },
+      { label: "Written Test", path: "/writtenTest" },
+      {
+        label: "Interview Practice",
+        path: "/InterviewSimulator",
+        restricted: true,
+      },
+      { label: "Interview Questions", path: "/qahome", restricted: true },
+    ],
+  },
+  {
+    label: "Services Kit",
+    key: "services",
+    type: "dropdown",
+    items: [
+      { label: "PowerPoint Maker", path: "/ppthome", restricted: true },
+      { label: "Document Maker", path: "/dochome", restricted: true },
+      {
+        label: "Excel Format Maker",
+        path: "/excelhome",
+        restricted: true,
+        hidden: true,
+      },
+    ],
+  },
+  {
+    label: "Career Coach",
+    path: "/consult",
+    type: "link",
+    restricted: true,
+    hidden: true,
+  },
+];
 
 function Navbar() {
   const { data, isLoading } = useGetprofileQuery();
   const user = data?.user;
-
-  const [sticky, setSticky] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const dropdownRefs = useRef({});
-  const mobileRef = useRef(null);
-  const mobileButtonRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Close menus on route change
-  useEffect(() => {
-    setMobileOpen(false);
-    setOpenDropdown(null);
-  }, [location]);
+  // State
+  const [sticky, setSticky] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null); // Desktop hover
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState({}); // Mobile accordion
 
-  // Handle sticky navbar on scroll
+  const navRef = useRef(null);
+
+  // Scroll Handling
   useEffect(() => {
-    const handleScroll = () => {
-      setSticky(window.scrollY > 0);
-    };
+    const handleScroll = () => setSticky(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle clicking outside dropdowns and mobile menu
+  // Close menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setMobileExpanded({});
+    setActiveDropdown(null);
+  }, [location]);
+
+  // Click Outside Handler
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Close sub-dropdowns
-      if (
-        openDropdown &&
-        dropdownRefs.current[openDropdown] &&
-        !dropdownRefs.current[openDropdown].contains(event.target)
-      ) {
-        setOpenDropdown(null);
-      }
-      // Close mobile menu
-      if (
-        mobileOpen &&
-        mobileRef.current &&
-        mobileButtonRef.current &&
-        !mobileRef.current.contains(event.target) &&
-        !mobileButtonRef.current.contains(event.target)
-      ) {
-        setMobileOpen(false);
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setActiveDropdown(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [openDropdown, mobileOpen]);
+  }, []);
 
-  const handleDropdownToggle = (key) => {
-    setOpenDropdown(openDropdown === key ? null : key);
-  };
-
-  const handleLogin = () => {
-    const currentPath = window.location.pathname;
-    navigate("/signin", { state: { from: currentPath } });
-  };
-
-  const handleRestrictedClick = (event, path) => {
-    event.preventDefault();
-    navigate("/signin", { state: { from: path } });
-  };
+  // --- Utility Functions ---
 
   const isRestricted = (path) => {
-    const restrictedPaths = [
-      "/matchhome",
-      "/resume",
-      "/un",
-      "/emb",
-      "/donor",
-      "/qahome",
-      "/careercoach",
-      "/InterviewSimulator",
-      "/ppthome",
-      "/dochome",
-      "/excelhome",
-      "/consult",
-    ];
-    return restrictedPaths.includes(path) && !user;
+    if (!path) return false;
+    const flatItems = NAV_CONFIG.flatMap((n) => n.items || [n]);
+    const configItem = flatItems.find((i) => i.path === path);
+    return configItem?.restricted && !user;
   };
 
-  // UserDropdown Component
-  const UserDropdown = () => {
+  const handleRestrictedClick = (e, path) => {
+    if (isRestricted(path)) {
+      e.preventDefault();
+      navigate("/signin", { state: { from: path } });
+      setMobileMenuOpen(false);
+    }
+  };
+
+  const toggleMobileAccordion = (key) => {
+    setMobileExpanded((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  // --- Components ---
+
+  const Logo = () => (
+    <Link to="/" className="block">
+      <img
+        src="https://i.ibb.co/Y75Y5NSb/banner.gif"
+        alt="Cross Careers"
+        className="h-8 md:h-10 object-contain"
+      />
+    </Link>
+  );
+
+  const UserAvatar = () => {
     const [isOpen, setIsOpen] = useState(false);
-
-    if (!user) return null;
-
-    const getInitials = () => {
-      const fi = user.firstName?.[0] ?? "";
-      const li = user.lastName?.[0] ?? "";
-      return (fi + li).toUpperCase() || "U";
-    };
+    const initials = (user?.firstName?.[0] || "") + (user?.lastName?.[0] || "");
 
     return (
       <div className="relative">
-        <div className="relative inline-block">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsOpen(!isOpen)}
-            className="relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 shadow-md"
-          >
-            {getInitials()}
-          </motion.button>
-
-          {(user.subscriptionType === "premium" || user.subscriptionType === "freeTrial") && (
-            <span
-              className={`
-                absolute top-0 right-0 
-                transform translate-x-1/2 -translate-y-1/2 
-                bg-gradient-to-r ${user.subscriptionType === "premium" ? "from-yellow-400 to-orange-400" : "from-green-400 to-teal-400"} 
-                text-xs font-bold px-2.5 py-1 rounded-full shadow-lg text-white
-                border ${user.subscriptionType === "premium" ? "border-yellow-300" : "border-green-300"}
-              `}
-            >
-              {user.subscriptionType === "premium" ? "PLUS" : "TRIAL"}
-            </span>
-          )}
-        </div>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-10 h-10 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold flex items-center justify-center shadow-md border-2 border-white focus:outline-none"
+        >
+          {initials.toUpperCase() || "U"}
+        </button>
 
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.2 }}
-              className="absolute right-0 mt-3 w-60 rounded-lg shadow-2xl bg-white ring-1 ring-black ring-opacity-5 z-50 overflow-hidden"
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              className="absolute right-0 mt-3 w-64 bg-white rounded-xl shadow-2xl z-50 overflow-hidden ring-1 ring-black ring-opacity-5 origin-top-right"
             >
-              <div className="px-4 py-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-t-lg">
-                <p className="text-sm font-semibold text-gray-800">
+              <div className="px-4 py-3 bg-gray-50 border-b">
+                <p className="text-sm font-bold text-gray-900">
                   {user.firstName} {user.lastName}
                 </p>
-                <p className="text-xs text-gray-600 truncate">{user.email}</p>
-                <p className="text-xs font-medium text-gray-600">
-                  Referral Code: <span className="font-bold text-purple-600">{user.referralCode}</span>
-                </p>
-                <p className="text-xs font-medium text-gray-600">
-                  Subscription Plan: <span className="font-bold text-purple-600">{user.subscriptionPlan}</span>
-                </p>
+                <p className="text-xs text-gray-500 truncate">{user.email}</p>
               </div>
-              <div className="py-1 border-t border-gray-100">
-                <motion.button
-                  whileHover={{ x: 5, backgroundColor: "#f3f4f6" }}
+              <div className="py-1">
+                <button
                   onClick={() => {
                     navigate("/dbhome");
                     setIsOpen(false);
                   }}
-                  className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition duration-200"
+                  className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-2"
                 >
-                  <FiLayout className="mr-3 text-gray-500" />
-                  Dashboard
-                </motion.button>
-                <motion.button
-                  whileHover={{ x: 5, backgroundColor: "#f3f4f6" }}
-                  onClick={() => {
-                    navigate("/priceing");
-                    setIsOpen(false);
-                  }}
-                  className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition duration-200"
-                >
-                  <RiShieldStarLine className="mr-3 text-gray-500" />
-                  Upgrade your plan
-                </motion.button>
-                <motion.button
-                  whileHover={{ x: 5, backgroundColor: "#f3f4f6" }}
+                  <RiDashboardLine /> Dashboard
+                </button>
+                <button
                   onClick={() => {
                     logout();
                     setIsOpen(false);
                   }}
-                  className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition duration-200"
+                  className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center gap-2"
                 >
-                  <FiLogOut className="mr-3 text-gray-500" />
-                  Logout
-                </motion.button>
+                  <FiLogOut /> Logout
+                </button>
               </div>
             </motion.div>
           )}
@@ -195,359 +206,280 @@ function Navbar() {
     );
   };
 
-  const navItems = (
-    <>
-      <li>
-        <Link to="/" className="hover:text-purple-400 text-[17px] transition duration-300 font-medium block py-2 px-4 md:py-0 md:px-0">
-          Home
-        </Link>
-      </li>
-
-      {/* Jobs Here Dropdown */}
-      <li className="relative group" ref={(el) => (dropdownRefs.current["jobs"] = el)}>
-        <div
-          className="hover:text-purple-400 text-[17px] transition duration-300 cursor-pointer font-medium flex items-center justify-between py-2 px-4 md:py-0 md:px-0 md:justify-start"
-          onClick={() => handleDropdownToggle("jobs")}
-        >
-          Jobs Here
-          <span className="md:hidden ml-auto"><MdKeyboardArrowDown /></span>
-        </div>
-        <ul className={`bg-white shadow-2xl rounded-lg min-w-[220px] z-50 ${openDropdown === "jobs" ? 'block' : 'hidden'} md:hidden group-hover:block absolute left-0 md:left-auto top-full md:top-auto p-3 md:absolute`}>
-          <li>
-            <Link to="/bdjobs" className="hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200">
-              BDjobs Sites
-            </Link>
-          </li>
-          <li>
-            <Link to="/intjobs" className="hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200">
-              Int. Jobs Sites
-            </Link>
-          </li>
-          <li>
-            <Link to="/ngo" className="hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200">
-              NGO Jobs
-            </Link>
-          </li>
-          <li>
-            <Link to="/ingo" className="hover:bg-gray-100 p-2 text-[17px] rounded-md block text-gray-700 transition duration-200">
-              INGO Jobs
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/un"
-              className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-800 transition duration-200 ${
-                isRestricted("/un") ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              onClick={isRestricted("/un") ? (e) => handleRestrictedClick(e, "/un") : undefined}
-            >
-              UN-Jobs {isRestricted("/un") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/emb"
-              className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200 ${
-                isRestricted("/emb") ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              onClick={isRestricted("/emb") ? (e) => handleRestrictedClick(e, "/emb") : undefined}
-            >
-              Embassy Jobs {isRestricted("/emb") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/donor"
-              className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200 ${
-                isRestricted("/donor") ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              onClick={isRestricted("/donor") ? (e) => handleRestrictedClick(e, "/donor") : undefined}
-            >
-              Donor Jobs {isRestricted("/donor") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
-            </Link>
-          </li>
-        </ul>
-      </li>
-
-      {/* Resume Kit Dropdown */}
-      <li className="relative group" ref={(el) => (dropdownRefs.current["resume"] = el)}>
-        <div
-          className="hover:text-purple-400 text-[17px] transition duration-300 cursor-pointer font-medium flex items-center justify-between py-2 px-4 md:py-0 md:px-0 md:justify-start"
-          onClick={() => handleDropdownToggle("resume")}
-        >
-          Resume Kit
-          <span className="md:hidden ml-auto"><MdKeyboardArrowDown /></span>
-        </div>
-        <ul className={`bg-white shadow-2xl rounded-lg min-w-[220px] z-50 ${openDropdown === "resume" ? 'block' : 'hidden'} md:hidden group-hover:block absolute left-0 md:left-auto top-full md:top-auto p-3 md:absolute`}>
-          <li>
-            <Link
-              to="/resume"
-              className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200 ${
-                isRestricted("/resume") ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              onClick={
-                isRestricted("/resume")
-                  ? (e) => handleRestrictedClick(e, "/resume")
-                  : undefined
-              }
-            >
-              Resume Maker {isRestricted("/resume") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
-            </Link>
-          </li>
-          <li>
-            <Link to="/coverhome" className="hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200">
-              Cover Letter Maker
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/matchhome"
-              className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200 ${
-                isRestricted("/matchhome") ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              onClick={
-                isRestricted("/matchhome") ? (e) => handleRestrictedClick(e, "/matchhome") : undefined
-              }
-            >
-              Match & Insights {isRestricted("/matchhome") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
-            </Link>
-          </li>
-        </ul>
-      </li>
-
-      {/* Candidate Kit Dropdown */}
-      <li className="relative group" ref={(el) => (dropdownRefs.current["Candidate"] = el)}>
-        <div
-          className="hover:text-purple-400 text-[17px] transition duration-300 cursor-pointer font-medium flex items-center justify-between py-2 px-4 md:py-0 md:px-0 md:justify-start"
-          onClick={() => handleDropdownToggle("Candidate")}
-        >
-          Candidate Kit
-          <span className="md:hidden ml-auto"><MdKeyboardArrowDown /></span>
-        </div>
-        <ul className={`bg-white shadow-2xl rounded-lg min-w-[220px] z-50 ${openDropdown === "Candidate" ? 'block' : 'hidden'} md:hidden group-hover:block absolute left-0 md:left-auto top-full md:top-auto p-3 md:absolute`}>
-          <li>
-            <Link to="/trainings" className="hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200">
-              Training Sites
-            </Link>
-          </li>
-          <li>
-            <Link to="/writtenTest" className="hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200">
-              Written Test
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/InterviewSimulator"
-              className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200 ${
-                isRestricted("/InterviewSimulator") ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              onClick={
-                isRestricted("/InterviewSimulator")
-                  ? (e) => handleRestrictedClick(e, "/InterviewSimulator")
-                  : undefined
-              }
-            >
-              Interview Practice {isRestricted("/InterviewSimulator") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/qahome"
-              className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200 ${
-                isRestricted("/qahome") ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              onClick={isRestricted("/qahome") ? (e) => handleRestrictedClick(e, "/qahome") : undefined}
-            >
-              Interview Questions {isRestricted("/qahome") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
-            </Link>
-          </li>
-        </ul>
-      </li>
-
-      {/* Services Kit Dropdown */}
-      <li className="relative group" ref={(el) => (dropdownRefs.current["services"] = el)}>
-        <div
-          className="hover:text-purple-400 text-[17px] transition duration-300 cursor-pointer font-medium flex items-center justify-between py-2 px-4 md:py-0 md:px-0 md:justify-start"
-          onClick={() => handleDropdownToggle("services")}
-        >
-          Services Kit
-          <span className="md:hidden ml-auto"><MdKeyboardArrowDown /></span>
-        </div>
-        <ul className={`bg-white shadow-2xl rounded-lg min-w-[220px] z-50 ${openDropdown === "services" ? 'block' : 'hidden'} md:hidden group-hover:block absolute left-0 md:left-auto top-full md:top-auto p-3 md:absolute`}>
-          <li>
-            <Link
-              to="/ppthome"
-              className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200 ${
-                isRestricted("/ppthome") ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              onClick={isRestricted("/ppthome") ? (e) => handleRestrictedClick(e, "/ppthome") : undefined}
-            >
-              PowerPoint Maker {isRestricted("/ppthome") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/dochome"
-              className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200 ${
-                isRestricted("/dochome") ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              onClick={isRestricted("/dochome") ? (e) => handleRestrictedClick(e, "/dochome") : undefined}
-            >
-              Document Maker {isRestricted("/dochome") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
-            </Link>
-          </li>
-          <li className="hidden">
-            <Link
-              to="/excelhome"
-              className={`hover:bg-gray-100 text-[17px] p-2 rounded-md block text-gray-700 transition duration-200 ${
-                isRestricted("/excelhome") ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              onClick={
-                isRestricted("/excelhome") ? (e) => handleRestrictedClick(e, "/excelhome") : undefined
-              }
-            >
-              Excel Format Maker {isRestricted("/excelhome") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
-            </Link>
-          </li>
-        </ul>
-      </li>
-
-      {/* Career Coach Link (hidden as per original) */}
-      <li className="hidden">
-        <Link
-          to="/consult"
-          className={`hover:text-purple-400 text-[17px] transition duration-300 font-medium block py-2 px-4 md:py-0 md:px-0 ${
-            isRestricted("/consult") ? "opacity-50 cursor-not-allowed" : ""
-          }`}
-          onClick={isRestricted("/consult") ? (e) => handleRestrictedClick(e, "/consult") : undefined}
-        >
-          Career Coach {isRestricted("/consult") && <RiShieldStarLine className="inline w-7 h-7 text-orange-500 ml-2" />}
-        </Link>
-      </li>
-    </>
-  );
-
   return (
-    <div
-      className={`max-w-screen-2xl z-50 container mx-auto md:px-20 px-4 fixed top-0 left-0 right-0 transition-all duration-300 ${
-        sticky
-          ? "shadow-lg bg-white/95 backdrop-blur-md"
-          : "bg-gradient-to-r from-indigo-50 to-purple-50"
-      }`}
-    >
-      <div className="navbar py-3 flex justify-between items-center">
-        {/* Mobile Menu Button and Logo */}
-        <div className="navbar-start flex items-center">
-          <div className="lg:hidden mr-2">
+    <>
+      <div
+        ref={navRef}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          sticky
+            ? "bg-white/95 backdrop-blur-md shadow-md py-2"
+            : "bg-gradient-to-r from-indigo-50 to-purple-50 py-3 md:py-4"
+        }`}
+      >
+        <div className="container mx-auto px-4 lg:px-16 flex justify-between items-center">
+          {/* Left: Mobile Toggle + Logo */}
+          <div className="flex items-center gap-3">
             <button
-              ref={mobileButtonRef}
-              className="btn btn-ghost text-gray-700"
-              onClick={() => setMobileOpen(!mobileOpen)}
+              onClick={() => setMobileMenuOpen(true)}
+              className="lg:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-full transition-colors focus:outline-none"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
+              <RiMenu3Line size={24} />
             </button>
+            <Logo />
           </div>
-          <Link to="/" className="text-3xl font-bold text-indigo-600 flex-shrink-0">
-            <img src="https://i.ibb.co/Y75Y5NSb/banner.gif" className="w-48 h-10 object-contain" alt="Logo" />
-          </Link>
-        </div>
 
-        {/* Desktop Menu */}
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-6 text-gray-700">{navItems}</ul>
-        </div>
+          {/* Center: Desktop Menu */}
+          <div className="hidden lg:flex items-center gap-6">
+            {NAV_CONFIG.map((item, idx) => {
+              if (item.hidden) return null;
 
-        {/* Auth Section */}
-        <div className="navbar-end flex-shrink-0">
-          {isLoading ? (
-            <div className="w-12 h-12 rounded-full bg-gray-200 animate-pulse"></div>
-          ) : user ? (
-            <UserDropdown />
-          ) : (
-            <motion.button
-              onClick={handleLogin}
-              className="relative overflow-hidden px-5 py-2.5 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-sm font-semibold shadow-lg"
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 15px rgba(99, 102, 241, 0.6)",
-              }}
-              whileTap={{ scale: 0.98 }}
-              initial={{
-                boxShadow: "0 0 0 0 rgba(99, 102, 241, 0.4)",
-              }}
-              animate={{
-                boxShadow: [
-                  "0 0 0 0 rgba(99, 102, 241, 0.4)",
-                  "0 0 12px 6px rgba(99, 102, 241, 0.4)",
-                  "0 0 0 0 rgba(99, 102, 241, 0)",
-                ],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 3,
-                ease: "easeInOut",
-              }}
-            >
-              <div className="flex items-center justify-center gap-2">
-                <motion.span
-                  animate={{
-                    y: [0, -3, 0, 3, 0],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 2,
-                      ease: "easeInOut",
-                    },
-                  }}
-                >
-                  <FiLogIn className="text-lg" />
-                </motion.span>
-                <motion.span
-                  animate={{
-                    opacity: [1, 0.8, 1],
-                    transition: {
-                      repeat: Infinity,
-                      duration: 2,
-                      ease: "easeInOut",
-                    },
-                  }}
-                >
-                  Sign In
-                </motion.span>
-              </div>
-              <motion.span
-                className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 group-hover:opacity-10"
-              />
-            </motion.button>
-          )}
+              if (item.type === "link") {
+                const locked = item.restricted && !user;
+                return (
+                  <Link
+                    key={idx}
+                    to={item.path}
+                    onClick={(e) =>
+                      locked && handleRestrictedClick(e, item.path)
+                    }
+                    className={`text-[15px] font-medium transition-colors ${
+                      locked
+                        ? "text-gray-400 cursor-not-allowed flex items-center gap-1"
+                        : "text-gray-700 hover:text-indigo-600"
+                    }`}
+                  >
+                    {item.label}
+                    {locked && <RiShieldStarLine className="text-orange-400" />}
+                  </Link>
+                );
+              }
+
+              if (item.type === "dropdown") {
+                return (
+                  <div
+                    key={item.key}
+                    className="relative group"
+                    onMouseEnter={() => setActiveDropdown(item.key)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    <button
+                      className={`flex items-center gap-1 text-[15px] font-medium py-2 ${
+                        activeDropdown === item.key
+                          ? "text-indigo-600"
+                          : "text-gray-700 hover:text-indigo-600"
+                      }`}
+                    >
+                      {item.label} <RiArrowDownSLine />
+                    </button>
+
+                    {/* Desktop Dropdown Content */}
+                    <AnimatePresence>
+                      {activeDropdown === item.key && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute left-0 mt-0 w-60 bg-white shadow-xl rounded-lg border border-gray-100 overflow-hidden z-50"
+                        >
+                          {item.items.map((sub, sIdx) => {
+                            if (sub.hidden) return null;
+                            const locked = sub.restricted && !user;
+                            return (
+                              <Link
+                                key={sIdx}
+                                to={sub.path}
+                                onClick={(e) =>
+                                  locked && handleRestrictedClick(e, sub.path)
+                                }
+                                className={`block px-4 py-2.5 text-sm hover:bg-gray-50 ${
+                                  locked
+                                    ? "text-gray-400 cursor-not-allowed flex justify-between"
+                                    : "text-gray-700"
+                                }`}
+                              >
+                                {sub.label}
+                                {locked && (
+                                  <RiShieldStarLine className="text-orange-400 inline ml-2" />
+                                )}
+                              </Link>
+                            );
+                          })}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+            })}
+          </div>
+
+          {/* Right: Auth Button */}
+          <div>
+            {isLoading ? (
+              <div className="w-10 h-10 bg-gray-200 rounded-full animate-pulse" />
+            ) : user ? (
+              <UserAvatar />
+            ) : (
+              <button
+                onClick={() => navigate("/signin")}
+                className="flex items-center gap-2 px-5 py-2 bg-indigo-600 text-white text-sm font-semibold rounded-full hover:bg-indigo-700 transition-all shadow-md hover:shadow-lg"
+              >
+                <FiLogIn /> Sign In
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <motion.ul
-          ref={mobileRef}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="lg:hidden menu menu-sm z-[1] p-3 shadow-2xl bg-white rounded-box w-full md:w-64 absolute left-0 top-full"
-        >
-          {navItems}
-        </motion.ul>
-      )}
-    </div>
+      {/* --- MOBILE SIDE DRAWER MENU (Fixed Z-Index Issue) --- */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            {/* 1. Dark Overlay (Backdrop) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/60 z-[90] backdrop-blur-sm"
+            />
+
+            {/* 2. Side Drawer Container */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 left-0 bottom-0 w-[85%] max-w-[320px] bg-white z-[100] shadow-2xl flex flex-col overflow-hidden"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-100 bg-gray-50/50">
+                <span className="font-bold text-lg text-indigo-700">Menu</span>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-2 bg-white rounded-full text-gray-500 shadow-sm border border-gray-100 hover:text-red-500"
+                >
+                  <RiCloseLine size={20} />
+                </button>
+              </div>
+
+              {/* Scrollable List */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-1">
+                {NAV_CONFIG.map((item, idx) => {
+                  if (item.hidden) return null;
+
+                  // Simple Link
+                  if (item.type === "link") {
+                    const locked = item.restricted && !user;
+                    return (
+                      <Link
+                        key={idx}
+                        to={item.path}
+                        onClick={(e) => {
+                          if (locked) handleRestrictedClick(e, item.path);
+                          else setMobileMenuOpen(false);
+                        }}
+                        className={`block px-4 py-3 rounded-lg text-[15px] font-medium mb-1 ${
+                          locked
+                            ? "bg-gray-50 text-gray-400 cursor-not-allowed"
+                            : "text-gray-700 hover:bg-indigo-50 hover:text-indigo-600"
+                        }`}
+                      >
+                        <div className="flex justify-between items-center">
+                          {item.label}
+                          {locked && (
+                            <RiShieldStarLine className="text-orange-400" />
+                          )}
+                        </div>
+                      </Link>
+                    );
+                  }
+
+                  // Dropdown (Accordion style)
+                  if (item.type === "dropdown") {
+                    const isExpanded = mobileExpanded[item.key];
+                    return (
+                      <div key={item.key} className="mb-1">
+                        <button
+                          onClick={() => toggleMobileAccordion(item.key)}
+                          className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-[15px] font-medium transition-colors ${
+                            isExpanded
+                              ? "bg-indigo-50 text-indigo-700"
+                              : "text-gray-700 hover:bg-gray-50"
+                          }`}
+                        >
+                          {item.label}
+                          <RiArrowDownSLine
+                            className={`transition-transform duration-300 ${
+                              isExpanded ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+
+                        <AnimatePresence>
+                          {isExpanded && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="pl-4 pr-2 py-2 space-y-1 border-l-2 border-indigo-100 ml-4 my-1">
+                                {item.items.map((sub, sIdx) => {
+                                  if (sub.hidden) return null;
+                                  const locked = sub.restricted && !user;
+                                  return (
+                                    <Link
+                                      key={sIdx}
+                                      to={sub.path}
+                                      onClick={(e) => {
+                                        if (locked)
+                                          handleRestrictedClick(e, sub.path);
+                                        else setMobileMenuOpen(false);
+                                      }}
+                                      className={`block px-3 py-2.5 rounded-md text-sm ${
+                                        locked
+                                          ? "text-gray-400 flex justify-between"
+                                          : "text-gray-600 hover:bg-gray-50 hover:text-indigo-600"
+                                      }`}
+                                    >
+                                      {sub.label}
+                                      {locked && (
+                                        <RiShieldStarLine className="text-orange-400 text-xs" />
+                                      )}
+                                    </Link>
+                                  );
+                                })}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+                })}
+              </div>
+
+              {/* Footer / Login Action */}
+              {!user && (
+                <div className="p-4 border-t border-gray-100 bg-gray-50">
+                  <button
+                    onClick={() => {
+                      navigate("/signin");
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full py-3 rounded-lg bg-indigo-600 text-white font-semibold shadow-lg active:scale-95 transition-transform flex justify-center items-center gap-2"
+                  >
+                    <FiLogIn /> Sign In
+                  </button>
+                </div>
+              )}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
