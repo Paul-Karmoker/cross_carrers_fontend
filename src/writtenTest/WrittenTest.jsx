@@ -412,7 +412,7 @@ const WrittenTest = () => {
             <button
               onClick={handleDownloadPDF}
               disabled={isDownloadingPdf}
-              className="w-full md:w-auto md:min-w-[300px] mx-auto flex items-center justify-center gap-3 py-4 px-8 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 active:scale-[0.98] transition-all disabled:opacity-60 shadow-xl shadow-indigo-600/10"
+              className="w-full md:w-auto md:min-w-[300px] mx-auto flex items-center justify-center gap-3 py-4 px-8  font-bold rounded-xl  active:scale-[0.98] transition-all disabled:opacity-60 shadow-xl shadow-indigo-600/10"
             >
               {isDownloadingPdf ? (
                 <>
@@ -421,7 +421,7 @@ const WrittenTest = () => {
                 </>
               ) : (
                 <>
-                  <Download className="w-5 h-5" /> Download Detailed Report (Method 1)
+                  
                 </>
               )}
             </button>
@@ -431,7 +431,7 @@ const WrittenTest = () => {
               disabled={isDownloadingPdf}
               className="w-full md:w-auto md:min-w-[300px] mx-auto flex items-center justify-center gap-3 py-4 px-8 bg-gray-600 text-white font-bold rounded-xl hover:bg-gray-700 active:scale-[0.98] transition-all disabled:opacity-60 shadow-xl shadow-gray-600/10"
             >
-              <Download className="w-5 h-5" /> Try Alternative Download
+              <Download className="w-5 h-5" />  Download Report
             </button>
           </div>
 
