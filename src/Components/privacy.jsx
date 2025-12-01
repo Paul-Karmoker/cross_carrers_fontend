@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import Navbar from '../Components/navbar';
 import Footer from '../Components/footer';
@@ -27,7 +28,7 @@ const PrivacyPolicy = () => {
         {/* Introduction */}
         <div className="bg-blue-50 p-6 rounded-lg mb-12">
           <p className="text-gray-700">
-            This Privacy Policy and Payment Dispute Resolution ("Policy") governs the collection, use, and protection of personal data by Cross Careers ("Company," "we," "us," or "our") in compliance with Bangladeshi law. By using our website and services, you ("User," "you," or "your") consent to this Policy.
+            This Privacy Policy and Payment Dispute Resolution  governs the collection, use, and protection of personal data by Cross Careers  in compliance with Bangladeshi law. By using our website and services, you  consent to this Policy.
           </p>
         </div>
 
@@ -173,7 +174,7 @@ const PrivacyPolicy = () => {
                 <ul className="list-disc pl-6 space-y-2 text-gray-700">
                   <li><strong>No Refunds</strong> for completed services (e.g., resume drafting).</li>
                   <li><strong>Disputes must be filed within 7 days</strong> of transaction.</li>
-                  <li><strong>Fraudulent charges</strong> will be investigated per Bangladesh Bank's Guidelines.</li>
+                  <li><strong>Fraudulent charges</strong> will be investigated per Bangladesh Bank&lsquo;s Guidelines.</li>
                 </ul>
               </div>
 
