@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useSignupMutation } from "../context/authApi";
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 import {
   FiUser,
   FiMail,
@@ -132,6 +134,9 @@ export default function Signup() {
   };
 
   return (
+    <>
+      <Navbar />
+       
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4 md:p-8 mt-20">
       <motion.div
         initial="initial"
@@ -378,5 +383,8 @@ export default function Signup() {
   onPaymentSuccess={handlePaymentSuccess}  // নতুন যোগ করা
 />
     </div>
+    <Footer/>
+    </>
+   
   );
 }
