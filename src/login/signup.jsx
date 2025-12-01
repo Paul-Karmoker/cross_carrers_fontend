@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useSignupMutation } from "../context/authApi";
-import Navbar from '../components/navbar';
-import Footer from '../components/footer';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
 import {
   FiUser,
   FiMail,
