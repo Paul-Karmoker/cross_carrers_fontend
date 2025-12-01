@@ -7,8 +7,8 @@ import { FiMail, FiLock, FiArrowRight } from 'react-icons/fi';
 import { toast } from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook, FaLinkedin } from 'react-icons/fa';
-import Navbar from '../components/navbar';
-import Footer from '../components/footer';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
