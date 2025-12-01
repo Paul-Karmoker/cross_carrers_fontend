@@ -7,7 +7,8 @@ import { FiMail, FiLock, FiArrowRight } from 'react-icons/fi';
 import { toast } from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook, FaLinkedin } from 'react-icons/fa';
-
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -49,7 +50,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4 mt-20">
+    <>
+      <Navbar />
+       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4 mt-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -234,6 +237,11 @@ export default function LoginPage() {
           </div>
         </div>
       </motion.div>
-    </div>
+      </div>
+      <Footer />
+    
+    </>
+
+   
   );
 }
