@@ -160,5 +160,5 @@ export const {
 export function logout() {
   localStorage.removeItem('token');
   // Optional: navigate or reload
-  window.location.href = '/login'; // or use navigate('/login') from React Router
+  window.location.href = '/login';
 }

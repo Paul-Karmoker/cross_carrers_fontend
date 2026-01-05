@@ -194,7 +194,6 @@ const App = () => {
           }
         />
 
-        {/* ক্যাচ-অল রাউট */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
