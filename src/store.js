@@ -37,7 +37,7 @@ export const store = configureStore({
     }).concat(
       authApi.middleware,
       resumeApi.middleware,
-      writtenTestApi.middleware,   // ✅ FIX: Add this line
+      writtenTestApi.middleware,
       loggerMiddleware
     ),
   devTools: process.env.NODE_ENV !== 'production',
