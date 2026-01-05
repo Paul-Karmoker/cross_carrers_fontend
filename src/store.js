@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 // src/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import { authApi } from './context/authApi';
+import { authApi } from './redux/features/authApi';
 import { resumeApi } from './context/resumeApi';
 import { writtenTestApi } from './context/writtenTestApi';
 import resumeReducer from './context/resumeSlice';

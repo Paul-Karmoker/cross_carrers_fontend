@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { useGetWithdrawalsQuery } from './context/authApi';
 
 // Public Components
-import Home from '../src/home/home';
+import Home from '../src/app/pages/home/home_page';
 import Training from './Components/trainings';
 import About from './Components/about';
 import Contact from './Components/contact';
