@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { useLoginMutation } from '../context/authApi';
-import { useGetGoogleAuthUrlQuery, useGetFacebookAuthUrlQuery, useGetLinkedInAuthUrlQuery } from '../context/authApi';
+import { useLoginMutation } from '../redux/features/authApi';
+import { useGetGoogleAuthUrlQuery, useGetFacebookAuthUrlQuery, useGetLinkedInAuthUrlQuery } from '../redux/features/authApi';
 import { useNavigate, Link } from 'react-router-dom';
 import { FiMail, FiLock, FiArrowRight } from 'react-icons/fi';
 import { toast } from 'react-hot-toast';

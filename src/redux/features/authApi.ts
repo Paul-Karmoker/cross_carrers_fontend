@@ -1,65 +1,238 @@
-import { baseApi } from "../api/baseApi";
-import {
-  AuthResponse,
-  LoginRequest,
-  SignupRequest,
-} from "@/app/types";
-import { tags } from "@/constants/tags";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const authApi = baseApi.injectEndpoints({
+/* =======================
+   Base Config
+======================= */
+
+const BASE_URL = "http://localhost:4001/api/v1/auth";
+
+/* =======================
+   Types
+======================= */
+
+export interface AuthResponse {
+  success?: boolean;
+  token?: string;
+  message?: string;
+  user?: {
+    _id?: string;
+    id?: string;
+    email?: string;
+    firstName?: string;
+    lastName?: string;
+    role?: string;
+  };
+}
+
+export interface SignupPayload {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  referralCode?: string;
+  plan?: "free" | "paid";
+  billingCycle?: "monthly" | "quarterly" | "semiannual" | "yearly";
+}
+
+export interface LoginPayload {
+  email: string;
+  password: string;
+}
+
+export interface ForgotPasswordPayload {
+  email: string;
+}
+
+export interface ResetPasswordPayload {
+  token: string;
+  password: string;
+}
+
+export interface ChangePasswordPayload {
+  currentPassword: string;
+  newPassword: string;
+}
+
+export interface SubscriptionPayload {
+  userId: string;
+  subscriptionPlan: string;
+  paymentId: string;
+  transactionId: string;
+  paymentProvider: "bkash" | "nagad";
+  paymentNumber: string;
+  amount: number;
+}
+
+export interface WithdrawPayload {
+  amount: number;
+}
+
+/* =======================
+   API
+======================= */
+
+export const authApi = createApi({
+  reducerPath: "authApi",
+
+  baseQuery: fetchBaseQuery({
+    baseUrl: BASE_URL,
+    prepareHeaders: (headers) => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        headers.set("Authorization", `Bearer ${token}`);
+      }
+      headers.set("Content-Type", "application/json");
+      return headers;
+    },
+  }),
+
+  tagTypes: ["Withdrawals", "Profile"],
+
   endpoints: (builder) => ({
-    signup: builder.mutation<AuthResponse, SignupRequest>({
+    /* ---------- AUTH ---------- */
+
+    signup: builder.mutation<AuthResponse, SignupPayload>({
       query: (body) => ({
-        url: "/auth/signup",
+        url: "signup",
         method: "POST",
         body,
       }),
-      onQueryStarted: async (_, { queryFulfilled }) => {
-        const { data } = await queryFulfilled;
-        localStorage.setItem("token", data.accessToken);
+      transformResponse: (response: AuthResponse) => {
+        if (response?.token) {
+          localStorage.setItem("token", response.token);
+        }
+        return response;
       },
     }),
 
-    login: builder.mutation<AuthResponse, LoginRequest>({
+    login: builder.mutation<AuthResponse, LoginPayload>({
       query: (body) => ({
-        url: "/auth/login",
+        url: "login",
         method: "POST",
         body,
       }),
-      onQueryStarted: async (_, { queryFulfilled }) => {
-        const { data } = await queryFulfilled;
-        localStorage.setItem("token", data.accessToken);
+      transformResponse: (response: AuthResponse) => {
+        if (response?.token) {
+          localStorage.setItem("token", response.token);
+        }
+        return response;
       },
     }),
 
-    getProfile: builder.query<AuthResponse["user"], void>({
-      query: () => "/auth/get-profile",
-      providesTags: [tags.User],
+    /* ---------- OAuth ---------- */
+
+    getGoogleAuthUrl: builder.query<{ url: string }, void>({
+      query: () => "google",
     }),
 
-    updateProfile: builder.mutation<AuthResponse["user"], Partial<AuthResponse["user"]>>({
+    getFacebookAuthUrl: builder.query<{ url: string }, void>({
+      query: () => "facebook",
+    }),
+
+    getLinkedInAuthUrl: builder.query<{ url: string }, void>({
+      query: () => "linkedin",
+    }),
+
+    /* ---------- PASSWORD ---------- */
+
+    forgotPassword: builder.mutation<AuthResponse, ForgotPasswordPayload>({
       query: (body) => ({
-        url: "/auth/profile",
+        url: "forgot-password",
+        method: "POST",
+        body,
+      }),
+    }),
+
+    resetPassword: builder.mutation<AuthResponse, ResetPasswordPayload>({
+      query: (body) => ({
+        url: "reset-password",
+        method: "POST",
+        body,
+      }),
+    }),
+
+    changePassword: builder.mutation<AuthResponse, ChangePasswordPayload>({
+      query: (body) => ({
+        url: "change-password",
         method: "PATCH",
         body,
       }),
-      invalidatesTags: [tags.User],
     }),
 
-    logout: builder.mutation<void, void>({
-      queryFn: () => {
-        localStorage.removeItem("token");
-        window.location.href = "/login";
-        return { data: undefined };
-      },
+    verifyEmail: builder.query<AuthResponse, string>({
+      query: (token) => `verify-email?token=${token}`,
+    }),
+
+    /* ---------- PROFILE ---------- */
+
+    getProfile: builder.query<AuthResponse, void>({
+      query: () => "get-profile",
+      providesTags: ["Profile"],
+    }),
+
+    updateProfile: builder.mutation<AuthResponse, Partial<AuthResponse["user"]>>({
+      query: (body) => ({
+        url: "profile",
+        method: "PATCH",
+        body,
+      }),
+      invalidatesTags: ["Profile"],
+    }),
+
+    /* ---------- SUBSCRIPTION ---------- */
+
+    subscribe: builder.mutation<AuthResponse, SubscriptionPayload>({
+      query: (body) => ({
+        url: "subcribe", // backend spelling preserved
+        method: "POST",
+        body,
+      }),
+    }),
+
+    /* ---------- WITHDRAW ---------- */
+
+    withdraw: builder.mutation<AuthResponse, WithdrawPayload>({
+      query: (body) => ({
+        url: "withdraw",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["Withdrawals"],
+    }),
+
+    getWithdrawals: builder.query<AuthResponse[], void>({
+      query: () => "withdraw",
+      providesTags: ["Withdrawals"],
     }),
   }),
 });
 
+/* =======================
+   Hooks Export
+======================= */
+
 export const {
   useSignupMutation,
   useLoginMutation,
+  useForgotPasswordMutation,
+  useResetPasswordMutation,
+  useVerifyEmailQuery,
   useGetProfileQuery,
   useUpdateProfileMutation,
-  useLogoutMutation,
+  useChangePasswordMutation,
+  useSubscribeMutation,
+  useWithdrawMutation,
+  useGetWithdrawalsQuery,
+  useGetGoogleAuthUrlQuery,
+  useGetFacebookAuthUrlQuery,
+  useGetLinkedInAuthUrlQuery,
 } = authApi;
+
+/* =======================
+   Logout Utility
+======================= */
+
+export const logout = (): void => {
+  localStorage.removeItem("token");
+  window.location.href = "/login";
+};

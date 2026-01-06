@@ -1,10 +1,10 @@
 
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { useGetWithdrawalsQuery } from './context/authApi';
+import { useGetWithdrawalsQuery } from './redux/features/authApi';
 
 // Public Components
-import Home from '../src/app/pages/home/home_page';
+import Home from '../src/home/home';
 import Training from './Components/trainings';
 import About from './Components/about';
 import Contact from './Components/contact';
@@ -22,10 +22,9 @@ import ForgotPassword from './login/forgetpassword';
 import ResetPassword from './login/resetpasswordpage';
 import ResumeMakerHome from './ResumeMaker/Dashboard';
 // Authentication Components
-import Signin from './login/signin';
-import SignUp from './login/signup';
-import Signinhome from './login/signinhome';
-import Signuphome from './login/signuphome';
+import Signin from '../src/app/auth/siginin';
+import SignUp from '../src/app/auth/siginup';
+
 import Logout from './login/signout';
 
 //import ResumeEditor from './ResumeMaker/ResumeEditor';
@@ -89,8 +88,8 @@ const App = () => {
         <Route path='/forgetPassword' element={<ForgotPassword />} />
         <Route path='/reset-password/:token' element={<ResetPassword />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signinhome" element={<Signinhome />} />
-        <Route path="/signuphome" element={<Signuphome />} />
+        <Route path="/signinhome" element={<Signin />} />
+        
         <Route path="/coverhome" element={<Coverhome />} />
         <Route path="/pptmaker" element={<PPTmaker />} />
         <Route path="/doc" element={<Doc />} />

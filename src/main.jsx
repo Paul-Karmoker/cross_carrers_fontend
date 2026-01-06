@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Toaster } from 'react-hot-toast';
-import { store } from './store.js';
+import { store } from './store.ts';
 import App from './App.jsx';
 import ErrorFallback from './ErrorFallback.jsx';
 import './index.css';

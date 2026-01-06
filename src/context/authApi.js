@@ -15,6 +15,7 @@ export const authApi = createApi({
       return headers;
     },
   }),
+  
   tagTypes: ['Withdrawals'],
   endpoints: (builder) => ({
     signup: builder.mutation({

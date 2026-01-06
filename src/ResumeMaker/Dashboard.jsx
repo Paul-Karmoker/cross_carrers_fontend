@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useGetAllResumesQuery } from "../context/resumeApi";
+import { useGetAllResumesQuery } from "../redux/features/resumeApi";
 import { FiPlus, FiMoreVertical, FiFileText, FiClock } from "react-icons/fi";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/footer.jsx";

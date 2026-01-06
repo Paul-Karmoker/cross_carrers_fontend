@@ -24,7 +24,7 @@ import {
   useGetResultQuery,
   useGetTimeLeftQuery,
   useLazyDownloadPdfQuery
-} from "../context/writtenTestApi.js";
+} from "../redux/features/writtenTestApi";
 
 const formatTime = (seconds) => {
   if (seconds === null || seconds === undefined || seconds < 0) return "00:00";
