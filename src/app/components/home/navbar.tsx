@@ -377,7 +377,15 @@ const Navbar: React.FC = () => {
               className="fixed top-0 left-0 bottom-0 w-[85%] max-w-[320px] bg-white z-[100] shadow-2xl flex flex-col overflow-hidden"
             >
               <div className="flex items-center justify-between p-4 border-b border-gray-100 bg-gray-50/50">
-                <span className="font-bold text-lg text-indigo-700">Menu</span>
+                <span className="font-bold text-lg text-indigo-700">
+                  <Link to="/" className="block">
+                    <img
+                      src="https://i.ibb.co/Y75Y5NSb/banner.gif"
+                      alt="Cross Careers"
+                      className="h-8 md:h-8 object-contain"
+                    />
+                  </Link>
+                </span>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-2 bg-white rounded-full text-gray-500 shadow-sm border border-gray-100 hover:text-red-500"
