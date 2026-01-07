@@ -113,7 +113,9 @@ const Navbar: React.FC = () => {
   const [sticky, setSticky] = useState<boolean>(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({});
+  const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>(
+    {}
+  );
 
   const navRef = useRef<HTMLDivElement>(null);
 
@@ -263,7 +265,9 @@ const Navbar: React.FC = () => {
                   <Link
                     key={idx}
                     to={item.path || "#"}
-                    onClick={(e) => locked && handleRestrictedClick(e, item.path)}
+                    onClick={(e) =>
+                      locked && handleRestrictedClick(e, item.path)
+                    }
                     className={`text-[15px] font-medium transition-colors flex items-center gap-1 ${
                       locked
                         ? "text-gray-400 cursor-not-allowed"
@@ -310,7 +314,9 @@ const Navbar: React.FC = () => {
                               <Link
                                 key={sIdx}
                                 to={sub.path}
-                                onClick={(e) => locked && handleRestrictedClick(e, sub.path)}
+                                onClick={(e) =>
+                                  locked && handleRestrictedClick(e, sub.path)
+                                }
                                 className={`block px-4 py-2.5 text-sm hover:bg-gray-50 ${
                                   locked
                                     ? "text-gray-400 cursor-not-allowed flex justify-between"
@@ -402,7 +408,9 @@ const Navbar: React.FC = () => {
                       >
                         <div className="flex justify-between items-center">
                           {item.label}
-                          {locked && <RiShieldStarLine className="text-orange-400" />}
+                          {locked && (
+                            <RiShieldStarLine className="text-orange-400" />
+                          )}
                         </div>
                       </Link>
                     );
@@ -445,7 +453,8 @@ const Navbar: React.FC = () => {
                                       key={sIdx}
                                       to={sub.path}
                                       onClick={(e) => {
-                                        if (locked) handleRestrictedClick(e, sub.path);
+                                        if (locked)
+                                          handleRestrictedClick(e, sub.path);
                                         else setMobileMenuOpen(false);
                                       }}
                                       className={`block px-3 py-2.5 rounded-md text-sm ${

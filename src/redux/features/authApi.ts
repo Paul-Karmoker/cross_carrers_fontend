@@ -45,7 +45,7 @@ export interface ForgotPasswordPayload {
 
 export interface ResetPasswordPayload {
   token: string;
-  password: string;
+  newPassword: string;
 }
 
 export interface ChangePasswordPayload {
@@ -119,6 +119,14 @@ export const authApi = createApi({
       },
     }),
 
+    otpvarify: builder.mutation<AuthResponse, { email: string; otp: string }>({
+      query: (body) => ({
+        url: "verify-email-otp",
+        method: "POST",
+        body,
+      }),
+    }),
+
     /* ---------- OAuth ---------- */
 
     getGoogleAuthUrl: builder.query<{ url: string }, void>({
@@ -159,9 +167,7 @@ export const authApi = createApi({
       }),
     }),
 
-    verifyEmail: builder.query<AuthResponse, string>({
-      query: (token) => `verify-email?token=${token}`,
-    }),
+    
 
     /* ---------- PROFILE ---------- */
 
@@ -216,7 +222,7 @@ export const {
   useLoginMutation,
   useForgotPasswordMutation,
   useResetPasswordMutation,
-  useVerifyEmailQuery,
+  useOtpvarifyMutation,
   useGetProfileQuery,
   useUpdateProfileMutation,
   useChangePasswordMutation,

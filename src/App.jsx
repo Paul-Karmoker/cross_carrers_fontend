@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { useGetWithdrawalsQuery } from './redux/features/authApi';
 
 // Public Components
-import Home from '../src/home/home';
+import Home from '../src/app/components/home';
 import Training from './Components/trainings';
 import About from './Components/about';
 import Contact from './Components/contact';
@@ -18,8 +18,8 @@ import Marqueer from './Components/marqueer';
 import Marqueel from './Components/marqueel';
 import Terms from './Components/terms';
 import Privacy from './Components/privacy';
-import ForgotPassword from './login/forgetpassword';
-import ResetPassword from './login/resetpasswordpage';
+import ForgotPassword from '../src/app/auth/forgetpassword';
+import ResetPassword from '../src/app/auth/resetpasspord';
 import ResumeMakerHome from './ResumeMaker/Dashboard';
 // Authentication Components
 import Signin from '../src/app/auth/siginin';
@@ -49,7 +49,7 @@ import Insm from './insm/InterviewSimulator';
 import Payment from './Membership/paymentmodel';
 import Upgradeplan from './Components/upgradeplan';
 import WrittenTestHome from './writtenTest/writtenTestHome';
-
+import OtpVarify from "../src/app/auth/VerifyOtp";
 
 import PropTypes from 'prop-types';
 
@@ -89,7 +89,7 @@ const App = () => {
         <Route path='/reset-password/:token' element={<ResetPassword />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signinhome" element={<Signin />} />
-        
+        <Route path='/verify-otp' element={<OtpVarify/>}/>
         <Route path="/coverhome" element={<Coverhome />} />
         <Route path="/pptmaker" element={<PPTmaker />} />
         <Route path="/doc" element={<Doc />} />

@@ -82,8 +82,11 @@ export default function Signup() {
         (result as any)?.data?.user?._id || (result as any)?.data?.user?.id;
 
       if (selectedPlan === "free") {
-        toast.success("Welcome! Your free trial is active");
-        navigate("/signin");
+        // 🔐 store email for OTP verification (hidden context)
+        localStorage.setItem("verify_email", formData.email);
+
+        toast.success("OTP sent to your email");
+        navigate("/verify-otp");
         return;
       }
 
@@ -154,7 +157,7 @@ export default function Signup() {
     <>
       <Navbar />
 
-      <div className="min-h-screen flex items-center justify-center p-4 md:p-8 mt-20">
+      <div className="min-h-screen flex items-center justify-center p-4 md:p-8">
         <motion.div
           initial="initial"
           animate="animate"
@@ -166,13 +169,13 @@ export default function Signup() {
           className="w-full max-w-6xl bg-white border border-indigo-500 rounded-xl overflow-hidden flex flex-col lg:flex-row"
         >
           {/* LEFT: Plan Selection */}
-          <div className="w-full lg:w-2/5 bg-gradient-to-b from-indigo-900 to-indigo-700 text-white p-8">
-            <h1 className="text-3xl font-bold mb-2">Choose Your Plan</h1>
-            <p className="text-indigo-200 mb-6">
+          <div className="w-full lg:w-2/5 bg-gradient-to-b h-[740px] from-indigo-900 to-indigo-700 text-white p-8">
+            <h1 className="text-2xl font-bold mb-1">Choose Your Plan</h1>
+            <p className="text-indigo-200 mb-2">
               Select the perfect option for your needs
             </p>
 
-            <div className="bg-indigo-800/30 rounded-xl p-1 mb-8 grid grid-cols-4 gap-1">
+            <div className="bg-indigo-800/30 rounded-xl h-[50px] p-1 mb-4 grid grid-cols-4 gap-1">
               {billingCycles.map((cycle) => (
                 <button
                   key={cycle.id}
@@ -189,7 +192,7 @@ export default function Signup() {
               ))}
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-4">
               {(Object.entries(pricingOptions) as [PlanType, any][]).map(
                 ([key, plan]) => (
                   <motion.div
@@ -197,7 +200,7 @@ export default function Signup() {
                     variants={cardVariants}
                     whileHover="hover"
                     onClick={() => setSelectedPlan(key)}
-                    className={`relative overflow-hidden rounded-xl p-6 border-2 transition-all cursor-pointer ${
+                    className={`relative overflow-hidden h-[270px] rounded-xl p-6 border-2 transition-all cursor-pointer ${
                       selectedPlan === key
                         ? "border-white bg-indigo-600/20 shadow-lg"
                         : "border-indigo-700/50 hover:border-indigo-500"
@@ -211,7 +214,9 @@ export default function Signup() {
 
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <h3 className="text-xl font-bold mb-1">{plan.title}</h3>
+                        <h3 className="text-xl font-bold mb-0.5">
+                          {plan.title}
+                        </h3>
                         <p className="text-indigo-200 text-sm">
                           {key === "free"
                             ? plan.period
@@ -229,10 +234,10 @@ export default function Signup() {
                       </div>
                     </div>
 
-                    <ul className="space-y-3 mb-6">
+                    <ul className="space-y-1 mb-4">
                       {plan.features.map((feature: string, index: number) => (
                         <li key={index} className="flex items-start">
-                          <FiCheck className="mt-0.5 mr-2 text-indigo-300" />
+                          <FiCheck className="mt-0.25 mr-2 text-indigo-300" />
                           <span className="text-sm">{feature}</span>
                         </li>
                       ))}
@@ -288,7 +293,6 @@ export default function Signup() {
                   ))}
                 </div>
 
-               
                 {[
                   { id: "email", type: "email", icon: <FiMail /> },
                   { id: "password", type: "password", icon: <FiLock /> },
@@ -351,9 +355,9 @@ export default function Signup() {
                   </Link>
                 </p>
 
-                <p className="text-center text-red-600 text-sm">
-                  After click on start Trial, Please confirm your email address
-                  by clicking the verification link we’ve sent to your email
+                <p className="text-center text-indigo-600 text-sm font-medium">
+                  After clicking continue, you’ll receive a 6-digit OTP to
+                  verify your email
                 </p>
               </form>
             </div>

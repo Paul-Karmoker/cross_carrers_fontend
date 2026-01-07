@@ -92,7 +92,7 @@ export default function LoginPage() {
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-500 ml-1">
+                  <label className="text-sm font-bold text-gray-700  tracking-wider ml-1">
                     Email Address
                   </label>
                   <div className="relative group">
@@ -112,7 +112,7 @@ export default function LoginPage() {
 
                 <div className="space-y-1">
                   <div className="flex justify-between items-center ml-1">
-                    <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                    <label className="text-sm text-gray-700 font-bold  tracking-wider">
                       Password
                     </label>
                     <Link
@@ -154,7 +154,7 @@ export default function LoginPage() {
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full relative overflow-hidden bg-indigo-600 text-white text-sm  rounded-full hover:bg-indigo-700 font-bold py-4  shadow-xl shadow-indigo-100 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full relative overflow-hidden bg-indigo-600 text-white text-sm  rounded-full hover:bg-indigo-700 font-bold py-3  shadow-xl shadow-indigo-100 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     <div className="relative z-10 flex items-center justify-center gap-2">
                       {isSubmitting ? (
