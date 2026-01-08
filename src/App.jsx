@@ -34,7 +34,7 @@ import ResumeForm from './ResumeMaker/resumeForm';
 import Un from './Components/un';
 import Emb from './Components/emb';
 import Donor from './Components/donor';
-import Dbhome from './dashboard/dbhome';
+import Dbhome from '../src/app/dashboard';
 import Matchhome from './Resumebuild/matchhome';
 import Qahome from './QA/qahome';
 import Coverhome from './cl/coverhome';
