@@ -10,6 +10,7 @@ import {
   RiDashboardLine,
 } from "react-icons/ri";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
+import { MdWorkspacePremium } from "react-icons/md";
 
 // --- Types & Interfaces ---
 
@@ -217,6 +218,14 @@ const Navbar: React.FC = () => {
                 >
                   <RiDashboardLine /> Dashboard
                 </button>
+                <button
+                  onClick={() => {
+                    navigate("/priceing");
+                    setIsOpen(false);
+                    
+                  }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                  <MdWorkspacePremium /> Upgrade
+               </button>
                 <button
                   onClick={() => {
                     logout();

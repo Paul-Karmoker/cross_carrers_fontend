@@ -47,8 +47,8 @@ import Excelhome from './excel/excelhome';
 import Consult from './consult/consult';
 import Insm from './insm/InterviewSimulator';
 import Payment from './Membership/paymentmodel';
-import Upgradeplan from './Components/upgradeplan';
-import WrittenTestHome from './writtenTest/writtenTestHome';
+import Upgradeplan from '../src/app/components/utility/upgradeplan.tsx';
+import WrittenTestHome from '../src/app/components/WrittenTest/WrittenTest.tsx';
 import OtpVarify from "../src/app/auth/VerifyOtp";
 
 import PropTypes from 'prop-types';

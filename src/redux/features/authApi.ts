@@ -1,15 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-/* =======================
-   Base Config
-======================= */
 
 const BASE_URL = "http://localhost:4001/api/v1/auth";
-
-/* =======================
-   Types
-======================= */
-
 export interface AuthResponse {
   success?: boolean;
   token?: string;

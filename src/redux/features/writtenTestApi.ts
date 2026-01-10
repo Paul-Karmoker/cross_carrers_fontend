@@ -1,99 +1,81 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import type {
+  InitSessionPayload,
+  SessionResponse,
+  QuestionData,
+  SubmitAnswerPayload,
+  TimeLeftResponse,
+  AssessmentResult,
+  SubmitAnswerResponse,
+} from "../../app/components/WrittenTest/types";
 
-/* ─────────────────────────────
-   Types (Minimal – no logic change)
-───────────────────────────── */
-type SessionId = string;
-
-type InitSessionPayload = Record<string, any>;
-type SubmitAnswerPayload = Record<string, any>;
-
-type WrittenTestSession = Record<string, any>;
-type WrittenTestResult = Record<string, any>;
-
-/* ─────────────────────────────
-   API CONFIG
-───────────────────────────── */
-const BASE_URL = 'https://api.crosscareers.com/api/v1/writtenTest';
+const BASE_URL = "http://localhost:4001/api/v1/writtenTest";
 
 export const writtenTestApi = createApi({
-  reducerPath: 'writtenTestApi',
+  reducerPath: "writtenTestApi",
 
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
     prepareHeaders: (headers) => {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       if (token) {
-        headers.set('Authorization', `Bearer ${token}`);
+        headers.set("Authorization", `Bearer ${token}`);
       }
       return headers;
     },
   }),
 
-  tagTypes: ['WrittenTest'],
+  tagTypes: ["WrittenTest"],
 
   endpoints: (builder) => ({
-    /* ───────────── Session Lifecycle ───────────── */
-
-    initSession: builder.mutation<WrittenTestSession, InitSessionPayload>({
+    initSession: builder.mutation<SessionResponse, InitSessionPayload>({
       query: (data) => ({
-        url: '/init',
-        method: 'POST',
+        url: "/init",
+        method: "POST",
         body: data,
       }),
     }),
 
-    startSession: builder.mutation<WrittenTestSession, SessionId>({
+    startSession: builder.mutation<void, string>({
       query: (sessionId) => ({
         url: `/start/${sessionId}`,
-        method: 'POST',
+        method: "POST",
       }),
     }),
 
-    getCurrent: builder.query<WrittenTestSession, SessionId>({
+    getCurrent: builder.query<QuestionData, string>({
       query: (sessionId) => `/current/${sessionId}`,
     }),
 
-    submitAnswer: builder.mutation<WrittenTestSession, SubmitAnswerPayload>({
+    submitAnswer: builder.mutation<
+      SubmitAnswerResponse,
+      SubmitAnswerPayload
+    >({
       query: (data) => ({
-        url: '/answer',
-        method: 'POST',
+        url: "/answer",
+        method: "POST",
         body: data,
       }),
     }),
 
-    /* ───────────── Result & Time ───────────── */
-
-    getResult: builder.query<WrittenTestResult, SessionId>({
+    getResult: builder.query<AssessmentResult, string>({
       query: (sessionId) => `/result/${sessionId}`,
     }),
 
-    getTimeLeft: builder.query<{ timeLeft: number }, SessionId>({
+    getTimeLeft: builder.query<TimeLeftResponse, string>({
       query: (sessionId) => `/time/${sessionId}`,
     }),
 
-    /* ───────────── PDF Download (Blob-safe) ───────────── */
-
-    downloadPdf: builder.query<Blob, SessionId>({
+    getPdfDownload: builder.query<Blob, string>({
       query: (sessionId) => ({
         url: `/result/${sessionId}/pdf`,
-        method: 'GET',
-        headers: {
-          Accept: 'application/pdf',
-        },
+        method: "GET",
         responseHandler: (response) => response.blob(),
       }),
-
-      // IMPORTANT:
-      // Do NOT cache Blob in Redux store (avoids non-serializable errors)
-      keepUnusedDataFor: 0,
     }),
   }),
 });
 
-/* ─────────────────────────────
-   Auto-generated Hooks
-───────────────────────────── */
 export const {
   useInitSessionMutation,
   useStartSessionMutation,
@@ -101,5 +83,5 @@ export const {
   useSubmitAnswerMutation,
   useGetResultQuery,
   useGetTimeLeftQuery,
-  useLazyDownloadPdfQuery,
+  useLazyGetPdfDownloadQuery,
 } = writtenTestApi;
