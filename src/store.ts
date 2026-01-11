@@ -6,6 +6,9 @@ import { resumeApi } from './redux/features/resumeApi';
 import { writtenTestApi } from './redux/features/writtenTestApi';
 import resumeReducer from './redux/features/resumeSlice';
 
+
+
+
 /* ─────────────────────────────
    Logger Middleware
    (same logic as JS version)
@@ -34,6 +37,7 @@ export const store = configureStore({
     [authApi.reducerPath]: authApi.reducer,
     [resumeApi.reducerPath]: resumeApi.reducer,
     [writtenTestApi.reducerPath]: writtenTestApi.reducer,
+   
     resume: resumeReducer,
   },
 
@@ -59,8 +63,6 @@ export const store = configureStore({
   devTools: import.meta.env.DEV,
 });
 
-/* ─────────────────────────────
-   Type Exports (NO logic change)
-───────────────────────────── */
+
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

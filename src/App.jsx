@@ -5,48 +5,47 @@ import { useGetWithdrawalsQuery } from './redux/features/authApi';
 
 // Public Components
 import Home from '../src/app/components/home';
-import Training from './Components/trainings';
-import About from './Components/about';
-import Contact from './Components/contact';
-import Membership from './Membership/membership';
-import Earn from './Components/earn';
-import Ngo from './Components/ngo';
-import Ingo from './Components/ingo';
-import Bdjobs from './Components/bdjobs';
-import Intjobs from './Components/intjobs';
-import Marqueer from './Components/marqueer';
-import Marqueel from './Components/marqueel';
-import Terms from './Components/terms';
-import Privacy from './Components/privacy';
+import Training from '../src/app/components/Trainings';
+import About from '../src/app/Others/about';
+import Contact from '../src/app/Others/contact';
+import Earn from '../src/app/Others/earn';
+import Ngo from '../src/app/Others/ngo.tsx';
+import Ingo from '../src/app/Others/ingo';
+import Bdjobs from '../src/app/Others/bdjobs';
+import Intjobs from '../src/app/Others/intJobs';
+import Marqueer from '../src/app/components/home/marqueer';
+import Marqueel from '../src/app/components/home/marqueel';
+import Terms from '../src/app/Others/terms';
+import Privacy from '../src/app/Others/privacy';
 import ForgotPassword from '../src/app/auth/forgetpassword';
 import ResetPassword from '../src/app/auth/resetpasspord';
-import ResumeMakerHome from './ResumeMaker/Dashboard';
+import ResumeMakerHome from '../src/app/components/ResumeMaker/Dashboard';
 // Authentication Components
 import Signin from '../src/app/auth/siginin';
 import SignUp from '../src/app/auth/siginup';
 
-import Logout from './login/signout';
+import Logout from '../src/app/auth/logout';
 
 //import ResumeEditor from './ResumeMaker/ResumeEditor';
-import ResumeForm from './ResumeMaker/resumeForm';
+import ResumeForm from '../src/app/components/ResumeMaker/resumeForm.jsx';
 
 // Protected Components
-import Un from './Components/un';
-import Emb from './Components/emb';
-import Donor from './Components/donor';
+import Un from '../src/app/Others/Un';
+import Emb from '../src/app/Others/emb';
+import Donor from '../src/app/Others/doner';
 import Dbhome from '../src/app/dashboard';
-import Matchhome from './Resumebuild/matchhome';
-import Qahome from './QA/qahome';
-import Coverhome from './cl/coverhome';
-import Ppthome from './ppt/ppthome';
-import PPTmaker from './ppt/pptmaker';
-import Doc from './docx/doc';
-import Dochome from './docx/dochome';
-import Excel from './excel/excel';
-import Excelhome from './excel/excelhome';
+import Matchhome from '../src/app/components/Resumebuild/matchhome';
+import Qahome from '../src/app/components/QA';
+import Coverhome from '../src/app/components/cover';
+import Ppthome from '../src/app/components/ppt';
+import PPTmaker from '../src/app/components/ppt/pptMacker';
+import Dochome from '../src/app/components/Docx';
+import Doc from '../src/app/components/Docx/doc';
+import Excel from '../src/app/components/Excel/excel';
+import Excelhome from '../src/app/components/Excel';
 import Consult from './consult/consult';
-import Insm from './insm/InterviewSimulator';
-import Payment from './Membership/paymentmodel';
+import Insm from '../src/app/components/insm/InterviewSimulator';
+//import Payment from './Membership/paymentmodel';
 import Upgradeplan from '../src/app/components/utility/upgradeplan.tsx';
 import WrittenTestHome from '../src/app/components/WrittenTest/WrittenTest.tsx';
 import OtpVarify from "../src/app/auth/VerifyOtp";
@@ -74,7 +73,6 @@ const App = () => {
         <Route path="/trainings" element={<Training />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/membership" element={<Membership />} />
         <Route path="/earn" element={<Earn />} />
         <Route path="/ngo" element={<Ngo />} />
         <Route path="/ingo" element={<Ingo />} />
@@ -176,14 +174,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/payment"
-          element={
-            <ProtectedRoute>
-              <Payment />
-            </ProtectedRoute>
-          }
-        />
+        
         <Route
           path="/logout"
           element={

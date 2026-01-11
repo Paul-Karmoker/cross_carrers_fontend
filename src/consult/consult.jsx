@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
-import Navbar from '../Components/navbar'
-import Footer from '../Components/footer'
+import Navbar from '../app/components/home/navbar'
+import Footer from '../app/components/home/footer'
 
 const ConsultantCarousel = () => {
   // State management
