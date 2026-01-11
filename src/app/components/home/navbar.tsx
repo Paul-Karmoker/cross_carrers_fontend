@@ -11,34 +11,8 @@ import {
 } from "react-icons/ri";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
 import { MdWorkspacePremium } from "react-icons/md";
+import { NavItem, User } from "@/types";
 
-// --- Types & Interfaces ---
-
-interface SubNavItem {
-  label: string;
-  path: string;
-  restricted?: boolean;
-  hidden?: boolean;
-}
-
-interface NavItem {
-  label: string;
-  path?: string;
-  key?: string;
-  type: "link" | "dropdown";
-  items?: SubNavItem[];
-  restricted?: boolean;
-  hidden?: boolean;
-}
-
-interface User {
-  firstName?: string;
-  lastName?: string;
-  email?: string;
-  role?: string;
-}
-
-// --- Navigation Configuration ---
 const NAV_CONFIG: NavItem[] = [
   { label: "Home", path: "/", type: "link" },
   {
@@ -222,10 +196,11 @@ const Navbar: React.FC = () => {
                   onClick={() => {
                     navigate("/priceing");
                     setIsOpen(false);
-                    
-                  }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                  }}
+                  className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-2"
+                >
                   <MdWorkspacePremium /> Upgrade
-               </button>
+                </button>
                 <button
                   onClick={() => {
                     logout();

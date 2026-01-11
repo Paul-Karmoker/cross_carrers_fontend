@@ -1,24 +1,6 @@
 import { FC } from "react";
 import Marquee from "react-fast-marquee";
-
-/* ======================================================
-   Types
-====================================================== */
-
-type PortalType = "image" | "text";
-
-interface JobPortal {
-  id: number;
-  name: string;
-  url: string;
-  logo: string;
-  type: PortalType;
-  style?: string;
-}
-
-/* ======================================================
-   Component
-====================================================== */
+import {JobPortal} from "@/types"
 
 const JobPortalMarquee: FC = () => {
   /* --------------------------------------------------

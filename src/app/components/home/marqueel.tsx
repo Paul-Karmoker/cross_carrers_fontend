@@ -1,29 +1,10 @@
 import { FC } from "react";
 import Marquee from "react-fast-marquee";
+import {JobPortal} from "@/types"
 
-/* ======================================================
-   Types
-====================================================== */
-
-type PortalType = "image" | "text";
-
-interface JobPortal {
-  id: number;
-  name: string;
-  url: string;
-  logo: string;
-  type: PortalType;
-  style?: string; // optional because it is conditionally used
-}
-
-/* ======================================================
-   Component
-====================================================== */
 
 const JobPortalMarquee: FC = () => {
-  /* --------------------------------------------------
-     Static Data (Strongly Typed)
-  -------------------------------------------------- */
+  
 
   const jobPortals: JobPortal[] = [
     {
@@ -84,9 +65,7 @@ const JobPortalMarquee: FC = () => {
     },
   ];
 
-  /* --------------------------------------------------
-     Render
-  -------------------------------------------------- */
+  
 
   return (
     <div className="bg-gray-50 mt-16 dark:bg-gray-900 shadow-inner">

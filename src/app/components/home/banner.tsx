@@ -2,31 +2,14 @@ import { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { SwiperOptions } from "swiper/types";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
+import { Advertisement} from "@/types"
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-/* ======================================================
-   Types
-====================================================== */
-
-interface Advertisement {
-  id: number;
-  image: string;
-  alt: string;
-}
-
-/* ======================================================
-   Component
-====================================================== */
 
 const Banner: FC = () => {
-  /* --------------------------------------------------
-     Static Advertisement Data
-     (Typed for scalability & safety)
-  -------------------------------------------------- */
-
+  
   const advertisements: Advertisement[] = [
     {
       id: 0,
@@ -60,10 +43,7 @@ const Banner: FC = () => {
     },
   ];
 
-  /* --------------------------------------------------
-     Swiper Configuration (Strongly Typed)
-  -------------------------------------------------- */
-
+ 
   const swiperConfig: SwiperOptions = {
     spaceBetween: 30,
     centeredSlides: true,
@@ -78,10 +58,7 @@ const Banner: FC = () => {
     modules: [Autoplay, Pagination, Navigation],
   };
 
-  /* --------------------------------------------------
-     Render
-  -------------------------------------------------- */
-
+  
   return (
     <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row mt-10 -mb-4">
       <div className="w-full md:w-1/2 mt-4 md:mt-14">

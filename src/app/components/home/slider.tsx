@@ -1,25 +1,10 @@
 import { FC, useEffect, useState } from "react";
 import Slider, { Settings as SlickSettings } from "react-slick";
 import { motion } from "framer-motion";
-
+import {PortalSite, CardProps} from "@/types"
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-
-
-interface PortalSite {
-  id: number;
-  name: string;
-  url: string;
-  logo: string;
-  category: string;
-}
-
-interface CardProps {
-  site: PortalSite;
-  buttonText?: string;
-}
 
 const NextArrow = (props: any) => {
   const { onClick } = props;

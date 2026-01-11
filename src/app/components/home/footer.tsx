@@ -1,26 +1,9 @@
 import React from 'react';
 import { FaLinkedin, FaYoutube, FaFacebook, FaTwitter, FaInstagram, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import {FooterLink, SocialLink, PaymentMethod  } from "@/types"
 
-/**
- * Interfaces for Type Safety
- */
-interface FooterLink {
-  label: string;
-  path: string;
-}
 
-interface SocialLink {
-  icon: React.ReactNode;
-  url: string;
-  label: string;
-}
-
-interface PaymentMethod {
-  name: string;
-  image: string;
-  hidden?: boolean;
-}
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
