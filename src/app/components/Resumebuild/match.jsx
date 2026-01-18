@@ -1,293 +1,199 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
-import { getDocument, GlobalWorkerOptions } from "pdfjs-dist";
 import axios from "axios";
 import { jsPDF } from "jspdf";
 import { saveAs } from "file-saver";
+import * as pdfjs from "pdfjs-dist/legacy/build/pdf";
+import pdfWorker from "pdfjs-dist/legacy/build/pdf.worker.min?url";
 import * as mammoth from "mammoth";
 import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 
-// Set up the PDF.js worker from CDN
-GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+/* ================= PDF WORKER (LOCAL, NO CDN) ================= */
+pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 const Match = () => {
   const [jobText, setJobText] = useState("");
   const [resumeText, setResumeText] = useState("");
-  const [analysisResult, setAnalysisResult] = useState(null);
+  const [analysisResult, setAnalysisResult] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // Extract text from a PDF file
+  /* ================= PDF EXTRACTION ================= */
   const extractTextFromPDF = async (file) => {
-    const reader = new FileReader();
-    return new Promise((resolve, reject) => {
-      reader.onload = async (event) => {
-        const arrayBuffer = event.target.result;
-        try {
-          const pdf = await getDocument({
-            data: arrayBuffer,
-            disableAutoFetch: true,
-            disableStream: true
-          }).promise;
-          let text = "";
-          for (let i = 1; i <= pdf.numPages; i++) {
-            const page = await pdf.getPage(i);
-            const content = await page.getTextContent();
-            text += content.items.map((item) => item.str).join(" ");
-          }
-          resolve(text);
-        } catch (error) {
-          console.error("PDF extraction error:", error);
-          reject(new Error("Failed to extract text from PDF"));
-        }
-      };
-      // eslint-disable-next-line no-unused-vars
-      reader.onerror = (error) => {
-        reject(new Error("Failed to read file"));
-      };
-      reader.readAsArrayBuffer(file);
-    });
+    try {
+      const buffer = await file.arrayBuffer();
+
+      const pdf = await pdfjs.getDocument({
+        data: buffer,
+        disableWorker: false,
+      }).promise;
+
+      let text = "";
+
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const content = await page.getTextContent();
+        text += content.items.map((i) => i.str).join(" ") + "\n\n";
+      }
+
+      if (!text.trim()) {
+        throw new Error("Scanned or password-protected PDF");
+      }
+
+      return text;
+    } catch (err) {
+      throw new Error("Failed to parse PDF. Ensure it is not protected.");
+    }
   };
 
-  // Extract text from a DOCX file
+  /* ================= DOCX EXTRACTION ================= */
   const extractTextFromDOCX = async (file) => {
-    const reader = new FileReader();
-    return new Promise((resolve, reject) => {
-      reader.onload = async (event) => {
-        const arrayBuffer = event.target.result;
-        try {
-          const result = await mammoth.extractRawText({ arrayBuffer });
-          resolve(result.value);
-        } catch (error) {
-          console.error("DOCX extraction error:", error);
-          reject(new Error("Failed to extract text from DOCX"));
-        }
-      };
-      // eslint-disable-next-line no-unused-vars
-      reader.onerror = (error) => {
-        reject(new Error("Failed to read file"));
-      };
-      reader.readAsArrayBuffer(file);
-    });
+    const buffer = await file.arrayBuffer();
+    const result = await mammoth.extractRawText({ arrayBuffer: buffer });
+    if (!result.value.trim()) throw new Error("Empty DOCX file");
+    return result.value;
   };
 
-  // Handle file upload or text input for job description
-  const handleJobInput = async (e) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      try {
-        let text = "";
-        if (file.type === "application/pdf") {
-          text = await extractTextFromPDF(file);
-        } else if (file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document") {
-          text = await extractTextFromDOCX(file);
-        } else {
-          text = await file.text();
-        }
-        setJobText(text);
-        setError("");
-      } catch (error) {
-        console.error("File processing error:", error);
-        setError(error.message);
-      }
-    } else {
-      setJobText(e.target.value);
+  /* ================= FILE HANDLER ================= */
+  const handleFile = async (file, setter) => {
+    try {
       setError("");
+      let text = "";
+
+      if (file.type === "application/pdf") {
+        text = await extractTextFromPDF(file);
+      } else if (file.type.includes("wordprocessingml")) {
+        text = await extractTextFromDOCX(file);
+      } else {
+        text = await file.text();
+      }
+
+      setter(text);
+    } catch (err) {
+      setError(err.message);
     }
   };
 
-  // Handle file upload or text input for resume
-  const handleResumeInput = async (e) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      try {
-        let text = "";
-        if (file.type === "application/pdf") {
-          text = await extractTextFromPDF(file);
-        } else if (file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document") {
-          text = await extractTextFromDOCX(file);
-        } else {
-          text = await file.text();
-        }
-        setResumeText(text);
-        setError("");
-      } catch (error) {
-        console.error("File processing error:", error);
-        setError(error.message);
-      }
-    } else {
-      setResumeText(e.target.value);
-      setError("");
-    }
-  };
-
-  // Submit data to backend for AI analysis
+  /* ================= AI REQUEST ================= */
   const handleSubmit = async () => {
     if (!jobText || !resumeText) {
-      setError("Please provide both job description and resume.");
+      setError("Job description and resume are required.");
       return;
     }
 
     setLoading(true);
     setError("");
+
     try {
-      const response = await axios.post(
+      const res = await axios.post(
         "https://api.crosscareers.com/api/v1/ai/get-review",
         {
-          prompt: `Job Description: ${jobText}\nResume: ${resumeText}`,
+          prompt: `Job Description:\n${jobText}\n\nResume:\n${resumeText}`,
         },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          timeout: 30000
-        }
+        { timeout: 30000 }
       );
 
-      if (response.status !== 200) {
-        throw new Error(response.data.error || "Failed to fetch analysis.");
-      }
-
-      setAnalysisResult(response.data.message);
-    } catch (error) {
-      console.error("API error:", error);
-      setError(error.message || "An error occurred while analyzing the documents.");
+      setAnalysisResult(res.data.message);
+    } catch {
+      setError("Analysis service unavailable.");
     } finally {
       setLoading(false);
     }
   };
 
-  // Function to download analysis report as PDF
+  /* ================= DOWNLOAD ================= */
   const downloadPdf = () => {
-    try {
-      const doc = new jsPDF();
-      doc.setFontSize(12);
-      
-      // Split text into multiple lines to prevent overflow
-      const lines = doc.splitTextToSize(analysisResult, 180);
-      doc.text(lines, 10, 10);
-      doc.save("analysis_report.pdf");
-    } catch (error) {
-      console.error("PDF generation error:", error);
-      setError("Failed to generate PDF");
-    }
+    const doc = new jsPDF();
+    const lines = doc.splitTextToSize(analysisResult, 180);
+    doc.text(lines, 10, 10);
+    doc.save("analysis_report.pdf");
   };
 
-  // Function to download analysis report as DOCX
   const downloadDocx = () => {
-    try {
-      const blob = new Blob([analysisResult], {
-        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      });
-      saveAs(blob, "analysis_report.docx");
-    } catch (error) {
-      console.error("DOCX generation error:", error);
-      setError("Failed to generate DOCX");
-    }
+    const blob = new Blob([analysisResult], {
+      type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    });
+    saveAs(blob, "analysis_report.docx");
   };
 
   return (
-    <div className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen mt-16">
+    <div className="min-h-screen  p-8 mt-16">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl -mt-4 font-bold text-center text-gray-800 mb-8">
-          Match & Insights (Job Vs Resume)  
+        <h1 className="text-4xl font-bold text-center mb-10">
+          Match & Insights (Job vs Resume)
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {/* Job Description Box */}
-          <div className="card bg-white shadow-lg rounded-lg">
-            <div className="card-body p-6">
-              <h2 className="card-title text-xl font-semibold text-gray-700 mb-4">
-                Job Description
-              </h2>
-              <textarea
-                className="textarea textarea-bordered w-full h-40 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Paste job description here..."
-                value={jobText}
-                onChange={(e) => setJobText(e.target.value)}
-              />
-              <input
-                type="file"
-                className="file-input file-input-bordered w-full mt-4 bg-white border border-gray-300 rounded-lg"
-                onChange={handleJobInput}
-                accept=".txt,.pdf,.docx"
-              />
-            </div>
-          </div>
-
-          {/* Resume Box */}
-          <div className="card bg-white shadow-lg rounded-lg">
-            <div className="card-body p-6">
-              <h2 className="card-title text-xl font-semibold text-gray-700 mb-4">
-                Resume
-              </h2>
-              <textarea
-                className="textarea textarea-bordered w-full h-40 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Paste resume here..."
-                value={resumeText}
-                onChange={(e) => setResumeText(e.target.value)}
-              />
-              <input
-                type="file"
-                className="file-input file-input-bordered w-full mt-4 bg-white border border-gray-300 rounded-lg"
-                onChange={handleResumeInput}
-                accept=".txt,.pdf,.docx"
-              />
-            </div>
-          </div>
-        </div>
-
         {error && (
-          <div className="flex justify-center mt-4">
-            <div className="text-red-500 bg-red-100 px-4 py-2 rounded-lg">
-              {error}
-            </div>
+          <div className="mb-6 text-red-600 bg-red-100 p-3 rounded">
+            {error}
           </div>
         )}
 
-        <div className="flex justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Job */}
+          <div className="bg-white border-[1px] p-6">
+            <h2 className="font-semibold mb-3">Job Description</h2>
+            <textarea
+              className="w-full h-40 border-[1px] p-3"
+              value={jobText}
+              onChange={(e) => setJobText(e.target.value)}
+            />
+            <input
+              type="file"
+              className="mt-3"
+              accept=".pdf,.docx,.txt"
+              onChange={(e) =>
+                e.target.files && handleFile(e.target.files[0], setJobText)
+              }
+            />
+          </div>
+
+          {/* Resume */}
+          <div className="bg-white border-[1px] p-6">
+            <h2 className="font-semibold mb-3">Resume</h2>
+            <textarea
+              className="w-full h-40 border-[1px] p-3"
+              value={resumeText}
+              onChange={(e) => setResumeText(e.target.value)}
+            />
+            <input
+              type="file"
+              className="mt-3"
+              accept=".pdf,.docx,.txt"
+              onChange={(e) =>
+                e.target.files && handleFile(e.target.files[0], setResumeText)
+              }
+            />
+          </div>
+        </div>
+
+        <div className="text-center mt-8">
           <button
-            className="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
             onClick={handleSubmit}
-            disabled={loading || !jobText || !resumeText}
+            disabled={loading}
+            className="bg-blue-600 text-white px-8 py-3 rounded hover:bg-blue-700"
           >
-            {loading ? (
-              <span className="flex items-center">
-                <span className="animate-spin mr-2">🌀</span>
-                Analyzing...
-              </span>
-            ) : (
-              "Analyze"
-            )}
+            {loading ? "Analyzing..." : "Analyze"}
           </button>
         </div>
 
         {analysisResult && (
-          <div className="card bg-white shadow-lg rounded-lg mt-8">
-            <div className="card-body p-6">
-              <h2 className="card-title text-xl font-semibold text-gray-700 mb-4">
-                Analysis Result
-              </h2>
-              <div className="whitespace-pre-wrap bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <Markdown rehypePlugins={[rehypeHighlight]}>
-                  {analysisResult}
-                </Markdown>
-              </div>
+          <div className="bg-white shadow rounded p-6 mt-10">
+            <h2 className="font-semibold mb-4">Analysis Result</h2>
+            <div className="prose max-w-none bg-gray-50 p-4 rounded">
+              <Markdown rehypePlugins={[rehypeHighlight]}>
+                {analysisResult}
+              </Markdown>
+            </div>
 
-              <div className="flex gap-4 justify-center mt-6">
-                <button
-                  className="btn bg-pink-200 hover:bg-pink-300 text-black font-semibold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
-                  onClick={downloadPdf}
-                >
-                  Download as PDF
-                </button>
-                <button
-                  className="btn bg-blue-200 hover:bg-blue-300 text-black font-semibold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
-                  onClick={downloadDocx}
-                >
-                  Download as DOCX
-                </button>
-              </div>
+            <div className="flex gap-4 justify-center mt-6">
+              <button onClick={downloadPdf} className="btn btn-secondary">
+                Download PDF
+              </button>
+              <button onClick={downloadDocx} className="btn btn-primary">
+                Download DOCX
+              </button>
             </div>
           </div>
         )}

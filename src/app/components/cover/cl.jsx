@@ -5,15 +5,15 @@ import { saveAs } from "file-saver";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
 import pdfWorker from "pdfjs-dist/legacy/build/pdf.worker.min?url";
 import * as mammoth from "mammoth";
-import { 
-  FileText, 
-  UploadCloud, 
-  Download, 
-  Loader2, 
-  CheckCircle2, 
+import {
+  FileText,
+  UploadCloud,
+  Download,
+  Loader2,
+  CheckCircle2,
   AlertCircle,
   Briefcase,
-  UserCircle
+  UserCircle,
 } from "lucide-react";
 
 /* ---------- FORCE LOCAL PDF WORKER ---------- */
@@ -53,8 +53,10 @@ const Cover = () => {
     try {
       setError("");
       let text = "";
-      if (file.type === "application/pdf") text = await extractTextFromPDF(file);
-      else if (file.type.includes("wordprocessingml")) text = await extractTextFromDOCX(file);
+      if (file.type === "application/pdf")
+        text = await extractTextFromPDF(file);
+      else if (file.type.includes("wordprocessingml"))
+        text = await extractTextFromDOCX(file);
       else if (file.type === "text/plain") text = await file.text();
       else throw new Error("Invalid format. Use PDF, DOCX, or TXT.");
 
@@ -76,7 +78,7 @@ const Cover = () => {
       setError("");
       const res = await axios.post(
         "https://api.crosscareers.com/api/v1/cover/generate-cover-letter",
-        { jobDescription, resumeText, style: coverLetterStyle }
+        { jobDescription, resumeText, style: coverLetterStyle },
       );
       setCoverLetter(res.data.coverLetter);
       setSuccess("Cover letter generated successfully!");
@@ -92,7 +94,7 @@ const Cover = () => {
       const res = await axios.post(
         "https://api.crosscareers.com/api/v1/cover/generate-docx",
         { content: coverLetter },
-        { responseType: "blob" }
+        { responseType: "blob" },
       );
       saveAs(res.data, "Professional-Cover-Letter.docx");
     } catch {
@@ -145,8 +147,17 @@ const Cover = () => {
               />
               <label className="mt-3 flex items-center justify-center gap-2 w-full py-2 border-2 border-dashed border-slate-300 rounded-lg cursor-pointer hover:bg-slate-50 transition-colors">
                 <UploadCloud size={18} className="text-slate-400" />
-                <span className="text-sm text-slate-500 font-medium">Upload Job PDF/Docx</span>
-                <input type="file" className="hidden" accept=".pdf,.docx,.txt" onChange={(e) => handleFile(e.target.files[0], setJobDescription)} />
+                <span className="text-sm text-slate-500 font-medium">
+                  Upload Job PDF/Docx
+                </span>
+                <input
+                  type="file"
+                  className="hidden"
+                  accept=".pdf,.docx,.txt"
+                  onChange={(e) =>
+                    handleFile(e.target.files[0], setJobDescription)
+                  }
+                />
               </label>
             </section>
 
@@ -163,8 +174,15 @@ const Cover = () => {
               />
               <label className="mt-3 flex items-center justify-center gap-2 w-full py-2 border-2 border-dashed border-slate-300 rounded-lg cursor-pointer hover:bg-slate-50 transition-colors">
                 <UploadCloud size={18} className="text-slate-400" />
-                <span className="text-sm text-slate-500 font-medium">Upload Resume</span>
-                <input type="file" className="hidden" accept=".pdf,.docx,.txt" onChange={(e) => handleFile(e.target.files[0], setResumeText)} />
+                <span className="text-sm text-slate-500 font-medium">
+                  Upload Resume
+                </span>
+                <input
+                  type="file"
+                  className="hidden"
+                  accept=".pdf,.docx,.txt"
+                  onChange={(e) => handleFile(e.target.files[0], setResumeText)}
+                />
               </label>
             </section>
 
@@ -174,7 +192,9 @@ const Cover = () => {
               className="w-full py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
             >
               {loading ? (
-                <><Loader2 className="animate-spin" /> Crafting your letter...</>
+                <>
+                  <Loader2 className="animate-spin" /> Crafting your letter...
+                </>
               ) : (
                 "Generate Professional Cover Letter"
               )}
@@ -186,7 +206,9 @@ const Cover = () => {
             {coverLetter ? (
               <div className="bg-white border-[1px] overflow-hidden animate-in zoom-in-95 duration-300">
                 <div className="p-8 border-b border-slate-100 bg-slate-50 flex justify-between items-center">
-                  <span className="text-sm font-semibold text-slate-500 uppercase">Preview</span>
+                  <span className="text-sm font-semibold text-slate-500 uppercase">
+                    Preview
+                  </span>
                   <button
                     onClick={downloadDocx}
                     className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm font-medium transition-colors"
@@ -205,9 +227,12 @@ const Cover = () => {
                 <div className="bg-slate-50 p-4 rounded-full mb-4">
                   <FileText size={48} className="text-slate-300" />
                 </div>
-                <h3 className="text-lg font-medium text-slate-900">No Letter Generated</h3>
+                <h3 className="text-lg font-medium text-slate-900">
+                  No Letter Generated
+                </h3>
                 <p className="text-slate-500 mt-2 max-w-xs">
-                  Fill in your details and click generate to see your professional cover letter here.
+                  Fill in your details and click generate to see your
+                  professional cover letter here.
                 </p>
               </div>
             )}

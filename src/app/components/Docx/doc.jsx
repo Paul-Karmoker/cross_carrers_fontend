@@ -1,14 +1,31 @@
-import { useState, useRef } from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
 import { useForm } from 'react-hook-form';
-import { toast } from 'react-hot-toast';
+import { toast, Toaster } from 'react-hot-toast';
 import mammoth from 'mammoth';
-import * as pdfjsLib from 'pdfjs-dist';
 import * as XLSX from 'xlsx';
 
-// Initialize PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+// PDF.js Legacy Build for maximum compatibility
+import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf';
+import pdfWorker from 'pdfjs-dist/legacy/build/pdf.worker.min?url';
+
+import { 
+  Upload, 
+  Download, 
+  RefreshCcw, 
+  FileText,
+  CheckCircle2,
+  Terminal,
+  ShieldCheck,
+  ChevronRight,
+  Info
+} from 'lucide-react';
+
+// Global Worker Setup
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 const ContentGenerator = () => {
   const [loading, setLoading] = useState(false);
@@ -16,16 +33,15 @@ const ContentGenerator = () => {
   const [previewContent, setPreviewContent] = useState(null);
   const [activeTab, setActiveTab] = useState('input');
   const fileInputRef = useRef(null);
-  const pasteAreaRef = useRef(null);
 
   const { register, handleSubmit, watch, reset } = useForm({
     defaultValues: {
-      contentType: 'blog',
+      contentType: 'report',
       tone: 'professional',
       wordCount: 500,
       pageCount: 1,
       includeCharts: true,
-      includeImages: true,
+      includeImages: false,
       userInput: '',
     },
   });
@@ -33,401 +49,321 @@ const ContentGenerator = () => {
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-
-    // File size validation (10MB max)
-    if (file.size > 10 * 1024 * 1024) {
-      toast.error('File size exceeds 10MB limit');
+    if (file.size > 15 * 1024 * 1024) {
+      toast.error('File exceeds 15MB security limit');
       return;
     }
 
     setLoading(true);
+    const id = toast.loading('Extracting document intelligence...');
+
     try {
       let content = '';
-      
       if (file.type === 'application/pdf') {
-        try {
-          const arrayBuffer = await file.arrayBuffer();
-          const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
-          
-          for (let i = 1; i <= pdf.numPages; i++) {
-            const page = await pdf.getPage(i);
-            const textContent = await page.getTextContent();
-            content += textContent.items.map(item => item.str).join(' ') + '\n';
-          }
-        } catch (pdfError) {
-          console.error('PDF.js extraction failed:', pdfError);
-          throw new Error('Failed to extract text from PDF');
-        }
-      } 
-      else if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
         const arrayBuffer = await file.arrayBuffer();
-        const result = await mammoth.extractRawText({ arrayBuffer });
-        content = result.value;
+        const loadingTask = pdfjsLib.getDocument({ 
+          data: arrayBuffer,
+          useWorkerFetch: true,
+          isEvalSupported: false 
+        });
+        const pdf = await loadingTask.promise;
+        
+        let textSegments = [];
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const textContent = await page.getTextContent();
+          textSegments.push(textContent.items.map(s => s.str).join(' '));
+        }
+        content = textSegments.join('\n\n');
       } 
-      else if (file.type === 'application/vnd.ms-excel' || 
-               file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
-        const data = await file.arrayBuffer();
-        const workbook = XLSX.read(data);
-        content = workbook.SheetNames.map(name => {
-          const worksheet = workbook.Sheets[name];
-          return XLSX.utils.sheet_to_csv(worksheet);
-        }).join('\n\n');
+      else if (file.type.includes('wordprocessingml')) {
+        const buffer = await file.arrayBuffer();
+        const res = await mammoth.extractRawText({ arrayBuffer: buffer });
+        content = res.value;
       } 
-      else if (file.type === 'text/plain') {
+      else if (file.type.includes('sheet') || file.type.includes('excel')) {
+        const buffer = await file.arrayBuffer();
+        const wb = XLSX.read(buffer);
+        content = wb.SheetNames.map(n => XLSX.utils.sheet_to_csv(wb.Sheets[n])).join('\n\n');
+      } 
+      else {
         content = await file.text();
-      } else {
-        throw new Error('Unsupported file type');
       }
 
       setFileContent(content);
-      toast.success('File processed successfully!');
-    } catch (error) {
-      console.error('Error processing file:', error);
-      toast.error(`Error processing file: ${error.message}`);
+      toast.success('Source context ingested', { id });
+    } catch (err) {
+      toast.error(`Extraction Failed: ${err.message}`, { id });
     } finally {
       setLoading(false);
     }
   };
 
-  const handlePaste = (e) => {
-    const pastedText = e.clipboardData.getData('text/plain');
-    setFileContent(prev => prev + pastedText);
-    toast.success('Text pasted successfully!');
-  };
-
-  const formatContentForDisplay = (content) => {
-    if (!content) return null;
-    
-    return {
-      title: content.title || 'Generated Document',
-      subtitle: content.subtitle || '',
-      sections: content.sections?.map(section => ({
-        type: section.type || 'text',
-        title: section.title || '',
-        content: section.content || '',
-        bullets: section.bullets || [],
-        style: section.style || 'normal'
-      })) || [],
-      metadata: content.metadata || {}
-    };
-  };
-
   const generateContent = async (data) => {
     if (!fileContent && !data.userInput) {
-      toast.error('Please provide input text or upload a file');
+      toast.error('Input required: Upload a file or enter text');
       return;
     }
-
     setLoading(true);
     try {
-      const response = await axios.post('https://api.crosscareers.com/api/v1/doc/generate-content', {
+      const res = await axios.post('https://api.crosscareers.com/api/v1/doc/generate-content', {
         ...data,
         sourceText: fileContent || data.userInput,
       });
-
-      const formattedContent = formatContentForDisplay(response.data.content);
-      setPreviewContent(formattedContent);
+      const raw = res.data.content || res.data;
+      setPreviewContent({
+        title: raw.title || 'Analysis Report',
+        subtitle: raw.subtitle || 'Intelligence Output',
+        sections: raw.sections || []
+      });
       setActiveTab('preview');
-      toast.success('Content generated successfully!');
-    } catch (error) {
-      console.error('Error generating content:', error);
-      toast.error(error.response?.data?.error || 'Error generating content');
+      toast.success('Generation complete');
+    } catch (err) {
+      toast.error('Engine connection failed');
     } finally {
       setLoading(false);
     }
   };
 
   const downloadDocx = async () => {
-    if (!previewContent) {
-      toast.error('No content to download');
-      return;
-    }
-
     setLoading(true);
     try {
-      const response = await axios.post('https://api.crosscareers.com/api/v1/doc/generate-docx', {
+      const res = await axios.post('https://api.crosscareers.com/api/v1/doc/generate-docx', {
         content: previewContent,
         documentType: watch('contentType'),
         style: watch('tone')
       }, { responseType: 'blob' });
-
-      saveAs(response.data, 'generated-content.docx');
-      toast.success('Document downloaded successfully!');
-    } catch (error) {
-      console.error('Error downloading document:', error);
-      toast.error(error.response?.data?.error || 'Error downloading document');
+      saveAs(res.data, `${previewContent.title.toLowerCase().replace(/\s+/g, '-')}.docx`);
+    } catch (err) {
+      toast.error('Export failed');
     } finally {
       setLoading(false);
     }
   };
 
-  const resetForm = () => {
-    setFileContent('');
-    setPreviewContent(null);
-    reset();
-    setActiveTab('input');
-  };
+  // UI Components
+  const SidebarLabel = ({ children }) => (
+    <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500 mb-2">
+      {children}
+    </label>
+  );
 
-  const renderContentPreview = () => {
-    if (!previewContent) return <p>No content available</p>;
-
-    return (
-      <div className="space-y-6">
-        {previewContent.title && <h1 className="text-2xl font-bold">{previewContent.title}</h1>}
-        {previewContent.subtitle && <h2 className="text-xl text-gray-600">{previewContent.subtitle}</h2>}
-        
-        {previewContent.sections.map((section, index) => (
-          <div key={index} className="space-y-3">
-            {section.title && (
-              <h3 className={
-                section.style === 'heading1' ? 'text-xl font-bold' :
-                section.style === 'heading2' ? 'text-lg font-semibold' :
-                'text-md font-medium'
-              }>
-                {section.title}
-              </h3>
-            )}
-            
-            {section.content && (
-              <p className="whitespace-pre-line">{section.content}</p>
-            )}
-            
-            {section.bullets.length > 0 && (
-              <ul className="list-disc pl-5">
-                {section.bullets.map((bullet, i) => (
-                  <li key={i}>{bullet}</li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))}
-      </div>
-    );
-  };
+  const InputFieldStyle = "w-full bg-white border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-black/5 focus:border-black transition-all outline-none";
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 mt-20">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-4">
-          <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            Create Your Content
-          </h1>
-        </div>
+    <div className="min-h-screen  mt-20 text-[#1A1A1A] font-sans antialiased">
+      <Toaster position="top-right" />
+      
 
-        <div className="bg-white shadow-xl rounded-lg overflow-hidden">
-          {/* Navigation Tabs */}
-          <div className="border-b border-gray-200">
-            <nav className="flex -mb-px">
-              <button
+      <div className="flex flex-col lg:flex-row max-w-7xl mx-auto">
+        
+        {/* Sidebar Configuration */}
+        <aside className="w-full lg:w-[420px] mt-6 border-[1px] border-gray-200 bg-white/50 backdrop-blur-sm p-8">
+          <div className="sticky top-0 space-y-8">
+            <div className="flex gap-1 p-1 bg-gray-100/80 rounded-xl border border-gray-200">
+              <button 
                 onClick={() => setActiveTab('input')}
-                className={`py-4 px-6 text-center border-b-2 font-medium text-sm ${activeTab === 'input' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}`}
+                className={`flex-1 py-2.5 text-xs font-bold rounded-lg transition-all ${activeTab === 'input' ? 'bg-white shadow-sm text-black' : 'text-gray-400 hover:text-black'}`}
               >
-                Input
+                Configuration
               </button>
-              <button
+              <button 
                 onClick={() => previewContent && setActiveTab('preview')}
                 disabled={!previewContent}
-                className={`py-4 px-6 text-center border-b-2 font-medium text-sm ${activeTab === 'preview' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'} ${!previewContent ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`flex-1 py-2.5 text-xs font-bold rounded-lg transition-all ${activeTab === 'preview' ? 'bg-white shadow-sm text-black' : 'text-gray-400 hover:text-black'} disabled:opacity-30`}
               >
-                Preview
+                Output Preview
               </button>
-            </nav>
-          </div>
+            </div>
 
-          <div className="p-6 sm:p-8">
             {activeTab === 'input' ? (
-              <form onSubmit={handleSubmit(generateContent)} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit(generateContent)} className="space-y-8">
+                <div className="space-y-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Content Type</label>
-                    <select 
-                      {...register('contentType')}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    >
-                      <option value="general">General Post</option>
-                      <option value="concept">Concept Note</option>
-                      <option value="project_proposal">Project Proposal</option>
-                      <option value="blog">Blog Post</option>
-                      <option value="report">Report</option>
-                      <option value="article">Article</option>
-                      <option value="essay">Essay</option>
-                      <option value="summary">Summary</option>
+                    <SidebarLabel>Document Architecture</SidebarLabel>
+                    <select {...register('contentType')} className={InputFieldStyle}>
+                      <option value="report">Enterprise Executive Report</option>
+                      <option value="project_proposal">Strategic Project Proposal</option>
+                      <option value="blog">Professional Editorial Article</option>
+                      <option value="whitepaper">Technical Whitepaper</option>
                     </select>
                   </div>
-                  
+
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Tone</label>
-                    <select 
-                      {...register('tone')}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    >
-                      <option value="professional">Professional</option>
-                      <option value="casual">Casual</option>
-                      <option value="academic">Academic</option>
-                      <option value="persuasive">Persuasive</option>
-                      <option value="creative">Creative</option>
+                    <SidebarLabel>Linguistic Tone</SidebarLabel>
+                    <select {...register('tone')} className={InputFieldStyle}>
+                      <option value="professional">Corporate & Precise</option>
+                      <option value="academic">Analytical & Formal</option>
+                      <option value="creative">Innovative & Engaging</option>
                     </select>
                   </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Word Count</label>
-                    <input 
-                      type="number" 
-                      {...register('wordCount', { min: 100, max: 5000 })} 
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <SidebarLabel>Word Limit</SidebarLabel>
+                      <input type="number" {...register('wordCount')} className={InputFieldStyle} />
+                    </div>
+                    <div>
+                      <SidebarLabel>Target Pages</SidebarLabel>
+                      <input type="number" {...register('pageCount')} className={InputFieldStyle} />
+                    </div>
                   </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Page Count</label>
-                    <input 
-                      type="number" 
-                      {...register('pageCount', { min: 1, max: 20 })} 
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-                </div>
-                
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <input 
-                      id="includeCharts"
-                      type="checkbox" 
-                      {...register('includeCharts')} 
-                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                    />
-                    <label htmlFor="includeCharts" className="ml-2 block text-sm text-gray-700">
-                      Include Charts/Graphs
+
+                  <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 space-y-3">
+                    <SidebarLabel>Optimization Modules</SidebarLabel>
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                      <input type="checkbox" {...register('includeCharts')} className="w-4 h-4 rounded border-gray-300 text-black focus:ring-black" />
+                      <span className="text-xs font-semibold text-gray-600 group-hover:text-black transition-colors">Generate Structural Data Viz</span>
                     </label>
-                  </div>
-                  <div className="flex items-center">
-                    <input 
-                      id="includeImages"
-                      type="checkbox" 
-                      {...register('includeImages')} 
-                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                    />
-                    <label htmlFor="includeImages" className="ml-2 block text-sm text-gray-700">
-                      Include Relevant Images
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                      <input type="checkbox" {...register('includeImages')} className="w-4 h-4 rounded border-gray-300 text-black focus:ring-black" />
+                      <span className="text-xs font-semibold text-gray-600 group-hover:text-black transition-colors">Include AI Media Assets</span>
                     </label>
                   </div>
                 </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Upload Document</label>
-                  <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                    <div className="space-y-1 text-center">
-                      <svg
-                        className="mx-auto h-12 w-12 text-gray-400"
-                        stroke="currentColor"
-                        fill="none"
-                        viewBox="0 0 48 48"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                          strokeWidth={2}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      <div className="flex text-sm text-gray-600">
-                        <label
-                          htmlFor="file-upload"
-                          className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
-                        >
-                          <span>Upload a file</span>
-                          <input 
-                            id="file-upload" 
-                            name="file-upload" 
-                            type="file" 
-                            ref={fileInputRef}
-                            onChange={handleFileUpload}
-                            accept=".docx,.pdf,.xlsx,.xls,.txt"
-                            className="sr-only"
-                          />
-                        </label>
-                        <p className="pl-1">or drag and drop</p>
-                      </div>
-                      <p className="text-xs text-gray-500">
-                        DOCX, PDF, Excel, TXT up to 10MB
-                      </p>
-                    </div>
-                  </div>
-                  {fileContent && (
-                    <div className="mt-2 text-sm text-gray-500">
-                      File loaded successfully ({fileContent.length} characters)
-                    </div>
-                  )}
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Or Paste Text Here</label>
-                  <textarea
-                    ref={pasteAreaRef}
-                    onPaste={handlePaste}
-                    {...register('userInput')}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 h-32"
-                    placeholder="Type or Paste your content here..."
-                  />
-                </div>
-                <div className="flex justify-between pt-4">
-                  <button
-                    type="button"
-                    onClick={resetForm}
-                    className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                  >
-                    Reset Form
-                  </button>
-                  <button 
-                    type="submit" 
-                    disabled={loading}
-                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {loading ? (
-                      <>
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Generating...
-                      </>
-                    ) : 'Generate Content'}
-                  </button>
-                </div>
+
+                <button 
+                  type="submit" 
+                  disabled={loading}
+                  className="w-full bg-black text-white py-4 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-600 transition-all flex items-center justify-center gap-3 shadow-xl shadow-black/5 disabled:bg-gray-200"
+                >
+                  {loading ? <RefreshCcw className="animate-spin" size={16} /> : 'Process Intelligence'}
+                  {!loading && <ChevronRight size={14} />}
+                </button>
               </form>
             ) : (
               <div className="space-y-6">
-                <div className='text-center text-red-500 font-bold -mt-4'>Remeber, after Downloading- Please check, update and format as per you need</div>
-                <div className="flex justify-between items-center">
-                  <h2 className="text-xl font-semibold text-gray-900">Generated Content Preview</h2>
-                  <div className="space-x-2">
-                    <button 
-                      onClick={downloadDocx}
-                      disabled={loading}
-                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      <svg className="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                      Download DOCX
-                    </button>
-                    <button
-                      onClick={() => setActiveTab('input')}
-                      className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                    >
-                      Back to Input
-                    </button>
+                <div className="p-5 bg-blue-600 rounded-2xl text-white shadow-xl shadow-blue-600/20">
+                  <div className="flex items-start gap-3 mb-4">
+                    <Info size={18} className="shrink-0" />
+                    <p className="text-xs font-bold uppercase tracking-wider">Ready for Export</p>
                   </div>
+                  <p className="text-[11px] leading-relaxed opacity-90">
+                    Your document has been synthesized using professional document standards. Verified for structural integrity and tone consistency.
+                  </p>
                 </div>
                 
-                <div className="p-6 border border-gray-200 rounded-lg bg-gray-50">
-                  {renderContentPreview()}
-                </div>
+                <button 
+                  onClick={downloadDocx} 
+                  className="w-full bg-blue-600 text-white py-4 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-700 shadow-lg shadow-blue-600/10 flex items-center justify-center gap-3"
+                >
+                  <Download size={18} /> Export .DOCX
+                </button>
+                
+                <button 
+                  onClick={() => setActiveTab('input')}
+                  className="w-full border-2 border-gray-100 text-gray-500 py-4 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:bg-gray-50 hover:text-black transition-all"
+                >
+                  Re-Configure
+                </button>
               </div>
             )}
           </div>
-        </div>
+        </aside>
+
+        {/* Workspace Area */}
+        <section className="flex-1 p-6">
+          {activeTab === 'input' ? (
+            <div className=" mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-2 duration-500">
+              
+              {/* File Dropzone */}
+              <div 
+                className="relative border-2 border-dashed border-gray-200  bg-white p-12 lg:p-20 text-center hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-600/5 transition-all group cursor-pointer"
+                onClick={() => fileInputRef.current.click()}
+              >
+                <input type="file" ref={fileInputRef} onChange={handleFileUpload} accept=".pdf,.docx,.xlsx,.txt" className="hidden" />
+                <div className="w-20 h-20 bg-blue-50 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                  <Upload className="text-blue-600" size={32} />
+                </div>
+                <h2 className="text-xl font-black tracking-tight mb-2 uppercase">Ingest Primary Data</h2>
+                <p className="text-sm text-gray-400 mb-6 font-medium uppercase tracking-tighter">PDF • DOCX • XLSX • TEXT (MAX 15MB)</p>
+                
+                {fileContent ? (
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-600 rounded-xl text-[10px] font-black uppercase border border-green-100">
+                    <CheckCircle2 size={14} /> Data Stream Connected
+                  </div>
+                ) : (
+                  <div className="text-[10px] font-bold text-blue-500 uppercase tracking-widest bg-blue-50/50 inline-block px-3 py-1 rounded-full">
+                    Cloud Processing Ready
+                  </div>
+                )}
+              </div>
+
+              {/* Text Area Context */}
+              <div className="bg-white  border-[1px]  p-8">
+                <div className="flex justify-between items-center mb-6">
+                  <div className="flex items-center gap-2">
+                    <FileText size={16} className="text-gray-400" />
+                    <h3 className="text-[10px] font-black uppercase tracking-widest text-gray-400">Contextual Prompt Buffer</h3>
+                  </div>
+                  <span className="text-[10px] font-mono text-gray-300">RAW_TEXT_INJECTION</span>
+                </div>
+                <textarea
+                  {...register('userInput')}
+                  className="w-full h-64 border-none focus:ring-0 text-sm font-mono leading-relaxed placeholder:text-gray-300 resize-none bg-transparent"
+                  placeholder="Insert supplemental instructions or additional notes to guide the generation engine..."
+                />
+              </div>
+            </div>
+          ) : (
+            /* Document Preview State */
+            <div className="max-w-[850px] mx-auto pb-20 animate-in fade-in zoom-in-95 duration-700">
+               <div className="bg-white border border-gray-200 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] rounded-sm p-16 lg:p-24 min-h-[1100px] relative overflow-hidden">
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gray-50 -rotate-45 translate-x-16 -translate-y-16" />
+                
+                {previewContent && (
+                  <div>
+                    <header className="border-b-[3px] border-black pb-12 mb-16">
+                      <div className="flex justify-between items-start mb-8">
+                        <span className="text-[10px] font-black tracking-[0.3em] uppercase bg-black text-white px-3 py-1">Confidential Intelligence Report</span>
+                        <span className="text-[10px] font-mono text-gray-400">{new Date().toLocaleDateString()}</span>
+                      </div>
+                      <h1 className="text-5xl font-black uppercase tracking-tighter mb-6 leading-[0.9]">
+                        {previewContent.title}
+                      </h1>
+                      <p className="text-xl text-blue-600/60 font-medium italic tracking-tight">
+                        {previewContent.subtitle}
+                      </p>
+                    </header>
+                    
+                    <div className="space-y-16">
+                      {previewContent.sections.map((section, idx) => (
+                        <section key={idx} className="group">
+                          {section.title && (
+                            <div className="flex items-center gap-4 mb-6">
+                              <h3 className="text-xs font-black uppercase tracking-[0.4em] text-blue-600 shrink-0">
+                                {section.title}
+                              </h3>
+                              <div className="h-[1px] bg-gray-100 w-full group-hover:bg-blue-100 transition-colors" />
+                            </div>
+                          )}
+                          <p className="text-gray-800 leading-[1.8] text-base font-medium whitespace-pre-line">
+                            {section.content}
+                          </p>
+                          {section.bullets?.length > 0 && (
+                            <ul className="mt-8 space-y-4 border-l-2 border-gray-50 pl-6 ml-2">
+                              {section.bullets.map((b, i) => (
+                                <li key={i} className="flex gap-4 text-[15px] text-gray-600 font-medium italic leading-relaxed">
+                                  <span className="text-black font-black">/</span> {b}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </section>
+                      ))}
+                    </div>
+
+                    <footer className="mt-24 pt-12 border-t border-gray-100 flex justify-between items-center grayscale opacity-30">
+                       <span className="text-[9px] font-black uppercase tracking-widest">CrossCareers.AI / System Generated</span>
+                       <span className="text-[9px] font-mono uppercase tracking-widest">Page 01 of 01</span>
+                    </footer>
+                  </div>
+                )}
+               </div>
+            </div>
+          )}
+        </section>
       </div>
     </div>
   );
