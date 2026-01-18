@@ -107,12 +107,12 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Payment & Trust Column */}
+
           <div className="space-y-6">
             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white mb-6">
               Payment Support
             </h3>
-            <div className="p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl border border-indigo-100 dark:border-indigo-800/50">
+            <div className="p-4 bg-indigo-50 dark:bg-indigo-900/20  border-[1px] border-indigo-100 dark:border-indigo-800/50">
               <p className="text-xs font-bold text-indigo-700 dark:text-indigo-300 mb-2 uppercase tracking-wide">Primary Merchant</p>
               <p className="text-xl font-black text-slate-900 dark:text-white">01886795620</p>
               <p className="text-[10px] text-indigo-600/70 dark:text-indigo-400 font-bold">BKASH PERSONAL</p>
@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
               {paymentMethods.map((method, index) => (
                 <div 
                   key={index} 
-                  className="flex-1 h-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg flex items-center justify-center p-2 shadow-sm hover:border-indigo-300 transition-colors"
+                  className="flex-1 h-12 bg-white dark:bg-slate-800 border-[1px] border-slate-200 dark:border-slate-700 flex items-center justify-center p-2 hover:border-indigo-300 transition-colors"
                 >
                   <img src={method.image} alt={method.name} className="max-h-full object-contain filter dark:brightness-110" />
                 </div>
@@ -131,7 +131,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs font-medium text-slate-500">
             © {currentYear} CrossCareers. Designed with precision.

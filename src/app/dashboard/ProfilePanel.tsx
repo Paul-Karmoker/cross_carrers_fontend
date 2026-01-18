@@ -23,8 +23,10 @@ interface ProfilePanelProps {
 }
 
 export function ProfilePanel({ user }: ProfilePanelProps): JSX.Element {
-  const [changePassword, { isLoading: isChangingPassword }] = useChangePasswordMutation();
-  const [updateProfile, { isLoading: isUpdatingProfile }] = useUpdateProfileMutation();
+  const [changePassword, { isLoading: isChangingPassword }] =
+    useChangePasswordMutation();
+  const [updateProfile, { isLoading: isUpdatingProfile }] =
+    useUpdateProfileMutation();
 
   const [profileForm, setProfileForm] = useState<ProfileForm>({
     firstName: user.firstName || "",
@@ -47,7 +49,9 @@ export function ProfilePanel({ user }: ProfilePanelProps): JSX.Element {
     confirm: false,
   });
 
-  const handleUpdateProfile = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+  const handleUpdateProfile = async (
+    e: FormEvent<HTMLFormElement>,
+  ): Promise<void> => {
     e.preventDefault();
     if (!profileForm.firstName || !profileForm.lastName || !profileForm.email) {
       toast.error("Required fields missing");
@@ -65,7 +69,9 @@ export function ProfilePanel({ user }: ProfilePanelProps): JSX.Element {
     }
   };
 
-  const handleChangePassword = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+  const handleChangePassword = async (
+    e: FormEvent<HTMLFormElement>,
+  ): Promise<void> => {
     e.preventDefault();
     if (passwordForm.newPassword !== passwordForm.confirmPassword) {
       toast.error("Password mismatch");
@@ -77,7 +83,11 @@ export function ProfilePanel({ user }: ProfilePanelProps): JSX.Element {
         newPassword: passwordForm.newPassword,
       }).unwrap();
       toast.success("Security credentials updated");
-      setPasswordForm({ oldPassword: "", newPassword: "", confirmPassword: "" });
+      setPasswordForm({
+        oldPassword: "",
+        newPassword: "",
+        confirmPassword: "",
+      });
     } catch (err: any) {
       toast.error(err?.data?.message || "Security update failed");
     }
@@ -85,14 +95,15 @@ export function ProfilePanel({ user }: ProfilePanelProps): JSX.Element {
 
   return (
     <div className="max-w-5xl mx-auto space-y-12 pb-20">
-      {/* SECTION 1: PERSONAL INFORMATION */}
+
+
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="md:col-span-1">
           <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900 flex items-center gap-2">
             <FiUser className="text-indigo-600" /> General Information
           </h3>
           <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-            Update your personal details and contact information. This information is used for account verification.
+            Update your personal details and contact information.
           </p>
         </div>
 
@@ -100,24 +111,32 @@ export function ProfilePanel({ user }: ProfilePanelProps): JSX.Element {
           initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
           onSubmit={handleUpdateProfile}
-          className="md:col-span-2 bg-white border border-slate-200 p-8 space-y-6 shadow-sm"
+          className="md:col-span-2 bg-white border-1 border-slate-200 p-8 space-y-6"
         >
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">First Name</label>
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">
+                First Name
+              </label>
               <input
                 type="text"
                 value={profileForm.firstName}
-                onChange={(e) => setProfileForm({ ...profileForm, firstName: e.target.value })}
+                onChange={(e) =>
+                  setProfileForm({ ...profileForm, firstName: e.target.value })
+                }
                 className="w-full p-2.5 border border-slate-200 focus:border-indigo-600 outline-none transition-all font-medium text-sm"
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">Last Name</label>
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">
+                Last Name
+              </label>
               <input
                 type="text"
                 value={profileForm.lastName}
-                onChange={(e) => setProfileForm({ ...profileForm, lastName: e.target.value })}
+                onChange={(e) =>
+                  setProfileForm({ ...profileForm, lastName: e.target.value })
+                }
                 className="w-full p-2.5 border border-slate-200 focus:border-indigo-600 outline-none transition-all font-medium text-sm"
               />
             </div>
@@ -143,7 +162,14 @@ export function ProfilePanel({ user }: ProfilePanelProps): JSX.Element {
               <input
                 type="tel"
                 value={profileForm.mobileNumber}
-                onChange={(e) => setProfileForm({ ...profileForm, mobileNumber: e.target.value.replace(/\D/g, "").slice(0, 11) })}
+                onChange={(e) =>
+                  setProfileForm({
+                    ...profileForm,
+                    mobileNumber: e.target.value
+                      .replace(/\D/g, "")
+                      .slice(0, 11),
+                  })
+                }
                 className="w-full p-2.5 border border-slate-200 focus:border-indigo-600 outline-none text-sm"
               />
             </div>
@@ -154,7 +180,9 @@ export function ProfilePanel({ user }: ProfilePanelProps): JSX.Element {
               <input
                 type="text"
                 value={profileForm.address}
-                onChange={(e) => setProfileForm({ ...profileForm, address: e.target.value })}
+                onChange={(e) =>
+                  setProfileForm({ ...profileForm, address: e.target.value })
+                }
                 className="w-full p-2.5 border border-slate-200 focus:border-indigo-600 outline-none text-sm"
                 placeholder="City, Country"
               />
@@ -173,14 +201,13 @@ export function ProfilePanel({ user }: ProfilePanelProps): JSX.Element {
         </motion.form>
       </section>
 
-      {/* SECTION 2: SECURITY & PASSWORD */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-slate-100">
         <div className="md:col-span-1">
           <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900 flex items-center gap-2">
             <FiShield className="text-red-500" /> Security Credentials
           </h3>
           <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-            Manage your authentication security. We recommend a password of at least 12 characters including symbols.
+            Manage your authentication security.
           </p>
         </div>
 
@@ -188,26 +215,44 @@ export function ProfilePanel({ user }: ProfilePanelProps): JSX.Element {
           initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
           onSubmit={handleChangePassword}
-          className="md:col-span-2 bg-white border border-slate-200 p-8 space-y-6 shadow-sm"
+          className="md:col-span-2 bg-white border-1 border-slate-200 p-8 space-y-6"
         >
           {(["old", "new", "confirm"] as const).map((field) => (
             <div key={field} className="space-y-1.5">
               <label className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">
-                {field === "old" ? "Current Password" : field === "new" ? "New Password" : "Confirm New Password"}
+                {field === "old"
+                  ? "Current Password"
+                  : field === "new"
+                    ? "New Password"
+                    : "Confirm New Password"}
               </label>
               <div className="relative">
                 <input
                   type={showPassword[field] ? "text" : "password"}
                   value={passwordForm[`${field}Password` as keyof PasswordForm]}
-                  onChange={(e) => setPasswordForm({ ...passwordForm, [`${field}Password`]: e.target.value } as any)}
+                  onChange={(e) =>
+                    setPasswordForm({
+                      ...passwordForm,
+                      [`${field}Password`]: e.target.value,
+                    } as any)
+                  }
                   className="w-full p-2.5 border border-slate-200 focus:border-indigo-600 outline-none text-sm font-mono pr-12"
                 />
                 <button
                   type="button"
-                  onClick={() => setShowPassword({ ...showPassword, [field]: !showPassword[field] })}
+                  onClick={() =>
+                    setShowPassword({
+                      ...showPassword,
+                      [field]: !showPassword[field],
+                    })
+                  }
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-indigo-600"
                 >
-                  {showPassword[field] ? <FiEyeOff size={16} /> : <FiEye size={16} />}
+                  {showPassword[field] ? (
+                    <FiEyeOff size={16} />
+                  ) : (
+                    <FiEye size={16} />
+                  )}
                 </button>
               </div>
             </div>
@@ -224,6 +269,7 @@ export function ProfilePanel({ user }: ProfilePanelProps): JSX.Element {
           </div>
         </motion.form>
       </section>
+
     </div>
   );
 }

@@ -46,13 +46,13 @@ const JOB_SITES_DATA: JobSite[] = [
  * JobCard Sub-component
  */
 const JobCard: FC<{ site: JobSite }> = ({ site }) => (
-  <div className="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full overflow-hidden translate-y-0 hover:-translate-y-2">
+  <div className="group bg-white shadow-sm transition-all duration-500 border border-gray-100 flex flex-col h-full overflow-hidden translate-y-0 hover:-translate-y-2">
     <div className="p-8 flex flex-col items-center flex-grow">
-      <div className="relative mb-6 w-full h-24 flex items-center justify-center p-2 bg-gray-50 rounded-xl group-hover:bg-blue-50 transition-colors duration-500">
+      <div className="relative mb-6 w-full h-24 flex items-center justify-center p-2 bg-gray-50  group-hover:bg-blue-50 transition-colors duration-500">
         <img
           src={site.image}
           alt={`${site.name} logo`}
-          className="max-h-16 max-w-[80%] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+          className="max-h-16 max-w-[80%] object-contain filter transition-all duration-500"
           loading="lazy"
         />
       </div>
@@ -71,7 +71,7 @@ const JobCard: FC<{ site: JobSite }> = ({ site }) => (
           href={site.url} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-full px-5 py-3 bg-gray-900 group-hover:bg-blue-600 text-white font-semibold rounded-xl transition-all duration-300 transform active:scale-95 shadow-md hover:shadow-blue-200"
+          className="flex items-center justify-center w-full px-5 py-2 bg-blue-600 text-white font-semibold  transition-all duration-300 transform active:scale-95"
         >
           Explore Careers
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -147,7 +147,7 @@ const IntJobs: FC = () => {
 
       {/* Control Bar Section */}
       <section className="container mx-auto px-6 -mt-10 z-20">
-        <div className="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-slate-100">
+        <div className="bg-white  p-6 md:p-8 border border-slate-100">
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
             {/* Search Input */}
             <div className="relative w-full lg:max-w-md group">
@@ -159,7 +159,7 @@ const IntJobs: FC = () => {
               <input
                 type="text"
                 placeholder="Search by organization name..."
-                className="w-full pl-12 pr-4 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-500 transition-all text-slate-700 font-medium"
+                className="w-full pl-12 pr-4 py-3 bg-slate-50 border-[1px] focus:ring-blue-500 transition-all text-slate-700 font-medium"
                 value={searchTerm}
                 onChange={handleSearch}
               />
@@ -171,7 +171,7 @@ const IntJobs: FC = () => {
                 <button 
                   key={category}
                   onClick={() => handleCategoryFilter(category)}
-                  className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${
+                  className={`px-5 py-2.5  text-sm font-bold transition-all duration-300 ${
                     selectedCategory === category 
                       ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' 
                       : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
@@ -201,7 +201,7 @@ const IntJobs: FC = () => {
                 <button 
                   onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
                   disabled={currentPage === 1}
-                  className="p-3 border border-slate-200 rounded-xl disabled:opacity-30 hover:bg-white transition-all text-slate-700 shadow-sm"
+                  className="p-3 border border-slate-200 disabled:opacity-30 hover:bg-white transition-all text-slate-700 shadow-sm"
                   aria-label="Previous page"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -214,9 +214,9 @@ const IntJobs: FC = () => {
                     <button
                       key={number}
                       onClick={() => setCurrentPage(number)}
-                      className={`w-12 h-12 rounded-xl text-sm font-bold transition-all ${
+                      className={`w-10 h-10 border-[1px]  text-sm font-bold transition-all ${
                         currentPage === number 
-                          ? 'bg-blue-600 text-white shadow-lg shadow-blue-200 scale-110' 
+                          ? 'bg-blue-600 text-white  shadow-blue-200 scale-110' 
                           : 'bg-white text-slate-600 hover:bg-blue-50 border border-slate-200'
                       }`}
                     >
@@ -228,7 +228,7 @@ const IntJobs: FC = () => {
                 <button 
                   onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                   disabled={currentPage === totalPages}
-                  className="p-3 border border-slate-200 rounded-xl disabled:opacity-30 hover:bg-white transition-all text-slate-700 shadow-sm"
+                  className="p-3 border-[1px] border-slate-200  disabled:opacity-30 hover:bg-white transition-all text-slate-700 shadow-sm"
                   aria-label="Next page"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -239,7 +239,7 @@ const IntJobs: FC = () => {
             )}
           </>
         ) : (
-          <div className="flex flex-col items-center justify-center py-20 bg-white rounded-3xl border border-dashed border-slate-300">
+          <div className="flex flex-col items-center justify-center py-20 bg-white  border-[1px] border-dashed border-slate-300">
             <div className="p-4 bg-slate-50 rounded-full mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

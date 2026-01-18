@@ -26,19 +26,19 @@ interface JobCardProps {
  */
 const JobCard: FC<JobCardProps> = ({ site }) => {
   return (
-    <div className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
+    <div className="group bg-white border border-gray-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
       <div className="p-8 flex flex-col items-center flex-grow">
-        {/* Logo Container with Aspect Ratio control */}
-        <div className="w-full h-24 mb-6 flex items-center justify-center bg-gray-50 rounded-xl p-4 group-hover:bg-white transition-colors duration-300">
+     
+        <div className="w-full h-24 mb-6 flex items-center justify-center bg-gray-50 p-4 group-hover:bg-white transition-colors duration-300">
           <img
             src={site.logo}
             alt={`${site.name} Logo`}
-            className="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+            className="max-h-full max-w-full object-contain filter transition-all duration-500"
             loading="lazy"
           />
         </div>
 
-        <h3 className="text-xl font-bold text-gray-900 mb-2 text-center group-hover:text-blue-600 transition-colors">
+        <h3 className="text-xl font-bold  mb-2 text-center text-blue-600 transition-colors">
           {site.name}
         </h3>
         
@@ -52,7 +52,7 @@ const JobCard: FC<JobCardProps> = ({ site }) => {
           href={site.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-full py-3.5 bg-gray-900 group-hover:bg-blue-600 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-gray-200 group-hover:shadow-blue-200"
+          className="flex items-center justify-center w-full py-2 bg-blue-600 text-white font-semibold  transition-all duration-300 shadow-gray-200 group-hover:shadow-blue-200"
           aria-label={`Visit ${site.name} website`}
         >
           Explore Careers
@@ -92,7 +92,7 @@ const BdJobs: FC = () => {
       <Navbar />
 
       <main className="flex-grow pt-20">
-        {/* Modern Hero Section with Radial Gradient */}
+        
         <section className="relative overflow-hidden bg-gray-900 py-20 lg:py-28">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
@@ -127,14 +127,14 @@ const BdJobs: FC = () => {
           </div>
           
           {/* Bottom Call to Action or Insight */}
-          <div className="mt-20 p-8 md:p-12 bg-white rounded-[2rem] border border-gray-100 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="mt-20 p-8 md:p-12 bg-white border-[1px] border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="max-w-xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Can't find what you're looking for?</h3>
               <p className="text-gray-600 leading-relaxed">
                 Our database is updated weekly with new niche job boards and international remote platforms operating in Bangladesh.
               </p>
             </div>
-            <button className="whitespace-nowrap px-8 py-4 bg-blue-50 text-blue-700 font-bold rounded-2xl hover:bg-blue-100 transition-colors">
+            <button className="whitespace-nowrap px-8 py-2 bg-blue-50 text-blue-700 font-bold  hover:bg-blue-100 transition-colors">
               Suggest a Portal
             </button>
           </div>

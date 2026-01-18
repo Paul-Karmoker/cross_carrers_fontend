@@ -50,13 +50,19 @@ export interface NavItem {
   restricted?: boolean;
   hidden?: boolean;
 }
-
 export interface User {
-  firstName?: string;
-  lastName?: string;
-  email?: string;
-  role?: string;
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  role: string;
+
+  subscriptionType: string;
+  subscriptionStatus: string;
+  freeTrialExpiresAt: string | null;
+  subscriptionExpiresAt: string | null;
 }
+
 
 
 export interface PortalSite {
