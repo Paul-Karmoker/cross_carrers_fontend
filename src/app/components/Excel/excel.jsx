@@ -1,5 +1,5 @@
 // ExcelGenerator.jsx
-import { useState, useCallback } from 'react';
+import  { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
@@ -14,7 +14,7 @@ const ExcelGenerator = () => {
   const onDrop = useCallback(acceptedFiles => {
     if (acceptedFiles.length > 0) {
       setFile(acceptedFiles[0]);
-      toast.success(`File "${acceptedFiles[0].name}" ready for upload`);
+      toast.success(`File attached: ${acceptedFiles[0].name}`);
     }
   }, []);
 
@@ -28,245 +28,150 @@ const ExcelGenerator = () => {
       'text/plain': ['.txt']
     },
     maxFiles: 1,
-    maxSize: 10 * 1024 * 1024, // 10MB
-    onDropRejected: () => {
-      toast.error('File rejected. Please check type (PDF, DOCX, XLSX, TXT) and size (<10MB)');
-    }
+    maxSize: 10 * 1024 * 1024,
   });
 
   const generateExcel = async () => {
     if (!inputText.trim() && !file) {
-      toast.error('Please provide input text or upload a file');
+      toast.error('Input data or a file is required');
       return;
     }
-    
     if (!formatInstructions.trim()) {
-      toast.error('Please provide format instructions for the AI');
+      toast.error('Format instructions are required');
       return;
     }
-  
+
     setIsLoading(true);
     try {
       const formData = new FormData();
-      if (file) {
-        formData.append('file', file);
-      }
+      if (file) formData.append('file', file);
       formData.append('inputText', inputText);
       formData.append('formatInstructions', formatInstructions);
 
-      // Using environment variable for API base URL with fallback
-      const apiBaseUrl ='https://api.crosscareers.com';
       const response = await axios.post(
-        `${apiBaseUrl}/excel/generate-excel`,
+        'http://localhost:4001/api/v1/excel/generate-excel',
         formData,
         {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
+          headers: { 'Content-Type': 'multipart/form-data' },
           responseType: 'blob',
-          timeout: 30000 // 30 seconds timeout
+          timeout: 60000 
         }
       );
 
-      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-      saveAs(response.data, `ai-generated-template-${timestamp}.xlsx`);
-      toast.success('AI has generated your Excel template!');
+      const timestamp = new Date().getTime();
+      saveAs(response.data, `Report_${timestamp}.xlsx`);
+      toast.success('Excel generated successfully');
     } catch (error) {
-      let errorMessage = 'Failed to generate Excel file';
-      
-      if (error.response) {
-        // Server responded with error status
-        if (error.response.status === 413) {
-          errorMessage = 'File too large (max 10MB)';
-        } else if (error.response.status === 400) {
-          errorMessage = error.response.data.error || 'Invalid request';
-        } else if (error.response.data && error.response.data instanceof Blob) {
-          // Handle blob errors (might contain error message)
-          const errorText = await error.response.data.text();
-          try {
-            const errorJson = JSON.parse(errorText);
-            errorMessage = errorJson.error || errorMessage;
-          } catch {
-            errorMessage = errorText || errorMessage;
-          }
-        }
-      } else if (error.request) {
-        // Request was made but no response
-        errorMessage = 'No response from server. Please try again.';
-      } else {
-        // Other errors
-        errorMessage = error.message || errorMessage;
-      }
-
-      toast.error(`Error: ${errorMessage}`);
-      console.error('API Error Details:', error);
+      toast.error('Failed to generate template. Please check your inputs.');
+      console.error(error);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const clearAll = () => {
-    setInputText('');
-    setFormatInstructions('');
-    setFile(null);
-    toast.success('All inputs cleared');
-  };
-
-  const removeFile = () => {
-    setFile(null);
-    toast.success('File removed');
-  };
-
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md mt-10 mb-10">
-      <h1 className="text-2xl font-bold text-gray-800 mb-4">AI-Powered Excel Template Generator</h1>
-      <p className="text-gray-600 mb-6">
-        Describe your needs or upload a file, and our AI will create a professional Excel template for you.
-      </p>
+    <div className="max-w-5xl mt-[120px] mx-auto my-12 bg-white border border-gray-300 rounded-none overflow-hidden">
+      {/* Header Section */}
+      <div className="bg-gray-50 border-b border-gray-300 p-8">
+        <h1 className="text-2xl font-light tracking-tight text-gray-900">
+          EXCEL <span className="font-bold text-blue-600">GENERATOR</span>
+        </h1>
+        <p className="text-sm text-gray-500 mt-2 max-w-2xl">
+          Professional AI utility for converting documents and raw text into structured XLSX templates with custom logic and formatting.
+        </p>
+      </div>
 
-      <div className="space-y-6">
-        {/* File Upload */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Upload File (Optional)
-          </label>
-          <div
-            {...getRootProps()}
-            className={`border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors ${
-              isDragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-300 hover:border-blue-400'
-            }`}
-          >
-            <input {...getInputProps()} />
-            {file ? (
-              <div className="flex flex-col items-center">
-                <p className="text-sm text-gray-700 mb-2">{file.name}</p>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    removeFile();
-                  }}
-                  className="text-sm text-red-600 hover:text-red-800"
-                >
-                  Remove File
-                </button>
-              </div>
-            ) : (
-              <div>
-                <p className="text-sm text-gray-600">
-                  {isDragActive ? 'Drop the file here' : 'Drag & drop a file here, or click to select'}
-                </p>
-                <p className="text-xs text-gray-500 mt-1">
-                  Supports: PDF, DOCX, XLSX, TXT (Max 10MB)
-                </p>
-              </div>
-            )}
-          </div>
+      <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Left Column: Input */}
+        <div className="space-y-6">
+          <section>
+            <label className="text-[10px] font-black uppercase tracking-[2px] text-gray-400 mb-3 block">
+              Step 01: Source Data
+            </label>
+            <div
+              {...getRootProps()}
+              className={`border border-dashed p-8 text-center cursor-pointer transition-all duration-150 ${
+                isDragActive ? 'bg-blue-50 border-blue-500' : 'bg-white border-gray-300 hover:border-gray-500'
+              }`}
+            >
+              <input {...getInputProps()} />
+              {file ? (
+                <div className="py-2">
+                  <p className="text-sm font-semibold text-gray-800">{file.name}</p>
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); setFile(null); }}
+                    className="text-xs text-red-600 mt-2 underline uppercase font-bold"
+                  >
+                    Remove File
+                  </button>
+                </div>
+              ) : (
+                <div className="space-y-1">
+                  <p className="text-sm text-gray-600 font-medium">Click to upload or drag file</p>
+                  <p className="text-[10px] text-gray-400 uppercase">PDF, DOCX, XLSX, TXT (10MB Max)</p>
+                </div>
+              )}
+            </div>
+            
+            <div className="relative my-6 flex items-center justify-center">
+               <div className="absolute w-full border-t border-gray-200"></div>
+               <span className="relative bg-white px-4 text-[10px] font-bold text-gray-400 uppercase">OR PASTE TEXT</span>
+            </div>
+
+            <textarea
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+              className="w-full h-40 p-4 border border-gray-300 rounded-none text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all placeholder:text-gray-300"
+              placeholder="Enter or paste raw data here..."
+            />
+          </section>
         </div>
 
-        {/* Divider */}
-        <div className="relative">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-300"></div>
-          </div>
-          <div className="relative flex justify-center">
-            <span className="px-2 bg-white text-sm text-gray-500">OR</span>
-          </div>
+        {/* Right Column: Instructions */}
+        <div className="space-y-6">
+          <section>
+            <label className="text-[10px] font-black uppercase tracking-[2px] text-gray-400 mb-3 block">
+              Step 02: AI Formatting Instructions
+            </label>
+            <textarea
+              value={formatInstructions}
+              onChange={(e) => setFormatInstructions(e.target.value)}
+              className="w-full h-[322px] p-4 border border-gray-300 rounded-none text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all bg-gray-50 placeholder:text-gray-400"
+              placeholder="Example: Define columns for Date, Name, and Status. Make headers bold with a light blue background. Add a formula in Column D to calculate tax."
+            />
+          </section>
         </div>
+      </div>
 
-        {/* Input Text */}
-        <div>
-          <label htmlFor="inputText" className="block text-sm font-medium text-gray-700 mb-2">
-            Describe Your Needs
-          </label>
-          <textarea
-            id="inputText"
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
-            className="w-full h-32 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-            placeholder="Paste your text here or describe the data you want to organize..."
-            disabled={isLoading}
-          />
-        </div>
+      {/* Footer Actions */}
+      <div className="p-8 pt-0 border-t border-gray-100 mt-4 flex flex-col md:flex-row items-center gap-4">
+        <button
+          onClick={generateExcel}
+          disabled={isLoading || (!inputText && !file) || !formatInstructions}
+          className={`w-full md:w-auto px-10 py-4 bg-black text-white text-xs font-bold uppercase tracking-widest transition-all ${
+            isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600 active:translate-y-0.5'
+          }`}
+        >
+          {isLoading ? 'Processing...' : 'Generate Excel File'}
+        </button>
+        
+        <button
+          onClick={() => { setInputText(''); setFormatInstructions(''); setFile(null); }}
+          className="w-full md:w-auto px-10 py-4 border border-gray-300 text-gray-600 text-xs font-bold uppercase tracking-widest hover:bg-gray-50 transition-all"
+        >
+          Clear All
+        </button>
 
-        {/* Format Instructions */}
-        <div>
-          <label htmlFor="formatInstructions" className="block text-sm font-medium text-gray-700 mb-2">
-            Format Instructions (Required)
-          </label>
-          <textarea
-            id="formatInstructions"
-            value={formatInstructions}
-            onChange={(e) => setFormatInstructions(e.target.value)}
-            className="w-full h-32 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-            placeholder="Describe exactly how you want the Excel file formatted (columns, formulas, colors, etc.)"
-            disabled={isLoading}
-          />
-          <p className="mt-1 text-xs text-gray-500">
-            Example: &quot;Create a monitoring report with columns for Date, Subject, Area, Male, Female, Total and Trainer. 
-            Add formulas to calculate Total (Male + Female) and a summary row at the bottom. Use blue headers with white text.&quot;
-          </p>
-        </div>
+        <p className="text-[10px] text-gray-400 font-medium uppercase md:ml-auto">
+          Powered by Gemini Pro AI
+        </p>
+      </div>
 
-        {/* Buttons */}
-        <div className="flex space-x-4 pt-2">
-          <button
-            onClick={generateExcel}
-            disabled={isLoading || (!inputText && !file) || !formatInstructions}
-            className={`px-6 py-3 rounded-md text-white font-medium flex items-center justify-center ${
-              isLoading 
-                ? 'bg-blue-400 cursor-not-allowed' 
-                : 'bg-blue-600 hover:bg-blue-700 transition-colors'
-            } ${
-              (!inputText && !file) || !formatInstructions 
-                ? 'opacity-50 cursor-not-allowed' 
-                : ''
-            }`}
-          >
-            {isLoading ? (
-              <>
-                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                AI is generating...
-              </>
-            ) : (
-              'Generate Excel with AI'
-            )}
-          </button>
-          <button
-            onClick={clearAll}
-            disabled={isLoading}
-            className="px-6 py-3 border border-gray-300 rounded-md text-gray-700 font-medium hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Clear All
-          </button>
-        </div>
-
-        {/* Status Message */}
-        <div className="pt-2">
-          <p className='font-serif text-sm font-bold text-red-500 text-center'>
-            After downloading, please review and adjust the AI-generated template as needed.
-          </p>
-        </div>
-
-        {/* Tips */}
-        <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-          <h3 className="font-medium text-blue-800 mb-2">Tips for Best AI Results:</h3>
-          <ul className="list-disc pl-5 text-sm text-blue-700 space-y-1">
-            <li><strong>Be specific:</strong> Clearly describe columns, data types, and relationships</li>
-            <li><strong>Formulas matter:</strong> Specify calculations like &quot;Total = Male + Female&quot;</li>
-            <li><strong>Formatting:</strong> Request colors, fonts, borders, and styles</li>
-            <li><strong>Structure:</strong> Mention if you need headers, footers, or multiple sheets</li>
-            <li><strong>Validation:</strong> Ask for dropdown menus or data validation rules if needed</li>
-          </ul>
-        </div>
-
-        {/* AI Notice */}
-        <div className="text-xs text-gray-500 text-center mt-4">
-          <p>This tool uses Gemini AI to analyze your input and create customized Excel templates.</p>
-          <p>Results may vary based on the clarity of your instructions.</p>
-        </div>
+      {/* Status Bar */}
+      <div className="bg-gray-900 py-2 px-8">
+        <p className="text-[9px] text-gray-400 tracking-[1px] uppercase text-center md:text-left">
+          Confidential Processing • Secure Data Environment • 2026 Engine
+        </p>
       </div>
     </div>
   );
