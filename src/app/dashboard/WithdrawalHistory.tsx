@@ -27,7 +27,7 @@ export function WithdrawalHistory(): JSX.Element {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white p-8 rounded-xl shadow-lg"
+      className="bg-white border-1 p-8"
     >
       <h3 className="text-xl font-semibold text-gray-800 mb-6 flex items-center">
         <FiClock className="mr-2" /> Withdrawal History
@@ -39,7 +39,7 @@ export function WithdrawalHistory(): JSX.Element {
           {[...Array(3)].map((_, i: number) => (
             <div
               key={i}
-              className="h-14 bg-gray-200 rounded-lg animate-pulse"
+              className="h-14 bg-gray-200  animate-pulse"
             />
           ))}
         </div>

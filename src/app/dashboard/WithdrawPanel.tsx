@@ -34,9 +34,6 @@ export function WithdrawPanel({ user }: WithdrawPanelProps): JSX.Element {
 
   const debouncedWithdrawForm = useDebounce<WithdrawForm>(withdrawForm, 300);
 
-  /* =======================
-     Validation
-  ======================= */
 
   const validateWithdrawForm = useCallback((): boolean => {
     const points: number = Number(debouncedWithdrawForm.points);
@@ -61,9 +58,6 @@ export function WithdrawPanel({ user }: WithdrawPanelProps): JSX.Element {
     return true;
   }, [debouncedWithdrawForm, user.points]);
 
-  /* =======================
-     Handler
-  ======================= */
 
   const handleWithdraw = async (
     e: FormEvent<HTMLFormElement>
@@ -92,16 +86,14 @@ export function WithdrawPanel({ user }: WithdrawPanelProps): JSX.Element {
     }
   };
 
-  /* =======================
-     JSX (UNCHANGED UI)
-  ======================= */
+ 
 
   return (
     <motion.form
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       onSubmit={handleWithdraw}
-      className="bg-white p-8 rounded-xl shadow-lg space-y-6"
+      className="bg-white border-1 p-8 space-y-6"
       aria-label="Withdraw points form"
     >
       <h3 className="text-xl font-semibold text-gray-800 flex items-center">

@@ -18,10 +18,7 @@ export default function Dashboard(): JSX.Element | null {
 
   const { data, isLoading, error } = useGetProfileQuery();
 
-  /**
-   * ✅ Safely map API user → UI User
-   * Backend does not provide all fields yet
-   */
+
   const user: User | null = data?.user
     ? {
         firstName: data.user.firstName ?? "",
@@ -43,9 +40,6 @@ export default function Dashboard(): JSX.Element | null {
     }
   }, [error, navigate]);
 
-  /* =====================
-     Loading State
-  ===================== */
 
   if (isLoading) {
     return (
@@ -57,12 +51,9 @@ export default function Dashboard(): JSX.Element | null {
 
   if (!user) return null;
 
-  /* =====================
-     Render
-  ===================== */
 
   return (
-    <div className="min-h-screen mt-16 bg-gradient-to-br from-indigo-50 to-purple-50 p-4 md:p-8">
+    <div className="min-h-screen border-2 mt-16  p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,15 +61,11 @@ export default function Dashboard(): JSX.Element | null {
           transition={{ duration: 0.6 }}
           className="flex flex-col md:flex-row gap-6"
         >
-          {/* Sidebar */}
           <Sidebar user={user} />
 
-          {/* Main Content */}
           <div className="md:w-2/3">
-            {/* ✅ Tabs */}
             <DashboardTabs activeTab={tab} onChange={setTab} />
 
-            {/* Panels */}
             {tab === "dashboard" && <DashboardPanel user={user} />}
             {tab === "profile" && <ProfilePanel user={user} />}
             {tab === "withdraw" && <WithdrawPanel user={user} />}

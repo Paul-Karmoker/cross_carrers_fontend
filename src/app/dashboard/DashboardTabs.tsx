@@ -31,13 +31,13 @@ export function DashboardTabs({
   ];
 
   return (
-    <div className="flex space-x-2 mb-6 bg-white rounded-xl shadow-lg p-2">
+    <div className="flex space-x-2 mb-6 border-1 bg-white p-2">
       {tabs.map((tab) => (
         <motion.button
           key={tab.key}
           whileHover={{ scale: 1.05 }}
           onClick={() => onChange(tab.key)}
-          className={`flex-1 px-4 py-3 font-semibold rounded-lg transition-all flex items-center justify-center space-x-2 ${
+          className={`flex-1 px-4 py-3 font-semibold  transition-all flex items-center justify-center space-x-2 ${
             activeTab === tab.key
               ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md"
               : "bg-gray-100 text-gray-700 hover:bg-gray-200"

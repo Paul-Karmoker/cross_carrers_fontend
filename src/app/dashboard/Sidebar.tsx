@@ -19,7 +19,7 @@ interface Props {
 
 export function Sidebar({ user }: Props): JSX.Element {
   return (
-    <div className="md:w-1/3 bg-white shadow-2xl rounded-2xl p-8">
+    <div className="md:w-1/3 bg-white border-1 p-8">
       <div className="flex flex-col items-center">
         <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} className="relative mb-4">
           <img
@@ -57,10 +57,10 @@ export function Sidebar({ user }: Props): JSX.Element {
         </span>
 
         <div className="mt-6 grid grid-cols-2 gap-4 w-full">
-          <div className="bg-indigo-50 p-4 rounded-lg text-center">
+          <div className="bg-indigo-50 p-4  text-center">
             <FiDollarSign /> <p className="font-bold">{user.points}</p>
           </div>
-          <div className="bg-purple-50 p-4 rounded-lg text-center">
+          <div className="bg-purple-50 p-4  text-center">
             <p className="font-bold">{Math.floor(user.points / 26)}</p>
           </div>
         </div>
@@ -70,7 +70,7 @@ export function Sidebar({ user }: Props): JSX.Element {
             logout();
             toast.success("Logged out successfully");
           }}
-          className="mt-6 px-6 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg flex items-center"
+          className="mt-6 px-6 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white flex items-center"
         >
           <FiLogOut className="mr-2" /> Logout
         </motion.button>
