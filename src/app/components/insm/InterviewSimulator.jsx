@@ -495,7 +495,7 @@ const InterviewPractice = () => {
     <>
       <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 p-4 md:p-6 mt-20">
-        <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden ring-1 ring-gray-200">
+        <div className="max-w-6xl mx-auto bg-white overflow-hidden ring-1 ring-gray-200">
           <div className="p-6 md:p-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center tracking-tight">Interview Practice Simulator</h1>
 

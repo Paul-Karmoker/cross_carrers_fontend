@@ -171,7 +171,7 @@ const TRAINING_DATA: TrainingResource[] = [
  * Sub-component for individual Training Cards to improve maintainability and performance.
  */
 const TrainingCard: FC<{ training: TrainingResource }> = ({ training }) => (
-  <div className="group flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 overflow-hidden transform hover:-translate-y-1">
+  <div className="group flex flex-col bg-white  transition-all duration-500 border-[1px]  overflow-hidden transform hover:-translate-y-1">
     {/* Logo Header Section */}
     <div className="relative h-44 w-full flex items-center justify-center bg-slate-50/50 p-8">
       <img
@@ -227,7 +227,7 @@ const Trainings: FC = () => {
     <div className="min-h-screen bg-[#F8FAFC]">
       <main>
         {/* Hero Section with refined visual hierarchy */}
-        <section className="relative bg-slate-900 pt-32 pb-20 overflow-hidden">
+        <section className="relative bg-slate-800 pt-32 pb-20 overflow-hidden">
           {/* Background Pattern/Overlay */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500 blur-[120px]" />
@@ -273,9 +273,9 @@ const Trainings: FC = () => {
         </section>
 
         {/* Support/CTA Section */}
-        <section className="bg-white border-y border-slate-100 py-16">
+        <section className="bg-white border-[1px]  py-16">
           <div className="container mx-auto px-6 text-center">
-            <div className="max-w-3xl border-1 mx-auto bg-slate-50 rounded-xl p-8 md:p-12">
+            <div className="max-w-3xl border-1 mx-auto bg-slate-50  p-8 md:p-12">
               <h2 className="text-2xl font-bold text-slate-900 mb-4">
                 Can't find what you're looking for?
               </h2>

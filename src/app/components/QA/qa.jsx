@@ -410,14 +410,14 @@ const InterviewQuestionsGenerator = () => {
   const situationalQuestions = questions.filter(q => q.type === "situational" || q.type === "scenario");
 
   return (
-    <div className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen">
+    <div className="p-8 mt-20 bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">
           Professional Interview Questions Generator
         </h1>
 
-        <div className="card bg-white shadow-xl rounded-lg mb-10 transition-all duration-300 hover:shadow-2xl">
-          <div className="card-body p-6">
+        <div className="card bg-white mb-10 transition-all duration-300">
+          <div className="border-[1px] p-6">
             <h2 className="card-title text-xl font-semibold text-gray-700 mb-6">
               Job Information
             </h2>
