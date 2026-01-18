@@ -90,9 +90,7 @@ const BdJobs: FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
       <Navbar />
-
       <main className="flex-grow pt-20">
-        
         <section className="relative overflow-hidden bg-gray-900 py-20 lg:py-28">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>

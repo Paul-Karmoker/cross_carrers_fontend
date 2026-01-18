@@ -32,7 +32,7 @@ const NgoCard: FC<NgoCardProps> = ({ name, url }) => {
   if (!name || !url) return null;
 
   return (
-    <div className="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full">
+    <div className="group bg-white p-6 border-[1px] border-slate-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full">
       <div className="flex-grow">
         <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-500 transition-colors duration-300">
           <svg 
@@ -53,7 +53,7 @@ const NgoCard: FC<NgoCardProps> = ({ name, url }) => {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-50 text-emerald-600 font-semibold text-sm transition-all hover:bg-emerald-600 hover:text-white"
+        className="mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-slate-50 text-emerald-600 font-semibold text-sm transition-all hover:bg-emerald-600 hover:text-white"
       >
         View Careers
         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -70,7 +70,7 @@ const NgoCard: FC<NgoCardProps> = ({ name, url }) => {
 const NgoSection: FC<SectionProps> = ({ id, letter, children }) => (
   <section id={id} className="scroll-mt-32 mb-16">
     <div className="flex items-center gap-6 mb-8">
-      <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-slate-900 text-white text-3xl font-black shadow-lg">
+      <div className="flex items-center justify-center w-16 h-16  bg-slate-900 text-white text-3xl font-black shadow-lg">
         {letter}
       </div>
       <div className="h-px flex-1 bg-gradient-to-r from-slate-200 to-transparent"></div>
@@ -124,7 +124,7 @@ const NgoHub: FC = () => {
               <a
                 key={letter}
                 href={`#${letter}`}
-                className="w-9 h-9 flex items-center justify-center rounded-lg text-sm font-bold text-slate-500 transition-all hover:bg-slate-900 hover:text-white"
+                className="w-9 h-9 flex items-center justify-center text-sm font-bold text-slate-500 transition-all hover:bg-slate-900 hover:text-white"
               >
                 {letter}
               </a>

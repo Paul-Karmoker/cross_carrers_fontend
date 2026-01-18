@@ -19,10 +19,10 @@ interface NGOSection {
 
 const NGOCard: React.FC<NGOCardProps> = ({ name, url }) => {
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 group hover:border-indigo-100">
+    <div className="bg-white overflow-hidden  transition-all duration-300 border border-gray-100 group hover:border-indigo-100">
       <div className="p-6 h-full flex flex-col">
         <div className="flex items-start mb-4">
-          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center mr-3">
+          <div className="flex-shrink-0 w-10 h-10  bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center mr-3">
             <span className="text-indigo-600 font-semibold text-sm">
               {name.charAt(0).toUpperCase()}
             </span>
@@ -36,7 +36,7 @@ const NGOCard: React.FC<NGOCardProps> = ({ name, url }) => {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-4 py-2.5 border border-gray-200 text-sm font-medium rounded-lg text-indigo-600 bg-white hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:border-indigo-300 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 w-full text-center group-hover:shadow-xs hover:scale-[1.02]"
+            className="inline-flex items-center justify-center px-4 py-2.5 border border-gray-200 text-sm font-medium text-indigo-600 bg-white hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:border-indigo-300 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 w-full text-center group-hover:shadow-xs hover:scale-[1.02]"
           >
             View Opportunities
             <svg
@@ -174,7 +174,7 @@ const Ingo: React.FC = () => {
     <>
       <Navbar />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 mt-20">
-        {/* Hero Section */}
+
         <div className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
@@ -233,13 +233,13 @@ const Ingo: React.FC = () => {
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           {/* Alphabet Navigation */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12 -mt-8 sticky top-24 bg-white/90 backdrop-blur-md py-6 z-10 rounded-2xl border border-gray-200 shadow-lg">
+          <div className="flex flex-wrap justify-center gap-2 mb-12 -mt-8 sticky top-24 bg-white/90 backdrop-blur-md py-6 z-10 border border-gray-200 shadow-lg">
             {alphabet.map((letter) => (
               <a
                 key={letter}
                 href={`#${letter}`}
                 onClick={(e) => handleScrollToSection(e, letter)}
-                className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-b from-white to-gray-50 border border-gray-200 hover:border-indigo-400 hover:from-indigo-50 hover:to-white hover:text-indigo-600 font-medium transition-all duration-200 shadow-xs hover:shadow-md text-lg hover:scale-105"
+                className="w-12 h-12 flex items-center justify-center  bg-gradient-to-b from-white to-gray-50 border border-gray-200 hover:border-indigo-400 hover:from-indigo-50 hover:to-white hover:text-indigo-600 font-medium transition-all duration-200 shadow-xs hover:shadow-md text-lg hover:scale-105"
               >
                 {letter}
               </a>
@@ -255,7 +255,7 @@ const Ingo: React.FC = () => {
                 className="scroll-mt-24"
               >
                 <div className="flex items-center mb-10">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+                  <div className="w-14 h-14  bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
                     <h2 className="text-3xl font-bold text-white font-mono">
                       {section.letter}
                     </h2>
