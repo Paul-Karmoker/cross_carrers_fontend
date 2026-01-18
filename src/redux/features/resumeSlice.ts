@@ -3,7 +3,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 /* ─────────────────────────────
    Types
 ───────────────────────────── */
-
 export interface Address {
   street: string;
   city: string;
@@ -48,6 +47,7 @@ export interface Education {
   currentlyStudying: boolean;
   gpa: string;
   honors: string;
+  description: string[];
 }
 
 export interface Training {
@@ -96,9 +96,8 @@ export interface ResumeState {
 }
 
 /* ─────────────────────────────
-   Initial Objects (Reusable)
+   Initial Objects
 ───────────────────────────── */
-
 const emptyAddress: Address = {
   street: '',
   city: '',
@@ -143,6 +142,7 @@ const initialEducation: Education = {
   currentlyStudying: false,
   gpa: '',
   honors: '',
+  description: [],
 };
 
 const initialTraining: Training = {
@@ -179,7 +179,6 @@ const initialReference: Reference = {
 /* ─────────────────────────────
    Initial State
 ───────────────────────────── */
-
 const initialState: ResumeState = {
   personalInfo: { ...initialPersonalInfo },
   careerObjective: '',
@@ -197,7 +196,6 @@ const initialState: ResumeState = {
 /* ─────────────────────────────
    Slice
 ───────────────────────────── */
-
 const resumeSlice = createSlice({
   name: 'resume',
   initialState,
@@ -361,12 +359,13 @@ const resumeSlice = createSlice({
       state.template = action.payload;
       state.lastUpdated = new Date().toISOString();
     },
+
+    /* ───────────── Set Full Resume ───────────── */
+    setResume(state, action: PayloadAction<Partial<ResumeState>>) {
+      return { ...state, ...action.payload };
+    },
   },
 });
-
-/* ─────────────────────────────
-   Exports
-───────────────────────────── */
 
 export const {
   resetResume,
@@ -392,6 +391,7 @@ export const {
   updateReference,
   removeReference,
   setTemplate,
+  setResume,
 } = resumeSlice.actions;
 
 export default resumeSlice.reducer;

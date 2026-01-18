@@ -3,9 +3,7 @@ import React, { FC, useMemo } from "react";
 import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
 
-/* =======================
-   Types & Interfaces
-======================= */
+
 
 interface UNAgency {
   name: string;
@@ -15,9 +13,7 @@ interface UNAgency {
 
 type AgenciesByCategory = Record<string, UNAgency[]>;
 
-/* =======================
-   Component
-======================= */
+
 
 const UnitedNationsCareers: FC = () => {
   /* =======================
@@ -66,9 +62,7 @@ const UnitedNationsCareers: FC = () => {
     { name: "UN Sustainable Development Group (UNSDG)", url: "https://unsdg.un.org/jobs", category: "Development" },
   ];
 
-  /* =======================
-     Memoized Grouping
-  ======================= */
+ 
 
   const agenciesByCategory: AgenciesByCategory = useMemo(() => {
     return unAgencies.reduce<AgenciesByCategory>((acc, agency) => {
@@ -109,7 +103,7 @@ const UnitedNationsCareers: FC = () => {
               {agencies.map(({ name, url }) => (
                 <article
                   key={name}
-                  className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col"
+                  className="bg-white  border-[1px]  transition-shadow duration-300 flex flex-col"
                 >
                   <div className="p-6 flex flex-col h-full">
                     <h3 className="text-lg font-semibold text-gray-800 mb-4">
@@ -121,7 +115,7 @@ const UnitedNationsCareers: FC = () => {
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+                        className=" justify-center items-center  flex  w-[200px]  py-2 text-sm font-medium text-white bg-blue-600 transition-colors"
                       >
                         Visit Career Site
                       </a>
@@ -134,13 +128,13 @@ const UnitedNationsCareers: FC = () => {
         ))}
 
         {/* Resources */}
-        <section className="mt-20 bg-blue-50 rounded-2xl p-8">
+        <section className="mt-20 bg-blue-50 p-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">
             UN Career Resources
           </h2>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div className="bg-white p-6  border-[1px]">
               <h3 className="text-lg font-semibold mb-2">UN Careers Portal</h3>
               <p className="text-gray-600 mb-4">
                 Central recruitment platform for UN Secretariat positions.
@@ -155,7 +149,7 @@ const UnitedNationsCareers: FC = () => {
               </a>
             </div>
 
-            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div className="bg-white p-6 border-[1px]">
               <h3 className="text-lg font-semibold mb-2">
                 Young Professionals Programme
               </h3>
