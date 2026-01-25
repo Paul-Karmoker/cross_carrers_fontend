@@ -56,7 +56,11 @@ const NAV_CONFIG: NavItem[] = [
     items: [
       { label: "Training Sites", path: "/trainings" },
       { label: "Written Test", path: "/writtenTest" },
-      { label: "Interview Practice", path: "/InterviewSimulator", restricted: true },
+      {
+        label: "Interview Practice",
+        path: "/InterviewSimulator",
+        restricted: true,
+      },
       { label: "Interview Questions", path: "/qahome", restricted: true },
     ],
   },
@@ -107,14 +111,18 @@ const Navbar: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [showUpgradeBanner, setShowUpgradeBanner] = useState(true);
 
-  const isPremium = user?.subscriptionType === "premium" && user?.subscriptionStatus === "active";
+  const isPremium =
+    user?.subscriptionType === "premium" &&
+    user?.subscriptionStatus === "active";
 
   // Countdown timer logic
   const [timeLeft, setTimeLeft] = useState<string>("");
 
   useEffect(() => {
     const calculateTimeLeft = (): string => {
-      const targetDate = isPremium ? user?.subscriptionExpiresAt : user?.freeTrialExpiresAt;
+      const targetDate = isPremium
+        ? user?.subscriptionExpiresAt
+        : user?.freeTrialExpiresAt;
       if (!targetDate) return "—";
 
       const expiry = new Date(targetDate).getTime();
@@ -145,7 +153,9 @@ const Navbar: React.FC = () => {
   const handleRestrictedClick = (e: React.MouseEvent, path?: string) => {
     if (path && !user) {
       e.preventDefault();
-      navigate("/signin", { state: { from: window.location.pathname + window.location.search } });
+      navigate("/signin", {
+        state: { from: window.location.pathname + window.location.search },
+      });
     }
   };
 
@@ -155,7 +165,7 @@ const Navbar: React.FC = () => {
       <nav
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           sticky
-            ? "bg-white/95 backdrop-blur-xl shadow-sm border-b border-slate-100/70 py-2.5"
+            ? "bg-white/95 backdrop-blur-xl shadow-sm border-b border-slate-100/70 py-5"
             : "bg-gradient-to-b from-white/40 to-transparent py-5"
         }`}
       >
@@ -170,7 +180,10 @@ const Navbar: React.FC = () => {
               <RiMenu3Line size={26} />
             </button>
 
-            <Link to="/" className="block transition-transform hover:scale-[1.02] active:scale-95">
+            <Link
+              to="/"
+              className="block transition-transform hover:scale-[1.02] active:scale-95"
+            >
               <img
                 src="https://i.ibb.co/Y75Y5NSb/banner.gif"
                 alt="Cross Careers"
@@ -191,7 +204,7 @@ const Navbar: React.FC = () => {
                   user={user}
                   onRestrictedClick={handleRestrictedClick}
                 />
-              )
+              ),
             )}
           </div>
 
@@ -202,11 +215,9 @@ const Navbar: React.FC = () => {
                 <span>Get Plus</span>
                 <button
                   onClick={() => navigate("/priceing")}
-                  className="bg-white text-indigo-700 rounded-full p-1.5 hover:bg-indigo-50 transition-colors"
+                  className="bg-white text-indigo-700 rounded-full hover:bg-indigo-50 transition-colors"
                   aria-label="Upgrade plan"
-                >
-                  <GiStarGate size={18} />
-                </button>
+                ></button>
                 <button
                   onClick={() => setShowUpgradeBanner(false)}
                   className="p-1 text-white/70 hover:text-white transition-colors"
@@ -287,7 +298,10 @@ function NavItemComponent({
         }`}
       >
         {item.label}
-        <RiArrowDownSLine className={`transition-transform ${isActive ? "rotate-180" : ""}`} size={18} />
+        <RiArrowDownSLine
+          className={`transition-transform ${isActive ? "rotate-180" : ""}`}
+          size={18}
+        />
       </button>
 
       <AnimatePresence>
@@ -309,9 +323,11 @@ function NavItemComponent({
                     className="flex items-center justify-between px-5 py-3 text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
                   >
                     {sub.label}
-                    {sub.restricted && !user && <RiShieldStarLine className="text-amber-500" size={18} />}
+                    {sub.restricted && !user && (
+                      <RiShieldStarLine className="text-amber-500" size={18} />
+                    )}
                   </Link>
-                )
+                ),
               )}
             </div>
           </motion.div>
@@ -334,7 +350,9 @@ function UserMenu({ user, isPremium, timeLeft }: UserMenuProps) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  const initials = `${user.firstName?.[0] ?? ""}${user.lastName?.[0] ?? ""}`.toUpperCase() || "U";
+  const initials =
+    `${user.firstName?.[0] ?? ""}${user.lastName?.[0] ?? ""}`.toUpperCase() ||
+    "U";
 
   return (
     <div className="relative">
@@ -379,33 +397,50 @@ function UserMenu({ user, isPremium, timeLeft }: UserMenuProps) {
                   <h4 className="font-semibold truncate text-base">
                     {user.firstName} {user.lastName}
                   </h4>
-                  <p className="text-xs text-slate-300/90 truncate mt-0.5">{user.email}</p>
+                  <p className="text-xs text-slate-300/90 truncate mt-0.5">
+                    {user.email}
+                  </p>
                 </div>
               </div>
 
               <div className="mt-5 grid grid-cols-2 gap-4 text-xs">
                 <div className="bg-white/10 rounded-lg p-3">
-                  <div className="text-slate-300 uppercase text-[10px] font-bold tracking-wider mb-1">Plan</div>
-                  <div className="font-bold">{isPremium ? "Premium" : "Free Trial"}</div>
+                  <div className="text-slate-300 uppercase text-[10px] font-bold tracking-wider mb-1">
+                    Plan
+                  </div>
+                  <div className="font-bold">
+                    {isPremium ? "Premium" : "Free Trial"}
+                  </div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-3">
                   <div className="text-slate-300 uppercase text-[10px] font-bold tracking-wider mb-1 flex items-center gap-1.5">
                     <RiTimeLine size={13} /> Remaining
                   </div>
-                  <div className="font-mono font-bold text-indigo-300">{timeLeft}</div>
+                  <div className="font-mono font-bold text-indigo-300">
+                    {timeLeft}
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Menu */}
             <div className="p-2">
-              <MenuAction icon={<RiDashboardLine />} onClick={() => navigate("/dbhome")}>
+              <MenuAction
+                icon={<RiDashboardLine />}
+                onClick={() => navigate("/dbhome")}
+              >
                 Dashboard
               </MenuAction>
-              <MenuAction icon={<LuStar />} onClick={() => navigate("/priceing")}>
+              <MenuAction
+                icon={<LuStar />}
+                onClick={() => navigate("/priceing")}
+              >
                 Upgrade to Plus
               </MenuAction>
-              <MenuAction icon={<RiUser3Line />} onClick={() => navigate("/profile")}>
+              <MenuAction
+                icon={<RiUser3Line />}
+                onClick={() => navigate("/profile")}
+              >
                 Account Settings
               </MenuAction>
 
@@ -441,10 +476,14 @@ const MenuAction: React.FC<{
   </button>
 );
 
-// ────────────────────────────────────────────────────────────────
-// Mobile Sidebar Menu
-// ────────────────────────────────────────────────────────────────
-function MobileMenu({ navItems, user, isPremium, onClose, onRestrictedClick }: MobileMenuProps) {
+
+function MobileMenu({
+  navItems,
+  user,
+  isPremium,
+  onClose,
+  onRestrictedClick,
+}: MobileMenuProps) {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -467,7 +506,10 @@ function MobileMenu({ navItems, user, isPremium, onClose, onRestrictedClick }: M
         {/* Header */}
         <div className="p-6 border-b flex items-center justify-between bg-gradient-to-r from-slate-50 to-white">
           <span className="text-xl font-bold text-slate-900">Menu</span>
-          <button onClick={onClose} className="p-2 -mr-2 text-slate-700 hover:text-slate-900">
+          <button
+            onClick={onClose}
+            className="p-2 -mr-2 text-slate-700 hover:text-slate-900"
+          >
             <RiCloseLine size={28} />
           </button>
         </div>
@@ -485,10 +527,17 @@ function MobileMenu({ navItems, user, isPremium, onClose, onRestrictedClick }: M
                 {item.label}
               </Link>
             ) : (
-              <div key={item.key} className="border-b border-slate-100 last:border-none">
+              <div
+                key={item.key}
+                className="border-b border-slate-100 last:border-none"
+              >
                 <button
                   className="w-full flex items-center justify-between px-6 py-4 text-base font-medium text-slate-800"
-                  onClick={() => setOpenDropdown(openDropdown === item.key ? null : item.key ?? null)}
+                  onClick={() =>
+                    setOpenDropdown(
+                      openDropdown === item.key ? null : (item.key ?? null),
+                    )
+                  }
                 >
                   {item.label}
                   <RiArrowDownSLine
@@ -519,20 +568,25 @@ function MobileMenu({ navItems, user, isPremium, onClose, onRestrictedClick }: M
                               className="flex items-center justify-between px-9 py-3.5 text-base text-slate-700 hover:bg-slate-100 active:bg-slate-200 transition-colors"
                             >
                               {sub.label}
-                              {sub.restricted && !user && <RiShieldStarLine className="text-amber-500" size={18} />}
+                              {sub.restricted && !user && (
+                                <RiShieldStarLine
+                                  className="text-amber-500"
+                                  size={18}
+                                />
+                              )}
                             </Link>
-                          )
+                          ),
                         )}
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
-            )
+            ),
           )}
         </div>
 
-        {/* Footer / Auth */}
+
         <div className="border-t border-slate-200 p-6 bg-slate-50 mt-auto">
           {user ? (
             <div className="space-y-5">

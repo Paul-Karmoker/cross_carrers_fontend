@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import Slider, { Settings as SlickSettings } from "react-slick";
 import { motion } from "framer-motion";
-import {PortalSite, CardProps} from "@/types"
+import { PortalSite, CardProps } from "@/types";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -55,7 +55,6 @@ const PrevArrow = (props: any) => {
     </div>
   );
 };
-
 
 const JobTrainingPortals: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -297,7 +296,6 @@ const JobTrainingPortals: FC = () => {
       `}</style>
 
       <div className="max-w-[1420px] mx-auto px-4 space-y-24">
-       
         <section>
           <SectionTitle>National Portals</SectionTitle>
           <Slider {...settings}>

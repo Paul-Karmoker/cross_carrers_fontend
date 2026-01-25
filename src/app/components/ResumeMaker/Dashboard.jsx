@@ -2,18 +2,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetAllResumesQuery } from "../../../redux/features/resumeApi";
-import { FiPlus, FiMoreVertical, FiFileText, FiClock, FiExternalLink } from "react-icons/fi";
+import { useGetProfileQuery } from "../../../redux/features/authApi";
+import {
+  FiPlus,
+  FiMoreVertical,
+  FiFileText,
+  FiClock,
+  FiExternalLink,
+} from "react-icons/fi";
 import Navbar from "../home/navbar";
 import Footer from "../home/footer.jsx";
 
+/* ───────────────── Skeleton ───────────────── */
 const ResumeCardSkeleton = () => (
   <div className="bg-white border border-gray-200 p-4 animate-pulse">
-    <div className="aspect-[1/1.4] bg-gray-50 mb-4 w-full border border-gray-100"></div>
-    <div className="h-3 bg-gray-200 w-3/4 mb-2"></div>
-    <div className="h-2 bg-gray-100 w-1/2"></div>
+    <div className="aspect-[1/1.4] bg-gray-100 mb-4 w-full" />
+    <div className="h-3 bg-gray-200 w-3/4 mb-2" />
+    <div className="h-2 bg-gray-100 w-1/2" />
   </div>
 );
 
+/* ───────────────── Utils ───────────────── */
 const formatDate = (dateString) => {
   if (!dateString) return "Recently edited";
   return new Intl.DateTimeFormat("en-US", {
@@ -23,116 +32,147 @@ const formatDate = (dateString) => {
   }).format(new Date(dateString));
 };
 
+/* ───────────────── Dashboard ───────────────── */
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { data: response, isLoading, isError } = useGetAllResumesQuery();
-  console.log("all resume show data", response);
-  const data = response?.data;
-  const resumes = data ? (Array.isArray(data) ? data : [data]) : [];
 
+  /* 1️⃣ Get profile */
+  const { data: userData, isLoading: profileLoading } =
+    useGetProfileQuery();
+
+  const userId = userData?.user?._id;
+  console.log("Ok", userId);
+  /* 2️⃣ Get resumes (WAIT until userId exists) */
+  const {
+    data: response,
+    isLoading: resumeLoading,
+    isError,
+  } = useGetAllResumesQuery(userId);
+  console.log("all data ibrahim", response);
+
+  /* 3️⃣ Unified loading */
+  const isLoading = profileLoading || resumeLoading;
+
+  /* 4️⃣ Safe data extraction */
+  const resumes = Array.isArray(response?.data)
+    ? response.data
+    : response?.data
+    ? [response.data]
+    : [];
+console.log("All resume Data here", resumes)
   return (
-    <div className="flex flex-col min-h-screen bg-white font-sans text-slate-900">
+    <div className="flex flex-col min-h-screen bg-white text-slate-900">
       <Navbar />
 
       <main className="flex-grow pt-24 pb-20">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          
-          {/* Header Section: Sophisticated & Clean */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-gray-100 gap-4">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b gap-4">
             <div>
-              <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
-                Resumes
-              </h1>
+              <h1 className="text-2xl font-semibold">Resumes</h1>
               <p className="text-slate-500 text-sm mt-1">
-                Select a document to edit or create a new one from a professional template.
+                Select a document to edit or create a new one.
               </p>
             </div>
+
             <button
               onClick={() => navigate("/editor")}
-              className="inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium px-5 py-2 transition-all duration-200 gap-2"
+              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 text-sm font-medium"
             >
               <FiPlus size={18} />
-              <span>New Resume</span>
+              New Resume
             </button>
           </div>
 
-          {/* Grid Layout: Using 1/1.4 aspect ratio (standard paper) */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-10 gap-x-6">
-            
-            {/* Create New - Minimalist Ghost Style */}
+          {/* Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-10">
+            {/* Create New */}
             <div
               onClick={() => navigate("/editor")}
-              className="group cursor-pointer flex flex-col"
+              className="cursor-pointer group"
             >
-              <div className="aspect-[1/1.4] border border-dashed border-slate-300 bg-slate-50/50 flex flex-col items-center justify-center transition-all duration-300 group-hover:border-slate-900 group-hover:bg-white mb-3">
-                <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center mb-2 group-hover:bg-slate-900 group-hover:text-white transition-all">
-                  <FiPlus size={20} />
+              <div className="aspect-[1/1.4] border border-dashed border-slate-300 bg-slate-50 flex flex-col items-center justify-center mb-3 group-hover:border-slate-900">
+                <div className="w-10 h-10 rounded-full border flex items-center justify-center mb-2 group-hover:bg-slate-900 group-hover:text-white">
+                  <FiPlus />
                 </div>
-                <span className="text-xs font-medium uppercase tracking-wider text-slate-500 group-hover:text-slate-900">
+                <span className="text-xs uppercase tracking-wider text-slate-500">
                   Blank Canvas
                 </span>
               </div>
             </div>
 
-            {/* Loading States */}
-            {isLoading && Array(4).fill(0).map((_, i) => <ResumeCardSkeleton key={i} />)}
+            {/* Loading */}
+            {isLoading &&
+              Array.from({ length: 4 }).map((_, i) => (
+                <ResumeCardSkeleton key={i} />
+              ))}
 
-            {/* Resume List */}
-            {!isLoading && resumes.map((resume) => {
-              const name = `${resume.personalInfo?.firstName || "Untitled"} ${resume.personalInfo?.lastName || ""}`;
-              const id = resume.id || resume._id;
+            {/* Resumes */}
+            {!isLoading &&
+              resumes.map((resume) => {
+                const id = resume._id || resume.id;
+                const name = `${resume.personalInfo?.firstName || "Untitled"} ${
+                  resume.personalInfo?.lastName || ""
+                }`;
 
-              return (
-                <div key={id} className="group flex flex-col cursor-pointer" onClick={() => navigate(`/editor/${id}`)}>
-                  {/* Paper Preview */}
-                  <div className="relative aspect-[1/1.4] bg-slate-50 border border-slate-200 mb-3 transition-all duration-300 group-hover:border-slate-900 overflow-hidden">
-                    <div className="absolute inset-0 p-4 opacity-40">
-                      {/* Decorative lines to simulate a real CV */}
-                      <div className="h-1 w-1/2 bg-slate-300 mb-2" />
-                      <div className="h-1 w-full bg-slate-200 mb-1" />
-                      <div className="h-1 w-full bg-slate-200 mb-1" />
-                      <div className="h-1 w-3/4 bg-slate-200 mb-6" />
-                      <div className="h-1 w-1/4 bg-slate-300 mb-2" />
-                      <div className="h-1 w-full bg-slate-200 mb-1" />
-                    </div>
+                return (
+                  <div
+                    key={id}
+                    className="group cursor-pointer"
+                    onClick={() => navigate(`/editor/${id}`)}
+                  >
+                    <div className="relative aspect-[1/1.4] bg-slate-50 border mb-3 overflow-hidden group-hover:border-slate-900">
+                      <div className="absolute inset-0 p-4 opacity-40">
+                        <div className="h-1 w-1/2 bg-slate-300 mb-2" />
+                        <div className="h-1 w-full bg-slate-200 mb-1" />
+                        <div className="h-1 w-3/4 bg-slate-200 mb-6" />
+                      </div>
 
-                    {/* Hover Action Overlay */}
-                    <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/5 flex items-center justify-center transition-all duration-300">
-                      <div className="bg-white px-3 py-1.5 border border-slate-900 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-slate-900">
-                        Open Editor <FiExternalLink />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/5">
+                        <div className="opacity-0 group-hover:opacity-100 bg-white border px-3 py-1 text-[11px] uppercase font-bold flex gap-2">
+                          Open <FiExternalLink />
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Meta Data */}
-                  <div className="flex justify-between items-start">
-                    <div className="min-w-0 flex-1">
-                      <h3 className="text-[13px] font-semibold text-slate-900 truncate uppercase tracking-tight group-hover:underline decoration-1 underline-offset-4">
-                        {name.trim() || "Untitled Resume"}
-                      </h3>
-                      <div className="flex items-center text-[11px] text-slate-400 mt-0.5">
-                        <FiClock className="mr-1" size={10} />
-                        {formatDate(resume.updatedAt)}
+                    <div className="flex justify-between items-start">
+                      <div className="min-w-0">
+                        <h3 className="text-[13px] font-semibold truncate uppercase">
+                          {name.trim()}
+                        </h3>
+                        <div className="flex items-center text-[11px] text-slate-400 mt-0.5">
+                          <FiClock className="mr-1" size={10} />
+                          {formatDate(resume.updatedAt)}
+                        </div>
                       </div>
+
+                      <button
+                        onClick={(e) => e.stopPropagation()}
+                        className="p-1 text-slate-400 hover:text-slate-900"
+                      >
+                        <FiMoreVertical />
+                      </button>
                     </div>
-                    <button 
-                      onClick={(e) => { e.stopPropagation(); }}
-                      className="p-1 text-slate-400 hover:text-slate-900 transition-colors"
-                    >
-                      <FiMoreVertical size={16} />
-                    </button>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
 
-          {/* Empty State Illustration */}
+          {/* Empty State */}
           {!isLoading && resumes.length === 0 && (
-            <div className="text-center py-20 border border-dashed border-slate-200 mt-10">
+            <div className="text-center py-20 border border-dashed mt-10">
               <FiFileText className="mx-auto text-slate-300 mb-4" size={40} />
-              <p className="text-slate-500 text-sm">No resumes found. Let&apos;s build your first professional CV.</p>
+              <p className="text-slate-500 text-sm">
+                No resumes found. Let’s build your first CV.
+              </p>
             </div>
+          )}
+
+          {/* Error */}
+          {isError && (
+            <p className="text-red-600 text-center mt-10">
+              Failed to load resumes.
+            </p>
           )}
         </div>
       </main>
