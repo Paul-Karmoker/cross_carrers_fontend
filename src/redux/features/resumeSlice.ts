@@ -1,16 +1,17 @@
+// src/features/resume/resumeSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 /* ─────────────────────────────
    Types
 ───────────────────────────── */
-export interface Address {
+interface Address {
   street: string;
   city: string;
   postal: string;
   country: string;
 }
 
-export interface PersonalInfo {
+interface PersonalInfo {
   firstName: string;
   lastName: string;
   professionalTitle: string;
@@ -26,7 +27,7 @@ export interface PersonalInfo {
   permanentAddress: Address;
 }
 
-export interface WorkExperience {
+interface WorkExperience {
   companyName: string;
   position: string;
   city: string;
@@ -37,7 +38,7 @@ export interface WorkExperience {
   description: string[];
 }
 
-export interface Education {
+interface Education {
   institutionName: string;
   fieldOfStudy: string;
   degree: string;
@@ -47,10 +48,9 @@ export interface Education {
   currentlyStudying: boolean;
   gpa: string;
   honors: string;
-  description: string[];
 }
 
-export interface Training {
+interface Training {
   name: string;
   institution: string;
   duration: string;
@@ -59,7 +59,7 @@ export interface Training {
   description: string[];
 }
 
-export interface Certification {
+interface Certification {
   name: string;
   authority: string;
   urlCode: string;
@@ -67,12 +67,12 @@ export interface Certification {
   description: string[];
 }
 
-export interface Skill {
+interface Skill {
   name: string;
   level: string;
 }
 
-export interface Reference {
+interface Reference {
   name: string;
   position: string;
   company: string;
@@ -81,7 +81,7 @@ export interface Reference {
   relationship: string;
 }
 
-export interface ResumeState {
+interface ResumeState {
   personalInfo: PersonalInfo;
   careerObjective: string;
   careerSummary: string;
@@ -98,13 +98,6 @@ export interface ResumeState {
 /* ─────────────────────────────
    Initial Objects
 ───────────────────────────── */
-const emptyAddress: Address = {
-  street: '',
-  city: '',
-  postal: '',
-  country: '',
-};
-
 const initialPersonalInfo: PersonalInfo = {
   firstName: '',
   lastName: '',
@@ -117,8 +110,8 @@ const initialPersonalInfo: PersonalInfo = {
   linkedIn: '',
   portfolio: '',
   profilePicture: '',
-  address: { ...emptyAddress },
-  permanentAddress: { ...emptyAddress },
+  address: { street: '', city: '', postal: '', country: '' },
+  permanentAddress: { street: '', city: '', postal: '', country: '' },
 };
 
 const initialWorkExperience: WorkExperience = {
@@ -142,7 +135,6 @@ const initialEducation: Education = {
   currentlyStudying: false,
   gpa: '',
   honors: '',
-  description: [],
 };
 
 const initialTraining: Training = {
@@ -202,31 +194,23 @@ const resumeSlice = createSlice({
   reducers: {
     resetResume: () => initialState,
 
-    /* ───────────── Personal Info ───────────── */
-    updatePersonalInfo(
-      state,
-      action: PayloadAction<Partial<PersonalInfo>>
-    ) {
-      state.personalInfo = {
-        ...state.personalInfo,
-        ...action.payload,
-      };
+    // Personal Info
+    updatePersonalInfo(state, action: PayloadAction<Partial<PersonalInfo>>) {
+      state.personalInfo = { ...state.personalInfo, ...action.payload };
     },
 
-    /* ───────────── Career ───────────── */
+    // Career
     updateCareerObjective(state, action: PayloadAction<string>) {
       state.careerObjective = action.payload;
     },
-
     updateCareerSummary(state, action: PayloadAction<string>) {
       state.careerSummary = action.payload;
     },
 
-    /* ───────────── Work Experience ───────────── */
+    // Work Experience
     addWorkExperience(state) {
       state.workExperience.push({ ...initialWorkExperience });
     },
-
     updateWorkExperience(
       state,
       action: PayloadAction<{ index: number; data: Partial<WorkExperience> }>
@@ -239,60 +223,48 @@ const resumeSlice = createSlice({
         };
       }
     },
-
     removeWorkExperience(state, action: PayloadAction<number>) {
       state.workExperience.splice(action.payload, 1);
     },
 
-    /* ───────────── Education ───────────── */
+    // Education
     addEducation(state) {
       state.education.push({ ...initialEducation });
     },
-
     updateEducation(
       state,
       action: PayloadAction<{ index: number; data: Partial<Education> }>
     ) {
       const { index, data } = action.payload;
       if (state.education[index]) {
-        state.education[index] = {
-          ...state.education[index],
-          ...data,
-        };
+        state.education[index] = { ...state.education[index], ...data };
       }
     },
-
     removeEducation(state, action: PayloadAction<number>) {
       state.education.splice(action.payload, 1);
     },
 
-    /* ───────────── Trainings ───────────── */
+    // Trainings
     addTraining(state) {
       state.trainings.push({ ...initialTraining });
     },
-
     updateTraining(
       state,
       action: PayloadAction<{ index: number; data: Partial<Training> }>
     ) {
       const { index, data } = action.payload;
       if (state.trainings[index]) {
-        state.trainings[index] = {
-          ...state.trainings[index],
-          ...data,
-        };
+        state.trainings[index] = { ...state.trainings[index], ...data };
       }
     },
-
     removeTraining(state, action: PayloadAction<number>) {
       state.trainings.splice(action.payload, 1);
     },
 
-    /* ───────────── Certifications ───────────── */
+    // Certifications
     addCertification(state) {
       state.certifications.push({ ...initialCertification });
     },
-
     updateCertification(
       state,
       action: PayloadAction<{ index: number; data: Partial<Certification> }>
@@ -305,38 +277,31 @@ const resumeSlice = createSlice({
         };
       }
     },
-
     removeCertification(state, action: PayloadAction<number>) {
       state.certifications.splice(action.payload, 1);
     },
 
-    /* ───────────── Skills ───────────── */
+    // Skills
     addSkill(state) {
       state.skills.push({ ...initialSkill });
     },
-
     updateSkill(
       state,
       action: PayloadAction<{ index: number; data: Partial<Skill> }>
     ) {
       const { index, data } = action.payload;
       if (state.skills[index]) {
-        state.skills[index] = {
-          ...state.skills[index],
-          ...data,
-        };
+        state.skills[index] = { ...state.skills[index], ...data };
       }
     },
-
     removeSkill(state, action: PayloadAction<number>) {
       state.skills.splice(action.payload, 1);
     },
 
-    /* ───────────── References ───────────── */
+    // References
     addReference(state) {
       state.references.push({ ...initialReference });
     },
-
     updateReference(
       state,
       action: PayloadAction<{ index: number; data: Partial<Reference> }>
@@ -349,24 +314,21 @@ const resumeSlice = createSlice({
         };
       }
     },
-
     removeReference(state, action: PayloadAction<number>) {
       state.references.splice(action.payload, 1);
     },
 
-    /* ───────────── Template ───────────── */
+    // Template
     setTemplate(state, action: PayloadAction<string>) {
       state.template = action.payload;
       state.lastUpdated = new Date().toISOString();
     },
-
-    /* ───────────── Set Full Resume ───────────── */
-    setResume(state, action: PayloadAction<Partial<ResumeState>>) {
-      return { ...state, ...action.payload };
-    },
   },
 });
 
+/* ─────────────────────────────
+   Exports
+───────────────────────────── */
 export const {
   resetResume,
   updatePersonalInfo,
@@ -391,7 +353,6 @@ export const {
   updateReference,
   removeReference,
   setTemplate,
-  setResume,
 } = resumeSlice.actions;
 
 export default resumeSlice.reducer;

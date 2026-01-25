@@ -1,173 +1,62 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+const BASE_URL = 'http://localhost:4001/api/v1/resume';
+
 /* ─────────────────────────────
-   Types
+   Common Types (lightweight)
 ───────────────────────────── */
-export interface Address {
-  street: string;
-  city: string;
-  postal: string;
-  country: string;
+type ResumeId = string;
+
+interface UpdateResumePayload {
+  id: ResumeId;
+  data: any;
 }
 
-export interface PersonalInfo {
-  firstName: string;
-  lastName: string;
-  professionalTitle: string;
-  phoneNumber: string;
-  emailAddress: string;
-  titleBefore: string;
-  titleAfter: string;
-  skype: string;
-  linkedIn: string;
-  portfolio: string;
-  profilePicture: string;
-  address: Address;
-  permanentAddress: Address;
+interface WorkExperiencePayload {
+  id: ResumeId;
+  workExp: any;
 }
 
-export interface WorkExperience {
-  companyName: string;
-  position: string;
-  city: string;
-  country: string;
-  from: string;
-  to: string;
-  currentlyWorking: boolean;
-  description: string[];
+interface DeleteByIndexPayload {
+  id: ResumeId;
+  index: number;
 }
 
-export interface Education {
-  institutionName: string;
-  fieldOfStudy: string;
-  degree: string;
-  city: string;
-  country: string;
-  passingYear: string;
-  currentlyStudying: boolean;
-  gpa: string;
-  honors: string;
-  description: string[];
+interface EducationPayload {
+  id: ResumeId;
+  education: any;
 }
 
-export interface Training {
-  name: string;
-  institution: string;
-  duration: string;
-  from: string;
-  to: string;
-  description: string[];
-}
-
-export interface Certification {
-  name: string;
-  authority: string;
-  urlCode: string;
-  date: string;
-  description: string[];
-}
-
-export interface Skill {
-  name: string;
-  level: string;
-}
-
-export interface Reference {
-  name: string;
-  position: string;
-  company: string;
-  phone: string;
-  email: string;
-  relationship: string;
-}
-
-export interface Resume {
-  id?: string;
-  _id?: string;
-  personalInfo: PersonalInfo;
-  careerObjective: string;
-  careerSummary: string;
-  workExperience: WorkExperience[];
-  education: Education[];
-  trainings: Training[];
-  certifications: Certification[];
-  skills: Skill[];
-  references: Reference[];
-  template: string;
-  createdAt?: string;
-  updatedAt?: string;
-}
-
-export interface ResumeResponse {
-  success: boolean;
-  message: string;
-  data: Resume | Resume[];
-}
-
-export interface SuggestionResponse {
-  success: boolean;
-  message: string;
-  data: {
-    suggestions?: string[];
-    suggestion?: string;
-    technical?: string[];
-    soft?: string[];
-  };
+interface ReferencePayload {
+  id: ResumeId;
+  reference: any;
 }
 
 /* ─────────────────────────────
-   Helper function to get token with validation
+   API Slice
 ───────────────────────────── */
-const getValidToken = (): string | null => {
-  const token = localStorage.getItem('token');
-  
-  // Optional: Add token validation logic here
-  if (!token) {
-    console.warn('No token found in localStorage');
-    return null;
-  }
-  
-  // You could add JWT expiration check here if needed
-  return token;
-};
-
-/* ─────────────────────────────
-   API CONFIG
-───────────────────────────── */
-const BASE_URL = 'https://api.crosscareers.com/api/v1/resume';
-
 export const resumeApi = createApi({
   reducerPath: 'resumeApi',
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
     prepareHeaders: (headers) => {
-      const token = getValidToken();
+      const token = localStorage.getItem('token');
       if (token) {
         headers.set('Authorization', `Bearer ${token}`);
-      } else {
-        // Optional: Redirect to login if no token
-        console.warn('No authentication token available');
       }
       return headers;
     },
   }),
   tagTypes: ['Resume'],
   endpoints: (builder) => ({
-    /* ───────────── Queries ───────────── */
-    getAllResumes: builder.query<ResumeResponse, void>({
+    // GET all resumes (dashboard)
+    getAllResumes: builder.query<any, void>({
       query: () => '/',
       providesTags: ['Resume'],
     }),
 
-    getResume: builder.query<ResumeResponse, string>({
-      query: (id) => `/${id}`,
-      providesTags: (_result, _error, id) => [
-        { type: 'Resume', id },
-      ],
-    }),
-
-    /* ───────────── Mutations ───────────── */
-    createResume: builder.mutation<ResumeResponse, Partial<Resume>>({
+    // CREATE resume
+    createResume: builder.mutation<any, any>({
       query: (data) => ({
         url: '/',
         method: 'POST',
@@ -176,7 +65,14 @@ export const resumeApi = createApi({
       invalidatesTags: ['Resume'],
     }),
 
-    updateResume: builder.mutation<ResumeResponse, { id: string; data: Partial<Resume> }>({
+    // GET single resume
+    getResume: builder.query<any, ResumeId>({
+      query: (id) => `/${id}`,
+      providesTags: (_result, _error, id) => [{ type: 'Resume', id }],
+    }),
+
+    // UPDATE resume
+    updateResume: builder.mutation<any, UpdateResumePayload>({
       query: ({ id, data }) => ({
         url: `/${id}`,
         method: 'PUT',
@@ -185,7 +81,8 @@ export const resumeApi = createApi({
       invalidatesTags: ['Resume'],
     }),
 
-    deleteResume: builder.mutation<{ success: boolean; message: string }, string>({
+    // DELETE resume
+    deleteResume: builder.mutation<any, ResumeId>({
       query: (id) => ({
         url: `/${id}`,
         method: 'DELETE',
@@ -193,8 +90,8 @@ export const resumeApi = createApi({
       invalidatesTags: ['Resume'],
     }),
 
-    /* ───────────── Work Experience ───────────── */
-    addWorkExperience: builder.mutation<ResumeResponse, { id: string; workExp: Partial<WorkExperience> }>({
+    // WORK EXPERIENCE
+    addWorkExperience: builder.mutation<any, WorkExperiencePayload>({
       query: ({ id, workExp }) => ({
         url: `/${id}/work-experience`,
         method: 'POST',
@@ -203,7 +100,7 @@ export const resumeApi = createApi({
       invalidatesTags: ['Resume'],
     }),
 
-    deleteWorkExperience: builder.mutation<ResumeResponse, { id: string; index: number }>({
+    deleteWorkExperience: builder.mutation<any, DeleteByIndexPayload>({
       query: ({ id, index }) => ({
         url: `/${id}/work-experience`,
         method: 'DELETE',
@@ -212,8 +109,8 @@ export const resumeApi = createApi({
       invalidatesTags: ['Resume'],
     }),
 
-    /* ───────────── Education ───────────── */
-    addEducation: builder.mutation<ResumeResponse, { id: string; education: Partial<Education> }>({
+    // EDUCATION
+    addEducation: builder.mutation<any, EducationPayload>({
       query: ({ id, education }) => ({
         url: `/${id}/education`,
         method: 'POST',
@@ -222,7 +119,7 @@ export const resumeApi = createApi({
       invalidatesTags: ['Resume'],
     }),
 
-    deleteEducation: builder.mutation<ResumeResponse, { id: string; index: number }>({
+    deleteEducation: builder.mutation<any, DeleteByIndexPayload>({
       query: ({ id, index }) => ({
         url: `/${id}/education`,
         method: 'DELETE',
@@ -231,8 +128,8 @@ export const resumeApi = createApi({
       invalidatesTags: ['Resume'],
     }),
 
-    /* ───────────── Reference ───────────── */
-    addReference: builder.mutation<ResumeResponse, { id: string; reference: Partial<Reference> }>({
+    // REFERENCE
+    addReference: builder.mutation<any, ReferencePayload>({
       query: ({ id, reference }) => ({
         url: `/${id}/reference`,
         method: 'POST',
@@ -241,7 +138,7 @@ export const resumeApi = createApi({
       invalidatesTags: ['Resume'],
     }),
 
-    deleteReference: builder.mutation<ResumeResponse, { id: string; index: number }>({
+    deleteReference: builder.mutation<any, DeleteByIndexPayload>({
       query: ({ id, index }) => ({
         url: `/${id}/reference`,
         method: 'DELETE',
@@ -250,8 +147,8 @@ export const resumeApi = createApi({
       invalidatesTags: ['Resume'],
     }),
 
-    /* ───────────── AI Suggestions ───────────── */
-    getJobDescriptionSuggestion: builder.mutation<SuggestionResponse, Partial<WorkExperience>>({
+    // AI Suggestions
+    getJobDescriptionSuggestion: builder.mutation<any, any>({
       query: (workExp) => ({
         url: '/suggest/job-description',
         method: 'POST',
@@ -259,18 +156,15 @@ export const resumeApi = createApi({
       }),
     }),
 
-    getSkillsSuggestion: builder.mutation<SuggestionResponse, { workExperiences: WorkExperience[] }>({
-      query: (data) => ({
+    getSkillsSuggestion: builder.mutation<any, any>({
+      query: (workExperiences) => ({
         url: '/suggest/skills',
         method: 'POST',
-        body: data,
+        body: { workExperiences },
       }),
     }),
 
-    getCareerObjectiveSuggestion: builder.mutation<SuggestionResponse, { 
-      workExperiences: WorkExperience[];
-      education: Education[];
-    }>({
+    getCareerObjectiveSuggestion: builder.mutation<any, any>({
       query: (data) => ({
         url: '/suggest/career-objective',
         method: 'POST',
@@ -278,10 +172,7 @@ export const resumeApi = createApi({
       }),
     }),
 
-    getCareerSummarySuggestion: builder.mutation<SuggestionResponse, { 
-      workExperiences: WorkExperience[];
-      education: Education[];
-    }>({
+    getCareerSummarySuggestion: builder.mutation<any, any>({
       query: (data) => ({
         url: '/suggest/career-summary',
         method: 'POST',
@@ -291,6 +182,9 @@ export const resumeApi = createApi({
   }),
 });
 
+/* ─────────────────────────────
+   Hooks Export
+───────────────────────────── */
 export const {
   useGetAllResumesQuery,
   useCreateResumeMutation,

@@ -80,13 +80,13 @@ interface NavItemProps {
   item: NavItem;
   activeDropdown: string | null;
   setActiveDropdown: Dispatch<SetStateAction<string | null>>;
-  user?: User; // optional → most important fix
+  user?: User | undefined; // explicitly allow undefined
   onRestrictedClick: (e: React.MouseEvent, path?: string) => void;
 }
 
 interface MobileMenuProps {
   navItems: NavItem[];
-  user?: User; // optional
+  user?: User | undefined; // explicitly allow undefined
   isPremium: boolean;
   onClose: () => void;
   onRestrictedClick: (e: React.MouseEvent, path?: string) => void;
@@ -277,7 +277,7 @@ function NavItemComponent({
   return (
     <div
       className="relative"
-      onMouseEnter={() => setActiveDropdown(item.key)}
+      onMouseEnter={() => setActiveDropdown(item.key ?? null)}
       onMouseLeave={() => setActiveDropdown(null)}
     >
       <button

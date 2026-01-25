@@ -209,7 +209,7 @@ const WrittenTest: React.FC = () => {
       <main className="flex-grow py-12 px-4">
         <div className="max-w-4xl mx-auto">
           {step === "FORM" && (
-            <div className="bg-white mt-12 rounded-[.5rem] border border-slate-100 overflow-hidden">
+            <div className="bg-white mt-12  border-[1px] overflow-hidden">
               <div className="p-10 bg-gradient-to-br from-emerald-500 via-teal-500 to-blue-600 text-white">
                 <h1 className="text-3xl font-black">Configure Test</h1>
                 <p className="text-slate-100 mt-2">
