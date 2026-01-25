@@ -202,7 +202,7 @@ const JobTrainingPortals: FC = () => {
     <div className="px-3 py-8">
       <motion.div
         whileHover={{ y: -10 }}
-        className="group flex flex-col h-[380px] bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden relative"
+        className="group flex flex-col h-[380px] bg-white  border-[1px] transition-all duration-500 overflow-hidden relative"
       >
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
 
