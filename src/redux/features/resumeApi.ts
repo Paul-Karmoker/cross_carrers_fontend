@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const BASE_URL = 'http://localhost:4001/api/v1/resume';
+const BASE_URL = 'https://api.crosscareers.com/api/v1/resume';
 
 /* ─────────────────────────────
    Common Types (lightweight)
@@ -50,10 +50,11 @@ export const resumeApi = createApi({
   tagTypes: ['Resume'],
   endpoints: (builder) => ({
     // GET all resumes (dashboard)
-    getAllResumes: builder.query<any, string>({
-      query: (userId) => `/${userId}`,
-      providesTags: ['Resume'],
-    }),
+    getAllResumes: builder.query<any, void>({
+  query: () => `/me`,
+  providesTags: ['Resume'],
+  }),
+
 
     // CREATE resume
     createResume: builder.mutation<any, any>({

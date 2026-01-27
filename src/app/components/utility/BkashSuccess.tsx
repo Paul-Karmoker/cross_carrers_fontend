@@ -1,53 +1,43 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useConfirmBkashPaymentMutation } from "@/redux/features/paymentApi";
 import { toast } from "react-hot-toast";
-
-// ── Types ────────────────────────────────────────────────
-
-type PlanId = "monthly" | "quarterly" | "semiannual" | "yearly";
-
-// ── Component ───────────────────────────────────────────
 
 const BkashSuccess = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [confirmBkashPayment] = useConfirmBkashPaymentMutation();
 
+  // 🔒 prevent double execution (React strict mode)
+  const hasConfirmed = useRef(false);
+
   useEffect(() => {
     const paymentID = searchParams.get("paymentID");
-    const status = searchParams.get("status");
-    const selectedPlan = localStorage.getItem("selectedPlan");
 
-    if (!paymentID || status !== "success" || !selectedPlan) {
-      toast.error("Payment failed or cancelled");
+    if (!paymentID) {
+      toast.error("Invalid payment callback");
       navigate("/upgrade-plan", { replace: true });
       return;
     }
 
+    if (hasConfirmed.current) return;
+    hasConfirmed.current = true;
+
     const confirmPayment = async () => {
       try {
-        await confirmBkashPayment({
-          paymentID,
-          plan: selectedPlan as PlanId,
-        }).unwrap();
+        await confirmBkashPayment({ paymentID }).unwrap();
 
-        toast.success("Subscription upgraded successfully 🎉");
+        toast.success("Subscription activated successfully 🎉");
         localStorage.removeItem("selectedPlan");
         navigate("/dashboard", { replace: true });
-      } catch (error: unknown) {
-        const message =
-          error && typeof error === "object" && "data" in error && error.data && typeof error.data === "object" && "message" in error.data
-            ? String((error.data as { message?: unknown }).message)
-            : "Payment confirmation failed";
-
-        toast.error(message);
+      } catch (err) {
+        toast.error("Payment confirmation failed");
         navigate("/upgrade-plan", { replace: true });
       }
     };
 
     confirmPayment();
-  }, [searchParams, navigate, confirmBkashPayment]);
+  }, [searchParams, confirmBkashPayment, navigate]);
 
   return (
     <div className="h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-blue-100">

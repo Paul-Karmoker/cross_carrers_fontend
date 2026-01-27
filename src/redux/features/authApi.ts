@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 
-const BASE_URL = "http://localhost:4001/api/v1/auth";
+const BASE_URL = "https://api.crosscareers.com/api/v1/auth";
 export interface AuthResponse {
   success?: boolean;
   token?: string;
@@ -13,6 +13,7 @@ export interface AuthResponse {
     firstName?: string;
     lastName?: string;
     role?: string;
+    subscriptionPlan?: string;
   };
 }
 
