@@ -1,5 +1,5 @@
 import React from 'react'
-import Dashboard from './dashboard';
+import Dashboard from './Dashboard';
 import Navbar from '../components/home/navbar';
 import Footer from '../components/home/footer';
 function index() {
