@@ -1,204 +1,148 @@
-
+import { memo, useCallback } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-
-import { useGetWithdrawalsQuery } from './context/authApi';
-
-// Public Components
-import Home from '../src/home/home';
-import Training from './Components/trainings';
-import About from './Components/about';
-import Contact from './Components/contact';
-import Membership from './Membership/membership';
-import Earn from './Components/earn';
-import Ngo from './Components/ngo';
-import Ingo from './Components/ingo';
-import Bdjobs from './Components/bdjobs';
-import Intjobs from './Components/intjobs';
-import Marqueer from './Components/marqueer';
-import Marqueel from './Components/marqueel';
-import Terms from './Components/terms';
-import Privacy from './Components/privacy';
-import ForgotPassword from './login/forgetpassword';
-import ResetPassword from './login/resetpasswordpage';
-import ResumeMakerHome from './ResumeMaker/Dashboard';
-// Authentication Components
-import Signin from './login/signin';
-import SignUp from './login/signup';
-import Signinhome from './login/signinhome';
-import Signuphome from './login/signuphome';
-import Logout from './login/signout';
-
-//import ResumeEditor from './ResumeMaker/ResumeEditor';
-import ResumeForm from './ResumeMaker/resumeForm';
-
-// Protected Components
-import Un from './Components/un';
-import Emb from './Components/emb';
-import Donor from './Components/donor';
-import Dbhome from './dashboard/dbhome';
-import Matchhome from './Resumebuild/matchhome';
-import Qahome from './QA/qahome';
-import Coverhome from './cl/coverhome';
-import Ppthome from './ppt/ppthome';
-import PPTmaker from './ppt/pptmaker';
-import Doc from './docx/doc';
-import Dochome from './docx/dochome';
-import Excel from './excel/excel';
-import Excelhome from './excel/excelhome';
-import Consult from './consult/consult';
-import Insm from './insm/InterviewSimulator';
-import Payment from './Membership/paymentmodel';
-import Upgradeplan from './Components/upgradeplan';
-import WrittenTestHome from './writtenTest/writtenTestHome';
-
-
 import PropTypes from 'prop-types';
 
-const ProtectedRoute = ({ children }) => {
+import { useGetWithdrawalsQuery } from './redux/features/authApi';
+
+
+import Home from '../src/app/components/home';
+import Training from '../src/app/components/Trainings';
+import About from '../src/app/Others/about';
+import Contact from '../src/app/Others/contact';
+import Earn from '../src/app/Others/earn';
+import Ngo from '../src/app/Others/ngo.tsx';
+import Ingo from '../src/app/Others/ingo';
+import Bdjobs from '../src/app/Others/bdjobs';
+import Intjobs from '../src/app/Others/intJobs';
+import Marqueer from '../src/app/components/home/marqueer';
+import Marqueel from '../src/app/components/home/marqueel';
+import Terms from '../src/app/Others/terms';
+import Privacy from '../src/app/Others/privacy';
+
+import Signin from '../src/app/auth/siginin';
+import SignUp from '../src/app/auth/siginup';
+import ForgotPassword from '../src/app/auth/forgetpassword';
+import ResetPassword from '../src/app/auth/resetpasspord';
+import Logout from '../src/app/auth/logout';
+import OtpVarify from '../src/app/auth/VerifyOtp';
+
+
+import ResumeMakerHome from '../src/app/components/ResumeMaker/Dashboard';
+import ResumeForm from '../src/app/components/ResumeMaker/resumeForm.jsx';
+import Coverhome from '../src/app/components/cover';
+import Ppthome from '../src/app/components/ppt';
+import PPTmaker from '../src/app/components/ppt/pptMacker';
+import Dochome from '../src/app/components/Docx';
+import Doc from '../src/app/components/Docx/doc';
+import Excelhome from '../src/app/components/Excel';
+import Excel from '../src/app/components/Excel/excel';
+import WrittenTestHome from '../src/app/components/WrittenTest/WrittenTest.tsx';
+import Consult from './consult/consult';
+import Insm from '../src/app/components/insm/InterviewSimulator';
+
+
+import Un from '../src/app/Others/Un';
+import Emb from '../src/app/Others/emb';
+import Donor from '../src/app/Others/doner';
+import Dbhome from '../src/app/dashboard';
+import Matchhome from '../src/app/components/Resumebuild/matchhome';
+import Qahome from '../src/app/components/QA';
+import Upgradeplan from '../src/app/components/utility/upgradeplan.tsx';
+
+
+const ProtectedRoute = memo(({ children }) => {
   const { isError, error } = useGetWithdrawalsQuery();
-  const isAuthenticated = localStorage.getItem('token') && !(isError && error?.status === 'error');
+
+  const isAuthenticated =
+    Boolean(localStorage.getItem('token')) &&
+    !(isError && error?.status === 'error');
 
   return isAuthenticated ? children : <Navigate to="/signinhome" replace />;
-};
+});
+
+ProtectedRoute.displayName = 'ProtectedRoute';
 
 ProtectedRoute.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const App = () => {
-  
-  return (
-    <>
-      <Routes>
-        {/* পাবলিক রাউট */}
-        <Route path="/" element={<Home />} />
-        <Route path="/trainings" element={<Training />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/membership" element={<Membership />} />
-        <Route path="/earn" element={<Earn />} />
-        <Route path="/ngo" element={<Ngo />} />
-        <Route path="/ingo" element={<Ingo />} />
-        <Route path="/bdjobs" element={<Bdjobs />} />
-        <Route path="/intjobs" element={<Intjobs />} />
-        <Route path="/marqueer" element={<Marqueer />} />
-        <Route path="/marqueel" element={<Marqueel />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path='/forgetPassword' element={<ForgotPassword />} />
-        <Route path='/reset-password/:token' element={<ResetPassword />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signinhome" element={<Signinhome />} />
-        <Route path="/signuphome" element={<Signuphome />} />
-        <Route path="/coverhome" element={<Coverhome />} />
-        <Route path="/pptmaker" element={<PPTmaker />} />
-        <Route path="/doc" element={<Doc />} />
-        <Route path='/writtenTest' element={<WrittenTestHome/>}/>
-        <Route path="/resume" element={<ResumeMakerHome />} />
-        
-        <Route path="/editor" element={<ResumeForm />} />
-        <Route path="/dochome" element={<Dochome />} />
-        <Route path="/excel" element={<Excel />} />
-        <Route path="/excelhome" element={<Excelhome />} />
-        <Route path="/consult" element={<Consult />} />
-        
 
-        {/* প্রোটেক্টেড রাউট */}
-        <Route
-          path="/un"
-          element={
-            <ProtectedRoute>
-              <Un />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/priceing"
-          element={
-            <ProtectedRoute>
-              <Upgradeplan />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/emb"
-          element={
-            <ProtectedRoute>
-              <Emb />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/donor"
-          element={
-            <ProtectedRoute>
-              <Donor />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/dbhome"
-          element={
-            <ProtectedRoute>
-              <Dbhome />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/matchhome"
-          element={
-            <ProtectedRoute>
-              <Matchhome />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/qahome"
-          element={
-            <ProtectedRoute>
-              <Qahome />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/ppthome"
-          element={
-            <ProtectedRoute>
-              <Ppthome />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/InterviewSimulator"
-          element={
-            <ProtectedRoute>
-              <Insm />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/payment"
-          element={
-            <ProtectedRoute>
-              <Payment />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/logout"
-          element={
-            <ProtectedRoute>
-              <Logout />
-            </ProtectedRoute>
-          }
-        />
+const publicRoutes = [
+  { path: '/', element: <Home /> },
+  { path: '/trainings', element: <Training /> },
+  { path: '/about', element: <About /> },
+  { path: '/contact', element: <Contact /> },
+  { path: '/earn', element: <Earn /> },
+  { path: '/ngo', element: <Ngo /> },
+  { path: '/ingo', element: <Ingo /> },
+  { path: '/bdjobs', element: <Bdjobs /> },
+  { path: '/intjobs', element: <Intjobs /> },
+  { path: '/marqueer', element: <Marqueer /> },
+  { path: '/marqueel', element: <Marqueel /> },
+  { path: '/terms', element: <Terms /> },
+  { path: '/privacy', element: <Privacy /> },
+  { path: '/signin', element: <Signin /> },
+  { path: '/signinhome', element: <Signin /> },
+  { path: '/signup', element: <SignUp /> },
+  { path: '/forgetPassword', element: <ForgotPassword /> },
+  { path: '/reset-password/:token', element: <ResetPassword /> },
+  { path: '/verify-otp', element: <OtpVarify /> },
+  { path: '/editor', element: <ResumeForm /> },
+  { path: '/consult', element: <Consult /> },
+];
 
-        {/* ক্যাচ-অল রাউট */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </>
+const protectedRoutes = [
+  { path: '/un', element: <Un /> },
+  { path: '/priceing', element: <Upgradeplan /> },
+  { path: '/emb', element: <Emb /> },
+  { path: '/donor', element: <Donor /> },
+  { path: '/dbhome', element: <Dbhome /> },
+  { path: '/matchhome', element: <Matchhome /> },
+  { path: '/resume', element: <ResumeMakerHome /> },
+  { path: '/writtenTest', element: <WrittenTestHome /> },
+  { path: '/coverhome', element: <Coverhome /> },
+  { path: '/ppthome', element: <Ppthome /> },
+  { path: '/pptmaker', element: <PPTmaker /> },
+  { path: '/dochome', element: <Dochome /> },
+  { path: '/doc', element: <Doc /> },
+  { path: '/excelhome', element: <Excelhome /> },
+  { path: '/excel', element: <Excel /> },
+  { path: '/qahome', element: <Qahome /> },
+  { path: '/InterviewSimulator', element: <Insm /> },
+  { path: '/logout', element: <Logout /> },
+];
+
+
+const App = memo(() => {
+  const renderPublicRoutes = useCallback(
+    () =>
+      publicRoutes.map(({ path, element }) => (
+        <Route key={path} path={path} element={element} />
+      )),
+    []
   );
-};
+
+  const renderProtectedRoutes = useCallback(
+    () =>
+      protectedRoutes.map(({ path, element }) => (
+        <Route
+          key={path}
+          path={path}
+          element={<ProtectedRoute>{element}</ProtectedRoute>}
+        />
+      )),
+    []
+  );
+
+  return (
+    <Routes>
+      {renderPublicRoutes()}
+      {renderProtectedRoutes()}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+});
+
+App.displayName = 'App';
 
 export default App;

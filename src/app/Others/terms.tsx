@@ -1,0 +1,220 @@
+import React, { FC, useMemo } from 'react';
+import Navbar from "../components/home/navbar";
+import Footer from "../components/home/footer";
+
+/**
+ * Type Definitions
+ */
+interface SectionProps {
+  number: string | number;
+  title: string;
+  children: React.ReactNode;
+}
+
+interface TermItem {
+  number: string;
+  title: string;
+  content: string[];
+}
+
+/**
+ * Reusable Sub-components
+ */
+const Section: FC<SectionProps> = ({ number, title, children }) => (
+  <section className="group">
+    <div className="flex items-center mb-6">
+      <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-indigo-600 text-white font-bold shadow-lg shadow-indigo-200 transition-transform group-hover:scale-110">
+        {number}
+      </div>
+      <h2 className="ml-4 text-2xl font-bold text-gray-800 tracking-tight">
+        {title}
+      </h2>
+    </div>
+    <div className="ml-2 md:ml-14 text-gray-600 leading-relaxed space-y-4">
+      {children}
+    </div>
+  </section>
+);
+
+const TermsAndConditions: FC = () => {
+  const currentDate = useMemo(() => 
+    new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }), []
+  );
+
+  const termCards: TermItem[] = [
+    {
+      number: '9',
+      title: 'Termination',
+      content: [
+        '9.1 The Company may terminate access without notice for violations.',
+        '9.2 Users may request account deletion, subject to Bangladesh\'s data retention laws.'
+      ]
+    },
+    {
+      number: '10',
+      title: 'Dispute Resolution',
+      content: [
+        '10.1 Jurisdiction: Disputes shall be resolved in Dhaka District Courts.',
+        '10.2 Arbitration: Parties agree to mediate before litigation (Arbitration Act 2001).',
+        '10.3 Governing Law: These Terms are governed by Bangladeshi law.'
+      ]
+    },
+    {
+      number: '11',
+      title: 'Amendments',
+      content: [
+        '11.1 The Company may modify these Terms with 30 days\' notice.',
+        '11.2 Continued use constitutes acceptance of changes.'
+      ]
+    },
+    {
+      number: '12',
+      title: 'Fraud Disclaimer',
+      content: [
+        '12.1 The Company does not charge fees for job applications.',
+        '12.2 Users are warned against sharing bank details (Penal Code 1860, Section 420).',
+        '12.3 Report scams to Bangladesh Cyber Crime Investigation Unit.'
+      ]
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-50">
+      <Navbar />
+      
+      <main className="max-w-5xl mx-auto px-6 py-20 mt-16">
+        {/* Header Hero Section */}
+        <header className="mb-16 text-center">
+          <span className="inline-block px-4 py-1.5 mb-4 text-xs font-bold tracking-widest text-indigo-600 uppercase bg-indigo-50 rounded-full">
+            Legal Framework
+          </span>
+          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight">
+            Terms and <span className="text-indigo-600">Conditions</span>
+          </h1>
+          <div className="w-20 h-1 bg-indigo-600 mx-auto rounded-full mb-6" />
+          <p className="text-lg text-gray-500 font-medium">
+            Effective Date: <span className="text-gray-900">{currentDate}</span>
+          </p>
+        </header>
+
+        {/* Abstract Box */}
+        <div className="relative overflow-hidden bg-white p-8 rounded-3xl shadow-sm border border-slate-200 mb-20">
+          <div className="absolute top-0 left-0 w-2 h-full bg-indigo-600" />
+          <p className="text-gray-700 text-lg leading-relaxed italic">
+            "Please read these Terms and Conditions carefully. By accessing our platform, 
+            you enter a legally binding agreement with Cross Careers and agree to comply with 
+            the laws and regulations of the People's Republic of Bangladesh."
+          </p>
+        </div>
+
+        <div className="space-y-24">
+          {/* Section 1 */}
+          <Section number="1" title="Acceptance of Terms">
+            <p>
+              <strong className="text-gray-900">1.1</strong> By accessing and using this website, you accept and agree to be bound by these Terms and Conditions. 
+              If you do not agree with any part of these terms, you must immediately cease use of our Service.
+            </p>
+            <p>
+              <strong className="text-gray-900">1.2</strong> These Terms constitute the entire agreement between you and Cross Careers.
+            </p>
+          </Section>
+
+          {/* Section 2 */}
+          <Section number="2" title="Definitions & Interpretation">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+              {[
+                { label: 'Service', desc: 'The website, subdomains, and all tools (job listings, resume builders).' },
+                { label: 'User', desc: 'Any individual or corporate entity accessing the Service.' },
+                { label: 'Content', desc: 'Text, data, graphics, and materials generated by Users or Company.' },
+                { label: 'Regulation', desc: 'ICT Act 2006, Digital Security Act 2018, and Contract Act 1872.' }
+              ].map((def) => (
+                <div key={def.label} className="bg-slate-100/50 p-4 rounded-xl border border-slate-200">
+                  <span className="block font-bold text-gray-900 text-sm uppercase tracking-wide mb-1">{def.label}</span>
+                  <p className="text-sm">{def.desc}</p>
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          {/* Section 3 & 4 Combined Logic */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <Section number="3" title="Binding Agreement">
+              <p>
+                Minors (under 18 years) cannot use the Service without parental consent 
+                per the <span className="underline decoration-indigo-300">Bangladesh Majority Act 1875</span>.
+              </p>
+            </Section>
+            
+            <Section number="4" title="Prohibited Conduct">
+              <ul className="space-y-2 list-none">
+                {['False or defamatory content', 'Financial scams/Phishing', 'Reverse-engineering systems'].map(item => (
+                  <li key={item} className="flex items-center text-sm">
+                    <span className="text-red-500 mr-2">✕</span> {item}
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          </div>
+
+          {/* Grid for small sections */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {termCards.map((item) => (
+              <div key={item.number} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-indigo-200 transition-colors">
+                <div className="flex items-center mb-4">
+                  <span className="text-xs font-black bg-indigo-100 text-indigo-700 px-2 py-1 rounded-md mr-3">SEC {item.number}</span>
+                  <h3 className="text-xl font-bold text-gray-800">{item.title}</h3>
+                </div>
+                <div className="space-y-3">
+                  {item.content.map((p, i) => (
+                    <p key={i} className="text-sm text-gray-600 leading-relaxed">{p}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Section 15: Contact - Enhanced Design */}
+          <section className="bg-indigo-900 text-white p-10 md:p-16 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-indigo-500 rounded-full blur-3xl opacity-20" />
+            <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center">
+              <div className="mb-8 md:mb-0">
+                <h2 className="text-3xl font-bold mb-4">Contact & Legal Notices</h2>
+                <p className="text-indigo-200 max-w-md">
+                  All formal legal inquiries or notices regarding these terms should be directed to our physical headquarters.
+                </p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 w-full md:w-auto">
+                <address className="not-italic space-y-2">
+                  <p className="font-bold text-xl">Cross Careers</p>
+                  <p className="text-indigo-100 text-sm">32/2, BBCS Lane, Senpara Parbota</p>
+                  <p className="text-indigo-100 text-sm">Mirpur-10, Dhaka, Bangladesh</p>
+                  <div className="pt-4">
+                    <a 
+                      href="mailto:ceo.crosscareers@gmail.com" 
+                      className="inline-block bg-white text-indigo-900 px-6 py-2 rounded-lg font-bold text-sm transition-transform hover:scale-105"
+                    >
+                      ceo.crosscareers@gmail.com
+                    </a>
+                  </div>
+                </address>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* Footer Note */}
+        <div className="mt-20 text-center text-gray-400 text-sm">
+          <p>© {new Date().getFullYear()} Cross Careers. Legally generated document.</p>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default TermsAndConditions;

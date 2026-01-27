@@ -1,19 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
-  @media (prefers-color-scheme: light) {
-    :root {
-      color: #213547;
-      background-color:	#F5FFFA;
-      
-    }
-    a:hover {
-      color: #747bff;
-    }
-    button {
-      background-color: #f9f9f9;
-    }
+
+/* ---------------- Base Theme ---------------- */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #f5fffa;
   }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* ---------------- Reusable UI Components ---------------- */
+@layer components {
+  .input {
+    @apply w-full border border-gray-300 rounded-lg px-4 py-3
+    focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+
+  .btn-primary {
+    @apply bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg;
+  }
+
+  .btn-success {
+    @apply bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg;
+  }
+
+  .card-center {
+    @apply bg-white shadow rounded-xl p-10 text-center mt-10;
+  }
+}
