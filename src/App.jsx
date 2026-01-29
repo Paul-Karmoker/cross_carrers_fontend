@@ -48,7 +48,7 @@ import Dbhome from '../src/app/dashboard';
 import Matchhome from '../src/app/components/Resumebuild/matchhome';
 import Qahome from '../src/app/components/QA';
 import Upgradeplan from '../src/app/components/utility/upgradeplan.tsx';
-import SeePricing from '../src/app/components/utility/seePricing';
+import SeePricing from './app/components/utility/Seepricing.tsx';
 import Help from '../src/app/components/utility/help';
 import Seitting from '../src/app/components/utility/seitting';
 import Release from '../src/app/components/utility/releases';
