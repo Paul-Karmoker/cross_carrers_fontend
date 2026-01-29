@@ -55,13 +55,15 @@ export interface User {
   email: string;
   firstName: string;
   lastName: string;
-  role: string;
+  role: "user" | "admin";
+  isPremium?: boolean;
+  subscriptionType: "freeTrial" | "premium" | "none";
+  subscriptionStatus: "pending" | "active" | "expired";
 
-  subscriptionType: string;
-  subscriptionStatus: string;
-  freeTrialExpiresAt: string | null;
-  subscriptionExpiresAt: string | null;
+  freeTrialExpiresAt?: string | null;
+  subscriptionExpiresAt?: string | null;
 }
+
 
 
 

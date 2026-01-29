@@ -48,8 +48,10 @@ import Dbhome from '../src/app/dashboard';
 import Matchhome from '../src/app/components/Resumebuild/matchhome';
 import Qahome from '../src/app/components/QA';
 import Upgradeplan from '../src/app/components/utility/upgradeplan.tsx';
-
-
+import SeePricing from '../src/app/components/utility/seePricing';
+import Help from '../src/app/components/utility/help';
+import Seitting from '../src/app/components/utility/seitting';
+import Release from '../src/app/components/utility/releases';
 const ProtectedRoute = memo(({ children }) => {
   const { isError, error } = useGetWithdrawalsQuery();
 
@@ -89,6 +91,10 @@ const publicRoutes = [
   { path: '/verify-otp', element: <OtpVarify /> },
   { path: '/editor', element: <ResumeForm /> },
   { path: '/consult', element: <Consult /> },
+  { path: '/seepricing', element: <SeePricing /> },
+  { path: '/help', element: <Help /> },
+  { path: '/seitting', element: <Seitting /> },
+  { path: '/release', element: <Release /> }
 ];
 
 const protectedRoutes = [
