@@ -19,7 +19,7 @@ export default function HelpMenu() {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute right-0 mt-3 w-64 rounded-xl bg-[#1f1f1f] text-white shadow-2xl overflow-hidden z-50">
+        <div className="absolute right-0 mt-3 w-64 rounded-xl bg-slate-100 text-black shadow-2xl overflow-hidden z-50">
           <ul className="py-2 text-sm">
             <MenuItem to="/seepricing" icon={<FiTag />}>
               See plans and pricing
