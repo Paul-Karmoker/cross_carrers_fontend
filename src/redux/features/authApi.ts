@@ -14,6 +14,10 @@ export interface AuthResponse {
     lastName?: string;
     role?: string;
     subscriptionPlan?: string;
+    subscriptionType?: "freeTrial"| "premium";
+    subscriptionStatus?: string;
+    createdAt?: string;
+    updatedAt?: string;
   };
 }
 
