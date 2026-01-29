@@ -48,10 +48,12 @@ import Dbhome from '../src/app/dashboard';
 import Matchhome from '../src/app/components/Resumebuild/matchhome';
 import Qahome from '../src/app/components/QA';
 import Upgradeplan from './app/components/utility/Upgradeplan.tsx';
-import SeePricing from './app/components/utility/Seepricing.tsx';
+import SeePricing from './app/components/utility/SeePricing.tsx';
+
 import Help from './app/components/utility/Help.tsx';
 import Seitting from './app/components/utility/Seitting.tsx';
-import Release from './app/components/utility/Releases.tsx';
+import Release from './app/components/utility/Release.tsx';
+
 const ProtectedRoute = memo(({ children }) => {
   const { isError, error } = useGetWithdrawalsQuery();
 
