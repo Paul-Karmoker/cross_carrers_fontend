@@ -47,12 +47,11 @@ import Donor from '../src/app/Others/doner';
 import Dbhome from '../src/app/dashboard';
 import Matchhome from '../src/app/components/Resumebuild/matchhome';
 import Qahome from '../src/app/components/QA';
-import Upgradeplan from './app/components/utility/Upgradeplan.tsx';
-import SeePricing from './app/components/utility/SeePricing.tsx';
-
-import Help from './app/components/utility/Help.tsx';
-import Seitting from './app/components/utility/Seitting.tsx';
-import Release from './app/components/utility/Release.tsx';
+import UpgradePlan from './app/components/utility/UpgradePlan';
+import SeePricing from './app/components/utility/SeePricing';
+import Help from './app/components/utility/Help';
+import Setting from './app/components/utility/Setting.tsx';
+import Release from './app/components/utility/Release';
 
 const ProtectedRoute = memo(({ children }) => {
   const { isError, error } = useGetWithdrawalsQuery();
@@ -95,13 +94,13 @@ const publicRoutes = [
   { path: '/consult', element: <Consult /> },
   { path: '/seepricing', element: <SeePricing /> },
   { path: '/help', element: <Help /> },
-  { path: '/seitting', element: <Seitting /> },
+  { path: '/seitting', element: <Setting /> },
   { path: '/release', element: <Release /> }
 ];
 
 const protectedRoutes = [
   { path: '/un', element: <Un /> },
-  { path: '/priceing', element: <Upgradeplan /> },
+  { path: '/priceing', element: <UpgradePlan /> },
   { path: '/emb', element: <Emb /> },
   { path: '/donor', element: <Donor /> },
   { path: '/dbhome', element: <Dbhome /> },
