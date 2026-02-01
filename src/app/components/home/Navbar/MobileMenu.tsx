@@ -1,4 +1,4 @@
-import { NavItem } from "@/types";
+import { NavItem, User } from "@/types";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {
@@ -9,11 +9,17 @@ import {
 
 interface Props {
   items?: NavItem[];
-  user?: any;
+  user?: User;
+  onRestrictedClick: (e: React.MouseEvent, restricted?: boolean) => void;
   onClose: () => void;
 }
 
-export default function MobileMenu({ items = [], user, onClose }: Props) {
+export default function MobileMenu({
+  items = [],
+  user,
+  onRestrictedClick,
+  onClose,
+}: Props) {
   const [openKey, setOpenKey] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -38,26 +44,26 @@ export default function MobileMenu({ items = [], user, onClose }: Props) {
 
         {/* Nav */}
         <div className="flex-1 overflow-y-auto px-2 py-4">
-          {items.map((item, index) =>
-            item.type === "link" ? (
-              <Link
-                key={item.path ?? index}
-                to={item.path!}
-                onClick={onClose}
-                className="block px-5 py-4 text-base font-medium rounded-xl hover:bg-slate-100"
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <div key={item.key ?? index} className="mb-2">
+          {items.map((item, index) => {
+            if (item.type === "link") {
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={onClose}
+                  className="block px-5 py-4 text-base font-medium rounded-xl hover:bg-slate-100"
+                >
+                  {item.label}
+                </Link>
+              );
+            }
+
+            return (
+              <div key={item.key} className="mb-2">
                 <button
                   type="button"
                   onClick={() =>
-                    setOpenKey(
-                      openKey === (item.key ?? String(index))
-                        ? null
-                        : (item.key ?? String(index)),
-                    )
+                    setOpenKey(openKey === item.key ? null : item.key)
                   }
                   className="w-full flex items-center justify-between px-5 py-4 text-base font-medium rounded-xl hover:bg-slate-100"
                 >
@@ -65,35 +71,34 @@ export default function MobileMenu({ items = [], user, onClose }: Props) {
                   <RiArrowDownSLine
                     size={22}
                     className={`transition-transform ${
-                      openKey === (item.key ?? String(index))
-                        ? "rotate-180"
-                        : ""
+                      openKey === item.key ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
-                {openKey === (item.key ?? String(index)) &&
-                  item.items &&
-                  item.items.length > 0 && (
-                    <div className="ml-6 mt-1 space-y-1">
-                      {item.items.map((sub) => (
-                        <Link
-                          key={sub.path}
-                          to={sub.path}
-                          onClick={onClose}
-                          className="flex items-center justify-between px-4 py-3 text-sm rounded-lg hover:bg-slate-100"
-                        >
-                          {sub.label}
-                          {sub.restricted && !user && (
-                            <RiShieldStarLine className="text-amber-500" />
-                          )}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+                {openKey === item.key && item.items.length > 0 && (
+                  <div className="ml-6 mt-1 space-y-1">
+                    {item.items.map((sub) => (
+                      <Link
+                        key={sub.path}
+                        to={sub.path}
+                        onClick={(e) => {
+                          onRestrictedClick(e, sub.restricted);
+                          onClose();
+                        }}
+                        className="flex items-center justify-between px-4 py-3 text-sm rounded-lg hover:bg-slate-100"
+                      >
+                        {sub.label}
+                        {sub.restricted && !user && (
+                          <RiShieldStarLine className="text-amber-500" />
+                        )}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
-            ),
-          )}
+            );
+          })}
         </div>
 
         {/* Footer */}
@@ -121,34 +126,15 @@ export default function MobileMenu({ items = [], user, onClose }: Props) {
               </button>
             </div>
           ) : (
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold">
-                  {user.firstName?.[0]}
-                  {user.lastName?.[0]}
-                </div>
-                <div>
-                  <div className="font-semibold">
-                    {user.firstName} {user.lastName}
-                  </div>
-                  <div className="text-xs text-slate-500">
-                    {user.subscriptionType === "premium"
-                      ? "Premium Plan"
-                      : "Free Trial"}
-                  </div>
-                </div>
-              </div>
-
-              <button
-                onClick={() => {
-                  onClose();
-                  navigate("/logout");
-                }}
-                className="w-full py-3 rounded-xl bg-red-50 text-red-600 font-semibold"
-              >
-                Sign Out
-              </button>
-            </div>
+            <button
+              onClick={() => {
+                onClose();
+                navigate("/logout");
+              }}
+              className="w-full py-3 rounded-xl bg-red-50 text-red-600 font-semibold"
+            >
+              Sign Out
+            </button>
           )}
         </div>
       </div>

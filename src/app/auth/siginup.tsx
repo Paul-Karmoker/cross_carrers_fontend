@@ -1,10 +1,18 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { FiUser, FiMail, FiLock, FiArrowRight, FiTag } from "react-icons/fi";
+import {
+  FiUser,
+  FiMail,
+  FiLock,
+  FiArrowRight,
+  FiTag,
+  FiEye,
+  FiEyeOff,
+} from "react-icons/fi";
 
 import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
@@ -30,7 +38,9 @@ export default function Signup() {
     referralCode: "",
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // UI States
+  const [showPassword, setShowPassword] = useState(false);
+  const [focusedInput, setFocusedInput] = useState<string | null>(null);
 
   /* -------------------- HANDLERS -------------------- */
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -40,146 +50,264 @@ export default function Signup() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
     try {
       await signup(formData).unwrap();
 
-      // store email for OTP verification
       localStorage.setItem("verify_email", formData.email);
-
       toast.success("OTP sent to your email");
       navigate("/verify-otp");
     } catch (err: any) {
-      toast.error(err?.data?.message || "Signup failed");
-    } finally {
-      setIsSubmitting(false);
+      let message = "Signup failed";
+
+      // ✅ RTK Query error handling (JSON)
+      if (err?.data?.message) {
+        message = err.data.message;
+      }
+      // ✅ HTML / text error handling
+      else if (typeof err?.data === "string") {
+        if (err.data.includes("Email already in use")) {
+          message = "This email is already in use";
+        }
+      }
+      // ✅ Fallback (network / unknown)
+      else if (err?.error) {
+        message = err.error;
+      }
+
+      toast.error(message);
     }
   };
 
-  /* ======================== UI ======================== */
   return (
-    <>
+    <div className="flex flex-col min-h-screen font-sans bg-slate-50 text-slate-900">
       <Navbar />
 
-      <div className="min-h-screen flex items-center justify-center p-4 md:p-8">
+      <main className="flex-grow relative flex items-center justify-center p-4 py-20 lg:py-28 overflow-hidden">
+        {/* Modern Grid Background Pattern */}
+        <div className="absolute inset-0 z-0 opacity-[0.4] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_800px_at_50%_200px,#C7D2FE,transparent)] opacity-20"></div>
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="w-full max-w-2xl bg-white border border-indigo-500 rounded-xl"
+          transition={{ duration: 0.6, type: "spring", stiffness: 50 }}
+          className="w-full max-w-2xl z-10"
         >
-          <div className="p-8 max-w-md mx-auto">
-            <h1 className="text-2xl font-bold text-center mb-2">
-              Create Your Account
-            </h1>
+          {/* Main Card */}
+          <div className="bg-white rounded-xl  border-[1px] border-indigo-500 overflow-hidden">
+            <div className="p-8 md:p-10">
+              {/* Header */}
+              <div className="text-center mb-8">
+                <Link
+                  to="/"
+                  className="inline-block mb-4 hover:opacity-80 transition-opacity"
+                >
+                  <img
+                    src="https://i.ibb.co/Y75Y5NSb/banner.gif"
+                    alt="Cross Careers"
+                    className="h-10 object-contain mx-auto"
+                  />
+                </Link>
+                <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
+                  Create Account
+                </h1>
+                <p className="text-slate-500 text-sm mt-2">
+                  Join us today! Enter your details below.
+                </p>
+              </div>
 
-            <p className="text-center text-gray-500 mb-6">
-              Sign up to continue
-            </p>
-
-            <form onSubmit={handleSubmit} className="space-y-5">
-              {/* Name */}
-              <div className="grid grid-cols-2 gap-4">
-                {(["firstName", "lastName"] as const).map((field) => (
-                  <div key={field}>
-                    <label className="text-sm font-medium">
-                      {field === "firstName" ? "First Name" : "Last Name"}
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Name Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {/* First Name */}
+                  <div className="space-y-1">
+                    <label className="text-sm font-semibold text-slate-700 ml-1">
+                      First Name
                     </label>
-                    <div className="relative">
-                      <FiUser className="absolute left-3 top-3 text-gray-400" />
+                    <div
+                      className={`relative group transition-all duration-300 rounded-xl border ${focusedInput === "firstName" ? "border-indigo-500 shadow-[0_0_0_4px_rgba(99,102,241,0.1)]" : "border-slate-200 bg-slate-50"}`}
+                    >
+                      <div
+                        className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedInput === "firstName" ? "text-indigo-600" : "text-slate-400"}`}
+                      >
+                        <FiUser size={20} />
+                      </div>
                       <input
-                        name={field}
+                        name="firstName"
                         required
-                        value={formData[field]}
+                        value={formData.firstName}
                         onChange={handleChange}
-                        className="w-full pl-10 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                        onFocus={() => setFocusedInput("firstName")}
+                        onBlur={() => setFocusedInput(null)}
+                        className="w-full pl-11 pr-4 py-3 bg-transparent rounded-xl outline-none text-slate-900 placeholder:text-slate-400 transition-all font-medium"
+                        placeholder="John"
                       />
                     </div>
                   </div>
-                ))}
-              </div>
 
-              {/* Email */}
-              <div>
-                <label className="text-sm font-medium">Email</label>
-                <div className="relative">
-                  <FiMail className="absolute left-3 top-3 text-gray-400" />
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full pl-10 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500"
-                  />
+                  {/* Last Name */}
+                  <div className="space-y-1">
+                    <label className="text-sm font-semibold text-slate-700 ml-1">
+                      Last Name
+                    </label>
+                    <div
+                      className={`relative group transition-all duration-300 rounded-xl border ${focusedInput === "lastName" ? "border-indigo-500 shadow-[0_0_0_4px_rgba(99,102,241,0.1)]" : "border-slate-200 bg-slate-50"}`}
+                    >
+                      <div
+                        className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedInput === "lastName" ? "text-indigo-600" : "text-slate-400"}`}
+                      >
+                        <FiUser size={20} />
+                      </div>
+                      <input
+                        name="lastName"
+                        required
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        onFocus={() => setFocusedInput("lastName")}
+                        onBlur={() => setFocusedInput(null)}
+                        className="w-full pl-11 pr-4 py-3 bg-transparent rounded-xl outline-none text-slate-900 placeholder:text-slate-400 transition-all font-medium"
+                        placeholder="Doe"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              {/* Password */}
-              <div>
-                <label className="text-sm font-medium">Password</label>
-                <div className="relative">
-                  <FiLock className="absolute left-3 top-3 text-gray-400" />
-                  <input
-                    type="password"
-                    name="password"
-                    required
-                    value={formData.password}
-                    onChange={handleChange}
-                    className="w-full pl-10 py-2.5 border rounded-lg focus:ring-2 focus:ring-indigo-500"
-                  />
+                {/* Email */}
+                <div className="space-y-1">
+                  <label className="text-sm font-semibold text-slate-700 ml-1">
+                    Email Address
+                  </label>
+                  <div
+                    className={`relative group transition-all duration-300 rounded-xl border ${focusedInput === "email" ? "border-indigo-500 shadow-[0_0_0_4px_rgba(99,102,241,0.1)]" : "border-slate-200 bg-slate-50"}`}
+                  >
+                    <div
+                      className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedInput === "email" ? "text-indigo-600" : "text-slate-400"}`}
+                    >
+                      <FiMail size={20} />
+                    </div>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      onFocus={() => setFocusedInput("email")}
+                      onBlur={() => setFocusedInput(null)}
+                      className="w-full pl-11 pr-4 py-3 bg-transparent rounded-xl outline-none text-slate-900 placeholder:text-slate-400 transition-all font-medium"
+                      placeholder="john@example.com"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              {/* Referral Code */}
-              <div>
-                <label className="text-sm font-medium">
-                  Referral Code (optional)
-                </label>
-                <div className="relative">
-                  <FiTag className="absolute left-3 top-3 text-gray-400" />
-                  <input
-                    name="referralCode"
-                    value={formData.referralCode}
-                    onChange={handleChange}
-                    className="w-full pl-10 py-2.5 border rounded-lg"
-                  />
+                {/* Password */}
+                <div className="space-y-1">
+                  <label className="text-sm font-semibold text-slate-700 ml-1">
+                    Password
+                  </label>
+                  <div
+                    className={`relative group transition-all duration-300 rounded-xl border ${focusedInput === "password" ? "border-indigo-500 shadow-[0_0_0_4px_rgba(99,102,241,0.1)]" : "border-slate-200 bg-slate-50"}`}
+                  >
+                    <div
+                      className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedInput === "password" ? "text-indigo-600" : "text-slate-400"}`}
+                    >
+                      <FiLock size={20} />
+                    </div>
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      required
+                      value={formData.password}
+                      onChange={handleChange}
+                      onFocus={() => setFocusedInput("password")}
+                      onBlur={() => setFocusedInput(null)}
+                      className="w-full pl-11 pr-12 py-3 bg-transparent rounded-xl outline-none text-slate-900 placeholder:text-slate-400 transition-all font-medium"
+                      placeholder="••••••••"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-indigo-600 transition-colors focus:outline-none"
+                    >
+                      {showPassword ? (
+                        <FiEyeOff size={20} />
+                      ) : (
+                        <FiEye size={20} />
+                      )}
+                    </button>
+                  </div>
                 </div>
-              </div>
 
-              {error && (
-                <p className="text-sm text-red-500 text-center">
-                  {(error as any)?.data?.message ||
-                    "Something went wrong"}
-                </p>
-              )}
+                {/* Referral Code */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-semibold text-slate-700 ml-1">
+                    Referral Code{" "}
+                    <span className="text-slate-400 font-normal">
+                      (Optional)
+                    </span>
+                  </label>
+                  <div
+                    className={`relative group transition-all duration-300 rounded-xl border ${focusedInput === "referralCode" ? "border-indigo-500 shadow-[0_0_0_4px_rgba(99,102,241,0.1)]" : "border-slate-200 bg-slate-50"}`}
+                  >
+                    <div
+                      className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedInput === "referralCode" ? "text-indigo-600" : "text-slate-400"}`}
+                    >
+                      <FiTag size={20} />
+                    </div>
+                    <input
+                      name="referralCode"
+                      value={formData.referralCode}
+                      onChange={handleChange}
+                      onFocus={() => setFocusedInput("referralCode")}
+                      onBlur={() => setFocusedInput(null)}
+                      className="w-full pl-11 pr-4 py-3 bg-transparent rounded-xl outline-none text-slate-900 placeholder:text-slate-400 transition-all font-medium"
+                      placeholder="REF123"
+                    />
+                  </div>
+                </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting || isLoading}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg flex justify-center items-center"
-              >
-                {isSubmitting ? "Processing..." : "Continue"}
-                <FiArrowRight className="ml-2" />
-              </button>
+                {/* Submit Button */}
+                <div className="pt-2">
+                  <motion.button
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.98 }}
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full bg-indigo-600 text-white rounded-xl font-bold py-3.5 shadow-lg shadow-indigo-200 hover:shadow-indigo-300 hover:bg-indigo-700 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  >
+                    {isLoading ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <span>Creating Account...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Continue</span>
+                        <FiArrowRight size={18} />
+                      </>
+                    )}
+                  </motion.button>
+                </div>
+              </form>
+            </div>
 
-              <p className="text-center text-sm">
+            {/* Footer Section of Card */}
+            <div className="bg-slate-50 p-6 border-t border-slate-100 text-center">
+              <p className="text-slate-600 text-sm">
                 Already have an account?{" "}
-                <Link to="/signin" className="text-indigo-600 font-medium">
+                <Link
+                  to="/signin"
+                  className="text-indigo-600 hover:text-indigo-800 font-bold transition-colors hover:underline"
+                >
                   Sign in
                 </Link>
               </p>
-
-              <p className="text-center text-xs text-indigo-600">
-                A 6-digit OTP will be sent to verify your email
-              </p>
-            </form>
+            </div>
           </div>
         </motion.div>
-      </div>
+      </main>
 
       <Footer />
-    </>
+    </div>
   );
 }

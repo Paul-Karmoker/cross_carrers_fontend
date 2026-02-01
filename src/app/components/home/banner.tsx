@@ -14,7 +14,7 @@ const Banner: FC = () => {
     {
       id: 0,
       image: "https://i.ibb.co/HkMRZnb/6.jpg",
-      alt: "Advertisement 2",
+      alt: "Advertisement 6",
     },
     {
       id: 1,
@@ -34,12 +34,12 @@ const Banner: FC = () => {
     {
       id: 4,
       image: "https://i.ibb.co/ZpHcHMXM/4.jpg",
-      alt: "Advertisement 1",
+      alt: "Advertisement 4",
     },
     {
       id: 5,
       image: "https://i.ibb.co.com/FkL4xXDX/5.jpg",
-      alt: "Advertisement 1",
+      alt: "Advertisement 5",
     },
   ];
 
@@ -72,8 +72,8 @@ const Banner: FC = () => {
           <br />
           <p className="text-2xl font-bold font-serif text-foreground-600 text-center -mt-2">
             &quot;
-            <span className="text-green-700">Empowering </span>
-            Future Leaders in the Development &amp; Humanitarian Sector.
+            <span className="text-green-700">AI-Powered Career Hub: </span>
+            Jobs, Resumes, Interviews &amp; Productivity Tools.
             &quot;
           </p>
         </div>

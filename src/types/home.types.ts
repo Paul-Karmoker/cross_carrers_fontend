@@ -41,15 +41,29 @@ export interface SubNavItem {
   hidden?: boolean;
 }
 
-export interface NavItem {
+export interface SubNavItem {
   label: string;
-  path?: string;
-  key?: string;
-  type: "link" | "dropdown";
-  items?: SubNavItem[];
+  path: string;
   restricted?: boolean;
   hidden?: boolean;
 }
+
+export type NavItem =
+  | {
+      type: "link";
+      label: string;
+      path: string;
+      restricted?: boolean;
+      hidden?: boolean;
+    }
+  | {
+      type: "dropdown";
+      label: string;
+      key: string;
+      items: SubNavItem[]; // ✅ REQUIRED now
+      hidden?: boolean;
+    };
+
 export interface User {
   id: string;
   email: string;
