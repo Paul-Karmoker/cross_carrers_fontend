@@ -7,7 +7,7 @@ import { useState } from "react";
 interface Props {
   items?: NavItem[];
   user?: User;
-  onRestrictedClick: (e: React.MouseEvent, path?: string) => void;
+  onRestrictedClick: (e: React.MouseEvent, restricted?: boolean) => void;
 }
 
 export default function DesktopNav({
@@ -19,20 +19,26 @@ export default function DesktopNav({
 
   return (
     <div className="hidden lg:flex items-center gap-10">
-      {items.map((item, index) =>
-        item.type === "link" ? (
-          <Link
-            key={item.path ?? index}
-            to={item.path!}
-            className="text-sm font-bold uppercase tracking-wider text-slate-700 hover:text-indigo-600"
-          >
-            {item.label}
-          </Link>
-        ) : (
+      {items.map((item, index) => {
+        // ───────── LINK ─────────
+        if (item.type === "link") {
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              className="text-sm font-bold uppercase tracking-wider text-slate-700 hover:text-indigo-600"
+            >
+              {item.label}
+            </Link>
+          );
+        }
+
+        // ───────── DROPDOWN ─────────
+        return (
           <div
-            key={item.key ?? index}
+            key={item.key}
             className="relative"
-            onMouseEnter={() => setActive(item.key ?? String(index))}
+            onMouseEnter={() => setActive(item.key)}
             onMouseLeave={() => setActive(null)}
           >
             <button
@@ -44,37 +50,35 @@ export default function DesktopNav({
             </button>
 
             <AnimatePresence>
-              {active === (item.key ?? String(index)) &&
-                item.items &&
-                item.items.length > 0 && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 6 }}
-                    className="absolute left-0 top-full mt-2 bg-white border rounded-xl shadow-xl min-w-[220px] z-50"
-                  >
-                    {item.items.map((sub) => (
-                      <Link
-                        key={sub.path}
-                        to={sub.path!}
-                        onClick={(e) => {
-                          onRestrictedClick(e, sub.path);
-                          setActive(null); // ✅ close dropdown
-                        }}
-                        className="flex items-center justify-between px-5 py-3 text-sm text-slate-700 hover:bg-indigo-50"
-                      >
-                        {sub.label}
-                        {sub.restricted && !user && (
-                          <RiShieldStarLine className="text-amber-500" />
-                        )}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
+              {active === item.key && item.items.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 6 }}
+                  className="absolute left-0 top-full mt-2 bg-white border rounded-xl shadow-xl min-w-[220px] z-50"
+                >
+                  {item.items.map((sub) => (
+                    <Link
+                      key={sub.path}
+                      to={sub.path}
+                      onClick={(e) => {
+                        onRestrictedClick(e, sub.restricted);
+                        setActive(null);
+                      }}
+                      className="flex items-center justify-between px-5 py-3 text-sm text-slate-700 hover:bg-indigo-50"
+                    >
+                      {sub.label}
+                      {sub.restricted && !user && (
+                        <RiShieldStarLine className="text-amber-500" />
+                      )}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
-        ),
-      )}
+        );
+      })}
     </div>
   );
 }

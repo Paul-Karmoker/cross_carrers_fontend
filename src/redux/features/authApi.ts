@@ -16,6 +16,8 @@ export interface AuthResponse {
     subscriptionPlan?: string;
     subscriptionType?: "freeTrial"| "premium";
     subscriptionStatus?: string;
+    subscriptionExpiresAt?: string;
+    freeTrialExpiresAt?: string;
     createdAt?: string;
     updatedAt?: string;
   };

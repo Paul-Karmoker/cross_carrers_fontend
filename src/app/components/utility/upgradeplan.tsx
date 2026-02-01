@@ -23,7 +23,7 @@ const plans: readonly Plan[] = [
   {
     id: "monthly",
     name: "Monthly",
-    price: 150,
+    price: 89,
     duration: "/mo",
     features: [
       "Everything in Trial",
@@ -35,7 +35,7 @@ const plans: readonly Plan[] = [
   {
     id: "quarterly",
     name: "Quarterly",
-    price: 260,
+    price: 199,
     duration: "/3 months",
     features: [
       "Everything in Monthly",
@@ -47,7 +47,7 @@ const plans: readonly Plan[] = [
   {
     id: "semiannual",
     name: "Semiannual",
-    price: 450,
+    price: 399,
     duration: "/6 months",
     features: [
       "Everything in Quarterly",
@@ -59,7 +59,7 @@ const plans: readonly Plan[] = [
   {
     id: "yearly",
     name: "Yearly",
-    price: 520,
+    price: 599,
     duration: "/year",
     recommended: true,
     features: [

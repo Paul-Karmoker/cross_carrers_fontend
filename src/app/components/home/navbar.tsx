@@ -11,21 +11,42 @@ import { RiMenu3Line } from "react-icons/ri";
 
 export default function Navbar() {
   const { data } = useGetProfileQuery();
-
-  // as requested
   const user = data?.user as any;
 
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const isPremium =
-    user?.subscriptionType === "premium" &&
-    user?.subscriptionStatus === "active";
+  const now = new Date();
 
-  const handleRestrictedClick = (e: React.MouseEvent, path?: string) => {
-    if (!user && path) {
+  // ✅ Access check (Premium OR Active Trial)
+  const hasAccess =
+    (user?.subscriptionType === "premium" &&
+      user?.subscriptionStatus === "active" &&
+      user?.subscriptionExpiresAt &&
+      new Date(user.subscriptionExpiresAt) > now) ||
+    (user?.subscriptionType === "freeTrial" &&
+      user?.freeTrialExpiresAt &&
+      new Date(user.freeTrialExpiresAt) > now);
+
+  // ✅ FINAL restriction handler
+  const handleRestrictedClick = (
+    e: React.MouseEvent,
+    restricted?: boolean
+  ) => {
+    // 🔓 Public item → allow
+    if (!restricted) return;
+
+    // 🔐 Restricted + not logged in
+    if (!user) {
       e.preventDefault();
       navigate("/signin");
+      return;
+    }
+
+    // 🔒 Logged in but no access
+    if (!hasAccess) {
+      e.preventDefault();
+      navigate("/seepricing");
     }
   };
 
@@ -34,9 +55,8 @@ export default function Navbar() {
       {/* ───────── NAVBAR ───────── */}
       <nav className="fixed top-0 inset-x-0 bg-white z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          {/* LEFT: Mobile menu + Logo */}
+          {/* LEFT */}
           <div className="flex items-center gap-3">
-            {/* ☰ Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(true)}
               className="lg:hidden p-2 -ml-2 text-slate-800"
@@ -45,11 +65,7 @@ export default function Navbar() {
               <RiMenu3Line size={26} />
             </button>
 
-            {/* Logo */}
-            <Link
-              to="/"
-              className="block transition-transform hover:scale-[1.02] active:scale-95"
-            >
+            <Link to="/">
               <img
                 src="https://i.ibb.co/Y75Y5NSb/banner.gif"
                 alt="Cross Careers"
@@ -58,16 +74,15 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* CENTER: Desktop Nav (hidden on mobile) */}
+          {/* DESKTOP NAV */}
           <DesktopNav
-            items={NAV_CONFIG ?? []}
+            items={NAV_CONFIG}
             user={user}
             onRestrictedClick={handleRestrictedClick}
           />
 
-          {/* RIGHT: Actions */}
+          {/* RIGHT */}
           <div className="flex items-center gap-4">
-            {/* ── Guest ── */}
             {!user && (
               <>
                 <button
@@ -84,19 +99,17 @@ export default function Navbar() {
                   Sign up for free
                 </button>
 
-                {/* ❓ only guest */}
                 <HelpMenu />
               </>
             )}
 
-            {/* ── Logged in ── */}
             {user && (
               <>
-                {!isPremium && <GetPlusButton />}
+                {!hasAccess && <GetPlusButton />}
 
                 <AvatarWithPlan
                   user={user}
-                  isPremium={isPremium}
+                  isPremium={hasAccess}
                   remainingTime={getRemainingTime(user)}
                 />
               </>
@@ -105,11 +118,12 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ───────── MOBILE MENU ───────── */}
+      {/* MOBILE MENU */}
       {mobileOpen && (
         <MobileMenu
-          items={NAV_CONFIG ?? []}
+          items={NAV_CONFIG}
           user={user}
+          onRestrictedClick={handleRestrictedClick}
           onClose={() => setMobileOpen(false)}
         />
       )}

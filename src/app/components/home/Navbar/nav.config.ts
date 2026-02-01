@@ -11,8 +11,10 @@ export const NAV_CONFIG: NavItem[] = [
       { label: "BDjobs Sites", path: "/bdjobs" },
       { label: "Int. Jobs Sites", path: "/intjobs" },
       { label: "NGO Jobs", path: "/ngo" },
-      { label: "INGOT Jobs", path: "/ingo" },
-      { label: "Embassy Jobs", path: "/emb" },
+      { label: "INGO Jobs", path: "/ingo" },
+      { label: "Freelancer Jobs", path: "/freelance" },
+      { label: "Remote Jobs", path: "/remote-jobs" },
+      { label: "Embassy Jobs", path: "/emb", restricted: true },
       { label: "Donar Jobs", path: "/donor", restricted: true },
       { label: "UN Jobs", path: "/un", restricted: true },
     ],
@@ -23,7 +25,7 @@ export const NAV_CONFIG: NavItem[] = [
     type: "dropdown",
     items: [
       { label: "Resume Maker", path: "/resume", restricted: true },
-      { label: "Cover Letter Maker", path: "/coverhome" },
+      { label: "Cover Letter Maker", path: "/coverhome", restricted: true },
       { label: "Match & Insights", path: "/matchhome", restricted: true },
     ],
   },
@@ -33,7 +35,7 @@ export const NAV_CONFIG: NavItem[] = [
     type: "dropdown",
     items: [
       { label: "Training Sites", path: "/trainings" },
-      { label: "Written Test", path: "/writtenTest" },
+      { label: "Written Test", path: "/writtenTest", restricted: true },
       {
         label: "Interview Practice",
         path: "/InterviewSimulator",

@@ -1,19 +1,12 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect, FormEvent } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FiMail, FiLock, FiArrowRight, FiEye, FiEyeOff } from "react-icons/fi";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
 
-import {
-  useLoginMutation,
-  useGetGoogleAuthUrlQuery,
-  useGetFacebookAuthUrlQuery,
-  useGetLinkedInAuthUrlQuery,
-} from "../../redux/features/authApi";
+import { useLoginMutation } from "../../redux/features/authApi";
 
 interface AuthError {
   data?: {
@@ -25,11 +18,10 @@ export default function LoginPage() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [focusedInput, setFocusedInput] = useState<string | null>(null);
 
+  // Only keeping the standard Login Mutation
   const [login, { isLoading: isSubmitting, error }] = useLoginMutation();
-  const { data: googleAuthUrl } = useGetGoogleAuthUrlQuery();
-  const { data: facebookAuthUrl } = useGetFacebookAuthUrlQuery();
-  const { data: linkedInAuthUrl } = useGetLinkedInAuthUrlQuery();
 
   const navigate = useNavigate();
 
@@ -39,10 +31,6 @@ export default function LoginPage() {
       toast.error(authErr.data?.message || "Login failed. Please try again.");
     }
   }, [error]);
-
-  const handleSocialLogin = (url: string | undefined, fallback: string) => {
-    window.location.href = url || fallback;
-  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -56,164 +44,149 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen font-sans selection:bg-indigo-100 selection:text-indigo-700">
+    <div className="flex flex-col min-h-screen font-sans bg-slate-50 text-slate-900">
       <Navbar />
 
-      <main className="flex-grow  mt-8 flex items-center justify-center p-4 py-20 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-slate-50 via-white to-indigo-50/30">
+      <main className="flex-grow relative flex items-center justify-center p-4 py-20 lg:py-28 overflow-hidden">
+        {/* Modern Grid Background Pattern */}
+        <div className="absolute inset-0 z-0 opacity-[0.4] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_800px_at_50%_200px,#C7D2FE,transparent)] opacity-20"></div>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="w-full max-w-[460px]"
+          transition={{ duration: 0.6, type: "spring", stiffness: 50 }}
+          className="w-full max-w-[440px] z-10"
         >
           {/* Main Card */}
-          <div className="relative group bg-white/70 backdrop-blur-2xl rounded-xl  border border-indigo-300 hover:border-indigo-300 transition-all duration-300">
-            {/* Subtle Top Glow */}
-            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent" />
-
-            <div className="p-8 md:p-12">
-              <header className="text-center mb-10">
-                <h1 className="text-3xl font-black text-slate-900 tracking-tight mb-2">
-                  Sign In
+          <div className="bg-white border border-indigo-500 rounded-xl  overflow-hidden">
+            <div className="p-8 md:p-10">
+              {/* Header */}
+              <div className="text-center mb-10">
+                <Link
+                  to="/"
+                  className="inline-block mb-6 hover:opacity-80 transition-opacity"
+                >
+                  <img
+                    src="https://i.ibb.co/Y75Y5NSb/banner.gif"
+                    alt="Cross Careers"
+                    className="h-12 object-contain mx-auto"
+                  />
+                </Link>
+                <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
+                  Welcome back
                 </h1>
-                <p className="text-slate-500 flex justify-center items-center gap-2 font-medium text-sm">
-                  <span>Welcome back to</span>
-                  <span className="text-indigo-600 font-bold">
-                    <Link to="/" className="block">
-                      <img
-                        src="https://i.ibb.co/Y75Y5NSb/banner.gif"
-                        alt="Cross Careers"
-                        className="h-8 md:h-8 object-contain"
-                      />
-                    </Link>
-                  </span>
+                <p className="text-slate-500 text-sm mt-2">
+                  Please enter your email and password to sign in.
                 </p>
-              </header>
+              </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="space-y-1">
-                  <label className="text-sm font-bold text-gray-700  tracking-wider ml-1">
+              {/* Form - No Divider or Social Buttons anymore */}
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Email Field */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-semibold text-slate-700 ml-1">
                     Email Address
                   </label>
-                  <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-600 transition-colors">
-                      <FiMail size={18} />
+                  <div
+                    className={`relative group transition-all duration-300 rounded-xl border ${focusedInput === "email" ? "border-indigo-500 shadow-[0_0_0_4px_rgba(99,102,241,0.1)]" : "border-slate-200 bg-slate-50"}`}
+                  >
+                    <div
+                      className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedInput === "email" ? "text-indigo-600" : "text-slate-400"}`}
+                    >
+                      <FiMail size={20} />
                     </div>
                     <input
                       type="email"
-                      className="w-full pl-11 pr-4 py-3 bg-slate-100/50 hover:bg-slate-100/80 focus:bg-white border-2 border-transparent focus:border-indigo-500/20 rounded-2xl outline-none transition-all duration-300 placeholder:text-slate-400"
+                      className="w-full pl-11 pr-4 py-3 bg-transparent rounded-xl outline-none text-slate-900 placeholder:text-slate-400 transition-all font-medium"
                       placeholder="e.g. james@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      onFocus={() => setFocusedInput("email")}
+                      onBlur={() => setFocusedInput(null)}
                       required
                     />
                   </div>
                 </div>
 
-                <div className="space-y-1">
+                {/* Password Field */}
+                <div className="space-y-1.5">
                   <div className="flex justify-between items-center ml-1">
-                    <label className="text-sm text-gray-700 font-bold  tracking-wider">
+                    <label className="text-sm font-semibold text-slate-700">
                       Password
                     </label>
                     <Link
                       to="/forgetPassword"
-                      className="text-xs font-bold text-indigo-600 hover:text-indigo-500"
+                      className="text-xs font-semibold text-indigo-600 hover:text-indigo-800 hover:underline"
                     >
-                      Forgot?
+                      Forgot password?
                     </Link>
                   </div>
-                  <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-600 transition-colors">
-                      <FiLock size={18} />
+                  <div
+                    className={`relative group transition-all duration-300 rounded-xl border ${focusedInput === "password" ? "border-indigo-500 shadow-[0_0_0_4px_rgba(99,102,241,0.1)]" : "border-slate-200 bg-slate-50"}`}
+                  >
+                    <div
+                      className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedInput === "password" ? "text-indigo-600" : "text-slate-400"}`}
+                    >
+                      <FiLock size={20} />
                     </div>
                     <input
                       type={showPassword ? "text" : "password"}
-                      className="w-full pl-11 pr-12 py-3 bg-slate-100/50 hover:bg-slate-100/80 focus:bg-white border-2 border-transparent focus:border-indigo-500/20 rounded-2xl outline-none transition-all duration-300 placeholder:text-slate-400"
+                      className="w-full pl-11 pr-12 py-3 bg-transparent rounded-xl outline-none text-slate-900 placeholder:text-slate-400 transition-all font-medium"
                       placeholder="••••••••"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
+                      onFocus={() => setFocusedInput("password")}
+                      onBlur={() => setFocusedInput(null)}
                       required
                     />
-                    {/* Toggle Eye Button */}
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-indigo-600 transition-colors focus:outline-none"
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-indigo-600 transition-colors focus:outline-none"
                     >
                       {showPassword ? (
-                        <FiEyeOff size={18} />
+                        <FiEyeOff size={20} />
                       ) : (
-                        <FiEye size={18} />
+                        <FiEye size={20} />
                       )}
                     </button>
                   </div>
                 </div>
 
-                <div className="mt-5">
+                {/* Submit Button */}
+                <div className="pt-4">
                   <motion.button
+                    whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full relative overflow-hidden bg-indigo-600 text-white text-sm  rounded-full hover:bg-indigo-700 font-bold py-3  shadow-xl shadow-indigo-100 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full bg-indigo-600 text-white rounded-xl font-bold py-3.5 shadow-lg shadow-indigo-200 hover:shadow-indigo-300 hover:bg-indigo-700 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
-                    <div className="relative z-10 flex items-center justify-center gap-2">
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          <span>Verifying...</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>Continue</span>
-                          <FiArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
-                        </>
-                      )}
-                    </div>
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <span>Verifying...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Sign In</span>
+                        <FiArrowRight size={18} />
+                      </>
+                    )}
                   </motion.button>
-                </div>
-
-                <div className="relative py-2">
-                  <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-slate-100"></div>
-                  </div>
-                  <div className="relative flex justify-center text-[10px] uppercase tracking-widest font-black text-slate-400">
-                    <span className="bg-white px-4">Instant Access</span>
-                  </div>
-                </div>
-
-                {/* Social Logins */}
-                <div className="grid grid-cols-3 gap-3">
-                  <SocialButton
-                    icon={<FcGoogle size={20} />}
-                    label="Google"
-                    onClick={() => handleSocialLogin(googleAuthUrl?.url, "...")}
-                  />
-                  <SocialButton
-                    icon={<FaFacebook className="text-[#1877F2]" size={20} />}
-                    label="Facebook"
-                    onClick={() =>
-                      handleSocialLogin(facebookAuthUrl?.url, "...")
-                    }
-                  />
-                  <SocialButton
-                    icon={<FaLinkedin className="text-[#0A66C2]" size={20} />}
-                    label="LinkedIn"
-                    onClick={() =>
-                      handleSocialLogin(linkedInAuthUrl?.url, "...")
-                    }
-                  />
                 </div>
               </form>
             </div>
 
-            <div className="bg-slate-50 p-6 border-t rounded-b-xl border-slate-100 text-center">
-              <p className="text-slate-500 font-semibold text-sm">
+            {/* Card Footer */}
+            <div className="bg-slate-50 p-6 border-t border-slate-100 text-center">
+              <p className="text-slate-600 text-sm">
                 Don't have an account?{" "}
                 <Link
                   to="/signup"
-                  className="text-indigo-600 hover:text-indigo-700 font-bold transition-colors"
+                  className="text-indigo-600 hover:text-indigo-800 font-bold transition-colors hover:underline"
                 >
-                  create account
+                  Create account
                 </Link>
               </p>
             </div>
@@ -223,28 +196,5 @@ export default function LoginPage() {
 
       <Footer />
     </div>
-  );
-}
-
-function SocialButton({
-  icon,
-  onClick,
-  label,
-}: {
-  icon: React.ReactNode;
-  onClick: () => void;
-  label: string;
-}) {
-  return (
-    <motion.button
-      whileHover={{ y: -2 }}
-      whileTap={{ scale: 0.95 }}
-      type="button"
-      onClick={onClick}
-      aria-label={`Login with ${label}`}
-      className="flex items-center justify-center py-3 bg-white border border-slate-200 rounded-xl hover:border-indigo-200 hover:shadow-sm transition-all duration-200"
-    >
-      {icon}
-    </motion.button>
   );
 }

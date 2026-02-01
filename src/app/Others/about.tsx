@@ -53,7 +53,8 @@ const About: FC = () => {
     'Government Liaison',
     'GBV & Child Protection',
     'DRR & Climate Change',
-    'Livelihood & Agriculture'
+    'Livelihood & Agriculture',
+    'Remote and Freelance Jobs'
   ];
 
   const services: Omit<ServiceItemProps, 'number'>[] = [
@@ -97,10 +98,10 @@ const About: FC = () => {
           <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-100 p-10 rounded-3xl shadow-xl shadow-gray-100/50 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100/50 rounded-full -mr-16 -mt-16 blur-3xl"></div>
             <p className="text-xl md:text-2xl leading-relaxed text-gray-700 italic relative z-10">
-              &quot;Empowering Future Leaders in the Development & Humanitarian Sector&quot; 
+              &quot;AI-Powered Career Hub: Jobs, Resumes, Interviews & Productivity Tools.&quot; 
               <span className="block mt-4 not-italic font-normal text-gray-600 text-lg">
                 — With this vision, <span className="font-bold text-blue-600">Cross Careers</span> emerges as a dynamic 
-                social enterprise committed to equipping young professionals with the skills, knowledge, 
+                Career Support Enterprise, committed to equipping professionals with the skills, knowledge, 
                 and practical experience needed to thrive.
               </span>
             </p>
