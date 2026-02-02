@@ -150,7 +150,7 @@ const PrivacyPolicy: FC = () => {
               <div className="flex flex-col sm:flex-row items-center justify-between bg-white border-2 border-dashed border-slate-200 p-6 rounded-2xl">
                 <p className="text-slate-500 font-medium mb-4 sm:mb-0">Submit formal data requests to:</p>
                 <a href="mailto:ceo.crosscareers@gmail.com" className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-600 transition-colors">
-                  ceo.crosscareers@gmail.com
+                  ceo@crosscareers.com
                 </a>
               </div>
             </div>
@@ -203,7 +203,7 @@ const PrivacyPolicy: FC = () => {
               <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
                 <p className="text-indigo-300 font-bold text-sm uppercase mb-2">Electronic Communications</p>
                 <a href="mailto:ed.youthindevelopment@gmail.com" className="text-xl font-bold hover:text-indigo-400 transition-colors break-all">
-                  ed.youthindevelopment@gmail.com
+                  info@crosscareers.com
                 </a>
               </div>
             </div>

@@ -197,7 +197,7 @@ const TermsAndConditions: FC = () => {
                       href="mailto:ceo.crosscareers@gmail.com" 
                       className="inline-block bg-white text-indigo-900 px-6 py-2 rounded-lg font-bold text-sm transition-transform hover:scale-105"
                     >
-                      ceo.crosscareers@gmail.com
+                      info@crosscareers.com
                     </a>
                   </div>
                 </address>

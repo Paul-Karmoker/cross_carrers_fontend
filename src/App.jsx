@@ -15,6 +15,9 @@ import Bdjobs from "./app/Others/bdjobs";
 import Intjobs from "./app/Others/intJobs";
 import Terms from "./app/Others/terms";
 import Privacy from "./app/Others/privacy";
+import Blogs from "./app/Others/blogs";
+import Legalpoliicy from "./app/Others/legalpoliicy";
+import Career from "./app/Others/career";
 
 import Signin from "./app/auth/siginin";
 import SignUp from "./app/auth/siginup";
@@ -60,6 +63,9 @@ const App = memo(() => {
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/remote-jobs" element={<RemoteJobs />} />
       <Route path="/freelance" element={<Freelancer />} />
+      <Route path="/blogs" element={<Blogs />} />
+      <Route path="/legalpoliicy" element={<Legalpoliicy />} />
+      <Route path="/career" element={<Career />} />
 
       <Route path="/signin" element={<Signin />} />
       <Route path="/signup" element={<SignUp />} />

@@ -35,12 +35,12 @@ const Footer: React.FC = () => {
     },
     {
       icon: <FaTwitter size={16} />,
-      url: "https://twitter.com/youthindev",
+      url: "https://x.com/crosscareer",
       label: "Twitter",
     },
     {
       icon: <FaInstagram size={16} />,
-      url: "https://instagram.com/youth_in_development",
+      url: "https://instagram.com",
       label: "Instagram",
     },
   ];
@@ -60,15 +60,15 @@ const Footer: React.FC = () => {
 
   const companyLinks: FooterLink[] = [
     { label: "About Us", path: "/about" },
-    { label: "Membership", path: "/membership" },
-    { label: "Earn Money", path: "/earn" },
+    { label: "Referral System", path: "/earn" },
+    { label: "Jobs & Procurement", path: "/career" },
     { label: "Contact", path: "/contact" },
   ];
 
   const legalLinks: FooterLink[] = [
     { label: "Terms & Conditions", path: "/terms" },
     { label: "Privacy Policy", path: "/privacy" },
-    { label: "Refund Policy", path: "/refund" },
+    { label: "Legal Poliicy", path: "/legalpoliicy" },
   ];
 
   return (
@@ -88,9 +88,7 @@ const Footer: React.FC = () => {
               />
             </Link>
             <p className="text-[15px] leading-relaxed max-w-sm text-slate-600 dark:text-slate-400">
-              Empowering the next generation of leaders in the development and
-              humanitarian sectors through innovative career solutions and
-              professional growth.
+              An AI-powered career hub providing job opportunities, resume building, interview preparation, and productivity tools to help job seekers build skills and succeed in a competitive market.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
