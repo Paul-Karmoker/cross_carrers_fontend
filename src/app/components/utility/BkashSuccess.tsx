@@ -8,13 +8,19 @@ const BkashSuccess = () => {
   const navigate = useNavigate();
   const [confirmBkashPayment] = useConfirmBkashPaymentMutation();
 
-  // 🔒 prevent double execution (React strict mode)
+  // prevent double execution (React strict mode)
   const hasConfirmed = useRef(false);
 
   useEffect(() => {
-    const paymentID = searchParams.get("paymentID");
+    const paymentID =
+      searchParams.get("paymentID") ||
+      searchParams.get("paymentId") ||
+      searchParams.get("trxID");
 
-    if (!paymentID) {
+    const plan = localStorage.getItem("selectedPlan");
+
+    // 🔴 HARD VALIDATION
+    if (!paymentID || !plan) {
       toast.error("Invalid payment callback");
       navigate("/upgrade-plan", { replace: true });
       return;
@@ -25,19 +31,22 @@ const BkashSuccess = () => {
 
     const confirmPayment = async () => {
       try {
-        await confirmBkashPayment({ paymentID }).unwrap();
+        await confirmBkashPayment({
+          paymentID,
+          plan: plan as any,
+        }).unwrap();
 
         toast.success("Subscription activated successfully 🎉");
         localStorage.removeItem("selectedPlan");
         navigate("/dashboard", { replace: true });
-      } catch (err) {
+      } catch (error) {
         toast.error("Payment confirmation failed");
         navigate("/upgrade-plan", { replace: true });
       }
     };
 
     confirmPayment();
-  }, [searchParams, confirmBkashPayment, navigate]);
+  }, []);
 
   return (
     <div className="h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-blue-100">
