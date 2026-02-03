@@ -68,7 +68,7 @@ export interface User {
   firstName: string;
   lastName: string;
   role: "user" | "admin";
-
+  referralCode: string;
   subscriptionType: "freeTrial" | "premium" | "none";
   subscriptionStatus: "pending" | "active" | "expired";
 
