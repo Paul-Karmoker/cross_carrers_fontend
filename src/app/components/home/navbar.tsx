@@ -8,6 +8,7 @@ import HelpMenu from "./Navbar/HelpMenu";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RiMenu3Line } from "react-icons/ri";
+import { hasFullAccess } from "@/utils/access";
 
 export default function Navbar() {
   const { data } = useGetProfileQuery();
@@ -16,35 +17,23 @@ export default function Navbar() {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const now = new Date();
-
-  // ✅ Access check (Premium OR Active Trial)
-  const hasAccess =
-    (user?.subscriptionType === "premium" &&
-      user?.subscriptionStatus === "active" &&
-      user?.subscriptionExpiresAt &&
-      new Date(user.subscriptionExpiresAt) > now) ||
-    (user?.subscriptionType === "freeTrial" &&
-      user?.freeTrialExpiresAt &&
-      new Date(user.freeTrialExpiresAt) > now);
+  // ✅ ONLY premium = full access
+  const isPremium = hasFullAccess(user);
 
   // ✅ FINAL restriction handler
-  const handleRestrictedClick = (
-    e: React.MouseEvent,
-    restricted?: boolean
-  ) => {
-    // 🔓 Public item → allow
+  const handleRestrictedClick = (e: React.MouseEvent, restricted?: boolean) => {
+    // 🔓 Public item
     if (!restricted) return;
 
-    // 🔐 Restricted + not logged in
+    // 🔐 Not logged in
     if (!user) {
       e.preventDefault();
       navigate("/signin");
       return;
     }
 
-    // 🔒 Logged in but no access
-    if (!hasAccess) {
+    // 🔒 Logged in but NOT premium (free trial / no plan)
+    if (!isPremium) {
       e.preventDefault();
       navigate("/seepricing");
     }
@@ -78,6 +67,7 @@ export default function Navbar() {
           <DesktopNav
             items={NAV_CONFIG}
             user={user}
+            isPremium={isPremium}
             onRestrictedClick={handleRestrictedClick}
           />
 
@@ -105,11 +95,12 @@ export default function Navbar() {
 
             {user && (
               <>
-                {!hasAccess && <GetPlusButton />}
+                {/* ⭐ Free trial / no plan */}
+                {!isPremium && <GetPlusButton />}
 
                 <AvatarWithPlan
                   user={user}
-                  isPremium={hasAccess}
+                  isPremium={isPremium}
                   remainingTime={getRemainingTime(user)}
                 />
               </>
@@ -123,6 +114,7 @@ export default function Navbar() {
         <MobileMenu
           items={NAV_CONFIG}
           user={user}
+          isPremium={isPremium}
           onRestrictedClick={handleRestrictedClick}
           onClose={() => setMobileOpen(false)}
         />

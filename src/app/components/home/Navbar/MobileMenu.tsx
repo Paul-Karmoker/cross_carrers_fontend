@@ -1,3 +1,4 @@
+// src/components/Navbar/MobileMenu.tsx
 import { NavItem, User } from "@/types";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -10,6 +11,7 @@ import {
 interface Props {
   items?: NavItem[];
   user?: User;
+  isPremium: boolean; // ✅ ADD THIS
   onRestrictedClick: (e: React.MouseEvent, restricted?: boolean) => void;
   onClose: () => void;
 }
@@ -17,6 +19,7 @@ interface Props {
 export default function MobileMenu({
   items = [],
   user,
+  isPremium,
   onRestrictedClick,
   onClose,
 }: Props) {
@@ -44,7 +47,8 @@ export default function MobileMenu({
 
         {/* Nav */}
         <div className="flex-1 overflow-y-auto px-2 py-4">
-          {items.map((item, index) => {
+          {items.map((item) => {
+            /* ───────── LINK ───────── */
             if (item.type === "link") {
               return (
                 <Link
@@ -58,6 +62,7 @@ export default function MobileMenu({
               );
             }
 
+            /* ───────── DROPDOWN ───────── */
             return (
               <div key={item.key} className="mb-2">
                 <button
@@ -88,9 +93,11 @@ export default function MobileMenu({
                         }}
                         className="flex items-center justify-between px-4 py-3 text-sm rounded-lg hover:bg-slate-100"
                       >
-                        {sub.label}
-                        {sub.restricted && !user && (
-                          <RiShieldStarLine className="text-amber-500" />
+                        <span>{sub.label}</span>
+
+                        {/* ⭐ restricted + NOT premium */}
+                        {sub.restricted && !isPremium && (
+                          <RiShieldStarLine className="text-amber-500 text-lg" />
                         )}
                       </Link>
                     ))}

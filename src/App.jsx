@@ -61,7 +61,6 @@ const App = memo(() => {
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/remote-jobs" element={<RemoteJobs />} />
       <Route path="/freelance" element={<Freelancer />} />
-
       <Route path="/signin" element={<Signin />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/forgetPassword" element={<ForgotPassword />} />
@@ -71,11 +70,8 @@ const App = memo(() => {
       <Route path="/help" element={<Help />} />
       <Route path="/seitting" element={<Setting />} />
       <Route path="/release" element={<Release />} />
- <Route
-        path="/editor"
-       element={<ResumeMain/>}
-      />
-      {/* ───── LOGIN REQUIRED ───── */}
+      <Route path="/editor" element={<ResumeMain />} />
+     
       <Route
         path="/dbhome"
         element={
@@ -103,7 +99,6 @@ const App = memo(() => {
           </ProtectedRoute>
         }
       />
-     
 
       <Route
         path="/writtenTest"
@@ -177,7 +172,6 @@ const App = memo(() => {
         }
       />
 
-      {/* ───── FALLBACK ───── */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

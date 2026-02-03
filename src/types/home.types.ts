@@ -1,9 +1,12 @@
+// src/types/index.ts
+import React from "react";
+
+/* ───────── Common ───────── */
 export interface Advertisement {
   id: number;
   image: string;
   alt: string;
 }
-
 
 export interface FooterLink {
   label: string;
@@ -22,6 +25,7 @@ export interface PaymentMethod {
   hidden?: boolean;
 }
 
+/* ───────── Job Portal ───────── */
 type PortalType = "image" | "text";
 
 export interface JobPortal {
@@ -30,17 +34,10 @@ export interface JobPortal {
   url: string;
   logo: string;
   type: PortalType;
-  style?: string; // optional because it is conditionally used
+  style?: string;
 }
 
-
-export interface SubNavItem {
-  label: string;
-  path: string;
-  restricted?: boolean;
-  hidden?: boolean;
-}
-
+/* ───────── NAV TYPES ───────── */
 export interface SubNavItem {
   label: string;
   path: string;
@@ -60,17 +57,18 @@ export type NavItem =
       type: "dropdown";
       label: string;
       key: string;
-      items: SubNavItem[]; // ✅ REQUIRED now
+      items: SubNavItem[];
       hidden?: boolean;
     };
 
+/* ───────── USER ───────── */
 export interface User {
   id: string;
   email: string;
   firstName: string;
   lastName: string;
   role: "user" | "admin";
-  isPremium?: boolean;
+
   subscriptionType: "freeTrial" | "premium" | "none";
   subscriptionStatus: "pending" | "active" | "expired";
 
@@ -78,9 +76,7 @@ export interface User {
   subscriptionExpiresAt?: string | null;
 }
 
-
-
-
+/* ───────── Portal Card ───────── */
 export interface PortalSite {
   id: number;
   name: string;
@@ -89,7 +85,7 @@ export interface PortalSite {
   category: string;
 }
 
- export interface CardProps {
+export interface CardProps {
   site: PortalSite;
   buttonText?: string;
 }
