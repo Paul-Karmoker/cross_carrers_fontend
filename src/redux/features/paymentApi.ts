@@ -16,7 +16,7 @@ import { toast } from "react-hot-toast";
 const rawBaseQuery = fetchBaseQuery({
   baseUrl:
     import.meta.env.VITE_API_BASE_URL ||
-    "http://localhost:4001/api/v1",
+    "https://api.crosscareers.com/api/v1",
   prepareHeaders: (headers) => {
     const token = localStorage.getItem("token");
 

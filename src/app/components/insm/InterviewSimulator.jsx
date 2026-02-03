@@ -93,7 +93,7 @@ const InterviewPractice = () => {
         return;
       }
 
-      const response = await axios.post('http://localhost:4001/api/v1/insm/generate-questions', formData, {
+      const response = await axios.post('https://api.crosscareers.com/api/v1/insm/generate-questions', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -313,7 +313,7 @@ const InterviewPractice = () => {
     try {
       setIsLoading(true);
 
-      const response = await axios.post('http://localhost:4001/api/v1/insm/submit-answer', {
+      const response = await axios.post('https://api.crosscareers.com/api/v1/insm/submit-answer', {
         question: questions[currentQuestionIndex].question,
         questionType: questions[currentQuestionIndex].type,
         transcript,
@@ -364,7 +364,7 @@ const InterviewPractice = () => {
   const completeInterview = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.post('http://localhost:4001/api/v1/insm/complete', {
+      const response = await axios.post('https://api.crosscareers.com/api/v1/insm/complete', {
         questions,
         progress
       });
@@ -383,7 +383,7 @@ const InterviewPractice = () => {
         timeSpent: progress.find(p => p.question === qa.question)?.timeSpent || 0
       }));
 
-      await axios.post('http://localhost:4001/api/v1/insm/save-history', {
+      await axios.post('https://api.crosscareers.com/api/v1/insm/save-history', {
         userId: "507f1f77bcf86cd799439011",
         jobDescription: jobDescription || '',
         documentText: fileName ? `Uploaded document: ${fileName}` : '',
@@ -422,7 +422,7 @@ const InterviewPractice = () => {
 
       const fullTranscript = progress.map(p => p.transcript).join(' ... ');
 
-      const response = await axios.post('http://localhost:4001/api/v1/insm/download-results', {
+      const response = await axios.post('https://api.crosscareers.com/api/v1/insm/download-results', {
         analysis,
         questions,
         transcript: fullTranscript
