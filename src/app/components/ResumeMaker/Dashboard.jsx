@@ -76,7 +76,7 @@ console.log("All resume Data here", resumes)
             </div>
 
             <button
-              onClick={() => navigate("/editor")}
+              onClick={() => navigate("/resumehome")}
               className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 text-sm font-medium"
             >
               <FiPlus size={18} />
@@ -119,7 +119,7 @@ console.log("All resume Data here", resumes)
                   <div
                     key={id}
                     className="group cursor-pointer"
-                    onClick={() => navigate(`/editor/${id}`)}
+                    onClick={() => navigate(`/resumehome/${id}`)}
                   >
                     <div className="relative aspect-[1/1.4] bg-slate-50 border mb-3 overflow-hidden group-hover:border-slate-900">
                       <div className="absolute inset-0 p-4 opacity-40">

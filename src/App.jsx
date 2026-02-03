@@ -25,6 +25,7 @@ import Logout from "./app/auth/logout";
 
 /* ───────── TOOLS ───────── */
 import ResumeMakerHome from "./app/components/ResumeMaker/Dashboard";
+import ResumeMain from "./app/components/ResumeMaker/resumeForm";
 import WrittenTestHome from "./app/components/WrittenTest/WrittenTest";
 import Matchhome from "./app/components/Resumebuild/matchhome";
 import Qahome from "./app/components/QA";
@@ -96,6 +97,14 @@ const App = memo(() => {
         element={
           <ProtectedRoute requireFullAccess>
             <ResumeMakerHome />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/editor"
+        expect={
+          <ProtectedRoute requireFullAccess>
+             <ResumeMain/>
           </ProtectedRoute>
         }
       />

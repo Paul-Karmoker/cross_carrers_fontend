@@ -116,7 +116,7 @@ const PPTGenerator = () => {
     const toastId = toast.loading('AI is crafting your presentation...');
 
     try {
-      const response = await axios.post('https://api.crosscareers.com/api/v1/ppt/generate', {
+      const response = await axios.post('http://localhost:4001/api/v1/ppt/generate', {
         content,
         slideCount: data.slideCount,
         design: data.design,
@@ -147,7 +147,7 @@ const PPTGenerator = () => {
     const toastId = toast.loading('Downloading...');
     try {
       const response = await axios.get(
-        `https://api.crosscareers.com/api/v1/ppt/download/pptx/${presentationId}`,
+        `http://localhost:4001/api/v1/ppt/download/pptx/${presentationId}`,
         { responseType: 'blob' }
       );
       const url = URL.createObjectURL(response.data);

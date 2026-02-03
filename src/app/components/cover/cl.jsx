@@ -77,7 +77,7 @@ const Cover = () => {
       setLoading(true);
       setError("");
       const res = await axios.post(
-        "https://api.crosscareers.com/api/v1/cover/generate-cover-letter",
+        "http://localhost:4001/api/v1/cover/generate-cover-letter",
         { jobDescription, resumeText, style: coverLetterStyle },
       );
       setCoverLetter(res.data.coverLetter);
@@ -92,7 +92,7 @@ const Cover = () => {
   const downloadDocx = async () => {
     try {
       const res = await axios.post(
-        "https://api.crosscareers.com/api/v1/cover/generate-docx",
+        "http://localhost:4001/api/v1/cover/generate-docx",
         { content: coverLetter },
         { responseType: "blob" },
       );
