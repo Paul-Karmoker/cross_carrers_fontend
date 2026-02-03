@@ -9,12 +9,14 @@ import {
 } from "@reduxjs/toolkit/query/react";
 import { toast } from "react-hot-toast";
 
-/* ======================================================
-   Base Query (with Auth + Error Handling)
-====================================================== */
+/* ===============================
+   Base Query
+================================ */
 
 const rawBaseQuery = fetchBaseQuery({
-  baseUrl: import.meta.env.VITE_API_BASE_URL || "https://api.crosscareers.com/api/v1",
+  baseUrl:
+    import.meta.env.VITE_API_BASE_URL ||
+    "https://api.crosscareers.com/api/v1",
   prepareHeaders: (headers) => {
     const token = localStorage.getItem("token");
 
@@ -29,10 +31,6 @@ const rawBaseQuery = fetchBaseQuery({
   },
 });
 
-/**
- * ✅ Properly typed baseQueryWithReauth
- * (এইটাই তোমার TS error fix করার মূল চাবি)
- */
 const baseQueryWithReauth: BaseQueryFn<
   string | FetchArgs,
   unknown,
@@ -55,9 +53,9 @@ const baseQueryWithReauth: BaseQueryFn<
   return result;
 };
 
-/* ======================================================
+/* ===============================
    Types
-====================================================== */
+================================ */
 
 export type SubscriptionPlan =
   | "monthly"
@@ -76,20 +74,21 @@ interface StartBkashResponse {
 
 interface ConfirmBkashRequest {
   paymentID: string;
+  plan: SubscriptionPlan;
 }
 
 interface ConfirmBkashResponse {
   message: string;
-  subscription?: {
+  subscription: {
     plan: SubscriptionPlan;
     status: "active" | "expired";
     expiresAt: string;
   };
 }
 
-/* ======================================================
-   Payment API
-====================================================== */
+/* ===============================
+   API
+================================ */
 
 export const paymentApi = createApi({
   reducerPath: "paymentApi",
@@ -97,9 +96,6 @@ export const paymentApi = createApi({
   tagTypes: ["Subscription", "User"],
 
   endpoints: (builder) => ({
-    // ─────────────────────────────
-    // Start bKash Payment
-    // ─────────────────────────────
     startBkashPayment: builder.mutation<
       StartBkashResponse,
       StartBkashRequest
@@ -111,9 +107,6 @@ export const paymentApi = createApi({
       }),
     }),
 
-    // ─────────────────────────────
-    // Confirm bKash Payment
-    // ─────────────────────────────
     confirmBkashPayment: builder.mutation<
       ConfirmBkashResponse,
       ConfirmBkashRequest
@@ -127,10 +120,6 @@ export const paymentApi = createApi({
     }),
   }),
 });
-
-/* ======================================================
-   Hooks Export
-====================================================== */
 
 export const {
   useStartBkashPaymentMutation,
