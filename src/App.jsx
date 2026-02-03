@@ -15,6 +15,9 @@ import Bdjobs from "./app/Others/bdjobs";
 import Intjobs from "./app/Others/intJobs";
 import Terms from "./app/Others/terms";
 import Privacy from "./app/Others/privacy";
+import Blogs from "./app/Others/blogs";
+import Legalpoliicy from "./app/Others/legalpoliicy";
+import Career from "./app/Others/career";
 
 import Signin from "./app/auth/siginin";
 import SignUp from "./app/auth/siginup";

@@ -106,14 +106,14 @@ const JobTrainingPortals: FC = () => {
       id: 3,
       name: "MyJobs",
       url: "https://www.myjobs.com.bd/",
-      logo: "https://www.myjobs.com.bd/media/front-end/img/main-logo.png",
+      logo: "https://i.ibb.co.com/V07DnQ8y/myjobs.jpg",
       category: "National",
     },
     {
       id: 4,
-      name: "eJobs",
-      url: "https://www.ejobs.com.bd/",
-      logo: "https://www.ejobs.com.bd/images/logo.png",
+      name: "nextjobz",
+      url: "https://nextjobz.com.bd/",
+      logo: "https://i.ibb.co.com/wrbnrMTg/next-jobs.png",
       category: "National",
     },
     {
@@ -175,7 +175,7 @@ const JobTrainingPortals: FC = () => {
       id: 2,
       name: "Kaya",
       url: "https://kayaconnect.org/",
-      logo: "https://kayaconnect.org/theme/image.php/humanitarian_academy/theme_humanitarian_academy/1731568967/logo",
+      logo: "https://i.ibb.co.com/XZjfX029/Kaya.png",
       category: "Humanitarian",
     },
     {

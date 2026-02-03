@@ -1,0 +1,9 @@
+onlyBuiltDependencies:
+  - '@firebase/util'
+  - canvas
+  - core-js
+  - es5-ext
+  - esbuild
+  - protobufjs
+  - uglifyjs-webpack-plugin
+  - unrs-resolver

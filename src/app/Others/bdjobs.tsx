@@ -74,8 +74,8 @@ const BdJobs: FC = () => {
   const jobSites: JobSite[] = [
     { id: 1, name: 'BDJOBS', url: 'https://bdjobs.com/', logo: 'https://i.ibb.co/Qv0BH1gF/bdjobs.png' },
     { id: 2, name: 'Skill Jobs', url: 'https://skill.jobs/', logo: 'https://skill.jobs/images/logo-01-01-01-01.png' },
-    { id: 3, name: 'MyJobs', url: 'https://www.myjobs.com.bd/', logo: 'https://www.myjobs.com.bd/media/front-end/img/main-logo.png' },
-    { id: 4, name: 'eJobs', url: 'https://www.ejobs.com.bd/', logo: 'https://www.ejobs.com.bd/images/logo.png' },
+    { id: 3, name: 'MyJobs', url: 'https://www.myjobs.com.bd/', logo: 'https://i.ibb.co.com/V07DnQ8y/myjobs.jpg' },
+    { id: 4, name: 'nextjobz', url: 'https://nextjobz.com.bd/', logo: 'https://i.ibb.co.com/wrbnrMTg/next-jobs.png' },
     { id: 5, name: 'Teletalk All Jobs', url: 'https://alljobs.teletalk.com.bd/', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRFUgbjYu-gsviQMoecCi60uUXXXF9anBrAA&s' },
     { id: 6, name: 'Jobs.com.bd', url: 'http://www.job.com.bd/', logo: 'http://job.com.bd/images/logo.gif' },
     { id: 7, name: 'Careerjet', url: 'https://www.careerjet.com.bd/', logo: 'https://i.ibb.co/jZrCpSTf/career-Jet.png' },

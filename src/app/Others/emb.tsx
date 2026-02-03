@@ -106,7 +106,7 @@ const EmbassyJobs: FC = () => {
       id: 14,
       name: "Embassy of Nepal",
       url: "https://bd.nepalembassy.gov.np/",
-      logo: "https://giwmscdnone.gov.np/static/assets/image/Emblem_of_Nepal.png",
+      logo: "https://i.ibb.co.com/cX7z6VKm/Nepal.jpg",
     },
     {
       id: 15,
