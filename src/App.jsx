@@ -71,7 +71,10 @@ const App = memo(() => {
       <Route path="/help" element={<Help />} />
       <Route path="/seitting" element={<Setting />} />
       <Route path="/release" element={<Release />} />
-
+ <Route
+        path="/editor"
+       element={<ResumeMain/>}
+      />
       {/* ───── LOGIN REQUIRED ───── */}
       <Route
         path="/dbhome"
@@ -100,14 +103,7 @@ const App = memo(() => {
           </ProtectedRoute>
         }
       />
-      <Route
-        path="/editor"
-        expect={
-          <ProtectedRoute requireFullAccess>
-             <ResumeMain/>
-          </ProtectedRoute>
-        }
-      />
+     
 
       <Route
         path="/writtenTest"
