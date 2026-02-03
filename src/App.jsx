@@ -28,6 +28,7 @@ import Logout from "./app/auth/logout";
 
 /* ───────── TOOLS ───────── */
 import ResumeMakerHome from "./app/components/ResumeMaker/Dashboard";
+import ResumeMain from "./app/components/ResumeMaker/resumeForm";
 import WrittenTestHome from "./app/components/WrittenTest/WrittenTest";
 import Matchhome from "./app/components/Resumebuild/matchhome";
 import Qahome from "./app/components/QA";
@@ -63,10 +64,6 @@ const App = memo(() => {
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/remote-jobs" element={<RemoteJobs />} />
       <Route path="/freelance" element={<Freelancer />} />
-      <Route path="/blogs" element={<Blogs />} />
-      <Route path="/legalpoliicy" element={<Legalpoliicy />} />
-      <Route path="/career" element={<Career />} />
-
       <Route path="/signin" element={<Signin />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/forgetPassword" element={<ForgotPassword />} />
@@ -76,8 +73,8 @@ const App = memo(() => {
       <Route path="/help" element={<Help />} />
       <Route path="/seitting" element={<Setting />} />
       <Route path="/release" element={<Release />} />
-
-      {/* ───── LOGIN REQUIRED ───── */}
+      <Route path="/editor" element={<ResumeMain />} />
+     
       <Route
         path="/dbhome"
         element={
@@ -178,7 +175,6 @@ const App = memo(() => {
         }
       />
 
-      {/* ───── FALLBACK ───── */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

@@ -106,7 +106,7 @@ const ContentGenerator = () => {
     }
     setLoading(true);
     try {
-      const res = await axios.post('https://api.crosscareers.com/api/v1/doc/generate-content', {
+      const res = await axios.post('http://localhost:4001/api/v1/doc/generate-content', {
         ...data,
         sourceText: fileContent || data.userInput,
       });
@@ -128,7 +128,7 @@ const ContentGenerator = () => {
   const downloadDocx = async () => {
     setLoading(true);
     try {
-      const res = await axios.post('https://api.crosscareers.com/api/v1/doc/generate-docx', {
+      const res = await axios.post('http://localhost:4001/api/v1/doc/generate-docx', {
         content: previewContent,
         documentType: watch('contentType'),
         style: watch('tone')

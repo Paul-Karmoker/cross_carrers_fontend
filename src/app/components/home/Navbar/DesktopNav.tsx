@@ -1,3 +1,4 @@
+// src/components/Navbar/DesktopNav.tsx
 import { NavItem, User } from "@/types";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,20 +8,25 @@ import { useState } from "react";
 interface Props {
   items?: NavItem[];
   user?: User;
-  onRestrictedClick: (e: React.MouseEvent, restricted?: boolean) => void;
+  isPremium: boolean;
+  onRestrictedClick: (
+    e: React.MouseEvent,
+    restricted?: boolean
+  ) => void;
 }
 
 export default function DesktopNav({
   items = [],
   user,
+  isPremium,
   onRestrictedClick,
 }: Props) {
   const [active, setActive] = useState<string | null>(null);
 
   return (
     <div className="hidden lg:flex items-center gap-10">
-      {items.map((item, index) => {
-        // ───────── LINK ─────────
+      {items.map((item) => {
+        /* ───────── LINK ───────── */
         if (item.type === "link") {
           return (
             <Link
@@ -33,7 +39,7 @@ export default function DesktopNav({
           );
         }
 
-        // ───────── DROPDOWN ─────────
+        /* ───────── DROPDOWN ───────── */
         return (
           <div
             key={item.key}
@@ -67,9 +73,11 @@ export default function DesktopNav({
                       }}
                       className="flex items-center justify-between px-5 py-3 text-sm text-slate-700 hover:bg-indigo-50"
                     >
-                      {sub.label}
-                      {sub.restricted && !user && (
-                        <RiShieldStarLine className="text-amber-500" />
+                      <span>{sub.label}</span>
+
+                      {/* ⭐ restricted + NOT premium */}
+                      {sub.restricted && !isPremium && (
+                        <RiShieldStarLine className="text-amber-500 text-lg" />
                       )}
                     </Link>
                   ))}

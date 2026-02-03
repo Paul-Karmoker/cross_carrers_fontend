@@ -87,7 +87,7 @@ const Match = () => {
 
     try {
       const res = await axios.post(
-        "https://api.crosscareers.com/api/v1/ai/get-review",
+        "http://localhost:4001/api/v1/ai/get-review",
         {
           prompt: `Job Description:\n${jobText}\n\nResume:\n${resumeText}`,
         },
