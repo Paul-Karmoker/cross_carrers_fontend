@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./utils/ProtectedRoute";
 
 /* ───────── PUBLIC PAGES ───────── */
-import Home from "./app/components/home";
+import Home from "./app/components/home/index";
 import Training from "./app/components/Trainings";
 import About from "./app/Others/about";
 import Contact from "./app/Others/contact";
@@ -56,6 +56,9 @@ const App = memo(() => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/earn" element={<Earn />} />
       <Route path="/ngo" element={<Ngo />} />
+      <Route path="/blogs" element={<Blogs />} />
+      <Route path="/legalpoliicy" element={<Legalpoliicy />} />
+      <Route path="/career" element={<Career />} />
       <Route path="/ingo" element={<Ingo />} />
       <Route path="/bdjobs" element={<Bdjobs />} />
       <Route path="/intjobs" element={<Intjobs />} />
@@ -73,7 +76,7 @@ const App = memo(() => {
       <Route path="/seitting" element={<Setting />} />
       <Route path="/release" element={<Release />} />
       <Route path="/editor" element={<ResumeMain />} />
-     
+
       <Route
         path="/dbhome"
         element={
