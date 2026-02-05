@@ -24,7 +24,7 @@ import ForgotPassword from "./app/auth/forgetpassword";
 import ResetPassword from "./app/auth/resetpasspord";
 import OtpVarify from "./app/auth/VerifyOtp";
 import Logout from "./app/auth/logout";
-
+import BkashSuccess from "./app/components/utility/BkashSuccess";
 /* ───────── TOOLS ───────── */
 import ResumeMakerHome from "./app/components/ResumeMaker/Dashboard";
 import ResumeMain from "./app/components/ResumeMaker/resumeForm";
@@ -68,6 +68,7 @@ const App = memo(() => {
       <Route path="/freelance" element={<Freelancer />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/bkash-success" element={<BkashSuccess />} />
       <Route path="/forgetPassword" element={<ForgotPassword />} />
       <Route path="/reset-password/:token" element={<ResetPassword />} />
       <Route path="/verify-otp" element={<OtpVarify />} />

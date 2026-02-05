@@ -85,34 +85,30 @@ const UpgradePlan = () => {
   const [activePlan, setActivePlan] =
     useState<PlanId | null>(null);
 
-  const handleSelectPlan = async (planId: PlanId) => {
-    if (isLoading || planId === currentPlan) return;
+ const handleSelectPlan = async (planId: PlanId) => {
+  if (isLoading || planId === currentPlan) return;
 
-    try {
-      setActivePlan(planId);
-      localStorage.setItem("selectedPlan", planId);
-
-      const response = await startBkashPayment({
-        plan: planId,
-      }).unwrap();
-
-      if (!response?.bkashURL) {
-        throw new Error("Invalid bKash response");
-      }
-
-      window.location.replace(response.bkashURL);
-    } catch (error: any) {
-      setActivePlan(null);
-
-      if (error?.status === 400 || error?.status === 422) return;
-
-      toast.error(
-        error?.data?.message ||
-          error?.message ||
-          "Unable to start bKash payment"
-      );
+  try {
+    setActivePlan(planId);
+    const response = await startBkashPayment({
+      plan: planId,
+    }).unwrap();
+    if (!response?.bkashURL) {
+      throw new Error("Invalid bKash response");
     }
-  };
+
+    // ✅ Redirect to bKash (backend already knows the plan)
+    window.location.href = response.bkashURL;
+  } catch (error: any) {
+    setActivePlan(null);
+
+    toast.error(
+      error?.data?.message ||
+        error?.message ||
+        "Unable to start bKash payment"
+    );
+  }
+};
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F8FAFC]">

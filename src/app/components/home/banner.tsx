@@ -2,13 +2,12 @@ import { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { SwiperOptions } from "swiper/types";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { Advertisement} from "@/types"
+import { Advertisement } from "@/types";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const Banner: FC = () => {
-
   const advertisements: Advertisement[] = [
     {
       id: 0,
@@ -42,7 +41,6 @@ const Banner: FC = () => {
     },
   ];
 
-
   const swiperConfig: SwiperOptions = {
     spaceBetween: 30,
     centeredSlides: true,
@@ -57,23 +55,18 @@ const Banner: FC = () => {
     modules: [Autoplay, Pagination, Navigation],
   };
 
-
   return (
     <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row mt-10 -mb-4">
       <div className="w-full md:w-1/2 mt-4 md:mt-14">
         <div>
           <h1 className="text-5xl font-bold mt-20 md:mt-8">
-            <img
-              src="https://i.ibb.co/Y75Y5NSb/banner.gif"
-              alt="banner"
-            />
+            <img src="https://i.ibb.co/Y75Y5NSb/banner.gif" alt="banner" />
           </h1>
           <br />
           <p className="text-2xl font-bold font-serif text-foreground-600 text-center -mt-2">
             &quot;
             <span className="text-green-700">AI-Powered Career Hub: </span>
-            Jobs, Resumes, Interviews &amp; Productivity Tools.
-            &quot;
+            Jobs, Resumes, Interviews &amp; Productivity Tools. &quot;
           </p>
         </div>
       </div>

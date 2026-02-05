@@ -9,7 +9,7 @@ import type {
   SubmitAnswerResponse,
 } from "../../app/components/WrittenTest/types";
 
-const BASE_URL = "https://api.crosscareers.com/api/v1/writtenTest";
+const BASE_URL = "http://localhost:4001/api/v1/writtenTest";
 
 export const writtenTestApi = createApi({
   reducerPath: "writtenTestApi",
