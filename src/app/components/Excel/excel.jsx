@@ -49,7 +49,7 @@ const ExcelGenerator = () => {
       formData.append('formatInstructions', formatInstructions);
 
       const response = await axios.post(
-        'http://localhost:4001/api/v1/excel/generate-excel',
+        'https://api.crosscareers.com/api/v1/excel/generate-excel',
         formData,
         {
           headers: { 'Content-Type': 'multipart/form-data' },
