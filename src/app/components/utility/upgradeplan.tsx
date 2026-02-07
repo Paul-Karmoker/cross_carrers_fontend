@@ -72,43 +72,39 @@ const plans: readonly Plan[] = [
 ] as const;
 
 const UpgradePlan = () => {
-  const [startBkashPayment, { isLoading }] =
-    useStartBkashPaymentMutation();
+  const [startBkashPayment, { isLoading }] = useStartBkashPaymentMutation();
 
   // 🔹 get logged-in user profile (cached state)
-  const { data } =
-    authApi.endpoints.getProfile.useQueryState();
+  const { data } = authApi.endpoints.getProfile.useQueryState();
 
-  const currentPlan =
-    data?.user?.subscriptionPlan as PlanId | undefined;
+  const currentPlan = data?.user?.subscriptionPlan as PlanId | undefined;
 
-  const [activePlan, setActivePlan] =
-    useState<PlanId | null>(null);
+  const [activePlan, setActivePlan] = useState<PlanId | null>(null);
 
- const handleSelectPlan = async (planId: PlanId) => {
-  if (isLoading || planId === currentPlan) return;
+  const handleSelectPlan = async (planId: PlanId) => {
+    if (isLoading || planId === currentPlan) return;
 
-  try {
-    setActivePlan(planId);
-    const response = await startBkashPayment({
-      plan: planId,
-    }).unwrap();
-    if (!response?.bkashURL) {
-      throw new Error("Invalid bKash response");
+    try {
+      setActivePlan(planId);
+      const response = await startBkashPayment({
+        plan: planId,
+      }).unwrap();
+      if (!response?.bkashURL) {
+        throw new Error("Invalid bKash response");
+      }
+
+      // ✅ Redirect to bKash (backend already knows the plan)
+      window.location.href = response.bkashURL;
+    } catch (error: any) {
+      setActivePlan(null);
+
+      toast.error(
+        error?.data?.message ||
+          error?.message ||
+          "Unable to start bKash payment",
+      );
     }
-
-    // ✅ Redirect to bKash (backend already knows the plan)
-    window.location.href = response.bkashURL;
-  } catch (error: any) {
-    setActivePlan(null);
-
-    toast.error(
-      error?.data?.message ||
-        error?.message ||
-        "Unable to start bKash payment"
-    );
-  }
-};
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
@@ -134,19 +130,17 @@ const UpgradePlan = () => {
             </h1>
 
             <p className="mt-4 text-slate-600 text-lg max-w-2xl mx-auto">
-              Choose the plan that fits your workflow. Unlock
-              advanced features and priority support.
+              Choose the plan that fits your workflow. Unlock advanced features
+              and priority support.
             </p>
           </div>
 
           {/* Pricing Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {plans.map((plan, index) => {
-              const isCurrentPlan =
-                plan.id === currentPlan;
+              const isCurrentPlan = plan.id === currentPlan;
 
-              const isLoadingPlan =
-                isLoading && activePlan === plan.id;
+              const isLoadingPlan = isLoading && activePlan === plan.id;
 
               return (
                 <motion.div
@@ -183,9 +177,7 @@ const UpgradePlan = () => {
                   <button
                     type="button"
                     disabled={isCurrentPlan || isLoadingPlan}
-                    onClick={() =>
-                      handleSelectPlan(plan.id)
-                    }
+                    onClick={() => handleSelectPlan(plan.id)}
                     className={`w-full py-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all ${
                       plan.recommended
                         ? "bg-indigo-600 text-white hover:bg-indigo-700"
@@ -222,49 +214,47 @@ const UpgradePlan = () => {
 
           {/* Footer */}
           <div className="mt-24 flex flex-col items-center gap-6">
-  {/* Trust Badge */}
-  <motion.div
-    initial={{ opacity: 0, y: 12 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.4, ease: "easeOut" }}
-    className="group flex items-center gap-4 px-8 py-4 rounded-[8px]
+            {/* Trust Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="group flex items-center gap-4 px-8 py-4 rounded-[8px]
       bg-white/70 backdrop-blur-md
       border border-slate-200
       shadow-[0_10px_30px_rgba(0,0,0,0.06)]
       hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]
       transition-all"
-  >
-    {/* Glow */}
-    <div className="relative">
-      <div className="absolute inset-0 bg-[#D12053]/15 rounded-full blur-xl group-hover:blur-2xl transition-all" />
-      <img
-        src={bKashLogo}
-        alt="bKash"
-        className="relative w-10 h-10 object-contain"
-      />
-    </div>
+            >
+              {/* Glow */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-[#D12053]/15 rounded-full blur-xl group-hover:blur-2xl transition-all" />
+                <img
+                  src={bKashLogo}
+                  alt="bKash"
+                  className="relative w-10 h-10 object-contain"
+                />
+              </div>
 
-    {/* Text */}
-    <div className="flex flex-col leading-tight">
-      <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
-        Secure Payment
-      </span>
-      <span className="text-sm font-bold text-slate-700">
-        Powered by <span className="text-[#D12053]">bKash</span>
-      </span>
-    </div>
-  </motion.div>
+              {/* Text */}
+              <div className="flex flex-col leading-tight">
+                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
+                  Secure Payment
+                </span>
+                <span className="text-sm font-bold text-slate-700">
+                  Powered by <span className="text-[#D12053]">bKash</span>
+                </span>
+              </div>
+            </motion.div>
 
-  {/* Extra trust line */}
-  <div className="flex items-center gap-2 text-xs text-slate-500">
-    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-    <span>SSL encrypted • 100% secure checkout</span>
-  </div>
-</div>
-
+            {/* Extra trust line */}
+            <div className="flex items-center gap-2 text-xs text-slate-500">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>SSL encrypted • 100% secure checkout</span>
+            </div>
+          </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );
