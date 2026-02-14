@@ -99,7 +99,7 @@ const JobTrainingPortals: FC = () => {
       id: 2,
       name: "Skill Jobs",
       url: "https://skill.jobs/",
-      logo: "https://skill.jobs/images/logo-01-01-01-01.png",
+      logo: "https://i.ibb.co.com/gbJYgFS1/Skill-jobs.png",
       category: "National",
     },
     {

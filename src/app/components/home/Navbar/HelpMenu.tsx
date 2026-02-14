@@ -25,19 +25,6 @@ export default function HelpMenu() {
               See plans and pricing
             </MenuItem>
 
-            <MenuItem to="/seitting" icon={<FiSettings />}>
-              Settings
-            </MenuItem>
-
-            <Divider />
-
-            <MenuItem to="/help" icon={<FiHelpCircle />}>
-              Help center
-            </MenuItem>
-
-            <MenuItem to="/release" icon={<MdOutlineNewReleases />}>
-              Release notes
-                      </MenuItem>
             <MenuItem to="/terms" icon={<FiFileText />}>
               Terms of service
             </MenuItem>

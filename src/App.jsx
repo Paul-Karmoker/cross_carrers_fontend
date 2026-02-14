@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./utils/ProtectedRoute";
 
 /* ───────── PUBLIC PAGES ───────── */
-import Home from "./app/components/home";
+import Home from "./app/components/home/index";
 import Training from "./app/components/Trainings";
 import About from "./app/Others/about";
 import Contact from "./app/Others/contact";
@@ -18,14 +18,13 @@ import Privacy from "./app/Others/privacy";
 import Blogs from "./app/Others/blogs";
 import Legalpoliicy from "./app/Others/legalpoliicy";
 import Career from "./app/Others/career";
-
 import Signin from "./app/auth/siginin";
 import SignUp from "./app/auth/siginup";
 import ForgotPassword from "./app/auth/forgetpassword";
 import ResetPassword from "./app/auth/resetpasspord";
 import OtpVarify from "./app/auth/VerifyOtp";
 import Logout from "./app/auth/logout";
-
+import BkashSuccess from "./app/components/utility/BkashSuccess";
 /* ───────── TOOLS ───────── */
 import ResumeMakerHome from "./app/components/ResumeMaker/Dashboard";
 import ResumeMain from "./app/components/ResumeMaker/resumeForm";
@@ -57,6 +56,9 @@ const App = memo(() => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/earn" element={<Earn />} />
       <Route path="/ngo" element={<Ngo />} />
+      <Route path="/blogs" element={<Blogs />} />
+      <Route path="/legalpoliicy" element={<Legalpoliicy />} />
+      <Route path="/career" element={<Career />} />
       <Route path="/ingo" element={<Ingo />} />
       <Route path="/bdjobs" element={<Bdjobs />} />
       <Route path="/intjobs" element={<Intjobs />} />
@@ -66,6 +68,7 @@ const App = memo(() => {
       <Route path="/freelance" element={<Freelancer />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/bkash-success" element={<BkashSuccess />} />
       <Route path="/forgetPassword" element={<ForgotPassword />} />
       <Route path="/reset-password/:token" element={<ResetPassword />} />
       <Route path="/verify-otp" element={<OtpVarify />} />
@@ -74,7 +77,7 @@ const App = memo(() => {
       <Route path="/seitting" element={<Setting />} />
       <Route path="/release" element={<Release />} />
       <Route path="/editor" element={<ResumeMain />} />
-     
+
       <Route
         path="/dbhome"
         element={

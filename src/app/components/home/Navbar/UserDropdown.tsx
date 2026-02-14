@@ -120,12 +120,7 @@ export default function UserDropdown({
           </MenuItem>
         )}
 
-        <MenuItem
-          icon={<RiSettings3Line size={18} />}
-          onClick={() => go("/settings")}
-        >
-          Account Settings
-        </MenuItem>
+        
 
         <div className="my-2 h-px bg-slate-200" />
 
