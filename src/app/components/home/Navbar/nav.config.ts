@@ -25,7 +25,7 @@ export const NAV_CONFIG: NavItem[] = [
     type: "dropdown",
     items: [
       { label: "Resume Maker", path: "/resume", restricted: true },
-      { label: "Cover Letter Maker", path: "/coverhome", restricted: true },
+      { label: "Cover Letter Maker", path: "/cover", restricted: true },
       { label: "Match & Insights", path: "/matchhome", restricted: true },
     ],
   },
@@ -50,8 +50,8 @@ export const NAV_CONFIG: NavItem[] = [
     key: "services",
     type: "dropdown",
     items: [
-      { label: "PowerPoint Maker", path: "/ppthome", restricted: true },
-      { label: "Document Maker", path: "/dochome", restricted: true },
+      { label: "PowerPoint Maker", path: "/ppt", restricted: true },
+      { label: "Document Maker", path: "/doc", restricted: true },
       // { label: "Excel Format Maker", path: "/excelhome", restricted: true, hidden: true },
     ],
   },
