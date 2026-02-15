@@ -5,6 +5,9 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 
 /* ───────── PUBLIC PAGES ───────── */
 import Home from "./app/components/home/index";
+import Cover from "./app/components/cover/index";
+import PPTHOME from "./app/components/ppt";
+import DOCHOME from "./app/components/Docx";
 import Training from "./app/components/Trainings";
 import About from "./app/Others/about";
 import Contact from "./app/Others/contact";
@@ -102,6 +105,31 @@ const App = memo(() => {
         element={
           <ProtectedRoute requireFullAccess>
             <ResumeMakerHome />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/cover"
+        element={
+          <ProtectedRoute requireFullAccess>
+            <Cover />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/ppt"
+        element={
+          <ProtectedRoute requireFullAccess>
+            <PPTHOME />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/doc"
+        element={
+          <ProtectedRoute requireFullAccess>
+            <DOCHOME />
           </ProtectedRoute>
         }
       />

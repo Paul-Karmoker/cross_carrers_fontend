@@ -24,7 +24,7 @@ export function DashboardPanel({ user }: DashboardPanelProps): JSX.Element {
         {[
           { label: "Total Points", val: user.points, icon: <FiDollarSign />, color: "text-indigo-600" },
           { label: "Active Referrals", val: Math.floor(user.points / 26), icon: <FiUser />, color: "text-emerald-600" },
-          { label: "Growth Rate", val: "+12.5%", icon: <FiActivity />, color: "text-blue-600" },
+          { label: "Growth Rate", val: "0%", icon: <FiActivity />, color: "text-blue-600" },
         ].map((item, i) => (
           <motion.div
             key={i}
