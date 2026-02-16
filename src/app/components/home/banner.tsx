@@ -11,33 +11,18 @@ const Banner: FC = () => {
   const advertisements: Advertisement[] = [
     {
       id: 0,
-      image: "https://i.ibb.co/HkMRZnb/6.jpg",
+      image: "https://i.ibb.co.com/jPzmFHvR/6.webp",
       alt: "Advertisement 6",
     },
     {
       id: 1,
-      image: "https://i.ibb.co/7x4CmDy8/1.jpg",
+      image: "https://i.ibb.co.com/7JbPCrWt/1.webp",
       alt: "Advertisement 1",
     },
     {
       id: 2,
-      image: "https://i.ibb.co/KxyNXQfz/2.jpg",
+      image: "https://i.ibb.co.com/s9MtYTWR/2.webp",
       alt: "Advertisement 2",
-    },
-    {
-      id: 3,
-      image: "https://i.ibb.co/ZpXSHBPj/3.jpg",
-      alt: "Advertisement 3",
-    },
-    {
-      id: 4,
-      image: "https://i.ibb.co/ZpHcHMXM/4.jpg",
-      alt: "Advertisement 4",
-    },
-    {
-      id: 5,
-      image: "https://i.ibb.co.com/FkL4xXDX/5.jpg",
-      alt: "Advertisement 5",
     },
   ];
 
@@ -60,7 +45,7 @@ const Banner: FC = () => {
       <div className="w-full md:w-1/2 mt-4 md:mt-14">
         <div>
           <h1 className="text-5xl font-bold mt-20 md:mt-8">
-            <img src="https://i.ibb.co/Y75Y5NSb/banner.gif" alt="banner" />
+            <img src="https://i.ibb.co.com/ksnkSFzZ/banner.png" alt="banner" />
           </h1>
           <br />
           <p className="text-2xl font-bold font-serif text-foreground-600 text-center -mt-2">

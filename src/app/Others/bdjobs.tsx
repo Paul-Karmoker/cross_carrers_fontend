@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
+import { Helmet } from 'react-helmet-async';
 
 /**
  * Interface for Job Portal data structure
@@ -22,13 +23,11 @@ interface JobCardProps {
 
 /**
  * Optimized JobCard Component
- * Features better hover states, transitions, and accessible link handling
  */
 const JobCard: FC<JobCardProps> = ({ site }) => {
   return (
     <div className="group bg-white border border-gray-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
       <div className="p-8 flex flex-col items-center flex-grow">
-     
         <div className="w-full h-24 mb-6 flex items-center justify-center bg-gray-50 p-4 group-hover:bg-white transition-colors duration-300">
           <img
             src={site.logo}
@@ -38,7 +37,7 @@ const JobCard: FC<JobCardProps> = ({ site }) => {
           />
         </div>
 
-        <h3 className="text-xl font-bold  mb-2 text-center text-blue-600 transition-colors">
+        <h3 className="text-xl font-bold mb-2 text-center text-blue-600 transition-colors">
           {site.name}
         </h3>
         
@@ -52,7 +51,7 @@ const JobCard: FC<JobCardProps> = ({ site }) => {
           href={site.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-full py-2 bg-blue-600 text-white font-semibold  transition-all duration-300 shadow-gray-200 group-hover:shadow-blue-200"
+          className="flex items-center justify-center w-full py-2 bg-blue-600 text-white font-semibold transition-all duration-300 shadow-gray-200 group-hover:shadow-blue-200"
           aria-label={`Visit ${site.name} website`}
         >
           Explore Careers
@@ -89,6 +88,38 @@ const BdJobs: FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
+      <Helmet>
+        <title>Bangladeshi Job Portals 2026 | CrossCareers</title>
+        <meta name="description" content="Discover the top Bangladeshi job portals. Access verified platforms to find your next career opportunity in Bangladesh." />
+        <meta name="keywords" content="Bangladesh jobs, job portals, BD jobs, career, employment, job boards, top Bangladeshi websites" />
+        <link rel="canonical" href="https://crosscareers.com/bdjobs" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Bangladeshi Job Portals 2026 | CrossCareers" />
+        <meta property="og:description" content="Discover the top Bangladeshi job portals. Access verified platforms to find your next career opportunity in Bangladesh." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://crosscareers.com/bdjobs" />
+        <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Bangladeshi Job Portals 2026 | CrossCareers" />
+        <meta name="twitter:description" content="Discover the top Bangladeshi job portals. Access verified platforms to find your next career opportunity in Bangladesh." />
+        <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "CrossCareers",
+            "url": "https://crosscareers.com/",
+            "logo": "https://crosscareers.com/logo/favcon.png",
+            "description": "AI-powered career hub offering verified Bangladeshi job portals, freelance and remote opportunities, and career resources."
+          })}
+        </script>
+      </Helmet>
+
       <Navbar />
       <main className="flex-grow pt-20">
         <section className="relative overflow-hidden bg-gray-900 py-20 lg:py-28">
@@ -102,8 +133,7 @@ const BdJobs: FC = () => {
               Bangladeshi <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Job Portals</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Navigate your career journey with confidence. We've aggregated the most trusted 
-              platforms to help you find your next big opportunity in Bangladesh.
+              Navigate your career journey with confidence. We've aggregated the most trusted platforms to help you find your next big opportunity in Bangladesh.
             </p>
           </div>
         </section>
@@ -123,8 +153,8 @@ const BdJobs: FC = () => {
               <JobCard key={site.id} site={site} />
             ))}
           </div>
-          
-          {/* Bottom Call to Action or Insight */}
+
+          {/* Bottom Call to Action */}
           <div className="mt-20 p-8 md:p-12 bg-white border-[1px] border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="max-w-xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Can't find what you're looking for?</h3>
@@ -132,7 +162,7 @@ const BdJobs: FC = () => {
                 Our database is updated weekly with new niche job boards and international remote platforms operating in Bangladesh.
               </p>
             </div>
-            <button className="whitespace-nowrap px-8 py-2 bg-blue-50 text-blue-700 font-bold  hover:bg-blue-100 transition-colors">
+            <button className="whitespace-nowrap px-8 py-2 bg-blue-50 text-blue-700 font-bold hover:bg-blue-100 transition-colors">
               Suggest a Portal
             </button>
           </div>

@@ -1,6 +1,7 @@
 import React, { useState, useMemo, ChangeEvent, FC } from 'react';
 import Navbar from '../components/home/navbar';
 import Footer from '../components/home/footer';
+import { Helmet } from 'react-helmet-async';
 
 /**
  * Interfaces & Types
@@ -48,7 +49,7 @@ const JOB_SITES_DATA: JobSite[] = [
 const JobCard: FC<{ site: JobSite }> = ({ site }) => (
   <div className="group bg-white shadow-sm transition-all duration-500 border border-gray-100 flex flex-col h-full overflow-hidden translate-y-0 hover:-translate-y-2">
     <div className="p-8 flex flex-col items-center flex-grow">
-      <div className="relative mb-6 w-full h-24 flex items-center justify-center p-2 bg-gray-50  group-hover:bg-blue-50 transition-colors duration-500">
+      <div className="relative mb-6 w-full h-24 flex items-center justify-center p-2 bg-gray-50 group-hover:bg-blue-50 transition-colors duration-500">
         <img
           src={site.image}
           alt={`${site.name} logo`}
@@ -56,22 +57,19 @@ const JobCard: FC<{ site: JobSite }> = ({ site }) => (
           loading="lazy"
         />
       </div>
-      
       <h3 className="text-xl font-bold text-gray-900 mb-2 text-center group-hover:text-blue-600 transition-colors">
         {site.name}
       </h3>
-      
       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100 mb-6">
         <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse" />
         {site.category}
       </span>
-      
       <div className="mt-auto w-full">
         <a 
           href={site.url} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-full px-5 py-2 bg-blue-600 text-white font-semibold  transition-all duration-300 transform active:scale-95"
+          className="flex items-center justify-center w-full px-5 py-2 bg-blue-600 text-white font-semibold transition-all duration-300 transform active:scale-95"
         >
           Explore Careers
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -88,9 +86,7 @@ const IntJobs: FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<JobCategory>('All');
   const [searchTerm, setSearchTerm] = useState<string>('');
 
-  /**
-   * Derived States
-   */
+  // Derived States
   const categories = useMemo<JobCategory[]>(() => 
     ['All', ...new Set(JOB_SITES_DATA.map(site => site.category))] as JobCategory[], 
   []);
@@ -110,9 +106,6 @@ const IntJobs: FC = () => {
     return filteredSites.slice(indexOfFirstItem, indexOfLastItem);
   }, [filteredSites, currentPage]);
 
-  /**
-   * Event Handlers
-   */
   const handleCategoryFilter = (category: JobCategory): void => {
     setSelectedCategory(category);
     setCurrentPage(1);
@@ -125,31 +118,60 @@ const IntJobs: FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-blue-100">
+      <Helmet>
+        <title>International Job Portals | Humanitarian & Development Careers</title>
+        <meta name="description" content="Explore curated international job portals for humanitarian, development, UN, and nonprofit careers worldwide." />
+        <meta name="keywords" content="international jobs, humanitarian jobs, UN jobs, development jobs, NGO jobs, global careers" />
+        <link rel="canonical" href="https://crosscareers.com/intjobs" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="International Job Portals | Humanitarian & Development Careers" />
+        <meta property="og:description" content="Explore curated international job portals for humanitarian, development, UN, and nonprofit careers worldwide." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://crosscareers.com/intjobs" />
+        <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="International Job Portals | Humanitarian & Development Careers" />
+        <meta name="twitter:description" content="Explore curated international job portals for humanitarian, development, UN, and nonprofit careers worldwide." />
+        <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "CrossCareers",
+            "url": "https://crosscareers.com/",
+            "logo": "https://crosscareers.com/logo/favcon.png",
+            "description": "AI-powered career hub offering curated international job portals for humanitarian, UN, nonprofit, and development careers."
+          })}
+        </script>
+      </Helmet>
+
       <Navbar />
-      
+
       {/* Hero Header */}
       <header className="relative bg-slate-900 pt-32 pb-24 overflow-hidden mt-16">
         <div className="absolute inset-0 opacity-20">
             <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
             <div className="absolute top-1/2 -right-24 w-80 h-80 bg-indigo-500 rounded-full blur-3xl" />
         </div>
-        
         <div className="relative container mx-auto px-6 text-center z-10">
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
             International <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Job Portals</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Bridge the gap to your global career. Access curated opportunities from 
-            the world's most prestigious humanitarian and development organizations.
+            Bridge the gap to your global career. Access curated opportunities from the world's most prestigious humanitarian and development organizations.
           </p>
         </div>
       </header>
 
-      {/* Control Bar Section */}
+      {/* Filter/Search Controls */}
       <section className="container mx-auto px-6 -mt-10 z-20">
-        <div className="bg-white  p-6 md:p-8 border border-slate-100">
+        <div className="bg-white p-6 md:p-8 border border-slate-100">
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
-            {/* Search Input */}
             <div className="relative w-full lg:max-w-md group">
               <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-600 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -165,13 +187,12 @@ const IntJobs: FC = () => {
               />
             </div>
 
-            {/* Filter Pills */}
             <div className="flex flex-wrap items-center justify-center gap-2">
               {categories.map((category) => (
                 <button 
                   key={category}
                   onClick={() => handleCategoryFilter(category)}
-                  className={`px-5 py-2.5  text-sm font-bold transition-all duration-300 ${
+                  className={`px-5 py-2.5 text-sm font-bold transition-all duration-300 ${
                     selectedCategory === category 
                       ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' 
                       : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
@@ -185,7 +206,7 @@ const IntJobs: FC = () => {
         </div>
       </section>
 
-      {/* Grid Content */}
+      {/* Grid & Pagination */}
       <main className="container mx-auto px-6 py-16 flex-grow">
         {currentSites.length > 0 ? (
           <>
@@ -195,7 +216,6 @@ const IntJobs: FC = () => {
               ))}
             </div>
 
-            {/* Pagination Component */}
             {totalPages > 1 && (
               <nav className="mt-20 flex justify-center items-center space-x-2">
                 <button 
@@ -208,15 +228,14 @@ const IntJobs: FC = () => {
                     <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 </button>
-                
                 <div className="flex items-center space-x-2">
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map(number => (
                     <button
                       key={number}
                       onClick={() => setCurrentPage(number)}
-                      className={`w-10 h-10 border-[1px]  text-sm font-bold transition-all ${
+                      className={`w-10 h-10 border-[1px] text-sm font-bold transition-all ${
                         currentPage === number 
-                          ? 'bg-blue-600 text-white  shadow-blue-200 scale-110' 
+                          ? 'bg-blue-600 text-white shadow-blue-200 scale-110' 
                           : 'bg-white text-slate-600 hover:bg-blue-50 border border-slate-200'
                       }`}
                     >
@@ -224,11 +243,10 @@ const IntJobs: FC = () => {
                     </button>
                   ))}
                 </div>
-                
                 <button 
                   onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
                   disabled={currentPage === totalPages}
-                  className="p-3 border-[1px] border-slate-200  disabled:opacity-30 hover:bg-white transition-all text-slate-700 shadow-sm"
+                  className="p-3 border-[1px] border-slate-200 disabled:opacity-30 hover:bg-white transition-all text-slate-700 shadow-sm"
                   aria-label="Next page"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -239,7 +257,7 @@ const IntJobs: FC = () => {
             )}
           </>
         ) : (
-          <div className="flex flex-col items-center justify-center py-20 bg-white  border-[1px] border-dashed border-slate-300">
+          <div className="flex flex-col items-center justify-center py-20 bg-white border-[1px] border-dashed border-slate-300">
             <div className="p-4 bg-slate-50 rounded-full mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -259,6 +277,6 @@ const IntJobs: FC = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default IntJobs;

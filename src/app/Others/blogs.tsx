@@ -12,6 +12,7 @@ interface BlogPost {
   excerpt: string;
   content: string;
   category: string;
+  image: string;
 }
 
 // Blog data (replace later with API / CMS)
@@ -23,6 +24,7 @@ const blogPosts: BlogPost[] = [
     date: "2026-01-15",
     excerpt: "Learn practical interview preparation strategies for NGO, UN, and humanitarian sector jobs in Bangladesh and beyond.",
     category: "Interview Support",
+    image: "https://i.ibb.co.com/tMBpLsHz/1.webp",
     content: `
       <p>Landing a role in the Non-Governmental Organization (NGO) sector is about more than just having the right technical skills; it’s about demonstrating a deep-rooted alignment with a mission. Whether you are aiming for a position at a global giant like <strong>BRAC</strong>, the <strong>UN</strong>, or a specialized local agency, preparation is the bridge between being a "qualified candidate" and a "perfect fit."</p>
 
@@ -97,6 +99,7 @@ const blogPosts: BlogPost[] = [
   date: "2026-01-28",
   excerpt: "Discover the most in-demand logistics and supply chain skills employers want in 2026.",
   category: "Career Guide",
+  image: "https://i.ibb.co.com/0jS56z0b/2.webp",
   content: `
     <p>The landscape of supply chain management is evolving rapidly. By 2026, organizations across industries will expect supply chain professionals to not only execute traditional logistics tasks but also leverage digital solutions, demonstrate strategic thinking, and exhibit leadership in complex environments. To stay ahead, professionals must cultivate a mix of technical, analytical, and interpersonal skills that meet the demands of an increasingly global and technology-driven supply chain ecosystem.</p>
 
@@ -151,6 +154,7 @@ const blogPosts: BlogPost[] = [
   date: "2026-02-01",
   excerpt: "Tips to make your CV compatible with Applicant Tracking Systems (ATS) and get noticed by recruiters.",
   category: "Application Tracking system (ATS)",
+  image: "https://i.ibb.co.com/TM1C9X0B/3.webp",
   content: `
     <p>In today’s competitive job market, many organizations rely on <strong>Applicant Tracking Systems (ATS)</strong> to streamline recruitment. These systems automatically scan resumes, filtering candidates based on keywords, formatting, and relevant experience. Understanding how ATS works and optimizing your resume accordingly is crucial for increasing your chances of getting noticed by recruiters.</p>
 
@@ -220,6 +224,7 @@ const blogPosts: BlogPost[] = [
   date: "2026-02-03",
   excerpt: "Key strategies to craft a strong resume or CV that stands out to employers.",
   category: "Resume / CV",
+  image: "https://i.ibb.co.com/rf7f4sZj/4.webp",
   content: `
     <p>In today’s competitive job market, crafting an <strong>impactful resume or CV</strong> is essential to capturing the attention of recruiters and securing interviews. A strong CV not only highlights your skills and experience but also conveys your professionalism, accomplishments, and alignment with the role you are applying for. By following strategic guidelines, job seekers can create resumes that truly stand out.</p>
 
@@ -295,6 +300,7 @@ const blogPosts: BlogPost[] = [
     date: "2026-02-04",
     excerpt: "Comprehensive insights into Applicant Tracking Systems (ATS), how they function, and why they have become the standard for hiring in Bangladesh's top organizations.",
     category: "Application Tracking system (ATS)",
+    image: "https://i.ibb.co.com/Ng0wbxW3/5.webp",
     content: `
       <p>In the rapidly evolving corporate landscape of 2026, the traditional method of manually reviewing paper resumes is nearly extinct. For job seekers in Bangladesh, the first hurdle to landing a dream job is no longer a human recruiter, but a sophisticated software known as the <strong>Applicant Tracking System (ATS)</strong>. Understanding this technology is essential for anyone aiming to work for MNCs, top local conglomerates, or the development sector.</p>
 
@@ -376,6 +382,7 @@ const blogPosts: BlogPost[] = [
     date: "2026-02-04",
     excerpt: "Break away from rehearsed answers. Learn how to handle the self-introduction, salary negotiation, and role-fit questions using modern strategies for the Dhaka corporate world.",
     category: "Interview Support",
+    image: "https://i.ibb.co.com/YTcyTxJT/6.webp",
     content: `
       <p>By 2026, recruitment in Bangladesh has undergone a major shift. With AI handling the initial screening for firms like <strong>Pathao</strong>, <strong>bKash</strong>, and <strong>British American Tobacco (BAT)</strong>, the human interview has evolved into a test of "Adaptive Intelligence" and "Human-Centric Leadership." To succeed, you must move beyond generic templates and provide authentic, data-backed value.</p>
 
@@ -456,10 +463,17 @@ export default function BlogPage() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
-  const categories = ["All", "Application Tracking system (ATS)", "Resume / CV", "Career Guide", "Interview Support"];
+  const categories = [
+    "All",
+    "Application Tracking system (ATS)",
+    "Resume / CV",
+    "Career Guide",
+    "Interview Support"
+  ];
 
-  const filteredPosts = blogPosts.filter(post => {
-    const matchesCategory = selectedCategory === "All" ? true : post.category === selectedCategory;
+  const filteredPosts = blogPosts.filter((post) => {
+    const matchesCategory =
+      selectedCategory === "All" ? true : post.category === selectedCategory;
     const matchesSearch =
       post.title.toLowerCase().includes(search.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(search.toLowerCase());
@@ -469,19 +483,34 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        <title>{selectedPost ? `${selectedPost.title} | CrossCareers Blog` : "Career Insights & Blogs | CrossCareers"}</title>
+        <title>
+          {selectedPost
+            ? `${selectedPost.title} | CrossCareers Blog`
+            : "Career Insights & Blogs | CrossCareers"}
+        </title>
         <meta
           name="description"
-          content={selectedPost ? selectedPost.excerpt : "Career guidance, interview tips, and NGO job insights for professionals in Bangladesh and globally."}
+          content={
+            selectedPost
+              ? selectedPost.excerpt
+              : "Career guidance, interview tips, and NGO job insights for professionals in Bangladesh and globally."
+          }
         />
-        <link rel="canonical" href={`https://crosscareers.com/blog${selectedPost ? `/${selectedPost.slug}` : ""}`} />
+        <link
+          rel="canonical"
+          href={`https://crosscareers.com/blog${
+            selectedPost ? `/${selectedPost.slug}` : ""
+          }`}
+        />
       </Helmet>
 
       <Navbar />
 
       <main className="min-h-screen bg-white selection:bg-blue-100 pt-20">
         <div className="mx-auto max-w-4xl">
-          <h1 className="mb-8 text-3xl font-bold text-gray-800">Career Insights & Blogs</h1>
+          <h1 className="mb-8 text-3xl font-bold text-gray-800">
+            Career Insights & Blogs
+          </h1>
 
           {!selectedPost && (
             <>
@@ -496,10 +525,14 @@ export default function BlogPage() {
 
               {/* Category Filter */}
               <div className="mb-6 flex gap-4 flex-wrap">
-                {categories.map(cat => (
+                {categories.map((cat) => (
                   <button
                     key={cat}
-                    className={`px-4 py-2 rounded-xl border ${selectedCategory === cat ? "bg-black text-white" : "bg-white text-gray-700"}`}
+                    className={`px-4 py-2 rounded-xl border ${
+                      selectedCategory === cat
+                        ? "bg-black text-white"
+                        : "bg-white text-gray-700"
+                    }`}
                     onClick={() => setSelectedCategory(cat)}
                   >
                     {cat}
@@ -509,21 +542,49 @@ export default function BlogPage() {
 
               {/* Blog List */}
               <div className="grid gap-6">
-                {filteredPosts.map(post => (
+                {filteredPosts.map((post) => (
                   <article
                     key={post.id}
-                    className="rounded-2xl bg-white p-6 shadow hover:shadow-md transition"
+                    className="rounded-2xl bg-white shadow hover:shadow-md transition overflow-hidden"
                     itemScope
                     itemType="https://schema.org/BlogPosting"
                   >
-                    <h2 className="text-xl font-semibold text-gray-800" itemProp="headline">{post.title}</h2>
-                    <time className="mt-1 block text-sm text-gray-500" dateTime={post.date} itemProp="datePublished">{post.date}</time>
-                    <p className="mt-3 text-gray-600" itemProp="description">{post.excerpt}</p>
+                    {/* ✅ Blog Card Image */}
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-52 object-cover"
+                      itemProp="image"
+                    />
 
-                    <button
-                      onClick={() => setSelectedPost(post)}
-                      className="mt-4 inline-block rounded-xl bg-black px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
-                    >Read More</button>
+                    <div className="p-6">
+                      <h2
+                        className="text-xl font-semibold text-gray-800"
+                        itemProp="headline"
+                      >
+                        {post.title}
+                      </h2>
+                      <time
+                        className="mt-1 block text-sm text-gray-500"
+                        dateTime={post.date}
+                        itemProp="datePublished"
+                      >
+                        {post.date}
+                      </time>
+                      <p
+                        className="mt-3 text-gray-600"
+                        itemProp="description"
+                      >
+                        {post.excerpt}
+                      </p>
+
+                      <button
+                        onClick={() => setSelectedPost(post)}
+                        className="mt-4 inline-block rounded-xl bg-black px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
+                      >
+                        Read More
+                      </button>
+                    </div>
                   </article>
                 ))}
               </div>
@@ -532,7 +593,11 @@ export default function BlogPage() {
 
           {/* Single Blog Post */}
           {selectedPost && (
-            <article className="rounded-2xl bg-white p-8 shadow" itemScope itemType="https://schema.org/BlogPosting">
+            <article
+              className="rounded-2xl bg-white p-8 shadow"
+              itemScope
+              itemType="https://schema.org/BlogPosting"
+            >
               <button
                 onClick={() => setSelectedPost(null)}
                 className="mb-4 px-4 py-2 font-medium rounded-xl bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-300"
@@ -540,8 +605,27 @@ export default function BlogPage() {
                 ← Back to Blogs
               </button>
 
-              <h2 className="text-2xl font-bold text-gray-800" itemProp="headline">{selectedPost.title}</h2>
-              <time className="mt-1 block text-sm text-gray-500" dateTime={selectedPost.date} itemProp="datePublished">{selectedPost.date}</time>
+              {/* ✅ Featured Image */}
+              <img
+                src={selectedPost.image}
+                alt={selectedPost.title}
+                className="w-full h-80 object-cover rounded-xl mb-6"
+                itemProp="image"
+              />
+
+              <h2
+                className="text-2xl font-bold text-gray-800"
+                itemProp="headline"
+              >
+                {selectedPost.title}
+              </h2>
+              <time
+                className="mt-1 block text-sm text-gray-500"
+                dateTime={selectedPost.date}
+                itemProp="datePublished"
+              >
+                {selectedPost.date}
+              </time>
 
               <div
                 className="mt-6 leading-relaxed text-gray-700"
