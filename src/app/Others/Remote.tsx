@@ -201,7 +201,7 @@ const BdJobs: FC = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "CrossCareers",
-            "url": "https://crosscareers.com/",
+            "url": "https://crosscareers.com/remote-jobs",
             "logo": "https://crosscareers.com/logo/favcon.png",
             "description": "AI-powered career hub offering remote & hybrid jobs, freelance opportunities, and global career resources."
           })}
