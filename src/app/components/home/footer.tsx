@@ -59,16 +59,16 @@ const Footer: React.FC = () => {
   ];
 
   const companyLinks: FooterLink[] = [
-    { label: "About Us", path: "/about" },
-    { label: "Referral System", path: "/earn" },
+    { label: "About Us", path: "/about-us" },
+    { label: "Referral System", path: "/referral-program" },
     { label: "Jobs & Procurement", path: "/career" },
-    { label: "Contact", path: "/contact" },
+    { label: "Contact", path: "/contact-us" },
   ];
 
   const legalLinks: FooterLink[] = [
-    { label: "Terms & Conditions", path: "/terms" },
-    { label: "Privacy Policy", path: "/privacy" },
-    { label: "Legal Poliicy", path: "/legalpoliicy" },
+    { label: "Terms & Conditions", path: "/terms-and-conditions" },
+    { label: "Privacy Policy", path: "/privacy-policy" },
+    { label: "Legal Poliicy", path: "/legal-poliicy" },
   ];
 
   return (

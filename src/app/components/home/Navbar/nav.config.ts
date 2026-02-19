@@ -8,15 +8,15 @@ export const NAV_CONFIG: NavItem[] = [
     key: "jobs",
     type: "dropdown",
     items: [
-      { label: "BDjobs Sites", path: "/bdjobs" },
-      { label: "Int. Jobs Sites", path: "/intjobs" },
-      { label: "NGO Jobs", path: "/ngo" },
-      { label: "INGO Jobs", path: "/ingo" },
-      { label: "Freelancer Jobs", path: "/freelance" },
-      { label: "Remote Jobs", path: "/remote-jobs" },
-      { label: "Embassy Jobs", path: "/emb", restricted: true },
-      { label: "Donar Jobs", path: "/donor", restricted: true },
-      { label: "UN Jobs", path: "/un", restricted: true },
+      { label: "BDjobs Sites", path: "/bangladesh-jobs-sites" },
+      { label: "Int. Jobs Sites", path: "/international-jobs-sites" },
+      { label: "NGO Jobs", path: "/ngo-jobs-bangladesh" },
+      { label: "INGO Jobs", path: "/international-ngo-jobs" },
+      { label: "Freelancer Jobs", path: "/freelance-jobs-online" },
+      { label: "Remote Jobs", path: "/remote-jobs-worldwide" },
+      { label: "Embassy Jobs", path: "/embassy-jobs-bangladesh", restricted: true },
+      { label: "Donar Jobs", path: "/donor-jobs-bangladesh", restricted: true },
+      { label: "UN Jobs", path: "/united-nation-jobs-bangladesh", restricted: true },
     ],
   },
   {
@@ -34,7 +34,7 @@ export const NAV_CONFIG: NavItem[] = [
     key: "candidate",
     type: "dropdown",
     items: [
-      { label: "Training Sites", path: "/trainings" },
+      { label: "Training Sites", path: "/training-sites-worldwide" },
       { label: "Written Test", path: "/writtenTest", restricted: true },
       {
         label: "Interview Practice",
