@@ -14460,7 +14460,240 @@ const blogPosts: BlogPost[] = [
                 </div>
             </article>
         `
-    }
+    },
+    {
+    id: 62,
+    title: "Bangladesh Job Market 2026: The Strategic vs. The Survival - A Data-Backed Roadmap",
+    slug: "bangladesh-job-market-guide-2026-strategic-survival",
+    date: "2026-02-21",
+    excerpt: "With unemployment at 4.63% affecting 2.7M people and 900,000 graduates jobless, learn which path fits your situation—survival or strategic—and get a data-backed roadmap to navigate Bangladesh's competitive job market.",
+    category: "Leadership & Innovation",
+    image: "https://i.ibb.co.com/B5WcYnvM/62.webp",
+    content: `
+      <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #f0f2f5 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #d0d9e8;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+            <span style="background: #1e4a6f; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🇧🇩 BANGLADESH JOB MARKET</span>
+            <span style="color: #1e4a6f; font-size: 0.9rem;">expertise · experience · trust</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; color: #1e4a6f;">
+            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">🔖 career guide</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+          <div style="background: linear-gradient(145deg, #1e4a6f 0%, #2d5f8a 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+            <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🇧🇩 Bangladesh Job Market 2026: The Strategic vs. The Survival</h1>
+            <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">4.63% Unemployment · 2.7M Jobless · 900K Graduates · Dual Roadmap · HR Insights</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📊 4.63% unemployment rate</span>
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🎓 900K graduates jobless</span>
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🗺️ Dual roadmap</span>
+            </div>
+          </div>
+          
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #d0d9e8;">
+            <p style="font-size: 1.1rem;">The job market in Bangladesh has reached a critical inflection point. With unemployment climbing to <strong>4.63% in late 2024</strong>—affecting approximately <strong>2.7 million people</strong>—the landscape is more competitive than ever. Perhaps most alarming is that nearly <strong>900,000 of these unemployed individuals are university graduates</strong>, the highest rate across all education levels. Every year, nearly 2 million new job seekers enter the fray, yet private sector job creation struggles to keep pace.</p>
+            <p>Whether you are a fresh graduate fighting for a first job or a professional aiming for a strategic career leap, understanding the terrain is half the battle won. This data-backed guide helps you identify which category you fall into—survival or strategic—and provides a clear roadmap tailored to your situation.</p>
+          </div>
+        </div>
+
+        <div style="background: #f0f7fa; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b8d0de;">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
+            <div>
+              <div style="font-size: 2rem; font-weight: 700; color: #1e4a6f;">4.63%</div>
+              <div>unemployment rate</div>
+            </div>
+            <div>
+              <div style="font-size: 2rem; font-weight: 700; color: #1e4a6f;">2.7M</div>
+              <div>people jobless</div>
+            </div>
+            <div>
+              <div style="font-size: 2rem; font-weight: 700; color: #1e4a6f;">900K</div>
+              <div>graduates unemployed</div>
+            </div>
+          </div>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">👥 The Two Faces of the Job Market</h2>
+        
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b8d0de;">
+          <p>Before diving into strategy, you must identify which category you fall into today:</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+          <div style="background: #fff0f0; border-radius: 28px; padding: 1.8rem; border: 1px solid #d9c9d9;">
+            <span style="font-size: 2rem;">🔹</span>
+            <h3 style="color: #b33c3c;">1. The Survival Job Seeker</h3>
+            <p><strong>Who:</strong> Recently unemployed individuals, fresh graduates, or those returning from a career gap.</p>
+            <p><strong>Priority:</strong> Urgent income and job placement.</p>
+            <p><strong>Mindset:</strong> "I need a job now." Benefits, work-life balance, and long-term growth are secondary to immediate financial stability.</p>
+          </div>
+          <div style="background: #e0f0e0; border-radius: 28px; padding: 1.8rem; border: 1px solid #c9d9c9;">
+            <span style="font-size: 2rem;">🔹</span>
+            <h3 style="color: #1e6f5c;">2. The Strategic Job Seeker</h3>
+            <p><strong>Who:</strong> Currently employed individuals or those with the luxury to wait for the right fit.</p>
+            <p><strong>Priority:</strong> Career advancement, better salary, skill alignment, and work-life harmony.</p>
+            <p><strong>Mindset:</strong> "I want the right job." They have a long-term vision but risk stagnation if they don't act decisively.</p>
+          </div>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🎯 What HR is Actually Looking For (The Bangladesh Context)</h2>
+        
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b8d0de;">
+          <p>Regardless of which type you are, HR professionals and employers across Dhaka, Chattogram, and beyond are filtering for the same core traits:</p>
+          
+          <ul style="list-style-type: none; margin-top: 1rem;">
+            <li style="margin-bottom: 0.8rem;">✓ <strong>Communication & Articulation:</strong> Can you express your thoughts clearly in English and Bengali?</li>
+            <li style="margin-bottom: 0.8rem;">✓ <strong>Demonstrable Skills:</strong> Not just degrees, but real, practical abilities.</li>
+            <li style="margin-bottom: 0.8rem;">✓ <strong>Commitment & Professionalism:</strong> Will you show up and deliver?</li>
+            <li style="margin-bottom: 0.8rem;">✓ <strong>Learning Agility:</strong> Can you adapt to a rapidly changing market?</li>
+          </ul>
+        </div>
+
+        <h3 style="font-size: 1.5rem; color: #1e4a6f; margin: 2rem 0 1rem;">Common HR Questions You Must Nail:</h3>
+        
+        <div style="background: #1e4a6f; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+          <ul style="list-style-type: none;">
+            <li style="margin-bottom: 1rem;">❓ "Why should we hire you?"</li>
+            <li style="margin-bottom: 1rem;">❓ "Explain your career gap."</li>
+            <li style="margin-bottom: 1rem;">❓ "What are your short-term and long-term plans?"</li>
+          </ul>
+          <p>Your preparation for these questions is what separates you from the other 900,000 graduates.</p>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🗺️ The Dual Roadmap to Success</h2>
+
+        <h3 style="font-size: 1.5rem; color: #b33c3c; margin: 2rem 0 1rem;">🏃 Survival Job Seeker Roadmap: "Income Now, Growth Later"</h3>
+        
+        <div style="background: #fff0f0; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #d9c9d9;">
+          <p>If you need a job urgently, speed and volume are your friends. But you must do it smartly.</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0;">
+            <div style="background: #ffffff; border-radius: 16px; padding: 1rem;">
+              <span style="font-weight: 600;">Phase 1</span>
+              <p>Self-Assessment (Week 1): List core strengths. Target high-demand entry-level industries: NGOs, Retail, Logistics, Call Centers.</p>
+            </div>
+            <div style="background: #ffffff; border-radius: 16px; padding: 1rem;">
+              <span style="font-weight: 600;">Phase 2</span>
+              <p>Rapid Skill Upgrade (Weeks 2-4): Master MS Office (Excel non-negotiable), communication skills, CV & interview prep.</p>
+            </div>
+            <div style="background: #ffffff; border-radius: 16px; padding: 1rem;">
+              <span style="font-weight: 600;">Phase 3</span>
+              <p>High-Volume Execution (Ongoing): Send tailored applications daily, leverage network (36% find jobs through friends), follow up.</p>
+            </div>
+          </div>
+          
+          <div style="background: #ffffff; border-radius: 20px; padding: 1.5rem; margin-top: 1rem;">
+            <p style="font-weight: 600;">💡 Pro Tip:</p>
+            <p>When asked about CV gaps, never say you were "sitting idle." Frame it as a period of skill upgrading—learning Excel, improving English, or taking online courses.</p>
+          </div>
+          
+          <p style="margin-top: 1rem;"><strong>✅ Break-Even Point:</strong> You succeed when your income meets your basic expenses and you regain your professional confidence.</p>
+        </div>
+
+        <h3 style="font-size: 1.5rem; color: #1e6f5c; margin: 2rem 0 1rem;">🌱 Strategic Job Seeker Roadmap: "Growth Now, Legacy Later"</h3>
+        
+        <div style="background: #e0f0e0; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+          <p>If you are aiming for a leap, patience and precision are your weapons.</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0;">
+            <div style="background: #ffffff; border-radius: 16px; padding: 1rem;">
+              <span style="font-weight: 600;">Phase 1</span>
+              <p>Deep Market Research: Investigate company reputation, career paths, long-term stability—not just salary.</p>
+            </div>
+            <div style="background: #ffffff; border-radius: 16px; padding: 1rem;">
+              <span style="font-weight: 600;">Phase 2</span>
+              <p>Personal Branding: Update LinkedIn with measurable achievements. Publish content, engage in discussions.</p>
+            </div>
+            <div style="background: #ffffff; border-radius: 16px; padding: 1rem;">
+              <span style="font-weight: 600;">Phase 3</span>
+              <p>Selective Applications: Apply only to roles fitting 3-year plan. Network with insiders first. Prepare STAR-method answers.</p>
+            </div>
+          </div>
+          
+          <p style="margin-top: 1rem;"><strong>✅ Break-Even Point:</strong> You succeed when your new role brings holistic growth—better salary, higher skills, and improved well-being.</p>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💡 The Universal Skill Stack (You Need Both)</h2>
+        
+        <div style="border-radius: 28px; overflow: hidden; border: 1px solid #b8d0de; margin: 1.5rem 0 2rem;">
+          <table style="width:100%; border-collapse: collapse;">
+            <thead style="background: #1e4a6f; color: white;">
+              <tr><th style="padding: 1rem 1.5rem; text-align: left;">Skill</th><th style="padding: 1rem 1.5rem; text-align: left;">Why It Matters in Bangladesh</th></tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding: 1rem 1.5rem; font-weight: 600;">Communication</td><td style="padding: 1rem 1.5rem;">The #1 filter in interviews and workplace success.</td></tr>
+              <tr style="background: #f0f7fa;"><td style="padding: 1rem 1.5rem; font-weight: 600;">Digital Literacy</td><td style="padding: 1rem 1.5rem;">From basic MS Office to AI tools—tech skills are assumed.</td></tr>
+              <tr><td style="padding: 1rem 1.5rem; font-weight: 600;">Emotional Intelligence</td><td style="padding: 1rem 1.5rem;">Critical for teamwork and surviving office politics.</td></tr>
+              <tr style="background: #f0f7fa;"><td style="padding: 1rem 1.5rem; font-weight: 600;">Problem Solving</td><td style="padding: 1rem 1.5rem;">HRs want solution-finders, not problem-reporters.</td></tr>
+              <tr><td style="padding: 1rem 1.5rem; font-weight: 600;">Learning Agility</td><td style="padding: 1rem 1.5rem;">The market changes fast; if you don't learn, you're left behind.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🚧 Challenges vs. Opportunities</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+          <div style="background: #fff0f0; border-radius: 28px; padding: 1.8rem;">
+            <h3 style="color: #b33c3c;">The Harsh Reality:</h3>
+            <ul>
+              <li><strong>Graduate Glut:</strong> Tertiary-educated unemployment hovers around 13.5%.</li>
+              <li><strong>Shrinking Participation:</strong> Especially among women, the labour force is shrinking.</li>
+              <li><strong>Network Dependency:</strong> Relying on "reference" over merit remains a barrier.</li>
+            </ul>
+          </div>
+          <div style="background: #e0f0e0; border-radius: 28px; padding: 1.8rem;">
+            <h3 style="color: #1e6f5c;">The Silver Lining:</h3>
+            <ul>
+              <li><strong>NGO & Development Sector:</strong> Steady growth in projects.</li>
+              <li><strong>Digital Economy:</strong> Freelancing and remote work are bypassing traditional gatekeepers.</li>
+              <li><strong>Startup Ecosystem:</strong> New companies are hungry for digital talent.</li>
+              <li><strong>Government Initiatives:</strong> Various skill development programs are available—use them.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🎁 Final Thought</h2>
+        
+        <div style="background: linear-gradient(145deg, #f0f7fa, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; border-left: 6px solid #1e4a6f;">
+          <p style="font-size: 1.3rem; font-style: italic; color: #1e2f4a;">Your current job status—whether unemployed, underemployed, or comfortably employed—is temporary. It is a snapshot, not the whole movie.</p>
+          <p style="font-size: 1.2rem; margin-top: 1rem;">Your strategy for tomorrow determines your career for life. Whether you are surviving or strategizing, preparing with data-backed methods is the difference between stagnation and success.</p>
+        </div>
+
+        <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #b8d0de; margin-bottom: 2.5rem;">The Bangladesh job market in 2026 presents unprecedented challenges: 4.63% unemployment affecting 2.7 million people, with 900,000 university graduates among them. Yet within this competitive landscape, understanding which path you're on—survival or strategic—determines your approach. Survival seekers need rapid income through targeted industries like NGOs, retail, logistics, and call centers, with quick skill upgrades in MS Office and communication, leveraging networks where 36% find jobs. Strategic seekers must invest in personal branding, measurable achievements on LinkedIn, and selective applications aligned with 3-year plans. Both paths require the universal skill stack: communication, digital literacy, emotional intelligence, problem-solving, and learning agility. The harsh realities—13.5% graduate unemployment, shrinking female participation, network dependency—are balanced by opportunities in NGOs, the digital economy, startups, and government programs. Your current status is temporary. Your strategy determines your future.</p>
+
+        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
+            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="flex: 1;">
+            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
+              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
+            </div>
+            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
+            </div>
+            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
+            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d0de; font-size: 0.85rem; color: #1e4a6f;">
+          <span>🔍 Sources: BBS labor data, HR insights, Cross Careers analysis</span>
+          <span>✏️ Last updated: February 2026</span>
+          <span>✅ complies with EEAT</span>
+        </div>
+      </article>
+    `
+}
 ]
 const POSTS_PER_PAGE = 10;
 
