@@ -56,7 +56,7 @@ export default function Navbar() {
 
             <Link to="/">
               <img
-                src="https://i.ibb.co/Y75Y5NSb/banner.gif"
+                src="https://i.ibb.co.com/JjgzYJB3/navlogo.png"
                 alt="Cross Careers"
                 className="h-9 sm:h-10 object-contain"
               />
