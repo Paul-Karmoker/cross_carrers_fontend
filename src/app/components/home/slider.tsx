@@ -104,9 +104,9 @@ const JobTrainingPortals: FC = () => {
     },
     {
       id: 3,
-      name: "MyJobs",
-      url: "https://www.myjobs.com.bd/",
-      logo: "https://i.ibb.co.com/V07DnQ8y/myjobs.jpg",
+      name: "Careerjet",
+      url: "https://www.careerjet.com.bd/",
+      logo: "https://i.ibb.co/jZrCpSTf/career-Jet.png",
       category: "National",
     },
     {
@@ -120,7 +120,7 @@ const JobTrainingPortals: FC = () => {
       id: 5,
       name: "Teletalk",
       url: "https://alljobs.teletalk.com.bd/",
-      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRFUgbjYu-gsviQMoecCi60uUXXXF9anBrAA&s",
+      logo: "https://i.ibb.co.com/d4Rk8zP2/images.png",
       category: "Government",
     },
     {

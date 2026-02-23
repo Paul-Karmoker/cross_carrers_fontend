@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Helmet } from "react-helmet-async";
 import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
 
@@ -12,7 +13,95 @@ interface JobSite {
   logo: string;
   description?: string;
 }
-
+{/* FAQ Structured Data for SEO */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What are freelance jobs?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Freelance jobs allow professionals to work independently, offering services to global clients on short-term or project-based contracts through online platforms."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How can I start freelancing online?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Create a professional profile, showcase your portfolio, set competitive rates, and apply consistently on trusted freelance job platforms."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Are freelance platforms safe and reliable?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most verified platforms provide secure payment systems, client reviews, and dispute resolution features to protect freelancers."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can freelancers work with international clients?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, freelance platforms connect professionals with global clients across multiple industries without geographical restrictions."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Which skills are in demand for freelance work?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Web development, graphic design, digital marketing, content writing, data analysis, and virtual assistance are highly demanded freelance skills."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How do freelancers get paid?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Freelancers typically receive payments through secure escrow systems, bank transfers, PayPal, Payoneer, or direct platform payment gateways."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is freelancing a stable career option?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Freelancing can provide stable income when professionals build strong client relationships, maintain consistent performance, and diversify income streams."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do freelance platforms charge fees?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most freelance platforms charge service fees or commission percentages from freelancer earnings or client payments."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can beginners find freelance jobs easily?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Beginners can secure freelance jobs by building niche expertise, offering competitive pricing, and delivering high-quality work consistently."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How can I increase my freelance income globally?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Specialize in high-demand skills, improve your portfolio, maintain excellent client ratings, and target higher-paying international clients."
+                  }
+                }
+              ]
+            })}
+          </script>
 /**
  * Props for the JobCard sub-component
  */
@@ -22,28 +111,27 @@ interface JobCardProps {
 
 /**
  * Optimized JobCard Component
- * Features better hover states, transitions, and accessible link handling
  */
 const JobCard: FC<JobCardProps> = ({ site }) => {
   return (
     <div className="group bg-white border border-gray-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
       <div className="p-8 flex flex-col items-center flex-grow">
-     
+
         <div className="w-full h-24 mb-6 flex items-center justify-center bg-gray-50 p-4 group-hover:bg-white transition-colors duration-300">
           <img
             src={site.logo}
-            alt={`${site.name} Logo`}
+            alt={`${site.name} official logo`}
             className="max-h-full max-w-full object-contain filter transition-all duration-500"
             loading="lazy"
           />
         </div>
 
-        <h3 className="text-xl font-bold  mb-2 text-center text-blue-600 transition-colors">
+        <h3 className="text-xl font-bold mb-2 text-center text-blue-600 transition-colors">
           {site.name}
         </h3>
-        
+
         <p className="text-sm text-gray-500 text-center mb-6">
-          Access premium Freelance job listings and career resources on {site.name}.
+          Explore freelance jobs and remote career opportunities on {site.name}.
         </p>
       </div>
 
@@ -52,7 +140,7 @@ const JobCard: FC<JobCardProps> = ({ site }) => {
           href={site.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-full py-2 bg-blue-600 text-white font-semibold  transition-all duration-300 shadow-gray-200 group-hover:shadow-blue-200"
+          className="flex items-center justify-center w-full py-2 bg-blue-600 text-white font-semibold transition-all duration-300 shadow-gray-200 group-hover:shadow-blue-200"
           aria-label={`Visit ${site.name} website`}
         >
           Explore Careers
@@ -71,24 +159,25 @@ const JobCard: FC<JobCardProps> = ({ site }) => {
 };
 
 const BdJobs: FC = () => {
+
   const jobSites: JobSite[] = [
     { id: 1, name: 'Upwork', url: 'https://www.upwork.com/', logo: 'https://i.ibb.co.com/4wLm11VF/upwork.png' },
-    { id: 2, name: 'Fiverr', url: 'https://www.fiverr.com/?source=top_nav', logo: 'https://i.ibb.co.com/PGfpfLyG/Fiverr.png' },
+    { id: 2, name: 'Fiverr', url: 'https://www.fiverr.com/', logo: 'https://i.ibb.co.com/PGfpfLyG/Fiverr.png' },
     { id: 3, name: 'Freelancer.com', url: 'https://www.freelancer.com/', logo: 'https://i.ibb.co.com/Swmxgk9g/Freelance.png' },
     { id: 4, name: 'Guru', url: 'https://www.guru.com/', logo: 'https://i.ibb.co.com/4Ry4fMdK/guru.jpg' },
     { id: 5, name: 'PeoplePerHour', url: 'https://www.peopleperhour.com/', logo: 'https://i.ibb.co.com/JFyCWnyY/peopleperhour.png' },
-    { id: 6, name: 'Toptal', url: 'https://www.toptal.com/', logo: 'https://assets.toptal.io/images?url=https%3A%2F%2Fwww.toptal.com%2Ftoptal-logo.png&width=360' },
+    { id: 6, name: 'Toptal', url: 'https://www.toptal.com/', logo: 'https://i.ibb.co.com/KcGxt5ZR/images.jpg' },
     { id: 7, name: '99designs', url: 'https://99designs.com/', logo: 'https://i.ibb.co.com/jkFXWrrW/99d.png' },
     { id: 8, name: 'FlexJobs', url: 'https://www.flexjobs.com/', logo: 'https://assets.flexjobs.com/blobcontent/flexjobs/images/fj-logo.svg' },
-    { id: 9, name: 'We Work Remotely', url: 'https://weworkremotely.com/', logo: 'https://weworkremotely.com/assets/LogoV1-5a0dbe26661ab0602beaf98f789d6e43824f60d122d4abd700268f394ddc1beb.svg' },
+    { id: 9, name: 'We Work Remotely', url: 'https://weworkremotely.com/', logo: 'https://i.ibb.co.com/ycXv5HVx/wwe.jpg' },
     { id: 10, name: 'SolidGigs', url: 'https://solidgigs.com/', logo: 'https://solidgigs.com/wp-content/uploads/2025/01/solidgigs-logo-new-full.png' },
-    { id: 11, name: 'Contra', url: 'https://contra.com/discover?view=people', logo: 'https://i.ibb.co.com/pBCLCzBt/Contra.png' },
+    { id: 11, name: 'Contra', url: 'https://contra.com/', logo: 'https://i.ibb.co.com/pBCLCzBt/Contra.png' },
     { id: 12, name: 'Truelancer', url: 'https://www.truelancer.com/', logo: 'https://i.ibb.co.com/wNqp9CDx/true.jpg' },
     { id: 13, name: 'Ureed', url: 'https://ureed.com/', logo: 'https://i.ibb.co.com/fzWMV2bj/Ureed.png' },
     { id: 14, name: 'Workana', url: 'https://www.workana.com/', logo: 'https://i.ibb.co.com/N2028Ff3/Workana.png' },
     { id: 15, name: 'Kolabtree', url: 'https://www.kolabtree.com/', logo: 'https://i.ibb.co.com/TD1XKS1F/Kolabtree.jpg' },
-    { id: 16, name: 'designcrowd', url: 'https://www.designcrowd.com/jobs/home', logo: 'https://dcstatic.com/images/logos/designcrowd-logo-5b55787f20.svg' },
-    { id: 17, name: 'Behance', url: 'https://www.behance.net/joblist?tracking_source=nav20', logo: 'https://i.ibb.co.com/yc0hVxCh/images.png' },
+    { id: 16, name: 'DesignCrowd', url: 'https://www.designcrowd.com/', logo: 'https://i.ibb.co.com/Z11710b1/de.jpg' },
+    { id: 17, name: 'Behance', url: 'https://www.behance.net/joblist', logo: 'https://i.ibb.co.com/yc0hVxCh/images.png' },
     { id: 18, name: 'Hubstaff Talent', url: 'https://hubstafftalent.net/', logo: 'https://i.ibb.co.com/yc7dtgHN/Hubstaff-Talent.png' },
     { id: 19, name: 'Zeerk', url: 'https://zeerk.com/', logo: 'https://zeerk.com/wp-content/uploads/2025/12/zeerk_logo.png' },
     { id: 20, name: 'Jobbers', url: 'https://www.jobbers.io/', logo: 'https://r2.jobbers.io/uploads/2022/05/jobbers-logo-web.png' }
@@ -96,33 +185,63 @@ const BdJobs: FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
-      <Navbar />
-      <main className="flex-grow pt-20">
-        <section className="relative overflow-hidden bg-gray-900 py-20 lg:py-28">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
-          </div>
 
+      <Helmet>
+        <title>Top Freelance Job Portals 2026 | Home Based Global Freelance Platforms | CrossCareers</title>
+
+        <meta 
+          name="description" 
+          content="Explore the top 20 freelance job portals including Upwork, Fiverr, Toptal and more. Discover global remote jobs, freelance gigs, and verified career platforms curated by CrossCareers."
+        />
+
+        <link rel="canonical" href="https://crosscareers.com/freelance" />
+
+        <meta property="og:title" content="Top 20 Freelance Job Portals 2026 | CrossCareers" />
+        <meta property="og:description" content="Discover trusted freelance job platforms to find remote work and global career opportunities." />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Top 20 Freelance Job Portals",
+            "url": "https://crosscareers.com/freelance",
+            "description": "Curated list of top global freelance job platforms for remote professionals.",
+            "publisher": {
+              "@type": "Organization",
+              "name": "CrossCareers"
+            }
+          })}
+        </script>
+      </Helmet>
+
+      <Navbar />
+
+      <main className="flex-grow pt-20">
+
+        <section className="relative overflow-hidden bg-gray-900 py-20 lg:py-28">
           <div className="container mx-auto px-6 relative z-10 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">
-              Top 20 Freelance <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300">Job Portals</span>
+              Top Freelance Job Portals for Remote & Global Work
             </h1>
             <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Navigate your career journey with confidence. We've aggregated the most trusted 
-              freelance platforms to help you find your next big opportunity Globally .
+              Discover trusted freelance platforms to find remote jobs, global clients, and verified career opportunities worldwide.
             </p>
           </div>
         </section>
 
-        {/* Portals Grid Section */}
         <section className="container mx-auto px-6 py-16 lg:py-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900">Premium Portals</h2>
+              <h2 className="text-3xl font-bold text-gray-900">Verified Freelance Platforms</h2>
               <div className="h-1.5 w-20 bg-blue-600 rounded-full mt-3"></div>
             </div>
-            <p className="text-gray-500 font-medium">Showing {jobSites.length} Verified Platforms</p>
+            <p className="text-gray-500 font-medium">
+              Showing {jobSites.length} Trusted Platforms
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -130,20 +249,73 @@ const BdJobs: FC = () => {
               <JobCard key={site.id} site={site} />
             ))}
           </div>
-          
-          {/* Bottom Call to Action or Insight */}
-          <div className="mt-20 p-8 md:p-12 bg-white border-[1px] border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="max-w-xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Can't find what you're looking for?</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our database is updated weekly with new niche job boards and international remote platforms operating in Bangladesh.
-              </p>
+        </section>
+                {/* FAQ Section */}
+        <section className="container mx-auto px-6 pb-20">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
+              Freelance Jobs – Frequently Asked Questions
+            </h2>
+
+            <div className="space-y-6">
+              {[
+                {
+                  q: "What are freelance jobs?",
+                  a: "Freelance jobs allow professionals to work independently, offering services to global clients on short-term or project-based contracts through online platforms."
+                },
+                {
+                  q: "How can I start freelancing online?",
+                  a: "Create a professional profile, showcase your portfolio, set competitive rates, and apply consistently on trusted freelance job platforms."
+                },
+                {
+                  q: "Are freelance platforms safe and reliable?",
+                  a: "Most verified platforms provide secure payment systems, client reviews, and dispute resolution features to protect freelancers."
+                },
+                {
+                  q: "Can freelancers work with international clients?",
+                  a: "Yes, freelance platforms connect professionals with global clients across multiple industries without geographical restrictions."
+                },
+                {
+                  q: "Which skills are in demand for freelance work?",
+                  a: "Web development, graphic design, digital marketing, content writing, data analysis, and virtual assistance are highly demanded freelance skills."
+                },
+                {
+                  q: "How do freelancers get paid?",
+                  a: "Freelancers typically receive payments through secure escrow systems, bank transfers, PayPal, Payoneer, or direct platform payment gateways."
+                },
+                {
+                  q: "Is freelancing a stable career option?",
+                  a: "Freelancing can provide stable income when professionals build strong client relationships, maintain consistent performance, and diversify income streams."
+                },
+                {
+                  q: "Do freelance platforms charge fees?",
+                  a: "Most freelance platforms charge service fees or commission percentages from freelancer earnings or client payments."
+                },
+                {
+                  q: "Can beginners find freelance jobs easily?",
+                  a: "Beginners can secure freelance jobs by building niche expertise, offering competitive pricing, and delivering high-quality work consistently."
+                },
+                {
+                  q: "How can I increase my freelance income globally?",
+                  a: "Specialize in high-demand skills, improve your portfolio, maintain excellent client ratings, and target higher-paying international clients."
+                }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white border border-gray-100 p-6 hover:shadow-sm transition-all duration-300"
+                >
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    {item.q}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {item.a}
+                  </p>
+                </div>
+              ))}
             </div>
-            <button className="whitespace-nowrap px-8 py-2 bg-blue-50 text-blue-700 font-bold  hover:bg-blue-100 transition-colors">
-              Suggest a Portal
-            </button>
           </div>
         </section>
+
       </main>
 
       <Footer />

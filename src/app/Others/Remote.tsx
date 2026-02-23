@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
+import { Helmet } from 'react-helmet-async';
 
 /**
  * Interface for Job Portal data structure
@@ -19,7 +20,95 @@ interface JobSite {
 interface JobCardProps {
   site: JobSite;
 }
-
+ {/* FAQ Structured Data for SEO */}
+            <script type="application/ld+json">
+              {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "What are global remote jobs?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Global remote jobs allow professionals to work from any country while collaborating with international companies through digital platforms and online tools."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Are remote jobs legitimate and safe?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Most verified remote job platforms screen employers, but candidates should always research companies and avoid roles requesting upfront payments."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Which industries hire the most remote workers globally?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Technology, digital marketing, customer support, finance, content creation, and project management are among the fastest-growing remote hiring sectors worldwide."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Do remote jobs pay competitive salaries?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Many global remote roles offer competitive salaries based on skills, experience, and market demand, sometimes adjusted by geographic location."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What skills are required for remote work?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Strong communication, time management, digital collaboration, problem-solving, and technical proficiency are essential skills for successful remote professionals."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How can I find verified remote job platforms?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Use trusted global job boards specializing in remote and hybrid opportunities with transparent company profiles and secure application systems."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Are hybrid jobs different from remote jobs?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Hybrid jobs combine remote work flexibility with occasional office presence, while fully remote roles require no physical office attendance."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Can I work remotely for companies in another country?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Yes, many companies hire international talent remotely, though tax regulations, payment methods, and employment laws may vary."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Do remote jobs require specific time zone availability?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Some roles require overlap with company time zones, while others offer asynchronous work flexibility across global regions."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How can I improve my chances of getting a remote job?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Optimize your resume for remote skills, build a strong online presence, tailor applications, and apply consistently through verified global platforms."
+                    }
+                  }
+                ]
+              })}
+            </script>
 /**
  * Optimized JobCard Component
  * Features better hover states, transitions, and accessible link handling
@@ -28,7 +117,6 @@ const JobCard: FC<JobCardProps> = ({ site }) => {
   return (
     <div className="group bg-white border border-gray-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
       <div className="p-8 flex flex-col items-center flex-grow">
-     
         <div className="w-full h-24 mb-6 flex items-center justify-center bg-gray-50 p-4 group-hover:bg-white transition-colors duration-300">
           <img
             src={site.logo}
@@ -38,12 +126,12 @@ const JobCard: FC<JobCardProps> = ({ site }) => {
           />
         </div>
 
-        <h3 className="text-xl font-bold  mb-2 text-center text-blue-600 transition-colors">
+        <h3 className="text-xl font-bold mb-2 text-center text-blue-600 transition-colors">
           {site.name}
         </h3>
         
         <p className="text-sm text-gray-500 text-center mb-6">
-          Access premium Freelance job listings and career resources on {site.name}.
+          Access premium remote job listings and career resources on {site.name}.
         </p>
       </div>
 
@@ -52,7 +140,7 @@ const JobCard: FC<JobCardProps> = ({ site }) => {
           href={site.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-full py-2 bg-blue-600 text-white font-semibold  transition-all duration-300 shadow-gray-200 group-hover:shadow-blue-200"
+          className="flex items-center justify-center w-full py-2 bg-blue-600 text-white font-semibold transition-all duration-300 shadow-gray-200 group-hover:shadow-blue-200"
           aria-label={`Visit ${site.name} website`}
         >
           Explore Careers
@@ -88,6 +176,38 @@ const BdJobs: FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
+      <Helmet>
+        <title>Remote & Hybrid Jobs Portal 2026 | CrossCareers</title>
+        <meta name="description" content="Discover the top remote and hybrid job portals worldwide. Access verified platforms to find flexible work opportunities globally." />
+        <meta name="keywords" content="remote jobs, hybrid jobs, work from home, global remote platforms, freelance jobs, job boards 2026" />
+        <link rel="canonical" href="https://crosscareers.com/remote-jobs" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Remote & Hybrid Jobs Portal 2026 | CrossCareers" />
+        <meta property="og:description" content="Discover the top remote and hybrid job portals worldwide. Access verified platforms to find flexible work opportunities globally." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://crosscareers.com/remote-jobs" />
+        <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Remote & Hybrid Jobs Portal 2026 | CrossCareers" />
+        <meta name="twitter:description" content="Discover the top remote and hybrid job portals worldwide. Access verified platforms to find flexible work opportunities globally." />
+        <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "CrossCareers",
+            "url": "https://crosscareers.com/remote-jobs",
+            "logo": "https://crosscareers.com/logo/favcon.png",
+            "description": "AI-powered career hub offering remote & hybrid jobs, freelance opportunities, and global career resources."
+          })}
+        </script>
+      </Helmet>
+
       <Navbar />
       <main className="flex-grow pt-20">
         <section className="relative overflow-hidden bg-gray-900 py-20 lg:py-28">
@@ -101,8 +221,8 @@ const BdJobs: FC = () => {
               Remote & Hybrid <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300">Job Portals</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Navigate your career journey with confidence. We've aggregated the most trusted 
-              platforms to help you findout remote jobs worldwide.</p>
+              Navigate your career journey with confidence. We've aggregated the most trusted platforms to help you find remote jobs worldwide.
+            </p>
           </div>
         </section>
 
@@ -127,16 +247,78 @@ const BdJobs: FC = () => {
             <div className="max-w-xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Can't find what you're looking for?</h3>
               <p className="text-gray-600 leading-relaxed">
-                Our database is updated weekly with new niche job boards and international remote platforms operating in Bangladesh.
+                Our database is updated weekly with new niche job boards and international remote platforms operating globally.
               </p>
             </div>
-            <button className="whitespace-nowrap px-8 py-2 bg-blue-50 text-blue-700 font-bold  hover:bg-blue-100 transition-colors">
+            <button className="whitespace-nowrap px-8 py-2 bg-blue-50 text-blue-700 font-bold hover:bg-blue-100 transition-colors">
               Suggest a Portal
             </button>
           </div>
         </section>
-      </main>
+                  {/* FAQ Section */}
+          <section className="container mx-auto px-6 pb-20">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
+                Remote Jobs – Frequently Asked Questions (FAQ)
+              </h2>
 
+              <div className="space-y-6">
+                {[
+                  {
+                    q: "What are Gemote jobs?",
+                    a: "Remote jobs allow professionals to work from any country while collaborating with international companies through digital platforms and online tools."
+                  },
+                  {
+                    q: "Are remote jobs legitimate and safe?",
+                    a: "Most verified remote job platforms screen employers, but candidates should always research companies and avoid roles requesting upfront payments."
+                  },
+                  {
+                    q: "Which industries hire the most remote workers globally?",
+                    a: "Technology, digital marketing, customer support, finance, content creation, and project management are among the fastest-growing remote hiring sectors worldwide."
+                  },
+                  {
+                    q: "Do remote jobs pay competitive salaries?",
+                    a: "Many global remote roles offer competitive salaries based on skills, experience, and market demand, sometimes adjusted by geographic location."
+                  },
+                  {
+                    q: "What skills are required for remote work?",
+                    a: "Strong communication, time management, digital collaboration, problem-solving, and technical proficiency are essential skills for successful remote professionals."
+                  },
+                  {
+                    q: "How can I find verified remote job platforms?",
+                    a: "Use trusted global job boards specializing in remote and hybrid opportunities with transparent company profiles and secure application systems."
+                  },
+                  {
+                    q: "Are hybrid jobs different from remote jobs?",
+                    a: "Hybrid jobs combine remote work flexibility with occasional office presence, while fully remote roles require no physical office attendance."
+                  },
+                  {
+                    q: "Can I work remotely for companies in another country?",
+                    a: "Yes, many companies hire international talent remotely, though tax regulations, payment methods, and employment laws may vary."
+                  },
+                  {
+                    q: "Do remote jobs require specific time zone availability?",
+                    a: "Some roles require overlap with company time zones, while others offer asynchronous work flexibility across global regions."
+                  },
+                  {
+                    q: "How can I improve my chances of getting a remote job?",
+                    a: "Optimize your resume for remote skills, build a strong online presence, tailor applications, and apply consistently through verified global platforms."
+                  }
+                ].map((item, index) => (
+                  <div key={index} className="bg-white border border-gray-100 p-6 hover:shadow-sm transition-all duration-300">
+                    <h3 className="font-semibold text-gray-900 mb-2">
+                      {item.q}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {item.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+      </main>
       <Footer />
     </div>
   );

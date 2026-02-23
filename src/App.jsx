@@ -54,21 +54,21 @@ const App = memo(() => {
     <Routes>
       {/* ───── PUBLIC ROUTES ───── */}
       <Route path="/" element={<Home />} />
-      <Route path="/trainings" element={<Training />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/earn" element={<Earn />} />
-      <Route path="/ngo" element={<Ngo />} />
+      <Route path="/training-sites-worldwide" element={<Training />} />
+      <Route path="/about-us" element={<About />} />
+      <Route path="/contact-us" element={<Contact />} />
+      <Route path="/referral-program" element={<Earn />} />
+      <Route path="/ngo-jobs-bangladesh" element={<Ngo />} />
       <Route path="/blogs" element={<Blogs />} />
-      <Route path="/legalpoliicy" element={<Legalpoliicy />} />
+      <Route path="/legal-poliicy" element={<Legalpoliicy />} />
       <Route path="/career" element={<Career />} />
-      <Route path="/ingo" element={<Ingo />} />
-      <Route path="/bdjobs" element={<Bdjobs />} />
-      <Route path="/intjobs" element={<Intjobs />} />
-      <Route path="/terms" element={<Terms />} />
-      <Route path="/privacy" element={<Privacy />} />
-      <Route path="/remote-jobs" element={<RemoteJobs />} />
-      <Route path="/freelance" element={<Freelancer />} />
+      <Route path="/international-ngo-jobs" element={<Ingo />} />
+      <Route path="/bangladesh-jobs-sites" element={<Bdjobs />} />
+      <Route path="/international-jobs-sites" element={<Intjobs />} />
+      <Route path="/terms-and-conditions" element={<Terms />} />
+      <Route path="/privacy-policy" element={<Privacy />} />
+      <Route path="/remote-jobs-worldwide" element={<RemoteJobs />} />
+      <Route path="/freelance-jobs-online" element={<Freelancer />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/bkash-success" element={<BkashSuccess />} />
@@ -171,7 +171,7 @@ const App = memo(() => {
       />
 
       <Route
-        path="/un"
+        path="/united-nation-jobs-bangladesh"
         element={
           <ProtectedRoute requireFullAccess>
             <Un />
@@ -180,7 +180,7 @@ const App = memo(() => {
       />
 
       <Route
-        path="/emb"
+        path="/embassy-jobs-bangladesh"
         element={
           <ProtectedRoute requireFullAccess>
             <Emb />
@@ -189,7 +189,7 @@ const App = memo(() => {
       />
 
       <Route
-        path="/donor"
+        path="/donor-jobs-bangladesh"
         element={
           <ProtectedRoute requireFullAccess>
             <Donor />

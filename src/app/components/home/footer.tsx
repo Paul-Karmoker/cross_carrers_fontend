@@ -59,16 +59,16 @@ const Footer: React.FC = () => {
   ];
 
   const companyLinks: FooterLink[] = [
-    { label: "About Us", path: "/about" },
-    { label: "Referral System", path: "/earn" },
+    { label: "About Us", path: "/about-us" },
+    { label: "Referral System", path: "/referral-program" },
     { label: "Jobs & Procurement", path: "/career" },
-    { label: "Contact", path: "/contact" },
+    { label: "Contact", path: "/contact-us" },
   ];
 
   const legalLinks: FooterLink[] = [
-    { label: "Terms & Conditions", path: "/terms" },
-    { label: "Privacy Policy", path: "/privacy" },
-    { label: "Legal Poliicy", path: "/legalpoliicy" },
+    { label: "Terms & Conditions", path: "/terms-and-conditions" },
+    { label: "Privacy Policy", path: "/privacy-policy" },
+    { label: "Legal Poliicy", path: "/legal-poliicy" },
   ];
 
   return (
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-4 space-y-6">
             <Link to="/" className="inline-block">
               <img
-                src="https://i.ibb.co/Y75Y5NSb/banner.gif"
+                src="https://i.ibb.co.com/ksnkSFzZ/banner.png"
                 alt="Cross Careers"
                 className="h-12 object-contain brightness-100 dark:brightness-90"
               />
