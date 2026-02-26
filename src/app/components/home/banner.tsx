@@ -20,7 +20,7 @@ const Banner: FC = () => {
         setCurrentIndex((prev) => (prev + 1) % words.length);
         setFade(true);
       }, 400); // slightly longer for smoother crossfade
-    }, 3000); // change every 3 seconds
+    }, 1500); // change every 1.5 seconds
 
     return () => clearInterval(interval);
   }, [words.length]);
