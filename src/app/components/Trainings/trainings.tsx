@@ -29,7 +29,7 @@ const TRAINING_DATA: TrainingResource[] = [
     id: 3,
     name: "Kaya",
     url: "https://kayaconnect.org/",
-    logo: "https://kayaconnect.org/theme/image.php/humanitarian_academy/theme_humanitarian_academy/1731568967/logo",
+    logo: "https://i.ibb.co.com/W4KJT5WF/Kaya.webp",
     description: "Humanitarian learning platform with free courses",
   },
   {
@@ -106,7 +106,7 @@ const TRAINING_DATA: TrainingResource[] = [
     id: 14,
     name: "AHA Trainings",
     url: "https://aha-trainings.de/certificates/certificate-locally-led-humanitarian-action",
-    logo: "https://aha-trainings.de/images/AHA_Logo_web_rgb.svg",
+    logo: "https://i.ibb.co.com/j9Hdd2mv/AHA.webp",
     description: "Locally-led humanitarian action training",
   },
   {

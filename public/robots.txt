@@ -30,6 +30,8 @@ Allow: /blogs
 Allow: /training-sites-worldwide
 Allow: /remote-jobs-worldwide
 Allow: /freelance-jobs-online
+Allow: /bangladesh-jobs-sites
+Allow: /international-jobs-sites
 
 # Sitemap location
 Sitemap: https://crosscareers.com/sitemap.xml

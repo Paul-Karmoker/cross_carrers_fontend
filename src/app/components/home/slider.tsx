@@ -295,7 +295,7 @@ const JobTrainingPortals: FC = () => {
         .slick-slide > div { padding: 0 4px; }
       `}</style>
 
-      <div className="max-w-[1420px] mx-auto px-4 space-y-24">
+      <div className="max-w-[1420px] mx-auto px-4 space-y-12">
         <section>
           <SectionTitle>National Portals</SectionTitle>
           <Slider {...settings}>
@@ -306,7 +306,7 @@ const JobTrainingPortals: FC = () => {
         </section>
 
         <section>
-          <SectionTitle>Global Reach</SectionTitle>
+          <SectionTitle>Global Job Sites</SectionTitle>
           <Slider {...settings}>
             {internationalJobSites.map((site) => (
               <Card key={site.id} site={site} buttonText="Explore Careers" />
@@ -315,7 +315,7 @@ const JobTrainingPortals: FC = () => {
         </section>
 
         <section>
-          <SectionTitle>Skill Development</SectionTitle>
+          <SectionTitle>International Training Sites</SectionTitle>
           <Slider {...settings}>
             {trainingSites.map((site) => (
               <Card key={site.id} site={site} buttonText="View Courses" />
