@@ -59,7 +59,7 @@ const Banner: FC = () => {
 
         {/* Call‑to‑Action Button */}
         <button className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-md hover:shadow-lg transform transition hover:scale-105 focus:outline-none">
-          Explore Jobs
+          Explore Jobs at "JOBS HERE"
         </button>
       </div>
     </div>
