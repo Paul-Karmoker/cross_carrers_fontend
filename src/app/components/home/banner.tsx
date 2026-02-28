@@ -2,12 +2,12 @@ import { FC, useState, useEffect } from "react";
 
 const Banner: FC = () => {
   const words = [
-    "Interview",
-    "Jobs",
-    "Resume",
-    "Written Test",
-    "Word Docs Maker",
-    "PowerPoint Maker",
+    "INTERVIEW",
+    "JOB",
+    "RESUME/CV",
+    "WRITTEN TEST",
+    "DOCS MAKER",
+    "POWERPOINT MAKER",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
