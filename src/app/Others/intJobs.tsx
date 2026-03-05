@@ -169,9 +169,9 @@ const IntJobs: FC = () => {
       "logo": "https://crosscareers.com/logo/favcon.png",
       "description": "AI-powered career hub offering curated international job portals and verified global career opportunities in humanitarian, UN, NGO, nonprofit, aid, and development sectors worldwide.",
       "sameAs": [
-        "https://www.facebook.com/CrossCareersBD",
-        "https://www.linkedin.com/company/crosscareers",
-        "https://twitter.com/CrossCareersBD"
+      "https://www.facebook.com/profile.php?id=61574918625249",
+      "https://x.com/crosscareer",
+      "https://www.linkedin.com/company/crosscareers"
       ]
     })}
   </script>

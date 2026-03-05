@@ -140,9 +140,9 @@ const BdJobs: FC = () => {
       "logo": "https://crosscareers.com/logo/favcon.png",
       "description": "AI-powered career hub offering verified Bangladeshi job portals, government and private sector opportunities, freelance & remote jobs, and career resources in Bangladesh.",
       "sameAs": [
-        "https://www.facebook.com/CrossCareersBD",
-        "https://www.linkedin.com/company/crosscareers",
-        "https://twitter.com/CrossCareersBD"
+      "https://www.facebook.com/profile.php?id=61574918625249",
+      "https://x.com/crosscareer",
+      "https://www.linkedin.com/company/crosscareers",
       ]
     })}
   </script>
