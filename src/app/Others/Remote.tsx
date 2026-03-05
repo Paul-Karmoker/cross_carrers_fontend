@@ -176,37 +176,62 @@ const BdJobs: FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
-      <Helmet>
-        <title>Remote & Hybrid Jobs Portal 2026 | CrossCareers</title>
-        <meta name="description" content="Discover the top remote and hybrid job portals worldwide. Access verified platforms to find flexible work opportunities globally." />
-        <meta name="keywords" content="remote jobs, hybrid jobs, work from home, global remote platforms, freelance jobs, job boards 2026" />
-        <link rel="canonical" href="https://crosscareers.com/remote-jobs" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Remote & Hybrid Jobs Portal 2026 | CrossCareers" />
-        <meta property="og:description" content="Discover the top remote and hybrid job portals worldwide. Access verified platforms to find flexible work opportunities globally." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://crosscareers.com/remote-jobs" />
-        <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
+<Helmet>
+  {/* Primary Title Tag */}
+  <title>Remote & Hybrid Jobs 2026 | Work From Home, Freelance & Global Opportunities | CrossCareers</title>
 
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Remote & Hybrid Jobs Portal 2026 | CrossCareers" />
-        <meta name="twitter:description" content="Discover the top remote and hybrid job portals worldwide. Access verified platforms to find flexible work opportunities globally." />
-        <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
+  {/* Meta Description */}
+  <meta
+    name="description"
+    content="Explore top remote, hybrid, freelance, and work-from-home job portals worldwide in 2026. Find verified platforms for flexible, global career opportunities."
+  />
 
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "CrossCareers",
-            "url": "https://crosscareers.com/remote-jobs",
-            "logo": "https://crosscareers.com/logo/favcon.png",
-            "description": "AI-powered career hub offering remote & hybrid jobs, freelance opportunities, and global career resources."
-          })}
-        </script>
-      </Helmet>
+  {/* Primary Keywords */}
+  <meta
+    name="keywords"
+    content="remote jobs 2026, hybrid jobs 2026, work from home, freelance jobs, global remote platforms, flexible jobs, online jobs, telecommute opportunities, part-time remote work, digital nomad jobs, job boards 2026, international remote jobs"
+  />
+
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://crosscareers.com/remote-jobs-worldwide" />
+
+  {/* Open Graph / Facebook */}
+  <meta property="og:title" content="Remote & Hybrid Jobs 2026 | Work From Home, Freelance & Global Opportunities | CrossCareers" />
+  <meta property="og:description" content="Discover the best remote and hybrid job portals globally. Access verified platforms to find flexible, freelance, and online work opportunities in 2026." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://crosscareers.com/remote-jobs-worldwide" />
+  <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Remote & Hybrid Jobs Portal 2026 | CrossCareers" />
+  <meta property="og:locale" content="en_US" />
+
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@CrossCareersBD" />
+  <meta name="twitter:creator" content="@CrossCareersBD" />
+  <meta name="twitter:title" content="Remote & Hybrid Jobs 2026 | Work From Home, Freelance & Global Opportunities | CrossCareers" />
+  <meta name="twitter:description" content="Access verified remote and hybrid job portals worldwide. Explore freelance, work-from-home, and global flexible job opportunities in 2026." />
+  <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
+  <meta name="twitter:image:alt" content="Remote & Hybrid Jobs Portal 2026 | CrossCareers" />
+
+  {/* Structured Data */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "CrossCareers",
+      "url": "https://crosscareers.com/remote-jobs-worldwide",
+      "logo": "https://crosscareers.com/logo/favcon.png",
+      "description": "AI-powered career hub offering verified remote & hybrid jobs, freelance opportunities, online work, and global career resources.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://crosscareers.com/remote-jobs-worldwide?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    })}
+  </script>
+</Helmet>
 
       <Navbar />
       <main className="flex-grow pt-20">
@@ -255,68 +280,72 @@ const BdJobs: FC = () => {
             </button>
           </div>
         </section>
-                  {/* FAQ Section */}
-          <section className="container mx-auto px-6 pb-20">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
-                Remote Jobs – Frequently Asked Questions (FAQ)
-              </h2>
+{/* FAQ Section */}
+<section className="container mx-auto px-6 pb-20">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
+      Remote Jobs – Frequently Asked Questions (FAQ 2026)
+    </h2>
 
-              <div className="space-y-6">
-                {[
-                  {
-                    q: "What are Gemote jobs?",
-                    a: "Remote jobs allow professionals to work from any country while collaborating with international companies through digital platforms and online tools."
-                  },
-                  {
-                    q: "Are remote jobs legitimate and safe?",
-                    a: "Most verified remote job platforms screen employers, but candidates should always research companies and avoid roles requesting upfront payments."
-                  },
-                  {
-                    q: "Which industries hire the most remote workers globally?",
-                    a: "Technology, digital marketing, customer support, finance, content creation, and project management are among the fastest-growing remote hiring sectors worldwide."
-                  },
-                  {
-                    q: "Do remote jobs pay competitive salaries?",
-                    a: "Many global remote roles offer competitive salaries based on skills, experience, and market demand, sometimes adjusted by geographic location."
-                  },
-                  {
-                    q: "What skills are required for remote work?",
-                    a: "Strong communication, time management, digital collaboration, problem-solving, and technical proficiency are essential skills for successful remote professionals."
-                  },
-                  {
-                    q: "How can I find verified remote job platforms?",
-                    a: "Use trusted global job boards specializing in remote and hybrid opportunities with transparent company profiles and secure application systems."
-                  },
-                  {
-                    q: "Are hybrid jobs different from remote jobs?",
-                    a: "Hybrid jobs combine remote work flexibility with occasional office presence, while fully remote roles require no physical office attendance."
-                  },
-                  {
-                    q: "Can I work remotely for companies in another country?",
-                    a: "Yes, many companies hire international talent remotely, though tax regulations, payment methods, and employment laws may vary."
-                  },
-                  {
-                    q: "Do remote jobs require specific time zone availability?",
-                    a: "Some roles require overlap with company time zones, while others offer asynchronous work flexibility across global regions."
-                  },
-                  {
-                    q: "How can I improve my chances of getting a remote job?",
-                    a: "Optimize your resume for remote skills, build a strong online presence, tailor applications, and apply consistently through verified global platforms."
-                  }
-                ].map((item, index) => (
-                  <div key={index} className="bg-white border border-gray-100 p-6 hover:shadow-sm transition-all duration-300">
-                    <h3 className="font-semibold text-gray-900 mb-2">
-                      {item.q}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {item.a}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+    <div className="space-y-6">
+      {[
+        {
+          q: "What are remote jobs and how do they work?",
+          a: "Remote jobs allow professionals to work from any location while collaborating with companies globally through digital tools. They include full-time, part-time, freelance, and contract roles across industries like tech, marketing, finance, and customer support."
+        },
+        {
+          q: "Are remote jobs legitimate and safe for freelancers?",
+          a: "Yes. Most verified remote platforms like We Work Remotely, FlexJobs, Remote.co, and Remote OK screen employers. Always research companies, read reviews, and avoid roles asking for upfront payments to stay safe."
+        },
+        {
+          q: "Which industries hire the most remote workers worldwide?",
+          a: "Technology (software development, AI/ML), digital marketing, customer support, finance, graphic design, content creation, project management, and virtual assistance are leading sectors for remote work globally."
+        },
+        {
+          q: "Do remote jobs pay competitive salaries?",
+          a: "Many remote roles offer competitive salaries based on skills, experience, and market demand. Some companies adjust pay according to location, while others offer uniform global rates."
+        },
+        {
+          q: "What skills are most in demand for remote work?",
+          a: "In-demand remote skills include software development, web and app design, digital marketing, SEO, copywriting, data analysis, AI/ML, project management, communication, time management, and proficiency with collaboration tools like Slack, Zoom, and Trello."
+        },
+        {
+          q: "How can I find verified remote job platforms?",
+          a: "Use trusted global job boards and freelance marketplaces like Upwork, Fiverr, Toptal, We Work Remotely, Remote.co, FlexJobs, and Remote OK. Look for platforms with verified companies, secure payment systems, and transparent job postings."
+        },
+        {
+          q: "Are hybrid jobs different from fully remote jobs?",
+          a: "Yes. Hybrid jobs combine remote work with occasional office attendance, while fully remote roles allow you to work entirely from anywhere, offering maximum flexibility."
+        },
+        {
+          q: "Can I work remotely for companies in another country?",
+          a: "Absolutely. Many companies hire international talent remotely. You may need to manage tax rules, international payments, and employment laws depending on your country and the employer’s location."
+        },
+        {
+          q: "Do remote jobs require working in specific time zones?",
+          a: "Some roles require time overlap with company headquarters, while others are fully asynchronous, allowing global freelancers to work flexible hours across different regions."
+        },
+        {
+          q: "How can I increase my chances of landing a remote job?",
+          a: "Optimize your resume for remote skills, create a strong online portfolio, maintain professional LinkedIn and GitHub profiles, tailor applications to job descriptions, and consistently apply through reputable global platforms."
+        },
+        {
+          q: "Which remote job platforms are most searched globally?",
+          a: "Top platforms include Upwork, Fiverr, Toptal, We Work Remotely, FlexJobs, Remote.co, Remote OK, Freelancer, PeoplePerHour, and 99designs. These sites attract millions of remote job seekers worldwide."
+        },
+        {
+          q: "Can beginners start with remote jobs?",
+          a: "Yes. Beginners should start by focusing on in-demand skills, creating a portfolio with small projects, offering competitive rates, and gradually building client reviews on trusted remote platforms."
+        }
+      ].map((item, index) => (
+        <div key={index} className="bg-white border border-gray-100 p-6 hover:shadow-sm transition-all duration-300">
+          <h3 className="font-semibold text-gray-900 mb-2">{item.q}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.a}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       </main>
       <Footer />

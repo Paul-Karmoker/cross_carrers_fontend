@@ -186,37 +186,62 @@ const BdJobs: FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
 
-      <Helmet>
-        <title>Top Freelance Job Portals 2026 | Home Based Global Freelance Platforms | CrossCareers</title>
+<Helmet>
+  {/* Primary Title Tag */}
+  <title>Top Freelance Job Portals 2026 | Home-Based Remote Work & Global Freelance Platforms | CrossCareers</title>
 
-        <meta 
-          name="description" 
-          content="Explore the top 20 freelance job portals including Upwork, Fiverr, Toptal and more. Discover global remote jobs, freelance gigs, and verified career platforms curated by CrossCareers."
-        />
+  {/* Meta Description */}
+  <meta 
+    name="description" 
+    content="Explore the top 20 freelance job portals including Upwork, Fiverr, Toptal, Freelancer, and more. Find global remote jobs, freelance gigs, home-based work, and verified career platforms curated by CrossCareers in 2026." 
+  />
 
-        <link rel="canonical" href="https://crosscareers.com/freelance" />
+  {/* Primary Keywords */}
+  <meta
+    name="keywords"
+    content="freelance jobs 2026, top freelance platforms, work from home jobs, remote freelance work, Upwork jobs, Fiverr gigs, Toptal remote projects, Freelancer.com jobs, home-based online jobs, global freelance opportunities, digital nomad jobs, verified career platforms"
+  />
 
-        <meta property="og:title" content="Top 20 Freelance Job Portals 2026 | CrossCareers" />
-        <meta property="og:description" content="Discover trusted freelance job platforms to find remote work and global career opportunities." />
-        <meta property="og:type" content="website" />
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://crosscareers.com/freelance-jobs-online" />
 
-        <meta name="twitter:card" content="summary_large_image" />
+  {/* Open Graph / Facebook */}
+  <meta property="og:title" content="Top Freelance Job Portals 2026 | Home-Based Remote Work & Global Freelance Platforms | CrossCareers" />
+  <meta property="og:description" content="Discover verified freelance job platforms to find remote work, global career opportunities, and home-based gigs in 2026." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://crosscareers.com/freelance-jobs-online" />
+  <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Top Freelance Job Portals 2026 | CrossCareers" />
+  <meta property="og:locale" content="en_US" />
 
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Top 20 Freelance Job Portals",
-            "url": "https://crosscareers.com/freelance",
-            "description": "Curated list of top global freelance job platforms for remote professionals.",
-            "publisher": {
-              "@type": "Organization",
-              "name": "CrossCareers"
-            }
-          })}
-        </script>
-      </Helmet>
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@CrossCareersBD" />
+  <meta name="twitter:creator" content="@CrossCareersBD" />
+  <meta name="twitter:title" content="Top Freelance Job Portals 2026 | Home-Based Remote Work & Global Freelance Platforms | CrossCareers" />
+  <meta name="twitter:description" content="Access the top global freelance job portals including Upwork, Fiverr, Toptal, and Freelancer. Find remote, home-based work and verified freelance opportunities in 2026." />
+  <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
+  <meta name="twitter:image:alt" content="Top Freelance Job Portals 2026 | CrossCareers" />
+
+  {/* Structured Data */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "CrossCareers Freelance Job Portals",
+      "url": "https://crosscareers.com/freelance-jobs-online",
+      "logo": "https://crosscareers.com/logo/favcon.png",
+      "description": "Curated list of top global freelance job platforms including Upwork, Fiverr, Toptal, and more. Verified remote and home-based work opportunities for freelancers in 2026.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://crosscareers.com/freelance-jobs-online?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    })}
+  </script>
+</Helmet>
 
       <Navbar />
 
@@ -250,71 +275,79 @@ const BdJobs: FC = () => {
             ))}
           </div>
         </section>
-                {/* FAQ Section */}
-        <section className="container mx-auto px-6 pb-20">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
-              Freelance Jobs – Frequently Asked Questions
-            </h2>
+{/* FAQ Section */}
+<section className="container mx-auto px-6 pb-20">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
+      Freelance Jobs – Frequently Asked Questions (FAQ 2026)
+    </h2>
 
-            <div className="space-y-6">
-              {[
-                {
-                  q: "What are freelance jobs?",
-                  a: "Freelance jobs allow professionals to work independently, offering services to global clients on short-term or project-based contracts through online platforms."
-                },
-                {
-                  q: "How can I start freelancing online?",
-                  a: "Create a professional profile, showcase your portfolio, set competitive rates, and apply consistently on trusted freelance job platforms."
-                },
-                {
-                  q: "Are freelance platforms safe and reliable?",
-                  a: "Most verified platforms provide secure payment systems, client reviews, and dispute resolution features to protect freelancers."
-                },
-                {
-                  q: "Can freelancers work with international clients?",
-                  a: "Yes, freelance platforms connect professionals with global clients across multiple industries without geographical restrictions."
-                },
-                {
-                  q: "Which skills are in demand for freelance work?",
-                  a: "Web development, graphic design, digital marketing, content writing, data analysis, and virtual assistance are highly demanded freelance skills."
-                },
-                {
-                  q: "How do freelancers get paid?",
-                  a: "Freelancers typically receive payments through secure escrow systems, bank transfers, PayPal, Payoneer, or direct platform payment gateways."
-                },
-                {
-                  q: "Is freelancing a stable career option?",
-                  a: "Freelancing can provide stable income when professionals build strong client relationships, maintain consistent performance, and diversify income streams."
-                },
-                {
-                  q: "Do freelance platforms charge fees?",
-                  a: "Most freelance platforms charge service fees or commission percentages from freelancer earnings or client payments."
-                },
-                {
-                  q: "Can beginners find freelance jobs easily?",
-                  a: "Beginners can secure freelance jobs by building niche expertise, offering competitive pricing, and delivering high-quality work consistently."
-                },
-                {
-                  q: "How can I increase my freelance income globally?",
-                  a: "Specialize in high-demand skills, improve your portfolio, maintain excellent client ratings, and target higher-paying international clients."
-                }
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-white border border-gray-100 p-6 hover:shadow-sm transition-all duration-300"
-                >
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    {item.q}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {item.a}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+    <div className="space-y-6">
+      {[
+        {
+          q: "What are freelance jobs and how do they work globally?",
+          a: "Freelance jobs allow professionals to work independently for clients worldwide on short-term projects or contracts. Freelancers provide services like web development, graphic design, content writing, digital marketing, virtual assistance, and AI services through verified global platforms such as Upwork, Fiverr, Toptal, and Freelancer."
+        },
+        {
+          q: "Which freelance skills are most in demand internationally?",
+          a: "High-demand freelance skills include web and app development, UI/UX design, SEO, digital marketing, content writing, copywriting, data analysis, AI/ML services, video editing, social media management, and virtual assistance. These skills attract clients willing to pay premium rates globally."
+        },
+        {
+          q: "How can I start freelancing successfully from any country?",
+          a: "To start freelancing, create a professional online profile, showcase a strong portfolio, define your niche, set competitive rates, and consistently apply on verified platforms. Maintaining a strong LinkedIn, GitHub, or portfolio website boosts credibility and client trust."
+        },
+        {
+          q: "Are freelance platforms safe and reliable for international payments?",
+          a: "Yes. Verified platforms provide secure escrow systems, client reviews, dispute resolution, and reliable global payment methods such as PayPal, Payoneer, Wise, and direct bank transfers. Always verify client profiles before starting projects."
+        },
+        {
+          q: "Can I work with clients from different countries and time zones?",
+          a: "Absolutely. Freelancers can collaborate with clients worldwide. Some roles require overlap with client time zones, while many allow asynchronous work, enabling maximum flexibility across regions."
+        },
+        {
+          q: "How do freelancers get paid for international projects?",
+          a: "Payments are typically processed through escrow, secure payment gateways, or direct bank transfers. Payment schedules vary by platform and project terms, but reputable platforms ensure timely and safe payments globally."
+        },
+        {
+          q: "Do freelance platforms charge service fees or commissions?",
+          a: "Yes. Most platforms deduct a small commission from freelancer earnings or client payments. Understanding platform fees helps you price services effectively and maximize earnings."
+        },
+        {
+          q: "Is freelancing a stable long-term career option?",
+          a: "Freelancing can be highly stable and profitable when you specialize in in-demand skills, maintain strong client relationships, diversify your portfolio, and consistently deliver high-quality work."
+        },
+        {
+          q: "How can beginners secure freelance jobs easily?",
+          a: "Beginners should focus on niche skills, create a strong portfolio with sample projects, set competitive rates, and consistently deliver high-quality work. Participating in online freelance communities and networking also increases job opportunities."
+        },
+        {
+          q: "How can I increase my freelance income globally?",
+          a: "Specialize in high-demand skills, optimize your profiles and portfolios, maintain excellent client ratings, expand to international freelance marketplaces, and target clients willing to pay premium rates for quality services."
+        },
+        {
+          q: "Which are the top global freelance platforms most searched by professionals?",
+          a: "The most trusted and frequently searched freelance platforms include Upwork, Fiverr, Toptal, Freelancer, Guru, PeoplePerHour, 99designs, FlexJobs, and Workana. These platforms connect freelancers with international clients across diverse industries."
+        },
+        {
+          q: "Can I freelance part-time while having a full-time job?",
+          a: "Yes. Many professionals start part-time freelancing to gain experience and additional income. Effective time management, clear deadlines, and prioritization are essential for balancing full-time employment with freelance projects."
+        },
+        {
+          q: "What mistakes should new freelancers avoid globally?",
+          a: "Avoid low-paying projects, skipping client research, neglecting contracts, ignoring platform guidelines, overcommitting, and failing to maintain a professional online presence. Learning from feedback and building credibility ensures long-term success."
+        }
+      ].map((item, index) => (
+        <div
+          key={index}
+          className="bg-white border border-gray-100 p-6 hover:shadow-sm transition-all duration-300"
+        >
+          <h3 className="font-semibold text-gray-900 mb-2">{item.q}</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.a}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       </main>
 

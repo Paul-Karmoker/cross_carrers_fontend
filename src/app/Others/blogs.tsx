@@ -15683,222 +15683,171 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        {/*  Primary Title Tag */}
-        <title>
-          {selectedPost
-            ? `${selectedPost.title} (${selectedPost.category}) | CrossCareers Career Blog ${new Date().getFullYear()}`
-            : `Career Insights & Job Search Guide ${new Date().getFullYear()} | ${filteredPosts.length} Articles | CrossCareers Blog`}
-        </title>
+  {/*  Primary Title Tag */}
+  <title>
+    {selectedPost
+      ? `${selectedPost.title} | ${selectedPost.category} Careers in Bangladesh ${new Date().getFullYear()} | CrossCareers Blog`
+      : `Career Insights, Job Market & Professional Growth ${new Date().getFullYear()} | ${filteredPosts.length}+ Articles | CrossCareers Blog`}
+  </title>
 
-        {/*  Meta Description - 155-160 characters */}
-        <meta
-          name="description"
-          content={
-            selectedPost
-              ? `${selectedPost.excerpt.substring(0, 155)} Expert ${selectedPost.category} career advice for Bangladeshi professionals. ${new Date().getFullYear()} guide with practical tips.`
-              : `Discover ${filteredPosts.length} expert career guides for Bangladesh professionals in ${new Date().getFullYear()}. Interview tips, resume writing, NGO jobs, skill development, and salary negotiation strategies from industry experts.`
-          }
-        />
+  {/*  Meta Description */}
+  <meta
+    name="description"
+    content={
+      selectedPost
+        ? `${selectedPost.excerpt.substring(0, 155)} Get expert ${selectedPost.category} career advice, resume tips, interview strategies, and job search guidance in Bangladesh ${new Date().getFullYear()}.`
+        : `Explore ${filteredPosts.length}+ expert career guides for Bangladeshi professionals in ${new Date().getFullYear()}. Tips on NGO jobs, UN careers, interview prep, resume writing, skill development, freelancing, corporate jobs, and professional growth strategies.`
+    }
+  />
 
-        {/*  Primary Keywords */}
-        <meta
-          name="keywords"
-          content={
-            selectedPost
-              ? `career guide ${new Date().getFullYear()}, ${selectedPost.category.toLowerCase()}, job search Bangladesh, professional development, ${selectedPost.title.toLowerCase()}, crosscareers blog, career advice Dhaka, Bangladeshi job market ${new Date().getFullYear()}`
-              : `career advice Bangladesh ${new Date().getFullYear()}, job search tips Dhaka, interview preparation, resume writing Bangladesh, NGO jobs, skill development, professional growth, salary negotiation, freelancing Bangladesh, corporate career guide, crosscareers insights`
-          }
-        />
+  {/*  Primary Keywords */}
+  <meta
+    name="keywords"
+    content={
+      selectedPost
+        ? `career guide ${new Date().getFullYear()}, ${selectedPost.category.toLowerCase()}, Bangladesh jobs, career advice Dhaka, resume tips Bangladesh, job search strategies, interview preparation, professional growth, freelancing tips, CrossCareers blog`
+        : `career advice Bangladesh ${new Date().getFullYear()}, job search tips Dhaka, NGO jobs, UN careers, international jobs Bangladesh, professional development, interview preparation, resume writing tips, freelancing Bangladesh, corporate career guide, salary negotiation, skill enhancement, CrossCareers insights, career blog`
+    }
+  />
 
-        {/*  Author and Publisher */}
-        <meta name="author" content="CrossCareers Career Experts Team" />
-        <meta name="publisher" content="CrossCareers" />
+  {/*  Author and Publisher */}
+  <meta name="author" content="CrossCareers Career Experts Team" />
+  <meta name="publisher" content="CrossCareers" />
 
-        {/* Robots - Indexing Control */}
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-        <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  {/*  Robots - Indexing Control */}
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
 
-        {/* Language and Geo - Important for Bangladesh */}
-        <meta name="language" content="English" />
-        <meta name="geo.region" content="BD" />
-        <meta name="geo.placename" content="Bangladesh" />
-        <meta name="target" content="Bangladesh" />
+  {/* Language and Geo */}
+  <meta name="language" content="English" />
+  <meta name="geo.region" content="BD" />
+  <meta name="geo.placename" content="Bangladesh" />
+  <meta name="target" content="Bangladesh" />
 
-        {/* Viewport - Mobile Friendliness */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {/* Viewport */}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content={selectedPost ? "article" : "website"} />
-        <meta property="og:site_name" content="CrossCareers Career Blog Bangladesh" />
-        <meta property="og:title" content={selectedPost ? selectedPost.title : `Career Insights & Job Market Guide ${new Date().getFullYear()} | CrossCareers`} />
-        <meta property="og:description" content={selectedPost ? selectedPost.excerpt : `Expert career guidance for Bangladeshi professionals. ${filteredPosts.length}+ articles on interview tips, resume help, and job market insights for ${new Date().getFullYear()}.`} />
-        <meta property="og:url" content={`https://crosscareers.com/blogs${selectedPost ? `/${selectedPost.slug}` : currentPage > 1 ? `?page=${currentPage}` : ''}`} />
-        <meta property="og:image" content={selectedPost ? selectedPost.image : "https://crosscareers.com/og-default-blog-2026.jpg"} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content={selectedPost ? selectedPost.title : "CrossCareers Career Blog Bangladesh 2026"} />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:updated_time" content={new Date().toISOString()} />
-        
-        {/* Article-Specific Open Graph Tags */}
-        {selectedPost && (
-          <>
-            <meta property="article:published_time" content={selectedPost.date} />
-            <meta property="article:modified_time" content={selectedPost.date} />
-            <meta property="article:author" content="CrossCareers Career Experts" />
-            <meta property="article:section" content={selectedPost.category} />
-            <meta property="article:tag" content={selectedPost.category} />
-            <meta property="article:tag" content="Bangladesh Career" />
-            <meta property="article:tag" content="International Career" />
-            <meta property="article:tag" content="Artificial Intelligence AI Career" />
-            <meta property="article:tag" content={`${new Date().getFullYear()} Jobs`} />
-            <meta property="article:reading_time" content={calculateReadingTime(selectedPost.content).toString()} />
-          </>
-        )}
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content={selectedPost ? "article" : "website"} />
+  <meta property="og:site_name" content="CrossCareers Career Blog Bangladesh" />
+  <meta property="og:title" content={selectedPost ? selectedPost.title : `Career Insights & Job Market Guide ${new Date().getFullYear()} | CrossCareers`} />
+  <meta property="og:description" content={selectedPost ? selectedPost.excerpt : `Get expert career guidance in Bangladesh. ${filteredPosts.length}+ articles on NGO jobs, UN careers, corporate jobs, skill development, freelancing, and salary negotiation.`} />
+  <meta property="og:url" content={`https://crosscareers.com/blogs${selectedPost ? `/${selectedPost.slug}` : currentPage > 1 ? `?page=${currentPage}` : ''}`} />
+  <meta property="og:image" content={selectedPost ? selectedPost.image : "https://crosscareers.com/og-default-blog-2026.jpg"} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={selectedPost ? selectedPost.title : "CrossCareers Career Blog Bangladesh 2026"} />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:updated_time" content={new Date().toISOString()} />
 
-        {/* Twitter Cards */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@CrossCareersBD" />
-        <meta name="twitter:creator" content="@CrossCareersBD" />
-        <meta name="twitter:title" content={selectedPost ? selectedPost.title : `CrossCareers Career Blog ${new Date().getFullYear()}`} />
-        <meta name="twitter:description" content={selectedPost ? selectedPost.excerpt.substring(0, 200) : `Expert career guidance for Bangladeshi professionals. ${filteredPosts.length} articles on ${categories.slice(1,5).join(', ')} and more.`} />
-        <meta name="twitter:image" content={selectedPost ? selectedPost.image : "https://i.ibb.co.com/ksnkSFzZ/banner.png"} />
-        <meta name="twitter:image:alt" content="CrossCareers Career Blog Bangladesh" />
+  {/* Article-Specific Open Graph Tags */}
+  {selectedPost && (
+    <>
+      <meta property="article:published_time" content={selectedPost.date} />
+      <meta property="article:modified_time" content={selectedPost.date} />
+      <meta property="article:author" content="CrossCareers Career Experts" />
+      <meta property="article:section" content={selectedPost.category} />
+      <meta property="article:tag" content={selectedPost.category} />
+      <meta property="article:tag" content="Bangladesh Career" />
+      <meta property="article:tag" content="International Career" />
+      <meta property="article:tag" content="Artificial Intelligence AI Career" />
+      <meta property="article:tag" content="NGO Jobs Bangladesh" />
+      <meta property="article:tag" content="UN Careers Bangladesh" />
+      <meta property="article:tag" content="Job Search Tips" />
+      <meta property="article:reading_time" content={calculateReadingTime(selectedPost.content).toString()} />
+    </>
+  )}
 
-        {/*  Canonical URL */}
-        <link
-          rel="canonical"
-          href={`https://crosscareers.com/blogs${
-            selectedPost 
-              ? `/${selectedPost.slug}` 
-              : currentPage > 1 
-                ? `?page=${currentPage}` 
-                : ''
-          }`}
-        />
+  {/* Twitter Cards */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@CrossCareersBD" />
+  <meta name="twitter:creator" content="@CrossCareersBD" />
+  <meta name="twitter:title" content={selectedPost ? selectedPost.title : `CrossCareers Career Blog ${new Date().getFullYear()}`} />
+  <meta name="twitter:description" content={selectedPost ? selectedPost.excerpt.substring(0, 200) : `Expert career guides in Bangladesh. ${filteredPosts.length}+ articles on NGO jobs, UN careers, corporate jobs, freelancing, and skill development.`} />
+  <meta name="twitter:image" content={selectedPost ? selectedPost.image : "https://i.ibb.co/ksnkSFzZ/banner.png"} />
+  <meta name="twitter:image:alt" content="CrossCareers Career Blog Bangladesh" />
 
-        {/* ✅ Pagination - Prev/Next Links */}
-        {!selectedPost && totalPages > 1 && (
-          <>
-            {currentPage > 1 && (
-              <link 
-                rel="prev" 
-                href={`https://crosscareers.com/blogs${currentPage > 2 ? `?page=${currentPage - 1}` : ''}`} 
-              />
-            )}
-            {currentPage < totalPages && (
-              <link 
-                rel="next" 
-                href={`https://crosscareers.com/blogs?page=${currentPage + 1}`} 
-              />
-            )}
-          </>
-        )}
+  {/* Canonical URL */}
+  <link rel="canonical" href={`https://crosscareers.com/blogs${selectedPost ? `/${selectedPost.slug}` : currentPage > 1 ? `?page=${currentPage}` : ''}`} />
 
-        {/* ✅ Schema.org / JSON-LD Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(
-            selectedPost
-              ? {
-                  "@context": "https://schema.org",
-                  "@type": "BlogPosting",
-                  "headline": selectedPost.title,
-                  "description": selectedPost.excerpt,
-                  "image": selectedPost.image,
-                  "datePublished": selectedPost.date,
-                  "dateModified": selectedPost.date,
-                  "author": {
-                    "@type": "Organization",
-                    "name": "CrossCareers",
-                    "url": "https://crosscareers.com"
-                  },
-                  "publisher": {
-                    "@type": "Organization",
-                    "name": "CrossCareers",
-                    "logo": {
-                      "@type": "ImageObject",
-                      "url": "https://i.ibb.co.com/ksnkSFzZ/banner.png"
-                    }
-                  },
-                  "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": `https://crosscareers.com/blogs/${selectedPost.slug}`
-                  },
-                  "keywords": `${selectedPost.category}, Bangladesh Career ${new Date().getFullYear()}, Job Search`,
-                  "articleSection": selectedPost.category,
-                  "inLanguage": "en-US",
-                  "wordCount": selectedPost.content.replace(/<[^>]*>/g, '').split(/\s+/).length
-                }
-              : {
-                  "@context": "https://schema.org",
-                  "@type": "Blog",
-                  "name": "CrossCareers Career Blog Bangladesh",
-                  "description": `Expert career guidance for Bangladeshi professionals. ${filteredPosts.length} articles on ${categories.slice(1,4).join(', ')} and more.`,
-                  "url": `https://crosscareers.com/blogs${currentPage > 1 ? `?page=${currentPage}` : ''}`,
-                  "publisher": {
-                    "@type": "Organization",
-                    "name": "CrossCareers"
-                  },
-                  "blogPost": paginatedPosts.map(post => ({
-                    "@type": "BlogPosting",
-                    "headline": post.title,
-                    "url": `https://crosscareers.com/blogs/${post.slug}`,
-                    "datePublished": post.date,
-                    "description": post.excerpt
-                  }))
-                }
-          )}
-        </script>
+  {/* Pagination Prev/Next */}
+  {!selectedPost && totalPages > 1 && (
+    <>
+      {currentPage > 1 && (
+        <link rel="prev" href={`https://crosscareers.com/blogs${currentPage > 2 ? `?page=${currentPage - 1}` : ''}`} />
+      )}
+      {currentPage < totalPages && (
+        <link rel="next" href={`https://crosscareers.com/blogs?page=${currentPage + 1}`} />
+      )}
+    </>
+  )}
 
-        {/* ✅ BreadcrumbList Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
+  {/* ✅ Structured Data: BlogPosting / Blog */}
+  <script type="application/ld+json">
+    {JSON.stringify(
+      selectedPost
+        ? {
             "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://crosscareers.com"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Career Blog",
-                "item": "https://crosscareers.com/blogs"
-              },
-              ...(selectedPost ? [{
-                "@type": "ListItem",
-                "position": 3,
-                "name": selectedPost.title,
-                "item": `https://crosscareers.com/blogs/${selectedPost.slug}`
-              }] : currentPage > 1 ? [{
-                "@type": "ListItem",
-                "position": 3,
-                "name": `Page ${currentPage}`,
-                "item": `https://crosscareers.com/blogs?page=${currentPage}`
-              }] : [])
-            ]
-          })}
-        </script>
-
-        {/* ✅ Website Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
+            "@type": "BlogPosting",
+            "headline": selectedPost.title,
+            "description": selectedPost.excerpt,
+            "image": selectedPost.image,
+            "datePublished": selectedPost.date,
+            "dateModified": selectedPost.date,
+            "author": { "@type": "Organization", "name": "CrossCareers", "url": "https://crosscareers.com" },
+            "publisher": { "@type": "Organization", "name": "CrossCareers", "logo": { "@type": "ImageObject", "url": "https://i.ibb.co/ksnkSFzZ/banner.png" } },
+            "mainEntityOfPage": { "@type": "WebPage", "@id": `https://crosscareers.com/blogs/${selectedPost.slug}` },
+            "keywords": `${selectedPost.category}, Bangladesh Career ${new Date().getFullYear()}, Job Search, NGO Jobs, UN Careers, Freelancing Tips, Skill Development`,
+            "articleSection": selectedPost.category,
+            "inLanguage": "en-US",
+            "wordCount": selectedPost.content.replace(/<[^>]*>/g, '').split(/\s+/).length
+          }
+        : {
             "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "CrossCareers Career Blog",
-            "url": "https://crosscareers.com/blogs",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://crosscareers.com/blogs?search={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
-          })}
-        </script>
-      </Helmet>
+            "@type": "Blog",
+            "name": "CrossCareers Career Blog Bangladesh",
+            "description": `Expert career guidance for Bangladeshi professionals. ${filteredPosts.length}+ articles on NGO jobs, UN careers, corporate jobs, freelancing, skill development, and professional growth.`,
+            "url": `https://crosscareers.com/blogs${currentPage > 1 ? `?page=${currentPage}` : ''}`,
+            "publisher": { "@type": "Organization", "name": "CrossCareers" },
+            "blogPost": paginatedPosts.map(post => ({
+              "@type": "BlogPosting",
+              "headline": post.title,
+              "url": `https://crosscareers.com/blogs/${post.slug}`,
+              "datePublished": post.date,
+              "description": post.excerpt
+            }))
+          }
+    )}
+  </script>
 
+  {/* ✅ Breadcrumb Schema */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://crosscareers.com" },
+        { "@type": "ListItem", "position": 2, "name": "Career Blog", "item": "https://crosscareers.com/blogs" },
+        ...(selectedPost ? [{ "@type": "ListItem", "position": 3, "name": selectedPost.title, "item": `https://crosscareers.com/blogs/${selectedPost.slug}` }] : currentPage > 1 ? [{ "@type": "ListItem", "position": 3, "name": `Page ${currentPage}`, "item": `https://crosscareers.com/blogs?page=${currentPage}` }] : [])
+      ]
+    })}
+  </script>
+
+  {/* ✅ Website Schema with SearchAction */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "CrossCareers Career Blog",
+      "url": "https://crosscareers.com/blogs",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://crosscareers.com/blogs?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    })}
+  </script>
+</Helmet>
       <Navbar />
 
       <main className="min-h-screen bg-white selection:bg-blue-100 pt-20">

@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from 'react';
+import { Helmet } from "react-helmet-async";
 import Navbar from '../components/home/navbar';
 import Footer from '../components/home/footer';
 
@@ -87,6 +88,68 @@ const NgoSection: FC<SectionProps> = ({ id, letter, children }) => (
 const NgoHub: FC = () => {
   return (
     <div className="bg-slate-50 min-h-screen font-sans selection:bg-emerald-100 selection:text-emerald-900">
+<Helmet>
+
+  {/* SEO Title */}
+  <title>
+    Bangladesh NGO Jobs 2026 | International Humanitarian & Development Careers | CrossCareers
+  </title>
+
+  {/* Meta Description */}
+  <meta
+    name="description"
+    content="Explore 500+ NGO job opportunities in Bangladesh and worldwide, including humanitarian, UN, development, nonprofit, and international careers. Updated daily with official links by CrossCareers."
+  />
+
+  {/* Meta Keywords */}
+  <meta
+    name="keywords"
+    content="Bangladesh NGO jobs 2026, international NGO jobs, humanitarian jobs, UN jobs, development careers, nonprofit jobs, NGO career portal, global NGO careers, aid organization jobs, NGO job listings Bangladesh, CrossCareers NGO hub"
+  />
+
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://crosscareers.com/ngo-jobs-bangladesh" />
+
+  {/* Robots */}
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large"
+  />
+
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bangladesh NGO Jobs 2026 | International Humanitarian & Development Careers | CrossCareers" />
+  <meta property="og:description" content="Browse hundreds of verified NGO, UN, humanitarian, and development job opportunities in Bangladesh and globally. Apply directly through official portals." />
+  <meta property="og:url" content="https://crosscareers.com/ngo-jobs-bangladesh" />
+  <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
+
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bangladesh NGO Jobs 2026 | CrossCareers" />
+  <meta name="twitter:description" content="Discover verified NGO, UN, humanitarian, and development careers in Bangladesh and internationally. Updated daily." />
+  <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
+
+  {/* Structured Data */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Bangladesh NGO Career Hub",
+      "url": "https://crosscareers.com/ngo-jobs-bangladesh",
+      "description": "Find hundreds of Bangladesh NGO, UN, humanitarian, and development career opportunities with direct official links, updated daily.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CrossCareers",
+        "url": "https://crosscareers.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://crosscareers.com/logo/favcon.png"
+        }
+      }
+    })}
+  </script>
+
+</Helmet>
       <Navbar />
 
       {/* Hero Section */}
@@ -225,8 +288,143 @@ const NgoHub: FC = () => {
             Back to Top
           </button>
         </div>
-      </main>
+        {/* FAQ Section */}
+<section className="bg-white py-16 lg:py-24 border-t border-gray-100">
+  <div className="container mx-auto px-6 max-w-5xl">
 
+    <div className="text-center mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        Frequently Asked Questions About NGO Jobs
+      </h2>
+      <p className="text-gray-600 max-w-3xl mx-auto">
+        Many professionals searching for careers in humanitarian and development sectors often ask similar questions about NGO jobs, recruitment processes, salaries, and organizational values. 
+        Below are some of the most commonly searched questions online related to NGO employment and career development.
+      </p>
+    </div>
+
+    <div className="space-y-10 text-gray-700 leading-relaxed">
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">1. How can I get a job in an NGO?</h3>
+        <p>
+          Getting a job in an NGO usually requires a combination of relevant education, practical experience, and demonstrated commitment to social development. Many organizations look for candidates who have degrees in fields such as social science, development studies, public health, economics, logistics, or environmental science. However, practical field experience often matters just as much as formal education.
+          To increase your chances, candidates should regularly monitor trusted job portals, professional networks, and NGO career websites. Volunteering with community organizations or local NGOs can also provide valuable experience. Additionally, developing skills in project management, monitoring and evaluation, procurement, or humanitarian logistics can make applicants more competitive in the development sector.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">2. What qualifications are required to work in an NGO?</h3>
+        <p>
+          The qualifications needed for NGO jobs vary depending on the role and level of responsibility. Entry-level roles may require a bachelor's degree, while managerial or technical roles often require a master's degree along with professional experience. Specialized positions such as program managers, finance specialists, or supply chain professionals often require additional certifications or sector-specific expertise.
+          Beyond academic qualifications, NGOs typically value strong communication skills, cultural sensitivity, ethical conduct, and the ability to work in challenging environments. Experience working with communities or managing development projects can significantly strengthen a candidate's profile.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">3. Where can I find NGO job opportunities online?</h3>
+        <p>
+          NGO job opportunities can be found through several reliable online platforms. Global organizations often publish vacancies on their official websites, while local opportunities may appear on national job portals. Some specialized platforms also focus specifically on humanitarian and development sector careers.
+          In addition to job boards, professionals often find opportunities through professional networks such as LinkedIn, development sector mailing lists, and humanitarian career platforms. Following major NGOs, United Nations agencies, and international organizations can also help job seekers stay informed about upcoming opportunities.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">4. What skills are important for NGO professionals?</h3>
+        <p>
+          NGOs operate in complex social environments, so professionals need a mix of technical and interpersonal skills. Important skills include project management, financial accountability, monitoring and evaluation, communication, and stakeholder coordination.
+          Many NGOs also prioritize professionals who can work under pressure, adapt to changing situations, and collaborate with diverse teams. Digital skills, data analysis, and reporting capabilities are increasingly important as organizations focus more on evidence-based program design and accountability to donors and communities.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">5. Do NGOs provide international career opportunities?</h3>
+        <p>
+          Yes, many international NGOs offer opportunities to work in different countries. These positions often involve humanitarian response, development programming, or technical advisory roles. Professionals with experience in project management, supply chain management, health programs, or emergency response are often considered for international assignments.
+          International NGO careers can be highly rewarding because they provide opportunities to contribute to global development goals while gaining cross-cultural experience. However, these roles usually require significant field experience and a strong understanding of humanitarian principles.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">6. What is PSEA in NGO work?</h3>
+        <p>
+          PSEA stands for Prevention of Sexual Exploitation and Abuse. It is a critical policy adopted by humanitarian and development organizations to ensure that staff members do not abuse their positions of power when working with vulnerable communities. PSEA policies emphasize zero tolerance for exploitation, harassment, or abuse.
+          Most NGOs require staff members to complete PSEA training and sign codes of conduct before starting work. These policies are designed to protect communities and ensure that humanitarian assistance is delivered with dignity, accountability, and respect for human rights.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">7. Why is gender equality important in NGO programs?</h3>
+        <p>
+          Gender equality is a core principle in development and humanitarian programming because social and economic inequalities often affect women and marginalized groups more severely. NGOs integrate gender perspectives into their programs to ensure that projects benefit everyone fairly and inclusively.
+          By addressing gender disparities, organizations can improve education access, healthcare outcomes, economic participation, and community resilience. Gender-sensitive programming also helps ensure that development interventions do not unintentionally reinforce existing inequalities.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">8. What is the typical salary in NGO jobs?</h3>
+        <p>
+          NGO salaries vary widely depending on the organization, country, and level of responsibility. Entry-level positions may offer modest salaries, while senior technical or managerial roles can offer competitive compensation comparable to private sector positions. International organizations often provide structured salary scales and additional benefits.
+          In many cases, NGO compensation packages include benefits such as health insurance, retirement contributions, travel allowances, or hardship allowances for field assignments. Candidates should carefully review the full compensation package rather than focusing only on the base salary.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">9. What should I include when introducing myself in an NGO interview?</h3>
+        <p>
+          When introducing yourself during an NGO interview, it is important to briefly explain your professional background, relevant experience, and motivation for working in the development sector. Candidates should highlight achievements that demonstrate problem-solving ability, teamwork, and commitment to social impact.
+          A strong self-introduction usually connects personal values with the organization's mission. For example, professionals may discuss their experience supporting community programs, managing humanitarian logistics, or implementing development projects that improved people's lives.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">10. How can I improve my chances of getting shortlisted for NGO jobs?</h3>
+        <p>
+          To increase the chances of being shortlisted, applicants should tailor their CV and cover letter to the specific job description. Many organizations use applicant tracking systems, so including relevant keywords from the vacancy announcement can improve visibility.
+          Candidates should also focus on demonstrating measurable achievements rather than simply listing responsibilities. Providing examples of successful projects, program outcomes, or operational improvements can make an application more compelling to recruiters.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">11. Do NGOs offer remote or flexible work options?</h3>
+        <p>
+          Many NGOs have adopted flexible work arrangements, especially after the global expansion of digital collaboration tools. While field-based roles often require physical presence in project locations, many technical, research, or coordination roles can be performed remotely or through hybrid arrangements.
+          Remote work opportunities are particularly common for roles involving data analysis, policy research, communications, or digital program management. However, the availability of remote positions depends on the organization's operational model and project requirements.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">12. What is humanitarian logistics?</h3>
+        <p>
+          Humanitarian logistics focuses on planning, implementing, and controlling the efficient movement of relief items, services, and information during emergencies or development programs. It includes procurement, transportation, warehousing, inventory management, and distribution of aid supplies.
+          Effective humanitarian logistics ensures that essential resources such as food, medicine, shelter materials, and equipment reach affected communities quickly and efficiently. Strong logistics systems are critical for responding to disasters and maintaining operational accountability in humanitarian programs.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">13. Are NGO careers stable long term?</h3>
+        <p>
+          NGO careers can offer long-term professional growth, particularly for individuals who build strong technical expertise and leadership skills. However, some positions depend on project funding cycles, which may affect contract duration. Professionals who continuously develop their skills often find new opportunities across different organizations and countries.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">14. What are the benefits of working in the development sector?</h3>
+        <p>
+          Working in the development sector provides the opportunity to contribute to meaningful social change while gaining diverse professional experience. Many professionals find NGO work rewarding because it allows them to support communities, address global challenges, and collaborate with people from different cultures and backgrounds.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">15. Why do people choose careers in NGOs?</h3>
+        <p>
+          People choose NGO careers for different reasons, including the desire to contribute to social impact, support vulnerable communities, and participate in meaningful development work. While the sector can be demanding, many professionals value the sense of purpose and global perspective that NGO work provides.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+      </main>
       <Footer />
     </div>
   );
