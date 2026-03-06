@@ -1,41 +1,86 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ---------------- Base Theme ---------------- */
+/* ---------------- Global Base Style ---------------- */
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Light Theme (Default) */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #f5fffa;
+    color: #1f2937; /* modern dark gray text */
+    background-color: #f8fafc; /* soft professional background */
+  }
+
+  a {
+    transition: color 0.25s ease;
   }
 
   a:hover {
-    color: #747bff;
+    color: #4f46e5; /* indigo hover */
   }
 
   button {
-    background-color: #f9f9f9;
+    background-color: #f9fafb;
+    transition: all 0.25s ease;
+  }
+
+  button:hover {
+    background-color: #f3f4f6;
+    transform: translateY(-1px);
   }
 }
 
 /* ---------------- Reusable UI Components ---------------- */
+
 @layer components {
+
+  /* Input Fields */
   .input {
     @apply w-full border border-gray-300 rounded-lg px-4 py-3
-    focus:outline-none focus:ring-2 focus:ring-blue-500;
+    focus:outline-none focus:ring-2 focus:ring-indigo-500
+    focus:border-indigo-500 transition;
   }
 
+  /* Primary Button */
   .btn-primary {
-    @apply bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg;
+    @apply bg-indigo-600 hover:bg-indigo-700 text-white
+    px-6 py-3 rounded-lg font-medium shadow-md
+    transition transform hover:-translate-y-0.5;
   }
 
+  /* Success Button */
   .btn-success {
-    @apply bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg;
+    @apply bg-green-600 hover:bg-green-700 text-white
+    px-8 py-3 rounded-lg font-medium shadow-md
+    transition transform hover:-translate-y-0.5;
   }
 
+  /* Card Container */
   .card-center {
-    @apply bg-white shadow rounded-xl p-10 text-center mt-10;
+    @apply bg-white shadow-lg rounded-xl
+    p-10 text-center mt-10 border border-gray-100;
   }
+
+  /* Section Wrapper (for homepage blocks) */
+  .section {
+    @apply max-w-6xl mx-auto px-6 py-16;
+  }
+
+  /* Title Styling */
+  .section-title {
+    @apply text-3xl font-bold text-gray-800 mb-6;
+  }
+
+  /* Paragraph Text */
+  .section-text {
+    @apply text-gray-600 leading-relaxed text-lg;
+  }
+
 }
