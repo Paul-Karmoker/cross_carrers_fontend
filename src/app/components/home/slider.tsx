@@ -299,7 +299,7 @@ const JobTrainingPortals: FC = () => {
         .slick-slide > div { padding: 0 4px; }
       `}</style>
 
-      <div className="max-w-[1420px] mx-auto px-4 space-y-12">
+      <div className="max-w-[1420px] mx-auto px-4 space-y-12 -mt-4">
         <section>
           <SectionTitle>National Portals</SectionTitle>
           <Slider {...settings}>

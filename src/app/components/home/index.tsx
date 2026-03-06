@@ -11,7 +11,6 @@ function index() {
       <Marqueel />
       <Banner />
       <Slider />
-      <Marqueer/>
       <Footer />
     </>
   );
