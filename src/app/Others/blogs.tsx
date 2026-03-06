@@ -15603,6 +15603,381 @@ const blogPosts: BlogPost[] = [
       </div>
     </article>
   `
+},
+{
+  id: 69,
+  title: "How to Write a Winning UN Cover Letter & CV (P11/Inspira Guide) 2026",
+  slug: "un-cover-letter-cv-p11-guide-2026",
+  date: "2026-03-01",
+  excerpt: "Learn how to craft a UN cover letter and CV that passes Inspira screening. Includes P11 form tips, sample STAR statements, and keywords to get shortlisted for UN jobs.",
+  category: "Resume / CV",
+  image: "https://i.ibb.co.com/0js980Sn/69.webp",
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #eef2f9 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #b3c4d9;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #0033a0; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🇺🇳 UN CAREER GUIDE</span>
+          <span style="color: #0033a0; font-size: 0.9rem;">inspira · p11 · applications</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #0033a0;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 application guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #0033a0 0%, #002080 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">📄 How to Write a Winning UN Cover Letter & CV (P11/Inspira Guide) 2026</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Master the P11 form · UN Cover Letter Format · Keywords for Inspira</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📝 P11 template</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">⭐ STAR method</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🔍 Inspira secrets</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #b3c4d9;">
+          <p style="font-size: 1.1rem;">The United Nations receives over 1 million applications annually. To get shortlisted, your application must survive the Inspira Applicant Tracking System (ATS) and impress a human reviewer. This guide breaks down the specific format for UN applications, including the infamous P11 form and the UN-style cover letter.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🇺🇳 Understanding the UN Application Ecosystem</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b3c4d9;">
+        <p>Unlike the private sector, the UN often requires specific documents:</p>
+        <ul>
+          <li><strong>P11 Form:</strong> The UN's historical "Personal History" form. It's a detailed, multi-page form asking for exact dates, functions, and supervisor details. Many agencies still require it.</li>
+          <li><strong>Inspira Profile:</strong> The main talent management system for the UN Secretariat. It functions like a detailed online CV.</li>
+          <li><strong>Cover Letter (Statement of Interest):</strong> A one-page document explaining your motivation and fit.</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">1. The UN Cover Letter: Structure & Sample</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b3c4d9;">
+        <p><strong>What they want:</strong> A concise, evidence-based letter showing you meet the "Competencies" and "Education/Work Experience" listed in the Job Opening (JO).</p>
+        <p><strong>Format:</strong> Strictly one page. Use the same header as your CV.</p>
+        <div style="background: #f0f5ff; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample Cover Letter (Excerpt):</p>
+          <p>Dear Hiring Manager,</p>
+          <p>I am writing to express my interest in the Programme Management Officer position (Job ID: 123456) advertised on the UN Careers Portal. With a Master’s degree in Public Policy and eight years of experience managing multi-donor funded projects in Southeast Asia, I have developed the core competencies required for this role, specifically in project management and stakeholder coordination.</p>
+          <p>In my current role as Senior Programme Coordinator at [INGO], I manage a portfolio of $5M focused on Sustainable Development Goal (SDG) 5 (Gender Equality). I led a team of 10 national staff to implement programmes across three provinces, consistently achieving 95% of delivery targets. This experience directly aligns with your requirement for experience in results-based management.</p>
+          <p>I am particularly drawn to this role at [UN Agency] because of your mandate to support national governments in achieving the 2030 Agenda. I possess fluency in English and French, and I am proficient in using ERP systems such as Umoja.</p>
+          <p>Thank you for considering my application. I look forward to the opportunity to discuss how my skills can contribute to your team.</p>
+          <p>Sincerely,<br/>[Your Name]</p>
+        </div>
+        <p><strong>SEO Keywords to include:</strong> Results-based management, stakeholder engagement, SDGs, 2030 Agenda, ERP, Umoja, multi-donor, capacity building.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">2. The UN CV / P11 Form: Filling the Gaps</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b3c4d9;">
+        <p><strong>No gaps allowed.</strong> The P11 requires a chronological history with <strong>no unexplained gaps</strong> (even months).</p>
+        <p><strong>Keywords are critical:</strong> The Inspira system scans for keywords from the Job Opening. If the job asks for "Policy Analysis," ensure that exact phrase appears in your experience section.</p>
+        <p><strong>The STAR Format:</strong> For "Achievements" sections, use the Situation, Task, Action, Result (STAR) method.</p>
+        <div style="background: #f0f5ff; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample P11 Entry (Achievements):</p>
+          <p><strong>Situation:</strong> The country office lacked a standardized monitoring framework for its WASH programme.<br/>
+          <strong>Task:</strong> Develop and implement a results-based monitoring tool.<br/>
+          <strong>Action:</strong> Consulted with field staff and HQ advisors to design a digital KPI tracker and trained 20 staff on its use.<br/>
+          <strong>Result:</strong> Reporting accuracy improved by 40% and data is now submitted in real-time, enabling faster decision-making.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">3. Common UN Application Mistakes</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b3c4d9;">
+        <ul>
+          <li><strong>Ignoring the "Competencies" section:</strong> You must address "Professionalism," "Teamwork," and "Planning & Organizing" directly in your cover letter or CV.</li>
+          <li><strong>Vague language:</strong> Avoid "I assisted with..." Use strong action verbs: "Led," "Coordinated," "Designed," "Monitored," "Evaluated."</li>
+          <li><strong>Wrong format:</strong> Sending a creative, graphic-designed CV. The UN prefers clean, text-based documents that can be easily parsed.</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📝 Final Checklist</h2>
+      <div style="background: #0033a0; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <ul style="list-style-type: none;">
+          <li style="margin-bottom: 0.8rem;">✓ Did you mention the Job ID in the cover letter?</li>
+          <li style="margin-bottom: 0.8rem;">✓ Does your P11 have any date gaps?</li>
+          <li style="margin-bottom: 0.8rem;">✓ Did you use the keywords from the Job Opening?</li>
+          <li style="margin-bottom: 0.8rem;">✓ Have you described your achievements using the STAR method?</li>
+          <li style="margin-bottom: 0.8rem;">✓ Is the document saved as a PDF named "LastName_FirstName_JobID"?</li>
+        </ul>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #f0f5ff, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #0033a0;">
+        “Your application is your first test of following instructions. If you can't follow the UN application format, the hiring manager assumes you can't follow UN procedures.”
+      </blockquote>
+
+      <!-- Author Bio Section (Copy from your previous example, but keep Paul Romeo's details) -->
+      <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+        <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
+          <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div style="flex: 1;">
+          <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
+            <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
+          </div>
+          <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
+            <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
+            <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
+            <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
+          </div>
+          <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
+          <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
+          <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
+        </div>
+      </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b3c4d9; font-size: 0.85rem; color: #0033a0;">
+        <span>🔍 Sources: UN Careers, Inspira Guide, P11 Handbook</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},{
+  id: 70,
+  title: "How to Negotiate Your Salary at the United Nations (Step Increases & Benefits) 2026",
+  slug: "un-salary-negotiation-step-increase-guide-2026",
+  date: "2026-03-03",
+  excerpt: "Can you negotiate a UN salary? Yes. Learn how to argue for a step increase, understand the Noblemaire Principle, and maximize your net pay with UN benefits, allowances, and education grants.",
+  category: "Career Guide",
+  image: "https://i.ibb.co.com/d08WH5rh/70.webp",
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #f0e7d6 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #c9b58b;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #b8860b; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">💰 UN COMPENSATION</span>
+          <span style="color: #b8860b; font-size: 0.9rem;">salary · benefits · steps</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #b8860b;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 negotiation guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #b8860b 0%, #8b6508 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🤝 How to Negotiate Your UN Salary (Step Increases & Benefits) 2026</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Noblemaire Principle · Step Negotiation · Allowances · Education Grant</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📊 step increases</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🌍 dependency allowance</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🏥 benefits package</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #c9b58b;">
+          <p style="font-size: 1.1rem;">A common myth is that UN salaries are "non-negotiable." While the grade (P3, P4, etc.) is usually fixed based on the job description, the <strong>step within that grade</strong> is negotiable. This article explains exactly how to justify a higher step and what benefits you must claim to maximize your income.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">⚖️ The Noblemaire Principle: How UN Pay is Set</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9b58b;">
+        <p>The UN uses the <strong>Noblemaire Principle</strong>, meaning it pays salaries competitive with the highest-paying national civil service (currently the US federal system). Salaries are set to attract staff from all member states.</p>
+        <p><strong>Key takeaway:</strong> UN salaries are tax-free for most staff (though you may pay national tax; the UN reimburses via the "tax equalization fund"). The "Gross" salary is higher, but you receive the "Net" (tax-free) amount.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📈 Understanding Grade vs. Step</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9b58b;">
+        <ul>
+          <li><strong>Grade:</strong> The level of the job (e.g., P3, P4, G6). This is based on the complexity of the role and is rarely negotiated. If you are overqualified, you may be screened out.</li>
+          <li><strong>Step:</strong> The level within the grade (Step 1 to Step 12). This is based on years of relevant experience. <strong>This is your negotiation lever.</strong></li>
+        </ul>
+        <p>Typically, if you have 10 years of experience and the job asks for 5, you can argue for a Step 5 or 6 instead of Step 1.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🗣️ How to Negotiate Your Step (The Script)</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9b58b;">
+        <p><strong>When to negotiate:</strong> After receiving the verbal offer, but before signing the contract.</p>
+        <div style="background: #faf3e0; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample negotiation script:</p>
+          <p>"Thank you for the offer to join [UN Agency] as a [Grade]. I am very excited about the role and the team. Regarding the salary package, I see the offer is at Step 1. Based on my [X] years of relevant experience in [specific field], which exceeds the minimum requirement by [Y] years, I believe my qualifications align more closely with Step [Z]. I have attached a summary of my relevant experience for your review. I hope we can agree on this step to reflect the level of expertise I bring."</p>
+        </div>
+        <p><strong>Pro Tip:</strong> Be polite and factual. The HR officer often has a mandate to hire the best candidate; they may have the discretion to move you up 2-3 steps.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🌍 Beyond Base Salary: Allowances & Benefits</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9b58b;">
+        <p>Your total compensation includes many elements. Ensure you claim these from day one:</p>
+        <ul>
+          <li><strong>Post Adjustment:</strong> A cost-of-living adjustment that varies by duty station (very high in New York, lower in Dhaka).</li>
+          <li><strong>Dependency Allowance:</strong> For a spouse or children.</li>
+          <li><strong>Education Grant:</strong> For eligible dependents attending school (covers up to 75% of costs, up to a maximum).</li>
+          <li><strong>Rental Subsidy:</strong> If you are in an expensive duty station and rent exceeds a certain percentage of salary.</li>
+          <li><strong>Home Leave:</strong> Travel to your home country every two years for you and your dependents.</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 UN Salary Calculator (Example: P3, Step 1 vs Step 5)</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9b58b;">
+        <p><em>Note: Figures are illustrative based on 2026 scales.</em></p>
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#f0e7d6;">
+            <th style="padding: 0.5rem;">Grade/Step</th>
+            <th style="padding: 0.5rem;">Base Net (USD)</th>
+            <th style="padding: 0.5rem;">Post Adj (NY)</th>
+            <th style="padding: 0.5rem;">Total Net</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">P3 Step 1</td>
+            <td style="padding: 0.5rem;">~$67,000</td>
+            <td style="padding: 0.5rem;">~$45,000</td>
+            <td style="padding: 0.5rem;">~$112,000</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">P3 Step 5</td>
+            <td style="padding: 0.5rem;">~$82,000</td>
+            <td style="padding: 0.5rem;">~$55,000</td>
+            <td style="padding: 0.5rem;">~$137,000</td>
+          </tr>
+        </table>
+        <p>Negotiating from Step 1 to Step 5 can increase your annual compensation by <strong>$25,000+</strong>.</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #faf3e0, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #b8860b;">
+        “The UN expects you to advocate for your worth. If you don't ask for a higher step, they assume you are happy with Step 1.”
+      </blockquote>
+      
+      <!-- Author Bio Section (Copy from above) -->
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9b58b; font-size: 0.85rem; color: #b8860b;">
+        <span>🔍 Sources: ICSC, UN Compensation Package, HR Handbooks</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},{
+  id: 71,
+  title: "UN Staff Categories Explained: P, G, NO, Consultant & Contract Types (2026)",
+  slug: "un-staff-categories-p-g-no-consultant-guide-2026",
+  date: "2026-03-05",
+  excerpt: "Confused by UN job titles? This guide explains the difference between Professional (P), General Service (G), National Officer (NO), and Consultant categories. Learn which category fits your profile.",
+  category: "Career Guide",
+  image: "https://i.ibb.co.com/20FWtPss/71.webp",
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #d9e6f0 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #7f9fbf;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #2c5a8c; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">📋 UN CLASSIFICATION</span>
+          <span style="color: #2c5a8c; font-size: 0.9rem;">p-level · g-level · no</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #2c5a8c;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 reference guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #2c5a8c 0%, #1a3f63 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">📌 UN Staff Categories Explained: P, G, NO, Consultant & Contract Types (2026)</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Professional · General Service · National Officer · Individual Contractor</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🌐 P1 to D2</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🏛️ G1 to G7</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🤝 FTA vs TJO</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #7f9fbf;">
+          <p style="font-size: 1.1rem;">The UN system uses a complex classification system for its workforce. Whether you are aiming for a policy role at HQ or a programme support role in the field, understanding the difference between Professional, General Service, and Consultant categories is the first step to finding the right vacancy.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">1. Professional and Higher Categories (P & D)</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7f9fbf;">
+        <p><strong>Who they are:</strong> Internationally recruited staff. Often required to move between duty stations.</p>
+        <p><strong>Levels:</strong> P-1, P-2, P-3, P-4, P-5, D-1, D-2.</p>
+        <ul>
+          <li><strong>P-1/P-2:</strong> Entry-level (Junior Professional Officers - JPO).</li>
+          <li><strong>P-3:</strong> 5+ years experience. Specialist or officer level.</li>
+          <li><strong>P-4/P-5:</strong> Senior Specialist, Team Leader, Advisor.</li>
+          <li><strong>D-1/D-2:</strong> Director level, heading divisions or large country offices.</li>
+        </ul>
+        <p><strong>Requirement:</strong> Advanced university degree (Master's) and relevant international experience.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">2. General Service (G) and Related Categories</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7f9fbf;">
+        <p><strong>Who they are:</strong> Locally recruited staff for administrative, secretarial, clerical, and technical support.</p>
+        <p><strong>Levels:</strong> G-1 to G-7.</p>
+        <ul>
+          <li><strong>G-4/G-5:</strong> Administrative assistants, programme assistants.</li>
+          <li><strong>G-6/G-7:</strong> Senior assistants, team supervisors.</li>
+        </ul>
+        <p><strong>Requirement:</strong> High school diploma or equivalent. Local language skills are essential.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">3. National Professional Officers (NO)</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7f9fbf;">
+        <p><strong>Who they are:</strong> Locally recruited professionals (doctors, engineers, lawyers) working in their own country. They perform functions at the Professional level but are not expected to move internationally.</p>
+        <p><strong>Levels:</strong> NO-A, NO-B, NO-C, NO-D (equivalent to P2 to P5).</p>
+        <p><strong>Example:</strong> A National Programme Officer for UNDP in Dhaka working on governance projects.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">4. Consultants & Individual Contractors</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7f9fbf;">
+        <p><strong>Who they are:</strong> Hired for specific deliverables, not as staff members. They do not receive the same benefits (pension, health insurance) as staff.</p>
+        <ul>
+          <li><strong>Consultant:</strong> For highly specialized, short-term expertise.</li>
+          <li><strong>Individual Contractor (IC):</strong> For specific outputs or piece-work.</li>
+          <li><strong>Intern:</strong> Unpaid or nominally paid students or recent graduates.</li>
+        </ul>
+        <p><strong>Contract Types (Staff):</strong></p>
+        <ul>
+          <li><strong>Temporary Job Opening (TJO):</strong> Short-term (less than 1 year).</li>
+          <li><strong>Fixed-Term Appointment (FTA):</strong> Standard contract (1-2 years, renewable). The path to a career.</li>
+          <li><strong>Continuing Appointment:</strong> Open-ended contract (rare).</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 Which Category is Right for You?</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7f9fbf;">
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#d9e6f0;">
+            <th style="padding: 0.5rem;">Your Profile</th>
+            <th style="padding: 0.5rem;">Target Category</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Fresh Master's grad, seeking international experience</td>
+            <td style="padding: 0.5rem;">JPO (P-2), Intern -> Consultant</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">5+ years, specialized skill, wants global career</td>
+            <td style="padding: 0.5rem;">P-3</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Experienced national expert, wants to stay in home country</td>
+            <td style="padding: 0.5rem;">NO-C</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">Administrative support, based locally</td>
+            <td style="padding: 0.5rem;">G-5/G-6</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
+      <div style="background: #2c5a8c; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <p>Always check the "Staffing Category" on the Job Opening. If it says "Consultant," it is not a staff position with a pension. If it says "National Officer," you must be a national of that country to apply. Reading the category correctly saves you from applying for jobs you are ineligible for.</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #d9e6f0, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #2c5a8c;">
+        “Your entry point into the UN system depends on your nationality, experience, and willingness to move. Choose the category that matches your long-term career goals.”
+      </blockquote>
+      
+      <!-- Author Bio Section (Copy from above) -->
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7f9fbf; font-size: 0.85rem; color: #2c5a8c;">
+        <span>🔍 Sources: UN Careers Portal, CEB, HR Handbook</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
 }
 ]
 const POSTS_PER_PAGE = 10;
