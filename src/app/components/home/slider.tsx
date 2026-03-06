@@ -211,6 +211,10 @@ const JobTrainingPortals: FC = () => {
             <img
               src={site.logo}
               alt={site.name}
+              loading="lazy"
+              decoding="async"
+              width="160"
+              height="80"
               className="max-h-full max-w-full object-contain filter group-hover:grayscale-0 transition-all duration-300"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).src =
