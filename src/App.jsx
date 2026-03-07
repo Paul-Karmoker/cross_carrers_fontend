@@ -71,7 +71,7 @@ const App = memo(() => {
       <Route path="/contact-us" element={<Contact />} />
       <Route path="/referral-program" element={<Earn />} />
       <Route path="/ngo-jobs-bangladesh" element={<Ngo />} />
-      <Route path="/blogs" element={<Blogs />} />
+      <Route path="/career-guide" element={<Blogs />} />
       <Route path="/legal-poliicy" element={<Legalpoliicy />} />
       <Route path="/career" element={<Career />} />
       <Route path="/international-ngo-jobs" element={<Ingo />} />
