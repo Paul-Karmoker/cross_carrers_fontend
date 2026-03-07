@@ -14648,7 +14648,8 @@ const blogPosts: BlogPost[] = [
       </div>
     </article>
   `
-},{
+},
+{
   id: 71,
   title: "UN Staff Categories Explained: P, G, NO, Consultant & Contract Types (2026)",
   slug: "un-staff-categories-p-g-no-consultant-guide-2026",
@@ -14773,6 +14774,874 @@ const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7f9fbf; font-size: 0.85rem; color: #2c5a8c;">
         <span>🔍 Sources: UN Careers Portal, CEB, HR Handbook</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},
+{
+  id: 72,
+  title: "AI Skills That Will Get You Hired in 2026: Prompt Engineering, Data Annotation & More",
+  slug: "ai-skills-hiring-demand-2026-prompt-engineering-data-annotation",
+  date: "2026-03-08",
+  excerpt: "AI is dominating the 2026 job market, but which specific skills do employers want? From prompt engineering to data annotation and AI literacy, here are the technical and strategic AI skills that top LinkedIn's list.",
+  category: "AI (Artificial Intelligence)",
+  image: "https://i.ibb.co.com/pBgMkhG2/72.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #e6f0fa 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #4a7b9d;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #1e4a6d; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🤖 AI SKILLS 2026</span>
+          <span style="color: #1e4a6d; font-size: 0.9rem;">prompt-engineering · data-annotation</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #1e4a6d;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 skills guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #1e4a6d 0%, #12344d 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🤖 AI Skills That Will Get You Hired in 2026: Prompt Engineering, Data Annotation & More</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">From technical AI to strategic application—what employers actually want</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">⚡ Prompt Engineering</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🏷️ Data Annotation</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📊 AI Literacy</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #4a7b9d;">
+          <p style="font-size: 1.1rem;">Artificial intelligence isn't just changing the job market—it's dominating it. LinkedIn's 2026 "Jobs on the Rise" list shows AI-related roles occupying four of the top five positions. But landing these roles requires specific, in-demand skills. Here's what you need to learn right now.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📈 The AI Skills Explosion by the Numbers</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <p>The demand for AI skills has skyrocketed in 2026. According to recent data:</p>
+        <ul>
+          <li><strong>53%</strong> of U.S. tech job postings in late 2025 required AI or machine learning skills—up from just 29% a year earlier [citation:2].</li>
+          <li><strong>84%</strong> of organizations plan to increase resources for AI in 2026 [citation:2].</li>
+          <li><strong>AI Engineer</strong> ranks as the #1 fastest-growing job on LinkedIn [citation:6].</li>
+          <li><strong>AI Consultant/Strategist</strong> ranks #2, showing demand isn't just technical [citation:6].</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">1. Prompt Engineering</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <p><strong>What it is:</strong> The art and science of crafting effective inputs for AI models to generate desired outputs. Prompt engineers understand how to "talk" to AI to get accurate, useful results.</p>
+        <p><strong>Why it's hot:</strong> As LinkedIn's Editor-in-Chief Daniel Roth explains, companies need people who understand how to use AI tools effectively within their organization to improve productivity [citation:1]. This isn't just about typing questions—it's about designing workflows.</p>
+        <p><strong>Skills you need:</strong> LangChain, Retrieval-Augmented Generation (RAG), understanding of large language models, and domain expertise to evaluate outputs [citation:6].</p>
+        <p><strong>Who hires:</strong> Technology companies, IT services, business consulting firms. Top hiring hubs: San Francisco, New York, Dallas [citation:6].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">2. Data Annotation</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <p><strong>What it is:</strong> The behind-the-scenes work of labeling and reviewing datasets to train AI and machine learning models. Data annotators ensure the data AI learns from is accurate and properly categorized.</p>
+        <p><strong>Why it's hot:</strong> Ranked #4 on LinkedIn's Jobs on the Rise list, this role is a critical entry point into AI [citation:6]. Notably, <strong>62% of data annotators are female</strong>, and the role requires precision and attention to detail rather than advanced coding [citation:6].</p>
+        <p><strong>Skills you need:</strong> SEO copywriting, content marketing, content production, attention to detail, quality control [citation:6].</p>
+        <p><strong>Who hires:</strong> Technology companies, staffing firms, higher education institutions. Top hiring hubs: Austin, New York, San Francisco [citation:6].</p>
+        <p><strong>Career path:</strong> Common transitions come from content managers, editors, and data analysts [citation:6].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">3. AI Literacy & Strategic Application</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <p>Not every AI role requires coding. According to Degreed's 2026 skills data, companies need professionals who can bridge the gap between technical AI and business outcomes [citation:7].</p>
+        <p><strong>Key roles:</strong></p>
+        <ul>
+          <li><strong>AI Consultant/Strategist:</strong> Guide organizations in planning and deploying AI technologies. Median prior experience: 8.2 years. 30% remote, 33% hybrid [citation:6].</li>
+          <li><strong>AI Leaders:</strong> Responsible for turning AI from technical capability into business value, ensuring responsible and strategic use [citation:2].</li>
+          <li><strong>Agent Operators:</strong> Human supervisors of AI agent workflows who monitor execution and ensure accuracy [citation:2].</li>
+        </ul>
+        <p><strong>The key insight:</strong> More than half of hiring managers say they <strong>would not hire someone without AI literacy skills</strong> [citation:7]. AI fluency is now a foundational capability.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">4. AI Research & Development</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <p><strong>What it is:</strong> Designing, testing, and refining new AI models and algorithms to advance the field's capabilities.</p>
+        <p><strong>Key skills:</strong> PyTorch, deep learning, computer vision [citation:6].</p>
+        <p><strong>Who hires:</strong> Technology companies, higher education institutions, research services [citation:6].</p>
+        <p><strong>Career path:</strong> Common transitions from data scientist, software engineer, and machine learning engineer roles [citation:6].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">5. The "New领" Phenomenon in China</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <p>In China's 2026 spring hiring season, "新质生产力" (new quality productive forces) jobs are dominating searches [citation:4].</p>
+        <ul>
+          <li>Job postings in the <strong>robotics industry</strong> grew 31.3% year-over-year [citation:4].</li>
+          <li><strong>AI roles</strong> average 12,661 RMB/month [citation:4].</li>
+          <li><strong>Smart cockpit</strong> roles in new energy vehicles saw a 168.9% surge in job seekers [citation:4].</li>
+          <li>Companies are hiring "end-to-end algorithm engineers" as they shift from rules-based algorithms to large models [citation:4].</li>
+        </ul>
+        <p>The Chinese government has identified 72 new occupations over five years, with more than 20 directly related to AI. Each new occupation is expected to generate jobs for 300,000 to 500,000 people [citation:8].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 How to Build AI Skills in 2026</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#e6f0fa;">
+            <th style="padding: 0.5rem;">Your Background</th>
+            <th style="padding: 0.5rem;">Recommended Path</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Technical (coding, data)</td>
+            <td style="padding: 0.5rem;">PyTorch, LangChain, RAG → AI Engineer or ML Researcher</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Content/Writing/Editing</td>
+            <td style="padding: 0.5rem;">Data annotation, prompt engineering → AI support roles</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Business/Management</td>
+            <td style="padding: 0.5rem;">AI strategy, MLOps, large language models → AI Consultant</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">Any background</td>
+            <td style="padding: 0.5rem;">AI literacy courses, hands-on practice with AI tools, LinkedIn verified certifications [citation:2]</td>
+          </tr>
+        </table>
+        <p style="margin-top:1rem;"><strong>Pro tip:</strong> LinkedIn now allows users to display official certifications in AI skills from platforms like Descript, Lovable, Replit, and Relay.app. These certifications are based on your actual usage patterns and proficiency [citation:2].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
+      <div style="background: #1e4a6d; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <p>The AI job market in 2026 has room for everyone—from highly technical researchers to strategic consultants to detail-oriented data annotators. The common thread? AI literacy is no longer optional. As one expert put it: "Because it's still early, now is a good time to invest in learning them" [citation:1]. The window for getting ahead of the curve is still open—but it won't stay that way forever.</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #e6f0fa, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #1e4a6d;">
+        "Companies want people who understand how to use AI tools effectively within their organisation to improve productivity." — Daniel Roth, LinkedIn Editor-in-Chief [citation:1]
+      </blockquote>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #4a7b9d; font-size: 0.85rem; color: #1e4a6d;">
+        <span>🔍 Sources: LinkedIn Jobs on the Rise 2026, ACM CareerNews, Economic Times, China.org.cn</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},
+{
+  id: 73,
+  title: "Power Skills 2026: Why Leadership, Communication & Storytelling Matter More Than AI",
+  slug: "power-skills-2026-leadership-communication-storytelling-demand",
+  date: "2026-03-08",
+  excerpt: "As AI automates routine tasks, human-centric 'Power Skills' are becoming more valuable than ever. Learn why leadership, communication, storytelling, and adaptability top the 2026 skills list.",
+  category: "Skill Development",
+  image: "https://i.ibb.co.com/gFmNvZPc/73.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #f0e7db 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #b58b5b;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #8b5a2b; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">💪 POWER SKILLS 2026</span>
+          <span style="color: #8b5a2b; font-size: 0.9rem;">leadership · storytelling · adaptability</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #8b5a2b;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 human skills</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #8b5a2b 0%, #5e3e1e 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">💪 Power Skills 2026: Why Leadership, Communication & Storytelling Matter More Than AI</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">The 'soft skills' rebrand—what employers really want in the AI era</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🗣️ Communication</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📖 Storytelling</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🤝 Leadership</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #b58b5b;">
+          <p style="font-size: 1.1rem;">Here's the counterintuitive truth about the AI-powered job market: as machines get smarter, human skills become more valuable. According to Degreed's 2026 skills data, seven of the top ten skills professionals are building are human or business-centric [citation:7]. The term "soft skills" is officially outdated—welcome to the era of "Power Skills."</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 The Data: 70% of Top Skills Are Human</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>Based on learning pathways created in Degreed in 2025, here are the top 10 skills professionals want to develop in 2026 [citation:7]:</p>
+        <ol>
+          <li><strong>Leadership</strong> (Human)</li>
+          <li><strong>Communication</strong> (Human)</li>
+          <li><strong>Project Management</strong> (Business)</li>
+          <li><strong>Problem Solving</strong> (Human)</li>
+          <li><strong>Customer Service</strong> (Human)</li>
+          <li><strong>Microsoft Excel</strong> (Technical)</li>
+          <li><strong>Data Analytics</strong> (Technical)</li>
+          <li><strong>Python</strong> (Technical)</li>
+          <li><strong>Adaptability</strong> (Human)</li>
+          <li><strong>Stakeholder Management</strong> (Human)</li>
+        </ol>
+        <p><strong>The takeaway:</strong> Seven of ten are human or business skills. As automation scales, the value of judgment, coordination, and influence increases [citation:7].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧠 Why Human Skills Can't Be Automated</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>According to the World Economic Forum, <strong>"tasks tied to empathy, creativity, leadership, and curiosity" only have a 13% potential for AI transformation</strong> [citation:7]. They require too much human judgment and experience to be automated.</p>
+        <p>Jen Paterno, senior behavioral scientist at CoachHub, explains: "The term 'soft skills' has never been accurate, and in 2026, it's downright misleading. As AI takes over technical expertise, the skills that matter most are human-centric—what industry experts now call 'Power Skills': emotional intelligence, creativity, resilience, curiosity and social influence" [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📖 The Storytelling Explosion</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>One of the most dramatic trends: LinkedIn has seen a <strong>doubling in job postings over the last year that ask for storytelling skills</strong> [citation:1].</p>
+        <p><strong>What this means:</strong> Public speaking, writing clear emails, drafting cross-functional memos, and being able to connect your ideas in a compelling narrative are now explicitly recognized as valuable. These are basic workplace skills, but they're being highlighted more directly in job descriptions [citation:1].</p>
+        <p>As Daniel Roth explains, professionals should "tell stories around their skills—when they used them, what impact they created, whether at work, college, or in volunteer roles. Being able to connect those stories in interviews makes a stronger impression" [citation:1].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">👥 Leadership & People Management</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>Leadership remains the #1 skill professionals are building in 2026 [citation:7]. But the focus has shifted. LinkedIn notes two emerging priorities [citation:1]:</p>
+        <ul>
+          <li><strong>Mentorship:</strong> Helping others realize what they're capable of</li>
+          <li><strong>Talent development:</strong> Building capabilities in team members</li>
+        </ul>
+        <p>As Holger Reisinger of Jabra points out: "Gen Z expect human-centric skills, emotional intelligence and collaboration to carry as much weight as technical skills such as data analysis or coding. Raised in a digital world, they understand that while AI can replicate knowledge, it can't replace connection" [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🔄 Adaptability in a Fast-Changing World</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>Adaptability ranks #9 on the top skills list [citation:7]. Why? Because businesses are changing faster than ever, and that kind of change needs people who can pivot quickly [citation:1].</p>
+        <p>As Cris Grossmann of LumApps argues: "The next phase of productivity in the U.S. will come from flipping the mindset from thinking of people as a cost to manage to empowering them. Technology that protects and elevates frontline jobs, rather than replaces them, will drive the country's next productivity boom" [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🔍 How to Stand Out as Human in an AI World</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>Heidi Barnett of isolved predicts: "In 2026, hiring will be less about 'beating the bots' and more about standing out as human. As AI floods the hiring process with noise, the candidates who rise to the top will be those who can show real results, tell their story authentically and bring evidence of impact" [citation:3].</p>
+        <p><strong>Practical steps:</strong></p>
+        <ul>
+          <li><strong>Identify your strengths:</strong> Ask colleagues, friends, or volunteer groups what you're good at. Others often repeat the same strengths, which can help identify core capabilities [citation:1].</li>
+          <li><strong>Practice your skills:</strong> Volunteer, join community groups, take on stretch assignments at work—all of these can help refine both technical and human skills [citation:1].</li>
+          <li><strong>Tell stories, don't list skills:</strong> Avoid listing skills like a grocery list. Connect your skills to impact through stories [citation:1].</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 Human Skills Across Industries</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>Different industries prioritize different human skills, according to Degreed data [citation:7]:</p>
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#f0e7db;">
+            <th style="padding: 0.5rem;">Industry</th>
+            <th style="padding: 0.5rem;">Key Human Skills</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Financial Services</td>
+            <td style="padding: 0.5rem;">Leadership, stakeholder management</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Healthcare</td>
+            <td style="padding: 0.5rem;">Inclusivity, collaboration, resilience</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Manufacturing & Energy</td>
+            <td style="padding: 0.5rem;">Leadership, project execution, change management</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">Professional Services & IT</td>
+            <td style="padding: 0.5rem;">Project management, communication, problem-solving</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ The Power Skills + AI Formula</h2>
+      <div style="background: #8b5a2b; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <p>The winning combination in 2026 isn't choosing between technical and human skills—it's mastering both. As Degreed puts it: "AI systems can generate recommendations, but great leaders guide teams to interpret, innovate, and execute on them. AI can process data at scale, but teams must decide what to do with the results" [citation:7].</p>
+        <p style="margin-top:1rem;">Organizations that invest in developing Power Skills through coaching, feedback and experiential learning won't just keep up with change; they'll stay ahead of it [citation:3].</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #f0e7db, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #8b5a2b;">
+        "Calling these capabilities 'soft' minimizes their impact—they're the foundation of leadership in a world transformed by automation." — Jen Paterno, CoachHub [citation:3]
+      </blockquote>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b58b5b; font-size: 0.85rem; color: #8b5a2b;">
+        <span>🔍 Sources: Degreed Skills Report 2026, Forbes, Economic Times, Arcadia University</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},
+{
+  id: 74,
+  title: "USA & Canada Job Market 2026: Top Hiring Industries, AI Salaries & Talent Trends",
+  slug: "usa-canada-job-market-2026-hiring-trends-ai-salaries",
+  date: "2026-03-08",
+  excerpt: "From AI salary premiums to skills-based hiring, the 2026 job market in the US and Canada is defined by talent scarcity and technological transformation. Here are the hottest industries, roles, and regional trends.",
+  category: "AI (Artificial Intelligence)",
+  image: "https://i.ibb.co.com/wZZRVrcv/74.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #d9e6f2 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #0056b3;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #002868; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🇺🇸 US & CANADA 2026</span>
+          <span style="color: #002868; font-size: 0.9rem;">AI hiring · salary trends · talent shortage</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #002868;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 north america</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #002868 0%, #001a4a 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🇺🇸🇨🇦 USA & Canada Job Market 2026: Top Hiring Industries, AI Salaries & Talent Trends</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">AI premiums, skills-first hiring, and the fight for specialized talent</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🤖 AI Engineer ($155K+)</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📊 Data Scientist ($131K)</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">💰 3.5% avg. salary increase</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #0056b3;">
+          <p style="font-size: 1.1rem;">The 2026 job market in North America is defined by a "stark divide" [citation:1]. While overall hiring stabilizes, demand for AI-adjacent skills is driving compensation growth and intensifying competition for specialized talent. Here's what job seekers and employers need to know about the US and Canadian markets right now.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 The Big Picture: Stabilization with Structural Shortages</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>Labor markets in both countries are entering a cautious period of stabilization [citation:5]. Key indicators:</p>
+        <ul>
+          <li><strong>US:</strong> Job openings stabilizing, unemployment expected to rise modestly but not alarmingly [citation:5]</li>
+          <li><strong>Canada:</strong> A "surprisingly stable" 2025 could yield to modest progress in 2026, though policy questions loom [citation:5]</li>
+          <li><strong>Salary increases:</strong> Median base-pay increases planned at <strong>3.5%</strong> for 2026 in both countries [citation:7]</li>
+        </ul>
+        <p>However, beneath this stabilization lies a structural IT talent shortage. IDC projects that <strong>more than 90% of organizations will face IT skills shortages by 2026</strong>, costing an estimated $5.5 trillion globally [citation:9]. In Canada, ICTC projects a shortage of more than <strong>3,000 AI professionals each year</strong> [citation:9].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🤖 Top Roles: AI & Data Dominate</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>According to Aquent's 2026 Salary Guide, these are the fastest-growing tech roles in the US and Canada [citation:1]:</p>
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#d9e6f2;">
+            <th style="padding: 0.5rem;">Role</th>
+            <th style="padding: 0.5rem;">Median Annual Salary (US)</th>
+            <th style="padding: 0.5rem;">YoY Growth</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Machine Learning Engineer</strong></td>
+            <td style="padding: 0.5rem;">$155,000+</td>
+            <td style="padding: 0.5rem;">6.0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Data Scientist</strong></td>
+            <td style="padding: 0.5rem;">$131,935</td>
+            <td style="padding: 0.5rem;">5.5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Data Engineer</strong></td>
+            <td style="padding: 0.5rem;">$113,684</td>
+            <td style="padding: 0.5rem;">5.0%</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;"><strong>Technical Lead</strong></td>
+            <td style="padding: 0.5rem;">$136,651</td>
+            <td style="padding: 0.5rem;">5.0%</td>
+          </tr>
+        </table>
+        <p style="margin-top:1rem;">For comparison, copy editors saw only 2.8% growth, highlighting the "stark divide" between AI-adjacent roles and those easily replaced by automation [citation:1].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💰 Emerging AI Roles & Premium Salaries</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>Aquent's research identified a new category of high-paying roles built around AI strategy and implementation [citation:1]:</p>
+        <ul>
+          <li><strong>AI Product Manager:</strong> $162,000 median base salary — the highest in this category</li>
+          <li><strong>Natural Language Processing Engineer:</strong> $155,623</li>
+          <li><strong>Blockchain Engineer:</strong> $135,439</li>
+          <li><strong>AI Domain Specialist/Trainer:</strong> $115,000</li>
+        </ul>
+        <p>John Chuang, CEO of Aquent, notes: "AI isn't just reshaping jobs, it's intensifying the competition for scarce skills. The fastest salary growth is flowing to roles that combine technical depth with the ability to apply AI at scale" [citation:1].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🇺🇸 US vs. 🇨🇦 Canada: AI Adoption & Wage Trends</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>TD Economics provides a detailed comparison of how AI is shaping labor markets in both countries [citation:2]:</p>
+        
+        <p><strong>AI Adoption:</strong> The US leads in both breadth and depth of AI integration, with an estimated <strong>60-80% of companies using AI</strong> in some capacity, compared to lower rates in Canada. However, Canada ranks in the top 15 globally [citation:2].</p>
+        
+        <p><strong>Employment Impact:</strong> In the US, industries with higher AI adoption rates are seeing slower employment growth. This relationship is so far absent in Canada [citation:2].</p>
+        
+        <p><strong>AI-Complementary Jobs:</strong> Both countries show robust employment growth in roles where AI augments human work—engineering, life sciences, nursing, and education [citation:2].</p>
+        
+        <p><strong>Youth Wage Premium:</strong> In both countries, <strong>wages for youth workers (15-24) in AI-complementing industries are growing faster</strong> than in lower-exposure sectors. This suggests a premium for younger workers with AI skills [citation:2].</p>
+        
+        <p><strong>Recent Graduates:</strong> While the US has seen AI directly correlated with declines in entry-level hiring (a Stanford report found a 13% drop in entry-level jobs since 2022), Canada's graduate unemployment is more attributed to demographic factors like rapid increases in the student population [citation:2].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">⚡ Finance & Accounting: Shortage-Driven Market</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>The finance sector faces acute talent shortages in 2026 [citation:4]:</p>
+        <ul>
+          <li><strong>83% of finance leaders</strong> report ongoing talent shortages</li>
+          <li><strong>300,000+ accountants and auditors</strong> have left the profession in recent years</li>
+          <li>Employers are competing for new profiles: <strong>AI-enabled FP&A analysts, ESG reporting specialists</strong>, and finance professionals who can partner with the business</li>
+          <li><strong>Skills-based hiring</strong> is replacing credential-only screening, with job descriptions rewritten around capabilities like scenario modeling, automation oversight, and data storytelling [citation:4]</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🔐 Cybersecurity: Machine-Speed Battles</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>2026 marks the year cyberattacks become fully autonomous. Key trends [citation:9]:</p>
+        <ul>
+          <li><strong>59% of security teams</strong> report critical or significant skills needs—up from 44% in 2024</li>
+          <li>Autonomous AI agents now outnumber human employees by <strong>82:1</strong> in enterprise environments</li>
+          <li>Organizations with security staff shortages face breach costs averaging <strong>$1.76 million higher</strong></li>
+          <li>The US Bureau of Labor Statistics projects <strong>29% employment growth</strong> for information security analysts through 2033 [citation:9]</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📋 Leadership Premium & Enterprise Pay</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>Leadership roles at the enterprise level (10,000+ employees) saw the sharpest pay increases [citation:1]:</p>
+        <ul>
+          <li>Median base salaries <strong>42.8% higher</strong> than at large companies</li>
+          <li><strong>CTO/Head of Engineering:</strong> $434,453</li>
+          <li><strong>CMO/Head of Marketing:</strong> $417,881</li>
+          <li><strong>VP of Engineering/Software Development:</strong> $395,396</li>
+        </ul>
+        <p>Overall director-level and higher salary growth: <strong>4.4% in the US, 3.8% in Canada</strong> [citation:1].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 Skills-Based Hiring: The New Normal</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>Skills-based hiring has become the foundation of workforce strategy [citation:9]:</p>
+        <ul>
+          <li><strong>85% of employers</strong> now use skills-based hiring (up from 73% in 2023)</li>
+          <li><strong>53% have eliminated degree requirements entirely</strong>—a 30% increase from 2024</li>
+          <li>LinkedIn research shows skills-based searches lead to <strong>+12% higher quality hires</strong> and expand talent pools 6x globally [citation:9]</li>
+        </ul>
+        <p>However, implementation gaps remain: Harvard Business School research reveals that despite companies dropping degree requirements, <strong>fewer than 1 in 700 actual hires are affected</strong> [citation:9].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🗺️ Geographic & Policy Divergence</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p><strong>Immigration & Talent:</strong> Indeed data shows foreign job seekers' interest in US jobs dropped to a five-year low of 1.45% in June 2025, while Canada remains a primary destination for global talent [citation:9].</p>
+        
+        <p><strong>Salary Increases by Location:</strong> While both countries average 3.5% increases, US organizations place greater emphasis on merit/performance (78% vs. 60% in Canada). Canadian increases are higher relative to inflation given Canada's lower inflation rate (2.2% vs. US 2.7%) [citation:7].</p>
+        
+        <p><strong>Pay Transparency:</strong> Expanding across US states and Canadian provinces, clear salary ranges in job ads improve applicant volume and reduce late-stage drop-off [citation:4].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📚 Top Majors & International Student Pathways</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>For students targeting the US and Canada, these fields offer the strongest prospects [citation:3][citation:6][citation:10]:</p>
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#d9e6f2;">
+            <th style="padding: 0.5rem;">Field</th>
+            <th style="padding: 0.5rem;">Starting Salary (US)</th>
+            <th style="padding: 0.5rem;">Starting Salary (Canada)</th>
+            <th style="padding: 0.5rem;">Top Universities</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Computer Science/AI</strong></td>
+            <td style="padding: 0.5rem;">$100,000-$180,000</td>
+            <td style="padding: 0.5rem;">CAD 80,000-120,000</td>
+            <td style="padding: 0.5rem;">MIT, Stanford, CMU / Toronto, UBC</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Data Science</strong></td>
+            <td style="padding: 0.5rem;">$90,000-$150,000</td>
+            <td style="padding: 0.5rem;">CAD 70,000-100,000</td>
+            <td style="padding: 0.5rem;">UC Berkeley, Harvard / McGill</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Nursing/Healthcare</strong></td>
+            <td style="padding: 0.5rem;">$70,000-$110,000</td>
+            <td style="padding: 0.5rem;">CAD 60,000-80,000</td>
+            <td style="padding: 0.5rem;">Johns Hopkins / Alberta, Toronto</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;"><strong>Cybersecurity</strong></td>
+            <td style="padding: 0.5rem;">$85,000-$130,000</td>
+            <td style="padding: 0.5rem;">CAD 75,000-95,000</td>
+            <td style="padding: 0.5rem;">Stanford, MIT / Calgary</td>
+          </tr>
+        </table>
+        <p style="margin-top:1rem;">Both countries offer STEM OPT extensions (US) and PGWP pathways (Canada) for international graduates in these fields [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
+      <div style="background: #002868; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <p>The US and Canadian job markets in 2026 present a tale of two trends: overall stabilization masking intense competition for specialized talent. AI-adjacent skills command significant premiums, skills-based hiring is becoming standard practice, and the talent shortage in tech, finance, and cybersecurity shows no signs of abating. For job seekers, the message is clear: develop in-demand skills, demonstrate them through verified assessments, and be prepared to tell stories about your impact [citation:4][citation:9]. For employers, the winners will be those who adapt quickly—with skills-forward assessment, transparent offers, and strategic use of internal and nearshore talent [citation:4][citation:9].</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #d9e6f2, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #002868;">
+        "AI isn't just reshaping jobs, it's intensifying the competition for scarce skills. The fastest salary growth is flowing to roles that combine technical depth with the ability to apply AI at scale." — John Chuang, CEO of Aquent [citation:1]
+      </blockquote>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #0056b3; font-size: 0.85rem; color: #002868;">
+        <span>🔍 Sources: Aquent Salary Guide 2026, TD Economics, Indeed Hiring Lab, Payscale, DevEngine, IDP Connect</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},
+{
+  id: 75,
+  title: "Top 10 Most In-Demand College Majors for 2026: Finance, Engineering & CS Lead",
+  slug: "most-in-demand-college-majors-2026-finance-engineering-computer-science",
+  date: "2026-03-08",
+  excerpt: "The NACE Winter 2026 Salary Survey reveals the bachelor's degrees employers want most. Finance and Mechanical Engineering tie for first, with Computer Science close behind. See the full rankings and salary projections.",
+  category: "Skill Development",
+  image: "https://i.ibb.co.com/kgfHtrrm/75.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #d4e1f0 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #2c5a8c;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #1e3a5f; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🎓 COLLEGE MAJORS 2026</span>
+          <span style="color: #1e3a5f; font-size: 0.9rem;">NACE survey · salary projections</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #1e3a5f;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 education guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #1e3a5f 0%, #0f2338 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🎓 Top 10 Most In-Demand College Majors for 2026: Finance, Engineering & CS Lead</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">NACE Winter 2026 Salary Survey results—what employers are hiring for</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">💰 Finance (61.3%)</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">⚙️ Mechanical Eng (61.3%)</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">💻 CS ($81,535)</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #2c5a8c;">
+          <p style="font-size: 1.1rem;">For students and recent graduates navigating a challenging entry-level job market, choosing the right major matters more than ever. The National Association of Colleges and Employers (NACE) Winter 2026 Salary Survey reveals which bachelor's degrees employers are actively hiring—and what they're paying. Here are the results, based on responses from 150 organizations [citation:5][citation:10].</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 The Top 10 Most In-Demand Majors</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#d4e1f0;">
+            <th style="padding: 0.5rem;">Rank</th>
+            <th style="padding: 0.5rem;">Degree</th>
+            <th style="padding: 0.5rem;">% of Employers Hiring</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">1 (tie)</td>
+            <td style="padding: 0.5rem;"><strong>Finance</strong></td>
+            <td style="padding: 0.5rem;">61.3%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">1 (tie)</td>
+            <td style="padding: 0.5rem;"><strong>Mechanical Engineering</strong></td>
+            <td style="padding: 0.5rem;">61.3%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">3</td>
+            <td style="padding: 0.5rem;"><strong>Computer Science</strong></td>
+            <td style="padding: 0.5rem;">60.0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">4 (tie)</td>
+            <td style="padding: 0.5rem;"><strong>Accounting</strong></td>
+            <td style="padding: 0.5rem;">58.7%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">4 (tie)</td>
+            <td style="padding: 0.5rem;"><strong>Business Administration/Management</strong></td>
+            <td style="padding: 0.5rem;">58.7%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">6</td>
+            <td style="padding: 0.5rem;"><strong>Electrical Engineering</strong></td>
+            <td style="padding: 0.5rem;">51.3%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">7</td>
+            <td style="padding: 0.5rem;"><strong>Information Sciences and Systems</strong></td>
+            <td style="padding: 0.5rem;">48.0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">8 (tie)</td>
+            <td style="padding: 0.5rem;"><strong>Logistics/Supply Chain</strong></td>
+            <td style="padding: 0.5rem;">44.7%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">8 (tie)</td>
+            <td style="padding: 0.5rem;"><strong>Marketing</strong></td>
+            <td style="padding: 0.5rem;">44.7%</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">10</td>
+            <td style="padding: 0.5rem;"><strong>Human Resources</strong></td>
+            <td style="padding: 0.5rem;">40.0%</td>
+          </tr>
+        </table>
+        <p style="margin-top:1rem;"><em>Source: NACE Winter 2026 Salary Survey, based on responses from 150 organizations [citation:5][citation:10]</em></p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💰 Starting Salary Projections for 2026 Graduates</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
+        <p>Despite a challenging job market, starting salaries are rising across most categories [citation:5][citation:10]:</p>
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#d4e1f0;">
+            <th style="padding: 0.5rem;">Major Category</th>
+            <th style="padding: 0.5rem;">2026 Projected Salary</th>
+            <th style="padding: 0.5rem;">Change from 2025</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Computer Science</strong></td>
+            <td style="padding: 0.5rem;">$81,535</td>
+            <td style="padding: 0.5rem;">+6.9%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Engineering</strong></td>
+            <td style="padding: 0.5rem;">$81,198</td>
+            <td style="padding: 0.5rem;">+3.1%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Mathematics & Statistics</strong></td>
+            <td style="padding: 0.5rem;">Increasing</td>
+            <td style="padding: 0.5rem;">Positive</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Business</strong></td>
+            <td style="padding: 0.5rem;">Increasing</td>
+            <td style="padding: 0.5rem;">Positive</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Agriculture & Natural Resources</strong></td>
+            <td style="padding: 0.5rem;">Increasing</td>
+            <td style="padding: 0.5rem;">Positive</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;"><strong>Communications</strong></td>
+            <td style="padding: 0.5rem;">Increasing</td>
+            <td style="padding: 0.5rem;">Positive</td>
+          </tr>
+        </table>
+        <p style="margin-top:1rem;"><strong>Note:</strong> Social Sciences is the only category projected to see a decrease in starting pay [citation:10].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📉 The Challenging Entry-Level Market</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
+        <p>These degree rankings come against a backdrop of a tough job market for recent graduates [citation:5][citation:10]:</p>
+        <ul>
+          <li>U.S. economy added just <strong>181,000 jobs in 2025</strong>, far lower than the 1.46 million added in 2024</li>
+          <li>Only <strong>30% of graduates</strong> secured jobs in their field of study (Cengage Group)</li>
+          <li>More than <strong>75% of employers</strong> hired the same number or fewer entry-level workers in 2025</li>
+        </ul>
+        <p>Shawn VanDerziel, NACE president and CEO, notes: "We're seeing that most employers anticipate upping their salaries, which is especially good news given that hiring is expected to be flat for the class of 2026" [citation:5][citation:10].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💡 Why These Majors?</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
+        <p><strong>Finance (#1):</strong> With 61.3% of employers hiring finance graduates, this degree remains a powerhouse. The financial services sector continues to recruit heavily, and finance skills translate across industries [citation:10].</p>
+        <p><strong>Mechanical Engineering (#1):</strong> Tied for first, mechanical engineering reflects the ongoing need for physical infrastructure, manufacturing, and now—smart systems and robotics integration [citation:5].</p>
+        <p><strong>Computer Science (#3):</strong> At 60%, CS remains in extremely high demand. It also commands the <strong>highest starting salary</strong> at $81,535—a 6.9% increase from 2025 [citation:5][citation:10].</p>
+        <p><strong>Accounting & Business Admin (#4 tie):</strong> Both at 58.7%, these degrees provide foundational skills that every organization needs, regardless of industry [citation:5].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🌏 International Perspective: Australia's Top Choices</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
+        <p>For comparison, the Universities Admissions Centre (UAC) in Australia released its 2026 most popular courses [citation:9]:</p>
+        <ol>
+          <li><strong>Medicine</strong> (UNSW) — 1,899 first preferences</li>
+          <li><strong>Commerce</strong> (University of Sydney) — 1,280</li>
+          <li><strong>Business</strong> (UTS) — 961</li>
+        </ol>
+        <p>While the rankings differ, the prominence of business/commerce degrees aligns with the U.S. demand for finance and business administration graduates [citation:9].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 What This Means for Students</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
+        <p>The NACE data offers clear signals for current and prospective students [citation:5][citation:10]:</p>
+        <ul>
+          <li><strong>STEM and business degrees dominate</strong> employer demand</li>
+          <li><strong>Computer science offers the highest pay</strong> but faces the most competition</li>
+          <li><strong>Specialized degrees</strong> (information sciences, supply chain) have solid demand at ~45-48%</li>
+          <li><strong>Starting salaries are rising</strong> even in a flat hiring market—a positive sign for graduates</li>
+        </ul>
+        <p>An October National Bureau of Economics Research working paper found that each additional $1,000 students earn in their first job translates to another $700 in yearly earnings five years out from college [citation:5]. In other words: that first job matters—and your major shapes your access to it.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
+      <div style="background: #1e3a5f; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <p>For the Class of 2026, the most in-demand majors reflect an economy that values both quantitative rigor and business fundamentals. Finance and mechanical engineering lead in hiring percentage, while computer science leads in salary. In a tough entry-level market, these degrees offer the clearest path to employment—but students should also focus on building the Power Skills (leadership, communication, problem-solving) that complement their technical knowledge [citation:7].</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #d4e1f0, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #1e3a5f;">
+        "We're seeing that most employers anticipate upping their salaries, which is especially good news given that hiring is expected to be flat for the class of 2026." — Shawn VanDerziel, NACE President & CEO [citation:5]
+      </blockquote>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #2c5a8c; font-size: 0.85rem; color: #1e3a5f;">
+        <span>🔍 Sources: NACE Winter 2026 Salary Survey, CNBC, VnExpress, UAC Australia</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},
+{
+  id: 76,
+  title: "Skills-Based Hiring in 2026: How to Transition Careers Without Starting Over",
+  slug: "skills-based-hiring-2026-career-transition-portable-skills",
+  date: "2026-03-08",
+  excerpt: "Companies are hiring for skills, not just job titles. Learn how to identify your portable skills, navigate internal mobility, and position yourself for career switches in a skills-first job market.",
+  category: "Skill Development",
+  image: "https://i.ibb.co.com/KpD2jCJK/76.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #e1d7c6 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #7d6b4b;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #5e4a2e; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🔄 SKILLS-FIRST 2026</span>
+          <span style="color: #5e4a2e; font-size: 0.9rem;">portable skills · career mobility</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #5e4a2e;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 career guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #5e4a2e 0%, #3f311f 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🔄 Skills-Based Hiring in 2026: How to Transition Careers Without Starting Over</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Portable skills, internal mobility, and the end of the college degree monopoly</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🧰 Portable Skills</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📈 Internal Mobility</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🎓 Degree vs. Skills</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #7d6b4b;">
+          <p style="font-size: 1.1rem;">The fundamental rule of hiring is changing in 2026. According to LinkedIn's Editor-in-Chief Daniel Roth: "Skills are how people get hired today. Companies, whether small startups or large corporations, are hiring based on skill sets. What you are capable of doing is becoming more important than your previous title" [citation:1]. Here's how to navigate the new skills-first economy and pivot your career without starting from zero.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 The Shift: From Titles to Skills</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>The data is clear: hiring is moving away from rigid job titles toward what candidates can actually do [citation:1][citation:3].</p>
+        <ul>
+          <li><strong>71% of organizations</strong> are actively trying to hire workers to close skills gaps [citation:2]</li>
+          <li><strong>44% of companies</strong> say they seek workers who can learn new tools and technologies quickly [citation:2]</li>
+          <li><strong>90%+ of companies</strong> surveyed plan to hire in 2026, but with a focus on precision hiring rather than volume [citation:2]</li>
+        </ul>
+        <p>Kara Ayers of Xplor Technologies predicts: "<strong>2026 will end the college degree as we know it</strong>—workplace and on-the-job bootcamps will become a standard investment for companies, and traditional degrees will carry less weight in a skills-first market" [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧰 Identifying Your Portable Skills</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>Skills travel with you, especially during times of rapid change. When industries shift quickly, having adaptable abilities allows professionals to move across roles and even sectors [citation:1].</p>
+        <p><strong>How to identify your strengths:</strong> Roth suggests asking colleagues, friends, or volunteer groups what you're good at. Often, others will repeat the same strengths, which can help identify core capabilities [citation:1].</p>
+        <p><strong>High-value portable skills in 2026 [citation:7]:</strong></p>
+        <ul>
+          <li><strong>Leadership</strong> — guiding teams through change</li>
+          <li><strong>Communication</strong> — clear writing and speaking</li>
+          <li><strong>Problem Solving</strong> — analyzing and resolving challenges</li>
+          <li><strong>Adaptability</strong> — thriving in uncertainty</li>
+          <li><strong>Stakeholder Management</strong> — building cross-functional relationships</li>
+          <li><strong>Project Management</strong> — delivering results</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🏢 Internal Mobility: The Hidden Opportunity</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>One of the biggest trends in 2026 is companies turning inward to find talent. Instead of competing for scarce external specialists, employers are investing in upskilling their current workforce [citation:2].</p>
+        <p><strong>Why internal mobility matters:</strong></p>
+        <ul>
+          <li>Tech hiring intentions are down 19 points year-over-year, but this is because employers are reconsidering how to acquire talent—often through internal training [citation:2]</li>
+          <li>HR technology now enables continuous feedback loops, with AI monitoring meetings and nudging supervisors when feedback is needed [citation:3]</li>
+          <li>Companies that fail to align employees' personal motivations with company goals can expect high turnover [citation:3]</li>
+        </ul>
+        <p>Tim Weerasiri of Ninety.io notes: "You must know where your team members want to go if you want to keep them engaged. This means finding projects beyond their roles and responsibilities that contribute to the employee's growth and the company's success" [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">⚡ The Challenge: AI and the Recruiting Doom Loop</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>While skills-based hiring is the goal, there's a growing problem: the <strong>AI recruiting doom loop</strong> [citation:2].</p>
+        <ol>
+          <li>Job candidates use AI to enhance and tailor resumes</li>
+          <li>Companies become flooded with a sea of sameness—all resumes look qualified</li>
+          <li>Companies apply tighter AI filtering, making it harder for real candidates to get interviews</li>
+          <li>Candidates apply to even more jobs, using AI to do so at scale</li>
+        </ol>
+        <p>The result: a huge disconnect between needy employers and deserving candidates [citation:2].</p>
+        <p><strong>What this means for you:</strong> Standing out requires more than keywords. As Heidi Barnett of isolved puts it: "In 2026, hiring will be less about 'beating the bots' and more about standing out as human. The candidates who rise to the top will be those who can show real results, tell their story authentically and bring evidence of impact" [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📝 Resume Strategies for the Skills-First Era</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>The rules of resume writing are changing. Key data from 2026 [citation:2]:</p>
+        <ul>
+          <li><strong>77% of candidates</strong> worry their resumes will be filtered out before reaching a human</li>
+          <li><strong>68% of candidates</strong> spend less than 30 minutes tailoring a resume per application</li>
+          <li><strong>43% of job seekers</strong> believe hiring managers only skim resumes</li>
+        </ul>
+        <p>Roth advises against listing skills like a grocery list. Instead: "<strong>Tell stories around your skills</strong>—when you used them, what impact you created, whether at work, college, or in volunteer roles. Being able to connect those stories in interviews makes a stronger impression" [citation:1].</p>
+        <p><strong>New tools:</strong> LinkedIn now allows users to display official certifications in AI skills based on actual usage patterns and proficiency in tools like Descript, Lovable, and Replit [citation:2]. These verified skills add credibility beyond self-reporting.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🎓 Degree vs. Skills: The Nuanced Reality</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>While skills-based hiring is growing, Chris Graham of National University offers a reality check: "Companies will follow the 2026 work trends of more skills-based hiring than degree-based hiring. But if you don't have a degree, you will remain at a financial disadvantage. Data shows that <strong>bachelor's degree holders make approximately 68% more per week</strong> than those with just a high school diploma" [citation:3].</p>
+        <p>The takeaway? Skills matter enormously, but degrees still provide a significant earnings boost. The optimal path: <strong>develop in-demand skills while pursuing a degree</strong> or combine a degree with continuous upskilling.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 How to Navigate a Skills-First Career Transition</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#e1d7c6;">
+            <th style="padding: 0.5rem;">Step</th>
+            <th style="padding: 0.5rem;">Action</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">1. Audit your skills</td>
+            <td style="padding: 0.5rem;">List everything you can do—technical, human, and business. Ask others what you're good at [citation:1].</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">2. Research target roles</td>
+            <td style="padding: 0.5rem;">Identify which skills are in demand for careers you want [citation:6][citation:7].</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">3. Fill gaps strategically</td>
+            <td style="padding: 0.5rem;">Use free courses, volunteer work, stretch assignments, or bootcamps [citation:1].</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">4. Get verified</td>
+            <td style="padding: 0.5rem;">Earn LinkedIn skill certifications based on actual tool usage [citation:2].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">5. Tell your story</td>
+            <td style="padding: 0.5rem;">In interviews, focus on impact: when you used skills and what results you achieved [citation:1].</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🌍 The Global Perspective</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>Skills-based hiring is a global trend. In China, the spring hiring season emphasizes "技术+场景" (technology + scenario) talent—professionals who combine technical skills with real-world application [citation:4]. The government is actively developing new professions and encouraging skills development in AI and advanced manufacturing [citation:8].</p>
+        <p>In the U.S., LinkedIn data shows that professionals with rare skills (like AI engineering) are 8x more likely to move across borders for work [citation:1].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
+      <div style="background: #5e4a2e; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <p>The skills-first revolution is real, but it requires active participation. You can't just list skills—you need to demonstrate them, verify them, and tell stories around them. Whether you're looking to move internally, switch industries, or enter the job market for the first time, your portable skills are your most valuable asset. Invest in them, practice them, and learn to communicate their value [citation:1].</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #e1d7c6, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #5e4a2e;">
+        "Skills are not fixed for life. People are not locked into what they currently know. New skills can always be developed." — Daniel Roth, LinkedIn Editor-in-Chief [citation:1]
+      </blockquote>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7d6b4b; font-size: 0.85rem; color: #5e4a2e;">
+        <span>🔍 Sources: LinkedIn, ACM CareerNews, Forbes, Degreed, Economic Times</span>
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
       </div>
