@@ -48,7 +48,7 @@ const calculateReadingTime = (content: string): number => {
 
 // Author information (centralized)
 const authorPaul: Author = {
-  name: "Paul Romeo Karmoker",
+  name: "Paul R. Karmoker",
   title: "Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey",
   bio: "Paul Romeo Karmoker brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits.",
   image: "https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp",
