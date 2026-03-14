@@ -205,6 +205,7 @@ const NgoHub: FC = () => {
           <NgoCard name="Ain o Salish Kendra (ASK)" url="https://www.askbd.org/ask/category/vacancy-announcement/job-opportunities/" />
           <NgoCard name="Aparajeyo Bangladesh" url="https://aparajeyo.org/#" />
           <NgoCard name="Autism Welfare Foundation" url="https://aparajeyo.org/#" />
+          <NgoCard name="Autism Welfare Foundation" url="https://aparajeyo.org/#" />
         </NgoSection>
 
         {/* B Section */}
@@ -233,6 +234,7 @@ const NgoHub: FC = () => {
           <NgoCard name="Dhaka Ahsania Mission (DAM)" url="https://www.ahsaniamission.org.bd/job/" />
           <NgoCard name="Dustho Shasthya Kendra (DSK)" url="https://www.dskbangladesh.org/career/" />
           <NgoCard name="DORP (Development Organization of the Rural Poor)" url="https://dorpbd.org/career/" />
+          <NgoCard name="DALIT - Hope for the opperssed" url="https://dalitbd.org/" />
         </NgoSection>
 
         {/* E Section */}
@@ -250,13 +252,55 @@ const NgoHub: FC = () => {
           <NgoCard name="Green Hill (গ্রীন হিল)" url="http://www.greenhill-bd.org/notice-board/job-circular" />
         </NgoSection>
 
+        {/* H Section */}
+        <NgoSection id="H" letter="H">
+          <NgoCard name="HEED Bangladesh" url="https://heed-bangladesh.com/career/" />
+          <NgoCard name="Hope Foundation" url="https://www.hopefoundationbd.org/" />
+        </NgoSection>
+
+        {/* I Section */}
+        <NgoSection id="I" letter="I">
+          <NgoCard name="Integrated Development Foundation (IDF)" url="https://idfbd.org/jobs/" />
+        </NgoSection>
+
         {/* J Section */}
         <NgoSection id="J" letter="J">
           <NgoCard name="Jagorani Chakra Foundation (JCF)" url="https://jcf.org.bd/available-jobs/" />
           <NgoCard name="Jago Nari" url="https://www.jagonari.org/" />
           <NgoCard name="JAAGO Foundation" url="https://jaago.com.bd/career" />
         </NgoSection>
-
+        {/* K Section */}
+        <NgoSection id="K" letter="K">
+          <NgoCard name="Karmojibi Nari" url="https://www.karmojibinari.org/jobopportunity/" />
+          <NgoCard name="KOINONIA" url="https://www.koinoniabangladesh.com/" />
+          <NgoCard name="Kazi Shahid Foundation" url="https://kazishahidfoundation.org/" />
+        </NgoSection>
+        {/* L Section */}
+        <NgoSection id="L" letter="L">
+          <NgoCard name="Light House" url="https://lighthousebd.org/career/" />
+          </NgoSection>
+        {/* M Section */}
+        <NgoSection id="M" letter="M">
+          <NgoCard name="Manusher Jonno Foundation (MJF)" url="https://www.manusherjonno.org/get-involved/" />
+          <NgoCard name="Mukti Cox's Bazar" url="https://www.mukticox.org/career/" />
+        </NgoSection>
+        {/* N Section */}
+        <NgoSection id="N" letter="N">
+          <NgoCard name="Nagorik Uddyog (Citizen's Initiative)" url="http://www.nagorik-uddyog.org/" />
+          <NgoCard name="Nabolok" url="https://nabolokbd.org/career-opportunity/" />
+        </NgoSection>        
+        {/* P Section */}
+        <NgoSection id="P" letter="P">
+          <NgoCard name="Proshika" url="https://www.proshika.org/" />
+          <NgoCard name="People's Oriented Program Implementation (POPI)" url="https://www.popibd.org/career" />
+          <NgoCard name="Prodipan" url="https://www.prodipan-bd.org/" />
+          <NgoCard name="Prittran" url="https://parittran.org/" />
+        </NgoSection>
+        {/* R Section */}
+        <NgoSection id="R" letter="R">
+         <NgoCard name="RDRS Bangladesh" url="https://rdrsbangladesh.org/" />
+          <NgoCard name="RIC (Resource Integration Center)" url="https://www.ric-bd.org/news-career" />
+        </NgoSection>       
         {/* S Section */}
         <NgoSection id="S" letter="S">
           <NgoCard name="Shakti Foundation" url="https://www.shakti.org.bd/career" />
@@ -268,12 +312,35 @@ const NgoHub: FC = () => {
           <NgoCard name="Surjer Hashi Network" url="https://shnnetwork.org/career/" />
           <NgoCard name="Shushilan" url="https://shushilan.org/human-resource-cell" />
         </NgoSection>
-
         {/* T Section */}
         <NgoSection id="T" letter="T">
           <NgoCard name="Transparency International Bangladesh (TIB)" url="https://career.ti-bangladesh.org/" />
           <NgoCard name="TMSS (Thengamara Mohila Sabuj Sangha)" url="https://tmss-bd.org/careers/" />
           <NgoCard name="Teach For Bangladesh" url="https://teachforbangladesh.org/careers/" />
+        </NgoSection>
+        {/* U Section */}
+        <NgoSection id="U" letter="U">
+          <NgoCard name="Uddipan" url="https://erecruitment.uddipan.org/recruitment/" />
+        </NgoSection>
+        {/* V Section */}
+        <NgoSection id="V" letter="V">
+          <NgoCard name="VERC (Village Education Resource Center)" url="https://www.vercbd.org/career.html" />
+          <NgoCard name="Volunteers Association for Bangladesh" url="https://www.vabonline.org" />
+          <NgoCard name="Voluntary Association for Rural Development (VARD)" url="https://www.vardbd.org/pgChild.php?pgID=pgVacancy01&mnuID=mnuAbtUs&prnt=no" />
+        </NgoSection>
+        {/* W Section */}
+        <NgoSection id="W" letter="W">
+          <NgoCard name="Wave Foundation" url="https://wavefoundationbd.org/careers/" />
+          <NgoCard name="Water & Sanitation for the Urban Poor (WSUP)" url="https://wsup.com/get-involved/work-with-us/vacancies/" />
+        </NgoSection>
+       {/* Y Section */}
+        <NgoSection id="Y" letter="Y">
+          <NgoCard name="YPSA (Young Power in Social Action)" url="https://ypsa.org/job-opportunity/" />
+           <NgoCard name="Youth For Change Bangladesh Foundation" url="https://youthforchangeglobal.org/career" />
+        </NgoSection>
+        {/* Z Section */}
+        <NgoSection id="Z" letter="Z">
+          <NgoCard name="Zabarang Kalyan Samity" url="https://zabarangbd.org/recruitments" />
         </NgoSection>
 
         {/* Bottom CTA */}
