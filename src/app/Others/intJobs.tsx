@@ -180,7 +180,7 @@ const IntJobs: FC = () => {
       <Navbar />
 
       {/* Hero Header */}
-      <header className="relative bg-slate-900 pt-32 pb-24 overflow-hidden mt-16">
+      <header className="relative bg-slate-900 pt-32 pb-24 overflow-hidden mt-10">
         <div className="absolute inset-0 opacity-20">
             <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
             <div className="absolute top-1/2 -right-24 w-80 h-80 bg-indigo-500 rounded-full blur-3xl" />
@@ -196,7 +196,7 @@ const IntJobs: FC = () => {
       </header>
 
       {/* Filter/Search Controls */}
-      <section className="container mx-auto px-6 -mt-10 z-20">
+      <section className="container mx-auto px-6 mt-2 z-20">
         <div className="bg-white p-6 md:p-8 border border-slate-100">
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
             <div className="relative w-full lg:max-w-md group">

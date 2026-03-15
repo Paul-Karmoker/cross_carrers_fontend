@@ -151,9 +151,8 @@ const NgoHub: FC = () => {
 
 </Helmet>
       <Navbar />
-
       {/* Hero Section */}
-      <header className="relative pt-32 pb-20 overflow-hidden bg-slate-900">
+      <header className="relative pt-24 pb-16 overflow-hidden bg-slate-900">
         <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"></div>
         

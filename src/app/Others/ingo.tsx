@@ -462,7 +462,7 @@ const Ingo: React.FC = () => {
 
     <Navbar />
 
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 mt-20">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 mt-14">
 
       <div className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -481,7 +481,7 @@ const Ingo: React.FC = () => {
             Discover global opportunities with leading international NGOs. Browse by organization to find your next career move.
           </p>
 
-          <div className="mt-10">
+          <div className="mt-6 -mb-4">
             <a
               href="#A"
               className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-lg font-semibold rounded-full text-white bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-lg"
