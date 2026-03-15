@@ -104,7 +104,7 @@ export default function Signup() {
                   className="inline-block mb-4 hover:opacity-80 transition-opacity"
                 >
                   <img
-                    src="https://i.ibb.co/Y75Y5NSb/banner.gif"
+                    src="https://i.ibb.co.com/JjgzYJB3/navlogo.png"
                     alt="Cross Careers"
                     className="h-10 object-contain mx-auto"
                   />

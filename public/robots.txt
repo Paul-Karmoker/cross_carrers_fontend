@@ -26,7 +26,7 @@ Disallow: /bkash-success
 # Allow important SEO pages explicitly
 Allow: /ngo-jobs-bangladesh
 Allow: /international-ngo-jobs
-Allow: /blogs
+Allow: /career-guide
 Allow: /training-sites-worldwide
 Allow: /remote-jobs-worldwide
 Allow: /freelance-jobs-online
