@@ -4,9 +4,10 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import PageLoader from "./app/components/utility/PageLoader";
 
 /* ───────── PUBLIC PAGES ───────── */
-const Home = lazy(() => import("./app/components/home/index"));
+import Home from "./app/components/home/index";
 const Cover = lazy(() => import("./app/components/cover/index"));
 const PPTHOME = lazy(() => import("./app/components/ppt"));
 const DOCHOME = lazy(() => import("./app/components/Docx"));
@@ -21,12 +22,12 @@ const Intjobs = lazy(() => import("./app/Others/intJobs"));
 const Terms = lazy(() => import("./app/Others/terms"));
 const Privacy = lazy(() => import("./app/Others/privacy"));
 const Blogs = lazy(() => import("./app/Others/blogs"));
-const Legalpoliicy = lazy(() => import("./app/Others/legalpoliicy"));
+const Legalpoliicy = lazy(() => import("./app/Others/legalpolicy"));
 const Career = lazy(() => import("./app/Others/career"));
 const Signin = lazy(() => import("./app/auth/siginin"));
 const SignUp = lazy(() => import("./app/auth/siginup"));
 const ForgotPassword = lazy(() => import("./app/auth/forgetpassword"));
-const ResetPassword = lazy(() => import("./app/auth/resetpasspord"));
+const ResetPassword = lazy(() => import("./app/auth/resetpassword"));
 const OtpVarify = lazy(() => import("./app/auth/VerifyOtp"));
 const Logout = lazy(() => import("./app/auth/logout"));
 const BkashSuccess = lazy(() => import("./app/components/utility/BkashSuccess"));
@@ -36,7 +37,7 @@ const ResumeMakerHome = lazy(() => import("./app/components/ResumeMaker/Dashboar
 const ResumeMain = lazy(() => import("./app/components/ResumeMaker/resumeForm"));
 const WrittenTestHome = lazy(() => import("./app/components/WrittenTest/WrittenTest"));
 const Matchhome = lazy(() => import("./app/components/Resumebuild/matchhome"));
-const Qahome = lazy(() => import("./app/components/QA"));
+const Qahome = lazy(() => import("./app/components/QA/index"));
 const Insm = lazy(() => import("./app/components/insm/InterviewSimulator"));
 
 /* ───────── OTHERS ───────── */
@@ -46,9 +47,9 @@ const Un = lazy(() => import("./app/Others/Un"));
 const Emb = lazy(() => import("./app/Others/emb"));
 const Donor = lazy(() => import("./app/Others/doner"));
 const Dbhome = lazy(() => import("./app/dashboard"));
-const UpgradePlan = lazy(() => import("./app/components/utility/UpgradePlan"));
-const SeePricing = lazy(() => import("./app/components/utility/SeePricing"));
-const Help = lazy(() => import("./app/components/utility/Help"));
+const UpgradePlan = lazy(() => import("./app/components/utility/upgradeplan"));
+const SeePricing = lazy(() => import("./app/components/utility/seepricing"));
+const Help = lazy(() => import("./app/components/utility/help"));
 const Setting = lazy(() => import("./app/components/utility/Setting"));
 const Release = lazy(() => import("./app/components/utility/Release"));
 
@@ -64,7 +65,7 @@ const App = memo(() => {
   }, [location.pathname]);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<PageLoader />}>
       <Routes>
         {/* ───── PUBLIC ROUTES ───── */}
         <Route path="/" element={<Home />} />
@@ -91,7 +92,7 @@ const App = memo(() => {
         <Route path="/verify-otp" element={<OtpVarify />} />
         <Route path="/seepricing" element={<SeePricing />} />
         <Route path="/help" element={<Help />} />
-        <Route path="/seitting" element={<Setting />} />
+        <Route path="/setting" element={<Setting />} />
         <Route path="/release" element={<Release />} />
         <Route path="/editor" element={<ResumeMain />} />
 
@@ -203,7 +204,7 @@ const App = memo(() => {
           }
         />
         <Route
-          path="/priceing"
+          path="/pricing"
           element={
             <ProtectedRoute requireFullAccess>
               <UpgradePlan />
