@@ -394,71 +394,71 @@ const Ingo: React.FC = () => {
 
   return (
   <>
-    <Helmet>
+<Helmet>
 
-      {/* SEO Title */}
-      <title>
-        International NGO Jobs 2026 | Global Humanitarian Careers | CrossCareers
-      </title>
+  {/* SEO Title */}
+  <title>
+    International NGO Jobs 2026 | Global Humanitarian Careers | UN & Development Jobs | CrossCareers
+  </title>
 
-      {/* Meta Description */}
-      <meta
-        name="description"
-        content="Explore 200+ international NGO job opportunities including humanitarian, UN, development and nonprofit careers. Direct official links updated regularly by CrossCareers."
-      />
+  {/* Meta Description */}
+  <meta
+    name="description"
+    content="Find 500+ international NGO jobs including humanitarian, UN, development, nonprofit, and global careers. Updated daily with official links and top opportunities worldwide by CrossCareers."
+  />
 
-      {/* Keywords */}
-      <meta
-        name="keywords"
-        content="International NGO jobs 2026, humanitarian jobs, UN jobs, development careers, nonprofit jobs, global NGO careers, Bangladesh NGO jobs"
-      />
+  {/* Keywords */}
+  <meta
+    name="keywords"
+    content="International NGO jobs 2026, humanitarian jobs, UN jobs 2026, development careers, nonprofit jobs, global NGO careers, international humanitarian careers, Bangladesh NGO jobs, international development jobs, aid organization careers, NGO job portal, CrossCareers NGO jobs"
+  />
 
-      {/* Canonical URL */}
-      <link
-        rel="canonical"
-        href="https://crosscareers.com/ingo"
-      />
+  {/* Canonical URL */}
+  <link
+    rel="canonical"
+    href="https://crosscareers.com/international-ngo-jobs"
+  />
 
-      {/* Robots */}
-      <meta
-        name="robots"
-        content="index, follow, max-image-preview:large"
-      />
+  {/* Robots */}
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large"
+  />
 
-      {/* Open Graph */}
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content="International NGO Jobs 2026 | CrossCareers" />
-      <meta property="og:description" content="Browse global humanitarian and NGO career opportunities." />
-      <meta property="og:url" content="https://crosscareers.com/ingo" />
-      <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
+  {/* Open Graph */}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="International NGO Jobs 2026 | Global Humanitarian Careers | CrossCareers" />
+  <meta property="og:description" content="Explore hundreds of verified international NGO, UN, and development job opportunities worldwide. Apply directly through official portals." />
+  <meta property="og:url" content="https://crosscareers.com/international-ngo-jobs" />
+  <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
 
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="International NGO Jobs 2026 | CrossCareers" />
-      <meta name="twitter:description" content="Discover international NGO and humanitarian career opportunities." />
-      <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="International NGO Jobs 2026 | CrossCareers" />
+  <meta name="twitter:description" content="Discover verified international NGO, UN, humanitarian, and development career opportunities worldwide." />
+  <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
 
-      {/* Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          "name": "International NGO Careers Hub",
-          "url": "https://crosscareers.com/ingo",
-          "description": "Browse international NGO job opportunities and humanitarian career links worldwide.",
-          "publisher": {
-            "@type": "Organization",
-            "name": "CrossCareers",
-            "url": "https://crosscareers.com",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://crosscareers.com/logo/favcon.png"
-            }
-          }
-        })}
-      </script>
+  {/* Structured Data */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "International NGO Careers Hub",
+      "url": "https://crosscareers.com/international-ngo-jobs",
+      "description": "Browse hundreds of international NGO, UN, humanitarian, and development career opportunities with direct official links, updated daily.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CrossCareers",
+        "url": "https://crosscareers.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://crosscareers.com/logo/favcon.png"
+        }
+      }
+    })}
+  </script>
 
-    </Helmet>
+</Helmet>
 
     <Navbar />
 
@@ -548,6 +548,162 @@ const Ingo: React.FC = () => {
           </div>
         </div>
       </div>
+    {/* FAQ Section */}
+<section className="bg-white py-16 lg:py-24 border-t border-gray-100">
+  <div className="container mx-auto px-6 max-w-5xl">
+
+    <div className="text-center mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        Frequently Asked Questions About International NGO Jobs
+      </h2>
+      <p className="text-gray-600 max-w-3xl mx-auto">
+        Professionals interested in humanitarian and development careers often search for reliable platforms to find international NGO jobs. 
+        Below are some of the most commonly searched questions related to global development careers, United Nations opportunities, 
+        and international humanitarian job portals.
+      </p>
+    </div>
+
+    <div className="space-y-10 text-gray-700 leading-relaxed">
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">1. What are international NGO jobs?</h3>
+        <p>
+          International NGO jobs are professional positions within global non-governmental organizations that operate across multiple countries. 
+          These roles focus on humanitarian assistance, disaster response, poverty reduction, health, education, and sustainable development. 
+          Professionals working in international NGOs often collaborate with governments, UN agencies, and local communities to implement development programs and emergency responses.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">2. Where can I find international NGO job opportunities?</h3>
+        <p>
+          International NGO job opportunities can be found through specialized humanitarian job portals, official NGO career websites, 
+          and global development job platforms. Many organizations publish vacancies through well-known international job portals 
+          that focus on development, humanitarian assistance, and United Nations recruitment opportunities.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">3. Which websites are best for international NGO jobs?</h3>
+        <p>
+          Several trusted websites specialize in listing international NGO and development sector vacancies. Popular platforms include 
+          ReliefWeb, Devex, Impactpool, Idealist, and UN job portals. These websites aggregate vacancies from international organizations, 
+          UN agencies, and humanitarian NGOs operating around the world.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">4. Do international NGOs hire professionals from developing countries?</h3>
+        <p>
+          Yes, international NGOs recruit professionals from developing countries as well as from global talent pools. 
+          Many organizations actively seek candidates with local knowledge, field experience, and technical expertise in areas 
+          such as project management, monitoring and evaluation, supply chain management, and humanitarian coordination.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">5. What qualifications are required for international NGO jobs?</h3>
+        <p>
+          Most international NGO positions require a university degree in fields such as development studies, public health, 
+          international relations, economics, engineering, or social sciences. In addition to academic qualifications, 
+          organizations often prioritize candidates with relevant field experience, language skills, and demonstrated 
+          commitment to humanitarian values.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">6. Are international NGO jobs competitive?</h3>
+        <p>
+          Yes, international NGO jobs can be highly competitive because they attract applicants from many countries. 
+          Candidates who have strong professional experience, technical expertise, and international exposure 
+          usually have a higher chance of being shortlisted for interviews.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">7. Do international NGOs offer remote work opportunities?</h3>
+        <p>
+          Some international NGOs offer remote or hybrid roles, particularly in areas such as research, policy analysis, 
+          communications, information management, and digital program support. However, many humanitarian positions 
+          still require field presence in project locations.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">8. What sectors do international NGOs work in?</h3>
+        <p>
+          International NGOs operate across many sectors including humanitarian response, food security, health systems, 
+          education, climate change adaptation, refugee protection, and economic development. 
+          Many organizations implement large-scale programs funded by governments and international donors.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">9. What is the difference between UN jobs and NGO jobs?</h3>
+        <p>
+          UN jobs are positions within United Nations agencies such as UNDP, UNICEF, or WFP, while NGO jobs 
+          are roles within independent nonprofit organizations. Although both sectors work toward global development 
+          and humanitarian goals, NGOs are typically more flexible and may operate projects funded by UN agencies or donor governments.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">10. What skills are important for international development careers?</h3>
+        <p>
+          Important skills for international development careers include project management, financial accountability, 
+          monitoring and evaluation, supply chain management, stakeholder engagement, and strong communication abilities. 
+          Many organizations also value leadership skills and experience working in multicultural environments.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">11. Are international NGO salaries competitive?</h3>
+        <p>
+          Salary levels vary widely depending on the organization, role, and duty station. 
+          Senior technical and management positions often offer competitive salaries along with benefits 
+          such as health insurance, travel allowances, housing support, and hardship allowances for challenging locations.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">12. How can I apply for international NGO jobs?</h3>
+        <p>
+          Candidates should apply directly through official career portals or trusted humanitarian job platforms. 
+          Preparing a tailored CV and cover letter that highlights relevant experience, technical skills, 
+          and measurable achievements can significantly increase the chances of being shortlisted.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">13. What experience is needed for international humanitarian jobs?</h3>
+        <p>
+          Many international humanitarian roles require previous field experience in development programs, 
+          disaster response, refugee assistance, or community-based projects. Experience working with NGOs, 
+          UN agencies, or donor-funded programs can greatly strengthen an applicant's profile.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">14. Can NGO work lead to international careers?</h3>
+        <p>
+          Yes, many professionals build international careers through NGO work. Starting with national positions 
+          and gaining field experience often opens opportunities for regional or global roles within 
+          humanitarian and development organizations.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">15. Why use international job portals for NGO careers?</h3>
+        <p>
+          International job portals simplify the job search process by aggregating vacancies from hundreds of NGOs, 
+          development agencies, and humanitarian organizations worldwide. These platforms help professionals 
+          quickly access verified job opportunities and stay informed about new openings in the global development sector.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
     </div>
 
     <Footer />

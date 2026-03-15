@@ -1,9 +1,9 @@
 import Navbar from "./navbar";
 import Footer from "./footer";
 import Marqueel from "./marqueel";
-import Marqueer from "./marqueel";
 import Banner from "./banner";
 import Slider from "./slider";
+import Guide from "./guide"
 function index() {
   return (
     <>
@@ -11,10 +11,9 @@ function index() {
       <Marqueel />
       <Banner />
       <Slider />
-      <Marqueer/>
+      <Guide />
       <Footer />
     </>
   );
 }
-
 export default index;

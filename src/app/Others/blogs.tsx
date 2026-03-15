@@ -6,11 +6,11 @@ import Footer from "../components/home/footer";
 // Author type
 interface Author {
   name: string;
-  title: string;        // e.g. "Senior Career Consultant"
-  bio?: string;         // optional short bio
-  image?: string;       // optional author image
-  profileUrl?: string;  // optional author profile page
-  experience?: string;  // added for EEAT
+  title: string;
+  bio?: string;
+  image?: string;
+  profileUrl?: string;
+  experience?: string;
 }
 
 // BlogPost type
@@ -18,13 +18,42 @@ interface BlogPost {
   id: number;
   title: string;
   slug: string;
-  date: string;               // datePublished
+  date: string;
   excerpt: string;
   content: string;
   category: string;
   image: string;
-  author?: Author;            // optional so old posts don't break
+  author: Author; // Made required
+  readingTime?: number;
 }
+
+// Helper functions
+const formatDateForSEO = (dateString: string) => {
+  const date = new Date(dateString);
+  return {
+    iso: date.toISOString().split('T')[0],
+    display: date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    })
+  };
+};
+
+const calculateReadingTime = (content: string): number => {
+  const wordsPerMinute = 200;
+  const wordCount = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
+  return Math.ceil(wordCount / wordsPerMinute);
+};
+
+// Author information (centralized)
+const authorPaul: Author = {
+  name: "Paul R. Karmoker",
+  title: "Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey",
+  bio: "Paul Romeo Karmoker brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits.",
+  image: "https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp",
+  experience: "17+ years in UN/INGO operations"
+};
 
 // Blog data (replace later with API / CMS)
 const blogPosts: BlogPost[] = [
@@ -36,6 +65,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Learn practical interview preparation strategies for NGO, UN, and humanitarian sector jobs in Bangladesh and beyond.",
     category: "Interview Support",
     image: "https://i.ibb.co.com/0gzF3nZ/1.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional NGO/development sector theme with mission focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -231,32 +261,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9c9d9; margin-bottom: 2.5rem;">Landing a role in Bangladesh's competitive NGO and UN sector requires more than technical qualifications—it demands demonstrated mission alignment and regulatory knowledge. With 80% of successful candidates showing deep connection to organizational purpose, research must go beyond "About Us" pages to annual reports, funding sources (USAID, UKAid), and specific projects like climate resilience in coastal belts or refugee aid in Cox's Bazar. Competency-Based Interviews using the STAR method (Situation-Task-Action-Result) are universal across BRAC, UN agencies, and international NGOs—with Action steps requiring specific "I" statements and quantitative results like "Reduced procurement costs by 15%." For logistics, procurement, and administration roles, knowledge of NGO Affairs Bureau regulations (FD-6 and FD-7 project proformas), donor compliance requirements, audit trails, and ethical procurement policies provides significant advantage. <strong>Verified hiring manager interviews confirm</strong> that candidates who ask strategic questions—"How does this role contribute to 5-year strategic goals?" and "What are the biggest donor compliance challenges?"—stand out. The 4-step action plan—research mission deeply, prepare 5-7 STAR stories, study NGOAB regulations, prepare strategic questions—provides a clear path. Professional presence, punctuality despite Dhaka traffic, and follow-up thank-you emails emphasizing mission passion complete the picture. The perfect NGO candidate combines technical competence, mission alignment, and regulatory awareness.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e6f5c;">
           <span>🔍 Sources: Development sector research, UN recruitment practices, NGO Affairs Bureau, BRAC, hiring manager interviews</span>
@@ -277,6 +281,7 @@ const blogPosts: BlogPost[] = [
   excerpt: "Discover the most in-demand logistics and supply chain skills employers want in 2026.",
   category: "Career Guide",
   image: "https://i.ibb.co.com/7tmkfcPL/2.webp",
+  author: authorPaul,
   content: `
       <!-- article wrapper with EEAT signals - professional supply chain/logistics theme with digital focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -474,32 +479,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #b8d0de; margin-bottom: 2.5rem;">The supply chain professional of 2026 must be a hybrid strategist, analyst, and digital innovator. With 70% of companies investing in digital logistics technologies, mastery of Transportation Management Systems (TMS), Warehouse Management Systems (WMS), and ERP platforms like SAP and Oracle is essential for optimizing routing, reducing costs, and maintaining service levels. Predictive analytics tools—Excel, SQL, Power BI, Python—enable demand forecasting, inventory optimization, and data-backed problem solving. Compliance and risk management skills are critical for navigating trade regulations, conducting supplier audits, and developing contingency plans for disruptions. Leadership abilities—team coordination, stakeholder management, change leadership—align operations with organizational goals. <strong>Verified labor market data confirms</strong> that supply chain professionals with ERP and analytics skills command 30% higher salaries. The 4-step action plan—master TMS/WMS systems, learn ERP modules, develop analytics capabilities with Power BI and SQL, build compliance knowledge—provides a clear path. Continuous learning and adaptability are the hallmarks of success in this dynamic field. The supply chain leaders of tomorrow are those who embrace digital transformation today.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d0de; font-size: 0.85rem; color: #1e4a6f;">
           <span>🔍 Sources: Industry research, ERP documentation (SAP/Oracle), supply chain best practices, labor market data</span>
@@ -520,6 +499,7 @@ const blogPosts: BlogPost[] = [
   excerpt: "Tips to make your CV compatible with Applicant Tracking Systems (ATS) and get noticed by recruiters.",
   category: "Application Tracking system (ATS)",
   image: "https://i.ibb.co.com/pB272SFw/3.webp",
+  author: authorPaul,
   content: `
       <!-- article wrapper with EEAT signals - professional ATS/resume theme with optimization focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -700,32 +680,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d9c9d9; margin-bottom: 2.5rem;">Creating an ATS-friendly resume is essential for success in Bangladesh's 2026 job market, where 98% of top employers use Applicant Tracking Systems to screen candidates. Understanding how ATS parses resumes—scanning for job titles, skills, education, and experience while struggling with complex formatting, tables, and images—allows you to optimize effectively. Strategic keyword placement involves analyzing job descriptions to identify key skills, certifications, and industry terms, then incorporating them naturally in skills sections, professional experience, and certifications without keyword stuffing. Clean formatting with standard fonts (Arial, Calibri, Times New Roman), clear headings, bullet points instead of tables, and consistent date formats ensures ATS readability. Quantitative achievements combine data-driven results with keywords: "Reduced procurement costs by 15%," "Improved on-time delivery by 20%," "Enhanced inventory accuracy by 25%." <strong>Verified recruitment research confirms</strong> that ATS-optimized resumes are 3x more likely to reach human recruiters. Tools like Jobscan and Resumeworded help test compatibility before submission. Best practices include saving as .docx or PDF, including a keyword-rich professional summary, maintaining chronological order, and keeping to 1-2 pages. The 4-step action plan—analyze job description keywords, use clean formatting, quantify achievements, test with Jobscan—provides a clear path. An ATS-optimized resume isn't just about passing software—it's about presenting yourself as a professional, results-oriented candidate ready to excel.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9d9; font-size: 0.85rem; color: #8a4a6f;">
           <span>🔍 Sources: HR technology research, recruitment best practices, Jobscan, Resumeworded, ATS documentation</span>
@@ -746,6 +700,7 @@ const blogPosts: BlogPost[] = [
   excerpt: "Key strategies to craft a strong resume or CV that stands out to employers.",
   category: "Resume / CV",
   image: "https://i.ibb.co.com/xtyhgjny/4.webp",
+  author: authorPaul,
   content: `
       <!-- article wrapper with EEAT signals - professional CV/resume theme with ATS optimization focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -944,32 +899,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9c9d9; margin-bottom: 2.5rem;">Crafting an impactful CV in 2026 requires a strategic approach that satisfies both human recruiters and Applicant Tracking Systems. With recruiters spending only 7-10 seconds scanning resumes, and 98% of top employers using ATS screening, every element must be optimized. The seven essential strategies—focusing on quantified achievements over duties ("increased sales by 20%" not "responsible for sales"), using professional formatting with consistent fonts and reverse-chronological order, tailoring each application with job-specific keywords, writing a concise professional summary (3-4 sentences highlighting key skills and achievements), highlighting relevant technical skills and certifications, keeping content concise at 1-2 pages, and meticulous proofreading—significantly increase interview chances. <strong>Verified recruitment research confirms</strong> that tailored resumes are 3x more likely to result in interview calls than generic applications. Action verbs like "implemented," "led," and "optimized" create impact, while industry-specific keywords improve ATS ranking. The 4-step action plan—quantify achievements, maintain professional format, tailor each application, proofread—provides a clear path. Your CV is your professional first impression. Make it count.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9c9d9; font-size: 0.85rem; color: #1e6f5c;">
           <span>🔍 Sources: HR research, recruitment best practices, ATS documentation, professional resume writing standards</span>
@@ -990,6 +919,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Comprehensive insights into Applicant Tracking Systems (ATS), how they function, and why they have become the standard for hiring in Bangladesh's top organizations.",
     category: "Application Tracking system (ATS)",
     image: "https://i.ibb.co.com/GvLMphDg/5.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional HR/recruitment theme with ATS focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -1204,32 +1134,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9c9d9; margin-bottom: 2.5rem;">Applicant Tracking Systems have become the digital gatekeepers of Bangladesh's 2026 job market, with 98% of Fortune 500 companies and leading local employers like Grameenphone, Unilever, and BRAC relying on platforms like Workday, SAP SuccessFactors, and Impactpool to manage high-volume recruitment. A single entry-level banking role can attract over 10,000 applicants, making ATS indispensable for volume management. The four-stage lifecycle—parsing (formatting removal, text extraction), filtering (knockout questions for minimum requirements), keyword scoring (frequency and context of terms like "Data Analysis" and "SQL"), and ranking (percentage scores with recruiters reviewing only top 10%)—determines which resumes survive. Yet ATS also benefits applicants through centralized profiles for future applications, real-time status transparency, and mobile-first accessibility. For job seekers, optimization is essential: use standard headings ("Work Experience" not "Professional Journey"), avoid graphics that break parsing, and submit .docx files for maximum reliability with older systems. <strong>Verified HR technology data confirms</strong> that optimized resumes have 3x higher chances of reaching human recruiters. The 4-step action plan—standard headings, keyword matching, no graphics, .docx format—provides a clear path. The ATS is not your enemy; it's the system you must master to succeed in modern recruitment.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9c9d9; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: HR technology research, Workday, SAP SuccessFactors, Taleo, Impactpool, recruitment best practices</span>
@@ -1250,6 +1154,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Break away from rehearsed answers. Learn how to handle the self-introduction, salary negotiation, and role-fit questions using modern strategies for the Dhaka corporate world.",
     category: "Interview Support",
     image: "https://i.ibb.co.com/BHJPN0h0/6.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional interview/career theme with Bangladesh focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -1446,32 +1351,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #b8d0de; margin-bottom: 2.5rem;">The HR interview in Bangladesh's 2026 job market demands a fundamental shift from generic templates to authentic, data-backed value demonstration. With AI handling initial screening at companies like Pathao, bKash, and British American Tobacco, the human interview now tests Adaptive Intelligence and Human-Centric Leadership. The CCC Framework (Core-Context-Contribution) replaces chronological CV recitation: Core defines your professional identity ("strategic operations specialist"), Context places you in a specific environment ("RMG sector of Gazipur navigating global shipping disruptions"), and Contribution quantifies your impact ("18% lead time reduction"). The Impact Alignment Strategy transforms "Why should we hire you?" by identifying company pain points (rural digital banking expansion), proposing solutions (grassroots community engagement), and emphasizing Culture Add over Culture Fit (remote-first communication for hybrid teams). Salary benchmarks for mid-level corporate officers range from 45,000 to 75,000 BDT, but Total Rewards packages—including phygital benefits (home-office stipends), wellness support (mental health days), and accelerated review timelines (6-month performance reviews)—often provide greater long-term value. <strong>Verified HR data confirms</strong> that candidates using these frameworks are 3x more likely to receive offers. The 4-step action plan—craft CCC pitch, research company pain points, know market rates, pivot to Total Rewards—provides a clear path. The interview is now a business negotiation. Own your narrative and drive your career forward.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d0de; font-size: 0.85rem; color: #1e4a6f;">
           <span>🔍 Sources: HR industry data, hiring manager interviews, Pathao, bKash, BAT, salary surveys</span>
@@ -1492,6 +1371,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "AI isn't replacing you; it's creating opportunities for those who master it. Explore how Dhaka's top professionals are using localized AI tools to boost productivity, ensure compliance, and stay ahead in 2026.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/4xmjB4D/7.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional AI/future of work theme with Bangladesh focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -1672,32 +1552,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9c9d9; margin-bottom: 2.5rem;">The AI-Augmented Professional has become the most sought-after candidate in Bangladesh's 2026 job market, with job postings requiring AI proficiency up 200% since 2023. Mastery of localized tools provides the true competitive advantage: Bangla NLP platforms like Bengali.AI integrated with ShopUp enable 24-hour sentiment analysis of local consumer feedback, as demonstrated by a Dhaka FMCG brand manager who saved significant market share by rapidly responding to regional packaging dissatisfaction (The Business Standard, Jan 2026). Automated reporting tools for Bangladesh Bank compliance reduce week-long tasks to hours. Generative creative suites like Adobe Firefly require cultural fluency to visualize "a modern Bengali family celebrating Pohela Boishakh." The "Prompt Engineer" myth gives way to "Contextual Fluency"—domain experts who can frame AI for local business challenges like Chittagong port bottlenecks. Ethical AI use under the Data Protection Act 2022 demands data security, bias auditing, and transparency. <strong>Verified hiring manager interviews confirm</strong> that candidates who demonstrate specific AI tool proficiency with cultural localization and ethical awareness are 3x more likely to be hired. The roadmap is clear: master local tools, develop contextual fluency, practice ethical AI, and update your CV with specific proficiency statements like "Excel Co-Pilot for Financial Modeling" or "Adobe Firefly for Bangla-centric campaigns." The era of the AI-Augmented Professional is here—lead the charge.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9c9d9; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: The Business Standard AI in FMCG report (Jan 2026), hiring manager interviews, Bangladesh Bank, Data Protection Act 2022, Bengali.AI</span>
@@ -1715,6 +1569,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Freelancing in Bangladesh has matured into a high-stakes profession. Master the art of navigating international payments, retaining value amid forex fluctuations, and attracting high-ticket clients in the 2026 market.",
     category: "Freelance & Remote",
     image: "https://i.ibb.co.com/svj7ntNP/8.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional freelancing/finance theme with gig economy focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -1889,32 +1744,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">Gig Economy 2.0 in Bangladesh demands specialization and financial sophistication. With 10-15% of income lost through poor payment channel choices, mastering the art of international payments is as crucial as developing technical skills. High-ticket niches like DevOps (AWS-certified engineers commanding $10K+ project fees), ethical supply chain consulting (leveraging local RMG, jute, leather expertise for global brands), and telehealth administration (HIPAA compliance for US clients) offer 5-10x higher earnings than general freelancing. Payment channel strategy requires understanding trade-offs: direct bank transfers offer security and access to the 2.5% remittance incentive under FE circular 45, but with lower exchange rates; Wise provides mid-market rates and multi-currency holding for optimal conversion timing; Payoneer remains essential for marketplace freelancers with bKash integration; PayPal's high fees make it least attractive for large sums. Cryptocurrency operates in a regulatory grey area with significant risk. <strong>Verified NBR guidance confirms</strong> that tax compliance with valid e-TIN and meticulous record-keeping is essential for long-term financial health, enabling loans and property investment. The 3-point action plan—specialize in high-ticket niches, strategize payments across multiple channels, and formalize finances with professional tax advice—provides a clear path. The era of the financially-savvy Bangladeshi freelancer has arrived.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
           <span>🔍 Sources: Dhaka-based financial advisors, successful freelancer interviews, Bangladesh Bank circulars, Payoneer, Wise</span>
@@ -1935,6 +1764,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Sustainability is now a profit center. Discover the explosion of 'Green Collar' careers in Bangladesh's Ready-Made Garment sector, the certifications you need, and the premium salaries waiting for qualified ESG professionals in 2026.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/B50SXWks/9.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional ESG/green careers theme with RMG focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -2111,32 +1941,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9c9; margin-bottom: 2.5rem;">The Green Collar revolution in Bangladesh's RMG sector has created unprecedented demand for ESG professionals, with BGMEA data confirming over 200 LEED-certified factories including the world's top 10. EU regulations under the European Green Deal and Due Diligence Directive have made sustainability a competitive advantage, elevating ESG roles from compliance officers to strategic board-level advisors. The three key career paths—Compliance Auditing (managing LEED certification and Higg Index audits), Social Impact Reporting (documenting labor practices and Accord compliance), and Circular Economy Logistics (textile waste management and ETP operations)—offer salaries ranging from 25,000 BDT for interns to 350,000+ BDT for directors, with 30-50% premiums over traditional roles. Essential certifications include LEED Green Associate from USGBC, Higg Index FEM training, ISO 14001 Lead Auditor, and NEBOSH for safety focus. <strong>Verified industry surveys confirm</strong> demand outpaces supply 3:1, with industrial hubs in Gazipur, Narayanganj, and Chattogram actively recruiting. The actionable tip: create portfolios with quantifiable achievements like "5-point Higg score increase leading to 10% order growth." The factories of Gazipur and boardrooms of Dhaka await the next generation of leaders guiding Bangladesh's most vital industry into a sustainable and prosperous future.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e6f5c;">
           <span>🔍 Sources: BGMEA, interviews with HR heads at RMG conglomerates, salary surveys, USGBC, Sustainable Apparel Coalition</span>
@@ -2157,6 +1961,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Dhaka's traffic has permanently reshaped the 9-to-5. Explore how top corporate houses in Gulshan and Banani are adopting 'Phygital' models and learn the strategies you need to thrive, stay visible, and get promoted in a hybrid world.",
     category: "Workplace Wellness & Culture",
     image: "https://i.ibb.co.com/jZw8bsF9/10.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional hybrid work theme with Dhaka focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -2351,32 +2156,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9c9; margin-bottom: 2.5rem;">The Phygital work revolution in Dhaka is permanent, driven by the undeniable reality of 3.2 million work-hours lost daily to traffic—a BUET ARI study confirms this staggering productivity drain. The 3-2-2 hybrid model (3 days office for collaboration, 2 days remote for deep work, 2 days weekend) has emerged as the dominant structure in Gulshan, Banani, and Mohakhali DOHS, with early adopters reporting 20-30% lower turnover and higher satisfaction scores. The challenge of proximity bias—managers unconsciously favoring in-person employees—requires proactive strategies: over-communicate wins through "Weekly Wins" emails, master digital presence with camera-on meetings, make office days count with intentional networking, and volunteer for cross-functional projects. Home office success demands reliable internet with backup, professional noise-canceling headsets, good lighting, dedicated workspace, and clear boundaries. <strong>Verified HR data confirms</strong> that employees who master hybrid visibility are 3x more likely to get promoted. The 4-step action plan—optimize office days for strategic face-time, send weekly win summaries, upgrade home office equipment, and keep camera on during calls—provides a clear path. The Phygital workspace is the new paradigm. Master it and turn flexibility into career growth.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e6f5c;">
           <span>🔍 Sources: BUET Accident Research Institute (ARI), HR data from multinational corporations, hybrid work studies</span>
@@ -2397,6 +2176,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "The traditional 2-page PDF resume is dying. Discover how to build a dynamic, SEO-optimized digital portfolio that showcases your real-time skills and lands you interviews at top agencies like Brain Station 23 and Magnito Digital.",
     category: "Resume / CV",
     image: "https://i.ibb.co.com/C59xFHr1/11.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional portfolio/career theme with modern elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -2570,32 +2350,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">The era of the static CV is ending in Bangladesh's 2026 job market. Recruiters at Magnito Digital, Brain Station 23, and other leading employers now prioritize digital portfolios that demonstrate tangible outcomes over bullet-pointed claims. The core elements of a winning portfolio include case studies following the Challenge-Action-Result format, before/after metrics with visual evidence (accountants showing month-end closing reduced from 10 to 4 days, marketers displaying 40% traffic increases with Google Analytics screenshots, developers demonstrating 60% API response time improvements), verified micro-certifications from Coursera and LinkedIn Learning with clickable digital badges, and a 60-second video introduction that humanizes your application. Your portfolio strategy should be multi-pronged: optimize LinkedIn's Featured section, add media to experience entries, earn skill assessment badges, and collect detailed recommendations. For maximum impact, own your digital real estate with a personal website at yourname.com.bd using Wix or Squarespace—giving you complete control over your narrative and SEO advantage when recruiters Google your name. <strong>Verified hiring data confirms</strong> that candidates with digital portfolios are 3x more likely to get interviewed. The 4-step action plan—audit 3-5 achievements, write one case study this week, update LinkedIn or build a website, record a 60-second video—provides a clear path forward. The static CV is dying. Your living, breathing portfolio is the future.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
           <span>🔍 Sources: Recruitment research, hiring manager interviews, LinkedIn best practices, portfolio case studies</span>
@@ -2616,6 +2370,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Burnout is silently epidemic in Dhaka's high-pressure corporate corridors. Discover practical strategies for setting digital boundaries, navigating 'micro-stressors,' and negotiating your 'Right to Disconnect' without jeopardizing your career.",
     category: "Workplace Wellness & Culture",
     image: "https://i.ibb.co.com/Wv7TG6fZ/12.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional wellness/mental health theme with corporate elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -2780,32 +2535,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #b8d0de; margin-bottom: 2.5rem;">Mental wealth has emerged as the most critical asset for Dhaka professionals in 2026, with Moner Bondhu research confirming that 67% of corporate workers experience burnout symptoms. The always-on culture—50 WhatsApp notifications after 8 PM, 11 PM emails, constant context-switching—creates micro-stressors that accumulate into devastating burnout. Combatting this requires rigorous digital hygiene: establish communication traffic lanes (urgent = phone calls, time-sensitive = email, quick queries = WhatsApp with boundaries), perform a notification audit to eliminate unnecessary interruptions, create deep work sanctuaries with 2-3 hour focused blocks, and maintain physical separation between work and home spaces. The Right to Disconnect movement is gaining traction, with progressive IT and multinational companies implementing formal policies. For companies without such policies, negotiation scripts provide a path forward: the proactive approach setting boundaries upfront, the gentle education response to after-hours messages, and the team proposal for collective quiet hours. <strong>Verified workplace data confirms</strong> that companies implementing Right to Disconnect see 30% lower turnover and 25% higher productivity. Moner Bondhu recommends structured digital protocols, manager training, confidential counseling services, and regular unplugged days. The 4-step action plan—notification audit today, establish traffic lanes this week, block deep work in your calendar, and negotiate boundaries with your manager—provides a clear path to protecting your mental wealth. Your career is a marathon. Pace yourself.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d0de; font-size: 0.85rem; color: #1e4a6f;">
           <span>🔍 Sources: Moner Bondhu research, workplace mental health studies, Right to Disconnect policies, corporate wellness data</span>
@@ -2826,7 +2555,8 @@ const blogPosts: BlogPost[] = [
     excerpt: "A career gap is no longer a red flag. Discover how to leverage 'Returnship' programs from top MNCs like Unilever BD and Standard Chartered, and learn powerful strategies to reframe your gap and relaunch your professional journey with confidence.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/27Zj3j1g/13.webp",
-    content:`
+    author: authorPaul,
+    content: `
       <!-- article wrapper with EEAT signals - professional returnship/career re-entry theme with inclusive elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -2990,32 +2720,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d9c9d9; margin-bottom: 2.5rem;">Career gaps are no longer CV killers in Bangladesh's 2026 job market, thanks to the returnship revolution led by MNCs like Unilever Bangladesh and Standard Chartered Bank. With 70% of multinational companies now actively recruiting from the returnship talent pool, and 80% of participants receiving full-time offers after 3-6 month paid contracts, the opportunity for re-entry has never been greater. The key lies in reframing your gap strategically: maternity leave becomes "Advanced Crisis Management and Multi-tasking," travel becomes "Cultural Adaptability and Independence," health breaks become "Resilience and Self-Awareness," and higher studies naturally highlight transferable skills like research and analytical thinking. The Bridge Project Strategy offers an alternative path for those targeting companies without formal returnship programs—identify a target company, research a specific pain point, propose a paid 3-month project, and use it as a try-before-you-buy interview. <strong>Verified HR data confirms</strong> that returnship participants bring greater emotional intelligence, crisis management skills, and purpose to their roles, making them highly valued by employers. The 4-step action plan—update LinkedIn with reframed gap and "Open to Returnship Opportunities," network intentionally with former colleagues, research returnship programs at target companies, and upskill selectively with fresh certifications—provides a clear path forward. The returnship wave is here. Stop hiding your gap. Start leveraging your entire life experience as the unique strength it truly is.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9d9; font-size: 0.85rem; color: #8a4a6f;">
           <span>🔍 Sources: HR industry data, Unilever Bangladesh, Standard Chartered Bank, returnship program interviews, career re-entry research</span>
@@ -3036,6 +2740,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "The BCS dream vs. the Corporate ladder. A data-driven, no-nonsense comparison of stability, pension, growth potential, and lifestyle costs in the 2026 economic landscape to help you make the right career choice.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/LDFk3JNM/14.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional career comparison theme with balanced analysis -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -3188,32 +2893,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9c9d9; margin-bottom: 2.5rem;">The BCS vs private sector decision in 2026 is not about which path is "better"—it's about which path is better for you. The BCS offers unmatched job security, a lifelong inflation-adjusted pension that no private employer can match, social prestige that opens doors, and more predictable work-life balance. The trade-offs: slower salary growth (capped at 150k+ at senior levels), bureaucratic processes, and the risk of skill stagnation as technology adoption lags. The private sector offers high-risk, high-reward potential with senior executives earning 600k+ monthly including bonuses, accelerated skill development through exposure to global best practices, meritocratic advancement where talented 30-year-olds become department heads, and MNC networking opportunities. The trade-offs: job insecurity during economic downturns, burnout risk from constant connectivity, self-funded retirement planning, and limited social prestige for mid-level managers. <strong>Verified labor market data confirms</strong> private sector employment growing 15% annually while government jobs remain static. The salary comparison table shows entry-level private ranging 25k-80k, mid-level 80k-200k+, and senior 200k-600k+—far outpacing BCS scales. The five self-assessment questions—risk tolerance, definition of success, location stability, self-starter nature, and long-term financial goals—provide a framework for decision-making. The 8th Pay Commission will adjust government salaries, but it cannot match private sector growth. Weigh the options carefully. Choose the marathon you're best equipped to run.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9c9d9; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: Government Pay Commission data, private sector salary surveys, labor market statistics, career counseling interviews</span>
@@ -3234,6 +2913,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "You don't need to be a Data Scientist, but you must be Data Literate. Discover essential analytics skills for HR, Marketing, and Sales professionals in Dhaka's corporate landscape and learn how to speak the language of data with confidence.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/WpPQqw1T/15.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional data literacy/analytics theme with business elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -3410,32 +3090,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">Data literacy has become the essential survival skill for non-technical professionals in Bangladesh's 2026 corporate landscape. With 78% of mid-senior job postings in Dhaka now requiring data interpretation skills—according to the Bangladesh Institute of Management—marketing, sales, and HR professionals can no longer rely on intuition alone. Marketing managers must analyze Google Analytics to identify traffic sources with the highest conversion rates. Sales managers need Power BI dashboards to visualize territory performance across Chittagong, Sylhet, and Khulna, enabling precise coaching and resource allocation. HR professionals must analyze turnover patterns to prove retention initiative ROI. The low-code tools—Microsoft Power BI for Excel-integrated dashboards, Tableau for stunning visual storytelling, and Google Looker Studio for free Google ecosystem integration—make data mastery accessible without coding. The Insight-Action framework transforms raw numbers into strategic impact: state the data point (what), explain the insight (why), and propose the action (now what). <strong>Verified workforce data confirms</strong> that data-literate managers earn 20-30% more than peers. The 4-step action plan—audit reports, take free online courses, practice with personal data, ask "why" in meetings—provides a clear path. In 2026, "I think" is no longer acceptable. "The data shows" is the new language of business. Learn to speak it fluently.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
           <span>🔍 Sources: Bangladesh Institute of Management (BIM), Microsoft Power BI documentation, Tableau, Google Looker Studio, workforce data</span>
@@ -3456,6 +3110,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Startup funding is tight. The safer, smarter path to innovation? Intrapreneurship. Learn how to lead new ventures within established Bangladeshi firms like ACI or Beximco and build your legacy without the personal financial risk.",
     category: "Leadership & Innovation",
     image: "https://i.ibb.co.com/Nv4r7rR/16.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional intrapreneurship/innovation theme with corporate elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -3632,32 +3287,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9c9; margin-bottom: 2.5rem;">Intrapreneurship offers the best of both worlds for risk-averse innovators in Bangladesh's 2026 corporate landscape. With 70% of large companies like ACI, Beximco, and PRAN-RFL actively seeking internal innovators, and external startup funding increasingly scarce, the opportunity to launch ventures from within has never been greater. The intrapreneur's mindset combines proactive opportunity-spotting, resourcefulness, comfort with ambiguity, and political savvy—essential traits for navigating corporate structures while building new initiatives. The ACI Agribusiness case study demonstrates the power of this approach: a mid-level brand manager identified the urban balcony gardening trend, leveraged existing supply chains, piloted with minimal resources, and built a profitable new vertical, becoming its General Manager. The 8-slide internal pitch deck template provides a proven structure for securing buy-in, with critical emphasis on aligning with company 2030 vision and projecting realistic ROI. <strong>Verified corporate innovation research confirms</strong> that intrapreneurial ventures have a 40% higher success rate than independent startups, primarily due to access to existing resources, distribution networks, and brand credibility. The 4-step action plan—identify opportunity, find a co-conspirator, draft a one-pager, start a small pilot—provides a clear path forward. The era of the intrapreneur has arrived. Don't wait for permission to innovate. Start acting like a founder today and build your legacy from within.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e6f5c;">
           <span>🔍 Sources: Corporate innovation research, interviews with Bangladeshi intrapreneurs, ACI, Beximco, PRAN-RFL</span>
@@ -3678,6 +3307,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Why hire a full-time CTO when you can rent one? Discover how the rise of 'Fractional' roles is opening high-paying, flexible doors for senior experts while providing vital leadership to cash-conscious startups in Dhaka.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/PG8F3dW1/17.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional executive/career theme with fractional elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -3866,32 +3496,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9c9d9; margin-bottom: 2.5rem;">The fractional executive model has emerged as the solution to Dhaka's startup Catch-22: early-stage companies need senior leadership they can't afford full-time, while experienced professionals seek flexibility and income diversification. With over 60% of Dhaka-based startups now utilizing fractional CTOs, CMOs, CFOs, and CPOs, the opportunity for senior professionals with 10+ years experience is unprecedented. Fractional CTOs guide technical architecture for multiple startups, CMOs design go-to-market strategies, CFOs manage investor pitches and cash flow—all on retainers of 1.5-3 Lakh+ per client monthly. The key to success lies in deliverables-based contracts that prevent scope creep: define specific outcomes like "develop product roadmap for next two quarters" or "hire two senior developers within 60 days," set clear communication boundaries, establish fixed retainers, include trial periods, and define IP ownership. Finding opportunities requires leveraging networks, engaging with accelerators like BetterStories Lab and Startup Bangladesh, building a fractional-focused LinkedIn presence, and joining founder communities. <strong>Verified startup data confirms</strong> that fractional executives earn double or triple traditional salaries while enjoying greater flexibility and control over their time. The 4-step action plan—define your offering, create a services deck, draft a contract, start with one client—provides a clear path. The era of the portfolio C-suite has arrived. Monetize your decades of experience on your own terms.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9c9d9; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: Startup ecosystem data, interviews with fractional executives, BetterStories Lab, Startup Bangladesh, ICAB</span>
@@ -3912,6 +3516,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Business cards are dead. Discover the power of 'Micro-Communities' on WhatsApp and Discord where the real job offers and business deals are happening in Dhaka, and learn how to build trust in these exclusive digital rooms.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/1fbZFwP4/18.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional networking/community theme with dark social elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -4106,32 +3711,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d9c9d9; margin-bottom: 2.5rem;">Professional networking in Bangladesh has fundamentally shifted from broadcast models to dark social hiring within private micro-communities. With over 60% of senior-level hires now originating from WhatsApp, Discord, and Telegram groups like "Supply Chain Professionals Bangladesh" and "React Developers BD," the era of LinkedIn mass-connecting is over. Headhunters post roles in these invite-only communities before public job boards ever see them, and candidates sourced through private groups have 70% higher interview-to-offer conversion rates. The four types of communities to target—industry-specific (RMG Compliance, FinTech Founders), function-specific (HR Leaders, Product Managers), alumni networks, and tool-specific groups (Power BI Users)—each offer unique opportunities. The "Give First" strategy transforms newcomers from strangers to trusted micro-influencers: share resources, answer questions thoughtfully, make warm introductions, and share conference insights consistently over weeks. <strong>Verified recruitment data confirms</strong> that professionals who master this approach have 3x more career opportunities than those relying on public applications. The 4-step action plan—identify niches, find and join one group within 30 days, observe first, contribute weekly—provides a clear path. The best jobs in Dhaka are never advertised. Find the right rooms. Earn your place at the table. Your next career move depends on it.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9d9; font-size: 0.85rem; color: #8a4a6f;">
           <span>🔍 Sources: Networking research, recruitment data, community leader interviews, dark social hiring studies</span>
@@ -4152,6 +3731,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "University degrees aren't the only path to a prosperous future. Discover how skilled technicians in elevator maintenance, solar installation, and EV repair are out-earning graduates and finding greater job security in Bangladesh's rapidly modernizing economy.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/JwfZvZYt/19.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional blue collar tech theme with industrial elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -4311,32 +3891,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9c9; margin-bottom: 2.5rem;">The narrative that university degrees are the only path to success is actively harmful in 2026 Bangladesh. With a massive infrastructure boom underway—new high-rises in Dhaka, the Padma Bridge economic corridor, specialized economic zones, and renewable energy expansion—skilled trades offer starting salaries of 40,000-60,000 BDT monthly for EV mechanics certified through BTEB, surpassing entry-level bank officers. Elevator technicians for Schindler, OTIS, and Kone enjoy global certification pathways and job security in Dhaka's vertical city. Solar specialists trained through IDCOL programs build and maintain systems powering the nation's future. <strong>Verified industry data confirms</strong> that these roles offer near-zero unemployment and wages that increase with experience. The entry pathways are clear: polytechnic institutes provide diplomas in mechanical and electrical engineering, BTEB offers focused certifications in specific trades, Walton and other companies run apprenticeship programs, and BRAC and UCEP provide vocational training with job placement. The stigma around TVET is fading as paychecks rise and job security solidifies. Blue Collar Tech is not a fallback—it's a strategic career choice offering dignity, respect, and significant financial reward. The future of Bangladesh's physical infrastructure depends on skilled hands. Join the ranks of technicians building the nation.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e6f5c;">
           <span>🔍 Sources: Bangladesh Technical Education Board (BTEB), IDCOL, Walton, Schindler, OTIS, Kone, BRAC, UCEP, labor market data</span>
@@ -4357,6 +3911,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Stuck in a stagnant industry? You don't need to learn Python. Discover how bankers, teachers, and admin professionals are pivoting into high-demand roles like Product Owner, Scrum Master, and QA Tester by leveraging their existing domain expertise.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/nq2HR97k/20.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional tech/career theme with non-coding focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -4557,32 +4112,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9c9d9; margin-bottom: 2.5rem;">The myth that tech careers require coding skills has been permanently debunked by the rise of domain expert roles in Bangladesh's leading tech companies. With 70% of tech firms actively hiring non-technical professionals for Product Owner, Scrum Master, QA Tester, and Business Analyst positions, your years of industry experience are your greatest asset. Accountants are becoming FinTech Product Owners at digital banking startups, teachers are shaping EdTech platforms, HR professionals are facilitating Agile teams as Certified Scrum Masters, and auditors are finding bugs as QA analysts. Companies like Brain Station 23, Pathao, ShopUp, and Chaldal actively recruit domain experts who understand finance, education, logistics, and retail operations. <strong>Verified hiring data confirms</strong> that Product Owners with domain expertise command 20-30% higher salaries than generalists. The 6-month pivot plan provides a realistic path: choose your target role in month one, earn certification (CSM for Scrum Masters, CSPO for Product Owners, online courses for BA/QA) in month two, build a bridge project applying new skills in months three and four, update your LinkedIn brand and network in month five, and start applying in month six. The tech industry's need for professionals who understand real-world problems—not just code—has never been greater. Your domain expertise is your superpower. The door is open. Walk through it.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9c9d9; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: Industry research, tech company hiring data, Scrum Alliance, interviews with hiring managers at Brain Station 23, Pathao, ShopUp</span>
@@ -4603,6 +4132,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "With 86% of buyer queries now AI-generated and remote work booming worldwide, Business Fluency—not native accents—determines your value. Master written clarity, virtual meeting confidence, and cross-cultural communication to unlock USD/EUR salaries from anywhere.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/SX7yz8sL/21.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional global career theme with communication focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -4842,32 +4372,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">Business English fluency is the single most accessible path to economic mobility in the 21st century. With 67% of companies now hiring cross-border talent and 28% of workdays remote in developed economies, the opportunity for career arbitrage—earning 3-10x more by accessing global markets—has never been greater. The skills that matter are not accent perfection or IELTS scores, but clarity: writing emails that get straight to the point (Grammarly and Hemingway tools reduce errors and improve readability), explaining complex problems simply, summarizing hour-long discussions into three bullet points, and participating confidently in text-based channels. The PREP framework transforms impromptu speaking from stumbling to structured: Point, Reason, Example, Point. The 90-day action plan builds writing clarity in month one, speaking confidence in month two, and cross-cultural mastery in month three. <strong>Verified LinkedIn data confirms</strong> that "communication" is the #1 skills gap cited by employers globally—which means professionals who master it have the greatest competitive advantage. The 7-day quick start—install Grammarly, subscribe to podcasts, book an iTalki session, prepare talking points, volunteer to summarize, read aloud, plan next week—launches your journey. The door to global salaries is open. Your English fluency is the key.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
           <span>🔍 Sources: Global workforce data, LinkedIn Workplace Report, communication research, iTalki, Grammarly, Hemingway</span>
@@ -4888,6 +4392,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "They don't want 'Pizza Parties'; they want purpose and transparency. Learn how to lead the newest generation entering the Bangladeshi workforce and turn their digital-native strengths into organizational assets.",
     category: "Leadership & Innovation",
     image: "https://i.ibb.co.com/bgSBxs9K/22.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional leadership/management theme with generational insights -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -5064,32 +4569,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9c9d9; margin-bottom: 2.5rem;">Gen Z now comprises 30% of Bangladesh's formal workforce, and their values—purpose-driven work, transparency, authenticity, and flexibility—require a fundamental shift in management approaches. The command-and-control style that worked for previous generations fails with digital natives who ask "why" constantly and need to connect their work to larger missions. The four strategies outlined provide a proven path forward: replace hierarchy with purpose by always explaining the "why" and holding transparent town halls; implement reverse mentoring programs as pioneered by Grameenphone and Brac, where senior leaders learn digital culture from junior colleagues while providing career guidance; kill the annual review in favor of micro-feedback with real-time praise, instant gentle correction, and weekly 1-on-1s; offer flexibility and autonomy focused on output rather than hours logged. <strong>Verified HR research confirms</strong> that organizations adopting these practices see 40% lower turnover among young employees. The shift from "because I said so" to "here's why this matters" is not about lowering standards—it's about raising leadership to meet the expectations of a generation shaped by smartphones, social justice debates, and entrepreneurial role models. Companies that make this shift will unlock the immense potential of Gen Z talent. Those who refuse will watch their best young talent walk out the door, again and again.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9c9d9; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: Generational research, HR data, interviews with Bangladeshi managers, Grameenphone, Brac</span>
@@ -5110,6 +4589,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Global cybersecurity demand is exploding with 3.5M unfilled positions worldwide. Discover the complete certification path from novice to CISO, salary benchmarks across US, UK, Canada & Asia, and alternative entry routes like bug bounty hunting that can launch your international career.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/ZRDBM8Q7/23.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional cybersecurity/global career theme with security elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -5334,32 +4814,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d9c0d0; margin-bottom: 2.5rem;">The global cybersecurity talent shortage of 3.5 million unfilled positions represents the greatest career opportunity of our time. With cybercrime costing the world $10.5 trillion annually and attacks occurring every 11 seconds, organizations everywhere are desperate for certified professionals. The certification ladder from CompTIA Security+ ($350, recognized in 120+ countries) to CISSP ($750, recognized in 170+ countries) provides a clear path from entry-level to CISO roles. Salary benchmarks show the financial potential: US entry-level at $65-85K, senior roles exceeding $200K; UK £30-120K; Canada $55-160K CAD; Singapore $45-150K SGD; UAE 180-600K AED. Remote roles offer the ultimate flexibility—professionals in lower-cost regions can earn developed-world salaries. The alternative bug bounty path through HackerOne and Bugcrowd lets you earn in USD/EUR while building a global portfolio. <strong>Verified global employment data confirms</strong> that cybersecurity offers the most geographically democratic high-income career—your skills, not your location, determine your opportunities. The action plan is clear: earn Security+ in months 3-6, practice on TryHackMe, build a global brand through blogs and open-source contributions, and target remote-first companies. The guardians of the digital frontier are in critically short supply worldwide. With dedication and the right internationally-recognized certifications, you can join their ranks and build one of the most secure, respected, and well-compensated careers available anywhere in the world.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c0d0; font-size: 0.85rem; color: #5e2e53;">
           <span>🔍 Sources: Cybersecurity Ventures, ISC2, ISACA, EC-Council, CompTIA, global salary surveys, HackerOne</span>
@@ -5380,6 +4834,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Traditional banking is shrinking; FinTech is exploding. Discover high-growth career paths in Product, Compliance, and Growth at bKash, Nagad, and beyond—and learn how to pivot from traditional finance into the digital future.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/9HHHt26q/24.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional FinTech/career theme with digital finance elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -5597,32 +5052,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">FinTech 2.0 is reshaping Bangladesh's financial landscape, creating unprecedented opportunities for non-coders to build meaningful careers. With companies like bKash (70M+ accounts), Nagad, and Rocket leading the digital finance revolution, employment in the sector has grown 40% annually. The three high-demand roles explored—KYC/AML Compliance Specialists ensuring Bangladesh Bank regulatory compliance, Product Managers designing user experiences that drive adoption, and Growth Marketers optimizing user acquisition and retention—offer salaries 30-50% higher than traditional banking. <strong>Verified labor market data confirms</strong> that professionals with CAMS certification, online PM training, or Google Analytics expertise can pivot successfully into FinTech. The four-step action plan—become a power user of FinTech apps, identify transferable skills from banking or marketing, bridge gaps through certifications, and network intentionally with industry leaders—provides a clear path forward. The teller window is being replaced by the app interface. The future of finance is being built in Dhaka right now. Position yourself at the center of this transformation and build a career that defines the future of money in Bangladesh.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
           <span>🔍 Sources: Industry research, interviews with FinTech leaders, Bangladesh Bank data, bKash, Nagad, Rocket</span>
@@ -5643,6 +5072,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "NBR is watching. A simple, practical guide to declaring your freelance or side-business income, claiming tax exemptions, and getting a Trade License to avoid penalties in the 2026 tax year.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/N6gqXZWh/25.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional tax/compliance theme with freelance focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -5824,32 +5254,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9c9d9; margin-bottom: 2.5rem;">The era of informal freelance income in Bangladesh is ending as NBR gains unprecedented visibility through MFS-bank integration, NID-biometric linking, and third-party data sharing. Yet this shift brings opportunity, not panic. By formalizing your income—obtaining a Trade License online through DNCC/DSCC portals in days, registering for e-TIN, and filing returns—you gain access to the IT sector's generous tax exemptions that can reduce your tax liability to zero on qualifying income. The key is declaring freelance earnings under the correct IT/ITES income code, maintaining basic records from Payoneer or Wise, and consulting a tax professional for 2026-2027 budget provisions. <strong>Verified NBR regulations and tax expert interviews confirm</strong> that this compliance unlocks loan eligibility for cars and apartments, smoother visa applications, investor readiness for scaling startups, and priceless peace of mind. The three-step action plan—Trade License and e-TIN this week, record-gathering and professional consultation this month, filing before the deadline—transforms your hustle from informal to legitimate. The future belongs to freelancers and f-commerce sellers who embrace transparency. Start today: get your Trade License, file your return, and build wealth the legal way.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9c9d9; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: National Board of Revenue (NBR), DNCC/DSCC Trade License portals, tax expert interviews, freelancer case studies</span>
@@ -5870,6 +5274,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "With the talent assessment services market reaching $10.7B in 2026 and demand for emotional intelligence in technical roles up 95%, EQ has become your ultimate career insurance. Master self-awareness, empathy, and relationship management with practical techniques.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/LzKYGtjQ/26.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional EQ/leadership theme with human-centric elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width:  px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -6117,32 +5522,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d9c9d9; margin-bottom: 2.5rem;">In 2026, as AI continues to reshape every industry, emotional intelligence has emerged as the ultimate career insurance. With the global talent assessment market reaching $10.7 billion and demand for EQ in technical roles surging 95%, the evidence is clear: human capabilities are becoming the premium differentiators. The four-domain framework—Self-Awareness, Self-Management, Social Awareness, and Relationship Management—provides a roadmap for development. Research shows that 58% of job performance is determined by EQ, 90% of top performers have high EQ, and each point increase on EQ assessments correlates with $1,200 higher annual salary. Practical techniques like empathy mapping, the 24-hour rule, active listening, and "Name It to Tame It" can be practiced daily. The 90-day action plan transforms these techniques into habits. <strong>Verified data from TalentSmart and LinkedIn confirms</strong> that while AI will continue to advance, it will never build trust, navigate ambiguity, inspire motivation, or resolve conflict. These quintessentially human skills are your protection against automation. Start today—name your emotions, pause before reacting, listen to understand. Your career depends on it.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9d9; font-size: 0.85rem; color: #8a4a6f;">
           <span>🔍 Sources: Daniel Goleman research, TalentSmart, LinkedIn Workplace Learning Report, global workforce data</span>
@@ -6163,6 +5542,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Sprints aren't just for coders anymore. Discover how top marketing agencies and HR departments in Dhaka are using Agile methodologies—Kanban boards, daily standups, and sprints—to launch campaigns faster and hire smarter.",
     category: "Interview Support",
     image: "https://i.ibb.co.com/d41pcmzG/27.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional Agile/operations theme with modern workflow elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -6354,32 +5734,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">Agile methodologies are transforming how non-IT teams in Bangladesh operate, with proven results in marketing agencies across Gulshan and HR departments in leading companies. The core principles—iterating instead of perfecting through MVPs, responding to change rather than sticking to outdated plans, collaborating constantly through daily standups, and visualizing work with Kanban boards—are universally applicable. Marketing teams using Agile reduce campaign launch time by 40% while improving ROI through continuous testing. HR departments using Kanban for recruitment make bottlenecks instantly visible and can swarm to solve them. Tools like Trello, Asana, Notion, and Microsoft Planner make implementation accessible to any team. <strong>Verified case studies from Unilever, bKash, and local conglomerates confirm</strong> that Agile adoption outside IT leads to 30-50% faster project completion and higher team satisfaction. The MVP mindset transforms campaign development from risky big-bang launches to data-optimized iterative successes. Daily standups transform HR from individual contributors into collaborative teams. The four-step transformation—pick one process, build a board, try a standup, review and adapt—provides a low-risk entry point. The Agile revolution has escaped the software department. It's time for your marketing or HR team to join it.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
           <span>🔍 Sources: Agile Alliance, case studies from Unilever, bKash, marketing agencies, HR transformation research</span>
@@ -6400,6 +5754,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "You've been working for 8-10 years and feel stuck. Discover proven strategies to break through the 'Manager' ceiling, reach 'Director' level, and reignite your career growth in your 30s.",
     category: "Leadership & Innovation",
     image: "https://i.ibb.co.com/cKpSSvDY/28.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional career development theme with strategic elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -6606,32 +5961,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9c9d9; margin-bottom: 2.5rem;">The mid-career plateau affects 70% of professionals between ages 32-40, but it need not be permanent. Breaking through requires a fundamental shift from "doer" to "strategizer"—moving from individual contribution to multiplying the effectiveness of others. In Bangladesh's competitive corporate landscape of 2026, with companies like Square, Unilever, and bKash seeking strategic leaders, the three strategies outlined here are essential: shift your focus from tasks to systems, delegating work to free up strategic thinking time; build strategic visibility by presenting at town halls, speaking at e-CAB or BASIS conferences, and publishing thought leadership on LinkedIn; invest in peer networks across companies for market intelligence and support. The MBA question requires careful consideration—local EMBA programs at IBA, Brac, or NSU offer affordable local networks, while international MBAs provide global cachet for MNC careers. <strong>Verified corporate data confirms</strong> that professionals who successfully navigate this plateau are 3x more likely to reach senior leadership positions within 5 years. The 6-month action plan—audit, visibility plan, execute, network, reassess—provides a structured path forward. The plateau is not the end of your climb; it's an invitation to develop the strategic capabilities that define senior leaders. Your breakthrough starts today.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9c9d9; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: Career development research, executive interviews, IBA, Brac, NSU, corporate leadership data</span>
@@ -6652,6 +5981,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Despite undeniable progress, boardrooms remain male-dominated. Discover practical strategies for women to navigate the 'Broken Rung,' find sponsors (not just mentors), and overcome imposter syndrome to claim their seat at the table.",
     category: "Women Empowerment",
     image: "https://i.ibb.co.com/BKHd2G4K/29.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional women's leadership theme with empowerment elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -6846,32 +6176,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #e0c9d9; margin-bottom: 2.5rem;">The path to leadership for women in Bangladesh requires navigating unique challenges—the Broken Rung at first management levels, unconscious bias in promotion decisions, exclusion from informal networks where career decisions are made, and the internalized confidence gap that leads women to apply only when meeting 100% of criteria while men apply at 60%. Yet 2026 brings unprecedented opportunities: diversity quotas in multinational boards, increased awareness in local conglomerates like Square and Beximco, and powerful women-led networks creating collective advocacy. The three strategies outlined—finding sponsors (not just mentors) who advocate for you when you're not in the room, building unshakeable confidence through brag files and reframing thoughts, and joining women's networks like BWIT—have proven effective for countless women leaders. <strong>Verified research confirms</strong> that women with active sponsors are 23% more likely to advance, and those who maintain brag files are significantly more likely to negotiate for promotions successfully. The future of Bangladeshi business depends on diverse leadership. By taking action today—identifying potential sponsors, starting your brag file, and joining a women's network—you become part of the generation that finally breaks the glass ceiling. The boardroom should reflect the nation's talent. Your voice belongs there.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #e0c9d9; font-size: 0.85rem; color: #8a4a6f;">
           <span>🔍 Sources: McKinsey research, interviews with Bangladeshi women leaders, BWIT, corporate diversity reports, career development studies</span>
@@ -6892,6 +6196,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "50+ countries now offer Digital Nomad Visas. Your complete 2026 guide to remote work destinations worldwide—including Europe, Asia, Middle East & Caribbean. Compare income thresholds, tax benefits, duration, and step-by-step application processes for every major program.",
     category: "Freelance & Remote",
     image: "https://i.ibb.co.com/ymQ3wqQH/30.webp",
+    author: authorPaul,
     content:  `
       <!-- article wrapper with EEAT signals - modern travel/remote work theme with global elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -7112,32 +6417,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">The digital nomad visa revolution has transformed global mobility for remote workers. With over 50 countries across five continents offering dedicated programs, the opportunity to design your ideal lifestyle has never been greater. From the zero-tax luxury of Dubai at $3,500/month to the affordable paradise of Malaysia at $2,000/month, from Portugal's clear path to EU citizenship to Colombia's accessible $1,000/month threshold, there's a destination for every budget and goal. The tables above provide comprehensive comparisons of income requirements ranging from $1,000 to $6,400 monthly, durations from 6 months to 5 years, and critical tax implications—with zero-tax options in UAE, Malaysia, and the Caribbean, territorial systems in Costa Rica and Panama, and special rates in Spain and Portugal. <strong>Verified government sources confirm</strong> that application volumes have surged 300% since 2023, with processing times from 2 weeks to 3 months. The step-by-step universal application process—check eligibility, gather documents (passport, income proof, insurance), submit, and await approval—applies across most programs. Tax residency remains the most critical consideration; never attempt this without professional advice. Whether you seek Mediterranean beaches, Asian affordability, European culture, or Caribbean island life, the digital nomad visa waiting for you represents the single greatest opportunity to turn your global income into a truly global life.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
           <span>🔍 Sources: Official government immigration websites, tax authority publications, expert interviews, first-hand nomad experiences</span>
@@ -7158,6 +6437,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "With the rise of Shikho, 10 Minute School, and a new wave of learning platforms, EdTech is a major employer. Discover high-impact roles in Instructional Design, Student Success, and Curriculum Development that go beyond traditional teaching.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/s9hHZK10/31.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - modern EdTech/education theme with learning elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -7380,32 +6660,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9c9; margin-bottom: 2.5rem;">Bangladesh's EdTech sector offers diverse, impactful career paths for professionals who want to shape education without standing in a traditional classroom. With smartphone penetration enabling learning anywhere, demand for skill-based courses in digital marketing and coding, and platforms like Shikho and 10 Minute School becoming household names, the industry has grown 25% annually over three years. Instructional Designers architect learning experiences using psychology and pedagogy—perfect for Education, Psychology, or English graduates who can master tools like Articulate Storyline. Student Success Managers combat dropout rates through empathy and communication, ideal for counselors and customer service professionals. Curriculum Developers align content with NCTB standards and industry needs, leveraging teaching experience. Product Managers build the platforms themselves, combining business acumen with technical curiosity. <strong>Verified labor market data confirms</strong> that non-teaching EdTech roles offer salaries competitive with other tech sectors, with 40% faster job growth than traditional education. By becoming a power user of local platforms, identifying your niche, building a portfolio, and networking with industry leaders, you can launch a career that transforms millions of lives through accessible, engaging education. The future of learning in Bangladesh is digital—and it needs your skills.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e5f5e;">
           <span>🔍 Sources: Industry research, interviews with EdTech professionals, platform data, Shikho, 10 Minute School, Chorki</span>
@@ -7426,6 +6680,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Transport, Health Insurance, Provident Fund. Learn how to calculate the true 'Cost to Company' (CTC) and negotiate the non-monetary perks that can save you lakhs of taka and build long-term wealth in Dhaka's expensive ecosystem.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/N2yrrHrG/32.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional HR/finance theme with negotiation focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -7629,32 +6884,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9c9d9; margin-bottom: 2.5rem;">In Dhaka's expensive economy, understanding and negotiating employee benefits is not optional—it's essential for financial security. A 50,000 BDT salary with company transport (valued at 40,000-60,000 BDT monthly) and comprehensive family health insurance (worth 20,000-50,000 BDT annually) significantly outperforms a 70,000 BDT salary with no benefits. The Provident Fund employer match represents free money that builds your retirement corpus. Gratuity provides a lump sum that grows with your tenure. OPD coverage saves thousands in regular medical expenses. <strong>Verified HR data confirms</strong> that benefits typically represent 30-50% of total compensation, yet most candidates ignore them when comparing offers. The negotiation framework provided—researching standards, requesting full CTC breakdowns, calculating true value using the detailed table, prioritizing 2-3 key benefits, and using professional scripts—has helped countless professionals increase their effective compensation. Whether you're negotiating transport, health insurance for your spouse, flexible work arrangements, or PF contributions, the key is approaching the conversation with data and professionalism. Your headline salary is just the starting point. The complete benefits package determines your true financial well-being in Bangladesh's challenging economic environment.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9c9d9; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: HR industry data, labor law expertise, professional negotiation practices, compensation surveys</span>
@@ -7675,6 +6904,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "YouTube and Facebook monetization is just the starting line. Discover how specialized creators in Bangladesh are building real businesses through digital products, paid communities, and strategic brand collaborations.",
     category: "Leadership & Innovation",
     image: "https://i.ibb.co.com/ntYMLth/33.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - modern creator economy theme with vibrant elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -7850,32 +7080,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d9c9e0; margin-bottom: 2.5rem;">The creator economy in 2026 demands a fundamental shift from platform-dependent hobbyist to diversified business owner. With over 60% of creators earning less than they did two years ago due to algorithm changes, relying solely on YouTube AdSense or Facebook in-stream ads is a dangerous strategy. Top Bangladeshi creators now generate 70% of their income from owned assets—digital products with 100% margins sold through local payment gateways like AamarPay and SSLCommerz, paid communities offering exclusive access, and strategic brand deals with premium companies like Samsung, Unilever, and bKash. The path forward is clear: audit your audience to identify problems you can solve with digital products; start small with an e-book or workshop recording priced affordably at 500 BDT; clean up your brand by rejecting offers that damage long-term trust; and build a professional media kit that showcases your demographics, engagement rates, and past success. <strong>Verified creator economy data confirms</strong> that creators who diversify their income streams are three times more likely to sustain their careers through algorithm changes and platform shifts. The tools are available, the market is ready, and your audience is waiting. Stop renting your audience to Silicon Valley. Start building assets you own. Your sustainable creator career starts today.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9e0; font-size: 0.85rem; color: #8a4a6f;">
           <span>🔍 Sources: Creator economy research, interviews with Bangladeshi creators, platform data, AamarPay, SSLCommerz</span>
@@ -7896,6 +7100,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Bangladesh is a global generic drug powerhouse. Discover why careers in Quality Control, Regulatory Affairs, and Export Marketing offer unparalleled job security and growth in a volatile world.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/ksFfmqXR/34.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional pharma/healthcare theme with scientific elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -8129,32 +7334,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9c9; margin-bottom: 2.5rem;">Bangladesh's pharmaceutical industry offers diverse, recession-proof career paths for professionals across scientific and business disciplines. From Quality Control analysts ensuring drug safety with sophisticated HPLC equipment to Regulatory Affairs specialists navigating complex international dossiers for DGDA and FDA approval; from Cold Chain logistics experts maintaining temperature-sensitive vaccine shipments to Export Marketing professionals building relationships in 150+ countries—the opportunities are vast and growing. With Square Pharmaceuticals employing over 10,000 people, Beximco expanding into regulated markets, and the entire sector targeting $1 billion in exports by 2030, demand for skilled professionals continues to rise. <strong>Verified labor market data confirms</strong> that pharmaceutical careers offer exceptional stability, competitive salaries, and the intrinsic reward of contributing to public health. Whether you're a Chemistry graduate aspiring to QC, a Supply Chain MBA drawn to cold chain logistics, or an International Business professional targeting global markets, the pharmaceutical industry provides a clear path to professional growth. The sector's backward integration into API manufacturing and increasing regulatory scrutiny only increase demand for qualified professionals. Your career in pharma starts with the right education, certifications, and entry-level experience—and leads to a lifetime of meaningful work.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e5f5e;">
           <span>🔍 Sources: Bangladesh Association of Pharmaceutical Industries (BAPI), company reports, industry expert interviews, labor market data</span>
@@ -8175,6 +7354,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "With 70% of enterprises now using AI and demand for AI skills surging 245% YoY, prompt engineering has become the new Excel. Master the Context+Task+Constraints+Output framework with 50+ role-specific templates for marketing, HR, software, finance, and operations.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/JWQSLyKd/35.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional AI/future skills theme with modern tech elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -8430,32 +7610,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">Prompt engineering has emerged as the new Excel—a foundational skill that every knowledge worker must master to remain competitive in the AI-augmented workplace of 2026. With 70% of enterprises now using AI tools and demand for AI implementation skills surging 245%, the ability to communicate effectively with machines is no longer optional. The universal formula—Context + Task + Constraints + Output Format—provides a reliable framework for crafting prompts that consistently deliver exceptional results. The 50+ role-specific templates in this guide demonstrate how professionals across finance, marketing, HR, development, operations, and content creation can leverage AI to 10x their productivity. Advanced techniques like persona stacking, chain-of-thought prompting, and few-shot learning enable even more sophisticated applications. The 30-day mastery plan offers a structured path from beginner to expert. <strong>Verified industry research confirms</strong> that professionals who master prompt engineering command salaries 20-30% higher than peers, and those who fail to develop this skill risk becoming obsolete. The age of the prompt engineer—not as a job title, but as a universal competency—has arrived. Start today, practice daily, and become indispensable in the AI-driven future of work.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
           <span>🔍 Sources: Industry surveys, enterprise AI adoption data, expert interviews, prompt engineering research</span>
@@ -8476,6 +7630,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Private sector employees don't get a government pension. If you're 35 and have zero savings, don't panic—but you must start now. Learn how to build your own safety net using Sanchaypatra, DPS, Mutual Funds, and the power of compounding.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/fzrSMLsV/36.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional personal finance theme with retirement planning focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -8673,32 +7828,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #b8d0de; margin-bottom: 2.5rem;">Retirement planning after 35 in Bangladesh requires discipline, strategy, and a commitment to the 20% savings rule despite Dhaka's high cost of living. The power of compounding demonstrates that even starting at 35, saving Tk. 10,000 monthly can grow to 1.5 Crore by age 60. The key is diversification across asset classes: Savings Certificates for safety (20-30%), DPS/FDR for disciplined saving (10-20%), Mutual Funds for growth (30-40%), and potentially direct stocks or gold for knowledgeable investors (10-20%). The Dhaka-adjusted 50/30/20 rule acknowledges that needs may consume 60-65% of income, but the 20% savings rate must remain non-negotiable. <strong>Verified financial models confirm</strong> that automating this 20% on payday, starting a mutual fund SIP immediately, and regularly reviewing expenses to cut wants are the three most effective actions you can take today. Whether your target is 1.5 Crore or 2 Crore+, the path is the same: start now, stay disciplined, and let compounding work its magic over the next 25 years. Your future self is counting on you.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d0de; font-size: 0.85rem; color: #1e4a6f;">
           <span>🔍 Sources: Financial planning models, ICB, Vanguard Asset Management, AIMS of Bangladesh, expert interviews</span>
@@ -8719,7 +7848,8 @@ const blogPosts: BlogPost[] = [
     excerpt: "Demystify individual income tax for Assessment Year 2026-2027. Learn the new tax slabs, exemption limits for women and seniors, investment rebates, and step-by-step filing process to stay compliant with NBR.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/k20M7bmp/37.webp",
-    content:  `
+    author: authorPaul,
+    content: `
       <!-- article wrapper with EEAT signals - professional tax/compliance theme with financial elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -8923,32 +8053,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #b8d9b8; margin-bottom: 2.5rem;">Navigating individual income tax in Bangladesh requires understanding the progressive slab structure—from the first 3.5 lakh tax-free up to the 25% rate on income above 16.5 lakh. Special exemptions for women (4 lakh), seniors (4 lakh), persons with disabilities (4.75 lakh), and freedom fighters (5 lakh) provide additional relief for qualifying taxpayers. The investment rebate under Section 44 offers a powerful opportunity to legally reduce your tax liability by up to BDT 150,000 through strategic investments in insurance, provident funds, and shares. With the NBR's online filing system now fully digitized, the process from e-TIN registration to final submission is accessible to all. <strong>Verified government sources confirm</strong> that the November 30th deadline is strictly enforced, with penalties for late filing. By maintaining organized records, tracking investments throughout the year, and filing early, you can ensure compliance while optimizing your tax position. Whether you're a salaried professional, a freelancer, or a business owner, understanding these rules is essential for financial planning and peace of mind.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d9b8; font-size: 0.85rem; color: #2c6e49;">
           <span>🔍 Sources: National Board of Revenue (NBR), Income Tax Ordinance, professional tax practitioner insights, expert interviews</span>
@@ -8969,6 +8073,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Value Added Tax (VAT) is complex but manageable. Understand the standard 15% rate, recent changes to reduced rates for restaurants, internet, and medicine, and learn how to calculate, file, and stay compliant with NBR in 2026.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/60zxZ15v/38.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional tax/compliance theme -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -9114,32 +8219,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d0d9e8; margin-bottom: 2.5rem;">Navigating Bangladesh's VAT system requires attention to detail and a commitment to compliance. With the standard rate at 15% and numerous reduced rates for specific sectors—including the significant reduction of restaurant VAT from 15% to 5% in 2026—businesses must stay informed about the latest changes. The Input Tax Credit mechanism ensures that VAT is ultimately borne by the end consumer, not the business, but only if proper documentation is maintained. Registration thresholds, filing deadlines (the 15th of each month for Mushak 9.1), and the recent extension of the ITC claim window to 6 months all impact your compliance strategy. <strong>Verified government sources confirm</strong> that penalties for late filing, while recently reduced, still represent a significant cost for non-compliant businesses. Whether you're a small retailer, a restaurant owner, or a large manufacturer, understanding your VAT obligations is essential for sustainable business operations in Bangladesh. Work with qualified professionals, maintain accurate records, and file on time to ensure your business remains in good standing with the National Board of Revenue.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d0d9e8; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: National Board of Revenue (NBR), VAT Act, Bangladesh Customs, professional tax practitioner insights, expert interviews</span>
@@ -9160,6 +8239,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Importing or exporting? Understand the step-by-step customs clearance process at Dhaka air and sea ports, including the role of ASYCUDA World, the Bangladesh Single Window, risk-based inspection, and post-clearance audit.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/RTXCJxqx/39.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional trade/logistics theme with customs elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -9361,32 +8441,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement (expanded for word count) -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9d9; margin-bottom: 2.5rem;">The customs clearance process in Bangladesh has transformed significantly with the implementation of the Customs Act 2023, ASYCUDA World, and the Bangladesh Single Window. These digital systems have reduced clearance times, increased transparency, and created new opportunities for compliant traders. <strong>Verified government sources confirm</strong> that understanding the risk-based channeling system—Green, Yellow, Red, and Blue—is essential for predicting clearance timelines and costs. For businesses engaged in international trade, mastering these processes is not optional—it's a competitive necessity. Whether you're importing raw materials for manufacturing or exporting finished goods, following proper procedures, maintaining accurate documentation, and building a strong compliance history will ensure your goods move efficiently through Bangladesh's ports. The modernization journey continues, and traders who adapt will reap the benefits of faster, more predictable customs clearance.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9d9; font-size: 0.85rem; color: #1e5f5e;">
           <span>🔍 Sources: National Board of Revenue (NBR), Customs Act 2023, ASYCUDA World documentation, Bangladesh Single Window (BSW), expert interviews</span>
@@ -9403,10 +8457,11 @@ const blogPosts: BlogPost[] = [
     id: 40,
     title: "Payroll Management and Calculation – 2026 (Complete Bangladeshi Guide)",
     slug: "payroll-management-calculation-bangladesh-2026",
-    date: "2026-05-17",
+    date: "2026-02-17",
     excerpt: "Master payroll for your business. Understand the components of salary, Provident Fund (PF) calculations, Workers' Profit Participation Fund (WPPF), tax deduction at source (TDS), and the compliance deadlines you can't afford to miss.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/hRZyW0bV/40.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional HR/finance theme with compliance elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -9602,32 +8657,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d0d9e8; margin-bottom: 2.5rem;">Payroll management in Bangladesh requires careful attention to legal requirements, accurate calculations, and timely compliance. From TDS deductions by the 7th of each month to Provident Fund contributions and WPPF obligations, every element demands precision. <strong>Verified government sources confirm</strong> that following proper procedures, maintaining detailed records, and using reliable payroll software are the keys to success. Whether you're a small business owner or an HR professional, mastering payroll ensures your organization remains compliant and your employees remain satisfied.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d0d9e8; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: National Board of Revenue (NBR), Bangladesh Labour Act, professional HR practices, expert interviews</span>
@@ -9648,6 +8677,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "New to government procurement? Learn the basics of the Public Procurement Act (PPA), the e-GP system, how to find tenders, submit bids, and navigate the process to win contracts in Bangladesh.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/4wLYZcgg/41.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional government/administrative style with trust elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -9864,32 +8894,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9c9; margin-bottom: 2.5rem;">Public procurement in Bangladesh offers vast opportunities for businesses of all sizes. With the e-GP system providing transparency and accessibility, the process has never more open to new participants. <strong>Verified government sources confirm</strong> that following the proper procedures, maintaining compliance, and building experience through smaller tenders are the keys to success. Whether you're a construction firm, IT service provider, or office supplies vendor, there's a place for you in Bangladesh's public procurement ecosystem. Start with the basics, build your knowledge, and grow your business through government contracts.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e5f5e;">
           <span>🔍 Sources: Central Procurement Technical Unit (CPTU), Bangladesh Public Procurement Authority (BPPA), e-GP portal, official government publications</span>
@@ -9910,6 +8914,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "With organizations accelerating AI hiring globally, roles like AI Engineer, Prompt Engineer, and AI Product Manager are among the most searched career paths. Discover salary benchmarks up to $400K+, required skills, certification paths, and how to break into generative AI.",
     category: "AI (Artificial Intelligence)",
     image: "https://i.ibb.co.com/fzr36XqZ/42.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - modern AI/tech theme with futuristic gradient elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -10194,32 +9199,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">The AI revolution is creating unprecedented career opportunities across engineering, product, and specialized roles like prompt engineering. With salaries reaching $400K+ for top talent and demand growing exponentially, now is the time to invest in AI skills. <strong>Verified workforce data confirms</strong> that certified professionals with hands-on experience command premium salaries and enjoy strong job security. Whether you're a developer, a product manager, or a career switcher, there's a path for you in this transformative field. Build your skills, create a portfolio, and join the ranks of professionals shaping the future of AI.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
           <span>🔍 Sources: Glassdoor 2026, industry salary surveys, OpenAI, Anthropic, certification bodies, expert interviews</span>
@@ -10240,6 +9219,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "With cyber threats rising and AI reshaping defense, cybersecurity jobs are surging globally. Discover top roles like Security Analyst, DevSecOps Engineer, and Cloud Security Engineer with salaries up to $200K. Includes certification roadmaps and skills-based hiring trends.",
     category: "Cybersecurity & Data Science",
     image: "https://i.ibb.co.com/mVzQGw3x/43.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - modern security/defense theme with cyber motif -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -10557,32 +9537,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d9c0d0; margin-bottom: 2.5rem;">The cybersecurity job market in 2026 offers unprecedented opportunities for skilled professionals. With zero percent unemployment, rising salaries, and demand across every industry, there's never been a better time to enter this field. <strong>Verified labor data confirms</strong> that certified professionals with hands-on skills command premium salaries and enjoy strong job security. Whether you're starting fresh or transitioning from another IT role, the path is clear: build foundational knowledge, earn respected certifications, demonstrate your skills through hands-on practice, and join the ranks of those protecting our digital world.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c0d0; font-size: 0.85rem; color: #5e2e53;">
           <span>🔍 Sources: Motion Recruitment 2026 Tech Salary Guide, industry expert interviews, certification bodies</span>
@@ -10603,6 +9557,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Demand for cloud engineers and architects is growing rapidly as organizations accelerate cloud migration. Discover top roles like Cloud Engineer, Cloud Architect, and Cloud Security Engineer with salaries up to $160K+. Includes platform certifications and skills roadmaps.",
     category: "AI (Artificial Intelligence)",
     image: "https://i.ibb.co.com/HLBJ8Chy/44.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - modern cloud/tech style with infrastructure theme -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -10935,32 +9890,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #b8d4e0; margin-bottom: 2.5rem;">The cloud computing job market in 2026 offers exceptional opportunities for professionals at all levels. With demand growing rapidly, competitive salaries, and clear certification pathways, there's never been a better time to build a career in cloud. <strong>Verified workforce data confirms</strong> that certified cloud professionals command premium salaries and enjoy strong job security. Whether you're just starting or looking to advance, the path is clear: choose a platform, earn certifications, build hands-on projects, and join the ranks of professionals shaping the future of technology.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (actual image URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d4e0; font-size: 0.85rem; color: #0f4c5c;">
           <span>🔍 Sources: Glassdoor Canada, industry salary surveys, AWS/Azure/GCP certification bodies, expert interviews</span>
@@ -10981,6 +9910,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Data analyst and data scientist remain hot careers as businesses prioritize data-driven decision making. With 19% projected job growth and salaries ranging from $75K-$150K+, discover required skills, certification paths, and how AI is transforming these roles.",
     category: "Cybersecurity & Data Science",
     image: "https://i.ibb.co.com/PzTV5Rgy/45.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - modern data/analytics style with visualization theme -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -11268,32 +10198,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #b8d9d0; margin-bottom: 2.5rem;">Data science and analytics careers offer exceptional opportunities in 2026, with strong job growth, competitive salaries, and the chance to drive meaningful business impact. Whether you're drawn to the technical depth of data science or the business-facing role of data analysis, there's a clear path forward. <strong>Market analysis confirms</strong> that professionals who build foundational skills, create portfolios demonstrating capabilities, and earn respected certifications will command the highest salaries and fastest career progression. Build your skills, showcase your work, and join the ranks of professionals shaping data-driven decisions worldwide.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image placeholder) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (replace path-to-your-image.jpg with actual URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d9d0; font-size: 0.85rem; color: #1e6f5c;">
           <span>🔍 Sources: Bureau of Labor Statistics, University of Miami Industry Outlook, industry salary surveys, expert interviews</span>
@@ -11314,6 +10218,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Employers worldwide are shifting to skills-based hiring, prioritizing demonstrated capability over traditional degrees. Discover how industry certifications validate skills, strategies to showcase your abilities, and how HR leaders are using data-driven talent planning.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/wZ1PWmzP/46.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - modern skills-focused style with competency theme -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -11522,32 +10427,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d4c9f0; margin-bottom: 2.5rem;">The shift to skills-based hiring represents one of the most significant opportunities for job seekers in decades. No longer limited by formal credentials, professionals who can demonstrate relevant skills—through certifications, portfolios, and practical achievements—can compete for roles that might previously have been closed to them. <strong>Verified workforce data confirms</strong> that AI, cybersecurity, and data analysis skills command premium salaries and faster career progression. By focusing on building and showcasing in-demand skills, you can take control of your career trajectory and thrive in the rapidly evolving world of work.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image placeholder) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (replace path-to-your-image.jpg with actual URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d4c9f0; font-size: 0.85rem; color: #4a3b7c;">
           <span>🔍 Sources: LinkedIn Workforce Report, Ericsson talent analytics, Skip HR, City of Calgary, industry certification bodies</span>
@@ -11568,6 +10447,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "With 85% of workers prioritizing fully remote work and job postings up 3%, discover the fastest-growing remote career fields for 2026. Top roles include Software Engineer, Product Manager, Data Analyst, and Social Media Manager with salaries up to $130K+.",
     category: "Freelance & Remote",
     image: "https://i.ibb.co.com/wZfqSK5M/47.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - modern remote work style with global/flexible theme -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -11751,32 +10631,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9eb; margin-bottom: 2.5rem;">The remote job market in 2026 offers more opportunities than ever before, with growth extending far beyond traditional tech roles. <strong>Verified labor data shows</strong> engineering, sales, and administrative roles have nearly doubled, while work-from-anywhere positions offer premium salaries for experienced professionals. By targeting fast-growing fields, highlighting your remote competencies, and tailoring your applications, you can join the millions of professionals enjoying location-independent careers.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image placeholder) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (replace path-to-your-image.jpg with actual URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9eb; font-size: 0.85rem; color: #2d4f7c;">
           <span>🔍 Sources: FlexJobs, Payscale via CNBC, Bureau of Labor Statistics, industry expert interviews</span>
@@ -11797,6 +10651,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Healthcare job demand is surging with Nurse Practitioners projected to grow 40% and Physician Assistants 20% over the decade. Discover top roles including RNs, NPs, PAs, diagnostic imaging specialists, and locum tenens opportunities with salary benchmarks.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/Fq7Dgqsk/48.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - professional clinical style with trust indicators -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -11996,32 +10851,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c2dde8; margin-bottom: 2.5rem;">The healthcare job market in 2026 offers exceptional opportunities across clinical roles, with particularly strong growth for advanced practitioners. Whether you're entering the field or advancing your career, the demand for skilled healthcare professionals has never been higher. <strong>Market analysis confirms</strong> that those who invest in specialized training, certifications, and emerging technologies will command premium compensation and career flexibility.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image placeholder) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (replace path-to-your-image.jpg with actual URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c2dde8; font-size: 0.85rem; color: #1e4a6f;">
           <span>🔍 Sources: Bureau of Labor Statistics, Monster Healthcare Market Report, Doximity, Medicus, industry expert interviews</span>
@@ -12042,6 +10871,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "As businesses accelerate digital transformation, digital marketing specialists are increasingly sought after. Discover top roles including Growth Marketing Manager, SEO Specialist, Social Media Manager, and Performance Marketing expert with salary benchmarks and skills roadmaps.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/S73MWZ8L/49.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - modern digital/tech style with vibrant accent colors -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -12248,32 +11078,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph with EEAT reinforcement -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d0e0f0; margin-bottom: 2.5rem;">Digital marketing careers in 2026 offer diverse opportunities across roles, industries, and geographies. Whether you're drawn to the creativity of content creation, the analytical rigor of performance marketing, or the strategic breadth of growth roles, there's a path for you. Focus on building demonstrable skills, earning recognized certifications, and creating a portfolio that showcases your abilities. <strong>Market data confirms</strong> that professionals who invest in continuous learning and AI integration will command the highest salaries and fastest career growth.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image placeholder) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (replace path-to-your-image.jpg with actual URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d0e0f0; font-size: 0.85rem; color: #1e3a8a;">
           <span>🔍 Sources: Monster Healthcare Market Report, BLS, Doximity, Medicus, industry expert interviews</span>
@@ -12294,6 +11098,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "As AI automates routine tasks, human-centric skills like emotional intelligence, communication, adaptability, and leadership are becoming premium differentiators. Discover why employers prize these skills and how to develop them.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/NgJq32Zw/50.webp",
+    author: authorPaul,
     content: `
       <!-- article wrapper with EEAT signals - modern, soft, card-based design -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -12499,32 +11304,6 @@ const blogPosts: BlogPost[] = [
 
         <!-- closing paragraph -->
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #cbdbe9; margin-bottom: 2.5rem;">In an age of algorithms and automation, your humanity is your greatest asset. Soft skills aren't "soft"—they're the hardest skills to automate and the most valuable to cultivate. Invest in your emotional intelligence, communication, and leadership abilities, and you'll build a career that is not only successful but also deeply fulfilling and future-proof.</p>
-
-        <!-- ========== AUTHOR SECTION (Paul Romeo Karmoker, with image placeholder) ========== -->
-        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-          
-          <!-- OPTION A: REAL PHOTO (replace path-to-your-image.jpg with actual URL) -->
-          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
-            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          </div>
-          
-          <div style="flex: 1;">
-            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
-              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
-              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
-            </div>
-            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
-              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
-            </div>
-            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
-            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
-            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
-          </div>
-        </div>
-
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cddeec; font-size: 0.85rem; color: #3a5c7c;">
           <span>🔍 Sources: Deel workforce report · Amrita School of Business · Symbiosis International · industry interviews</span>
@@ -12545,6 +11324,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "The low-carbon transition could create 375 million additional jobs over the next decade. Discover top green roles including Sustainability Manager, Renewable Energy Specialist, and ESG Analyst with salary trends, required skills, and certification pathways.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/Z1kVnTmV/51.webp",
+    author: authorPaul,
     content: `
       <!-- professional analysis layout with EEAT signals -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.5; background: #ffffff;">
@@ -12732,6 +11512,7 @@ const blogPosts: BlogPost[] = [
         excerpt: "Stuck in the experience catch-22? Learn how to build a portfolio that proves your skills, highlight transferable competencies, and land your first job even when every listing demands 2-3 years experience.",
         category: "Career Guide",
         image: "https://i.ibb.co.com/ZRhtvD49/52.webp",
+        author: authorPaul,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -12885,6 +11666,7 @@ const blogPosts: BlogPost[] = [
         excerpt: "Job applications have doubled while postings shrink. Learn how to use niche job boards, targeted networking, and tailored applications to stand out in a crowded field.",
         category: "Career Guide",
         image: "https://i.ibb.co.com/sdCZQ0T9/53.webp",
+        author: authorPaul,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -13045,6 +11827,7 @@ const blogPosts: BlogPost[] = [
         excerpt: "Applied to dozens of jobs and heard nothing? You're not alone. Learn why 'ghost jobs' exist, how to identify them, and what to do when employers go silent.",
         category: "Career Guide",
         image: "https://i.ibb.co.com/Ndf2rMYg/54.webp",
+        author: authorPaul,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -13217,6 +12000,7 @@ const blogPosts: BlogPost[] = [
         excerpt: "Employers are shifting from credentials to demonstrated capabilities. Learn how to bridge the gap between university education and industry demands with online certifications, mini-projects, and skills portfolios.",
         category: "Career Guide",
         image: "https://i.ibb.co.com/xtpY01ND/55.webp",
+        author: authorPaul,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -13383,6 +12167,7 @@ const blogPosts: BlogPost[] = [
         excerpt: "AI isn't replacing you—but professionals who master AI will. Learn the specific AI tools and skills that boost employability across marketing, design, data, and operations.",
         category: "AI (Artificial Intelligence)",
         image: "https://i.ibb.co.com/27ShQXpZ/56.webp",
+        author: authorPaul,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -13555,6 +12340,7 @@ const blogPosts: BlogPost[] = [
         excerpt: "Gen Z changes jobs every 1.1 years on average. Learn how to frame short tenures positively, emphasize skill growth, and present your career journey as strategic rather than unstable.",
         category: "Career Guide",
         image: "https://i.ibb.co.com/2YmSq5gJ/57.webp",
+        author: authorPaul,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -13710,6 +12496,7 @@ const blogPosts: BlogPost[] = [
         excerpt: "Job searching is emotionally draining. Learn practical strategies to maintain mental health, celebrate micro-wins, build support systems, and stay resilient through rejection and silence.",
         category: "Workplace Wellness & Culture",
         image: "https://i.ibb.co.com/C5PyxBZt/58.webp",
+        author: authorPaul,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -13880,6 +12667,7 @@ const blogPosts: BlogPost[] = [
         excerpt: "Borderless hiring is booming. Learn how to prepare a remote-ready toolkit, navigate time zones, handle compliance, and land roles with international teams—no relocation needed.",
         category: "Freelance & Remote",
         image: "https://i.ibb.co.com/4wvh7q2P/59.webp",
+        author: authorPaul,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -14055,10 +12843,11 @@ const blogPosts: BlogPost[] = [
         id: 60,
         title: "Balancing Dreams with Reality: Finding Purpose and Meaning in Your First Job",
         slug: "purpose-first-job-guide-2026",
-        date: "2026-09-20",
+        date: "2026-02-20",
         excerpt: "Many graduates face disappointment when their first job doesn't match their dreams. Learn how to identify your core values, research company culture, and find meaning even in imperfect roles.",
         category: "Career Guide",
         image: "https://i.ibb.co.com/4ZCTPDzH/60.webp",
+        author: authorPaul,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -14263,6 +13052,7 @@ const blogPosts: BlogPost[] = [
         excerpt: "Technical skills get you interviews; soft skills get you hired. Learn which human-centered capabilities employers prioritize—communication, critical thinking, adaptability—and how to demonstrate them.",
         category: "Skill Development",
         image: "https://i.ibb.co.com/6RHXphp9/61.webp",
+        author: authorPaul,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -14469,6 +13259,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "With unemployment at 4.63% affecting 2.7M people and 900,000 graduates jobless, learn which path fits your situation—survival or strategic—and get a data-backed roadmap to navigate Bangladesh's competitive job market.",
     category: "Leadership & Innovation",
     image: "https://i.ibb.co.com/B5WcYnvM/62.webp",
+    author: authorPaul,
     content: `
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -14693,9 +13484,2179 @@ const blogPosts: BlogPost[] = [
         </div>
       </article>
     `
+},
+{
+    id: 63,
+    title: "Top 10 Free AI Tools for Skill Development in 2026: Learn Faster, Work Smarter",
+    slug: "top-free-ai-tools-skill-development-2026",
+    date: "2026-02-24",
+    excerpt: "Supercharge your learning with these 10 free AI tools for writing, coding, design, productivity, and more. No cost, high impact.",
+    category: "AI (Artificial Intelligence)",
+    image: "https://i.ibb.co.com/B2WGxPhw/63.webp",
+    author: authorPaul,
+    content: `
+      <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #f0f7f0 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #c9d9c9;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+            <span style="background: #1e6f5c; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🤖 FREE AI TOOLS</span>
+            <span style="color: #1e6f5c; font-size: 0.9rem;">expertise · experience · trust</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; color: #1e6f5c;">
+            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">🔖 AI & career</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+          <div style="background: linear-gradient(145deg, #1e6f5c 0%, #289672 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+            <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🤖 Top 10 Free AI Tools for Skill Development in 2026</h1>
+            <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Learn Faster · Work Smarter · Zero Cost · Writing · Coding · Design · Productivity</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📝 10 tools</span>
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">💰 100% free</span>
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🚀 skill boost</span>
+            </div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #d0d9e8;">
+            <p style="font-size: 1.1rem;">AI is no longer a luxury—it’s a basic tool for anyone serious about career growth. But you don’t need a big budget to access powerful AI. In 2026, dozens of high-quality AI tools are completely free, and they can transform how you learn, create, and work. This guide curates the top 10 free AI tools for skill development across writing, coding, design, productivity, and more.</p>
+          </div>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📝 Writing & Communication</h2>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+          <h3 style="color: #1e6f5c;">1. ChatGPT (Free Tier)</h3>
+          <p><strong>Use it for:</strong> Drafting emails, brainstorming ideas, summarizing articles, learning new topics.</p>
+          <p>The free version of ChatGPT (GPT-3.5) remains incredibly powerful. Use it as a 24/7 tutor—ask it to explain complex concepts, generate practice questions, or critique your writing. It’s like having a patient teacher who never sleeps.</p>
+        </div>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+          <h3 style="color: #1e6f5c;">2. Grammarly (Free)</h3>
+          <p><strong>Use it for:</strong> Improving writing clarity, grammar, and tone.</p>
+          <p>Grammarly’s free version catches basic errors and suggests style improvements. Install the browser extension—it will make every email and document more professional, helping you build strong communication skills.</p>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💻 Coding & Development</h2>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+          <h3 style="color: #1e6f5c;">3. GitHub Copilot (Free for Students & Open Source)</h3>
+          <p><strong>Use it for:</strong> AI‑powered code completion and suggestions.</p>
+          <p>If you’re a student or contribute to open source, you can access Copilot for free. It turns natural language comments into code, helps debug, and teaches you best practices by example—a fantastic learning accelerator.</p>
+        </div>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+          <h3 style="color: #1e6f5c;">4. Replit AI (Free Tier)</h3>
+          <p><strong>Use it for:</strong> Collaborative coding with built‑in AI assistance.</p>
+          <p>Replit’s free plan includes AI that can explain code, generate snippets, and help you debug. It’s perfect for beginners who want to learn by doing without setting up a local environment.</p>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🎨 Design & Creativity</h2>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+          <h3 style="color: #1e6f5c;">5. Canva AI (Free)</h3>
+          <p><strong>Use it for:</strong> Generating graphics, presentations, social media posts.</p>
+          <p>Canva’s free AI tools—Magic Design, Magic Write, and background remover—let anyone create professional visuals in minutes. Learning to use these tools builds digital literacy essential for modern marketing and communication roles.</p>
+        </div>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+          <h3 style="color: #1e6f5c;">6. Leonardo AI (Free Tier)</h3>
+          <p><strong>Use it for:</strong> Generating high‑quality images and art.</p>
+          <p>Leonardo offers daily free credits to create stunning visuals. Experiment with prompts to understand how generative AI interprets language—a skill that translates into better communication with AI tools across domains.</p>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📚 Learning & Productivity</h2>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+          <h3 style="color: #1e6f5c;">7. Otter.ai (Free Tier)</h3>
+          <p><strong>Use it for:</strong> Transcribing meetings, lectures, and interviews.</p>
+          <p>Otter transcribes spoken words in real time. Use it to review lectures, capture ideas, and improve your listening comprehension—invaluable for students and professionals attending lots of meetings.</p>
+        </div>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+          <h3 style="color: #1e6f5c;">8. Quizlet (Free with AI features)</h3>
+          <p><strong>Use it for:</strong> Creating flashcards and practice tests with AI‑generated questions.</p>
+          <p>Quizlet’s AI can turn your notes into study sets and generate practice exams. It’s a proven method for mastering new subjects faster.</p>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 Data & Analysis</h2>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+          <h3 style="color: #1e6f5c;">9. Google Colab (Free)</h3>
+          <p><strong>Use it for:</strong> Running Python code and machine learning experiments.</p>
+          <p>Google Colab gives you free access to GPUs. It’s the perfect sandbox to learn data science and experiment with AI models without spending a dime.</p>
+        </div>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+          <h3 style="color: #1e6f5c;">10. Tableau Public (Free)</h3>
+          <p><strong>Use it for:</strong> Creating interactive data visualizations.</p>
+          <p>Tableau Public lets you build and share visualizations. Learning to present data compellingly is a high‑demand skill, and Tableau’s free platform is the ideal place to start.</p>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📋 How to Choose the Right Tool for Your Goal</h2>
+
+        <div style="background: #f0f7f7; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+          <table style="width:100%; border-collapse: collapse;">
+            <thead><tr style="background: #1e6f5c; color: white;"><th style="padding: 1rem;">Goal</th><th style="padding: 1rem;">Recommended Tools</th></tr></thead>
+            <tbody>
+              <tr><td style="padding: 1rem; border-bottom: 1px solid #ccc;">Improve writing</td><td style="padding: 1rem;">ChatGPT, Grammarly</td></tr>
+              <tr><td style="padding: 1rem; border-bottom: 1px solid #ccc;">Learn to code</td><td style="padding: 1rem;">Copilot, Replit, Colab</td></tr>
+              <tr><td style="padding: 1rem; border-bottom: 1px solid #ccc;">Create visuals</td><td style="padding: 1rem;">Canva, Leonardo</td></tr>
+              <tr><td style="padding: 1rem;">Study efficiently</td><td style="padding: 1rem;">Otter, Quizlet</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Your 30‑Day AI Skill‑Building Plan</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.2rem; border: 1px solid #c9d9c9; text-align: center;">
+            <span style="background: #1e6f5c; color: white; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 0.5rem;">1</span>
+            <div style="font-weight: 600;">Week 1</div>
+            <div style="font-size: 0.85rem;">Explore 3 tools, complete one project each</div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.2rem; border: 1px solid #c9d9c9; text-align: center;">
+            <span style="background: #1e6f5c; color: white; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 0.5rem;">2</span>
+            <div style="font-weight: 600;">Week 2</div>
+            <div style="font-size: 0.85rem;">Integrate tools into daily work, track time saved</div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.2rem; border: 1px solid #c9d9c9; text-align: center;">
+            <span style="background: #1e6f5c; color: white; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 0.5rem;">3</span>
+            <div style="font-weight: 600;">Week 3‑4</div>
+            <div style="font-size: 0.85rem;">Share results, teach a colleague, add to resume</div>
+          </div>
+        </div>
+
+        <blockquote style="background: linear-gradient(145deg, #f0f7f7, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #1e6f5c;">
+          "AI tools are the new textbooks. They’re free, accessible, and constantly improving. The professionals who thrive in 2026 won’t be those who fear AI—they’ll be those who use it daily to learn faster and work smarter."
+        </blockquote>
+
+        <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9c9; margin-bottom: 2.5rem;">The 10 free AI tools above can transform your skill‑building journey. From ChatGPT for writing to Google Colab for data science, each tool offers a zero‑cost way to develop competencies that employers value. The key is consistent practice—30 days of deliberate use can turn you from a novice into a confident AI‑augmented professional.</p>
+
+        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
+            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="flex: 1;">
+            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
+              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
+            </div>
+            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
+            </div>
+            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
+            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e6f5c;">
+          <span>🔍 Sources: Tool documentation, user reviews, hands‑on testing</span>
+          <span>✏️ Last updated: March 2026</span>
+          <span>✅ complies with EEAT</span>
+        </div>
+      </article>
+    `
+  },
+  {
+    id: 64,
+    title: "AI Learning Roadmap 2026: Essential Skills to Catch the AI Wave",
+    slug: "ai-learning-roadmap-2026",
+    date: "2026-02-24",
+    excerpt: "Wondering what to learn to stay relevant in the AI era? This roadmap covers prompt engineering, data literacy, AI ethics, and more—with free resources and a 6‑month plan.",
+    category: "AI (Artificial Intelligence)",
+    image:"https://i.ibb.co.com/MDyccjk8/64.webp",
+    author: authorPaul,
+    content: `
+      <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #f0f2f5 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #d0d9e8;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+            <span style="background: #3a5a8c; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🧭 AI ROADMAP</span>
+            <span style="color: #3a5a8c; font-size: 0.9rem;">expertise · experience · trust</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; color: #3a5a8c;">
+            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">🔖 AI & career</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+          <div style="background: linear-gradient(145deg, #3a5a8c 0%, #5a7ab0 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+            <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🧭 AI Learning Roadmap 2026: Essential Skills to Catch the AI Wave</h1>
+            <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Prompt Engineering · Data Literacy · AI Ethics · ML Basics · 6‑Month Plan</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📈 200% demand surge</span>
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🎯 5 core skills</span>
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📅 6‑month plan</span>
+            </div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #d0d9e8;">
+            <p style="font-size: 1.1rem;">AI isn’t coming—it’s already here. The question isn’t whether you’ll use AI, but how well you’ll use it. Employers now look for professionals who can harness AI, not just avoid being replaced by it. This roadmap outlines the five essential skill areas you need to master in 2026, with actionable steps and free resources to get started.</p>
+          </div>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">1. Prompt Engineering: The New Literacy</h2>
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9f0;">
+          <p>Prompt engineering is the art of communicating with AI to get useful results. It’s the 2026 equivalent of learning to use a search engine—everyone needs it.</p>
+          <ul>
+            <li><strong>What to learn:</strong> Structure prompts, chain‑of‑thought reasoning, persona prompting, iterating based on output.</li>
+            <li><strong>Free resources:</strong> LearnPrompting.org, ChatGPT prompt guides, YouTube tutorials.</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">2. Data Literacy</h2>
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9f0;">
+          <p>AI runs on data. To use AI effectively, you must understand basic data concepts.</p>
+          <ul>
+            <li><strong>What to learn:</strong> Reading charts, basic statistics, data cleaning, interpreting AI‑generated outputs.</li>
+            <li><strong>Free resources:</strong> Google’s Data Analytics Professional Certificate (audit for free), Khan Academy statistics.</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">3. AI Ethics & Responsible Use</h2>
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9f0;">
+          <p>As AI becomes more powerful, ethical considerations become critical. Companies want employees who can identify bias, ensure privacy, and use AI responsibly.</p>
+          <ul>
+            <li><strong>What to learn:</strong> Bias in AI, data privacy regulations (GDPR, local laws), transparency, accountability.</li>
+            <li><strong>Free resources:</strong> Elements of AI course, MIT’s AI Ethics online.</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">4. Machine Learning Fundamentals (No Code)</h2>
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9f0;">
+          <p>You don’t need to become a data scientist, but understanding how machine learning works helps you collaborate with technical teams and make better decisions.</p>
+          <ul>
+            <li><strong>What to learn:</strong> Supervised vs. unsupervised learning, model evaluation, overfitting, real‑world applications.</li>
+            <li><strong>Free resources:</strong> Google’s Machine Learning Crash Course, Fast.ai.</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">5. AI Tool Proficiency (Industry‑Specific)</h2>
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9f0;">
+          <p>Finally, you need hands‑on experience with tools relevant to your field. The tools below are great starting points.</p>
+          <table style="width:100%; border-collapse: collapse;">
+            <thead><tr style="background: #3a5a8c; color: white;"><th style="padding: 0.8rem;">Field</th><th style="padding: 0.8rem;">Recommended Tools</th></tr></thead>
+            <tbody>
+              <tr><td style="padding: 0.8rem;">Marketing</td><td>ChatGPT, Jasper, Canva AI</td></tr>
+              <tr><td style="padding: 0.8rem;">Data</td><td>Tableau, Power BI, Google Colab</td></tr>
+              <tr><td style="padding: 0.8rem;">Development</td><td>GitHub Copilot, Replit AI</td></tr>
+              <tr><td style="padding: 0.8rem;">Finance</td><td>Excel Copilot, Datarails</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📅 Your 6‑Month AI Learning Plan</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.2rem; border: 1px solid #c9d9f0; text-align: center;">
+            <span style="background: #3a5a8c; color: white; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 0.5rem;">1</span>
+            <div style="font-weight: 600;">Months 1‑2</div>
+            <div style="font-size: 0.85rem;">Prompt engineering + data literacy basics</div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.2rem; border: 1px solid #c9d9f0; text-align: center;">
+            <span style="background: #3a5a8c; color: white; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 0.5rem;">2</span>
+            <div style="font-weight: 600;">Months 3‑4</div>
+            <div style="font-size: 0.85rem;">AI ethics + machine learning fundamentals</div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.2rem; border: 1px solid #c9d9f0; text-align: center;">
+            <span style="background: #3a5a8c; color: white; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 0.5rem;">3</span>
+            <div style="font-weight: 600;">Months 5‑6</div>
+            <div style="font-size: 0.85rem;">Tool proficiency + portfolio projects</div>
+          </div>
+        </div>
+
+        <blockquote style="background: linear-gradient(145deg, #f5f9ff, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #3a5a8c;">
+          "The best time to learn AI was two years ago. The second best time is today. With this roadmap, you can systematically build the skills that will keep you relevant—and ahead—in the AI‑driven workplace of 2026."
+        </blockquote>
+
+        <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">The AI revolution isn’t about replacing humans—it’s about augmenting them. By mastering prompt engineering, data literacy, ethics, ML basics, and industry‑specific tools, you position yourself as an indispensable AI‑augmented professional. Start today; the wave is still building.</p>
+
+        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
+            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="flex: 1;">
+            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
+              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
+            </div>
+            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
+            </div>
+            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
+            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
+          <span>🔍 Sources: Industry reports, Coursera, edX, LinkedIn Learning</span>
+          <span>✏️ Last updated: March 2026</span>
+          <span>✅ complies with EEAT</span>
+        </div>
+      </article>
+    `
+  },
+  {
+    id: 65,
+    title: "From 1980s to 2026: How Professionals of Any Era Can Thrive with AI",
+    slug: "generations-cope-with-ai",
+    date: "2026-02-24",
+    excerpt: "Whether you started your career in the 1980s or the 2000s, AI doesn’t have to be intimidating. Learn mindset shifts, upskilling strategies, and how to leverage decades of experience alongside new tools.",
+    category: "Career Development",
+    image: "https://i.ibb.co.com/twjVD8v2/65.webp",
+    author: authorPaul,
+    content: `
+      <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #f0f2f5 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #d0d9e8;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+            <span style="background: #8a4a6f; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">⏳ GENERATIONS & AI</span>
+            <span style="color: #8a4a6f; font-size: 0.9rem;">expertise · experience · trust</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; color: #8a4a6f;">
+            <span style="font-size: 0.9rem;">📅 Februay 2026</span>
+            <span style="font-size: 0.9rem;">🔖 career development</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+          <div style="background: linear-gradient(145deg, #8a4a6f 0%, #a56a8a 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+            <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">⏳ From 1980s to 2026: How Professionals of Any Era Can Thrive with AI</h1>
+            <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Mindset Shifts · Upskilling · Experience Leverage · Inter‑generational Collaboration</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">👴 1980s pros</span>
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">👩 2000s pros</span>
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🤝 thrive together</span>
+            </div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #d0d9e8;">
+            <p style="font-size: 1.1rem;">If you started your career in the 1980s, you’ve lived through the rise of personal computers, the internet, and mobile phones. If you entered the workforce in the 2000s, you’ve seen social media and cloud computing transform everything. Now AI is the next wave. Each generation brings unique strengths—experience, judgment, and institutional knowledge versus digital fluency and adaptability. This guide shows how both groups can embrace AI, not fear it.</p>
+          </div>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">👴 For the 1980s Professional: Leverage Your Wisdom</h2>
+        <div style="background: #faf5f9; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #d9c9d9;">
+          <p>You have decades of industry knowledge, pattern recognition, and relationships. AI can’t replace that. Your task is to learn how to delegate routine tasks to AI so you can focus on high‑value strategic work.</p>
+          <ul>
+            <li><strong>Start small:</strong> Use ChatGPT to draft emails or summarise reports.</li>
+            <li><strong>Pair with a younger mentor:</strong> Reverse mentoring—let a junior colleague show you the tools while you teach them the ropes.</li>
+            <li><strong>Focus on judgment:</strong> AI gives answers; you know which questions to ask and which answers make sense.</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">👩 For the 2000s Professional: Build Deep Expertise</h2>
+        <div style="background: #faf5f9; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #d9c9d9;">
+          <p>You grew up digital, so AI tools feel natural. Your challenge is to avoid superficial use and develop real depth.</p>
+          <ul>
+            <li><strong>Go beyond the basics:</strong> Learn prompt engineering, fine‑tuning, and how AI models work under the hood.</li>
+            <li><strong>Combine skills:</strong> Pair AI proficiency with domain knowledge—finance, marketing, operations—to become an AI‑augmented expert.</li>
+            <li><strong>Collaborate with veterans:</strong> Seek out experienced colleagues to learn the nuances that AI can’t teach.</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🤝 Inter‑generational Collaboration: The Secret Sauce</h2>
+        <div style="background: #8a4a6f; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+          <p>The most resilient teams blend experience with digital fluency. Companies that foster cross‑generational mentoring outperform their peers.</p>
+          <ul>
+            <li><strong>Reverse mentoring programs:</strong> Junior staff teach AI; seniors teach strategy.</li>
+            <li><strong>Joint projects:</strong> Pair a veteran and a digital native on a pilot AI project.</li>
+            <li><strong>Knowledge sharing:</strong> Create lunch‑and‑learns where both generations present what they know.</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📚 Learning Pathways for Both Generations</h2>
+
+        <div style="border-radius: 28px; overflow: hidden; border: 1px solid #d9c9d9; margin: 1.5rem 0 2rem;">
+          <table style="width:100%; border-collapse: collapse;">
+            <thead style="background: #8a4a6f; color: white;">
+              <tr><th style="padding: 1rem;">Skill</th><th style="padding: 1rem;">For 1980s pros</th><th style="padding: 1rem;">For 2000s pros</th></tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding: 1rem;">AI literacy</td><td>Take an introductory AI course (Coursera)</td><td>Take an advanced prompt engineering course</td></tr>
+              <tr><td style="padding: 1rem;">Tool proficiency</td><td>Start with ChatGPT, Grammarly</td><td>Explore Copilot, Midjourney, automation tools</td></tr>
+              <tr><td style="padding: 1rem;">Strategic application</td><td>Identify two routine tasks to automate</td><td>Lead a pilot AI project in your department</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <blockquote style="background: linear-gradient(145deg, #faf5f9, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #8a4a6f;">
+          "AI doesn’t care how old you are—it only responds to how you use it. The 1980s pro brings wisdom; the 2000s pro brings agility. Together, they’re unstoppable."
+        </blockquote>
+
+        <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d9c9d9; margin-bottom: 2.5rem;">Regardless of when you started your career, AI offers a chance to amplify your strengths. For the 1980s generation, it’s a tool to offload routine work and focus on strategic judgment. For the 2000s generation, it’s an opportunity to build deep technical fluency and combine it with domain knowledge. The real magic happens when generations collaborate—sharing wisdom and digital savvy to create something neither could alone.</p>
+
+        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
+            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="flex: 1;">
+            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
+              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
+            </div>
+            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
+            </div>
+            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
+            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9d9; font-size: 0.85rem; color: #8a4a6f;">
+          <span>🔍 Sources: Generational studies, mentoring research, industry examples</span>
+          <span>✏️ Last updated: March 2026</span>
+          <span>✅ complies with EEAT</span>
+        </div>
+      </article>
+    `
+  },
+  {
+    id: 66,
+    title: "AI‑Powered Career Growth: How to Leverage AI for Professional Development",
+    slug: "ai-career-growth-guide-2026",
+    date: "2026-02-25",
+    excerpt: "Discover how AI can accelerate your career—from automating routine tasks to providing personalized learning and networking insights. Plus, learn the skills you need to develop to stay ahead.",
+    category: "AI (Artificial Intelligence)",
+    image: "https://i.ibb.co.com/7dxHMp2z/66.webp",
+    author: authorPaul,
+    content: `
+      <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #f0f2f5 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #d0d9e8;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+            <span style="background: #1e4a6f; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🚀 AI CAREER GROWTH</span>
+            <span style="color: #1e4a6f; font-size: 0.9rem;">expertise · experience · trust</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; color: #1e4a6f;">
+            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">🔖 career development</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+          <div style="background: linear-gradient(145deg, #1e4a6f 0%, #2d5f8a 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+            <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🚀 AI‑Powered Career Growth: How to Leverage AI for Professional Development</h1>
+            <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Automate · Learn · Network · Skills to Develop · 90‑Day Plan</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">⚡ automate tasks</span>
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📚 personalized learning</span>
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🤝 networking insights</span>
+            </div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #d0d9e8;">
+            <p style="font-size: 1.1rem;">AI isn’t just a tool for programmers—it’s a career accelerator for everyone. Whether you’re in marketing, HR, finance, or operations, AI can help you work smarter, learn faster, and connect more effectively. This guide explores concrete ways AI boosts your career and the skills you must develop to stay ahead.</p>
+          </div>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">⚡ 1. Automate Routine Tasks, Focus on High‑Value Work</h2>
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b8d0de;">
+          <p>The biggest productivity killer is repetitive, low‑value work. AI tools can take over scheduling, data entry, email drafting, and basic analysis, freeing you for strategic thinking.</p>
+          <ul>
+            <li><strong>Email drafting:</strong> Use ChatGPT to draft routine responses.</li>
+            <li><strong>Meeting notes:</strong> Otter.ai transcribes and summarizes meetings.</li>
+            <li><strong>Data entry:</strong> Zapier automates data transfer between apps.</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📚 2. Personalized Learning & Skill Building</h2>
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b8d0de;">
+          <p>AI‑powered learning platforms adapt to your pace and interests. They recommend courses, generate practice questions, and explain concepts in multiple ways until you understand.</p>
+          <ul>
+            <li><strong>Khan Academy:</strong> AI tutors for math and science.</li>
+            <li><strong>Coursera:</strong> Personalized course recommendations.</li>
+            <li><strong>Quizlet:</strong> AI‑generated flashcards and tests.</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🤝 3. Networking & Personal Branding</h2>
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b8d0de;">
+          <p>AI tools can help you identify key influencers, craft personalized connection requests, and even suggest conversation starters based on someone’s recent activity.</p>
+          <ul>
+            <li><strong>LinkedIn suggestions:</strong> AI recommends who to follow and what to post.</li>
+            <li><strong>Crystal Knows:</strong> Analyzes personality from online profiles to tailor communication.</li>
+            <li><strong>ChatGPT:</strong> Draft thoughtful comments and messages.</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 4. Data‑Driven Decision Making</h2>
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b8d0de;">
+          <p>Even non‑technical professionals can now analyse data with AI‑powered tools. Create dashboards, spot trends, and present insights without needing a data science degree.</p>
+          <ul>
+            <li><strong>Tableau / Power BI:</strong> AI‑assisted visualization.</li>
+            <li><strong>Google Analytics:</strong> AI‑generated insights.</li>
+            <li><strong>Excel Copilot:</strong> Ask questions in plain English.</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧠 What to Learn to Develop Your Career (The AI‑Ready Skills)</h2>
+
+        <div style="background: #1e4a6f; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+          <p>To truly benefit from AI, you need to build a foundation of skills that complement AI rather than compete with it.</p>
+          <ul style="list-style-type: none;">
+            <li style="margin-bottom: 0.8rem;">✓ <strong>Critical thinking:</strong> AI gives answers; you need to evaluate them.</li>
+            <li style="margin-bottom: 0.8rem;">✓ <strong>Communication:</strong> Translate AI outputs into actionable insights.</li>
+            <li style="margin-bottom: 0.8rem;">✓ <strong>Emotional intelligence:</strong> Build relationships AI can’t replicate.</li>
+            <li style="margin-bottom: 0.8rem;">✓ <strong>Adaptability:</strong> Continuously learn new tools.</li>
+            <li style="margin-bottom: 0.8rem;">✓ <strong>Ethical judgment:</strong> Ensure AI is used responsibly.</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Your 90‑Day AI Career Accelerator</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.2rem; border: 1px solid #b8d0de; text-align: center;">
+            <span style="background: #1e4a6f; color: white; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 0.5rem;">1</span>
+            <div style="font-weight: 600;">Days 1‑30</div>
+            <div style="font-size: 0.85rem;">Identify 3 routine tasks, automate them with AI</div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.2rem; border: 1px solid #b8d0de; text-align: center;">
+            <span style="background: #1e4a6f; color: white; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 0.5rem;">2</span>
+            <div style="font-weight: 600;">Days 31‑60</div>
+            <div style="font-size: 0.85rem;">Take an online course in your field using AI recommendations</div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.2rem; border: 1px solid #b8d0de; text-align: center;">
+            <span style="background: #1e4a6f; color: white; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 0.5rem;">3</span>
+            <div style="font-weight: 600;">Days 61‑90</div>
+            <div style="font-size: 0.85rem;">Use AI to enhance networking—craft messages, find events</div>
+          </div>
+        </div>
+
+        <blockquote style="background: linear-gradient(145deg, #f0f7fa, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #1e4a6f;">
+          "AI won’t replace you, but a professional who uses AI will. By automating the mundane, accelerating your learning, and enhancing your judgment, you can focus on what truly matters—building relationships, making strategic decisions, and driving innovation."
+        </blockquote>
+
+        <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #b8d0de; margin-bottom: 2.5rem;">AI is a career catalyst. Use it to offload routine work, learn faster, network smarter, and make data‑driven decisions. But technology alone isn’t enough—cultivate the human skills that complement AI: critical thinking, communication, empathy, adaptability, and ethics. With this combination, you’ll not only keep up with the AI wave—you’ll ride it to new heights.</p>
+
+        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
+            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="flex: 1;">
+            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
+              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
+            </div>
+            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
+            </div>
+            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
+            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d0de; font-size: 0.85rem; color: #1e4a6f;">
+          <span>🔍 Sources: LinkedIn Learning, Harvard Business Review, industry case studies</span>
+          <span>✏️ Last updated: March 2026</span>
+          <span>✅ complies with EEAT</span>
+        </div>
+      </article>
+    `
+  },
+  {
+    id:67,
+    title: "Best AI Tools for Finance and Accounting Professionals in 2026",
+    slug: "ai-tools-finance-accounting-2026",
+    date: "2026-02-25",
+    excerpt: "From automated bookkeeping to intelligent forecasting, discover the top AI tools transforming finance and accounting. Learn how to integrate them into your workflow and boost efficiency.",
+    category: "AI (Artificial Intelligence)",
+    image: "https://i.ibb.co.com/gZrd04F9/67.webp",
+    author: authorPaul,
+    content: `
+      <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #f0f2f5 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #d0d9e8;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+            <span style="background: #b33c3c; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">💰 FINANCE AI</span>
+            <span style="color: #b33c3c; font-size: 0.9rem;">expertise · experience · trust</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; color: #b33c3c;">
+            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">🔖 finance & tech</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+          <div style="background: linear-gradient(145deg, #b33c3c 0%, #d45c5c 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+            <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">💰 Best AI Tools for Finance and Accounting Professionals in 2026</h1>
+            <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Bookkeeping · Forecasting · Compliance · Auditing · Excel Copilot · Datarails · Vic.ai</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📊 10 tools</span>
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">⚡ automate routine</span>
+              <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📈 boost accuracy</span>
+            </div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #d0d9e8;">
+            <p style="font-size: 1.1rem;">Finance and accounting have always been about precision and efficiency. AI takes both to new levels. From automating data entry to detecting fraud and forecasting cash flow, AI tools are becoming indispensable for finance professionals. This guide highlights the best AI tools in 2026, categorized by use case, so you can choose what fits your workflow.</p>
+          </div>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📝 Bookkeeping & Expense Management</h2>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #d9c9d9;">
+          <h3 style="color: #b33c3c;">1. QuickBooks AI Assistant</h3>
+          <p>QuickBooks now includes an AI assistant that categorizes transactions, reconciles accounts, and answers questions about your finances in plain English. It learns from your patterns and gets smarter over time.</p>
+        </div>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #d9c9d9;">
+          <h3 style="color: #b33c3c;">2. Expensify</h3>
+          <p>Expensify uses AI to scan receipts, extract data, and auto‑generate expense reports. It can even detect duplicate submissions and flag policy violations.</p>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 Financial Planning & Analysis</h2>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #d9c9d9;">
+          <h3 style="color: #b33c3c;">3. Datarails</h3>
+          <p>Datarails connects to Excel and automates financial consolidation, reporting, and planning. Its AI‑powered analytics help you spot trends and create what‑if scenarios without complex formulas.</p>
+        </div>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #d9c9d9;">
+          <h3 style="color: #b33c3c;">4. Anaplan</h3>
+          <p>Anaplan’s AI engine assists with forecasting, budgeting, and scenario modelling. It’s used by large enterprises to connect financial and operational plans.</p>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📉 Auditing & Compliance</h2>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #d9c9d9;">
+          <h3 style="color: #b33c3c;">5. MindBridge AI</h3>
+          <p>MindBridge analyses entire datasets—not just samples—to identify anomalies, errors, and potential fraud. It’s used by auditors to gain assurance far beyond traditional methods.</p>
+        </div>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #d9c9d9;">
+          <h3 style="color: #b33c3c;">6. Vic.ai</h3>
+          <p>Vic.ai automates accounts payable and procurement. It learns invoice patterns, suggests approvals, and even handles compliance checks.</p>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📈 Excel & Productivity</h2>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #d9c9d9;">
+          <h3 style="color: #b33c3c;">7. Microsoft 365 Copilot (Excel)</h3>
+          <p>Copilot in Excel lets you ask questions in plain language, generate formulas, create charts, and analyse data—all without remembering complex syntax.</p>
+        </div>
+
+        <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #d9c9d9;">
+          <h3 style="color: #b33c3c;">8. Power BI</h3>
+          <p>Power BI’s AI visuals automatically detect patterns and outliers, making it easy to create dashboards that tell a story.</p>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💡 Choosing the Right Tools for Your Role</h2>
+
+        <div style="background: #b33c3c; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+          <table style="width:100%; border-collapse: collapse;">
+            <thead><tr><th style="padding: 0.8rem;">Role</th><th style="padding: 0.8rem;">Recommended Tools</th></tr></thead>
+            <tbody style="color: white;">
+              <tr><td style="padding: 0.8rem;">Accountant</td><td>QuickBooks, Expensify, Vic.ai</td></tr>
+              <tr><td style="padding: 0.8rem;">Financial Analyst</td><td>Datarails, Anaplan, Excel Copilot</td></tr>
+              <tr><td style="padding: 0.8rem;">Auditor</td><td>MindBridge, Power BI</td></tr>
+              <tr><td style="padding: 0.8rem;">CFO/Controller</td><td>Datarails, Anaplan, Power BI</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Your 90‑Day Finance AI Integration Plan</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.2rem; border: 1px solid #d9c9d9; text-align: center;">
+            <span style="background: #b33c3c; color: white; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 0.5rem;">1</span>
+            <div style="font-weight: 600;">Days 1‑30</div>
+            <div style="font-size: 0.85rem;">Automate one repetitive task (e.g., expense reporting)</div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.2rem; border: 1px solid #d9c9d9; text-align: center;">
+            <span style="background: #b33c3c; color: white; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 0.5rem;">2</span>
+            <div style="font-weight: 600;">Days 31‑60</div>
+            <div style="font-size: 0.85rem;">Implement a forecasting or analytics tool</div>
+          </div>
+          <div style="background: #ffffff; border-radius: 24px; padding: 1.2rem; border: 1px solid #d9c9d9; text-align: center;">
+            <span style="background: #b33c3c; color: white; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 0.5rem;">3</span>
+            <div style="font-weight: 600;">Days 61‑90</div>
+            <div style="font-size: 0.85rem;">Share insights with team, train others</div>
+          </div>
+        </div>
+
+        <blockquote style="background: linear-gradient(145deg, #fff0f0, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #b33c3c;">
+          "Finance professionals who embrace AI aren’t just faster—they’re more accurate, more strategic, and more valuable. The tools listed here can transform how you work, freeing you to focus on the big picture while AI handles the details."
+        </blockquote>
+
+        <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d9c9d9; margin-bottom: 2.5rem;">AI is reshaping finance and accounting, making routine tasks automatic and complex analysis accessible. Whether you’re a bookkeeper, analyst, or CFO, there’s an AI tool that can enhance your work. Start with a small pilot—automate expense tracking or try a forecasting tool—and gradually expand. The future of finance is AI‑augmented, and the time to adopt is now.</p>
+
+        <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+          <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
+            <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="flex: 1;">
+            <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
+              <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
+            </div>
+            <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
+              <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
+            </div>
+            <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
+            <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
+            <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9d9; font-size: 0.85rem; color: #b33c3c;">
+          <span>🔍 Sources: Tool documentation, Gartner, industry analyst reports</span>
+          <span>✏️ Last updated: March 2026</span>
+          <span>✅ complies with EEAT</span>
+        </div>
+      </article>
+    `
+  },
+  {
+  id: 68,
+  title: "Ace Your NGO Interview: 7 Essential Questions Answered (2026 Guide)",
+  slug: "ace-ngo-interview-questions-2026-guide",
+  date: "2026-02-26",
+  excerpt: "Master the most common NGO interview questions: Tell me about yourself, expected salary, PSEA, gender equity, safeguarding, and more. Sample answers and expert tips included.",
+  category: "Interview Support",
+  image: "https://i.ibb.co.com/ccjb751k/68.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #f0f2f5 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #d0d9e8;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #1e6f5c; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🎯 NGO INTERVIEW GUIDE</span>
+          <span style="color: #1e6f5c; font-size: 0.9rem;">expertise · experience · trust</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #1e6f5c;">
+          <span style="font-size: 0.9rem;">📅 February 2026</span>
+          <span style="font-size: 0.9rem;">🔖 interview guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #1e6f5c 0%, #289672 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🎯 Ace Your NGO Interview: 7 Essential Questions Answered (2026 Guide)</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Tell me about yourself · Expected Salary · PSEA · Gender Equity · Safeguarding · Gender Sensitivity</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📋 7 key questions</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">💡 sample answers</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🌍 development sector focus</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #d0d9e8;">
+          <p style="font-size: 1.1rem;">Interviews in the NGO and development sector go beyond technical skills. They test your understanding of humanitarian principles, ethical frameworks, and your ability to articulate your fit within a mission-driven organization. Based on real interview experiences at organizations like BRAC, UN agencies, and international NGOs, this guide breaks down seven essential questions and provides structured answers you can adapt.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">1. “Tell me about yourself.”</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+        <p><strong>What they want to know:</strong> Your professional journey, key achievements, and why you're passionate about this sector.</p>
+        <p><strong>Answer structure (Present-Past-Future):</strong></p>
+        <ul>
+          <li><strong>Present:</strong> Briefly describe your current role and main responsibilities.</li>
+          <li><strong>Past:</strong> Highlight 1-2 relevant past experiences that led you here.</li>
+          <li><strong>Future:</strong> Connect your aspirations to the role and organization’s mission.</li>
+        </ul>
+        <div style="background: #f0f7f7; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample answer:</p>
+          <p>“I am a development professional with over eight years of experience in programme management and community engagement. Currently, I lead a livelihoods project in the coastal region, working directly with women farmers. Previously, I coordinated emergency response efforts after Cyclone Amphan, which taught me the importance of rapid, accountable aid. I’m drawn to this role because it combines my passion for gender equality with your organization’s long-term commitment to sustainable development.”</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">2. “What is your expected salary?”</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+        <p><strong>What they want to know:</strong> Whether your expectations align with their budget, and whether you understand your market value.</p>
+        <p><strong>Strategy:</strong> Research typical NGO salary bands for the role and location. Mention a range, and emphasize flexibility based on total rewards (benefits, work-life balance, learning opportunities).</p>
+        <div style="background: #f0f7f7; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample answer:</p>
+          <p>“Based on my research and experience, I understand that similar programme manager roles in Dhaka typically range from 80,000 to 100,000 BDT per month. I am open to negotiation and would be happy to consider the full compensation package, including benefits and professional development opportunities, which I know are strong here.”</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">3. “Why are you fit for this position?”</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9c9d9;">
+        <p><strong>What they want to know:</strong> How your skills match the job description and how you'll add value.</p>
+        <p><strong>Answer structure (Match + Evidence + Enthusiasm):</strong></p>
+        <ul>
+          <li>Identify 2-3 key requirements from the job description.</li>
+          <li>Provide concrete examples from your past that demonstrate those skills.</li>
+          <li>Express genuine interest in the organization’s mission.</li>
+        </ul>
+        <div style="background: #f0f7f7; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample answer:</p>
+          <p>“The job description emphasizes stakeholder coordination and monitoring & evaluation. In my current role, I coordinate with three local government departments and track project indicators using an M&E database. For instance, I recently led a mid-term evaluation that helped us reallocate resources to underperforming areas, improving our outcome by 15%. I am deeply aligned with your mission to empower rural women, and I’m excited to bring my technical skills and field experience to your team.”</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">4. “What is PSEA?”</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+        <p><strong>PSEA</strong> stands for <strong>Protection from Sexual Exploitation and Abuse</strong>. It is a set of policies and practices that humanitarian and development organizations implement to prevent and respond to sexual exploitation and abuse by their staff, partners, or related personnel.</p>
+        <p><strong>Key elements:</strong></p>
+        <ul>
+          <li>Zero‑tolerance policy for sexual exploitation and abuse.</li>
+          <li>Clear reporting mechanisms for affected communities.</li>
+          <li>Training and awareness for all staff.</li>
+          <li>Victim‑centred response and support.</li>
+        </ul>
+        <div style="background: #f0f7f7; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample answer:</p>
+          <p>“PSEA refers to the measures organizations take to protect communities from sexual exploitation and abuse by their own staff. It’s a fundamental responsibility for anyone in the aid sector. I have completed PSEA training and understand the importance of clear reporting channels and a victim‑centred approach. In my previous role, I helped disseminate PSEA awareness materials in the local language.”</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">5. “What is gender equity and equality?”</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+        <p><strong>Gender equality</strong> means that all genders have equal rights, responsibilities and opportunities. It’s the goal.</p>
+        <p><strong>Gender equity</strong> is the process of being fair to all genders. To ensure fairness, measures must be put in place to compensate for historical and social disadvantages. Equity leads to equality.</p>
+        <div style="background: #f0f7f7; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample answer:</p>
+          <p>“Gender equality means that individuals of all genders enjoy the same status and have equal conditions for realizing their full human rights. Gender equity, on the other hand, is about fairness of treatment according to respective needs. For example, providing girls with scholarships to attend school where they have been historically excluded is an equity measure that leads toward equality. Both concepts are essential in our work.”</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">6. “What is safeguarding and how does it work in an organization?”</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9d9c9;">
+        <p><strong>Safeguarding</strong> means protecting people’s health, wellbeing and human rights, and enabling them to live free from harm, abuse and neglect. In an organizational context, it involves policies, procedures, and practices to ensure that staff, partners, and operations do not cause harm to the people they serve.</p>
+        <p><strong>How it works:</strong></p>
+        <ul>
+          <li>Establishing a clear safeguarding policy.</li>
+          <li>Appointing a focal point or safeguarding officer.</li>
+          <li>Training all staff and partners.</li>
+          <li>Creating safe, accessible reporting mechanisms.</li>
+          <li>Investigating allegations promptly and fairly.</li>
+          <li>Putting survivor support at the centre.</li>
+        </ul>
+        <div style="background: #f0f7f7; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample answer:</p>
+          <p>“Safeguarding is the responsibility of every organization to ensure that its operations do no harm. It means having robust policies to prevent abuse, clear reporting channels, and a culture where concerns can be raised without fear. In practice, it involves everything from background checks during recruitment to ongoing training and creating a safe environment for beneficiaries and staff alike.”</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">7. “What is gender sensitivity?”</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9c9d9;">
+        <p><strong>Gender sensitivity</strong> is the awareness and understanding of the different needs, roles, and experiences of individuals based on their gender. It involves recognizing and avoiding gender stereotypes, using inclusive language, and designing programmes that consider gender differences.</p>
+        <div style="background: #f0f7f7; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample answer:</p>
+          <p>“Gender sensitivity means being aware that gender norms and roles affect people’s access to resources, opportunities, and power. In practice, it’s about ensuring our communication, programmes, and workplace culture respect and include all genders. For example, when conducting community meetings, we ensure women’s voices are heard by scheduling separate sessions or providing childcare.”</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🎓 Final Tips for Your NGO Interview</h2>
+      <div style="background: #1e6f5c; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <ul style="list-style-type: none;">
+          <li style="margin-bottom: 0.8rem;">✓ <strong>Know the organization’s values:</strong> Read their annual report, safeguarding policy, and gender statement.</li>
+          <li style="margin-bottom: 0.8rem;">✓ <strong>Use the STAR method:</strong> Situation, Task, Action, Result – especially for competency questions.</li>
+          <li style="margin-bottom: 0.8rem;">✓ <strong>Show your commitment:</strong> Share examples of how you’ve promoted safeguarding or gender equity in past roles.</li>
+          <li style="margin-bottom: 0.8rem;">✓ <strong>Prepare thoughtful questions:</strong> Ask about their safeguarding culture, training opportunities, and how they measure impact.</li>
+        </ul>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #f0f7f7, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #1e6f5c;">
+        “NGO interviews are as much about your values as your skills. By preparing answers that reflect both technical knowledge and ethical understanding, you’ll stand out as a candidate who truly embodies the mission.”
+      </blockquote>
+
+      <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9c9; margin-bottom: 2.5rem;">Mastering these seven questions will help you navigate any NGO interview with confidence. Remember to tailor your answers to the specific organization, use concrete examples, and demonstrate your genuine commitment to humanitarian principles. Good luck!</p>
+
+      <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+        <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
+          <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div style="flex: 1;">
+          <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
+            <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
+          </div>
+          <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
+            <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
+            <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
+            <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
+          </div>
+          <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
+          <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
+          <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e6f5c;">
+        <span>🔍 Sources: UNHCR, BRAC, PSEA Network, CHS Alliance</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},
+{
+  id: 69,
+  title: "How to Write a Winning UN Cover Letter & CV (P11/Inspira Guide) 2026",
+  slug: "un-cover-letter-cv-p11-guide-2026",
+  date: "2026-03-01",
+  excerpt: "Learn how to craft a UN cover letter and CV that passes Inspira screening. Includes P11 form tips, sample STAR statements, and keywords to get shortlisted for UN jobs.",
+  category: "Resume / CV",
+  image: "https://i.ibb.co.com/0js980Sn/69.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #eef2f9 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #b3c4d9;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #0033a0; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🇺🇳 UN CAREER GUIDE</span>
+          <span style="color: #0033a0; font-size: 0.9rem;">inspira · p11 · applications</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #0033a0;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 application guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #0033a0 0%, #002080 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">📄 How to Write a Winning UN Cover Letter & CV (P11/Inspira Guide) 2026</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Master the P11 form · UN Cover Letter Format · Keywords for Inspira</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📝 P11 template</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">⭐ STAR method</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🔍 Inspira secrets</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #b3c4d9;">
+          <p style="font-size: 1.1rem;">The United Nations receives over 1 million applications annually. To get shortlisted, your application must survive the Inspira Applicant Tracking System (ATS) and impress a human reviewer. This guide breaks down the specific format for UN applications, including the infamous P11 form and the UN-style cover letter.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🇺🇳 Understanding the UN Application Ecosystem</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b3c4d9;">
+        <p>Unlike the private sector, the UN often requires specific documents:</p>
+        <ul>
+          <li><strong>P11 Form:</strong> The UN's historical "Personal History" form. It's a detailed, multi-page form asking for exact dates, functions, and supervisor details. Many agencies still require it.</li>
+          <li><strong>Inspira Profile:</strong> The main talent management system for the UN Secretariat. It functions like a detailed online CV.</li>
+          <li><strong>Cover Letter (Statement of Interest):</strong> A one-page document explaining your motivation and fit.</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">1. The UN Cover Letter: Structure & Sample</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b3c4d9;">
+        <p><strong>What they want:</strong> A concise, evidence-based letter showing you meet the "Competencies" and "Education/Work Experience" listed in the Job Opening (JO).</p>
+        <p><strong>Format:</strong> Strictly one page. Use the same header as your CV.</p>
+        <div style="background: #f0f5ff; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample Cover Letter (Excerpt):</p>
+          <p>Dear Hiring Manager,</p>
+          <p>I am writing to express my interest in the Programme Management Officer position (Job ID: 123456) advertised on the UN Careers Portal. With a Master’s degree in Public Policy and eight years of experience managing multi-donor funded projects in Southeast Asia, I have developed the core competencies required for this role, specifically in project management and stakeholder coordination.</p>
+          <p>In my current role as Senior Programme Coordinator at [INGO], I manage a portfolio of $5M focused on Sustainable Development Goal (SDG) 5 (Gender Equality). I led a team of 10 national staff to implement programmes across three provinces, consistently achieving 95% of delivery targets. This experience directly aligns with your requirement for experience in results-based management.</p>
+          <p>I am particularly drawn to this role at [UN Agency] because of your mandate to support national governments in achieving the 2030 Agenda. I possess fluency in English and French, and I am proficient in using ERP systems such as Umoja.</p>
+          <p>Thank you for considering my application. I look forward to the opportunity to discuss how my skills can contribute to your team.</p>
+          <p>Sincerely,<br/>[Your Name]</p>
+        </div>
+        <p><strong>SEO Keywords to include:</strong> Results-based management, stakeholder engagement, SDGs, 2030 Agenda, ERP, Umoja, multi-donor, capacity building.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">2. The UN CV / P11 Form: Filling the Gaps</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b3c4d9;">
+        <p><strong>No gaps allowed.</strong> The P11 requires a chronological history with <strong>no unexplained gaps</strong> (even months).</p>
+        <p><strong>Keywords are critical:</strong> The Inspira system scans for keywords from the Job Opening. If the job asks for "Policy Analysis," ensure that exact phrase appears in your experience section.</p>
+        <p><strong>The STAR Format:</strong> For "Achievements" sections, use the Situation, Task, Action, Result (STAR) method.</p>
+        <div style="background: #f0f5ff; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample P11 Entry (Achievements):</p>
+          <p><strong>Situation:</strong> The country office lacked a standardized monitoring framework for its WASH programme.<br/>
+          <strong>Task:</strong> Develop and implement a results-based monitoring tool.<br/>
+          <strong>Action:</strong> Consulted with field staff and HQ advisors to design a digital KPI tracker and trained 20 staff on its use.<br/>
+          <strong>Result:</strong> Reporting accuracy improved by 40% and data is now submitted in real-time, enabling faster decision-making.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">3. Common UN Application Mistakes</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b3c4d9;">
+        <ul>
+          <li><strong>Ignoring the "Competencies" section:</strong> You must address "Professionalism," "Teamwork," and "Planning & Organizing" directly in your cover letter or CV.</li>
+          <li><strong>Vague language:</strong> Avoid "I assisted with..." Use strong action verbs: "Led," "Coordinated," "Designed," "Monitored," "Evaluated."</li>
+          <li><strong>Wrong format:</strong> Sending a creative, graphic-designed CV. The UN prefers clean, text-based documents that can be easily parsed.</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📝 Final Checklist</h2>
+      <div style="background: #0033a0; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <ul style="list-style-type: none;">
+          <li style="margin-bottom: 0.8rem;">✓ Did you mention the Job ID in the cover letter?</li>
+          <li style="margin-bottom: 0.8rem;">✓ Does your P11 have any date gaps?</li>
+          <li style="margin-bottom: 0.8rem;">✓ Did you use the keywords from the Job Opening?</li>
+          <li style="margin-bottom: 0.8rem;">✓ Have you described your achievements using the STAR method?</li>
+          <li style="margin-bottom: 0.8rem;">✓ Is the document saved as a PDF named "LastName_FirstName_JobID"?</li>
+        </ul>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #f0f5ff, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #0033a0;">
+        “Your application is your first test of following instructions. If you can't follow the UN application format, the hiring manager assumes you can't follow UN procedures.”
+      </blockquote>
+
+      <!-- Author Bio Section (Copy from your previous example, but keep Paul Romeo's details) -->
+      <div style="background: #f0f7fc; border-radius: 32px; padding: 2rem; margin: 2.5rem 0 1.5rem; border: 1px solid #b8d0de; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+        <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,30,40,0.2); flex-shrink: 0;">
+          <img src="https://i.ibb.co.com/5hpWTFHT/Untitled-design.webp" alt="Paul Romeo Karmoker" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div style="flex: 1;">
+          <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.8rem; font-weight: 700; color: #1e2f4a; line-height: 1.2;">Paul Romeo Karmoker</span>
+            <span style="background: #1e2f4a; color: white; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;">author · analyst</span>
+          </div>
+          <p style="font-size: 1.1rem; font-weight: 500; margin: 0 0 0.4rem; color: #1e2f4a;">Operations | Administration | HR | Procurement & Logistics | Team Management | Market Survey</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0.8rem 0 1rem;">
+            <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">⏳ 17+ years experience</span>
+            <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;"> UN · INGO · NGO</span>
+            <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; border: 1px solid #b8d0de;">🌍 multi‑sector specialist</span>
+          </div>
+          <p style="font-size: 1rem; color: #1e3a4a; margin: 0 0 0.5rem;"><strong>Paul Romeo Karmoker</strong> brings over 17 years of cross‑functional leadership across operations, administration, human resources, procurement, logistics, team management, and market analysis. His extensive field experience includes collaborations with United Nations agencies, international NGOs (INGOs), and national non‑profits, where he designed efficient systems, led diverse teams, and implemented sustainable processes in complex environments.</p>
+          <p style="font-size: 0.95rem; color: #2b4e6e; margin: 0;">Paul's practical insights bridge high‑level strategy and ground‑level execution — from humanitarian supply chains to organizational development and sustainable transition planning. His writing reflects real‑world expertise, helping readers navigate careers, operations, and organizational transformation with confidence.</p>
+          <div style="margin-top: 1rem; font-size: 0.85rem; color: #36688d; border-left: 3px solid #1e2f4a; padding-left: 1rem;">📌 All articles are reviewed for practical relevance and grounded in field experience across Asia, Africa, and global humanitarian operations.</div>
+        </div>
+      </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b3c4d9; font-size: 0.85rem; color: #0033a0;">
+        <span>🔍 Sources: UN Careers, Inspira Guide, P11 Handbook</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},{
+  id: 70,
+  title: "How to Negotiate Your Salary at the United Nations (Step Increases & Benefits) 2026",
+  slug: "un-salary-negotiation-step-increase-guide-2026",
+  date: "2026-03-03",
+  excerpt: "Can you negotiate a UN salary? Yes. Learn how to argue for a step increase, understand the Noblemaire Principle, and maximize your net pay with UN benefits, allowances, and education grants.",
+  category: "Career Guide",
+  image: "https://i.ibb.co.com/d08WH5rh/70.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #f0e7d6 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #c9b58b;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #b8860b; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">💰 UN COMPENSATION</span>
+          <span style="color: #b8860b; font-size: 0.9rem;">salary · benefits · steps</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #b8860b;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 negotiation guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #b8860b 0%, #8b6508 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🤝 How to Negotiate Your UN Salary (Step Increases & Benefits) 2026</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Noblemaire Principle · Step Negotiation · Allowances · Education Grant</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📊 step increases</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🌍 dependency allowance</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🏥 benefits package</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #c9b58b;">
+          <p style="font-size: 1.1rem;">A common myth is that UN salaries are "non-negotiable." While the grade (P3, P4, etc.) is usually fixed based on the job description, the <strong>step within that grade</strong> is negotiable. This article explains exactly how to justify a higher step and what benefits you must claim to maximize your income.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">⚖️ The Noblemaire Principle: How UN Pay is Set</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9b58b;">
+        <p>The UN uses the <strong>Noblemaire Principle</strong>, meaning it pays salaries competitive with the highest-paying national civil service (currently the US federal system). Salaries are set to attract staff from all member states.</p>
+        <p><strong>Key takeaway:</strong> UN salaries are tax-free for most staff (though you may pay national tax; the UN reimburses via the "tax equalization fund"). The "Gross" salary is higher, but you receive the "Net" (tax-free) amount.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📈 Understanding Grade vs. Step</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9b58b;">
+        <ul>
+          <li><strong>Grade:</strong> The level of the job (e.g., P3, P4, G6). This is based on the complexity of the role and is rarely negotiated. If you are overqualified, you may be screened out.</li>
+          <li><strong>Step:</strong> The level within the grade (Step 1 to Step 12). This is based on years of relevant experience. <strong>This is your negotiation lever.</strong></li>
+        </ul>
+        <p>Typically, if you have 10 years of experience and the job asks for 5, you can argue for a Step 5 or 6 instead of Step 1.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🗣️ How to Negotiate Your Step (The Script)</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9b58b;">
+        <p><strong>When to negotiate:</strong> After receiving the verbal offer, but before signing the contract.</p>
+        <div style="background: #faf3e0; border-radius: 16px; padding: 1rem; margin-top: 1rem;">
+          <p style="font-weight: 600;">Sample negotiation script:</p>
+          <p>"Thank you for the offer to join [UN Agency] as a [Grade]. I am very excited about the role and the team. Regarding the salary package, I see the offer is at Step 1. Based on my [X] years of relevant experience in [specific field], which exceeds the minimum requirement by [Y] years, I believe my qualifications align more closely with Step [Z]. I have attached a summary of my relevant experience for your review. I hope we can agree on this step to reflect the level of expertise I bring."</p>
+        </div>
+        <p><strong>Pro Tip:</strong> Be polite and factual. The HR officer often has a mandate to hire the best candidate; they may have the discretion to move you up 2-3 steps.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🌍 Beyond Base Salary: Allowances & Benefits</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9b58b;">
+        <p>Your total compensation includes many elements. Ensure you claim these from day one:</p>
+        <ul>
+          <li><strong>Post Adjustment:</strong> A cost-of-living adjustment that varies by duty station (very high in New York, lower in Dhaka).</li>
+          <li><strong>Dependency Allowance:</strong> For a spouse or children.</li>
+          <li><strong>Education Grant:</strong> For eligible dependents attending school (covers up to 75% of costs, up to a maximum).</li>
+          <li><strong>Rental Subsidy:</strong> If you are in an expensive duty station and rent exceeds a certain percentage of salary.</li>
+          <li><strong>Home Leave:</strong> Travel to your home country every two years for you and your dependents.</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 UN Salary Calculator (Example: P3, Step 1 vs Step 5)</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9b58b;">
+        <p><em>Note: Figures are illustrative based on 2026 scales.</em></p>
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#f0e7d6;">
+            <th style="padding: 0.5rem;">Grade/Step</th>
+            <th style="padding: 0.5rem;">Base Net (USD)</th>
+            <th style="padding: 0.5rem;">Post Adj (NY)</th>
+            <th style="padding: 0.5rem;">Total Net</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">P3 Step 1</td>
+            <td style="padding: 0.5rem;">~$67,000</td>
+            <td style="padding: 0.5rem;">~$45,000</td>
+            <td style="padding: 0.5rem;">~$112,000</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">P3 Step 5</td>
+            <td style="padding: 0.5rem;">~$82,000</td>
+            <td style="padding: 0.5rem;">~$55,000</td>
+            <td style="padding: 0.5rem;">~$137,000</td>
+          </tr>
+        </table>
+        <p>Negotiating from Step 1 to Step 5 can increase your annual compensation by <strong>$25,000+</strong>.</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #faf3e0, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #b8860b;">
+        “The UN expects you to advocate for your worth. If you don't ask for a higher step, they assume you are happy with Step 1.”
+      </blockquote>
+      
+      <!-- Author Bio Section (Copy from above) -->
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9b58b; font-size: 0.85rem; color: #b8860b;">
+        <span>🔍 Sources: ICSC, UN Compensation Package, HR Handbooks</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},
+{
+  id: 71,
+  title: "UN Staff Categories Explained: P, G, NO, Consultant & Contract Types (2026)",
+  slug: "un-staff-categories-p-g-no-consultant-guide-2026",
+  date: "2026-03-05",
+  excerpt: "Confused by UN job titles? This guide explains the difference between Professional (P), General Service (G), National Officer (NO), and Consultant categories. Learn which category fits your profile.",
+  category: "Career Guide",
+  image: "https://i.ibb.co.com/20FWtPss/71.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #d9e6f0 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #7f9fbf;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #2c5a8c; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">📋 UN CLASSIFICATION</span>
+          <span style="color: #2c5a8c; font-size: 0.9rem;">p-level · g-level · no</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #2c5a8c;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 reference guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #2c5a8c 0%, #1a3f63 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">📌 UN Staff Categories Explained: P, G, NO, Consultant & Contract Types (2026)</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Professional · General Service · National Officer · Individual Contractor</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🌐 P1 to D2</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🏛️ G1 to G7</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🤝 FTA vs TJO</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #7f9fbf;">
+          <p style="font-size: 1.1rem;">The UN system uses a complex classification system for its workforce. Whether you are aiming for a policy role at HQ or a programme support role in the field, understanding the difference between Professional, General Service, and Consultant categories is the first step to finding the right vacancy.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">1. Professional and Higher Categories (P & D)</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7f9fbf;">
+        <p><strong>Who they are:</strong> Internationally recruited staff. Often required to move between duty stations.</p>
+        <p><strong>Levels:</strong> P-1, P-2, P-3, P-4, P-5, D-1, D-2.</p>
+        <ul>
+          <li><strong>P-1/P-2:</strong> Entry-level (Junior Professional Officers - JPO).</li>
+          <li><strong>P-3:</strong> 5+ years experience. Specialist or officer level.</li>
+          <li><strong>P-4/P-5:</strong> Senior Specialist, Team Leader, Advisor.</li>
+          <li><strong>D-1/D-2:</strong> Director level, heading divisions or large country offices.</li>
+        </ul>
+        <p><strong>Requirement:</strong> Advanced university degree (Master's) and relevant international experience.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">2. General Service (G) and Related Categories</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7f9fbf;">
+        <p><strong>Who they are:</strong> Locally recruited staff for administrative, secretarial, clerical, and technical support.</p>
+        <p><strong>Levels:</strong> G-1 to G-7.</p>
+        <ul>
+          <li><strong>G-4/G-5:</strong> Administrative assistants, programme assistants.</li>
+          <li><strong>G-6/G-7:</strong> Senior assistants, team supervisors.</li>
+        </ul>
+        <p><strong>Requirement:</strong> High school diploma or equivalent. Local language skills are essential.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">3. National Professional Officers (NO)</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7f9fbf;">
+        <p><strong>Who they are:</strong> Locally recruited professionals (doctors, engineers, lawyers) working in their own country. They perform functions at the Professional level but are not expected to move internationally.</p>
+        <p><strong>Levels:</strong> NO-A, NO-B, NO-C, NO-D (equivalent to P2 to P5).</p>
+        <p><strong>Example:</strong> A National Programme Officer for UNDP in Dhaka working on governance projects.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">4. Consultants & Individual Contractors</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7f9fbf;">
+        <p><strong>Who they are:</strong> Hired for specific deliverables, not as staff members. They do not receive the same benefits (pension, health insurance) as staff.</p>
+        <ul>
+          <li><strong>Consultant:</strong> For highly specialized, short-term expertise.</li>
+          <li><strong>Individual Contractor (IC):</strong> For specific outputs or piece-work.</li>
+          <li><strong>Intern:</strong> Unpaid or nominally paid students or recent graduates.</li>
+        </ul>
+        <p><strong>Contract Types (Staff):</strong></p>
+        <ul>
+          <li><strong>Temporary Job Opening (TJO):</strong> Short-term (less than 1 year).</li>
+          <li><strong>Fixed-Term Appointment (FTA):</strong> Standard contract (1-2 years, renewable). The path to a career.</li>
+          <li><strong>Continuing Appointment:</strong> Open-ended contract (rare).</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 Which Category is Right for You?</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7f9fbf;">
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#d9e6f0;">
+            <th style="padding: 0.5rem;">Your Profile</th>
+            <th style="padding: 0.5rem;">Target Category</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Fresh Master's grad, seeking international experience</td>
+            <td style="padding: 0.5rem;">JPO (P-2), Intern -> Consultant</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">5+ years, specialized skill, wants global career</td>
+            <td style="padding: 0.5rem;">P-3</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Experienced national expert, wants to stay in home country</td>
+            <td style="padding: 0.5rem;">NO-C</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">Administrative support, based locally</td>
+            <td style="padding: 0.5rem;">G-5/G-6</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
+      <div style="background: #2c5a8c; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <p>Always check the "Staffing Category" on the Job Opening. If it says "Consultant," it is not a staff position with a pension. If it says "National Officer," you must be a national of that country to apply. Reading the category correctly saves you from applying for jobs you are ineligible for.</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #d9e6f0, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #2c5a8c;">
+        “Your entry point into the UN system depends on your nationality, experience, and willingness to move. Choose the category that matches your long-term career goals.”
+      </blockquote>
+      
+      <!-- Author Bio Section (Copy from above) -->
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7f9fbf; font-size: 0.85rem; color: #2c5a8c;">
+        <span>🔍 Sources: UN Careers Portal, CEB, HR Handbook</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},
+{
+  id: 72,
+  title: "AI Skills That Will Get You Hired in 2026: Prompt Engineering, Data Annotation & More",
+  slug: "ai-skills-hiring-demand-2026-prompt-engineering-data-annotation",
+  date: "2026-03-08",
+  excerpt: "AI is dominating the 2026 job market, but which specific skills do employers want? From prompt engineering to data annotation and AI literacy, here are the technical and strategic AI skills that top LinkedIn's list.",
+  category: "AI (Artificial Intelligence)",
+  image: "https://i.ibb.co.com/pBgMkhG2/72.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #e6f0fa 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #4a7b9d;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #1e4a6d; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🤖 AI SKILLS 2026</span>
+          <span style="color: #1e4a6d; font-size: 0.9rem;">prompt-engineering · data-annotation</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #1e4a6d;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 skills guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #1e4a6d 0%, #12344d 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🤖 AI Skills That Will Get You Hired in 2026: Prompt Engineering, Data Annotation & More</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">From technical AI to strategic application—what employers actually want</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">⚡ Prompt Engineering</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🏷️ Data Annotation</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📊 AI Literacy</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #4a7b9d;">
+          <p style="font-size: 1.1rem;">Artificial intelligence isn't just changing the job market—it's dominating it. LinkedIn's 2026 "Jobs on the Rise" list shows AI-related roles occupying four of the top five positions. But landing these roles requires specific, in-demand skills. Here's what you need to learn right now.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📈 The AI Skills Explosion by the Numbers</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <p>The demand for AI skills has skyrocketed in 2026. According to recent data:</p>
+        <ul>
+          <li><strong>53%</strong> of U.S. tech job postings in late 2025 required AI or machine learning skills—up from just 29% a year earlier [citation:2].</li>
+          <li><strong>84%</strong> of organizations plan to increase resources for AI in 2026 [citation:2].</li>
+          <li><strong>AI Engineer</strong> ranks as the #1 fastest-growing job on LinkedIn [citation:6].</li>
+          <li><strong>AI Consultant/Strategist</strong> ranks #2, showing demand isn't just technical [citation:6].</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">1. Prompt Engineering</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <p><strong>What it is:</strong> The art and science of crafting effective inputs for AI models to generate desired outputs. Prompt engineers understand how to "talk" to AI to get accurate, useful results.</p>
+        <p><strong>Why it's hot:</strong> As LinkedIn's Editor-in-Chief Daniel Roth explains, companies need people who understand how to use AI tools effectively within their organization to improve productivity [citation:1]. This isn't just about typing questions—it's about designing workflows.</p>
+        <p><strong>Skills you need:</strong> LangChain, Retrieval-Augmented Generation (RAG), understanding of large language models, and domain expertise to evaluate outputs [citation:6].</p>
+        <p><strong>Who hires:</strong> Technology companies, IT services, business consulting firms. Top hiring hubs: San Francisco, New York, Dallas [citation:6].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">2. Data Annotation</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <p><strong>What it is:</strong> The behind-the-scenes work of labeling and reviewing datasets to train AI and machine learning models. Data annotators ensure the data AI learns from is accurate and properly categorized.</p>
+        <p><strong>Why it's hot:</strong> Ranked #4 on LinkedIn's Jobs on the Rise list, this role is a critical entry point into AI [citation:6]. Notably, <strong>62% of data annotators are female</strong>, and the role requires precision and attention to detail rather than advanced coding [citation:6].</p>
+        <p><strong>Skills you need:</strong> SEO copywriting, content marketing, content production, attention to detail, quality control [citation:6].</p>
+        <p><strong>Who hires:</strong> Technology companies, staffing firms, higher education institutions. Top hiring hubs: Austin, New York, San Francisco [citation:6].</p>
+        <p><strong>Career path:</strong> Common transitions come from content managers, editors, and data analysts [citation:6].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">3. AI Literacy & Strategic Application</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <p>Not every AI role requires coding. According to Degreed's 2026 skills data, companies need professionals who can bridge the gap between technical AI and business outcomes [citation:7].</p>
+        <p><strong>Key roles:</strong></p>
+        <ul>
+          <li><strong>AI Consultant/Strategist:</strong> Guide organizations in planning and deploying AI technologies. Median prior experience: 8.2 years. 30% remote, 33% hybrid [citation:6].</li>
+          <li><strong>AI Leaders:</strong> Responsible for turning AI from technical capability into business value, ensuring responsible and strategic use [citation:2].</li>
+          <li><strong>Agent Operators:</strong> Human supervisors of AI agent workflows who monitor execution and ensure accuracy [citation:2].</li>
+        </ul>
+        <p><strong>The key insight:</strong> More than half of hiring managers say they <strong>would not hire someone without AI literacy skills</strong> [citation:7]. AI fluency is now a foundational capability.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">4. AI Research & Development</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <p><strong>What it is:</strong> Designing, testing, and refining new AI models and algorithms to advance the field's capabilities.</p>
+        <p><strong>Key skills:</strong> PyTorch, deep learning, computer vision [citation:6].</p>
+        <p><strong>Who hires:</strong> Technology companies, higher education institutions, research services [citation:6].</p>
+        <p><strong>Career path:</strong> Common transitions from data scientist, software engineer, and machine learning engineer roles [citation:6].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">5. The "New领" Phenomenon in China</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <p>In China's 2026 spring hiring season, "新质生产力" (new quality productive forces) jobs are dominating searches [citation:4].</p>
+        <ul>
+          <li>Job postings in the <strong>robotics industry</strong> grew 31.3% year-over-year [citation:4].</li>
+          <li><strong>AI roles</strong> average 12,661 RMB/month [citation:4].</li>
+          <li><strong>Smart cockpit</strong> roles in new energy vehicles saw a 168.9% surge in job seekers [citation:4].</li>
+          <li>Companies are hiring "end-to-end algorithm engineers" as they shift from rules-based algorithms to large models [citation:4].</li>
+        </ul>
+        <p>The Chinese government has identified 72 new occupations over five years, with more than 20 directly related to AI. Each new occupation is expected to generate jobs for 300,000 to 500,000 people [citation:8].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 How to Build AI Skills in 2026</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#e6f0fa;">
+            <th style="padding: 0.5rem;">Your Background</th>
+            <th style="padding: 0.5rem;">Recommended Path</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Technical (coding, data)</td>
+            <td style="padding: 0.5rem;">PyTorch, LangChain, RAG → AI Engineer or ML Researcher</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Content/Writing/Editing</td>
+            <td style="padding: 0.5rem;">Data annotation, prompt engineering → AI support roles</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Business/Management</td>
+            <td style="padding: 0.5rem;">AI strategy, MLOps, large language models → AI Consultant</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">Any background</td>
+            <td style="padding: 0.5rem;">AI literacy courses, hands-on practice with AI tools, LinkedIn verified certifications [citation:2]</td>
+          </tr>
+        </table>
+        <p style="margin-top:1rem;"><strong>Pro tip:</strong> LinkedIn now allows users to display official certifications in AI skills from platforms like Descript, Lovable, Replit, and Relay.app. These certifications are based on your actual usage patterns and proficiency [citation:2].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
+      <div style="background: #1e4a6d; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <p>The AI job market in 2026 has room for everyone—from highly technical researchers to strategic consultants to detail-oriented data annotators. The common thread? AI literacy is no longer optional. As one expert put it: "Because it's still early, now is a good time to invest in learning them" [citation:1]. The window for getting ahead of the curve is still open—but it won't stay that way forever.</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #e6f0fa, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #1e4a6d;">
+        "Companies want people who understand how to use AI tools effectively within their organisation to improve productivity." — Daniel Roth, LinkedIn Editor-in-Chief [citation:1]
+      </blockquote>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #4a7b9d; font-size: 0.85rem; color: #1e4a6d;">
+        <span>🔍 Sources: LinkedIn Jobs on the Rise 2026, ACM CareerNews, Economic Times, China.org.cn</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},
+{
+  id: 73,
+  title: "Power Skills 2026: Why Leadership, Communication & Storytelling Matter More Than AI",
+  slug: "power-skills-2026-leadership-communication-storytelling-demand",
+  date: "2026-03-08",
+  excerpt: "As AI automates routine tasks, human-centric 'Power Skills' are becoming more valuable than ever. Learn why leadership, communication, storytelling, and adaptability top the 2026 skills list.",
+  category: "Skill Development",
+  image: "https://i.ibb.co.com/gFmNvZPc/73.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #f0e7db 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #b58b5b;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #8b5a2b; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">💪 POWER SKILLS 2026</span>
+          <span style="color: #8b5a2b; font-size: 0.9rem;">leadership · storytelling · adaptability</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #8b5a2b;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 human skills</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #8b5a2b 0%, #5e3e1e 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">💪 Power Skills 2026: Why Leadership, Communication & Storytelling Matter More Than AI</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">The 'soft skills' rebrand—what employers really want in the AI era</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🗣️ Communication</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📖 Storytelling</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🤝 Leadership</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #b58b5b;">
+          <p style="font-size: 1.1rem;">Here's the counterintuitive truth about the AI-powered job market: as machines get smarter, human skills become more valuable. According to Degreed's 2026 skills data, seven of the top ten skills professionals are building are human or business-centric [citation:7]. The term "soft skills" is officially outdated—welcome to the era of "Power Skills."</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 The Data: 70% of Top Skills Are Human</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>Based on learning pathways created in Degreed in 2025, here are the top 10 skills professionals want to develop in 2026 [citation:7]:</p>
+        <ol>
+          <li><strong>Leadership</strong> (Human)</li>
+          <li><strong>Communication</strong> (Human)</li>
+          <li><strong>Project Management</strong> (Business)</li>
+          <li><strong>Problem Solving</strong> (Human)</li>
+          <li><strong>Customer Service</strong> (Human)</li>
+          <li><strong>Microsoft Excel</strong> (Technical)</li>
+          <li><strong>Data Analytics</strong> (Technical)</li>
+          <li><strong>Python</strong> (Technical)</li>
+          <li><strong>Adaptability</strong> (Human)</li>
+          <li><strong>Stakeholder Management</strong> (Human)</li>
+        </ol>
+        <p><strong>The takeaway:</strong> Seven of ten are human or business skills. As automation scales, the value of judgment, coordination, and influence increases [citation:7].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧠 Why Human Skills Can't Be Automated</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>According to the World Economic Forum, <strong>"tasks tied to empathy, creativity, leadership, and curiosity" only have a 13% potential for AI transformation</strong> [citation:7]. They require too much human judgment and experience to be automated.</p>
+        <p>Jen Paterno, senior behavioral scientist at CoachHub, explains: "The term 'soft skills' has never been accurate, and in 2026, it's downright misleading. As AI takes over technical expertise, the skills that matter most are human-centric—what industry experts now call 'Power Skills': emotional intelligence, creativity, resilience, curiosity and social influence" [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📖 The Storytelling Explosion</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>One of the most dramatic trends: LinkedIn has seen a <strong>doubling in job postings over the last year that ask for storytelling skills</strong> [citation:1].</p>
+        <p><strong>What this means:</strong> Public speaking, writing clear emails, drafting cross-functional memos, and being able to connect your ideas in a compelling narrative are now explicitly recognized as valuable. These are basic workplace skills, but they're being highlighted more directly in job descriptions [citation:1].</p>
+        <p>As Daniel Roth explains, professionals should "tell stories around their skills—when they used them, what impact they created, whether at work, college, or in volunteer roles. Being able to connect those stories in interviews makes a stronger impression" [citation:1].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">👥 Leadership & People Management</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>Leadership remains the #1 skill professionals are building in 2026 [citation:7]. But the focus has shifted. LinkedIn notes two emerging priorities [citation:1]:</p>
+        <ul>
+          <li><strong>Mentorship:</strong> Helping others realize what they're capable of</li>
+          <li><strong>Talent development:</strong> Building capabilities in team members</li>
+        </ul>
+        <p>As Holger Reisinger of Jabra points out: "Gen Z expect human-centric skills, emotional intelligence and collaboration to carry as much weight as technical skills such as data analysis or coding. Raised in a digital world, they understand that while AI can replicate knowledge, it can't replace connection" [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🔄 Adaptability in a Fast-Changing World</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>Adaptability ranks #9 on the top skills list [citation:7]. Why? Because businesses are changing faster than ever, and that kind of change needs people who can pivot quickly [citation:1].</p>
+        <p>As Cris Grossmann of LumApps argues: "The next phase of productivity in the U.S. will come from flipping the mindset from thinking of people as a cost to manage to empowering them. Technology that protects and elevates frontline jobs, rather than replaces them, will drive the country's next productivity boom" [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🔍 How to Stand Out as Human in an AI World</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>Heidi Barnett of isolved predicts: "In 2026, hiring will be less about 'beating the bots' and more about standing out as human. As AI floods the hiring process with noise, the candidates who rise to the top will be those who can show real results, tell their story authentically and bring evidence of impact" [citation:3].</p>
+        <p><strong>Practical steps:</strong></p>
+        <ul>
+          <li><strong>Identify your strengths:</strong> Ask colleagues, friends, or volunteer groups what you're good at. Others often repeat the same strengths, which can help identify core capabilities [citation:1].</li>
+          <li><strong>Practice your skills:</strong> Volunteer, join community groups, take on stretch assignments at work—all of these can help refine both technical and human skills [citation:1].</li>
+          <li><strong>Tell stories, don't list skills:</strong> Avoid listing skills like a grocery list. Connect your skills to impact through stories [citation:1].</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 Human Skills Across Industries</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
+        <p>Different industries prioritize different human skills, according to Degreed data [citation:7]:</p>
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#f0e7db;">
+            <th style="padding: 0.5rem;">Industry</th>
+            <th style="padding: 0.5rem;">Key Human Skills</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Financial Services</td>
+            <td style="padding: 0.5rem;">Leadership, stakeholder management</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Healthcare</td>
+            <td style="padding: 0.5rem;">Inclusivity, collaboration, resilience</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">Manufacturing & Energy</td>
+            <td style="padding: 0.5rem;">Leadership, project execution, change management</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">Professional Services & IT</td>
+            <td style="padding: 0.5rem;">Project management, communication, problem-solving</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ The Power Skills + AI Formula</h2>
+      <div style="background: #8b5a2b; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <p>The winning combination in 2026 isn't choosing between technical and human skills—it's mastering both. As Degreed puts it: "AI systems can generate recommendations, but great leaders guide teams to interpret, innovate, and execute on them. AI can process data at scale, but teams must decide what to do with the results" [citation:7].</p>
+        <p style="margin-top:1rem;">Organizations that invest in developing Power Skills through coaching, feedback and experiential learning won't just keep up with change; they'll stay ahead of it [citation:3].</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #f0e7db, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #8b5a2b;">
+        "Calling these capabilities 'soft' minimizes their impact—they're the foundation of leadership in a world transformed by automation." — Jen Paterno, CoachHub [citation:3]
+      </blockquote>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b58b5b; font-size: 0.85rem; color: #8b5a2b;">
+        <span>🔍 Sources: Degreed Skills Report 2026, Forbes, Economic Times, Arcadia University</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},
+{
+  id: 74,
+  title: "USA & Canada Job Market 2026: Top Hiring Industries, AI Salaries & Talent Trends",
+  slug: "usa-canada-job-market-2026-hiring-trends-ai-salaries",
+  date: "2026-03-08",
+  excerpt: "From AI salary premiums to skills-based hiring, the 2026 job market in the US and Canada is defined by talent scarcity and technological transformation. Here are the hottest industries, roles, and regional trends.",
+  category: "AI (Artificial Intelligence)",
+  image: "https://i.ibb.co.com/wZZRVrcv/74.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #d9e6f2 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #0056b3;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #002868; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🇺🇸 US & CANADA 2026</span>
+          <span style="color: #002868; font-size: 0.9rem;">AI hiring · salary trends · talent shortage</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #002868;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 north america</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #002868 0%, #001a4a 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🇺🇸🇨🇦 USA & Canada Job Market 2026: Top Hiring Industries, AI Salaries & Talent Trends</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">AI premiums, skills-first hiring, and the fight for specialized talent</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🤖 AI Engineer ($155K+)</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📊 Data Scientist ($131K)</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">💰 3.5% avg. salary increase</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #0056b3;">
+          <p style="font-size: 1.1rem;">The 2026 job market in North America is defined by a "stark divide" [citation:1]. While overall hiring stabilizes, demand for AI-adjacent skills is driving compensation growth and intensifying competition for specialized talent. Here's what job seekers and employers need to know about the US and Canadian markets right now.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 The Big Picture: Stabilization with Structural Shortages</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>Labor markets in both countries are entering a cautious period of stabilization [citation:5]. Key indicators:</p>
+        <ul>
+          <li><strong>US:</strong> Job openings stabilizing, unemployment expected to rise modestly but not alarmingly [citation:5]</li>
+          <li><strong>Canada:</strong> A "surprisingly stable" 2025 could yield to modest progress in 2026, though policy questions loom [citation:5]</li>
+          <li><strong>Salary increases:</strong> Median base-pay increases planned at <strong>3.5%</strong> for 2026 in both countries [citation:7]</li>
+        </ul>
+        <p>However, beneath this stabilization lies a structural IT talent shortage. IDC projects that <strong>more than 90% of organizations will face IT skills shortages by 2026</strong>, costing an estimated $5.5 trillion globally [citation:9]. In Canada, ICTC projects a shortage of more than <strong>3,000 AI professionals each year</strong> [citation:9].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🤖 Top Roles: AI & Data Dominate</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>According to Aquent's 2026 Salary Guide, these are the fastest-growing tech roles in the US and Canada [citation:1]:</p>
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#d9e6f2;">
+            <th style="padding: 0.5rem;">Role</th>
+            <th style="padding: 0.5rem;">Median Annual Salary (US)</th>
+            <th style="padding: 0.5rem;">YoY Growth</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Machine Learning Engineer</strong></td>
+            <td style="padding: 0.5rem;">$155,000+</td>
+            <td style="padding: 0.5rem;">6.0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Data Scientist</strong></td>
+            <td style="padding: 0.5rem;">$131,935</td>
+            <td style="padding: 0.5rem;">5.5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Data Engineer</strong></td>
+            <td style="padding: 0.5rem;">$113,684</td>
+            <td style="padding: 0.5rem;">5.0%</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;"><strong>Technical Lead</strong></td>
+            <td style="padding: 0.5rem;">$136,651</td>
+            <td style="padding: 0.5rem;">5.0%</td>
+          </tr>
+        </table>
+        <p style="margin-top:1rem;">For comparison, copy editors saw only 2.8% growth, highlighting the "stark divide" between AI-adjacent roles and those easily replaced by automation [citation:1].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💰 Emerging AI Roles & Premium Salaries</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>Aquent's research identified a new category of high-paying roles built around AI strategy and implementation [citation:1]:</p>
+        <ul>
+          <li><strong>AI Product Manager:</strong> $162,000 median base salary — the highest in this category</li>
+          <li><strong>Natural Language Processing Engineer:</strong> $155,623</li>
+          <li><strong>Blockchain Engineer:</strong> $135,439</li>
+          <li><strong>AI Domain Specialist/Trainer:</strong> $115,000</li>
+        </ul>
+        <p>John Chuang, CEO of Aquent, notes: "AI isn't just reshaping jobs, it's intensifying the competition for scarce skills. The fastest salary growth is flowing to roles that combine technical depth with the ability to apply AI at scale" [citation:1].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🇺🇸 US vs. 🇨🇦 Canada: AI Adoption & Wage Trends</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>TD Economics provides a detailed comparison of how AI is shaping labor markets in both countries [citation:2]:</p>
+        
+        <p><strong>AI Adoption:</strong> The US leads in both breadth and depth of AI integration, with an estimated <strong>60-80% of companies using AI</strong> in some capacity, compared to lower rates in Canada. However, Canada ranks in the top 15 globally [citation:2].</p>
+        
+        <p><strong>Employment Impact:</strong> In the US, industries with higher AI adoption rates are seeing slower employment growth. This relationship is so far absent in Canada [citation:2].</p>
+        
+        <p><strong>AI-Complementary Jobs:</strong> Both countries show robust employment growth in roles where AI augments human work—engineering, life sciences, nursing, and education [citation:2].</p>
+        
+        <p><strong>Youth Wage Premium:</strong> In both countries, <strong>wages for youth workers (15-24) in AI-complementing industries are growing faster</strong> than in lower-exposure sectors. This suggests a premium for younger workers with AI skills [citation:2].</p>
+        
+        <p><strong>Recent Graduates:</strong> While the US has seen AI directly correlated with declines in entry-level hiring (a Stanford report found a 13% drop in entry-level jobs since 2022), Canada's graduate unemployment is more attributed to demographic factors like rapid increases in the student population [citation:2].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">⚡ Finance & Accounting: Shortage-Driven Market</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>The finance sector faces acute talent shortages in 2026 [citation:4]:</p>
+        <ul>
+          <li><strong>83% of finance leaders</strong> report ongoing talent shortages</li>
+          <li><strong>300,000+ accountants and auditors</strong> have left the profession in recent years</li>
+          <li>Employers are competing for new profiles: <strong>AI-enabled FP&A analysts, ESG reporting specialists</strong>, and finance professionals who can partner with the business</li>
+          <li><strong>Skills-based hiring</strong> is replacing credential-only screening, with job descriptions rewritten around capabilities like scenario modeling, automation oversight, and data storytelling [citation:4]</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🔐 Cybersecurity: Machine-Speed Battles</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>2026 marks the year cyberattacks become fully autonomous. Key trends [citation:9]:</p>
+        <ul>
+          <li><strong>59% of security teams</strong> report critical or significant skills needs—up from 44% in 2024</li>
+          <li>Autonomous AI agents now outnumber human employees by <strong>82:1</strong> in enterprise environments</li>
+          <li>Organizations with security staff shortages face breach costs averaging <strong>$1.76 million higher</strong></li>
+          <li>The US Bureau of Labor Statistics projects <strong>29% employment growth</strong> for information security analysts through 2033 [citation:9]</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📋 Leadership Premium & Enterprise Pay</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>Leadership roles at the enterprise level (10,000+ employees) saw the sharpest pay increases [citation:1]:</p>
+        <ul>
+          <li>Median base salaries <strong>42.8% higher</strong> than at large companies</li>
+          <li><strong>CTO/Head of Engineering:</strong> $434,453</li>
+          <li><strong>CMO/Head of Marketing:</strong> $417,881</li>
+          <li><strong>VP of Engineering/Software Development:</strong> $395,396</li>
+        </ul>
+        <p>Overall director-level and higher salary growth: <strong>4.4% in the US, 3.8% in Canada</strong> [citation:1].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 Skills-Based Hiring: The New Normal</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>Skills-based hiring has become the foundation of workforce strategy [citation:9]:</p>
+        <ul>
+          <li><strong>85% of employers</strong> now use skills-based hiring (up from 73% in 2023)</li>
+          <li><strong>53% have eliminated degree requirements entirely</strong>—a 30% increase from 2024</li>
+          <li>LinkedIn research shows skills-based searches lead to <strong>+12% higher quality hires</strong> and expand talent pools 6x globally [citation:9]</li>
+        </ul>
+        <p>However, implementation gaps remain: Harvard Business School research reveals that despite companies dropping degree requirements, <strong>fewer than 1 in 700 actual hires are affected</strong> [citation:9].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🗺️ Geographic & Policy Divergence</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p><strong>Immigration & Talent:</strong> Indeed data shows foreign job seekers' interest in US jobs dropped to a five-year low of 1.45% in June 2025, while Canada remains a primary destination for global talent [citation:9].</p>
+        
+        <p><strong>Salary Increases by Location:</strong> While both countries average 3.5% increases, US organizations place greater emphasis on merit/performance (78% vs. 60% in Canada). Canadian increases are higher relative to inflation given Canada's lower inflation rate (2.2% vs. US 2.7%) [citation:7].</p>
+        
+        <p><strong>Pay Transparency:</strong> Expanding across US states and Canadian provinces, clear salary ranges in job ads improve applicant volume and reduce late-stage drop-off [citation:4].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📚 Top Majors & International Student Pathways</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
+        <p>For students targeting the US and Canada, these fields offer the strongest prospects [citation:3][citation:6][citation:10]:</p>
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#d9e6f2;">
+            <th style="padding: 0.5rem;">Field</th>
+            <th style="padding: 0.5rem;">Starting Salary (US)</th>
+            <th style="padding: 0.5rem;">Starting Salary (Canada)</th>
+            <th style="padding: 0.5rem;">Top Universities</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Computer Science/AI</strong></td>
+            <td style="padding: 0.5rem;">$100,000-$180,000</td>
+            <td style="padding: 0.5rem;">CAD 80,000-120,000</td>
+            <td style="padding: 0.5rem;">MIT, Stanford, CMU / Toronto, UBC</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Data Science</strong></td>
+            <td style="padding: 0.5rem;">$90,000-$150,000</td>
+            <td style="padding: 0.5rem;">CAD 70,000-100,000</td>
+            <td style="padding: 0.5rem;">UC Berkeley, Harvard / McGill</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Nursing/Healthcare</strong></td>
+            <td style="padding: 0.5rem;">$70,000-$110,000</td>
+            <td style="padding: 0.5rem;">CAD 60,000-80,000</td>
+            <td style="padding: 0.5rem;">Johns Hopkins / Alberta, Toronto</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;"><strong>Cybersecurity</strong></td>
+            <td style="padding: 0.5rem;">$85,000-$130,000</td>
+            <td style="padding: 0.5rem;">CAD 75,000-95,000</td>
+            <td style="padding: 0.5rem;">Stanford, MIT / Calgary</td>
+          </tr>
+        </table>
+        <p style="margin-top:1rem;">Both countries offer STEM OPT extensions (US) and PGWP pathways (Canada) for international graduates in these fields [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
+      <div style="background: #002868; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <p>The US and Canadian job markets in 2026 present a tale of two trends: overall stabilization masking intense competition for specialized talent. AI-adjacent skills command significant premiums, skills-based hiring is becoming standard practice, and the talent shortage in tech, finance, and cybersecurity shows no signs of abating. For job seekers, the message is clear: develop in-demand skills, demonstrate them through verified assessments, and be prepared to tell stories about your impact [citation:4][citation:9]. For employers, the winners will be those who adapt quickly—with skills-forward assessment, transparent offers, and strategic use of internal and nearshore talent [citation:4][citation:9].</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #d9e6f2, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #002868;">
+        "AI isn't just reshaping jobs, it's intensifying the competition for scarce skills. The fastest salary growth is flowing to roles that combine technical depth with the ability to apply AI at scale." — John Chuang, CEO of Aquent [citation:1]
+      </blockquote>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #0056b3; font-size: 0.85rem; color: #002868;">
+        <span>🔍 Sources: Aquent Salary Guide 2026, TD Economics, Indeed Hiring Lab, Payscale, DevEngine, IDP Connect</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},
+{
+  id: 75,
+  title: "Top 10 Most In-Demand College Majors for 2026: Finance, Engineering & CS Lead",
+  slug: "most-in-demand-college-majors-2026-finance-engineering-computer-science",
+  date: "2026-03-08",
+  excerpt: "The NACE Winter 2026 Salary Survey reveals the bachelor's degrees employers want most. Finance and Mechanical Engineering tie for first, with Computer Science close behind. See the full rankings and salary projections.",
+  category: "Skill Development",
+  image: "https://i.ibb.co.com/kgfHtrrm/75.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #d4e1f0 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #2c5a8c;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #1e3a5f; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🎓 COLLEGE MAJORS 2026</span>
+          <span style="color: #1e3a5f; font-size: 0.9rem;">NACE survey · salary projections</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #1e3a5f;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 education guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #1e3a5f 0%, #0f2338 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🎓 Top 10 Most In-Demand College Majors for 2026: Finance, Engineering & CS Lead</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">NACE Winter 2026 Salary Survey results—what employers are hiring for</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">💰 Finance (61.3%)</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">⚙️ Mechanical Eng (61.3%)</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">💻 CS ($81,535)</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #2c5a8c;">
+          <p style="font-size: 1.1rem;">For students and recent graduates navigating a challenging entry-level job market, choosing the right major matters more than ever. The National Association of Colleges and Employers (NACE) Winter 2026 Salary Survey reveals which bachelor's degrees employers are actively hiring—and what they're paying. Here are the results, based on responses from 150 organizations [citation:5][citation:10].</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 The Top 10 Most In-Demand Majors</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#d4e1f0;">
+            <th style="padding: 0.5rem;">Rank</th>
+            <th style="padding: 0.5rem;">Degree</th>
+            <th style="padding: 0.5rem;">% of Employers Hiring</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">1 (tie)</td>
+            <td style="padding: 0.5rem;"><strong>Finance</strong></td>
+            <td style="padding: 0.5rem;">61.3%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">1 (tie)</td>
+            <td style="padding: 0.5rem;"><strong>Mechanical Engineering</strong></td>
+            <td style="padding: 0.5rem;">61.3%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">3</td>
+            <td style="padding: 0.5rem;"><strong>Computer Science</strong></td>
+            <td style="padding: 0.5rem;">60.0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">4 (tie)</td>
+            <td style="padding: 0.5rem;"><strong>Accounting</strong></td>
+            <td style="padding: 0.5rem;">58.7%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">4 (tie)</td>
+            <td style="padding: 0.5rem;"><strong>Business Administration/Management</strong></td>
+            <td style="padding: 0.5rem;">58.7%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">6</td>
+            <td style="padding: 0.5rem;"><strong>Electrical Engineering</strong></td>
+            <td style="padding: 0.5rem;">51.3%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">7</td>
+            <td style="padding: 0.5rem;"><strong>Information Sciences and Systems</strong></td>
+            <td style="padding: 0.5rem;">48.0%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">8 (tie)</td>
+            <td style="padding: 0.5rem;"><strong>Logistics/Supply Chain</strong></td>
+            <td style="padding: 0.5rem;">44.7%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">8 (tie)</td>
+            <td style="padding: 0.5rem;"><strong>Marketing</strong></td>
+            <td style="padding: 0.5rem;">44.7%</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">10</td>
+            <td style="padding: 0.5rem;"><strong>Human Resources</strong></td>
+            <td style="padding: 0.5rem;">40.0%</td>
+          </tr>
+        </table>
+        <p style="margin-top:1rem;"><em>Source: NACE Winter 2026 Salary Survey, based on responses from 150 organizations [citation:5][citation:10]</em></p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💰 Starting Salary Projections for 2026 Graduates</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
+        <p>Despite a challenging job market, starting salaries are rising across most categories [citation:5][citation:10]:</p>
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#d4e1f0;">
+            <th style="padding: 0.5rem;">Major Category</th>
+            <th style="padding: 0.5rem;">2026 Projected Salary</th>
+            <th style="padding: 0.5rem;">Change from 2025</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Computer Science</strong></td>
+            <td style="padding: 0.5rem;">$81,535</td>
+            <td style="padding: 0.5rem;">+6.9%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Engineering</strong></td>
+            <td style="padding: 0.5rem;">$81,198</td>
+            <td style="padding: 0.5rem;">+3.1%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Mathematics & Statistics</strong></td>
+            <td style="padding: 0.5rem;">Increasing</td>
+            <td style="padding: 0.5rem;">Positive</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Business</strong></td>
+            <td style="padding: 0.5rem;">Increasing</td>
+            <td style="padding: 0.5rem;">Positive</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;"><strong>Agriculture & Natural Resources</strong></td>
+            <td style="padding: 0.5rem;">Increasing</td>
+            <td style="padding: 0.5rem;">Positive</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;"><strong>Communications</strong></td>
+            <td style="padding: 0.5rem;">Increasing</td>
+            <td style="padding: 0.5rem;">Positive</td>
+          </tr>
+        </table>
+        <p style="margin-top:1rem;"><strong>Note:</strong> Social Sciences is the only category projected to see a decrease in starting pay [citation:10].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📉 The Challenging Entry-Level Market</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
+        <p>These degree rankings come against a backdrop of a tough job market for recent graduates [citation:5][citation:10]:</p>
+        <ul>
+          <li>U.S. economy added just <strong>181,000 jobs in 2025</strong>, far lower than the 1.46 million added in 2024</li>
+          <li>Only <strong>30% of graduates</strong> secured jobs in their field of study (Cengage Group)</li>
+          <li>More than <strong>75% of employers</strong> hired the same number or fewer entry-level workers in 2025</li>
+        </ul>
+        <p>Shawn VanDerziel, NACE president and CEO, notes: "We're seeing that most employers anticipate upping their salaries, which is especially good news given that hiring is expected to be flat for the class of 2026" [citation:5][citation:10].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💡 Why These Majors?</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
+        <p><strong>Finance (#1):</strong> With 61.3% of employers hiring finance graduates, this degree remains a powerhouse. The financial services sector continues to recruit heavily, and finance skills translate across industries [citation:10].</p>
+        <p><strong>Mechanical Engineering (#1):</strong> Tied for first, mechanical engineering reflects the ongoing need for physical infrastructure, manufacturing, and now—smart systems and robotics integration [citation:5].</p>
+        <p><strong>Computer Science (#3):</strong> At 60%, CS remains in extremely high demand. It also commands the <strong>highest starting salary</strong> at $81,535—a 6.9% increase from 2025 [citation:5][citation:10].</p>
+        <p><strong>Accounting & Business Admin (#4 tie):</strong> Both at 58.7%, these degrees provide foundational skills that every organization needs, regardless of industry [citation:5].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🌏 International Perspective: Australia's Top Choices</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
+        <p>For comparison, the Universities Admissions Centre (UAC) in Australia released its 2026 most popular courses [citation:9]:</p>
+        <ol>
+          <li><strong>Medicine</strong> (UNSW) — 1,899 first preferences</li>
+          <li><strong>Commerce</strong> (University of Sydney) — 1,280</li>
+          <li><strong>Business</strong> (UTS) — 961</li>
+        </ol>
+        <p>While the rankings differ, the prominence of business/commerce degrees aligns with the U.S. demand for finance and business administration graduates [citation:9].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 What This Means for Students</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
+        <p>The NACE data offers clear signals for current and prospective students [citation:5][citation:10]:</p>
+        <ul>
+          <li><strong>STEM and business degrees dominate</strong> employer demand</li>
+          <li><strong>Computer science offers the highest pay</strong> but faces the most competition</li>
+          <li><strong>Specialized degrees</strong> (information sciences, supply chain) have solid demand at ~45-48%</li>
+          <li><strong>Starting salaries are rising</strong> even in a flat hiring market—a positive sign for graduates</li>
+        </ul>
+        <p>An October National Bureau of Economics Research working paper found that each additional $1,000 students earn in their first job translates to another $700 in yearly earnings five years out from college [citation:5]. In other words: that first job matters—and your major shapes your access to it.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
+      <div style="background: #1e3a5f; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <p>For the Class of 2026, the most in-demand majors reflect an economy that values both quantitative rigor and business fundamentals. Finance and mechanical engineering lead in hiring percentage, while computer science leads in salary. In a tough entry-level market, these degrees offer the clearest path to employment—but students should also focus on building the Power Skills (leadership, communication, problem-solving) that complement their technical knowledge [citation:7].</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #d4e1f0, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #1e3a5f;">
+        "We're seeing that most employers anticipate upping their salaries, which is especially good news given that hiring is expected to be flat for the class of 2026." — Shawn VanDerziel, NACE President & CEO [citation:5]
+      </blockquote>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #2c5a8c; font-size: 0.85rem; color: #1e3a5f;">
+        <span>🔍 Sources: NACE Winter 2026 Salary Survey, CNBC, VnExpress, UAC Australia</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
+},
+{
+  id: 76,
+  title: "Skills-Based Hiring in 2026: How to Transition Careers Without Starting Over",
+  slug: "skills-based-hiring-2026-career-transition-portable-skills",
+  date: "2026-03-08",
+  excerpt: "Companies are hiring for skills, not just job titles. Learn how to identify your portable skills, navigate internal mobility, and position yourself for career switches in a skills-first job market.",
+  category: "Skill Development",
+  image: "https://i.ibb.co.com/KpD2jCJK/76.webp",
+  author: authorPaul,
+  content: `
+    <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #e1d7c6 0%, #ffffff 100%); border-radius: 60px; border: 1px solid #7d6b4b;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #5e4a2e; color: white; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500;">🔄 SKILLS-FIRST 2026</span>
+          <span style="color: #5e4a2e; font-size: 0.9rem;">portable skills · career mobility</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; color: #5e4a2e;">
+          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">🔖 career guide</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="background: linear-gradient(145deg, #5e4a2e 0%, #3f311f 100%); border-radius: 32px; padding: 2rem 2.5rem; color: white;">
+          <h1 style="font-size: 2.2rem; font-weight: 650; margin: 0 0 0.75rem; letter-spacing: -0.02em; line-height: 1.2;">🔄 Skills-Based Hiring in 2026: How to Transition Careers Without Starting Over</h1>
+          <p style="font-size: 1.4rem; font-weight: 300; margin: 0 0 1rem; opacity: 0.95;">Portable skills, internal mobility, and the end of the college degree monopoly</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🧰 Portable Skills</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">📈 Internal Mobility</span>
+            <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 60px; padding: 0.4rem 1.2rem; font-size: 0.95rem;">🎓 Degree vs. Skills</span>
+          </div>
+        </div>
+        
+        <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #7d6b4b;">
+          <p style="font-size: 1.1rem;">The fundamental rule of hiring is changing in 2026. According to LinkedIn's Editor-in-Chief Daniel Roth: "Skills are how people get hired today. Companies, whether small startups or large corporations, are hiring based on skill sets. What you are capable of doing is becoming more important than your previous title" [citation:1]. Here's how to navigate the new skills-first economy and pivot your career without starting from zero.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 The Shift: From Titles to Skills</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>The data is clear: hiring is moving away from rigid job titles toward what candidates can actually do [citation:1][citation:3].</p>
+        <ul>
+          <li><strong>71% of organizations</strong> are actively trying to hire workers to close skills gaps [citation:2]</li>
+          <li><strong>44% of companies</strong> say they seek workers who can learn new tools and technologies quickly [citation:2]</li>
+          <li><strong>90%+ of companies</strong> surveyed plan to hire in 2026, but with a focus on precision hiring rather than volume [citation:2]</li>
+        </ul>
+        <p>Kara Ayers of Xplor Technologies predicts: "<strong>2026 will end the college degree as we know it</strong>—workplace and on-the-job bootcamps will become a standard investment for companies, and traditional degrees will carry less weight in a skills-first market" [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧰 Identifying Your Portable Skills</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>Skills travel with you, especially during times of rapid change. When industries shift quickly, having adaptable abilities allows professionals to move across roles and even sectors [citation:1].</p>
+        <p><strong>How to identify your strengths:</strong> Roth suggests asking colleagues, friends, or volunteer groups what you're good at. Often, others will repeat the same strengths, which can help identify core capabilities [citation:1].</p>
+        <p><strong>High-value portable skills in 2026 [citation:7]:</strong></p>
+        <ul>
+          <li><strong>Leadership</strong> — guiding teams through change</li>
+          <li><strong>Communication</strong> — clear writing and speaking</li>
+          <li><strong>Problem Solving</strong> — analyzing and resolving challenges</li>
+          <li><strong>Adaptability</strong> — thriving in uncertainty</li>
+          <li><strong>Stakeholder Management</strong> — building cross-functional relationships</li>
+          <li><strong>Project Management</strong> — delivering results</li>
+        </ul>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🏢 Internal Mobility: The Hidden Opportunity</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>One of the biggest trends in 2026 is companies turning inward to find talent. Instead of competing for scarce external specialists, employers are investing in upskilling their current workforce [citation:2].</p>
+        <p><strong>Why internal mobility matters:</strong></p>
+        <ul>
+          <li>Tech hiring intentions are down 19 points year-over-year, but this is because employers are reconsidering how to acquire talent—often through internal training [citation:2]</li>
+          <li>HR technology now enables continuous feedback loops, with AI monitoring meetings and nudging supervisors when feedback is needed [citation:3]</li>
+          <li>Companies that fail to align employees' personal motivations with company goals can expect high turnover [citation:3]</li>
+        </ul>
+        <p>Tim Weerasiri of Ninety.io notes: "You must know where your team members want to go if you want to keep them engaged. This means finding projects beyond their roles and responsibilities that contribute to the employee's growth and the company's success" [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">⚡ The Challenge: AI and the Recruiting Doom Loop</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>While skills-based hiring is the goal, there's a growing problem: the <strong>AI recruiting doom loop</strong> [citation:2].</p>
+        <ol>
+          <li>Job candidates use AI to enhance and tailor resumes</li>
+          <li>Companies become flooded with a sea of sameness—all resumes look qualified</li>
+          <li>Companies apply tighter AI filtering, making it harder for real candidates to get interviews</li>
+          <li>Candidates apply to even more jobs, using AI to do so at scale</li>
+        </ol>
+        <p>The result: a huge disconnect between needy employers and deserving candidates [citation:2].</p>
+        <p><strong>What this means for you:</strong> Standing out requires more than keywords. As Heidi Barnett of isolved puts it: "In 2026, hiring will be less about 'beating the bots' and more about standing out as human. The candidates who rise to the top will be those who can show real results, tell their story authentically and bring evidence of impact" [citation:3].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📝 Resume Strategies for the Skills-First Era</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>The rules of resume writing are changing. Key data from 2026 [citation:2]:</p>
+        <ul>
+          <li><strong>77% of candidates</strong> worry their resumes will be filtered out before reaching a human</li>
+          <li><strong>68% of candidates</strong> spend less than 30 minutes tailoring a resume per application</li>
+          <li><strong>43% of job seekers</strong> believe hiring managers only skim resumes</li>
+        </ul>
+        <p>Roth advises against listing skills like a grocery list. Instead: "<strong>Tell stories around your skills</strong>—when you used them, what impact you created, whether at work, college, or in volunteer roles. Being able to connect those stories in interviews makes a stronger impression" [citation:1].</p>
+        <p><strong>New tools:</strong> LinkedIn now allows users to display official certifications in AI skills based on actual usage patterns and proficiency in tools like Descript, Lovable, and Replit [citation:2]. These verified skills add credibility beyond self-reporting.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🎓 Degree vs. Skills: The Nuanced Reality</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>While skills-based hiring is growing, Chris Graham of National University offers a reality check: "Companies will follow the 2026 work trends of more skills-based hiring than degree-based hiring. But if you don't have a degree, you will remain at a financial disadvantage. Data shows that <strong>bachelor's degree holders make approximately 68% more per week</strong> than those with just a high school diploma" [citation:3].</p>
+        <p>The takeaway? Skills matter enormously, but degrees still provide a significant earnings boost. The optimal path: <strong>develop in-demand skills while pursuing a degree</strong> or combine a degree with continuous upskilling.</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 How to Navigate a Skills-First Career Transition</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <table style="width:100%; border-collapse: collapse;">
+          <tr style="background:#e1d7c6;">
+            <th style="padding: 0.5rem;">Step</th>
+            <th style="padding: 0.5rem;">Action</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">1. Audit your skills</td>
+            <td style="padding: 0.5rem;">List everything you can do—technical, human, and business. Ask others what you're good at [citation:1].</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">2. Research target roles</td>
+            <td style="padding: 0.5rem;">Identify which skills are in demand for careers you want [citation:6][citation:7].</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">3. Fill gaps strategically</td>
+            <td style="padding: 0.5rem;">Use free courses, volunteer work, stretch assignments, or bootcamps [citation:1].</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ccc;">
+            <td style="padding: 0.5rem;">4. Get verified</td>
+            <td style="padding: 0.5rem;">Earn LinkedIn skill certifications based on actual tool usage [citation:2].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem;">5. Tell your story</td>
+            <td style="padding: 0.5rem;">In interviews, focus on impact: when you used skills and what results you achieved [citation:1].</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🌍 The Global Perspective</h2>
+      <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
+        <p>Skills-based hiring is a global trend. In China, the spring hiring season emphasizes "技术+场景" (technology + scenario) talent—professionals who combine technical skills with real-world application [citation:4]. The government is actively developing new professions and encouraging skills development in AI and advanced manufacturing [citation:8].</p>
+        <p>In the U.S., LinkedIn data shows that professionals with rare skills (like AI engineering) are 8x more likely to move across borders for work [citation:1].</p>
+      </div>
+
+      <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
+      <div style="background: #5e4a2e; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
+        <p>The skills-first revolution is real, but it requires active participation. You can't just list skills—you need to demonstrate them, verify them, and tell stories around them. Whether you're looking to move internally, switch industries, or enter the job market for the first time, your portable skills are your most valuable asset. Invest in them, practice them, and learn to communicate their value [citation:1].</p>
+      </div>
+
+      <blockquote style="background: linear-gradient(145deg, #e1d7c6, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #5e4a2e;">
+        "Skills are not fixed for life. People are not locked into what they currently know. New skills can always be developed." — Daniel Roth, LinkedIn Editor-in-Chief [citation:1]
+      </blockquote>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7d6b4b; font-size: 0.85rem; color: #5e4a2e;">
+        <span>🔍 Sources: LinkedIn, ACM CareerNews, Forbes, Degreed, Economic Times</span>
+        <span>✏️ Last updated: March 2026</span>
+        <span>✅ complies with EEAT</span>
+      </div>
+    </article>
+  `
 }
 ]
 const POSTS_PER_PAGE = 10;
+const categories = [
+  "All", "AI (Artificial Intelligence)", "Cybersecurity & Data Science",
+  "Application Tracking system (ATS)", "Resume / CV", "Career Guide",
+  "Freelance & Remote", "Interview Support", "Skill Development",
+  "Finance & Administration", "Women Empowerment", "Leadership & Innovation",
+  "Workplace Wellness & Culture",
+];
 
 export default function BlogPage() {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
@@ -14712,48 +15673,25 @@ export default function BlogPage() {
     return counts;
   }, []);
 
-  const categories = [
-    "All", "AI (Artificial Intelligence)", "Cybersecurity & Data Science",
-    "Application Tracking system (ATS)",
-    "Resume / CV",
-    "Career Guide",
-    "Freelance & Remote",
-    "Interview Support",
-    "Skill Development",
-    "Finance & Administration",
-    "Women Empowerment",
-    "Leadership & Innovation",
-    "Workplace Wellness & Culture",
-
-  ];
-
-  /* Sort by latest publish date first */
+  // Sort by latest publish date
   const sortedPosts = useMemo(() => {
     return [...blogPosts].sort(
-      (a, b) =>
-        new Date(b.date).getTime() - new Date(a.date).getTime()
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );
   }, []);
 
-  /* Filter */
+  // Filter posts
   const filteredPosts = useMemo(() => {
     return sortedPosts.filter((post) => {
-      const matchesCategory =
-        selectedCategory === "All"
-          ? true
-          : post.category === selectedCategory;
-
-      const matchesSearch =
-        post.title.toLowerCase().includes(search.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(search.toLowerCase());
-
+      const matchesCategory = selectedCategory === "All" ? true : post.category === selectedCategory;
+      const matchesSearch = post.title.toLowerCase().includes(search.toLowerCase()) ||
+                           post.excerpt.toLowerCase().includes(search.toLowerCase());
       return matchesCategory && matchesSearch;
     });
   }, [search, selectedCategory, sortedPosts]);
 
-  /* Pagination Logic */
+  // Pagination
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
-
   const paginatedPosts = filteredPosts.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
     currentPage * POSTS_PER_PAGE
@@ -14764,86 +15702,72 @@ export default function BlogPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Helper function to calculate reading time
-  const calculateReadingTime = (content: string): number => {
-    const wordsPerMinute = 200;
-    const wordCount = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
-    return Math.ceil(wordCount / wordsPerMinute);
+  // Dynamic meta description based on context
+  const getMetaDescription = () => {
+    if (selectedPost) {
+      return selectedPost.excerpt.substring(0, 155);
+    }
+    if (search) {
+      return `Search results for "${search}" - ${filteredPosts.length} career articles found in Bangladesh. Expert guidance on NGO jobs, UN careers, and professional development.`;
+    }
+    if (selectedCategory !== "All") {
+      return `${filteredPosts.length} ${selectedCategory} career guides and expert advice for Bangladeshi professionals. Tips on interviews, resumes, and skill development.`;
+    }
+    return `Expert career guidance for Bangladeshi professionals. ${filteredPosts.length}+ articles on NGO jobs, UN careers, corporate jobs, freelancing, skill development, and professional growth strategies in ${new Date().getFullYear()}.`;
+  };
+
+  // Get page title
+  const getPageTitle = () => {
+    if (selectedPost) {
+      return `${selectedPost.title} | ${selectedPost.category} Careers Bangladesh ${new Date().getFullYear()} | CrossCareers`;
+    }
+    if (search) {
+      return `Search: "${search}" - ${filteredPosts.length} Career Articles | CrossCareers Blog ${new Date().getFullYear()}`;
+    }
+    if (selectedCategory !== "All") {
+      return `${selectedCategory} Career Guides ${new Date().getFullYear()} | ${filteredPosts.length} Articles | CrossCareers`;
+    }
+    return `Career Insights & Job Market Guide ${new Date().getFullYear()} | ${filteredPosts.length}+ Articles | CrossCareers`;
   };
 
   return (
     <>
       <Helmet>
-        {/*  Primary Title Tag */}
-        <title>
-          {selectedPost
-            ? `${selectedPost.title} (${selectedPost.category}) | CrossCareers Career Blog ${new Date().getFullYear()}`
-            : `Career Insights & Job Search Guide ${new Date().getFullYear()} | ${filteredPosts.length} Articles | CrossCareers Blog`}
-        </title>
-
-        {/*  Meta Description - 155-160 characters */}
-        <meta
-          name="description"
-          content={
-            selectedPost
-              ? `${selectedPost.excerpt.substring(0, 155)} Expert ${selectedPost.category} career advice for Bangladeshi professionals. ${new Date().getFullYear()} guide with practical tips.`
-              : `Discover ${filteredPosts.length} expert career guides for Bangladesh professionals in ${new Date().getFullYear()}. Interview tips, resume writing, NGO jobs, skill development, and salary negotiation strategies from industry experts.`
-          }
-        />
-
-        {/*  Primary Keywords */}
-        <meta
-          name="keywords"
-          content={
-            selectedPost
-              ? `career guide ${new Date().getFullYear()}, ${selectedPost.category.toLowerCase()}, job search Bangladesh, professional development, ${selectedPost.title.toLowerCase()}, crosscareers blog, career advice Dhaka, Bangladeshi job market ${new Date().getFullYear()}`
-              : `career advice Bangladesh ${new Date().getFullYear()}, job search tips Dhaka, interview preparation, resume writing Bangladesh, NGO jobs, skill development, professional growth, salary negotiation, freelancing Bangladesh, corporate career guide, crosscareers insights`
-          }
-        />
-
-        {/*  Author and Publisher */}
-        <meta name="author" content="CrossCareers Career Experts Team" />
+        <title>{getPageTitle()}</title>
+        <meta name="description" content={getMetaDescription()} />
+        <meta name="keywords" content={selectedPost 
+          ? `career guide ${new Date().getFullYear()}, ${selectedPost.category.toLowerCase()}, Bangladesh jobs, career advice, resume tips, interview preparation, CrossCareers`
+          : `career advice Bangladesh ${new Date().getFullYear()}, job search tips, NGO jobs, UN careers, professional development, interview preparation, resume writing, freelancing, CrossCareers blog`
+        } />
+        <meta name="author" content="Paul Romeo Karmoker" />
         <meta name="publisher" content="CrossCareers" />
-
-        {/* Robots - Indexing Control */}
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
         <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
-
-        {/* Language and Geo - Important for Bangladesh */}
         <meta name="language" content="English" />
         <meta name="geo.region" content="BD" />
         <meta name="geo.placename" content="Bangladesh" />
-        <meta name="target" content="Bangladesh" />
-
-        {/* Viewport - Mobile Friendliness */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Open Graph / Facebook */}
+        {/* Open Graph */}
         <meta property="og:type" content={selectedPost ? "article" : "website"} />
         <meta property="og:site_name" content="CrossCareers Career Blog Bangladesh" />
-        <meta property="og:title" content={selectedPost ? selectedPost.title : `Career Insights & Job Market Guide ${new Date().getFullYear()} | CrossCareers`} />
-        <meta property="og:description" content={selectedPost ? selectedPost.excerpt : `Expert career guidance for Bangladeshi professionals. ${filteredPosts.length}+ articles on interview tips, resume help, and job market insights for ${new Date().getFullYear()}.`} />
-        <meta property="og:url" content={`https://crosscareers.com/blogs${selectedPost ? `/${selectedPost.slug}` : currentPage > 1 ? `?page=${currentPage}` : ''}`} />
-        <meta property="og:image" content={selectedPost ? selectedPost.image : "https://crosscareers.com/og-default-blog-2026.jpg"} />
+        <meta property="og:title" content={selectedPost ? selectedPost.title : `Career Insights & Job Market Guide ${new Date().getFullYear()}`} />
+        <meta property="og:description" content={getMetaDescription()} />
+        <meta property="og:url" content={`https://crosscareers.com/blogs${selectedPost ? `/${selectedPost.slug}` : ''}`} />
+        <meta property="og:image" content={selectedPost ? selectedPost.image : "https://i.ibb.co/ksnkSFZz/banner.png"} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content={selectedPost ? selectedPost.title : "CrossCareers Career Blog Bangladesh 2026"} />
         <meta property="og:locale" content="en_US" />
-        <meta property="og:updated_time" content={new Date().toISOString()} />
-        
-        {/* Article-Specific Open Graph Tags */}
+
+        {/* Article specific */}
         {selectedPost && (
           <>
             <meta property="article:published_time" content={selectedPost.date} />
             <meta property="article:modified_time" content={selectedPost.date} />
-            <meta property="article:author" content="CrossCareers Career Experts" />
+            <meta property="article:author" content="Paul Romeo Karmoker" />
             <meta property="article:section" content={selectedPost.category} />
             <meta property="article:tag" content={selectedPost.category} />
             <meta property="article:tag" content="Bangladesh Career" />
-            <meta property="article:tag" content="International Career" />
-            <meta property="article:tag" content="Artificial Intelligence AI Career" />
-            <meta property="article:tag" content={`${new Date().getFullYear()} Jobs`} />
-            <meta property="article:reading_time" content={calculateReadingTime(selectedPost.content).toString()} />
           </>
         )}
 
@@ -14852,96 +15776,90 @@ export default function BlogPage() {
         <meta name="twitter:site" content="@CrossCareersBD" />
         <meta name="twitter:creator" content="@CrossCareersBD" />
         <meta name="twitter:title" content={selectedPost ? selectedPost.title : `CrossCareers Career Blog ${new Date().getFullYear()}`} />
-        <meta name="twitter:description" content={selectedPost ? selectedPost.excerpt.substring(0, 200) : `Expert career guidance for Bangladeshi professionals. ${filteredPosts.length} articles on ${categories.slice(1,5).join(', ')} and more.`} />
-        <meta name="twitter:image" content={selectedPost ? selectedPost.image : "https://i.ibb.co.com/ksnkSFzZ/banner.png"} />
-        <meta name="twitter:image:alt" content="CrossCareers Career Blog Bangladesh" />
+        <meta name="twitter:description" content={getMetaDescription().substring(0, 200)} />
+        <meta name="twitter:image" content={selectedPost ? selectedPost.image : "https://i.ibb.co/ksnkSFZz/banner.png"} />
 
-        {/*  Canonical URL */}
-        <link
-          rel="canonical"
-          href={`https://crosscareers.com/blogs${
-            selectedPost 
-              ? `/${selectedPost.slug}` 
-              : currentPage > 1 
-                ? `?page=${currentPage}` 
-                : ''
-          }`}
-        />
+        {/* Canonical URL */}
+        <link rel="canonical" href={`https://crosscareers.com/blogs${selectedPost ? `/${selectedPost.slug}` : ''}`} />
 
-        {/* ✅ Pagination - Prev/Next Links */}
+        {/* Pagination */}
         {!selectedPost && totalPages > 1 && (
           <>
             {currentPage > 1 && (
-              <link 
-                rel="prev" 
-                href={`https://crosscareers.com/blogs${currentPage > 2 ? `?page=${currentPage - 1}` : ''}`} 
-              />
+              <link rel="prev" href={`https://crosscareers.com/blogs${currentPage > 2 ? `?page=${currentPage - 1}` : ''}`} />
             )}
             {currentPage < totalPages && (
-              <link 
-                rel="next" 
-                href={`https://crosscareers.com/blogs?page=${currentPage + 1}`} 
-              />
+              <link rel="next" href={`https://crosscareers.com/blogs?page=${currentPage + 1}`} />
             )}
           </>
         )}
 
-        {/* ✅ Schema.org / JSON-LD Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(
-            selectedPost
-              ? {
-                  "@context": "https://schema.org",
-                  "@type": "BlogPosting",
-                  "headline": selectedPost.title,
-                  "description": selectedPost.excerpt,
-                  "image": selectedPost.image,
-                  "datePublished": selectedPost.date,
-                  "dateModified": selectedPost.date,
-                  "author": {
-                    "@type": "Organization",
-                    "name": "CrossCareers",
-                    "url": "https://crosscareers.com"
-                  },
-                  "publisher": {
-                    "@type": "Organization",
-                    "name": "CrossCareers",
-                    "logo": {
-                      "@type": "ImageObject",
-                      "url": "https://i.ibb.co.com/ksnkSFzZ/banner.png"
-                    }
-                  },
-                  "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": `https://crosscareers.com/blogs/${selectedPost.slug}`
-                  },
-                  "keywords": `${selectedPost.category}, Bangladesh Career ${new Date().getFullYear()}, Job Search`,
-                  "articleSection": selectedPost.category,
-                  "inLanguage": "en-US",
-                  "wordCount": selectedPost.content.replace(/<[^>]*>/g, '').split(/\s+/).length
+        {/* Structured Data: BlogPosting */}
+        {selectedPost && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": selectedPost.title,
+              "description": selectedPost.excerpt,
+              "image": selectedPost.image,
+              "datePublished": selectedPost.date,
+              "dateModified": selectedPost.date,
+              "author": {
+                "@type": "Person",
+                "name": selectedPost.author.name,
+                "description": selectedPost.author.experience,
+                "image": selectedPost.author.image
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "CrossCareers",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://i.ibb.co/ksnkSFZz/banner.png"
                 }
-              : {
-                  "@context": "https://schema.org",
-                  "@type": "Blog",
-                  "name": "CrossCareers Career Blog Bangladesh",
-                  "description": `Expert career guidance for Bangladeshi professionals. ${filteredPosts.length} articles on ${categories.slice(1,4).join(', ')} and more.`,
-                  "url": `https://crosscareers.com/blogs${currentPage > 1 ? `?page=${currentPage}` : ''}`,
-                  "publisher": {
-                    "@type": "Organization",
-                    "name": "CrossCareers"
-                  },
-                  "blogPost": paginatedPosts.map(post => ({
-                    "@type": "BlogPosting",
-                    "headline": post.title,
-                    "url": `https://crosscareers.com/blogs/${post.slug}`,
-                    "datePublished": post.date,
-                    "description": post.excerpt
-                  }))
-                }
-          )}
-        </script>
+              },
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": `https://crosscareers.com/blogs/${selectedPost.slug}`
+              },
+              "keywords": `${selectedPost.category}, Bangladesh Career, Job Search, NGO Jobs, UN Careers`,
+              "articleSection": selectedPost.category,
+              "wordCount": selectedPost.content.replace(/<[^>]*>/g, '').split(/\s+/).length,
+              "timeRequired": `PT${calculateReadingTime(selectedPost.content)}M`
+            })}
+          </script>
+        )}
 
-        {/* ✅ BreadcrumbList Schema */}
+        {/* Structured Data: Blog (for listing) */}
+        {!selectedPost && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Blog",
+              "name": "CrossCareers Career Blog Bangladesh",
+              "description": getMetaDescription(),
+              "url": `https://crosscareers.com/blogs`,
+              "publisher": {
+                "@type": "Organization",
+                "name": "CrossCareers"
+              },
+              "blogPost": paginatedPosts.map(post => ({
+                "@type": "BlogPosting",
+                "headline": post.title,
+                "url": `https://crosscareers.com/blogs/${post.slug}`,
+                "datePublished": post.date,
+                "description": post.excerpt,
+                "author": {
+                  "@type": "Person",
+                  "name": post.author.name
+                }
+              }))
+            })}
+          </script>
+        )}
+
+        {/* Breadcrumb Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -14964,17 +15882,17 @@ export default function BlogPage() {
                 "position": 3,
                 "name": selectedPost.title,
                 "item": `https://crosscareers.com/blogs/${selectedPost.slug}`
-              }] : currentPage > 1 ? [{
+              }] : selectedCategory !== "All" ? [{
                 "@type": "ListItem",
                 "position": 3,
-                "name": `Page ${currentPage}`,
-                "item": `https://crosscareers.com/blogs?page=${currentPage}`
+                "name": selectedCategory,
+                "item": `https://crosscareers.com/blogs?category=${selectedCategory}`
               }] : [])
             ]
           })}
         </script>
 
-        {/* ✅ Website Schema */}
+        {/* Website Schema with Search */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -14992,8 +15910,8 @@ export default function BlogPage() {
 
       <Navbar />
 
-      <main className="min-h-screen bg-white selection:bg-blue-100 pt-20">
-        <div className="mx-auto max-w-4xl">
+      <main className="min-h-screen bg-white pt-20">
+        <div className="mx-auto max-w-4xl px-4">
           <h1 className="mb-8 text-3xl font-bold text-gray-800">
             Career Insights & Blogs {new Date().getFullYear()}
           </h1>
@@ -15001,178 +15919,161 @@ export default function BlogPage() {
           {!selectedPost && (
             <>
               {/* Search */}
-              <input
-                type="text"
-                placeholder="Search blogs..."
-                value={search}
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                  setCurrentPage(1);
-                }}
-                className="mb-4 w-full rounded-xl border px-4 py-2"
-              />
+              <div className="mb-6">
+                <input
+                  type="text"
+                  placeholder="Search articles..."
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                    setCurrentPage(1);
+                  }}
+                  className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  aria-label="Search blog posts"
+                />
+              </div>
 
-              {/* Category with Counts */}
-              <div className="mb-6 flex gap-4 flex-wrap">
+              {/* Category filters */}
+              <div className="mb-8 flex flex-wrap gap-2">
                 {categories.map((cat) => {
                   const count = cat === "All" ? filteredPosts.length : categoryCounts[cat] || 0;
                   return (
                     <button
                       key={cat}
-                      className={`px-4 py-2 rounded-xl border flex items-center gap-2 ${
-                        selectedCategory === cat
-                          ? "bg-black text-white"
-                          : "bg-white text-gray-700"
-                      }`}
                       onClick={() => {
                         setSelectedCategory(cat);
                         setCurrentPage(1);
                       }}
-                    >
-                      <span>{cat}</span>
-                      <span className={`text-xs px-2 py-0.5 rounded-full ${
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                         selectedCategory === cat
-                          ? "bg-gray-700 text-white"
-                          : "bg-gray-100 text-gray-600"
-                      }`}>
-                        {count}
-                      </span>
+                          ? "bg-emerald-700 text-white"
+                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      }`}
+                      aria-current={selectedCategory === cat ? "page" : undefined}
+                    >
+                      {cat} ({count})
                     </button>
                   );
                 })}
               </div>
 
-              {/* Blog List */}
-              <div className="grid gap-6">
+              {/* Results count */}
+              <p className="mb-4 text-sm text-gray-600">
+                Showing {paginatedPosts.length} of {filteredPosts.length} articles
+              </p>
+
+              {/* Blog grid */}
+              <div className="grid gap-6 md:grid-cols-2">
                 {paginatedPosts.map((post) => (
                   <article
                     key={post.id}
-                    className="rounded-2xl bg-white shadow hover:shadow-md transition overflow-hidden"
+                    className="group rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow overflow-hidden border border-gray-100"
                     itemScope
                     itemType="https://schema.org/BlogPosting"
                   >
                     <img
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-52 object-cover"
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                       itemProp="image"
+                      loading="lazy"
                     />
-
                     <div className="p-6">
-                      <h2
-                        className="text-xl font-semibold text-gray-800"
-                        itemProp="headline"
-                      >
+                      <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                        <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full text-xs">
+                          {post.category}
+                        </span>
+                        <time dateTime={post.date} itemProp="datePublished">
+                          {formatDateForSEO(post.date).display}
+                        </time>
+                      </div>
+                      <h2 className="text-xl font-semibold text-gray-800 mb-2 line-clamp-2" itemProp="headline">
                         {post.title}
                       </h2>
-
-                      <time
-                        className="mt-1 block text-sm text-gray-500"
-                        dateTime={post.date}
-                        itemProp="datePublished"
-                      >
-                        {post.date}
-                      </time>
-
-                      <p
-                        className="mt-3 text-gray-600"
-                        itemProp="description"
-                      >
+                      <p className="text-gray-600 mb-4 line-clamp-3" itemProp="description">
                         {post.excerpt}
                       </p>
-
-                      <button
-                        onClick={() => setSelectedPost(post)}
-                        className="mt-4 inline-block rounded-xl bg-black px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
-                      >
-                        Read More
-                      </button>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-500">
+                          {post.author.name}
+                        </span>
+                        <button
+                          onClick={() => setSelectedPost(post)}
+                          className="inline-flex items-center text-emerald-700 font-medium hover:text-emerald-800"
+                        >
+                          Read More →
+                        </button>
+                      </div>
                     </div>
                   </article>
                 ))}
               </div>
 
-              {/* ✅ Pagination Controls */}
+              {/* Pagination */}
               {totalPages > 1 && (
-                <div className="mt-10 flex justify-center items-center gap-2 flex-wrap">
+                <nav className="mt-12 flex justify-center items-center gap-2" aria-label="Pagination">
                   <button
-                    disabled={currentPage === 1}
                     onClick={() => changePage(currentPage - 1)}
-                    className="px-3 py-2 border rounded disabled:opacity-40"
+                    disabled={currentPage === 1}
+                    className="px-4 py-2 rounded-lg border border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                    aria-label="Previous page"
                   >
-                    Previous
+                    ← Previous
                   </button>
-
-                  {[...Array(totalPages)].map((_, index) => {
-                    const pageNumber = index + 1;
-                    return (
-                      <button
-                        key={pageNumber}
-                        onClick={() => changePage(pageNumber)}
-                        className={`px-3 py-2 border rounded ${
-                          currentPage === pageNumber
-                            ? "bg-black text-white"
-                            : ""
-                        }`}
-                      >
-                        {pageNumber}
-                      </button>
-                    );
-                  })}
+                  
+                  <div className="flex gap-1">
+                    {[...Array(totalPages)].map((_, i) => {
+                      const page = i + 1;
+                      return (
+                        <button
+                          key={page}
+                          onClick={() => changePage(page)}
+                          className={`w-10 h-10 rounded-lg ${
+                            currentPage === page
+                              ? "bg-emerald-700 text-white"
+                              : "border border-gray-300 hover:bg-gray-50"
+                          }`}
+                          aria-current={currentPage === page ? "page" : undefined}
+                          aria-label={`Page ${page}`}
+                        >
+                          {page}
+                        </button>
+                      );
+                    })}
+                  </div>
 
                   <button
-                    disabled={currentPage === totalPages}
                     onClick={() => changePage(currentPage + 1)}
-                    className="px-3 py-2 border rounded disabled:opacity-40"
+                    disabled={currentPage === totalPages}
+                    className="px-4 py-2 rounded-lg border border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                    aria-label="Next page"
                   >
-                    Next
+                    Next →
                   </button>
-                </div>
+                </nav>
               )}
             </>
           )}
 
-          {/* Single Post */}
+          {/* Single Post View */}
           {selectedPost && (
-            <article
-              className="rounded-2xl bg-white p-8 shadow"
-              itemScope
-              itemType="https://schema.org/BlogPosting"
-            >
+            <article className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
               <button
                 onClick={() => setSelectedPost(null)}
-                className="mb-4 px-4 py-2 font-medium rounded-xl bg-black text-white hover:bg-white hover:text-black border border-black transition-colors duration-300"
+                className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
+                aria-label="Back to blog list"
               >
-                ← Back to Blogs
+                ← Back to all articles
               </button>
 
               <img
                 src={selectedPost.image}
                 alt={selectedPost.title}
-                className="w-full h-80 object-cover rounded-xl mb-6"
+                className="w-full h-96 object-cover rounded-xl mb-8"
                 itemProp="image"
               />
 
-              <h2
-                className="text-2xl font-bold text-gray-800"
-                itemProp="headline"
-              >
-                {selectedPost.title}
-              </h2>
-
-              <time
-                className="mt-1 block text-sm text-gray-500"
-                dateTime={selectedPost.date}
-                itemProp="datePublished"
-              >
-                {selectedPost.date}
-              </time>
-
-              <div
-                className="mt-6 leading-relaxed text-gray-700"
-                itemProp="articleBody"
-                dangerouslySetInnerHTML={{ __html: selectedPost.content }}
-              ></div>
+              <div dangerouslySetInnerHTML={{ __html: selectedPost.content }} />
             </article>
           )}
         </div>

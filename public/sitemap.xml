@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Pages -->
+  <url>
+    <loc>https://crosscareers.com/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/about-us</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/contact-us</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/career</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Job & Opportunity Pages -->
+  <url>
+    <loc>https://crosscareers.com/ngo-jobs-bangladesh</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/international-ngo-jobs</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/bangladesh-jobs-sites</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/international-jobs-sites</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/remote-jobs-worldwide</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/freelance-jobs-online</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog Section -->
+  <url>
+    <loc>https://crosscareers.com/blogs</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Training & Resources -->
+  <url>
+    <loc>https://crosscareers.com/training-sites-worldwide</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/referral-program</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://crosscareers.com/terms-and-conditions</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/privacy-policy</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/legal-poliicy</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Public Utility Pages -->
+  <url>
+    <loc>https://crosscareers.com/seepricing</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/help</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://crosscareers.com/release</loc>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

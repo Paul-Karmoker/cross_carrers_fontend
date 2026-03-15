@@ -211,6 +211,10 @@ const JobTrainingPortals: FC = () => {
             <img
               src={site.logo}
               alt={site.name}
+              loading="lazy"
+              decoding="async"
+              width="160"
+              height="80"
               className="max-h-full max-w-full object-contain filter group-hover:grayscale-0 transition-all duration-300"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).src =
@@ -295,7 +299,7 @@ const JobTrainingPortals: FC = () => {
         .slick-slide > div { padding: 0 4px; }
       `}</style>
 
-      <div className="max-w-[1420px] mx-auto px-4 space-y-24">
+      <div className="max-w-[1420px] mx-auto px-4 space-y-12 -mt-4">
         <section>
           <SectionTitle>National Portals</SectionTitle>
           <Slider {...settings}>
@@ -306,7 +310,7 @@ const JobTrainingPortals: FC = () => {
         </section>
 
         <section>
-          <SectionTitle>Global Reach</SectionTitle>
+          <SectionTitle>Global Job Sites</SectionTitle>
           <Slider {...settings}>
             {internationalJobSites.map((site) => (
               <Card key={site.id} site={site} buttonText="Explore Careers" />
@@ -315,7 +319,7 @@ const JobTrainingPortals: FC = () => {
         </section>
 
         <section>
-          <SectionTitle>Skill Development</SectionTitle>
+          <SectionTitle>International Training Sites</SectionTitle>
           <Slider {...settings}>
             {trainingSites.map((site) => (
               <Card key={site.id} site={site} buttonText="View Courses" />

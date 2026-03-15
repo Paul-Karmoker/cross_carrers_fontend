@@ -74,7 +74,7 @@ const BdJobs: FC = () => {
     { id: 1, name: 'BDJOBS', url: 'https://bdjobs.com/', logo: 'https://i.ibb.co/Qv0BH1gF/bdjobs.png' },
     { id: 2, name: 'SmartJobs', url: 'https://smartjob.portal.gov.bd/', logo: 'https://i.ibb.co.com/FbNfXxrd/my-jobs.png' },
     { id: 3, name: 'nextjobz', url: 'https://nextjobz.com.bd/', logo: 'https://i.ibb.co.com/wrbnrMTg/next-jobs.png' },
-    { id: 4, name: 'Teletalk All Jobs', url: 'https://alljobs.teletalk.com.bd/', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRFUgbjYu-gsviQMoecCi60uUXXXF9anBrAA&s' },
+    { id: 4, name: 'Teletalk All Jobs', url: 'https://alljobs.teletalk.com.bd/', logo: 'https://i.ibb.co.com/d4Rk8zP2/images.png' },
     { id: 5, name: 'Jobs.com.bd', url: 'http://www.job.com.bd/', logo: 'http://job.com.bd/images/logo.gif' },
     { id: 6, name: 'Careerjet', url: 'https://www.careerjet.com.bd/', logo: 'https://i.ibb.co/jZrCpSTf/career-Jet.png' },
     { id: 7, name: 'Shomvob', url: 'https://shomvob.com/', logo: 'https://i.ibb.co/B5fwpbKm/shomvob.png' },
@@ -89,37 +89,64 @@ const BdJobs: FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
-      <Helmet>
-        <title>Bangladeshi Job Portals 2026 | CrossCareers</title>
-        <meta name="description" content="Discover the top Bangladeshi job portals. Access verified platforms to find your next career opportunity in Bangladesh." />
-        <meta name="keywords" content="Bangladesh jobs, job portals, BD jobs, career, employment, job boards, top Bangladeshi websites" />
-        <link rel="canonical" href="https://crosscareers.com/bdjobs" />
+<Helmet>
+  {/* Primary Title Tag */}
+  <title>
+    Bangladeshi Job Portals 2026 | Top BD Jobs, Government & Private Careers | CrossCareers
+  </title>
 
-        {/* Open Graph */}
-        <meta property="og:title" content="Bangladeshi Job Portals 2026 | CrossCareers" />
-        <meta property="og:description" content="Discover the top Bangladeshi job portals. Access verified platforms to find your next career opportunity in Bangladesh." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://crosscareers.com/bdjobs" />
-        <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
+  {/* Meta Description */}
+  <meta
+    name="description"
+    content="Explore the top Bangladeshi job portals in 2026. Access verified platforms for government jobs, private sector careers, remote work, and freelance opportunities in Bangladesh."
+  />
 
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Bangladeshi Job Portals 2026 | CrossCareers" />
-        <meta name="twitter:description" content="Discover the top Bangladeshi job portals. Access verified platforms to find your next career opportunity in Bangladesh." />
-        <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
+  {/* Primary Keywords */}
+  <meta
+    name="keywords"
+    content="Bangladesh jobs, BD job portals, Bangladeshi careers 2026, government jobs Bangladesh, private sector jobs BD, career opportunities in Dhaka, freelance jobs Bangladesh, remote work BD, top Bangladeshi job websites, online job boards Bangladesh, internship opportunities Bangladesh, NGO jobs Bangladesh, IT jobs Bangladesh, healthcare jobs BD"
+  />
 
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "CrossCareers",
-            "url": "https://crosscareers.com/",
-            "logo": "https://crosscareers.com/logo/favcon.png",
-            "description": "AI-powered career hub offering verified Bangladeshi job portals, freelance and remote opportunities, and career resources."
-          })}
-        </script>
-      </Helmet>
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://crosscareers.com/bangladesh-jobs-sites" />
+
+  {/* Open Graph / Facebook */}
+  <meta property="og:title" content="Bangladeshi Job Portals 2026 | Top BD Jobs, Government & Private Careers | CrossCareers" />
+  <meta property="og:description" content="Discover the best Bangladeshi job portals in 2026. Verified platforms for government, private, remote, and freelance career opportunities in Bangladesh." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://crosscareers.com/bangladesh-jobs-sites" />
+  <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Bangladeshi Job Portals 2026 | CrossCareers" />
+  <meta property="og:locale" content="en_US" />
+
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@CrossCareersBD" />
+  <meta name="twitter:creator" content="@CrossCareersBD" />
+  <meta name="twitter:title" content="Bangladeshi Job Portals 2026 | Top BD Jobs, Government & Private Careers | CrossCareers" />
+  <meta name="twitter:description" content="Access the best Bangladeshi job portals in 2026. Find verified government, private, freelance, and remote work opportunities across Bangladesh." />
+  <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
+  <meta name="twitter:image:alt" content="Bangladeshi Job Portals 2026 | CrossCareers" />
+
+  {/* Structured Data */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CrossCareers",
+      "url": "https://crosscareers.com/",
+      "logo": "https://crosscareers.com/logo/favcon.png",
+      "description": "AI-powered career hub offering verified Bangladeshi job portals, government and private sector opportunities, freelance & remote jobs, and career resources in Bangladesh.",
+      "sameAs": [
+      "https://www.facebook.com/profile.php?id=61574918625249",
+      "https://x.com/crosscareer",
+      "https://www.linkedin.com/company/crosscareers",
+      ]
+    })}
+  </script>
+</Helmet>
 
       <Navbar />
       <main className="flex-grow pt-20">
@@ -168,6 +195,168 @@ const BdJobs: FC = () => {
             </button>
           </div>
         </section>
+      {/* FAQ Section */}
+<section className="bg-white py-16 lg:py-24 border-t border-gray-100">
+  <div className="container mx-auto px-6 max-w-5xl">
+
+    <div className="text-center mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        Frequently Asked Questions About Jobs in Bangladesh
+      </h2>
+      <p className="text-gray-600 max-w-3xl mx-auto">
+        Job seekers in Bangladesh often search online for information about job portals, recruitment processes, salaries, and career opportunities. 
+        Below are some of the most commonly searched questions related to finding jobs and building careers in Bangladesh.
+      </p>
+    </div>
+
+    <div className="space-y-10 text-gray-700 leading-relaxed">
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">1. What are the best job portals in Bangladesh?</h3>
+        <p>
+          Bangladesh has several trusted job portals where employers publish vacancies across different sectors. 
+          These platforms allow job seekers to search opportunities in industries such as banking, technology, NGOs, manufacturing, and education. 
+          Many portals also offer resume building tools, career resources, and job alerts to help candidates stay informed about new opportunities.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">2. How can I find NGO jobs in Bangladesh?</h3>
+        <p>
+          NGO jobs in Bangladesh are commonly advertised through specialized job portals, professional networking platforms, 
+          and the official websites of development organizations. Many NGOs recruit professionals for roles in project management, 
+          logistics, monitoring and evaluation, community development, and public health. Candidates with relevant experience 
+          and strong communication skills often have better opportunities in the development sector.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">3. How do I apply for jobs online in Bangladesh?</h3>
+        <p>
+          Applying for jobs online usually requires creating a profile on a job portal and uploading a professional resume. 
+          After finding a suitable position, candidates can submit their application along with a customized cover letter. 
+          Carefully reading the job description and highlighting relevant skills in the CV can significantly increase the chances 
+          of being shortlisted by recruiters.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">4. What qualifications are required to get a good job in Bangladesh?</h3>
+        <p>
+          The required qualifications depend on the type of job and industry. Many professional positions require at least 
+          a bachelor's degree, while managerial roles often require a master's degree and several years of experience. 
+          Employers also value practical skills such as communication, teamwork, problem solving, and digital literacy.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">5. What is the average salary in Bangladesh?</h3>
+        <p>
+          Salaries in Bangladesh vary depending on the industry, organization, and experience level of the employee. 
+          Entry-level positions usually offer moderate salaries, while experienced professionals in sectors such as banking, 
+          technology, and international development may receive significantly higher compensation along with additional benefits.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">6. How can I prepare for a job interview in Bangladesh?</h3>
+        <p>
+          Preparing for an interview involves researching the organization, understanding the job responsibilities, 
+          and practicing common interview questions. Candidates should be ready to explain their experience, 
+          professional achievements, and how their skills align with the requirements of the position. 
+          Confidence and clear communication are important factors during interviews.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">7. What skills are most in demand in Bangladesh?</h3>
+        <p>
+          Employers in Bangladesh increasingly look for candidates who possess both technical and soft skills. 
+          Skills such as data analysis, project management, financial management, digital marketing, and 
+          information technology are highly valued. At the same time, communication, adaptability, and teamwork 
+          are essential for professional success.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">8. Are government jobs better than private sector jobs in Bangladesh?</h3>
+        <p>
+          Government jobs are often considered attractive because they provide long-term stability, structured 
+          promotion systems, and retirement benefits. Private sector jobs, however, may offer faster career growth, 
+          higher salaries, and opportunities to develop specialized skills. The best choice depends on an individual’s 
+          career goals and personal preferences.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">9. How can fresh graduates find jobs in Bangladesh?</h3>
+        <p>
+          Fresh graduates can begin their careers by applying for internships, trainee programs, and entry-level 
+          positions offered by organizations. These opportunities help build professional experience and improve 
+          employability. Participating in training programs, workshops, and volunteer activities can also strengthen 
+          a candidate’s profile.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">10. Do international organizations hire professionals from Bangladesh?</h3>
+        <p>
+          Many international organizations and development agencies hire professionals from Bangladesh for national 
+          and regional roles. These organizations often require specialists in project management, logistics, finance, 
+          monitoring and evaluation, and humanitarian response. Strong English communication skills and relevant 
+          experience are often important requirements.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">11. What is humanitarian logistics?</h3>
+        <p>
+          Humanitarian logistics involves managing the procurement, transportation, storage, and distribution of 
+          relief supplies during emergencies and development programs. Effective logistics ensures that essential 
+          resources such as food, medicine, and shelter materials reach affected communities quickly and efficiently.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">12. What should I say when introducing myself in an interview?</h3>
+        <p>
+          A professional self-introduction should briefly summarize your education, work experience, and career goals. 
+          Candidates should highlight achievements and explain how their skills match the requirements of the job. 
+          A clear and confident introduction can create a strong first impression during interviews.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">13. Are remote jobs available for professionals in Bangladesh?</h3>
+        <p>
+          Yes, remote job opportunities have increased significantly in recent years. Many international companies 
+          and digital businesses now hire professionals from Bangladesh for roles in software development, design, 
+          digital marketing, customer support, and online consulting. Remote work allows professionals to access 
+          global career opportunities without relocating.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">14. What are the benefits of working in the development sector?</h3>
+        <p>
+          Careers in the development sector allow professionals to contribute to meaningful social change while 
+          gaining diverse professional experience. Many individuals find NGO and humanitarian work rewarding 
+          because it focuses on improving communities, reducing poverty, and supporting sustainable development.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-bold text-xl mb-2">15. Why do people choose careers in NGOs?</h3>
+        <p>
+          Many professionals choose NGO careers because they want to make a positive impact on society. 
+          Working in development programs provides opportunities to support vulnerable communities, 
+          collaborate with international organizations, and gain valuable cross-cultural experience.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
       </main>
 
       <Footer />

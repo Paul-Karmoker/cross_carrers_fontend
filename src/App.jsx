@@ -2,6 +2,8 @@
 import { memo } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 /* ───────── PUBLIC PAGES ───────── */
 import Home from "./app/components/home/index";
@@ -50,6 +52,16 @@ import Setting from "./app/components/utility/Setting";
 import Release from "./app/components/utility/Release";
 
 const App = memo(() => {
+  const location = useLocation(); // ✅ ADD THIS
+
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag("config", "G-EKLRRCRQ9T", {
+        page_path: location.pathname,
+      });
+    }
+  }, [location.pathname]); // ✅ ADD THIS
+
   return (
     <Routes>
       {/* ───── PUBLIC ROUTES ───── */}
@@ -59,7 +71,7 @@ const App = memo(() => {
       <Route path="/contact-us" element={<Contact />} />
       <Route path="/referral-program" element={<Earn />} />
       <Route path="/ngo-jobs-bangladesh" element={<Ngo />} />
-      <Route path="/blogs" element={<Blogs />} />
+      <Route path="/career-guide" element={<Blogs />} />
       <Route path="/legal-poliicy" element={<Legalpoliicy />} />
       <Route path="/career" element={<Career />} />
       <Route path="/international-ngo-jobs" element={<Ingo />} />
