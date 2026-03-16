@@ -47,9 +47,9 @@ const Un = lazy(() => import("./app/Others/Un"));
 const Emb = lazy(() => import("./app/Others/emb"));
 const Donor = lazy(() => import("./app/Others/doner"));
 const Dbhome = lazy(() => import("./app/dashboard"));
-const UpgradePlan = lazy(() => import("./app/components/utility/upgradeplan"));
-const SeePricing = lazy(() => import("./app/components/utility/seepricing"));
-const Help = lazy(() => import("./app/components/utility/help"));
+const UpgradePlan = lazy(() => import("./app/components/utility/UpgradePlan"));
+const SeePricing = lazy(() => import("./app/components/utility/SeePricing"));
+const Help = lazy(() => import("./app/components/utility/Help"));
 const Setting = lazy(() => import("./app/components/utility/Setting"));
 const Release = lazy(() => import("./app/components/utility/Release"));
 
