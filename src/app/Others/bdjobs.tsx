@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import { blogPosts, BlogPost } from './blogs/blogdata/blogdata01'; // adjust path if needed
 
 /**
  * Interface for Job Portal data structure
@@ -20,7 +22,6 @@ interface JobSite {
 interface JobCardProps {
   site: JobSite;
 }
-
 /**
  * Optimized JobCard Component
  */
@@ -68,6 +69,25 @@ const JobCard: FC<JobCardProps> = ({ site }) => {
     </div>
   );
 };
+
+const formatDateForSEO = (dateString: string) => {
+  const date = new Date(dateString);
+  return {
+    iso: date.toISOString().split('T')[0],
+    display: date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    })
+  };
+};
+
+// Get 6 most recent blog posts (sorted by date descending)
+const relevantCategories = ['Career Guide', 'Job Search', 'Interview Support', 'Resume / CV'];
+const relatedArticles = blogPosts
+  .filter(post => relevantCategories.includes(post.category))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 6);
 
 const BdJobs: FC = () => {
   const jobSites: JobSite[] = [
@@ -191,15 +211,63 @@ const BdJobs: FC = () => {
               </p>
             </div>
             <button className="whitespace-nowrap px-8 py-2 bg-blue-50 text-blue-700 font-bold hover:bg-blue-100 transition-colors">
-              Suggest a Portal
+              <a href="/contact-us">Suggest a Portal</a>
             </button>
           </div>
         </section>
+{/* Related Articles Section */}
+{relatedArticles.length > 0 && (
+  <section className="bg-gray-50 py-10 lg:py-6 -mt-16">
+    <div className="container mx-auto px-6">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          Related Career Articles
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Boost your job search with expert advice from our blog.
+        </p>
+      </div>
+
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        {relatedArticles.map(article => (
+          <Link
+            key={article.id}
+            to={`/career-guide/${article.slug}`}
+            className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden border border-gray-100"
+          >
+            <img
+              src={article.image}
+              alt={article.title}
+              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+            <div className="p-6">
+              <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
+                  {article.category}
+                </span>
+                <time dateTime={article.date}>
+                  {formatDateForSEO(article.date).display}
+                </time>
+              </div>
+              <h3 className="font-semibold text-gray-800 group-hover:text-blue-700 line-clamp-2">
+                {article.title}
+              </h3>
+              <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+                {article.excerpt}
+              </p>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
       {/* FAQ Section */}
 <section className="bg-white py-16 lg:py-24 border-t border-gray-100">
   <div className="container mx-auto px-6 max-w-5xl">
 
-    <div className="text-center mb-16">
+    <div className="text-center mb-16 -mt-10">
       <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
         Frequently Asked Questions About Jobs in Bangladesh
       </h2>
@@ -353,7 +421,6 @@ const BdJobs: FC = () => {
           collaborate with international organizations, and gain valuable cross-cultural experience.
         </p>
       </div>
-
     </div>
   </div>
 </section>

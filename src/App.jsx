@@ -21,7 +21,7 @@ const Bdjobs = lazy(() => import("./app/Others/bdjobs"));
 const Intjobs = lazy(() => import("./app/Others/intJobs"));
 const Terms = lazy(() => import("./app/Others/terms"));
 const Privacy = lazy(() => import("./app/Others/privacy"));
-const Blogs = lazy(() => import("./app/Others/blogs"));
+const Blogs = lazy(() => import("./app/Others/blogs/bloglist"));
 const Legalpoliicy = lazy(() => import("./app/Others/legalpolicy"));
 const Career = lazy(() => import("./app/Others/career"));
 const Signin = lazy(() => import("./app/auth/siginin"));
@@ -31,6 +31,8 @@ const ResetPassword = lazy(() => import("./app/auth/resetpassword"));
 const OtpVarify = lazy(() => import("./app/auth/VerifyOtp"));
 const Logout = lazy(() => import("./app/auth/logout"));
 const BkashSuccess = lazy(() => import("./app/components/utility/BkashSuccess"));
+const BlogList = lazy(() => import ("./app/Others/blogs/bloglist"));
+const BlogPost = lazy(() => import ("./app/Others/blogs/blogpost"));
 
 /* ───────── TOOLS ───────── */
 const ResumeMakerHome = lazy(() => import("./app/components/ResumeMaker/Dashboard"));
@@ -74,7 +76,6 @@ const App = memo(() => {
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/referral-program" element={<Earn />} />
         <Route path="/ngo-jobs-bangladesh" element={<Ngo />} />
-        <Route path="/career-guide" element={<Blogs />} />
         <Route path="/legal-poliicy" element={<Legalpoliicy />} />
         <Route path="/career" element={<Career />} />
         <Route path="/international-ngo-jobs" element={<Ingo />} />
@@ -95,6 +96,9 @@ const App = memo(() => {
         <Route path="/setting" element={<Setting />} />
         <Route path="/release" element={<Release />} />
         <Route path="/editor" element={<ResumeMain />} />
+        <Route path="/career-guide" element={<Blogs />} />
+        <Route path="/career-guide" element={<BlogList />} />
+        <Route path="/career-guide/:slug" element={<BlogPost />} />
 
         <Route
           path="/dbhome"

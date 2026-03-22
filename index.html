@@ -4,21 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- DNS Prefetch -->
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
 <link rel="dns-prefetch" href="//www.googletagmanager.com">
 <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
 <link rel="dns-prefetch" href="//fundingchoicesmessages.google.com">
 
-<!-- Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="/logo/favcon.png" />
 
-<!-- SEO -->
 <title>Bangladesh's First AI Resume Builder, Interview Prep & Jobs Portal 2026 | CrossCareers</title>
 <meta name="description" content="CrossCareers is an AI-powered career hub offering national & international jobs, NGO & humanitarian careers, ATS-friendly resume builder, cover letter generator, interview prep tools, freelance & remote opportunities, and productivity resources for professionals." />
 <meta name="keywords" content="AI resume builder, ATS-friendly resume, NGO jobs Bangladesh, international jobs, remote jobs, freelance jobs work, interview preparation, cover letter generator, productivity tools, career development, UN jobs Bangladesh" />
@@ -27,7 +23,6 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
 <meta name="theme-color" content="#0f172a" />
 
-<!-- Open Graph -->
 <meta property="og:title" content="Bangladesh's First AI Career Hub: Jobs, Resumes & Interview Tools | CrossCareers" />
 <meta property="og:description" content="Access verified national & international jobs, NGO careers, ATS resumes, cover letters, freelance opportunities and interview prep tools." />
 <meta property="og:type" content="website" />
@@ -36,25 +31,48 @@
 <meta property="og:site_name" content="CrossCareers" />
 <meta property="og:locale" content="en_US" />
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@CrossCareersBD" />
 <meta name="twitter:title" content="AI Resume Builder & Jobs Portal | CrossCareers" />
 <meta name="twitter:description" content="AI-powered resume builder, cover letter generator and global job portal." />
 <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
 
-<!-- Google Fonts (non blocking) -->
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
-<!-- Structured Data -->
+<style>
+  /* 🛡️ SAFETY CSS: Prevent Social Bar from covering Navbar/Logo */
+  #at-main-container, .at-social-bar-container {
+    padding-top: 85px !important; 
+  }
+
+  /* Keep your React Navbar/Header always on top */
+  nav, header, .navbar {
+    z-index: 99999 !important;
+    position: sticky !important;
+    top: 0 !important;
+  }
+
+  /* Ensure the root content is interactive */
+  #root {
+    position: relative;
+    z-index: 10;
+  }
+</style>
+
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"CrossCareers","url":"https://crosscareers.com/","logo":"https://crosscareers.com/logo/favcon.png","sameAs":["https://www.facebook.com/profile.php?id=61574918625249","https://x.com/crosscareer","https://www.linkedin.com/company/crosscareers"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CrossCareers","url":"https://crosscareers.com/","potentialAction":{"@type":"SearchAction","target":"https://crosscareers.com/?search={search_term_string}","query-input":"required name=search_term_string"}}</script>
 
-<!-- Defer GA, AdSense & FundingChoices -->
 <script>
 window.addEventListener("load", function() {
-  // Google Analytics
+  // --- 1. SERVICE WORKER REGISTRATION (For PropellerAds) ---
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('SW Registered'))
+      .catch(err => console.log('SW Failed', err));
+  }
+
+  // --- 2. GOOGLE ANALYTICS ---
   const gtagScript = document.createElement("script");
   gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-EKLRRCRQ9T";
   gtagScript.async = true;
@@ -66,18 +84,36 @@ window.addEventListener("load", function() {
     gtag('config', 'G-EKLRRCRQ9T');
   };
 
-  // Google AdSense
+  // --- 3. GOOGLE ADSENSE ---
   const adsScript = document.createElement("script");
   adsScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3909224797816763";
   adsScript.async = true;
   adsScript.crossOrigin = "anonymous";
   document.head.appendChild(adsScript);
 
-  // Google FundingChoices
-  const fundingScript = document.createElement("script");
-  fundingScript.src = "/i/ca-pub-3909224797816763?href=https%3A%2F%2Fcrosscareers.com&ers=2";
-  fundingScript.async = true;
-  document.head.appendChild(fundingScript);
+  // --- 4. ADSTERRA POPUNDER (Immediate) ---
+  const popunderScript = document.createElement("script");
+  popunderScript.src = "https://undergocutlery.com/2b/d3/06/2bd3065a53ccb9b0e362e2e348935e72.js";
+  popunderScript.setAttribute('data-cfasync', 'false');
+  document.body.appendChild(popunderScript);
+
+  // --- 5. ADSTERRA SOCIAL BAR (10s Delay) ---
+  setTimeout(function() {
+    const socialBarScript = document.createElement("script");
+    socialBarScript.src = "https://undergocutlery.com/d1/43/c5/d143c55c9ea8eead371ccf47e23bf48d.js";
+    socialBarScript.setAttribute('data-cfasync', 'false');
+    document.body.appendChild(socialBarScript);
+  }, 10000); 
+
+  // --- 6. PROPELLERADS MULTITAG (15s Delay) ---
+  // Added extra delay to avoid overlapping with Adsterra scripts
+  setTimeout(function() {
+    const propScript = document.createElement("script");
+    propScript.src = "https://5gvci.com/act/files/tag.min.js?z=10760476"; // Your specific zone ID
+    propScript.setAttribute('data-cfasync', 'false');
+    document.body.appendChild(propScript);
+    console.log("PropellerAds Loaded");
+  }, 15000);
 });
 </script>
 
@@ -85,8 +121,6 @@ window.addEventListener("load", function() {
 
 <body>
 <div id="root"></div>
-
-<!-- React Entry -->
 <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

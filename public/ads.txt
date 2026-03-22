@@ -1,2 +1,6 @@
+# Google Adsence
 google.com, pub-3909224797816763, DIRECT, f08c47fec0942fa0
 google.com, pub-3909224797816763, RESELLER, f08c47fec0942fa0
+
+# Adsterra
+adsterra.com, 5676870, DIRECT, 50e9323326f58544

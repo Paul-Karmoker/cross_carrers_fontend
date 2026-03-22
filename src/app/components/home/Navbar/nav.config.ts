@@ -55,5 +55,5 @@ export const NAV_CONFIG: NavItem[] = [
       // { label: "Excel Format Maker", path: "/excelhome", restricted: true, hidden: true },
     ],
   },
-  { label: "Blogs", type: "link", path: "/career-guide" },
+  { label: "Career tips", type: "link", path: "/career-guide" },
 ];

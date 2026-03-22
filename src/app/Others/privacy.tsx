@@ -51,11 +51,14 @@ const PrivacyPolicy: FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
+      {/* 1. Ensure the Navbar container has the highest Z-index */}
       <Navbar />
 
-      <main className="flex-grow max-w-5xl mx-auto px-6 py-16 md:py-24 mt-16">
+      {/* 2. Changed -mt-16 to mt-20 or pt-20 to prevent overlap */}
+      <main className="flex-grow max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
+        
         {/* Hero Section */}
-        <header className="mb-16 text-center">
+        <div className='mb-16 text-center -mt-12'>
           <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-indigo-600 uppercase bg-indigo-50 rounded-full">
             Legal Transparency
           </div>
@@ -66,14 +69,14 @@ const PrivacyPolicy: FC = () => {
           <p className="text-lg text-slate-500 font-medium">
             Last Updated: <span className="text-slate-900">{currentDate}</span>
           </p>
-        </header>
+        </div>
 
         {/* Abstract Box */}
         <div className="relative overflow-hidden bg-white border border-slate-200 p-8 rounded-3xl shadow-sm mb-16">
           <div className="absolute top-0 left-0 w-2 h-full bg-indigo-600" />
           <p className="text-slate-600 leading-relaxed text-lg">
             This Privacy Policy and Payment Dispute Resolution governs the collection, use, and protection of personal data by 
-            <strong className="text-slate-900"> Cross Careers</strong> in compliance with Bangladeshi law. By utilizing our 
+            <strong className="text-slate-900"> CrossCareers</strong> in compliance with Bangladeshi law. By utilizing our 
             digital platform and services, you provide explicit consent to the terms outlined herein.
           </p>
         </div>
@@ -97,7 +100,7 @@ const PrivacyPolicy: FC = () => {
                 <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
                   <h3 className="text-lg font-bold text-slate-800 mb-4">1.2 Operational Purpose</h3>
                   <p className="text-slate-600 text-sm leading-relaxed">
-                    Data is processed exclusively to facilitate career services, comply with Bangladeshi legal mandates (Digital Security Act 2018), and optimize site performance.
+                    Data is processed exclusively to facilitate career services, comply with Bangladeshi legal mandates (Digital Security Act 2018), and optimize site performance through cookies and metadata analysis.
                   </p>
                 </div>
               </div>
@@ -127,11 +130,37 @@ const PrivacyPolicy: FC = () => {
                   We maintain a strict <strong>"No-Sale"</strong> data policy. Sharing occurs only with:
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['bKash', 'Nagad', 'Govt Authorities'].map(tag => (
+                  {['bKash', 'Nagad', 'Google Ads', 'Ad Networks'].map(tag => (
                     <span key={tag} className="bg-white px-3 py-1 rounded-full text-xs font-bold text-indigo-600 border border-indigo-200">
                       {tag}
                     </span>
                   ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 3: Cookie & Advertising Disclosure */}
+          <section>
+            <SectionHeader number={3} title="Cookie & Advertising Policy" />
+            <div className="ml-0 md:ml-14 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+              <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                CrossCareers uses cookies to personalize content and ads, to provide social media features and to analyze our traffic. We also share information about your use of our site with our advertising partners (including <strong>Google AdSense, Monetag, and Adsterra</strong>) who may combine it with other information that you’ve provided to them.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <h4 className="font-bold text-slate-800 text-sm uppercase tracking-wider">Third-Party Vendors:</h4>
+                  <ul className="space-y-2 text-slate-600 text-sm">
+                    <li className="flex items-start gap-2">• Google uses cookies to serve ads based on your prior visits.</li>
+                    <li className="flex items-start gap-2">• Adsterra and Monetag utilize identifiers to provide career-related offers.</li>
+                  </ul>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 className="font-bold text-slate-800 text-sm mb-2">How to Opt-Out</h4>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    You may opt out of personalized advertising by visiting your browser settings or visiting{' '}
+                    <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline font-semibold">aboutads.info</a>.
+                  </p>
                 </div>
               </div>
             </div>
@@ -149,8 +178,8 @@ const PrivacyPolicy: FC = () => {
               </div>
               <div className="flex flex-col sm:flex-row items-center justify-between bg-white border-2 border-dashed border-slate-200 p-6 rounded-2xl">
                 <p className="text-slate-500 font-medium mb-4 sm:mb-0">Submit formal data requests to:</p>
-                <a href="mailto:ceo.crosscareers@gmail.com" className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-600 transition-colors">
-                  ceo@crosscareers.com
+                <a href="mailto:info@crosscareers.com" className="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-600 transition-colors">
+                  info@crosscareers.com
                 </a>
               </div>
             </div>
@@ -195,14 +224,14 @@ const PrivacyPolicy: FC = () => {
                 <h2 className="text-3xl font-bold mb-4">Contact & Legal Notices</h2>
                 <p className="text-slate-400 mb-6">Formal legal correspondence must be directed to our registered Mirpur office.</p>
                 <div className="space-y-2 text-slate-300 not-italic">
-                  <p className="font-bold text-white text-lg">Cross Careers</p>
+                  <p className="font-bold text-white text-lg">CrossCareers Bangladesh</p>
                   <p>32/2, BBCS Lane, Senpara Parbota</p>
                   <p>Mirpur-10, Dhaka, Bangladesh</p>
                 </div>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
                 <p className="text-indigo-300 font-bold text-sm uppercase mb-2">Electronic Communications</p>
-                <a href="mailto:ed.youthindevelopment@gmail.com" className="text-xl font-bold hover:text-indigo-400 transition-colors break-all">
+                <a href="mailto:info@crosscareers.com" className="text-xl font-bold hover:text-indigo-400 transition-colors break-all">
                   info@crosscareers.com
                 </a>
               </div>
@@ -215,7 +244,7 @@ const PrivacyPolicy: FC = () => {
               By continuing to browse this platform, you acknowledge that you have read, understood, and agreed to be legally bound by this Policy under Bangladeshi jurisdiction.
             </p>
             <div className="mt-8 text-slate-500 font-bold text-xs tracking-widest uppercase">
-              © {currentYear} Cross Careers | All Rights Reserved
+              © {currentYear} CrossCareers | All Rights Reserved
             </div>
           </section>
         </div>

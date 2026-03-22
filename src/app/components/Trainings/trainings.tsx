@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-
+import { Link } from 'react-router-dom';
+import { blogPosts, BlogPost } from '../../Others/blogs/blogdata/blogdata01'; 
 
 interface TrainingResource {
   id: number;
@@ -166,6 +167,24 @@ const TRAINING_DATA: TrainingResource[] = [
     description: "Online courses from top universities",
   },
 ];
+const relevantCategories = ['Career Guide', 'Freelance & Remote', 'Interview Support', 'Resume / CV', "Skill Development"];
+const relatedArticles = blogPosts
+  .filter(post => relevantCategories.includes(post.category))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 6);
+
+const formatDateForSEO = (dateString: string) => {
+  const date = new Date(dateString);
+  return {
+    iso: date.toISOString().split('T')[0],
+    display: date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    })
+  };
+};
+
 
 /**
  * Sub-component for individual Training Cards to improve maintainability and performance.
@@ -284,11 +303,58 @@ const Trainings: FC = () => {
                 resources and capacity building programs.
               </p>
               <button className="text-blue-600 font-semibold hover:text-blue-700 underline-offset-4 hover:underline">
-                Suggest a training provider
+                <a href="/contact-us">Suggest a training provider</a>
               </button>
             </div>
           </div>
         </section>
+      {/* Related Articles Section */}
+{relatedArticles.length > 0 && (
+  <section className="bg-gray-50 py-10 lg:py-6 -mt-8 ">
+    <div className="container mx-auto px-6">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          Related Career Articles
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Boost your job search with expert advice from our blog.
+        </p>
+      </div>
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        {relatedArticles.map(article => (
+          <Link
+            key={article.id}
+            to={`/career-guide/${article.slug}`}
+            className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden border border-gray-100"
+          >
+            <img
+              src={article.image}
+              alt={article.title}
+              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+            <div className="p-6">
+              <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
+                  {article.category}
+                </span>
+                <time dateTime={article.date}>
+                  {formatDateForSEO(article.date).display}
+                </time>
+              </div>
+              <h3 className="font-semibold text-gray-800 group-hover:text-blue-700 line-clamp-2">
+                {article.title}
+              </h3>
+              <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+                {article.excerpt}
+              </p>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
       </main>
     </div>
   );
