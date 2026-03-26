@@ -5,18 +5,18 @@ import Footer from "../components/home/footer";
 
 // Team members data
 const teamMembers = [
-  { name: "Hasan Imtiaz", role: "Humanitarian Logistics Specialist", experience: "15 years in national & international NGOs" },
-  { name: "Farha Tanjin", role: "Human Resources & Development Expert", experience: "12+ years in HR" },
-  { name: "Danish Boiragi", role: "Senior HR Management Advisor", experience: "17 years in senior HR leadership" },
+  { name: "H. Imtiaz", role: "Humanitarian Logistics Specialist", experience: "15 years in national & international NGOs" },
+  { name: "F. Tanjin", role: "Human Resources & Development Expert", experience: "12+ years in HR" },
+  { name: "D. Boiragi", role: "Senior HR Management Advisor", experience: "17 years in senior HR leadership" },
   { name: "Khalid Zishan", role: "Government Liaison Specialist", experience: "15 years in govt. coordination" },
-  { name: "Rony Mondal", role: "Financial Coordinator", experience: "18 years in financial coordination" },
-  { name: "Biplob Antony Gomes", role: "Financial Management Advisor", experience: "28 years in financial management" },
-  { name: "Tania Mazumder", role: "Program & Advocacy Specialist", experience: "15 years in program and advocacy" },
-  { name: "Salina Khatun", role: "GBV, Safeguarding & Complaint Mechanism Expert", experience: "20 years in protection & compliance" },
-  { name: "Jahanara Begum", role: "Education Policy Advisor", experience: "20 years in education policy" },
+  { name: "R. Mandal", role: "Financial Coordinator", experience: "18 years in financial coordination" },
+  { name: "Biplob A. Gomes", role: "Financial Management Advisor", experience: "28 years in financial management" },
+  { name: "T. Mazumder", role: "Program & Advocacy Specialist", experience: "15 years in program and advocacy" },
+  { name: "S. Khatun", role: "GBV, Safeguarding & Complaint Mechanism Expert", experience: "20 years in protection & compliance" },
+  { name: "J. abedin Begum", role: "Education Policy Advisor", experience: "20 years in education policy" },
   { name: "Khalid Hassan", role: "Communications & Branding Strategist", experience: "16 years in communications" },
-  { name: "Charles Joy", role: "Support Services Director", experience: "26 years in HR, finance, logistics, procurement, security & liaison" },
-  { name: "Angela Lovey", role: "Program Management Lead", experience: "18 years in program management" }
+  { name: "Jay C. Sarkar", role: "Support Services Director", experience: "26 years in HR, finance, logistics, procurement, security & liaison" },
+  { name: "Angela L. Mondal", role: "Program Management Lead", experience: "18 years in program management" }
 ];
 
 const editorialLead = {

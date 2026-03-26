@@ -149,7 +149,7 @@ export default function BlogList() {
             {paginatedPosts.map((post) => (
               <article
                 key={post.id}
-                className="group rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow overflow-hidden border border-gray-100"
+                className="group rounded-2xl bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out overflow-hidden border border-gray-100"
                 itemScope
                 itemType="https://schema.org/BlogPosting"
               >
@@ -180,11 +180,14 @@ export default function BlogList() {
                       {post.author.name}
                     </span>
                     <Link
-                      to={`/career-guide/${post.slug}`}
-                      className="inline-flex items-center text-emerald-700 font-medium hover:text-emerald-800"
-                    >
-                      Read More →
-                    </Link>
+  to={`/career-guide/${post.slug}`}
+  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white text-sm font-semibold shadow-sm transition-all duration-300 hover:bg-emerald-700 hover:shadow-md group"
+>
+  Read More
+  <span className="transform transition-transform duration-300 group-hover:translate-x-1">
+    →
+  </span>
+</Link>
                   </div>
                 </div>
               </article>
