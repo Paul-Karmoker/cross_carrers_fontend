@@ -1,4 +1,4 @@
-import { BlogPost, authorPaul } from './type'; 
+import { BlogPost, authorCrossCareers } from './type'; 
 
 export const blogPosts: BlogPost[] = [
 
@@ -10,7 +10,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "The low-carbon transition could create 375 million additional jobs over the next decade. Discover top green roles including Sustainability Manager, Renewable Energy Specialist, and ESG Analyst with salary trends, required skills, and certification pathways.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/Z1kVnTmV/51.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- professional analysis layout with EEAT signals -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.5; background: #ffffff;">
@@ -161,7 +161,7 @@ export const blogPosts: BlogPost[] = [
         excerpt: "Stuck in the experience catch-22? Learn how to build a portfolio that proves your skills, highlight transferable competencies, and land your first job even when every listing demands 2-3 years experience.",
         category: "Career Guide",
         image: "https://i.ibb.co.com/ZRhtvD49/52.webp",
-        author: authorPaul,
+        author: authorCrossCareers,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -293,7 +293,7 @@ export const blogPosts: BlogPost[] = [
         excerpt: "Job applications have doubled while postings shrink. Learn how to use niche job boards, targeted networking, and tailored applications to stand out in a crowded field.",
         category: "Career Guide",
         image: "https://i.ibb.co.com/sdCZQ0T9/53.webp",
-        author: authorPaul,
+        author: authorCrossCareers,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -433,7 +433,7 @@ export const blogPosts: BlogPost[] = [
         excerpt: "Applied to dozens of jobs and heard nothing? You're not alone. Learn why 'ghost jobs' exist, how to identify them, and what to do when employers go silent.",
         category: "Career Guide",
         image: "https://i.ibb.co.com/Ndf2rMYg/54.webp",
-        author: authorPaul,
+        author: authorCrossCareers,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -585,7 +585,7 @@ export const blogPosts: BlogPost[] = [
         excerpt: "Employers are shifting from credentials to demonstrated capabilities. Learn how to bridge the gap between university education and industry demands with online certifications, mini-projects, and skills portfolios.",
         category: "Career Guide",
         image: "https://i.ibb.co.com/xtpY01ND/55.webp",
-        author: authorPaul,
+        author: authorCrossCareers,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -731,7 +731,7 @@ export const blogPosts: BlogPost[] = [
         excerpt: "AI isn't replacing you—but professionals who master AI will. Learn the specific AI tools and skills that boost employability across marketing, design, data, and operations.",
         category: "AI (Artificial Intelligence)",
         image: "https://i.ibb.co.com/27ShQXpZ/56.webp",
-        author: authorPaul,
+        author: authorCrossCareers,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -882,7 +882,7 @@ export const blogPosts: BlogPost[] = [
         excerpt: "Gen Z changes jobs every 1.1 years on average. Learn how to frame short tenures positively, emphasize skill growth, and present your career journey as strategic rather than unstable.",
         category: "Career Guide",
         image: "https://i.ibb.co.com/2YmSq5gJ/57.webp",
-        author: authorPaul,
+        author: authorCrossCareers,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -1017,7 +1017,7 @@ export const blogPosts: BlogPost[] = [
         excerpt: "Job searching is emotionally draining. Learn practical strategies to maintain mental health, celebrate micro-wins, build support systems, and stay resilient through rejection and silence.",
         category: "Workplace Wellness & Culture",
         image: "https://i.ibb.co.com/C5PyxBZt/58.webp",
-        author: authorPaul,
+        author: authorCrossCareers,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -1167,7 +1167,7 @@ export const blogPosts: BlogPost[] = [
         excerpt: "Borderless hiring is booming. Learn how to prepare a remote-ready toolkit, navigate time zones, handle compliance, and land roles with international teams—no relocation needed.",
         category: "Freelance & Remote",
         image: "https://i.ibb.co.com/4wvh7q2P/59.webp",
-        author: authorPaul,
+        author: authorCrossCareers,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -1326,7 +1326,7 @@ export const blogPosts: BlogPost[] = [
         excerpt: "Many graduates face disappointment when their first job doesn't match their dreams. Learn how to identify your core values, research company culture, and find meaning even in imperfect roles.",
         category: "Career Guide",
         image: "https://i.ibb.co.com/4ZCTPDzH/60.webp",
-        author: authorPaul,
+        author: authorCrossCareers,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -1509,7 +1509,7 @@ export const blogPosts: BlogPost[] = [
         excerpt: "Technical skills get you interviews; soft skills get you hired. Learn which human-centered capabilities employers prioritize—communication, critical thinking, adaptability—and how to demonstrate them.",
         category: "Skill Development",
         image: "https://i.ibb.co.com/6RHXphp9/61.webp",
-        author: authorPaul,
+        author: authorCrossCareers,
         content: `
             <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -1694,7 +1694,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "With unemployment at 4.63% affecting 2.7M people and 900,000 graduates jobless, learn which path fits your situation—survival or strategic—and get a data-backed roadmap to navigate Bangladesh's competitive job market.",
     category: "Leadership & Innovation",
     image: "https://i.ibb.co.com/B5WcYnvM/62.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -1906,7 +1906,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Supercharge your learning with these 10 free AI tools for writing, coding, design, productivity, and more. No cost, high impact.",
     category: "AI (Artificial Intelligence)",
     image: "https://i.ibb.co.com/B2WGxPhw/63.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -2062,7 +2062,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Wondering what to learn to stay relevant in the AI era? This roadmap covers prompt engineering, data literacy, AI ethics, and more—with free resources and a 6‑month plan.",
     category: "AI (Artificial Intelligence)",
     image:"https://i.ibb.co.com/MDyccjk8/64.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -2183,7 +2183,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Whether you started your career in the 1980s or the 2000s, AI doesn’t have to be intimidating. Learn mindset shifts, upskilling strategies, and how to leverage decades of experience alongside new tools.",
     category: "Career Development",
     image: "https://i.ibb.co.com/twjVD8v2/65.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -2280,7 +2280,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Discover how AI can accelerate your career—from automating routine tasks to providing personalized learning and networking insights. Plus, learn the skills you need to develop to stay ahead.",
     category: "AI (Artificial Intelligence)",
     image: "https://i.ibb.co.com/7dxHMp2z/66.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -2405,7 +2405,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "From automated bookkeeping to intelligent forecasting, discover the top AI tools transforming finance and accounting. Learn how to integrate them into your workflow and boost efficiency.",
     category: "AI (Artificial Intelligence)",
     image: "https://i.ibb.co.com/gZrd04F9/67.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -2539,7 +2539,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Master the most common NGO interview questions: Tell me about yourself, expected salary, PSEA, gender equity, safeguarding, and more. Sample answers and expert tips included.",
   category: "Interview Support",
   image: "https://i.ibb.co.com/ccjb751k/68.webp",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -2694,7 +2694,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Learn how to craft a UN cover letter and CV that passes Inspira screening. Includes P11 form tips, sample STAR statements, and keywords to get shortlisted for UN jobs.",
   category: "ATS (Resume/CV)",
   image: "https://i.ibb.co.com/0js980Sn/69.webp",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -2804,7 +2804,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Can you negotiate a UN salary? Yes. Learn how to argue for a step increase, understand the Noblemaire Principle, and maximize your net pay with UN benefits, allowances, and education grants.",
   category: "Career Guide",
   image: "https://i.ibb.co.com/d08WH5rh/70.webp",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -2920,7 +2920,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Confused by UN job titles? This guide explains the difference between Professional (P), General Service (G), National Officer (NO), and Consultant categories. Learn which category fits your profile.",
   category: "Career Guide",
   image: "https://i.ibb.co.com/20FWtPss/71.webp",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -3051,7 +3051,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "AI is dominating the 2026 job market, but which specific skills do employers want? From prompt engineering to data annotation and AI literacy, here are the technical and strategic AI skills that top LinkedIn's list.",
   category: "AI (Artificial Intelligence)",
   image: "https://i.ibb.co.com/pBgMkhG2/72.webp",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -3194,7 +3194,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "As AI automates routine tasks, human-centric 'Power Skills' are becoming more valuable than ever. Learn why leadership, communication, storytelling, and adaptability top the 2026 skills list.",
   category: "Skill Development",
   image: "https://i.ibb.co.com/gFmNvZPc/73.webp",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -3336,7 +3336,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "From AI salary premiums to skills-based hiring, the 2026 job market in the US and Canada is defined by talent scarcity and technological transformation. Here are the hottest industries, roles, and regional trends.",
   category: "AI (Artificial Intelligence)",
   image: "https://i.ibb.co.com/wZZRVrcv/74.webp",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -3555,7 +3555,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "The NACE Winter 2026 Salary Survey reveals the bachelor's degrees employers want most. Finance and Mechanical Engineering tie for first, with Computer Science close behind. See the full rankings and salary projections.",
   category: "Skill Development",
   image: "https://i.ibb.co.com/kgfHtrrm/75.webp",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -3758,7 +3758,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Companies are hiring for skills, not just job titles. Learn how to identify your portable skills, navigate internal mobility, and position yourself for career switches in a skills-first job market.",
   category: "Skill Development",
   image: "https://i.ibb.co.com/KpD2jCJK/76.webp",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -3919,7 +3919,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Monitoring, Evaluation, Accountability & Learning (MEAL) offers a structured career path in the development and humanitarian sectors. This guide breaks down each level—Assistant, Officer, Coordinator, Manager—with step‑by‑step development plans and portable skills.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/qMnH1n19/1.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -4164,7 +4164,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Marketing in 2026 is a blend of creativity, data, and technology. Whether you're just starting as an Assistant or aiming for a Manager role, this guide breaks down each level with step‑by‑step development plans, essential skills, and practical advice for a skills‑first job market.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/F44LqsV3/2.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -4442,7 +4442,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Research in the development and humanitarian sector is evolving rapidly. From designing studies that inform policy to ensuring evidence-based programming, research professionals are in high demand. This guide provides a step‑by‑step roadmap from Assistant to Manager, with practical development plans for each level.",
   category: "Career Development",
   image: "https://i.ibb.co.com/0Vr9dzCQ/3.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -4734,7 +4734,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Gender-Based Violence (GBV) programming is a specialized field requiring technical expertise, deep empathy, and strong coordination skills. Whether you're starting as an Assistant or aiming for a Manager role, this guide provides step‑by‑step development plans, essential competencies, and practical advice for a skills‑first humanitarian sector.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/XZ2X87Dx/4.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -5029,7 +5029,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Project management is the engine of the development and humanitarian sector. From building schools to delivering health campaigns, skilled project managers turn ideas into impact. This guide provides a step‑by‑step roadmap from Assistant to Manager, with practical development plans for each level in a skills‑first world.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/BWSFqLc/5.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
 
@@ -5338,7 +5338,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Education is the foundation of development. From early childhood programmes to adult literacy, education professionals shape futures. This guide walks you through each career stage—Assistant, Officer, Coordinator, Manager—with practical steps to grow your skills and impact.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/3YPH7S2p/6.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1000px; margin: 0 auto; background: #ffffff; color: #1a2b3c; line-height: 1.5;">
 
@@ -5667,7 +5667,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "When crisis hits, emergency responders are the first to act. From natural disasters to conflict zones, this field demands resilience, adaptability, and technical skill. Here's your complete roadmap from Assistant to Manager in the humanitarian emergency response sector.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/fV5Pw6mv/7.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; max-width: 1100px; margin: 0 auto; background: #ffffff; color: #1a1e24; line-height: 1.5;">
 
@@ -6062,7 +6062,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Shelter is more than four walls and a roof. It's protection, dignity, and the first step toward recovery. From emergency tarps to transitional shelters, here's your complete roadmap to growing a career in shelter programming.",
   category: "Career Development",
   image: "https://i.ibb.co.com/CszzL3ct/8.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   "content": `
     <article style="font-family: 'Inter', 'Manrope', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #ffffff; color: #1c2b36; line-height: 1.5;">
 
@@ -6435,7 +6435,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Program management is the heart of development and humanitarian action. From designing interventions to leading teams and managing budgets, Program professionals turn vision into impact. Here's your complete roadmap from Assistant to Manager in 2026.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/b5NXQywV/9.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'DM Sans', 'Inter', system-ui, -apple-system, sans-serif; max-width: 1200px; margin: 0 auto; background: #ffffff; color: #1F2A3A; line-height: 1.5;">
 
@@ -6832,7 +6832,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Administration is the quiet force that makes every program possible. From HR to finance, logistics to compliance, Admin professionals keep organisations running. Here's your complete roadmap from Assistant to Manager in 2026.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/v6gT4PRf/10.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   "content": `
     <article style="font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #ffffff; color: #1E2F4A; line-height: 1.5;">
 
@@ -7230,7 +7230,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Finance is the language of accountability. From payroll to donor reporting, budget tracking to audits, Finance professionals ensure resources reach those who need them. Here's your complete roadmap from Assistant to Manager in 2026.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/gM2j0x38/11.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Lato', 'Inter', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #ffffff; color: #1E2B3A; line-height: 1.5;">
 
@@ -7628,7 +7628,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Human Resources is the heart of any organisation. From recruitment to staff wellbeing, HR professionals ensure that teams are supported, policies are fair, and people can do their best work. Here's your complete roadmap from Assistant to Manager in 2026.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/MyKbmHTB/12.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Nunito', 'Inter', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #ffffff; color: #2C3E4F; line-height: 1.5;">
 
@@ -8027,7 +8027,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Procurement is the engine of effective aid. From sourcing life-saving medicines to contracting local suppliers, procurement professionals ensure resources are delivered with integrity and speed. Here's your complete roadmap from Assistant to Manager in 2026.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/CF8Zswx/13.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #ffffff; color: #1A3C3A; line-height: 1.5;">
 
@@ -8425,7 +8425,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Logistics is the backbone of humanitarian and development operations. From managing fleets to warehousing and transport, logistics professionals ensure that supplies reach the people who need them most. Here's your complete roadmap from Assistant to Manager in 2026.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/fbGnccr/14.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Source Sans Pro', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; max-width: 1100px; margin: 0 auto; background: #FDFCF8; color: #2E3B3A; line-height: 1.5;">
 
@@ -8747,7 +8747,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Supply chain is the invisible force behind every humanitarian and development operation. From forecasting needs to delivering supplies, supply chain professionals ensure that the right goods reach the right people at the right time. Here's your complete roadmap from Assistant to Manager in 2026.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/YFJffB1J/15.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Fira Code', 'Roboto Mono', monospace, 'Inter', system-ui; max-width: 1100px; margin: 0 auto; background: #f8fafc; color: #0f172a; line-height: 1.5;">
 
@@ -9064,7 +9064,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Government liaison professionals are the vital link between development and humanitarian organisations and the authorities who regulate, enable, and partner with them. From securing permits to shaping policy, this career path demands diplomacy, strategic thinking, and deep understanding of public systems. Here's your complete roadmap from Assistant to Manager in 2026.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/d0Rfmmkc/16.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'DM Serif Display', 'Playfair Display', 'Inter', system-ui, serif; max-width: 1100px; margin: 0 auto; background: #FFFFFF; color: #1E2A32; line-height: 1.5;">
 
@@ -9360,7 +9360,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Safeguarding is the ethical foundation of humanitarian and development work. From preventing sexual exploitation and abuse to ensuring staff and communities are safe, safeguarding professionals protect the most vulnerable. Here's your complete roadmap from Assistant to Manager in 2026.",
   category: "Career Roadmap",
   image: "https://i.ibb.co.com/84gyysb8/17.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'IBM Plex Sans', 'Inter', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #FFFFFF; color: #2D3748; line-height: 1.5;">
 
@@ -9667,7 +9667,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Whether you're moving staff, supplies, or emergency responders, vehicle operations are the lifeblood of any organisation. This comprehensive guide covers everything from fleet planning and audit-ready documentation to journey management and incident reporting — written by an expert trainer with 15 years of field experience.",
   category: "Finance & Administration",
   image: "https://i.ibb.co.com/8LMTcqZ2/18.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Source Sans Pro', 'Segoe UI', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #FFFFFF; color: #1A2C3E; line-height: 1.5;">
 
@@ -9979,7 +9979,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Warehouse operations are the heartbeat of every supply chain. From storing life‑saving medicines to staging emergency supplies, a well‑managed warehouse ensures that goods are safe, accessible, and accountable. This guide covers everything from layout and SKU management to inbound/outbound flows, security, cleaning, and incident reporting — written by an expert trainer with 18 years of field experience.",
   category: "Finance & Administration",
   image: "https://i.ibb.co.com/gMT8DHmc/19.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Source Sans Pro', 'Segoe UI', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #FFFFFF; color: #1A2C3E; line-height: 1.5;">
 
@@ -10261,7 +10261,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Human Resources is the engine that powers every organisation. From recruitment and onboarding to performance management and strategic HRBP roles, this comprehensive guide covers everything you need to build and run effective HR operations — including audit-ready documentation, step-by-step processes, and practical KPIs.",
   category: "Finance & Administration",
   image: "https://i.ibb.co.com/YF9zM4cQ/20.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Source Sans Pro', 'Segoe UI', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #FFFFFF; color: #2D3748; line-height: 1.5;">
 
@@ -10541,7 +10541,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Finance operations are the bedrock of organisational integrity and sustainability. From budgeting and donor reporting to audit readiness and strategic financial planning, this comprehensive guide covers everything you need to build and run effective finance operations — including step-by-step processes, essential documentation, and practical KPIs.",
   category: "Operations Management",
   image: "https://i.ibb.co.com/BHKstnz9/21.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Source Sans Pro', 'Segoe UI', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #FFFFFF; color: #1A2C3E; line-height: 1.5;">
 
@@ -10841,7 +10841,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Procurement and logistics are the twin engines that power humanitarian and development operations. From strategic sourcing and contract management to fleet and warehouse operations, this comprehensive guide covers everything you need to build resilient, audit-ready supply chains — written by an expert with 16+ years of experience managing procurement and logistics for UN agencies and INGOs.",
   category: "Finance & Administration",
   image: "https://i.ibb.co.com/N6BYBbZF/22.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Source Sans Pro', 'Segoe UI', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #FFFFFF; color: #1A2C3E; line-height: 1.5;">
 
@@ -11166,7 +11166,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Localization is more than a buzzword — it's a fundamental shift in how humanitarian and development aid is delivered. This comprehensive guide explores the current landscape, opportunities, challenges, and practical approaches to building sustainable local capacity, including KPIs to measure progress.",
   category: "Finance & Administration",
   image: "https://i.ibb.co.com/yms5jyqx/23.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Source Sans Pro', 'Segoe UI', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #FFFFFF; color: #2D3748; line-height: 1.5;">
 
@@ -11412,7 +11412,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Grant writing and donor relations are the lifeblood of humanitarian and development organizations. This comprehensive guide explores the 2026 funding landscape, step-by-step proposal processes, relationship management strategies, KPIs, and career pathways — written by an expert with 15+ years of experience.",
   category: "Grants Management",
   image: "https://i.ibb.co.com/LXc758c6/24.avif",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
     <article style="font-family: 'Source Sans Pro', 'Segoe UI', system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 0 auto; background: #FFFFFF; color: #2D3748; line-height: 1.5;">
 

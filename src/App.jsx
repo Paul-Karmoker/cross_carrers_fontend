@@ -21,7 +21,6 @@ const Bdjobs = lazy(() => import("./app/Others/bdjobs"));
 const Intjobs = lazy(() => import("./app/Others/intJobs"));
 const Terms = lazy(() => import("./app/Others/terms"));
 const Privacy = lazy(() => import("./app/Others/privacy"));
-const Blogs = lazy(() => import("./app/Others/blogs/bloglist"));
 const Legalpoliicy = lazy(() => import("./app/Others/legalpolicy"));
 const Career = lazy(() => import("./app/Others/career"));
 const Signin = lazy(() => import("./app/auth/siginin"));
@@ -33,6 +32,7 @@ const Logout = lazy(() => import("./app/auth/logout"));
 const BkashSuccess = lazy(() => import("./app/components/utility/BkashSuccess"));
 const BlogList = lazy(() => import ("./app/Others/blogs/bloglist"));
 const BlogPost = lazy(() => import ("./app/Others/blogs/blogpost"));
+const Expart = lazy(() => import ("./app/Others/experts"))
 
 /* ───────── TOOLS ───────── */
 const ResumeMakerHome = lazy(() => import("./app/components/ResumeMaker/Dashboard"));
@@ -96,9 +96,12 @@ const App = memo(() => {
         <Route path="/setting" element={<Setting />} />
         <Route path="/release" element={<Release />} />
         <Route path="/editor" element={<ResumeMain />} />
-        <Route path="/career-guide" element={<Blogs />} />
         <Route path="/career-guide" element={<BlogList />} />
         <Route path="/career-guide/:slug" element={<BlogPost />} />
+        <Route path="/meet-the-exparts" element={<Expart />} />
+        <Route path="/united-nation-jobs-bangladesh" element={<Un />} />
+        <Route path="/embassy-jobs-bangladesh/" element={<Emb />} />
+        <Route path="donor-jobs-bangladesh" element={<Donor />} />
 
         <Route
           path="/dbhome"
@@ -180,30 +183,6 @@ const App = memo(() => {
           element={
             <ProtectedRoute requireFullAccess>
               <Insm />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/united-nation-jobs-bangladesh"
-          element={
-            <ProtectedRoute requireFullAccess>
-              <Un />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/embassy-jobs-bangladesh"
-          element={
-            <ProtectedRoute requireFullAccess>
-              <Emb />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/donor-jobs-bangladesh"
-          element={
-            <ProtectedRoute requireFullAccess>
-              <Donor />
             </ProtectedRoute>
           }
         />

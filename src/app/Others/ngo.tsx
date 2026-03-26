@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from '../components/home/navbar';
 import Footer from '../components/home/footer';
 import { Link } from 'react-router-dom';
-import { blogPosts, BlogPost } from './blogs/blogdata/blogdata01'; 
+import { blogPosts,} from './blogs/blogdata'; 
 /**
  * Interfaces for Type Safety
  */
@@ -170,32 +170,31 @@ const NgoHub: FC = () => {
 
 </Helmet>
       <Navbar />
-      {/* Hero Section */}
-      <header className="relative pt-24 pb-16 overflow-hidden bg-slate-900">
-        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"></div>
-        
-        <div className="relative max-w-7xl mx-auto px-6 text-center">
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-emerald-400 uppercase bg-emerald-400/10 rounded-full border border-emerald-400/20">
-            Professional Resource
-          </span>
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6">
-            NGO Career <span className="text-emerald-500">Hub</span>
-          </h1>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            A comprehensive gateway to humanitarian and development opportunities with leading organizations in Bangladesh.
-          </p>
-          <a
-            href="#A"
-            className="inline-flex items-center px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-2xl transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] group"
-          >
-            Start Exploring
-            <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-5 w-5 transition-transform group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </a>
-        </div>
-      </header>
+<div className="relative bg-slate-900 py-8 sm:py-12 md:py-16 overflow-hidden -mt-8 -mb-8">
+  <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+  <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"></div>
+  
+  <div className="relative max-w-7xl mx-auto px-6 text-center">
+    <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 mb-4 sm:mb-6 text-xs sm:text-sm font-bold tracking-widest text-emerald-400 uppercase bg-emerald-400/10 rounded-full border border-emerald-400/20">
+      Professional Resource
+    </span>
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white mb-4 sm:mb-6">
+      NGO Career <span className="text-emerald-500">Hub</span>
+    </h1>
+    <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2">
+      A comprehensive gateway to humanitarian and development opportunities with leading organizations in Bangladesh.
+    </p>
+    <a
+      href="#A"
+      className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-2xl transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] group text-base sm:text-lg"
+    >
+      Start Exploring
+      <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </a>
+  </div>
+</div>
 
       {/* Navigation Bar (Sticky) */}
       <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 py-4 shadow-sm">

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
 import { Link } from 'react-router-dom';
-import { blogPosts, BlogPost } from './blogs/blogdata/blogdata01'; // adjust path if needed
+import { blogPosts,} from './blogs/blogdata'; // adjust path if needed
 
 /**
  * Interface for Job Portal data structure
@@ -116,7 +116,7 @@ interface JobCardProps {
  */
 const JobCard: FC<JobCardProps> = ({ site }) => {
   return (
-    <div className="group bg-white border border-gray-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
+    <div className="group bg-white border border-gray-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden ">
       <div className="p-8 flex flex-col items-center flex-grow">
 
         <div className="w-full h-24 mb-6 flex items-center justify-center bg-gray-50 p-4 group-hover:bg-white transition-colors duration-300">
@@ -203,7 +203,7 @@ const BdJobs: FC = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
+    <div className="flex flex-col min-h-screen bg-[#F8FAFC] -mt-20">
 
 <Helmet>
   {/* Primary Title Tag */}
@@ -267,7 +267,7 @@ const BdJobs: FC = () => {
       <main className="flex-grow pt-20">
 
         <section className="relative overflow-hidden bg-gray-900 py-20 lg:py-28">
-          <div className="container mx-auto px-6 relative z-10 text-center">
+          <div className="container mx-auto px-6 relative z-10 text-center -mt-10 -mb-10 ">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">
               Top Freelance Job Portals for Remote & Global Work
             </h1>
@@ -277,7 +277,7 @@ const BdJobs: FC = () => {
           </div>
         </section>
 
-        <section className="container mx-auto px-6 py-16 lg:py-24">
+        <section className="container mx-auto px-6 py-16 lg:py-24 -mt-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
               <h2 className="text-3xl font-bold text-gray-900">Verified Freelance Platforms</h2>

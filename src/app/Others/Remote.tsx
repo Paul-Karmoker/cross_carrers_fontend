@@ -3,7 +3,7 @@ import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { blogPosts, BlogPost } from './blogs/blogdata/blogdata01'; // adjust path if needed
+import { blogPosts,} from './blogs/blogdata'; // adjust path if needed
 
 /**
  * Interface for Job Portal data structure
@@ -194,7 +194,7 @@ const BdJobs: FC = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
+    <div className="flex flex-col min-h-screen bg-[#F8FAFC] -mt-20">
 <Helmet>
   {/* Primary Title Tag */}
   <title>Remote & Hybrid Jobs 2026 | Work From Home, Freelance & Global Opportunities | CrossCareers</title>
@@ -260,7 +260,7 @@ const BdJobs: FC = () => {
             <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
           </div>
 
-          <div className="container mx-auto px-6 relative z-10 text-center">
+          <div className="container mx-auto px-6 relative z-10 text-center -mt-10 -mb-10">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">
               Remote & Hybrid <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300">Job Portals</span>
             </h1>
@@ -271,7 +271,7 @@ const BdJobs: FC = () => {
         </section>
 
         {/* Portals Grid Section */}
-        <section className="container mx-auto px-6 py-16 lg:py-24">
+        <section className="container mx-auto px-6 py-16 lg:py-24 -mt-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
               <h2 className="text-3xl font-bold text-gray-900">Remote & Hybrid Jobs Portals</h2>

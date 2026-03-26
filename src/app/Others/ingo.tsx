@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
 import { Link } from 'react-router-dom';
-import { blogPosts, BlogPost } from './blogs/blogdata/blogdata01'; 
+import { blogPosts, } from './blogs/blogdata'; 
 
 interface NGOCardProps {
   name: string;
@@ -398,6 +398,13 @@ const Ingo: React.FC = () => {
 }
   ];
 
+// Get 6 most recent blog posts (sorted by date descending)
+const relevantCategories = ['Career Guide', 'Finance & Administration', 'Interview Support', 'Resume / CV'];
+const relatedArticles = blogPosts
+  .filter(post => relevantCategories.includes(post.category))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 6);
+  
   const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, letter: string) => {
     e.preventDefault();
     const element = document.getElementById(letter);
@@ -483,9 +490,9 @@ const Ingo: React.FC = () => {
 
     <Navbar />
 
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 mt-14">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
 
-      <div className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 py-12 px-4 sm:px-6 lg:px-8 overflow-hidden -mt-6 -mb-6">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
         </div>

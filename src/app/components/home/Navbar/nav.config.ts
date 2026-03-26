@@ -14,9 +14,9 @@ export const NAV_CONFIG: NavItem[] = [
       { label: "INGO Jobs", path: "/international-ngo-jobs" },
       { label: "Freelancer Jobs", path: "/freelance-jobs-online" },
       { label: "Remote Jobs", path: "/remote-jobs-worldwide" },
-      { label: "Embassy Jobs", path: "/embassy-jobs-bangladesh", restricted: true },
-      { label: "Donar Jobs", path: "/donor-jobs-bangladesh", restricted: true },
-      { label: "UN Jobs", path: "/united-nation-jobs-bangladesh", restricted: true },
+      { label: "Embassy Jobs", path: "/embassy-jobs-bangladesh" },
+      { label: "Donar Jobs", path: "/donor-jobs-bangladesh" },
+      { label: "UN Jobs", path: "/united-nation-jobs-bangladesh" },
     ],
   },
   {

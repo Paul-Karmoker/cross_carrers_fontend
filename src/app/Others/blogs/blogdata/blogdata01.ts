@@ -1,4 +1,4 @@
-import { BlogPost, authorPaul } from './type'; 
+import { BlogPost, authorCrossCareers } from './type'; 
 
 export const blogPosts: BlogPost[] = [
   {
@@ -9,7 +9,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Learn practical interview preparation strategies for NGO, UN, and humanitarian sector jobs in Bangladesh and beyond.",
     category: "Interview Support",
     image: "https://i.ibb.co.com/0gzF3nZ/1.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional NGO/development sector theme with mission focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -225,7 +225,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Discover the most in-demand logistics and supply chain skills employers want in 2026.",
   category: "Career Guide",
   image: "https://i.ibb.co.com/7tmkfcPL/2.webp",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
       <!-- article wrapper with EEAT signals - professional supply chain/logistics theme with digital focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -443,7 +443,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Tips to make your CV compatible with Applicant Tracking Systems (ATS) and get noticed by recruiters.",
   category: "ATS (Resume/CV)",
   image: "https://i.ibb.co.com/pB272SFw/3.webp",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
       <!-- article wrapper with EEAT signals - professional ATS/resume theme with optimization focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -644,7 +644,7 @@ export const blogPosts: BlogPost[] = [
   excerpt: "Key strategies to craft a strong resume or CV that stands out to employers.",
   category: "ATS (Resume/CV)",
   image: "https://i.ibb.co.com/xtyhgjny/4.webp",
-  author: authorPaul,
+  author: authorCrossCareers,
   content: `
       <!-- article wrapper with EEAT signals - professional CV/resume theme with ATS optimization focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -863,7 +863,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Comprehensive insights into Applicant Tracking Systems (ATS), how they function, and why they have become the standard for hiring in Bangladesh's top organizations.",
     category: "ATS (Resume/CV)",
     image: "https://i.ibb.co.com/GvLMphDg/5.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional HR/recruitment theme with ATS focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -1098,7 +1098,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Break away from rehearsed answers. Learn how to handle the self-introduction, salary negotiation, and role-fit questions using modern strategies for the Dhaka corporate world.",
     category: "Interview Support",
     image: "https://i.ibb.co.com/BHJPN0h0/6.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional interview/career theme with Bangladesh focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -1315,7 +1315,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "AI isn't replacing you; it's creating opportunities for those who master it. Explore how Dhaka's top professionals are using localized AI tools to boost productivity, ensure compliance, and stay ahead in 2026.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/4xmjB4D/7.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional AI/future of work theme with Bangladesh focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -1410,7 +1410,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #c9c9d9;">
           <p>You may have seen headlines about "Prompt Engineers" commanding astronomical salaries. In the Bangladeshi context, this specific job title is largely a myth. Companies are not looking for specialists who only talk to AI; they are looking for domain experts who can use AI to solve problems. This skill is best described as <strong>"Contextual Fluency."</strong></p>
-          <p>As we reported in our previous post on <a href="/future-jobs-bangladesh-2030" style="color: #4a4e6b;">future job trends in Bangladesh</a>, the core competency is no longer just asking a question, but framing it within a complex, local business reality. Recruiters at multinational corporations and top local conglomerates are now asking candidates: <em>"Can you make the AI understand our specific supply chain bottlenecks in Chittagong port?"</em></p>
+          <p>As we reported in our previous post on <a href="/career-guide/future-jobs-bangladesh-2030" style="color: #4a4e6b;">future job trends in Bangladesh</a>, the core competency is no longer just asking a question, but framing it within a complex, local business reality. Recruiters at multinational corporations and top local conglomerates are now asking candidates: <em>"Can you make the AI understand our specific supply chain bottlenecks in Chittagong port?"</em></p>
           
           <div style="background: #f5f5fa; border-radius: 20px; padding: 1.5rem; margin-top: 1rem;">
             <p style="font-weight: 600; color: #4a4e6b;">💡 Actionable Tip for Your CV:</p>
@@ -1513,7 +1513,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Freelancing in Bangladesh has matured into a high-stakes profession. Master the art of navigating international payments, retaining value amid forex fluctuations, and attracting high-ticket clients in the 2026 market.",
     category: "Freelance & Remote",
     image: "https://i.ibb.co.com/svj7ntNP/8.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional freelancing/finance theme with gig economy focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -1708,7 +1708,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Sustainability is now a profit center. Discover the explosion of 'Green Collar' careers in Bangladesh's Ready-Made Garment sector, the certifications you need, and the premium salaries waiting for qualified ESG professionals in 2026.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/B50SXWks/9.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional ESG/green careers theme with RMG focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -1905,7 +1905,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Dhaka's traffic has permanently reshaped the 9-to-5. Explore how top corporate houses in Gulshan and Banani are adopting 'Phygital' models and learn the strategies you need to thrive, stay visible, and get promoted in a hybrid world.",
     category: "Workplace Wellness & Culture",
     image: "https://i.ibb.co.com/jZw8bsF9/10.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional hybrid work theme with Dhaka focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -2120,7 +2120,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "The traditional 2-page PDF resume is dying. Discover how to build a dynamic, SEO-optimized digital portfolio that showcases your real-time skills and lands you interviews at top agencies like Brain Station 23 and Magnito Digital.",
     category: "ATS (Resume/CV)",
     image: "https://i.ibb.co.com/C59xFHr1/11.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional portfolio/career theme with modern elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -2314,7 +2314,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Burnout is silently epidemic in Dhaka's high-pressure corporate corridors. Discover practical strategies for setting digital boundaries, navigating 'micro-stressors,' and negotiating your 'Right to Disconnect' without jeopardizing your career.",
     category: "Workplace Wellness & Culture",
     image: "https://i.ibb.co.com/Wv7TG6fZ/12.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional wellness/mental health theme with corporate elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -2499,7 +2499,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "A career gap is no longer a red flag. Discover how to leverage 'Returnship' programs from top MNCs like Unilever BD and Standard Chartered, and learn powerful strategies to reframe your gap and relaunch your professional journey with confidence.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/27Zj3j1g/13.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional returnship/career re-entry theme with inclusive elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -2684,7 +2684,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "The BCS dream vs. the Corporate ladder. A data-driven, no-nonsense comparison of stability, pension, growth potential, and lifestyle costs in the 2026 economic landscape to help you make the right career choice.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/LDFk3JNM/14.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional career comparison theme with balanced analysis -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -2857,7 +2857,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "You don't need to be a Data Scientist, but you must be Data Literate. Discover essential analytics skills for HR, Marketing, and Sales professionals in Dhaka's corporate landscape and learn how to speak the language of data with confidence.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/WpPQqw1T/15.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional data literacy/analytics theme with business elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -3054,7 +3054,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Startup funding is tight. The safer, smarter path to innovation? Intrapreneurship. Learn how to lead new ventures within established Bangladeshi firms like ACI or Beximco and build your legacy without the personal financial risk.",
     category: "Leadership & Innovation",
     image: "https://i.ibb.co.com/Nv4r7rR/16.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional intrapreneurship/innovation theme with corporate elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -3251,7 +3251,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Why hire a full-time CTO when you can rent one? Discover how the rise of 'Fractional' roles is opening high-paying, flexible doors for senior experts while providing vital leadership to cash-conscious startups in Dhaka.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/PG8F3dW1/17.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional executive/career theme with fractional elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -3460,7 +3460,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Business cards are dead. Discover the power of 'Micro-Communities' on WhatsApp and Discord where the real job offers and business deals are happening in Dhaka, and learn how to build trust in these exclusive digital rooms.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/1fbZFwP4/18.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional networking/community theme with dark social elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -3675,7 +3675,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "University degrees aren't the only path to a prosperous future. Discover how skilled technicians in elevator maintenance, solar installation, and EV repair are out-earning graduates and finding greater job security in Bangladesh's rapidly modernizing economy.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/JwfZvZYt/19.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional blue collar tech theme with industrial elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -3855,7 +3855,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Stuck in a stagnant industry? You don't need to learn Python. Discover how bankers, teachers, and admin professionals are pivoting into high-demand roles like Product Owner, Scrum Master, and QA Tester by leveraging their existing domain expertise.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/nq2HR97k/20.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional tech/career theme with non-coding focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -4076,7 +4076,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "With 86% of buyer queries now AI-generated and remote work booming worldwide, Business Fluency—not native accents—determines your value. Master written clarity, virtual meeting confidence, and cross-cultural communication to unlock USD/EUR salaries from anywhere.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/SX7yz8sL/21.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional global career theme with communication focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -4336,7 +4336,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "They don't want 'Pizza Parties'; they want purpose and transparency. Learn how to lead the newest generation entering the Bangladeshi workforce and turn their digital-native strengths into organizational assets.",
     category: "Leadership & Innovation",
     image: "https://i.ibb.co.com/bgSBxs9K/22.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional leadership/management theme with generational insights -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -4533,7 +4533,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Global cybersecurity demand is exploding with 3.5M unfilled positions worldwide. Discover the complete certification path from novice to CISO, salary benchmarks across US, UK, Canada & Asia, and alternative entry routes like bug bounty hunting that can launch your international career.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/ZRDBM8Q7/23.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional cybersecurity/global career theme with security elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -4778,7 +4778,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Traditional banking is shrinking; FinTech is exploding. Discover high-growth career paths in Product, Compliance, and Growth at bKash, Nagad, and beyond—and learn how to pivot from traditional finance into the digital future.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/9HHHt26q/24.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional FinTech/career theme with digital finance elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -5016,7 +5016,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "NBR is watching. A simple, practical guide to declaring your freelance or side-business income, claiming tax exemptions, and getting a Trade License to avoid penalties in the 2026 tax year.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/N6gqXZWh/25.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional tax/compliance theme with freelance focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -5218,7 +5218,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "With the talent assessment services market reaching $10.7B in 2026 and demand for emotional intelligence in technical roles up 95%, EQ has become your ultimate career insurance. Master self-awareness, empathy, and relationship management with practical techniques.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/LzKYGtjQ/26.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional EQ/leadership theme with human-centric elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width:  px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -5486,7 +5486,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Sprints aren't just for coders anymore. Discover how top marketing agencies and HR departments in Dhaka are using Agile methodologies—Kanban boards, daily standups, and sprints—to launch campaigns faster and hire smarter.",
     category: "Interview Support",
     image: "https://i.ibb.co.com/d41pcmzG/27.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional Agile/operations theme with modern workflow elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -5698,7 +5698,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "You've been working for 8-10 years and feel stuck. Discover proven strategies to break through the 'Manager' ceiling, reach 'Director' level, and reignite your career growth in your 30s.",
     category: "Leadership & Innovation",
     image: "https://i.ibb.co.com/cKpSSvDY/28.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional career development theme with strategic elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -5925,7 +5925,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Despite undeniable progress, boardrooms remain male-dominated. Discover practical strategies for women to navigate the 'Broken Rung,' find sponsors (not just mentors), and overcome imposter syndrome to claim their seat at the table.",
     category: "Women Empowerment",
     image: "https://i.ibb.co.com/BKHd2G4K/29.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional women's leadership theme with empowerment elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -6140,7 +6140,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "50+ countries now offer Digital Nomad Visas. Your complete 2026 guide to remote work destinations worldwide—including Europe, Asia, Middle East & Caribbean. Compare income thresholds, tax benefits, duration, and step-by-step application processes for every major program.",
     category: "Freelance & Remote",
     image: "https://i.ibb.co.com/ymQ3wqQH/30.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content:  `
       <!-- article wrapper with EEAT signals - modern travel/remote work theme with global elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -6381,7 +6381,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "With the rise of Shikho, 10 Minute School, and a new wave of learning platforms, EdTech is a major employer. Discover high-impact roles in Instructional Design, Student Success, and Curriculum Development that go beyond traditional teaching.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/s9hHZK10/31.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - modern EdTech/education theme with learning elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -6624,7 +6624,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Transport, Health Insurance, Provident Fund. Learn how to calculate the true 'Cost to Company' (CTC) and negotiate the non-monetary perks that can save you lakhs of taka and build long-term wealth in Dhaka's expensive ecosystem.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/N2yrrHrG/32.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional HR/finance theme with negotiation focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -6848,7 +6848,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "YouTube and Facebook monetization is just the starting line. Discover how specialized creators in Bangladesh are building real businesses through digital products, paid communities, and strategic brand collaborations.",
     category: "Leadership & Innovation",
     image: "https://i.ibb.co.com/ntYMLth/33.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - modern creator economy theme with vibrant elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -7044,7 +7044,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Bangladesh is a global generic drug powerhouse. Discover why careers in Quality Control, Regulatory Affairs, and Export Marketing offer unparalleled job security and growth in a volatile world.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/ksFfmqXR/34.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional pharma/healthcare theme with scientific elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -7298,7 +7298,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "With 70% of enterprises now using AI and demand for AI skills surging 245% YoY, prompt engineering has become the new Excel. Master the Context+Task+Constraints+Output framework with 50+ role-specific templates for marketing, HR, software, finance, and operations.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/JWQSLyKd/35.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional AI/future skills theme with modern tech elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -7574,7 +7574,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Private sector employees don't get a government pension. If you're 35 and have zero savings, don't panic—but you must start now. Learn how to build your own safety net using Sanchaypatra, DPS, Mutual Funds, and the power of compounding.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/fzrSMLsV/36.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional personal finance theme with retirement planning focus -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -7792,7 +7792,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Demystify individual income tax for Assessment Year 2026-2027. Learn the new tax slabs, exemption limits for women and seniors, investment rebates, and step-by-step filing process to stay compliant with NBR.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/k20M7bmp/37.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional tax/compliance theme with financial elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -8017,7 +8017,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Value Added Tax (VAT) is complex but manageable. Understand the standard 15% rate, recent changes to reduced rates for restaurants, internet, and medicine, and learn how to calculate, file, and stay compliant with NBR in 2026.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/60zxZ15v/38.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional tax/compliance theme -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -8183,7 +8183,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Importing or exporting? Understand the step-by-step customs clearance process at Dhaka air and sea ports, including the role of ASYCUDA World, the Bangladesh Single Window, risk-based inspection, and post-clearance audit.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/RTXCJxqx/39.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional trade/logistics theme with customs elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -8405,7 +8405,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Master payroll for your business. Understand the components of salary, Provident Fund (PF) calculations, Workers' Profit Participation Fund (WPPF), tax deduction at source (TDS), and the compliance deadlines you can't afford to miss.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/hRZyW0bV/40.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional HR/finance theme with compliance elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -8621,7 +8621,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "New to government procurement? Learn the basics of the Public Procurement Act (PPA), the e-GP system, how to find tenders, submit bids, and navigate the process to win contracts in Bangladesh.",
     category: "Finance & Administration",
     image: "https://i.ibb.co.com/4wLYZcgg/41.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional government/administrative style with trust elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -8858,7 +8858,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "With organizations accelerating AI hiring globally, roles like AI Engineer, Prompt Engineer, and AI Product Manager are among the most searched career paths. Discover salary benchmarks up to $400K+, required skills, certification paths, and how to break into generative AI.",
     category: "AI (Artificial Intelligence)",
     image: "https://i.ibb.co.com/fzr36XqZ/42.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - modern AI/tech theme with futuristic gradient elements -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -9163,7 +9163,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "With cyber threats rising and AI reshaping defense, cybersecurity jobs are surging globally. Discover top roles like Security Analyst, DevSecOps Engineer, and Cloud Security Engineer with salaries up to $200K. Includes certification roadmaps and skills-based hiring trends.",
     category: "Cybersecurity & Data Science",
     image: "https://i.ibb.co.com/mVzQGw3x/43.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - modern security/defense theme with cyber motif -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -9501,7 +9501,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Demand for cloud engineers and architects is growing rapidly as organizations accelerate cloud migration. Discover top roles like Cloud Engineer, Cloud Architect, and Cloud Security Engineer with salaries up to $160K+. Includes platform certifications and skills roadmaps.",
     category: "AI (Artificial Intelligence)",
     image: "https://i.ibb.co.com/HLBJ8Chy/44.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - modern cloud/tech style with infrastructure theme -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -9854,7 +9854,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Data analyst and data scientist remain hot careers as businesses prioritize data-driven decision making. With 19% projected job growth and salaries ranging from $75K-$150K+, discover required skills, certification paths, and how AI is transforming these roles.",
     category: "Cybersecurity & Data Science",
     image: "https://i.ibb.co.com/PzTV5Rgy/45.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - modern data/analytics style with visualization theme -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -10162,7 +10162,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Employers worldwide are shifting to skills-based hiring, prioritizing demonstrated capability over traditional degrees. Discover how industry certifications validate skills, strategies to showcase your abilities, and how HR leaders are using data-driven talent planning.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/wZ1PWmzP/46.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - modern skills-focused style with competency theme -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -10391,7 +10391,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "With 85% of workers prioritizing fully remote work and job postings up 3%, discover the fastest-growing remote career fields for 2026. Top roles include Software Engineer, Product Manager, Data Analyst, and Social Media Manager with salaries up to $130K+.",
     category: "Freelance & Remote",
     image: "https://i.ibb.co.com/wZfqSK5M/47.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - modern remote work style with global/flexible theme -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -10595,7 +10595,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Healthcare job demand is surging with Nurse Practitioners projected to grow 40% and Physician Assistants 20% over the decade. Discover top roles including RNs, NPs, PAs, diagnostic imaging specialists, and locum tenens opportunities with salary benchmarks.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/Fq7Dgqsk/48.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - professional clinical style with trust indicators -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -10815,7 +10815,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "As businesses accelerate digital transformation, digital marketing specialists are increasingly sought after. Discover top roles including Growth Marketing Manager, SEO Specialist, Social Media Manager, and Performance Marketing expert with salary benchmarks and skills roadmaps.",
     category: "Career Guide",
     image: "https://i.ibb.co.com/S73MWZ8L/49.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - modern digital/tech style with vibrant accent colors -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">
@@ -11042,7 +11042,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "As AI automates routine tasks, human-centric skills like emotional intelligence, communication, adaptability, and leadership are becoming premium differentiators. Discover why employers prize these skills and how to develop them.",
     category: "Skill Development",
     image: "https://i.ibb.co.com/NgJq32Zw/50.webp",
-    author: authorPaul,
+    author: authorCrossCareers,
     content: `
       <!-- article wrapper with EEAT signals - modern, soft, card-based design -->
       <article style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 1000px; margin: 0 auto; color: #1e293b; line-height: 1.5; background: #ffffff; padding: 1rem;">

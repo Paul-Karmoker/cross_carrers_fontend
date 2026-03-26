@@ -62,6 +62,7 @@ const Footer: React.FC = () => {
     { label: "About Us", path: "/about-us" },
     { label: "Referral System", path: "/referral-program" },
     { label: "Jobs & Procurement", path: "/career" },
+    { label: "Meet the expart", path: "/meet-the-exparts" },
     { label: "Contact", path: "/contact-us" },
   ];
 
@@ -188,7 +189,7 @@ const Footer: React.FC = () => {
                   placeholder="Enter your email"
                   className="w-full pl-4 pr-12 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-sm"
                 />
-                <button className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors">
+                <button type="button" aria-label="Send message" className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors">
                   <FaPaperPlane size={12} />
                 </button>
               </div>

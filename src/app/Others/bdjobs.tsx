@@ -3,7 +3,7 @@ import Navbar from "../components/home/navbar";
 import Footer from "../components/home/footer";
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { blogPosts, BlogPost } from './blogs/blogdata/blogdata01'; // adjust path if needed
+import { blogPosts,} from './blogs/blogdata'; // adjust path if needed
 
 /**
  * Interface for Job Portal data structure
@@ -108,7 +108,7 @@ const BdJobs: FC = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
+    <div className="flex flex-col min-h-screen bg-[#F8FAFC] -mt-20">
 <Helmet>
   {/* Primary Title Tag */}
   <title>

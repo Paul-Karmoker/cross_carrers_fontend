@@ -3,7 +3,7 @@ import Navbar from '../components/home/navbar';
 import Footer from '../components/home/footer';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { blogPosts, BlogPost } from './blogs/blogdata/blogdata01'; // adjust path if needed
+import { blogPosts} from './blogs/blogdata'; // adjust path if needed
 
 /**
  * Interfaces & Types
@@ -32,7 +32,7 @@ const ITEMS_PER_PAGE = 12;
 const JOB_SITES_DATA: JobSite[] = [
   { id: 1, name: 'Reliefweb', url: 'https://reliefweb.int/jobs', image: 'https://reliefweb.int/themes/custom/common_design_subtheme/img/logos/rw-logo-desktop.svg', category: 'Humanitarian' },
   { id: 2, name: 'Idealist', url: 'https://www.idealist.org/en', image: 'https://www.idealist.org/assets/b8509b56fd9bdacd8b367a86fa5a1481ab19099f/images/logos/logo-idealist.svg', category: 'Nonprofit' },
-  { id: 3, name: 'Impactpool', url: 'https://www.impactpool.org/', image: 'https://i.ibb.co/DHvsmtqQ/2.png', category: 'International' },
+  { id: 3, name: 'Impactpool', url: 'https://www.impactpool.org/', image: 'https://i.ibb.co/DHvsmtQq/2.png', category: 'International' },
   { id: 4, name: 'DEVEX', url: 'https://www.devex.com/jobs/search', image: 'https://i.ibb.co/Kp53TmHW/1.png', category: 'Development' },
   { id: 5, name: 'DevNetJOBS.org', url: 'https://devnetjobs.org/', image: 'https://i.ibb.co/8nyTjyR7/3.png', category: 'Development' },
   { id: 6, name: 'Coordination SUD', url: 'https://www.coordinationsud.org/espace-emploi/', image: 'https://i.ibb.co/GQCDCNV4/4.png', category: 'Humanitarian' },
@@ -119,105 +119,130 @@ const IntJobs: FC = () => {
   };
 
   const formatDateForSEO = (dateString: string) => {
-  const date = new Date(dateString);
-  return {
-    iso: date.toISOString().split('T')[0],
-    display: date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    })
+    const date = new Date(dateString);
+    return {
+      iso: date.toISOString().split('T')[0],
+      display: date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      })
+    };
   };
-};
 
-// Get 6 most recent blog posts (sorted by date descending)
-const relevantCategories = ['Career Guide', 'Finance & Administration', 'Interview Support', 'Resume / CV'];
-const relatedArticles = blogPosts
-  .filter(post => relevantCategories.includes(post.category))
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  .slice(0, 6);
+  // Get 6 most recent blog posts (sorted by date descending)
+  const relevantCategories = ['Career Guide', 'Finance & Administration', 'Interview Support', 'Resume / CV'];
+  const relatedArticles = blogPosts
+    .filter(post => relevantCategories.includes(post.category))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 6);
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-blue-100">
-<Helmet>
-  {/* Primary Title Tag */}
-  <title>
-    International Job Portals 2026 | Humanitarian, UN, NGO, Development & Aid Careers | CrossCareers
-  </title>
+      <Helmet>
+        {/* Primary Title Tag */}
+        <title>
+          International Job Portals 2026 | Humanitarian, UN, NGO, Development & Aid Careers | CrossCareers
+        </title>
 
-  {/* Meta Description */}
-  <meta
-    name="description"
-    content="Explore top international job portals for humanitarian, UN, NGO, nonprofit, aid, and development careers worldwide. Apply for verified global opportunities updated daily on CrossCareers 2026."
-  />
+        {/* Meta Description */}
+        <meta
+          name="description"
+          content="Explore top international job portals for humanitarian, UN, NGO, nonprofit, aid, and development careers worldwide. Apply for verified global opportunities updated daily on CrossCareers 2026."
+        />
 
-  {/* Primary Keywords */}
-  <meta
-    name="keywords"
-    content="international job portals, humanitarian jobs, UN careers, NGO jobs, nonprofit careers, global development jobs, aid organization jobs, international humanitarian careers, overseas NGO jobs, UN job listings, development sector jobs, global aid jobs, international nonprofit opportunities, humanitarian work abroad, UN internships 2026, NGO remote jobs"
-  />
+        {/* Primary Keywords */}
+        <meta
+          name="keywords"
+          content="international job portals, humanitarian jobs, UN careers, NGO jobs, nonprofit careers, global development jobs, aid organization jobs, international humanitarian careers, overseas NGO jobs, UN job listings, development sector jobs, global aid jobs, international nonprofit opportunities, humanitarian work abroad, UN internships 2026, NGO remote jobs"
+        />
 
-  {/* Canonical URL */}
-  <link rel="canonical" href="https://crosscareers.com/international-jobs-sites" />
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://crosscareers.com/international-jobs-sites" />
 
-  {/* Open Graph / Facebook */}
-  <meta property="og:title" content="International Job Portals 2026 | Humanitarian, UN, NGO, Development & Aid Careers | CrossCareers" />
-  <meta property="og:description" content="Discover curated international job portals for humanitarian, UN, development, NGO, and nonprofit careers worldwide. Verified opportunities updated daily in 2026." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://crosscareers.com/international-jobs-sites" />
-  <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="International Job Portals 2026 | CrossCareers" />
-  <meta property="og:locale" content="en_US" />
+        {/* Open Graph / Facebook */}
+        <meta property="og:title" content="International Job Portals 2026 | Humanitarian, UN, NGO, Development & Aid Careers | CrossCareers" />
+        <meta property="og:description" content="Discover curated international job portals for humanitarian, UN, development, NGO, and nonprofit careers worldwide. Verified opportunities updated daily in 2026." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://crosscareers.com/international-jobs-sites" />
+        <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="International Job Portals 2026 | CrossCareers" />
+        <meta property="og:locale" content="en_US" />
 
-  {/* Twitter Card */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@CrossCareersBD" />
-  <meta name="twitter:creator" content="@CrossCareersBD" />
-  <meta name="twitter:title" content="International Job Portals 2026 | Humanitarian, UN, NGO, Development & Aid Careers | CrossCareers" />
-  <meta name="twitter:description" content="Access the best international job portals for humanitarian, UN, NGO, nonprofit, and development careers worldwide. Verified global opportunities updated daily in 2026." />
-  <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
-  <meta name="twitter:image:alt" content="International Job Portals 2026 | CrossCareers" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@CrossCareersBD" />
+        <meta name="twitter:creator" content="@CrossCareersBD" />
+        <meta name="twitter:title" content="International Job Portals 2026 | Humanitarian, UN, NGO, Development & Aid Careers | CrossCareers" />
+        <meta name="twitter:description" content="Access the best international job portals for humanitarian, UN, NGO, nonprofit, and development careers worldwide. Verified global opportunities updated daily in 2026." />
+        <meta name="twitter:image" content="https://crosscareers.com/logo/favcon.png" />
+        <meta name="twitter:image:alt" content="International Job Portals 2026 | CrossCareers" />
 
-  {/* Structured Data */}
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "CrossCareers",
-      "url": "https://crosscareers.com/",
-      "logo": "https://crosscareers.com/logo/favcon.png",
-      "description": "AI-powered career hub offering curated international job portals and verified global career opportunities in humanitarian, UN, NGO, nonprofit, aid, and development sectors worldwide.",
-      "sameAs": [
-      "https://www.facebook.com/profile.php?id=61574918625249",
-      "https://x.com/crosscareer",
-      "https://www.linkedin.com/company/crosscareers"
-      ]
-    })}
-  </script>
-</Helmet>
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "CrossCareers",
+            "url": "https://crosscareers.com/",
+            "logo": "https://crosscareers.com/logo/favcon.png",
+            "description": "AI-powered career hub offering curated international job portals and verified global career opportunities in humanitarian, UN, NGO, nonprofit, aid, and development sectors worldwide.",
+            "sameAs": [
+              "https://www.facebook.com/profile.php?id=61574918625249",
+              "https://x.com/crosscareer",
+              "https://www.linkedin.com/company/crosscareers"
+            ]
+          })}
+        </script>
+      </Helmet>
 
       <Navbar />
 
-      {/* Hero Header */}
-      <header className="relative bg-slate-900 pt-32 pb-24 overflow-hidden mt-10">
-        <div className="absolute inset-0 opacity-20">
-            <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
-            <div className="absolute top-1/2 -right-24 w-80 h-80 bg-indigo-500 rounded-full blur-3xl" />
-        </div>
-        <div className="relative container mx-auto px-6 text-center z-10">
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
-            International <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Job Portals</span>
-          </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Bridge the gap to your global career. Access curated opportunities from the world's most prestigious humanitarian and development organizations.
-          </p>
-        </div>
-      </header>
+<div className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  {/* Background Effects */}
+  <div className="absolute inset-0 opacity-20">
+    <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
+    <div className="absolute top-1/2 -right-24 w-80 h-80 bg-indigo-500 rounded-full blur-3xl" />
+  </div>
+
+  {/* Content */}
+  <div className="max-w-7xl mx-auto text-center relative">
+    {/* Badge */}
+    <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4 sm:mb-8">
+      <span className="text-xs sm:text-sm font-semibold text-white">
+        Global Career Gateway 2026
+      </span>
+    </div>
+
+    {/* Heading */}
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white font-sans tracking-tight">
+      International{" "}
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+        Job Portals
+      </span>
+    </h1>
+
+    {/* Description */}
+    <p className="mt-4 sm:mt-6 text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-2">
+      Bridge the gap to your global career. Access curated opportunities from the world's most prestigious humanitarian and development organizations.
+    </p>
+
+    {/* CTA Button */}
+    <div className="mt-6 sm:mt-8 -mb-2 sm:-mb-4">
+      <a
+        href="#portals"
+        className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/30 text-base sm:text-lg font-semibold rounded-full text-white bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+      >
+        Explore Job Portals
+      </a>
+    </div>
+  </div>
+</div>
 
       {/* Filter/Search Controls */}
-      <section className="container mx-auto px-6 mt-2 z-20">
+      <section id="portals" className="container mx-auto px-6 mt-2 z-20">
         <div className="bg-white p-6 md:p-8 border border-slate-100">
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
             <div className="relative w-full lg:max-w-md group">
@@ -255,7 +280,7 @@ const relatedArticles = blogPosts
       </section>
 
       {/* Grid & Pagination */}
-      <main className="container mx-auto px-6 py-16 flex-grow">
+      <main className="container mx-auto px-6 py-16 flex-grow relative z-10 bg-slate-50">
         {currentSites.length > 0 ? (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -313,201 +338,199 @@ const relatedArticles = blogPosts
             </div>
             <p className="text-slate-500 text-xl font-medium">No results found for your search criteria.</p>
             <button 
-                onClick={() => {setSearchTerm(''); setSelectedCategory('All');}} 
-                className="mt-4 text-blue-600 font-bold hover:underline"
+              onClick={() => {setSearchTerm(''); setSelectedCategory('All');}} 
+              className="mt-4 text-blue-600 font-bold hover:underline"
             >
-                Clear all filters
+              Clear all filters
             </button>
           </div>
-        )},
+        )}
 
-{/* Related Articles Section */}
-{relatedArticles.length > 0 && (
-  <section className="bg-gray-50 py-10 lg:py-6">
-    <div className="container mx-auto px-6">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-          Related Career Articles
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Boost your job search with expert advice from our blog.
-        </p>
-      </div>
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-        {relatedArticles.map(article => (
-          <Link
-            key={article.id}
-            to={`/career-guide/${article.slug}`}
-            className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden border border-gray-100"
-          >
-            <img
-              src={article.image}
-              alt={article.title}
-              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-            />
-            <div className="p-6">
-              <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
-                  {article.category}
-                </span>
-                <time dateTime={article.date}>
-                  {formatDateForSEO(article.date).display}
-                </time>
+        {/* Related Articles Section */}
+        {relatedArticles.length > 0 && (
+          <section className="bg-gray-50 py-10 lg:py-6 mt-16">
+            <div className="container mx-auto px-6">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                  Related Career Articles
+                </h2>
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                  Boost your job search with expert advice from our blog.
+                </p>
               </div>
-              <h3 className="font-semibold text-gray-800 group-hover:text-blue-700 line-clamp-2">
-                {article.title}
-              </h3>
-              <p className="text-sm text-gray-600 mt-2 line-clamp-2">
-                {article.excerpt}
+              <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+                {relatedArticles.map(article => (
+                  <Link
+                    key={article.id}
+                    to={`/career-guide/${article.slug}`}
+                    className="group block bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden border border-gray-100"
+                  >
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                        <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
+                          {article.category}
+                        </span>
+                        <time dateTime={article.date}>
+                          {formatDateForSEO(article.date).display}
+                        </time>
+                      </div>
+                      <h3 className="font-semibold text-gray-800 group-hover:text-blue-700 line-clamp-2">
+                        {article.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+                        {article.excerpt}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* FAQ Section */}
+        <section className="bg-white py-16 lg:py-24 border-t border-gray-100 mt-16">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Frequently Asked Questions About International NGO & UN Jobs
+              </h2>
+              <p className="text-gray-600 max-w-3xl mx-auto">
+                Thousands of professionals search online every day for international NGO jobs, United Nations careers, 
+                and humanitarian opportunities worldwide. Below are some of the most frequently asked questions about 
+                global development careers and international job portals.
               </p>
             </div>
-          </Link>
-        ))}
-      </div>
-    </div>
-  </section>
-)}
 
-{/* FAQ Section */}
-<section className="bg-white py-16 lg:py-24 border-t border-gray-100">
-  <div className="container mx-auto px-6 max-w-5xl">
+            <div className="space-y-10 text-gray-700 leading-relaxed">
+              <div>
+                <h3 className="font-bold text-xl mb-2">1. What are the best websites to find international NGO jobs?</h3>
+                <p>
+                  Some of the most trusted international job portals include ReliefWeb, Devex, Impactpool, Idealist, and DevNetJobs. 
+                  These platforms publish thousands of job opportunities from international NGOs, UN agencies, and development organizations.
+                </p>
+              </div>
 
-    <div className="text-center mb-16">
-      <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-        Frequently Asked Questions About International NGO & UN Jobs
-      </h2>
-      <p className="text-gray-600 max-w-3xl mx-auto">
-        Thousands of professionals search online every day for international NGO jobs, United Nations careers, 
-        and humanitarian opportunities worldwide. Below are some of the most frequently asked questions about 
-        global development careers and international job portals.
-      </p>
-    </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">2. Where can I find humanitarian jobs around the world?</h3>
+                <p>
+                  Humanitarian job opportunities are commonly listed on specialized portals such as ReliefWeb and the Humanitarian Logistics Association. 
+                  These platforms focus on emergency response, disaster relief, and development programs across the globe.
+                </p>
+              </div>
 
-    <div className="space-y-10 text-gray-700 leading-relaxed">
+              <div>
+                <h3 className="font-bold text-xl mb-2">3. How can I apply for United Nations jobs?</h3>
+                <p>
+                  United Nations jobs are usually advertised through the official UN Careers portal and recruitment systems such as Inspira. 
+                  Platforms like Impactpool and UN Talent also aggregate UN job vacancies from multiple agencies.
+                </p>
+              </div>
 
-      <div>
-        <h3 className="font-bold text-xl mb-2">1. What are the best websites to find international NGO jobs?</h3>
-        <p>
-          Some of the most trusted international job portals include ReliefWeb, Devex, Impactpool, Idealist, and DevNetJobs. 
-          These platforms publish thousands of job opportunities from international NGOs, UN agencies, and development organizations.
-        </p>
-      </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">4. What qualifications are required for international development jobs?</h3>
+                <p>
+                  Most international development roles require a bachelor's or master's degree in fields such as international development, 
+                  economics, public policy, logistics, or social sciences. Professional experience and language skills are also highly valued.
+                </p>
+              </div>
 
-      <div>
-        <h3 className="font-bold text-xl mb-2">2. Where can I find humanitarian jobs around the world?</h3>
-        <p>
-          Humanitarian job opportunities are commonly listed on specialized portals such as ReliefWeb and the Humanitarian Logistics Association. 
-          These platforms focus on emergency response, disaster relief, and development programs across the globe.
-        </p>
-      </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">5. Are there job portals specifically for nonprofit careers?</h3>
+                <p>
+                  Yes. Idealist and DevNetJobs specialize in nonprofit and development sector job opportunities. 
+                  These websites connect professionals with organizations working in humanitarian assistance and social impact programs.
+                </p>
+              </div>
 
-      <div>
-        <h3 className="font-bold text-xl mb-2">3. How can I apply for United Nations jobs?</h3>
-        <p>
-          United Nations jobs are usually advertised through the official UN Careers portal and recruitment systems such as Inspira. 
-          Platforms like Impactpool and UN Talent also aggregate UN job vacancies from multiple agencies.
-        </p>
-      </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">6. Which job portal is best for UN and international organization careers?</h3>
+                <p>
+                  Impactpool and UN Talent are among the most popular platforms for professionals seeking careers in the United Nations system 
+                  and other international institutions.
+                </p>
+              </div>
 
-      <div>
-        <h3 className="font-bold text-xl mb-2">4. What qualifications are required for international development jobs?</h3>
-        <p>
-          Most international development roles require a bachelor’s or master’s degree in fields such as international development, 
-          economics, public policy, logistics, or social sciences. Professional experience and language skills are also highly valued.
-        </p>
-      </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">7. How competitive are international NGO jobs?</h3>
+                <p>
+                  International NGO jobs are often competitive because they attract applicants from around the world. 
+                  Candidates with specialized expertise, field experience, and strong communication skills generally have a higher chance of success.
+                </p>
+              </div>
 
-      <div>
-        <h3 className="font-bold text-xl mb-2">5. Are there job portals specifically for nonprofit careers?</h3>
-        <p>
-          Yes. Idealist and DevNetJobs specialize in nonprofit and development sector job opportunities. 
-          These websites connect professionals with organizations working in humanitarian assistance and social impact programs.
-        </p>
-      </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">8. What types of jobs exist in the humanitarian sector?</h3>
+                <p>
+                  Humanitarian organizations recruit professionals in logistics, procurement, health, education, finance, 
+                  monitoring and evaluation, security management, and emergency response coordination.
+                </p>
+              </div>
 
-      <div>
-        <h3 className="font-bold text-xl mb-2">6. Which job portal is best for UN and international organization careers?</h3>
-        <p>
-          Impactpool and UN Talent are among the most popular platforms for professionals seeking careers in the United Nations system 
-          and other international institutions.
-        </p>
-      </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">9. Do international organizations hire professionals from developing countries?</h3>
+                <p>
+                  Yes. Many international NGOs and UN agencies recruit professionals globally. 
+                  Candidates from developing countries often bring valuable field experience and contextual knowledge to development programs.
+                </p>
+              </div>
 
-      <div>
-        <h3 className="font-bold text-xl mb-2">7. How competitive are international NGO jobs?</h3>
-        <p>
-          International NGO jobs are often competitive because they attract applicants from around the world. 
-          Candidates with specialized expertise, field experience, and strong communication skills generally have a higher chance of success.
-        </p>
-      </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">10. Are remote international NGO jobs available?</h3>
+                <p>
+                  With the growth of digital collaboration, many international organizations now offer remote or hybrid positions, 
+                  especially in research, communications, monitoring and evaluation, and knowledge management roles.
+                </p>
+              </div>
 
-      <div>
-        <h3 className="font-bold text-xl mb-2">8. What types of jobs exist in the humanitarian sector?</h3>
-        <p>
-          Humanitarian organizations recruit professionals in logistics, procurement, health, education, finance, 
-          monitoring and evaluation, security management, and emergency response coordination.
-        </p>
-      </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">11. What is humanitarian logistics?</h3>
+                <p>
+                  Humanitarian logistics focuses on managing procurement, transportation, storage, and distribution of relief supplies 
+                  during emergencies and development programs to ensure timely assistance for affected communities.
+                </p>
+              </div>
 
-      <div>
-        <h3 className="font-bold text-xl mb-2">9. Do international organizations hire professionals from developing countries?</h3>
-        <p>
-          Yes. Many international NGOs and UN agencies recruit professionals globally. 
-          Candidates from developing countries often bring valuable field experience and contextual knowledge to development programs.
-        </p>
-      </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">12. Which international organizations offer the highest salaries?</h3>
+                <p>
+                  Senior roles within United Nations agencies, international financial institutions, and large global NGOs often offer 
+                  competitive compensation packages along with international benefits.
+                </p>
+              </div>
 
-      <div>
-        <h3 className="font-bold text-xl mb-2">10. Are remote international NGO jobs available?</h3>
-        <p>
-          With the growth of digital collaboration, many international organizations now offer remote or hybrid positions, 
-          especially in research, communications, monitoring and evaluation, and knowledge management roles.
-        </p>
-      </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">13. What skills are most valuable in international development careers?</h3>
+                <p>
+                  Skills such as project management, data analysis, financial management, supply chain management, and monitoring and evaluation 
+                  are highly valued across international development organizations.
+                </p>
+              </div>
 
-      <div>
-        <h3 className="font-bold text-xl mb-2">11. What is humanitarian logistics?</h3>
-        <p>
-          Humanitarian logistics focuses on managing procurement, transportation, storage, and distribution of relief supplies 
-          during emergencies and development programs to ensure timely assistance for affected communities.
-        </p>
-      </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">14. How can I improve my chances of getting an international NGO job?</h3>
+                <p>
+                  Building relevant field experience, developing specialized technical skills, networking with professionals in the sector, 
+                  and applying through trusted international job portals can significantly improve your chances.
+                </p>
+              </div>
 
-      <div>
-        <h3 className="font-bold text-xl mb-2">12. Which international organizations offer the highest salaries?</h3>
-        <p>
-          Senior roles within United Nations agencies, international financial institutions, and large global NGOs often offer 
-          competitive compensation packages along with international benefits.
-        </p>
-      </div>
-
-      <div>
-        <h3 className="font-bold text-xl mb-2">13. What skills are most valuable in international development careers?</h3>
-        <p>
-          Skills such as project management, data analysis, financial management, supply chain management, and monitoring and evaluation 
-          are highly valued across international development organizations.
-        </p>
-      </div>
-
-      <div>
-        <h3 className="font-bold text-xl mb-2">14. How can I improve my chances of getting an international NGO job?</h3>
-        <p>
-          Building relevant field experience, developing specialized technical skills, networking with professionals in the sector, 
-          and applying through trusted international job portals can significantly improve your chances.
-        </p>
-      </div>
-
-      <div>
-        <h3 className="font-bold text-xl mb-2">15. Why do professionals pursue careers in humanitarian organizations?</h3>
-        <p>
-          Many professionals are motivated by the opportunity to contribute to global development, support vulnerable communities, 
-          and work in diverse international environments while building meaningful careers.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+              <div>
+                <h3 className="font-bold text-xl mb-2">15. Why do professionals pursue careers in humanitarian organizations?</h3>
+                <p>
+                  Many professionals are motivated by the opportunity to contribute to global development, support vulnerable communities, 
+                  and work in diverse international environments while building meaningful careers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

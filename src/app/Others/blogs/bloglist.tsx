@@ -27,7 +27,7 @@ const calculateReadingTime = (content: string): number => {
 const POSTS_PER_PAGE = 10;
 
 const categories = [
-  "All", "Career Roadmap", "Career Guide", "ATS (Resume/CV)",
+  "All", "Career Roadmap", "Career Guide", "ATS (Resume/CV)", "UN Jobs Guide",
   "Freelance & Remote", "Interview Support", "Skill Development",
   "Finance & Administration", "Women Empowerment", "Leadership & Innovation",
   "Workplace Wellness & Culture","AI (Artificial Intelligence)", "Cybersecurity & Data Science",

@@ -1,7 +1,4 @@
 User-agent: *
-Allow: /
-
-# Block authentication & private pages
 Disallow: /signin
 Disallow: /signup
 Disallow: /logout
@@ -14,24 +11,24 @@ Disallow: /writtenTest
 Disallow: /matchhome
 Disallow: /qahome
 Disallow: /InterviewSimulator
-Disallow: /united-nation-jobs-bangladesh
-Disallow: /embassy-jobs-bangladesh
-Disallow: /donor-jobs-bangladesh
-Disallow: /priceing
+Disallow: /pricing
 Disallow: /editor
 Disallow: /reset-password
 Disallow: /verify-otp
 Disallow: /bkash-success
 
-# Allow important SEO pages explicitly
-Allow: /ngo-jobs-bangladesh
-Allow: /international-ngo-jobs
-Allow: /career-guide
-Allow: /training-sites-worldwide
-Allow: /remote-jobs-worldwide
-Allow: /freelance-jobs-online
-Allow: /bangladesh-jobs-sites
-Allow: /international-jobs-sites
+# Block AI training bots
+User-agent: GPTBot
+Disallow: /
 
-# Sitemap location
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Sitemap
 Sitemap: https://crosscareers.com/sitemap.xml

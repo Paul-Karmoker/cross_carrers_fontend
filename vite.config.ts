@@ -1,9 +1,18 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "node:url";
+import { visualizer } from "rollup-plugin-visualizer"; // added for bundle analysis
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    visualizer({
+      open: true,                 // automatically open the report after build
+      filename: "stats.html",     // output file name
+      gzipSize: true,             // show gzipped sizes (helpful for comparison)
+      brotliSize: true,           // show brotli sizes if you use it
+    }),
+  ],
 
   resolve: {
     alias: {
@@ -18,7 +27,7 @@ export default defineConfig({
       "file-saver",
       "mammoth",
       "react-markdown",
-      "rehype-highlight"
+      "rehype-highlight",
     ],
     exclude: ["pdfjs-dist/build/pdf.worker"],
   },
