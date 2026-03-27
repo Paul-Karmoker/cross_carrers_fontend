@@ -28,7 +28,7 @@ const POSTS_PER_PAGE = 10;
 
 const categories = [
   "All", "Career Roadmap", "Career Guide", "ATS (Resume/CV)", "UN Jobs Guide",
-  "Freelance & Remote", "Interview Support", "Skill Development",
+  "Freelance & Remote", "Interview Support", "Skill Development", "Supply Chain Management",
   "Finance & Administration", "Women Empowerment", "Leadership & Innovation",
   "Workplace Wellness & Culture","AI (Artificial Intelligence)", "Cybersecurity & Data Science",
 ];

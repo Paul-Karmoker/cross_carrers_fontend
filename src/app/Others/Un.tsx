@@ -158,6 +158,151 @@ const UnitedNationsCareers: FC = () => {
       url: "https://www.unv.org/become-volunteer",
       category: "Volunteering",
     },
+    {
+      name: "United Nations Secretariat",
+      url: "https://careers.un.org/jobopening",
+      category: "General Administration",
+    },
+    {
+      name: "International Civil Aviation Organization (ICAO)",
+      url: "https://careers.icao.int/",
+      category: "Aviation",
+    },
+    {
+      name: "International Monetary Fund (IMF)",
+      url: "https://www.imf.org/en/about/recruitment",
+      category: "Finance",
+    },
+    {
+      name: "Universal Postal Union (UPU)",
+      url: "https://www.upu.int/en/Universal-Postal-Union/Careers",
+      category: "Postal Services",
+    },
+    {
+      name: "World Intellectual Property Organization (WIPO)",
+      url: "https://www.wipo.int/jobs/en/",
+      category: "Intellectual Property",
+    },
+    {
+      name: "World Meteorological Organization (WMO)",
+      url: "https://wmo.int/jobs",
+      category: "Weather & Climate",
+    },
+    {
+      name: "International Atomic Energy Agency (IAEA)",
+      url: "https://www.iaea.org/employment",
+      category: "Nuclear Energy",
+    },
+    {
+      name: "International Finance Corporation (IFC)",
+      url: "https://www.ifc.org/en/about/careers",
+      category: "Development Finance",
+    },
+    {
+      name: "UN Tourism (formerly UNWTO)",
+      url: "https://www.unwto.org/work-with-us",
+      category: "Tourism",
+    },
+    {
+      name: "UN Relief and Works Agency (UNRWA)",
+      url: "https://www.unrwa.org/careers",
+      category: "Humanitarian Aid",
+    },
+    {
+      name: "International Trade Centre (ITC)",
+      url: "https://intracen.org/about-us/work-with-itc/careers",
+      category: "Trade & Development",
+    },
+    {
+      name: "CTBTO (Nuclear-Test-Ban Treaty)",
+      url: "https://www.ctbto.org/employment",
+      category: "Nuclear Monitoring",
+    },
+    {
+      name: "OPCW (Chemical Weapons)",
+      url: "https://jobs.opcw.org/",
+      category: "Arms Control",
+    },
+    {
+      name: "International Criminal Court (ICC)",
+      url: "https://www.icc-cpi.int/jobs",
+      category: "Justice",
+    },
+    {
+      name: "UN University (UNU)",
+      url: "https://unu.edu/careers",
+      category: "Research & Education",
+    },
+    {
+      name: "UN Institute for Disarmament Research (UNIDIR)",
+      url: "https://unidir.org/who-we-are/join-our-team/",
+      category: "Disarmament",
+    },
+    {
+      name: "UN Institute for Training and Research (UNITAR)",
+      url: "https://unitar.org/vacancy-announcements",
+      category: "Training",
+    },
+    {
+      name: "UN System Staff College (UNSSC)",
+      url: "https://www.unssc.org/about/employment-opportunities",
+      category: "Internal Training",
+    },
+    {
+      name: "UN Economic Commission for Africa (ECA)",
+      url: "https://www.uneca.org/work-with-us",
+      category: "Regional Development",
+    },
+    {
+      name: "UN Economic Commission for Europe (UNECE)",
+      url: "https://unece.org/jobs",
+      category: "Regional Development",
+    },
+    {
+      name: "UN Economic Commission for Latin America and the Caribbean (ECLAC)",
+      url: "https://www.cepal.org/en/work-with-us",
+      category: "Regional Development",
+    },
+    {
+      name: "UN Economic and Social Commission for Asia and the Pacific (ESCAP)",
+      url: "https://www.unescap.org/jobs",
+      category: "Regional Development",
+    },
+    {
+      name: "UN Economic and Social Commission for Western Asia (ESCWA)",
+      url: "https://www.unescwa.org/about-escwa/jobs",
+      category: "Regional Development",
+    },
+    {
+      name: "International Centre for Genetic Engineering and Biotechnology (ICGEB)",
+      url: "https://www.icgeb.org/about-us/work-with-us/vacancies/",
+      category: "Science & Biotech",
+    },
+    {
+      name: "International Refugee Assistance Project (IRAP)",
+      url: "https://refugeerights.org/about/careers",
+      category: "Legal Aid",
+    },
+    {
+      name: "Special Tribunal for Lebanon (STL)",
+      url: "https://www.stl-tsl.org/en/employment",
+      category: "Justice",
+    },
+    {
+      name: "UN Interregional Crime and Justice Research Institute (UNICRI)",
+      url: "https://unicri.it/index.php/work_with_us",
+      category: "Justice & Research",
+    },
+    {
+      name: "UN Joint Staff Pension Fund (UNJSPF)",
+      url: "https://www.unjspf.org/about/careers/",
+      category: "Finance",
+    },
+    {
+      name: "UN Research Institute for Social Development (UNRISD)",
+      url: "https://www.unrisd.org/vacancies",
+      category: "Social Research",
+    }
   ];
 
   const agenciesByCategory: AgenciesByCategory = useMemo(() => {
