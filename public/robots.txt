@@ -1,3 +1,4 @@
+# Allow all standard search engines except for disallowed paths
 User-agent: *
 Disallow: /signin
 Disallow: /signup
@@ -17,7 +18,7 @@ Disallow: /reset-password
 Disallow: /verify-otp
 Disallow: /bkash-success
 
-# Block AI training bots
+# Block known AI training bots
 User-agent: GPTBot
 Disallow: /
 
@@ -30,5 +31,12 @@ Disallow: /
 User-agent: Bytespider
 Disallow: /
 
-# Sitemap
+# Optional: block other unknown AI bots
+User-agent: AIbot
+Disallow: /
+
+User-agent: OpenAI
+Disallow: /
+
+# Sitemap location
 Sitemap: https://crosscareers.com/sitemap.xml
