@@ -211,11 +211,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: December 2025</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
+<div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
 
-        <!-- instructions for image (kept from original) -->
-        <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
 {
   id: 2,
@@ -432,8 +456,44 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+        <div class="author-box">
+  <h3>About the Author</h3>
+  <p>
+    This article was written by the CrossCareers Expert Network and reviewed by 
+    <strong>Paul Romeo Karmoker</strong>, a Supply Chain & Logistics specialist 
+    with 17+ years of experience including UN World Food Programme (WFP).
+  </p>
+</div>
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
+    
 },
  {
   id: 3,
@@ -633,8 +693,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 4,
@@ -852,8 +939,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 5,
@@ -1087,8 +1201,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 6,
@@ -1304,8 +1445,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 7,
@@ -1502,8 +1670,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: January 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 8,
@@ -1697,8 +1892,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 9,
@@ -1894,8 +2116,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
   {
     id: 10,
@@ -2109,8 +2358,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 11,
@@ -2303,8 +2579,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 12,
@@ -2488,8 +2791,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 13,
@@ -2673,8 +3003,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
  {
     id: 14,
@@ -2846,8 +3203,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
 {
     id: 15,
@@ -3043,8 +3427,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 16,
@@ -3240,8 +3651,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 17,
@@ -3449,8 +3887,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
  {
     id: 18,
@@ -3664,8 +4129,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 19,
@@ -3844,8 +4336,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 20,
@@ -4065,8 +4584,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 21,
@@ -4325,8 +4871,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 22,
@@ -4522,8 +5095,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 23,
@@ -4767,8 +5367,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 24,
@@ -5005,8 +5632,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 25,
@@ -5207,8 +5861,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
 {
     id: 26,
@@ -5475,8 +6156,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 27,
@@ -5687,8 +6395,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 28,
@@ -5914,8 +6649,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 29,
@@ -6129,8 +6891,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
 {
     id: 30,
@@ -6370,8 +7159,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
  {
     id: 31,
@@ -6613,8 +7429,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 32,
@@ -6837,8 +7680,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 33,
@@ -7033,8 +7903,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
 {
     id: 34,
@@ -7287,8 +8184,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
 {
     id: 35,
@@ -7563,8 +8487,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 36,
@@ -7781,8 +8732,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 37,
@@ -7858,7 +8836,7 @@ export const blogPosts: BlogPost[] = [
             </tbody>
           </table>
         </div>
-        <p style="margin-top: -1rem; margin-bottom: 2rem; font-size: 0.9rem; color: #2c6e49;"><em>Note: The top marginal rate is 25%, not 30% as sometimes quoted for older years. The 30% rate applied to income above 2 crore for earlier years, but the current slab structure peaks at 25% [citation:4][citation:6][citation:9].</em></p>
+        <p style="margin-top: -1rem; margin-bottom: 2rem; font-size: 0.9rem; color: #2c6e49;"><em>Note: The top marginal rate is 25%, not 30% as sometimes quoted for older years. The 30% rate applied to income above 2 crore for earlier years, but the current slab structure peaks at 25%    .</em></p>
 
         <!-- ========== SPECIAL EXEMPTIONS ========== -->
         <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🎯 Special Exemption Limits for Specific Categories</h2>
@@ -7911,7 +8889,7 @@ export const blogPosts: BlogPost[] = [
         <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💰 The Investment Rebate: Legally Reducing Your Tax</h2>
         
         <div style="background: #2c6e49; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
-          <p style="font-size: 1.2rem;">One of the most powerful tools to lower your tax bill is the <strong>investment rebate</strong> under Section 44 of the Income Tax Ordinance. If you make qualifying investments, you can claim a rebate (a direct reduction of your tax) equal to <strong>15% of the investment amount</strong>, up to a maximum investment of BDT 10,00,000 (maximum rebate BDT 1,50,000) [citation:1][citation:4][citation:9].</p>
+          <p style="font-size: 1.2rem;">One of the most powerful tools to lower your tax bill is the <strong>investment rebate</strong> under Section 44 of the Income Tax Ordinance. If you make qualifying investments, you can claim a rebate (a direct reduction of your tax) equal to <strong>15% of the investment amount</strong>, up to a maximum investment of BDT 10,00,000 (maximum rebate BDT 1,50,000)    .</p>
           
           <div style="background: rgba(255,255,255,0.15); border-radius: 20px; padding: 1rem; margin-top: 1rem;">
             <p style="font-weight: 600; margin: 0 0 0.5rem;">📝 Qualifying Investments Include:</p>
@@ -8006,8 +8984,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 38,
@@ -8059,12 +9064,12 @@ export const blogPosts: BlogPost[] = [
         
         <div style="background: linear-gradient(145deg, #f5f5fa, #ffffff); border-radius: 28px; padding: 2rem; margin-bottom: 2rem; border: 1px solid #d0d9e8; text-align: center;">
           <div style="font-size: 4rem; font-weight: 800; color: #4a4e6b; margin-bottom: 0.5rem;">15%</div>
-          <p style="font-size: 1.2rem; margin: 0;">The standard VAT rate in Bangladesh remains <strong>15%</strong> [citation:7]. This applies to most goods and services not specifically covered by a reduced rate, exemption, or zero-rating. However, the effective VAT paid by consumers can be higher due to supplementary duties (SD) on luxury or sin products, which are levied in addition to VAT.</p>
+          <p style="font-size: 1.2rem; margin: 0;">The standard VAT rate in Bangladesh remains <strong>15%</strong>  . This applies to most goods and services not specifically covered by a reduced rate, exemption, or zero-rating. However, the effective VAT paid by consumers can be higher due to supplementary duties (SD) on luxury or sin products, which are levied in addition to VAT.</p>
         </div>
 
         <!-- ========== RECENT CHANGES TABLE ========== -->
         <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📋 Recent Changes to Reduced Rates (2026)</h2>
-        <p>In early 2026, the NBR made a series of revisions to VAT and supplementary duty rates, responding to protests and inflationary pressures. The following table summarizes key changes [citation:2]:</p>
+        <p>In early 2026, the NBR made a series of revisions to VAT and supplementary duty rates, responding to protests and inflationary pressures. The following table summarizes key changes  :</p>
 
         <div style="border-radius: 28px; overflow: hidden; border: 1px solid #d0d9e8; margin: 1.5rem 0 2rem;">
           <table style="width:100%; border-collapse: collapse;">
@@ -8098,7 +9103,7 @@ export const blogPosts: BlogPost[] = [
             <p style="font-size: 1.2rem; font-weight: 600; color: #4a4e6b; margin: 0.5rem 0;">Net VAT Liability = Tk. 3,000 (collected) - Tk. 1,500 (paid) = Tk. 1,500</p>
           </div>
           
-          <p>In 2025, the window for claiming ITC was extended from 4 to 6 months, giving businesses more time to reconcile their accounts [citation:7]. <strong>NBR confirms</strong> this change has significantly improved compliance rates.</p>
+          <p>In 2025, the window for claiming ITC was extended from 4 to 6 months, giving businesses more time to reconcile their accounts  . <strong>NBR confirms</strong> this change has significantly improved compliance rates.</p>
         </div>
 
         <!-- ========== REGISTRATION THRESHOLDS ========== -->
@@ -8119,7 +9124,7 @@ export const blogPosts: BlogPost[] = [
         <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📅 Filing Your VAT Return (Mushak 9.1)</h2>
         
         <div style="background: #4a4e6b; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
-          <p style="font-size: 1.2rem;">The core of VAT compliance is the monthly return, known as <strong>Mushak 9.1</strong>. It must be filed by the <strong>15th day of the following month</strong> [citation:7]. The return summarizes your total sales, total purchases, output VAT, input VAT, and net payable.</p>
+          <p style="font-size: 1.2rem;">The core of VAT compliance is the monthly return, known as <strong>Mushak 9.1</strong>. It must be filed by the <strong>15th day of the following month</strong>  . The return summarizes your total sales, total purchases, output VAT, input VAT, and net payable.</p>
           <div style="background: rgba(255,255,255,0.15); border-radius: 20px; padding: 1rem; margin-top: 1rem;">
             <p style="margin: 0;"><strong>Critical Deadline:</strong> For businesses with turnover exceeding BDT 5 Crore, using NBR-approved VAT software is mandatory. The NBR's online system has streamlined this process, but it requires meticulous record-keeping.</p>
           </div>
@@ -8172,8 +9177,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 39,
@@ -8253,7 +9285,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
             <div style="background: #f0f7f7; border-radius: 20px; padding: 1.2rem;">
               <p style="font-weight: 600; color: #1e5f5e;">📋 Goods Declaration (GD)</p>
-              <p>Replaced the term "Bill of Entry" [citation:7]. It's the primary document submitted to customs for clearance.</p>
+              <p>Replaced the term "Bill of Entry"  . It's the primary document submitted to customs for clearance.</p>
             </div>
             <div style="background: #f0f7f7; border-radius: 20px; padding: 1.2rem;">
               <p style="font-weight: 600; color: #1e5f5e;">🔍 Customs Control</p>
@@ -8394,8 +9426,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 40,
@@ -8610,8 +9669,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
 {
     id: 41,
@@ -8847,8 +9933,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 42,
@@ -9152,8 +10265,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },  
 {
     id: 43,
@@ -9393,7 +10533,7 @@ export const blogPosts: BlogPost[] = [
             </tbody>
           </table>
         </div>
-        <p style="margin-top: -1rem; font-size: 0.9rem; color: #5e2e53;"><em>Note: Figures represent base compensation only, excluding bonuses, equity, and benefits [citation:4].</em></p>
+        <p style="margin-top: -1rem; font-size: 0.9rem; color: #5e2e53;"><em>Note: Figures represent base compensation only, excluding bonuses, equity, and benefits  .</em></p>
 
         <!-- ========== TOP INDUSTRIES ========== -->
         <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🏢 Top Industries Hiring Cybersecurity Talent</h2>
@@ -9490,8 +10630,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 44,
@@ -9843,8 +11010,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: Image already replaced with actual URL -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 45,
@@ -10151,8 +11345,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: To use a REAL PHOTO: replace "path-to-your-image.jpg" with your actual image URL. The image will automatically be cropped to a perfect circle. -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 46,
@@ -10380,8 +11601,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: To use a REAL PHOTO: replace "path-to-your-image.jpg" with your actual image URL. The image will automatically be cropped to a perfect circle. -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
 {
     id: 47,
@@ -10584,8 +11832,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: To use a REAL PHOTO: replace "path-to-your-image.jpg" with your actual image URL. The image will automatically be cropped to a perfect circle. -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
 {
     id: 48,
@@ -10804,8 +12079,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: To use a REAL PHOTO: replace "path-to-your-image.jpg" with your actual image URL. The image will automatically be cropped to a perfect circle. -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 49,
@@ -11031,8 +12333,35 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: To use a REAL PHOTO: replace "path-to-your-image.jpg" with your actual image URL. The image will automatically be cropped to a perfect circle. -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 50,
@@ -11257,7 +12586,34 @@ export const blogPosts: BlogPost[] = [
 
         <!-- instructions for image (kept from original) -->
         <!-- INSTRUCTIONS: To use a REAL PHOTO: replace "path-to-your-image.jpg" with your actual image URL. The image will automatically be cropped to a perfect circle. -->
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 }
 ];

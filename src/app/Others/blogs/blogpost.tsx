@@ -172,9 +172,6 @@ export default function BlogPost() {
             {/* ✅ 3. First Half of Content */}
             <div className="prose max-w-none text-gray-700 leading-relaxed mb-8" dangerouslySetInnerHTML={{ __html: firstHalf }} />
 
-            {/* ✅ 4. Mid-Article Adsterra Banner */}
-            <AdsterraNativeBanner />
-
             {/* ✅ 5. Second Half of Content */}
             {secondHalf && (
               <div className="prose max-w-none text-gray-700 leading-relaxed mt-8" dangerouslySetInnerHTML={{ __html: secondHalf }} />

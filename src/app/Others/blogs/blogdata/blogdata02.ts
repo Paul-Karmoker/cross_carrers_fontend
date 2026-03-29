@@ -150,8 +150,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: February 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+  <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
         id: 52,
@@ -281,9 +308,35 @@ export const blogPosts: BlogPost[] = [
                     <span>🔍 Sources: LinkedIn Workforce Report, labor market data, hiring manager interviews</span>
                     <span>✏️ Last updated: March 2026</span>
                     <span>✅ complies with EEAT</span>
-                </div>
-            </article>
-        `
+                </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
     },
     {
         id: 53,
@@ -421,9 +474,35 @@ export const blogPosts: BlogPost[] = [
                     <span>🔍 Sources: LinkedIn data, hiring manager interviews, job search research</span>
                     <span>✏️ Last updated: March 2026</span>
                     <span>✅ complies with EEAT</span>
-                </div>
-            </article>
-        `
+                </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
     },
     {
         id: 54,
@@ -573,9 +652,35 @@ export const blogPosts: BlogPost[] = [
                     <span>🔍 Sources: Hiring research, HR industry data, mental health studies</span>
                     <span>✏️ Last updated: March 2026</span>
                     <span>✅ complies with EEAT</span>
-                </div>
-            </article>
-        `
+                </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
     },
 {
         id:55,
@@ -720,8 +825,35 @@ export const blogPosts: BlogPost[] = [
                     <span>✏️ Last updated: March 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
-            </article>
-        `
+            <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
     },
     {
         id: 56,
@@ -871,8 +1003,35 @@ export const blogPosts: BlogPost[] = [
                     <span>✏️ Last updated: March 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
-            </article>
-        `
+             <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
     },
     {
         id: 57,
@@ -1006,8 +1165,35 @@ export const blogPosts: BlogPost[] = [
                     <span>✏️ Last updated: March 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
-            </article>
-        `
+             <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
     },
     {
         id: 58,
@@ -1156,8 +1342,35 @@ export const blogPosts: BlogPost[] = [
                     <span>✏️ Last updated: March 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
-            </article>
-        `
+             <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
     },
     {
         id: 59,
@@ -1315,8 +1528,35 @@ export const blogPosts: BlogPost[] = [
                     <span>✏️ Last updated: March 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
-            </article>
-        `
+             <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
     },
     {
         id: 60,
@@ -1498,8 +1738,35 @@ export const blogPosts: BlogPost[] = [
                     <span>✏️ Last updated: March 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
-            </article>
-        `
+             <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
     },
     {
         id: 61,
@@ -1683,8 +1950,35 @@ export const blogPosts: BlogPost[] = [
                     <span>✏️ Last updated: March 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
-            </article>
-        `
+            <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
     },
     {
     id: 62,
@@ -1895,8 +2189,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: February 2026</span>
           <span>✅ complies with EEAT</span>
         </div>
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 63,
@@ -2051,8 +2372,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT</span>
         </div>
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 64,
@@ -2172,8 +2520,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT</span>
         </div>
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 65,
@@ -2269,8 +2644,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT</span>
         </div>
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id: 66,
@@ -2394,8 +2796,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT</span>
         </div>
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
     id:67,
@@ -2528,8 +2957,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT</span>
         </div>
-      </article>
-    `
+       <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
   },
   {
   id: 68,
@@ -2683,8 +3139,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
       </div>
-    </article>
-  `
+    <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 69,
@@ -2793,9 +3276,35 @@ export const blogPosts: BlogPost[] = [
         <span>🔍 Sources: UN Careers, Inspira Guide, P11 Handbook</span>
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
-      </div>
-    </article>
-  `
+      </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },{
   id: 70,
   title: "How to Negotiate Your Salary at the United Nations (Step Increases & Benefits) 2026",
@@ -2908,9 +3417,35 @@ export const blogPosts: BlogPost[] = [
         <span>🔍 Sources: ICSC, UN Compensation Package, HR Handbooks</span>
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
-      </div>
-    </article>
-  `
+      </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 71,
@@ -3039,9 +3574,35 @@ export const blogPosts: BlogPost[] = [
         <span>🔍 Sources: UN Careers Portal, CEB, HR Handbook</span>
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
-      </div>
-    </article>
-  `
+      </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 72,
@@ -3086,60 +3647,60 @@ export const blogPosts: BlogPost[] = [
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
         <p>The demand for AI skills has skyrocketed in 2026. According to recent data:</p>
         <ul>
-          <li><strong>53%</strong> of U.S. tech job postings in late 2025 required AI or machine learning skills—up from just 29% a year earlier [citation:2].</li>
-          <li><strong>84%</strong> of organizations plan to increase resources for AI in 2026 [citation:2].</li>
-          <li><strong>AI Engineer</strong> ranks as the #1 fastest-growing job on LinkedIn [citation:6].</li>
-          <li><strong>AI Consultant/Strategist</strong> ranks #2, showing demand isn't just technical [citation:6].</li>
+          <li><strong>53%</strong> of U.S. tech job postings in late 2025 required AI or machine learning skills—up from just 29% a year earlier  .</li>
+          <li><strong>84%</strong> of organizations plan to increase resources for AI in 2026  .</li>
+          <li><strong>AI Engineer</strong> ranks as the #1 fastest-growing job on LinkedIn  .</li>
+          <li><strong>AI Consultant/Strategist</strong> ranks #2, showing demand isn't just technical  .</li>
         </ul>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">1. Prompt Engineering</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
         <p><strong>What it is:</strong> The art and science of crafting effective inputs for AI models to generate desired outputs. Prompt engineers understand how to "talk" to AI to get accurate, useful results.</p>
-        <p><strong>Why it's hot:</strong> As LinkedIn's Editor-in-Chief Daniel Roth explains, companies need people who understand how to use AI tools effectively within their organization to improve productivity [citation:1]. This isn't just about typing questions—it's about designing workflows.</p>
-        <p><strong>Skills you need:</strong> LangChain, Retrieval-Augmented Generation (RAG), understanding of large language models, and domain expertise to evaluate outputs [citation:6].</p>
-        <p><strong>Who hires:</strong> Technology companies, IT services, business consulting firms. Top hiring hubs: San Francisco, New York, Dallas [citation:6].</p>
+        <p><strong>Why it's hot:</strong> As LinkedIn's Editor-in-Chief Daniel Roth explains, companies need people who understand how to use AI tools effectively within their organization to improve productivity  . This isn't just about typing questions—it's about designing workflows.</p>
+        <p><strong>Skills you need:</strong> LangChain, Retrieval-Augmented Generation (RAG), understanding of large language models, and domain expertise to evaluate outputs  .</p>
+        <p><strong>Who hires:</strong> Technology companies, IT services, business consulting firms. Top hiring hubs: San Francisco, New York, Dallas  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">2. Data Annotation</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
         <p><strong>What it is:</strong> The behind-the-scenes work of labeling and reviewing datasets to train AI and machine learning models. Data annotators ensure the data AI learns from is accurate and properly categorized.</p>
-        <p><strong>Why it's hot:</strong> Ranked #4 on LinkedIn's Jobs on the Rise list, this role is a critical entry point into AI [citation:6]. Notably, <strong>62% of data annotators are female</strong>, and the role requires precision and attention to detail rather than advanced coding [citation:6].</p>
-        <p><strong>Skills you need:</strong> SEO copywriting, content marketing, content production, attention to detail, quality control [citation:6].</p>
-        <p><strong>Who hires:</strong> Technology companies, staffing firms, higher education institutions. Top hiring hubs: Austin, New York, San Francisco [citation:6].</p>
-        <p><strong>Career path:</strong> Common transitions come from content managers, editors, and data analysts [citation:6].</p>
+        <p><strong>Why it's hot:</strong> Ranked #4 on LinkedIn's Jobs on the Rise list, this role is a critical entry point into AI  . Notably, <strong>62% of data annotators are female</strong>, and the role requires precision and attention to detail rather than advanced coding  .</p>
+        <p><strong>Skills you need:</strong> SEO copywriting, content marketing, content production, attention to detail, quality control  .</p>
+        <p><strong>Who hires:</strong> Technology companies, staffing firms, higher education institutions. Top hiring hubs: Austin, New York, San Francisco  .</p>
+        <p><strong>Career path:</strong> Common transitions come from content managers, editors, and data analysts  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">3. AI Literacy & Strategic Application</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
-        <p>Not every AI role requires coding. According to Degreed's 2026 skills data, companies need professionals who can bridge the gap between technical AI and business outcomes [citation:7].</p>
+        <p>Not every AI role requires coding. According to Degreed's 2026 skills data, companies need professionals who can bridge the gap between technical AI and business outcomes  .</p>
         <p><strong>Key roles:</strong></p>
         <ul>
-          <li><strong>AI Consultant/Strategist:</strong> Guide organizations in planning and deploying AI technologies. Median prior experience: 8.2 years. 30% remote, 33% hybrid [citation:6].</li>
-          <li><strong>AI Leaders:</strong> Responsible for turning AI from technical capability into business value, ensuring responsible and strategic use [citation:2].</li>
-          <li><strong>Agent Operators:</strong> Human supervisors of AI agent workflows who monitor execution and ensure accuracy [citation:2].</li>
+          <li><strong>AI Consultant/Strategist:</strong> Guide organizations in planning and deploying AI technologies. Median prior experience: 8.2 years. 30% remote, 33% hybrid  .</li>
+          <li><strong>AI Leaders:</strong> Responsible for turning AI from technical capability into business value, ensuring responsible and strategic use  .</li>
+          <li><strong>Agent Operators:</strong> Human supervisors of AI agent workflows who monitor execution and ensure accuracy  .</li>
         </ul>
-        <p><strong>The key insight:</strong> More than half of hiring managers say they <strong>would not hire someone without AI literacy skills</strong> [citation:7]. AI fluency is now a foundational capability.</p>
+        <p><strong>The key insight:</strong> More than half of hiring managers say they <strong>would not hire someone without AI literacy skills</strong>  . AI fluency is now a foundational capability.</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">4. AI Research & Development</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
         <p><strong>What it is:</strong> Designing, testing, and refining new AI models and algorithms to advance the field's capabilities.</p>
-        <p><strong>Key skills:</strong> PyTorch, deep learning, computer vision [citation:6].</p>
-        <p><strong>Who hires:</strong> Technology companies, higher education institutions, research services [citation:6].</p>
-        <p><strong>Career path:</strong> Common transitions from data scientist, software engineer, and machine learning engineer roles [citation:6].</p>
+        <p><strong>Key skills:</strong> PyTorch, deep learning, computer vision  .</p>
+        <p><strong>Who hires:</strong> Technology companies, higher education institutions, research services  .</p>
+        <p><strong>Career path:</strong> Common transitions from data scientist, software engineer, and machine learning engineer roles  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">5. The "New" Phenomenon in China</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #4a7b9d;">
-        <p>In China's 2026 spring hiring season, "新质生产力" (new quality productive forces) jobs are dominating searches [citation:4].</p>
+        <p>In China's 2026 spring hiring season, "新质生产力" (new quality productive forces) jobs are dominating searches  .</p>
         <ul>
-          <li>Job postings in the <strong>robotics industry</strong> grew 31.3% year-over-year [citation:4].</li>
-          <li><strong>AI roles</strong> average 12,661 RMB/month [citation:4].</li>
-          <li><strong>Smart cockpit</strong> roles in new energy vehicles saw a 168.9% surge in job seekers [citation:4].</li>
-          <li>Companies are hiring "end-to-end algorithm engineers" as they shift from rules-based algorithms to large models [citation:4].</li>
+          <li>Job postings in the <strong>robotics industry</strong> grew 31.3% year-over-year  .</li>
+          <li><strong>AI roles</strong> average 12,661 RMB/month  .</li>
+          <li><strong>Smart cockpit</strong> roles in new energy vehicles saw a 168.9% surge in job seekers  .</li>
+          <li>Companies are hiring "end-to-end algorithm engineers" as they shift from rules-based algorithms to large models  .</li>
         </ul>
-        <p>The Chinese government has identified 72 new occupations over five years, with more than 20 directly related to AI. Each new occupation is expected to generate jobs for 300,000 to 500,000 people [citation:8].</p>
+        <p>The Chinese government has identified 72 new occupations over five years, with more than 20 directly related to AI. Each new occupation is expected to generate jobs for 300,000 to 500,000 people  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 How to Build AI Skills in 2026</h2>
@@ -3163,28 +3724,54 @@ export const blogPosts: BlogPost[] = [
           </tr>
           <tr>
             <td style="padding: 0.5rem;">Any background</td>
-            <td style="padding: 0.5rem;">AI literacy courses, hands-on practice with AI tools, LinkedIn verified certifications [citation:2]</td>
+            <td style="padding: 0.5rem;">AI literacy courses, hands-on practice with AI tools, LinkedIn verified certifications  </td>
           </tr>
         </table>
-        <p style="margin-top:1rem;"><strong>Pro tip:</strong> LinkedIn now allows users to display official certifications in AI skills from platforms like Descript, Lovable, Replit, and Relay.app. These certifications are based on your actual usage patterns and proficiency [citation:2].</p>
+        <p style="margin-top:1rem;"><strong>Pro tip:</strong> LinkedIn now allows users to display official certifications in AI skills from platforms like Descript, Lovable, Replit, and Relay.app. These certifications are based on your actual usage patterns and proficiency  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
       <div style="background: #1e4a6d; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
-        <p>The AI job market in 2026 has room for everyone—from highly technical researchers to strategic consultants to detail-oriented data annotators. The common thread? AI literacy is no longer optional. As one expert put it: "Because it's still early, now is a good time to invest in learning them" [citation:1]. The window for getting ahead of the curve is still open—but it won't stay that way forever.</p>
+        <p>The AI job market in 2026 has room for everyone—from highly technical researchers to strategic consultants to detail-oriented data annotators. The common thread? AI literacy is no longer optional. As one expert put it: "Because it's still early, now is a good time to invest in learning them"  . The window for getting ahead of the curve is still open—but it won't stay that way forever.</p>
       </div>
 
       <blockquote style="background: linear-gradient(145deg, #e6f0fa, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #1e4a6d;">
-        "Companies want people who understand how to use AI tools effectively within their organisation to improve productivity." — Daniel Roth, LinkedIn Editor-in-Chief [citation:1]
+        "Companies want people who understand how to use AI tools effectively within their organisation to improve productivity." — Daniel Roth, LinkedIn Editor-in-Chief  
       </blockquote>
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #4a7b9d; font-size: 0.85rem; color: #1e4a6d;">
         <span>🔍 Sources: LinkedIn Jobs on the Rise 2026, ACM CareerNews, Economic Times, China.org.cn</span>
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
-      </div>
-    </article>
-  `
+      </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 73,
@@ -3221,13 +3808,13 @@ export const blogPosts: BlogPost[] = [
         </div>
         
         <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #b58b5b;">
-          <p style="font-size: 1.1rem;">Here's the counterintuitive truth about the AI-powered job market: as machines get smarter, human skills become more valuable. According to Degreed's 2026 skills data, seven of the top ten skills professionals are building are human or business-centric [citation:7]. The term "soft skills" is officially outdated—welcome to the era of "Power Skills."</p>
+          <p style="font-size: 1.1rem;">Here's the counterintuitive truth about the AI-powered job market: as machines get smarter, human skills become more valuable. According to Degreed's 2026 skills data, seven of the top ten skills professionals are building are human or business-centric  . The term "soft skills" is officially outdated—welcome to the era of "Power Skills."</p>
         </div>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 The Data: 70% of Top Skills Are Human</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
-        <p>Based on learning pathways created in Degreed in 2025, here are the top 10 skills professionals want to develop in 2026 [citation:7]:</p>
+        <p>Based on learning pathways created in Degreed in 2025, here are the top 10 skills professionals want to develop in 2026  :</p>
         <ol>
           <li><strong>Leadership</strong> (Human)</li>
           <li><strong>Communication</strong> (Human)</li>
@@ -3240,52 +3827,52 @@ export const blogPosts: BlogPost[] = [
           <li><strong>Adaptability</strong> (Human)</li>
           <li><strong>Stakeholder Management</strong> (Human)</li>
         </ol>
-        <p><strong>The takeaway:</strong> Seven of ten are human or business skills. As automation scales, the value of judgment, coordination, and influence increases [citation:7].</p>
+        <p><strong>The takeaway:</strong> Seven of ten are human or business skills. As automation scales, the value of judgment, coordination, and influence increases  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧠 Why Human Skills Can't Be Automated</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
-        <p>According to the World Economic Forum, <strong>"tasks tied to empathy, creativity, leadership, and curiosity" only have a 13% potential for AI transformation</strong> [citation:7]. They require too much human judgment and experience to be automated.</p>
-        <p>Jen Paterno, senior behavioral scientist at CoachHub, explains: "The term 'soft skills' has never been accurate, and in 2026, it's downright misleading. As AI takes over technical expertise, the skills that matter most are human-centric—what industry experts now call 'Power Skills': emotional intelligence, creativity, resilience, curiosity and social influence" [citation:3].</p>
+        <p>According to the World Economic Forum, <strong>"tasks tied to empathy, creativity, leadership, and curiosity" only have a 13% potential for AI transformation</strong>  . They require too much human judgment and experience to be automated.</p>
+        <p>Jen Paterno, senior behavioral scientist at CoachHub, explains: "The term 'soft skills' has never been accurate, and in 2026, it's downright misleading. As AI takes over technical expertise, the skills that matter most are human-centric—what industry experts now call 'Power Skills': emotional intelligence, creativity, resilience, curiosity and social influence"  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📖 The Storytelling Explosion</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
-        <p>One of the most dramatic trends: LinkedIn has seen a <strong>doubling in job postings over the last year that ask for storytelling skills</strong> [citation:1].</p>
-        <p><strong>What this means:</strong> Public speaking, writing clear emails, drafting cross-functional memos, and being able to connect your ideas in a compelling narrative are now explicitly recognized as valuable. These are basic workplace skills, but they're being highlighted more directly in job descriptions [citation:1].</p>
-        <p>As Daniel Roth explains, professionals should "tell stories around their skills—when they used them, what impact they created, whether at work, college, or in volunteer roles. Being able to connect those stories in interviews makes a stronger impression" [citation:1].</p>
+        <p>One of the most dramatic trends: LinkedIn has seen a <strong>doubling in job postings over the last year that ask for storytelling skills</strong>  .</p>
+        <p><strong>What this means:</strong> Public speaking, writing clear emails, drafting cross-functional memos, and being able to connect your ideas in a compelling narrative are now explicitly recognized as valuable. These are basic workplace skills, but they're being highlighted more directly in job descriptions  .</p>
+        <p>As Daniel Roth explains, professionals should "tell stories around their skills—when they used them, what impact they created, whether at work, college, or in volunteer roles. Being able to connect those stories in interviews makes a stronger impression"  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">👥 Leadership & People Management</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
-        <p>Leadership remains the #1 skill professionals are building in 2026 [citation:7]. But the focus has shifted. LinkedIn notes two emerging priorities [citation:1]:</p>
+        <p>Leadership remains the #1 skill professionals are building in 2026  . But the focus has shifted. LinkedIn notes two emerging priorities  :</p>
         <ul>
           <li><strong>Mentorship:</strong> Helping others realize what they're capable of</li>
           <li><strong>Talent development:</strong> Building capabilities in team members</li>
         </ul>
-        <p>As Holger Reisinger of Jabra points out: "Gen Z expect human-centric skills, emotional intelligence and collaboration to carry as much weight as technical skills such as data analysis or coding. Raised in a digital world, they understand that while AI can replicate knowledge, it can't replace connection" [citation:3].</p>
+        <p>As Holger Reisinger of Jabra points out: "Gen Z expect human-centric skills, emotional intelligence and collaboration to carry as much weight as technical skills such as data analysis or coding. Raised in a digital world, they understand that while AI can replicate knowledge, it can't replace connection"  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🔄 Adaptability in a Fast-Changing World</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
-        <p>Adaptability ranks #9 on the top skills list [citation:7]. Why? Because businesses are changing faster than ever, and that kind of change needs people who can pivot quickly [citation:1].</p>
-        <p>As Cris Grossmann of LumApps argues: "The next phase of productivity in the U.S. will come from flipping the mindset from thinking of people as a cost to manage to empowering them. Technology that protects and elevates frontline jobs, rather than replaces them, will drive the country's next productivity boom" [citation:3].</p>
+        <p>Adaptability ranks #9 on the top skills list  . Why? Because businesses are changing faster than ever, and that kind of change needs people who can pivot quickly  .</p>
+        <p>As Cris Grossmann of LumApps argues: "The next phase of productivity in the U.S. will come from flipping the mindset from thinking of people as a cost to manage to empowering them. Technology that protects and elevates frontline jobs, rather than replaces them, will drive the country's next productivity boom"  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🔍 How to Stand Out as Human in an AI World</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
-        <p>Heidi Barnett of isolved predicts: "In 2026, hiring will be less about 'beating the bots' and more about standing out as human. As AI floods the hiring process with noise, the candidates who rise to the top will be those who can show real results, tell their story authentically and bring evidence of impact" [citation:3].</p>
+        <p>Heidi Barnett of isolved predicts: "In 2026, hiring will be less about 'beating the bots' and more about standing out as human. As AI floods the hiring process with noise, the candidates who rise to the top will be those who can show real results, tell their story authentically and bring evidence of impact"  .</p>
         <p><strong>Practical steps:</strong></p>
         <ul>
-          <li><strong>Identify your strengths:</strong> Ask colleagues, friends, or volunteer groups what you're good at. Others often repeat the same strengths, which can help identify core capabilities [citation:1].</li>
-          <li><strong>Practice your skills:</strong> Volunteer, join community groups, take on stretch assignments at work—all of these can help refine both technical and human skills [citation:1].</li>
-          <li><strong>Tell stories, don't list skills:</strong> Avoid listing skills like a grocery list. Connect your skills to impact through stories [citation:1].</li>
+          <li><strong>Identify your strengths:</strong> Ask colleagues, friends, or volunteer groups what you're good at. Others often repeat the same strengths, which can help identify core capabilities  .</li>
+          <li><strong>Practice your skills:</strong> Volunteer, join community groups, take on stretch assignments at work—all of these can help refine both technical and human skills  .</li>
+          <li><strong>Tell stories, don't list skills:</strong> Avoid listing skills like a grocery list. Connect your skills to impact through stories  .</li>
         </ul>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 Human Skills Across Industries</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #b58b5b;">
-        <p>Different industries prioritize different human skills, according to Degreed data [citation:7]:</p>
+        <p>Different industries prioritize different human skills, according to Degreed data  :</p>
         <table style="width:100%; border-collapse: collapse;">
           <tr style="background:#f0e7db;">
             <th style="padding: 0.5rem;">Industry</th>
@@ -3312,21 +3899,47 @@ export const blogPosts: BlogPost[] = [
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ The Power Skills + AI Formula</h2>
       <div style="background: #8b5a2b; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
-        <p>The winning combination in 2026 isn't choosing between technical and human skills—it's mastering both. As Degreed puts it: "AI systems can generate recommendations, but great leaders guide teams to interpret, innovate, and execute on them. AI can process data at scale, but teams must decide what to do with the results" [citation:7].</p>
-        <p style="margin-top:1rem;">Organizations that invest in developing Power Skills through coaching, feedback and experiential learning won't just keep up with change; they'll stay ahead of it [citation:3].</p>
+        <p>The winning combination in 2026 isn't choosing between technical and human skills—it's mastering both. As Degreed puts it: "AI systems can generate recommendations, but great leaders guide teams to interpret, innovate, and execute on them. AI can process data at scale, but teams must decide what to do with the results"  .</p>
+        <p style="margin-top:1rem;">Organizations that invest in developing Power Skills through coaching, feedback and experiential learning won't just keep up with change; they'll stay ahead of it  .</p>
       </div>
 
       <blockquote style="background: linear-gradient(145deg, #f0e7db, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #8b5a2b;">
-        "Calling these capabilities 'soft' minimizes their impact—they're the foundation of leadership in a world transformed by automation." — Jen Paterno, CoachHub [citation:3]
+        "Calling these capabilities 'soft' minimizes their impact—they're the foundation of leadership in a world transformed by automation." — Jen Paterno, CoachHub  
       </blockquote>
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b58b5b; font-size: 0.85rem; color: #8b5a2b;">
         <span>🔍 Sources: Degreed Skills Report 2026, Forbes, Economic Times, Arcadia University</span>
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
-      </div>
-    </article>
-  `
+      </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 74,
@@ -3363,24 +3976,24 @@ export const blogPosts: BlogPost[] = [
         </div>
         
         <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #0056b3;">
-          <p style="font-size: 1.1rem;">The 2026 job market in North America is defined by a "stark divide" [citation:1]. While overall hiring stabilizes, demand for AI-adjacent skills is driving compensation growth and intensifying competition for specialized talent. Here's what job seekers and employers need to know about the US and Canadian markets right now.</p>
+          <p style="font-size: 1.1rem;">The 2026 job market in North America is defined by a "stark divide"  . While overall hiring stabilizes, demand for AI-adjacent skills is driving compensation growth and intensifying competition for specialized talent. Here's what job seekers and employers need to know about the US and Canadian markets right now.</p>
         </div>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 The Big Picture: Stabilization with Structural Shortages</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
-        <p>Labor markets in both countries are entering a cautious period of stabilization [citation:5]. Key indicators:</p>
+        <p>Labor markets in both countries are entering a cautious period of stabilization  . Key indicators:</p>
         <ul>
-          <li><strong>US:</strong> Job openings stabilizing, unemployment expected to rise modestly but not alarmingly [citation:5]</li>
-          <li><strong>Canada:</strong> A "surprisingly stable" 2025 could yield to modest progress in 2026, though policy questions loom [citation:5]</li>
-          <li><strong>Salary increases:</strong> Median base-pay increases planned at <strong>3.5%</strong> for 2026 in both countries [citation:7]</li>
+          <li><strong>US:</strong> Job openings stabilizing, unemployment expected to rise modestly but not alarmingly  </li>
+          <li><strong>Canada:</strong> A "surprisingly stable" 2025 could yield to modest progress in 2026, though policy questions loom  </li>
+          <li><strong>Salary increases:</strong> Median base-pay increases planned at <strong>3.5%</strong> for 2026 in both countries  </li>
         </ul>
-        <p>However, beneath this stabilization lies a structural IT talent shortage. IDC projects that <strong>more than 90% of organizations will face IT skills shortages by 2026</strong>, costing an estimated $5.5 trillion globally [citation:9]. In Canada, ICTC projects a shortage of more than <strong>3,000 AI professionals each year</strong> [citation:9].</p>
+        <p>However, beneath this stabilization lies a structural IT talent shortage. IDC projects that <strong>more than 90% of organizations will face IT skills shortages by 2026</strong>, costing an estimated $5.5 trillion globally  . In Canada, ICTC projects a shortage of more than <strong>3,000 AI professionals each year</strong>  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🤖 Top Roles: AI & Data Dominate</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
-        <p>According to Aquent's 2026 Salary Guide, these are the fastest-growing tech roles in the US and Canada [citation:1]:</p>
+        <p>According to Aquent's 2026 Salary Guide, these are the fastest-growing tech roles in the US and Canada  :</p>
         <table style="width:100%; border-collapse: collapse;">
           <tr style="background:#d9e6f2;">
             <th style="padding: 0.5rem;">Role</th>
@@ -3408,93 +4021,93 @@ export const blogPosts: BlogPost[] = [
             <td style="padding: 0.5rem;">5.0%</td>
           </tr>
         </table>
-        <p style="margin-top:1rem;">For comparison, copy editors saw only 2.8% growth, highlighting the "stark divide" between AI-adjacent roles and those easily replaced by automation [citation:1].</p>
+        <p style="margin-top:1rem;">For comparison, copy editors saw only 2.8% growth, highlighting the "stark divide" between AI-adjacent roles and those easily replaced by automation  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💰 Emerging AI Roles & Premium Salaries</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
-        <p>Aquent's research identified a new category of high-paying roles built around AI strategy and implementation [citation:1]:</p>
+        <p>Aquent's research identified a new category of high-paying roles built around AI strategy and implementation  :</p>
         <ul>
           <li><strong>AI Product Manager:</strong> $162,000 median base salary — the highest in this category</li>
           <li><strong>Natural Language Processing Engineer:</strong> $155,623</li>
           <li><strong>Blockchain Engineer:</strong> $135,439</li>
           <li><strong>AI Domain Specialist/Trainer:</strong> $115,000</li>
         </ul>
-        <p>John Chuang, CEO of Aquent, notes: "AI isn't just reshaping jobs, it's intensifying the competition for scarce skills. The fastest salary growth is flowing to roles that combine technical depth with the ability to apply AI at scale" [citation:1].</p>
+        <p>John Chuang, CEO of Aquent, notes: "AI isn't just reshaping jobs, it's intensifying the competition for scarce skills. The fastest salary growth is flowing to roles that combine technical depth with the ability to apply AI at scale"  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🇺🇸 US vs. 🇨🇦 Canada: AI Adoption & Wage Trends</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
-        <p>TD Economics provides a detailed comparison of how AI is shaping labor markets in both countries [citation:2]:</p>
+        <p>TD Economics provides a detailed comparison of how AI is shaping labor markets in both countries  :</p>
         
-        <p><strong>AI Adoption:</strong> The US leads in both breadth and depth of AI integration, with an estimated <strong>60-80% of companies using AI</strong> in some capacity, compared to lower rates in Canada. However, Canada ranks in the top 15 globally [citation:2].</p>
+        <p><strong>AI Adoption:</strong> The US leads in both breadth and depth of AI integration, with an estimated <strong>60-80% of companies using AI</strong> in some capacity, compared to lower rates in Canada. However, Canada ranks in the top 15 globally  .</p>
         
-        <p><strong>Employment Impact:</strong> In the US, industries with higher AI adoption rates are seeing slower employment growth. This relationship is so far absent in Canada [citation:2].</p>
+        <p><strong>Employment Impact:</strong> In the US, industries with higher AI adoption rates are seeing slower employment growth. This relationship is so far absent in Canada  .</p>
         
-        <p><strong>AI-Complementary Jobs:</strong> Both countries show strong employment growth in roles where AI augments human work—engineering, life sciences, nursing, and education [citation:2].</p>
+        <p><strong>AI-Complementary Jobs:</strong> Both countries show strong employment growth in roles where AI augments human work—engineering, life sciences, nursing, and education  .</p>
         
-        <p><strong>Youth Wage Premium:</strong> In both countries, <strong>wages for youth workers (15-24) in AI-complementing industries are growing faster</strong> than in lower-exposure sectors. This suggests a premium for younger workers with AI skills [citation:2].</p>
+        <p><strong>Youth Wage Premium:</strong> In both countries, <strong>wages for youth workers (15-24) in AI-complementing industries are growing faster</strong> than in lower-exposure sectors. This suggests a premium for younger workers with AI skills  .</p>
         
-        <p><strong>Recent Graduates:</strong> While the US has seen AI directly correlated with declines in entry-level hiring (a Stanford report found a 13% drop in entry-level jobs since 2022), Canada's graduate unemployment is more attributed to demographic factors like rapid increases in the student population [citation:2].</p>
+        <p><strong>Recent Graduates:</strong> While the US has seen AI directly correlated with declines in entry-level hiring (a Stanford report found a 13% drop in entry-level jobs since 2022), Canada's graduate unemployment is more attributed to demographic factors like rapid increases in the student population  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">⚡ Finance & Accounting: Shortage-Driven Market</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
-        <p>The finance sector faces acute talent shortages in 2026 [citation:4]:</p>
+        <p>The finance sector faces acute talent shortages in 2026  :</p>
         <ul>
           <li><strong>83% of finance leaders</strong> report ongoing talent shortages</li>
           <li><strong>300,000+ accountants and auditors</strong> have left the profession in recent years</li>
           <li>Employers are competing for new profiles: <strong>AI-enabled FP&A analysts, ESG reporting specialists</strong>, and finance professionals who can partner with the business</li>
-          <li><strong>Skills-based hiring</strong> is replacing credential-only screening, with job descriptions rewritten around capabilities like scenario modeling, automation oversight, and data storytelling [citation:4]</li>
+          <li><strong>Skills-based hiring</strong> is replacing credential-only screening, with job descriptions rewritten around capabilities like scenario modeling, automation oversight, and data storytelling  </li>
         </ul>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🔐 Cybersecurity: Machine-Speed Battles</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
-        <p>2026 marks the year cyberattacks become fully autonomous. Key trends [citation:9]:</p>
+        <p>2026 marks the year cyberattacks become fully autonomous. Key trends  :</p>
         <ul>
           <li><strong>59% of security teams</strong> report critical or significant skills needs—up from 44% in 2024</li>
           <li>Autonomous AI agents now outnumber human employees by <strong>82:1</strong> in enterprise environments</li>
           <li>Organizations with security staff shortages face breach costs averaging <strong>$1.76 million higher</strong></li>
-          <li>The US Bureau of Labor Statistics projects <strong>29% employment growth</strong> for information security analysts through 2033 [citation:9]</li>
+          <li>The US Bureau of Labor Statistics projects <strong>29% employment growth</strong> for information security analysts through 2033  </li>
         </ul>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📋 Leadership Premium & Enterprise Pay</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
-        <p>Leadership roles at the enterprise level (10,000+ employees) saw the sharpest pay increases [citation:1]:</p>
+        <p>Leadership roles at the enterprise level (10,000+ employees) saw the sharpest pay increases  :</p>
         <ul>
           <li>Median base salaries <strong>42.8% higher</strong> than at large companies</li>
           <li><strong>CTO/Head of Engineering:</strong> $434,453</li>
           <li><strong>CMO/Head of Marketing:</strong> $417,881</li>
           <li><strong>VP of Engineering/Software Development:</strong> $395,396</li>
         </ul>
-        <p>Overall director-level and higher salary growth: <strong>4.4% in the US, 3.8% in Canada</strong> [citation:1].</p>
+        <p>Overall director-level and higher salary growth: <strong>4.4% in the US, 3.8% in Canada</strong>  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 Skills-Based Hiring: The New Normal</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
-        <p>Skills-based hiring has become the foundation of workforce strategy [citation:9]:</p>
+        <p>Skills-based hiring has become the foundation of workforce strategy  :</p>
         <ul>
           <li><strong>85% of employers</strong> now use skills-based hiring (up from 73% in 2023)</li>
           <li><strong>53% have eliminated degree requirements entirely</strong>—a 30% increase from 2024</li>
-          <li>LinkedIn research shows skills-based searches lead to <strong>+12% higher quality hires</strong> and expand talent pools 6x globally [citation:9]</li>
+          <li>LinkedIn research shows skills-based searches lead to <strong>+12% higher quality hires</strong> and expand talent pools 6x globally  </li>
         </ul>
-        <p>However, implementation gaps remain: Harvard Business School research reveals that despite companies dropping degree requirements, <strong>fewer than 1 in 700 actual hires are affected</strong> [citation:9].</p>
+        <p>However, implementation gaps remain: Harvard Business School research reveals that despite companies dropping degree requirements, <strong>fewer than 1 in 700 actual hires are affected</strong>  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🗺️ Geographic & Policy Divergence</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
-        <p><strong>Immigration & Talent:</strong> Indeed data shows foreign job seekers' interest in US jobs dropped to a five-year low of 1.45% in June 2025, while Canada remains a primary destination for global talent [citation:9].</p>
+        <p><strong>Immigration & Talent:</strong> Indeed data shows foreign job seekers' interest in US jobs dropped to a five-year low of 1.45% in June 2025, while Canada remains a primary destination for global talent  .</p>
         
-        <p><strong>Salary Increases by Location:</strong> While both countries average 3.5% increases, US organizations place greater emphasis on merit/performance (78% vs. 60% in Canada). Canadian increases are higher relative to inflation given Canada's lower inflation rate (2.2% vs. US 2.7%) [citation:7].</p>
+        <p><strong>Salary Increases by Location:</strong> While both countries average 3.5% increases, US organizations place greater emphasis on merit/performance (78% vs. 60% in Canada). Canadian increases are higher relative to inflation given Canada's lower inflation rate (2.2% vs. US 2.7%)  .</p>
         
-        <p><strong>Pay Transparency:</strong> Expanding across US states and Canadian provinces, clear salary ranges in job ads improve applicant volume and reduce late-stage drop-off [citation:4].</p>
+        <p><strong>Pay Transparency:</strong> Expanding across US states and Canadian provinces, clear salary ranges in job ads improve applicant volume and reduce late-stage drop-off  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📚 Top Majors & International Student Pathways</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #0056b3;">
-        <p>For students targeting the US and Canada, these fields offer the strongest prospects [citation:3][citation:6][citation:10]:</p>
+        <p>For students targeting the US and Canada, these fields offer the strongest prospects    :</p>
         <table style="width:100%; border-collapse: collapse;">
           <tr style="background:#d9e6f2;">
             <th style="padding: 0.5rem;">Field</th>
@@ -3527,25 +4140,51 @@ export const blogPosts: BlogPost[] = [
             <td style="padding: 0.5rem;">Stanford, MIT / Calgary</td>
           </tr>
         </table>
-        <p style="margin-top:1rem;">Both countries offer STEM OPT extensions (US) and PGWP pathways (Canada) for international graduates in these fields [citation:3].</p>
+        <p style="margin-top:1rem;">Both countries offer STEM OPT extensions (US) and PGWP pathways (Canada) for international graduates in these fields  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
       <div style="background: #002868; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
-        <p>The US and Canadian job markets in 2026 present a tale of two trends: overall stabilization masking intense competition for specialized talent. AI-adjacent skills command significant premiums, skills-based hiring is becoming standard practice, and the talent shortage in tech, finance, and cybersecurity shows no signs of abating. For job seekers, the message is clear: develop in-demand skills, demonstrate them through verified assessments, and be prepared to tell stories about your impact [citation:4][citation:9]. For employers, the winners will be those who adapt quickly—with skills-forward assessment, transparent offers, and strategic use of internal and nearshore talent [citation:4][citation:9].</p>
+        <p>The US and Canadian job markets in 2026 present a tale of two trends: overall stabilization masking intense competition for specialized talent. AI-adjacent skills command significant premiums, skills-based hiring is becoming standard practice, and the talent shortage in tech, finance, and cybersecurity shows no signs of abating. For job seekers, the message is clear: develop in-demand skills, demonstrate them through verified assessments, and be prepared to tell stories about your impact   . For employers, the winners will be those who adapt quickly—with skills-forward assessment, transparent offers, and strategic use of internal and nearshore talent   .</p>
       </div>
 
       <blockquote style="background: linear-gradient(145deg, #d9e6f2, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #002868;">
-        "AI isn't just reshaping jobs, it's intensifying the competition for scarce skills. The fastest salary growth is flowing to roles that combine technical depth with the ability to apply AI at scale." — John Chuang, CEO of Aquent [citation:1]
+        "AI isn't just reshaping jobs, it's intensifying the competition for scarce skills. The fastest salary growth is flowing to roles that combine technical depth with the ability to apply AI at scale." — John Chuang, CEO of Aquent  
       </blockquote>
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #0056b3; font-size: 0.85rem; color: #002868;">
         <span>🔍 Sources: Aquent Salary Guide 2026, TD Economics, Indeed Hiring Lab, Payscale, DevEngine, IDP Connect</span>
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
-      </div>
-    </article>
-  `
+      </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 75,
@@ -3582,7 +4221,7 @@ export const blogPosts: BlogPost[] = [
         </div>
         
         <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #2c5a8c;">
-          <p style="font-size: 1.1rem;">For students and recent graduates navigating a challenging entry-level job market, choosing the right major matters more than ever. The National Association of Colleges and Employers (NACE) Winter 2026 Salary Survey reveals which bachelor's degrees employers are actively hiring—and what they're paying. Here are the results, based on responses from 150 organizations [citation:5][citation:10].</p>
+          <p style="font-size: 1.1rem;">For students and recent graduates navigating a challenging entry-level job market, choosing the right major matters more than ever. The National Association of Colleges and Employers (NACE) Winter 2026 Salary Survey reveals which bachelor's degrees employers are actively hiring—and what they're paying. Here are the results, based on responses from 150 organizations   .</p>
         </div>
       </div>
 
@@ -3645,12 +4284,12 @@ export const blogPosts: BlogPost[] = [
             <td style="padding: 0.5rem;">40.0%</td>
           </tr>
         </table>
-        <p style="margin-top:1rem;"><em>Source: NACE Winter 2026 Salary Survey, based on responses from 150 organizations [citation:5][citation:10]</em></p>
+        <p style="margin-top:1rem;"><em>Source: NACE Winter 2026 Salary Survey, based on responses from 150 organizations   </em></p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💰 Starting Salary Projections for 2026 Graduates</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
-        <p>Despite a challenging job market, starting salaries are rising across most categories [citation:5][citation:10]:</p>
+        <p>Despite a challenging job market, starting salaries are rising across most categories   :</p>
         <table style="width:100%; border-collapse: collapse;">
           <tr style="background:#d4e1f0;">
             <th style="padding: 0.5rem;">Major Category</th>
@@ -3688,67 +4327,93 @@ export const blogPosts: BlogPost[] = [
             <td style="padding: 0.5rem;">Positive</td>
           </tr>
         </table>
-        <p style="margin-top:1rem;"><strong>Note:</strong> Social Sciences is the only category projected to see a decrease in starting pay [citation:10].</p>
+        <p style="margin-top:1rem;"><strong>Note:</strong> Social Sciences is the only category projected to see a decrease in starting pay  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📉 The Challenging Entry-Level Market</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
-        <p>These degree rankings come against a backdrop of a tough job market for recent graduates [citation:5][citation:10]:</p>
+        <p>These degree rankings come against a backdrop of a tough job market for recent graduates   :</p>
         <ul>
           <li>U.S. economy added just <strong>181,000 jobs in 2025</strong>, far lower than the 1.46 million added in 2024</li>
           <li>Only <strong>30% of graduates</strong> secured jobs in their field of study (Cengage Group)</li>
           <li>More than <strong>75% of employers</strong> hired the same number or fewer entry-level workers in 2025</li>
         </ul>
-        <p>Shawn VanDerziel, NACE president and CEO, notes: "We're seeing that most employers anticipate upping their salaries, which is especially good news given that hiring is expected to be flat for the class of 2026" [citation:5][citation:10].</p>
+        <p>Shawn VanDerziel, NACE president and CEO, notes: "We're seeing that most employers anticipate upping their salaries, which is especially good news given that hiring is expected to be flat for the class of 2026"   .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">💡 Why These Majors?</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
-        <p><strong>Finance (#1):</strong> With 61.3% of employers hiring finance graduates, this degree remains a powerhouse. The financial services sector continues to recruit heavily, and finance skills translate across industries [citation:10].</p>
-        <p><strong>Mechanical Engineering (#1):</strong> Tied for first, mechanical engineering reflects the ongoing need for physical infrastructure, manufacturing, and now—smart systems and robotics integration [citation:5].</p>
-        <p><strong>Computer Science (#3):</strong> At 60%, CS remains in extremely high demand. It also commands the <strong>highest starting salary</strong> at $81,535—a 6.9% increase from 2025 [citation:5][citation:10].</p>
-        <p><strong>Accounting & Business Admin (#4 tie):</strong> Both at 58.7%, these degrees provide foundational skills that every organization needs, regardless of industry [citation:5].</p>
+        <p><strong>Finance (#1):</strong> With 61.3% of employers hiring finance graduates, this degree remains a powerhouse. The financial services sector continues to recruit heavily, and finance skills translate across industries  .</p>
+        <p><strong>Mechanical Engineering (#1):</strong> Tied for first, mechanical engineering reflects the ongoing need for physical infrastructure, manufacturing, and now—smart systems and robotics integration  .</p>
+        <p><strong>Computer Science (#3):</strong> At 60%, CS remains in extremely high demand. It also commands the <strong>highest starting salary</strong> at $81,535—a 6.9% increase from 2025   .</p>
+        <p><strong>Accounting & Business Admin (#4 tie):</strong> Both at 58.7%, these degrees provide foundational skills that every organization needs, regardless of industry  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🌏 International Perspective: Australia's Top Choices</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
-        <p>For comparison, the Universities Admissions Centre (UAC) in Australia released its 2026 most popular courses [citation:9]:</p>
+        <p>For comparison, the Universities Admissions Centre (UAC) in Australia released its 2026 most popular courses  :</p>
         <ol>
           <li><strong>Medicine</strong> (UNSW) — 1,899 first preferences</li>
           <li><strong>Commerce</strong> (University of Sydney) — 1,280</li>
           <li><strong>Business</strong> (UTS) — 961</li>
         </ol>
-        <p>While the rankings differ, the prominence of business/commerce degrees aligns with the U.S. demand for finance and business administration graduates [citation:9].</p>
+        <p>While the rankings differ, the prominence of business/commerce degrees aligns with the U.S. demand for finance and business administration graduates  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧭 What This Means for Students</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #2c5a8c;">
-        <p>The NACE data offers clear signals for current and prospective students [citation:5][citation:10]:</p>
+        <p>The NACE data offers clear signals for current and prospective students   :</p>
         <ul>
           <li><strong>STEM and business degrees dominate</strong> employer demand</li>
           <li><strong>Computer science offers the highest pay</strong> but faces the most competition</li>
           <li><strong>Specialized degrees</strong> (information sciences, supply chain) have solid demand at ~45-48%</li>
           <li><strong>Starting salaries are rising</strong> even in a flat hiring market—a positive sign for graduates</li>
         </ul>
-        <p>An October National Bureau of Economics Research working paper found that each additional $1,000 students earn in their first job translates to another $700 in yearly earnings five years out from college [citation:5]. In other words: that first job matters—and your major shapes your access to it.</p>
+        <p>An October National Bureau of Economics Research working paper found that each additional $1,000 students earn in their first job translates to another $700 in yearly earnings five years out from college  . In other words: that first job matters—and your major shapes your access to it.</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
       <div style="background: #1e3a5f; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
-        <p>For the Class of 2026, the most in-demand majors reflect an economy that values both quantitative rigor and business fundamentals. Finance and mechanical engineering lead in hiring percentage, while computer science leads in salary. In a tough entry-level market, these degrees offer the clearest path to employment—but students should also focus on building the Power Skills (leadership, communication, problem-solving) that complement their technical knowledge [citation:7].</p>
+        <p>For the Class of 2026, the most in-demand majors reflect an economy that values both quantitative rigor and business fundamentals. Finance and mechanical engineering lead in hiring percentage, while computer science leads in salary. In a tough entry-level market, these degrees offer the clearest path to employment—but students should also focus on building the Power Skills (leadership, communication, problem-solving) that complement their technical knowledge  .</p>
       </div>
 
       <blockquote style="background: linear-gradient(145deg, #d4e1f0, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #1e3a5f;">
-        "We're seeing that most employers anticipate upping their salaries, which is especially good news given that hiring is expected to be flat for the class of 2026." — Shawn VanDerziel, NACE President & CEO [citation:5]
+        "We're seeing that most employers anticipate upping their salaries, which is especially good news given that hiring is expected to be flat for the class of 2026." — Shawn VanDerziel, NACE President & CEO  
       </blockquote>
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #2c5a8c; font-size: 0.85rem; color: #1e3a5f;">
         <span>🔍 Sources: NACE Winter 2026 Salary Survey, CNBC, VnExpress, UAC Australia</span>
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
-      </div>
-    </article>
-  `
+      </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 76,
@@ -3785,26 +4450,26 @@ export const blogPosts: BlogPost[] = [
         </div>
         
         <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #7d6b4b;">
-          <p style="font-size: 1.1rem;">The fundamental rule of hiring is changing in 2026. According to LinkedIn's Editor-in-Chief Daniel Roth: "Skills are how people get hired today. Companies, whether small startups or large corporations, are hiring based on skill sets. What you are capable of doing is becoming more important than your previous title" [citation:1]. Here's how to navigate the new skills-first economy and pivot your career without starting from zero.</p>
+          <p style="font-size: 1.1rem;">The fundamental rule of hiring is changing in 2026. According to LinkedIn's Editor-in-Chief Daniel Roth: "Skills are how people get hired today. Companies, whether small startups or large corporations, are hiring based on skill sets. What you are capable of doing is becoming more important than your previous title"  . Here's how to navigate the new skills-first economy and pivot your career without starting from zero.</p>
         </div>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📊 The Shift: From Titles to Skills</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
-        <p>The data is clear: hiring is moving away from rigid job titles toward what candidates can actually do [citation:1][citation:3].</p>
+        <p>The data is clear: hiring is moving away from rigid job titles toward what candidates can actually do   .</p>
         <ul>
-          <li><strong>71% of organizations</strong> are actively trying to hire workers to close skills gaps [citation:2]</li>
-          <li><strong>44% of companies</strong> say they seek workers who can learn new tools and technologies quickly [citation:2]</li>
-          <li><strong>90%+ of companies</strong> surveyed plan to hire in 2026, but with a focus on precision hiring rather than volume [citation:2]</li>
+          <li><strong>71% of organizations</strong> are actively trying to hire workers to close skills gaps  </li>
+          <li><strong>44% of companies</strong> say they seek workers who can learn new tools and technologies quickly  </li>
+          <li><strong>90%+ of companies</strong> surveyed plan to hire in 2026, but with a focus on precision hiring rather than volume  </li>
         </ul>
-        <p>Kara Ayers of Xplor Technologies predicts: "<strong>2026 will end the college degree as we know it</strong>—workplace and on-the-job bootcamps will become a standard investment for companies, and traditional degrees will carry less weight in a skills-first market" [citation:3].</p>
+        <p>Kara Ayers of Xplor Technologies predicts: "<strong>2026 will end the college degree as we know it</strong>—workplace and on-the-job bootcamps will become a standard investment for companies, and traditional degrees will carry less weight in a skills-first market"  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🧰 Identifying Your Portable Skills</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
-        <p>Skills travel with you, especially during times of rapid change. When industries shift quickly, having adaptable abilities allows professionals to move across roles and even sectors [citation:1].</p>
-        <p><strong>How to identify your strengths:</strong> Roth suggests asking colleagues, friends, or volunteer groups what you're good at. Often, others will repeat the same strengths, which can help identify core capabilities [citation:1].</p>
-        <p><strong>High-value portable skills in 2026 [citation:7]:</strong></p>
+        <p>Skills travel with you, especially during times of rapid change. When industries shift quickly, having adaptable abilities allows professionals to move across roles and even sectors  .</p>
+        <p><strong>How to identify your strengths:</strong> Roth suggests asking colleagues, friends, or volunteer groups what you're good at. Often, others will repeat the same strengths, which can help identify core capabilities  .</p>
+        <p><strong>High-value portable skills in 2026  :</strong></p>
         <ul>
           <li><strong>Leadership</strong> — guiding teams through change</li>
           <li><strong>Communication</strong> — clear writing and speaking</li>
@@ -3817,44 +4482,44 @@ export const blogPosts: BlogPost[] = [
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🏢 Internal Mobility: The Hidden Opportunity</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
-        <p>One of the biggest trends in 2026 is companies turning inward to find talent. Instead of competing for scarce external specialists, employers are investing in upskilling their current workforce [citation:2].</p>
+        <p>One of the biggest trends in 2026 is companies turning inward to find talent. Instead of competing for scarce external specialists, employers are investing in upskilling their current workforce  .</p>
         <p><strong>Why internal mobility matters:</strong></p>
         <ul>
-          <li>Tech hiring intentions are down 19 points year-over-year, but this is because employers are reconsidering how to acquire talent—often through internal training [citation:2]</li>
-          <li>HR technology now enables continuous feedback loops, with AI monitoring meetings and nudging supervisors when feedback is needed [citation:3]</li>
-          <li>Companies that fail to align employees' personal motivations with company goals can expect high turnover [citation:3]</li>
+          <li>Tech hiring intentions are down 19 points year-over-year, but this is because employers are reconsidering how to acquire talent—often through internal training  </li>
+          <li>HR technology now enables continuous feedback loops, with AI monitoring meetings and nudging supervisors when feedback is needed  </li>
+          <li>Companies that fail to align employees' personal motivations with company goals can expect high turnover  </li>
         </ul>
-        <p>Tim Weerasiri of Ninety.io notes: "You must know where your team members want to go if you want to keep them engaged. This means finding projects beyond their roles and responsibilities that contribute to the employee's growth and the company's success" [citation:3].</p>
+        <p>Tim Weerasiri of Ninety.io notes: "You must know where your team members want to go if you want to keep them engaged. This means finding projects beyond their roles and responsibilities that contribute to the employee's growth and the company's success"  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">⚡ The Challenge: AI and the Recruiting Doom Loop</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
-        <p>While skills-based hiring is the goal, there's a growing problem: the <strong>AI recruiting doom loop</strong> [citation:2].</p>
+        <p>While skills-based hiring is the goal, there's a growing problem: the <strong>AI recruiting doom loop</strong>  .</p>
         <ol>
           <li>Job candidates use AI to enhance and tailor resumes</li>
           <li>Companies become flooded with a sea of sameness—all resumes look qualified</li>
           <li>Companies apply tighter AI filtering, making it harder for real candidates to get interviews</li>
           <li>Candidates apply to even more jobs, using AI to do so at scale</li>
         </ol>
-        <p>The result: a huge disconnect between needy employers and deserving candidates [citation:2].</p>
-        <p><strong>What this means for you:</strong> Standing out requires more than keywords. As Heidi Barnett of isolved puts it: "In 2026, hiring will be less about 'beating the bots' and more about standing out as human. The candidates who rise to the top will be those who can show real results, tell their story authentically and bring evidence of impact" [citation:3].</p>
+        <p>The result: a huge disconnect between needy employers and deserving candidates  .</p>
+        <p><strong>What this means for you:</strong> Standing out requires more than keywords. As Heidi Barnett of isolved puts it: "In 2026, hiring will be less about 'beating the bots' and more about standing out as human. The candidates who rise to the top will be those who can show real results, tell their story authentically and bring evidence of impact"  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">📝 Resume Strategies for the Skills-First Era</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
-        <p>The rules of resume writing are changing. Key data from 2026 [citation:2]:</p>
+        <p>The rules of resume writing are changing. Key data from 2026  :</p>
         <ul>
           <li><strong>77% of candidates</strong> worry their resumes will be filtered out before reaching a human</li>
           <li><strong>68% of candidates</strong> spend less than 30 minutes tailoring a resume per application</li>
           <li><strong>43% of job seekers</strong> believe hiring managers only skim resumes</li>
         </ul>
-        <p>Roth advises against listing skills like a grocery list. Instead: "<strong>Tell stories around your skills</strong>—when you used them, what impact you created, whether at work, college, or in volunteer roles. Being able to connect those stories in interviews makes a stronger impression" [citation:1].</p>
-        <p><strong>New tools:</strong> LinkedIn now allows users to display official certifications in AI skills based on actual usage patterns and proficiency in tools like Descript, Lovable, and Replit [citation:2]. These verified skills add credibility beyond self-reporting.</p>
+        <p>Roth advises against listing skills like a grocery list. Instead: "<strong>Tell stories around your skills</strong>—when you used them, what impact you created, whether at work, college, or in volunteer roles. Being able to connect those stories in interviews makes a stronger impression"  .</p>
+        <p><strong>New tools:</strong> LinkedIn now allows users to display official certifications in AI skills based on actual usage patterns and proficiency in tools like Descript, Lovable, and Replit  . These verified skills add credibility beyond self-reporting.</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🎓 Degree vs. Skills: The Nuanced Reality</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
-        <p>While skills-based hiring is growing, Chris Graham of National University offers a reality check: "Companies will follow the 2026 work trends of more skills-based hiring than degree-based hiring. But if you don't have a degree, you will remain at a financial disadvantage. Data shows that <strong>bachelor's degree holders make approximately 68% more per week</strong> than those with just a high school diploma" [citation:3].</p>
+        <p>While skills-based hiring is growing, Chris Graham of National University offers a reality check: "Companies will follow the 2026 work trends of more skills-based hiring than degree-based hiring. But if you don't have a degree, you will remain at a financial disadvantage. Data shows that <strong>bachelor's degree holders make approximately 68% more per week</strong> than those with just a high school diploma"  .</p>
         <p>The takeaway? Skills matter enormously, but degrees still provide a significant earnings boost. The optimal path: <strong>develop in-demand skills while pursuing a degree</strong> or combine a degree with continuous upskilling.</p>
       </div>
 
@@ -3867,49 +4532,75 @@ export const blogPosts: BlogPost[] = [
           </tr>
           <tr style="border-bottom:1px solid #ccc;">
             <td style="padding: 0.5rem;">1. Audit your skills</td>
-            <td style="padding: 0.5rem;">List everything you can do—technical, human, and business. Ask others what you're good at [citation:1].</td>
+            <td style="padding: 0.5rem;">List everything you can do—technical, human, and business. Ask others what you're good at  .</td>
           </tr>
           <tr style="border-bottom:1px solid #ccc;">
             <td style="padding: 0.5rem;">2. Research target roles</td>
-            <td style="padding: 0.5rem;">Identify which skills are in demand for careers you want [citation:6][citation:7].</td>
+            <td style="padding: 0.5rem;">Identify which skills are in demand for careers you want   .</td>
           </tr>
           <tr style="border-bottom:1px solid #ccc;">
             <td style="padding: 0.5rem;">3. Fill gaps strategically</td>
-            <td style="padding: 0.5rem;">Use free courses, volunteer work, stretch assignments, or bootcamps [citation:1].</td>
+            <td style="padding: 0.5rem;">Use free courses, volunteer work, stretch assignments, or bootcamps  .</td>
           </tr>
           <tr style="border-bottom:1px solid #ccc;">
             <td style="padding: 0.5rem;">4. Get verified</td>
-            <td style="padding: 0.5rem;">Earn LinkedIn skill certifications based on actual tool usage [citation:2].</td>
+            <td style="padding: 0.5rem;">Earn LinkedIn skill certifications based on actual tool usage  .</td>
           </tr>
           <tr>
             <td style="padding: 0.5rem;">5. Tell your story</td>
-            <td style="padding: 0.5rem;">In interviews, focus on impact: when you used skills and what results you achieved [citation:1].</td>
+            <td style="padding: 0.5rem;">In interviews, focus on impact: when you used skills and what results you achieved  .</td>
           </tr>
         </table>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🌍 The Global Perspective</h2>
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
-        <p>Skills-based hiring is a global trend. In China, the spring hiring season emphasizes "技术+场景" (technology + scenario) talent—professionals who combine technical skills with real-world application [citation:4]. The government is actively developing new professions and encouraging skills development in AI and advanced manufacturing [citation:8].</p>
-        <p>In the U.S., LinkedIn data shows that professionals with rare skills (like AI engineering) are 8x more likely to move across borders for work [citation:1].</p>
+        <p>Skills-based hiring is a global trend. In China, the spring hiring season emphasizes "技术+场景" (technology + scenario) talent—professionals who combine technical skills with real-world application  . The government is actively developing new professions and encouraging skills development in AI and advanced manufacturing  .</p>
+        <p>In the U.S., LinkedIn data shows that professionals with rare skills (like AI engineering) are 8x more likely to move across borders for work  .</p>
       </div>
 
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">✅ Key Takeaway</h2>
       <div style="background: #5e4a2e; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
-        <p>The skills-first revolution is real, but it requires active participation. You can't just list skills—you need to demonstrate them, verify them, and tell stories around them. Whether you're looking to move internally, switch industries, or enter the job market for the first time, your portable skills are your most valuable asset. Invest in them, practice them, and learn to communicate their value [citation:1].</p>
+        <p>The skills-first revolution is real, but it requires active participation. You can't just list skills—you need to demonstrate them, verify them, and tell stories around them. Whether you're looking to move internally, switch industries, or enter the job market for the first time, your portable skills are your most valuable asset. Invest in them, practice them, and learn to communicate their value  .</p>
       </div>
 
       <blockquote style="background: linear-gradient(145deg, #e1d7c6, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #5e4a2e;">
-        "Skills are not fixed for life. People are not locked into what they currently know. New skills can always be developed." — Daniel Roth, LinkedIn Editor-in-Chief [citation:1]
+        "Skills are not fixed for life. People are not locked into what they currently know. New skills can always be developed." — Daniel Roth, LinkedIn Editor-in-Chief  
       </blockquote>
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7d6b4b; font-size: 0.85rem; color: #5e4a2e;">
         <span>🔍 Sources: LinkedIn, ACM CareerNews, Forbes, Degreed, Economic Times</span>
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
-      </div>
-    </article>
-  `
+      </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article>  `
 },
 {
   id: 77,
@@ -4096,7 +4787,7 @@ export const blogPosts: BlogPost[] = [
         <ul>
           <li><strong>Automated data cleaning and basic analysis</strong> – tools like Python libraries or AI assistants can handle routine tasks, freeing you for interpretation.</li>
           <li><strong>AI‑assisted survey design</strong> – generating draft questions, but human oversight remains crucial for cultural sensitivity.</li>
-          <li><strong>Skills verifications</strong> – platforms like LinkedIn now allow you to earn badges for specific MEAL tools (e.g., Kobo, SPSS, Power BI) based on usage patterns [citation:2].</li>
+          <li><strong>Skills verifications</strong> – platforms like LinkedIn now allow you to earn badges for specific MEAL tools (e.g., Kobo, SPSS, Power BI) based on usage patterns  .</li>
           <li><strong>Human‑centred skills gain premium</strong> – facilitation, ethical reasoning, and adaptive management become key differentiators.</li>
         </ul>
         <p>To stand out, combine technical certifications with evidence of real‑world impact – for instance, a portfolio of evaluations or a learning brief you authored.</p>
@@ -4153,8 +4844,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 78,
@@ -4194,7 +4912,7 @@ export const blogPosts: BlogPost[] = [
         </div>
         
         <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #7d6b4b;">
-          <p style="font-size: 1.1rem;">Marketing in 2026 is more dynamic than ever. With AI handling routine tasks, human skills like strategy, creativity, and empathy have become the real differentiators. Companies are hiring for skills, not just job titles [citation:1]. This guide lays out a clear pathway from entry‑level to leadership, with actionable development plans for each stage—Assistant, Officer, Coordinator, and Manager.</p>
+          <p style="font-size: 1.1rem;">Marketing in 2026 is more dynamic than ever. With AI handling routine tasks, human skills like strategy, creativity, and empathy have become the real differentiators. Companies are hiring for skills, not just job titles  . This guide lays out a clear pathway from entry‑level to leadership, with actionable development plans for each stage—Assistant, Officer, Coordinator, and Manager.</p>
         </div>
       </div>
 
@@ -4242,7 +4960,7 @@ export const blogPosts: BlogPost[] = [
           <li><strong>Build a portfolio:</strong> Save examples of your work—screenshots of posts you scheduled, graphics you designed, or reports you compiled.</li>
         </ol>
         <p><em>Timeline:</em> With focused effort, you can be ready for an Officer role in 12–18 months.</p>
-        <p><strong>Pro tip for 2026:</strong> Learn how AI tools like ChatGPT or Jasper can assist in content ideation and drafting—but always add your human touch. Employers value efficiency paired with creativity [citation:3].</p>
+        <p><strong>Pro tip for 2026:</strong> Learn how AI tools like ChatGPT or Jasper can assist in content ideation and drafting—but always add your human touch. Employers value efficiency paired with creativity  .</p>
       </div>
 
       <!-- Level 2: Marketing Officer -->
@@ -4276,7 +4994,7 @@ export const blogPosts: BlogPost[] = [
           <li><strong>Mentor assistants:</strong> Start guiding newer team members—this builds leadership muscles.</li>
         </ol>
         <p><em>Timeline:</em> 2–3 years of solid performance and upskilling can position you for a Coordinator role.</p>
-        <p><strong>2026 insight:</strong> "Marketing Officers who can combine channel expertise with a basic understanding of AI‑driven personalisation are in high demand" [citation:7].</p>
+        <p><strong>2026 insight:</strong> "Marketing Officers who can combine channel expertise with a basic understanding of AI‑driven personalisation are in high demand"  .</p>
       </div>
 
       <!-- Level 3: Marketing Coordinator -->
@@ -4310,7 +5028,7 @@ export const blogPosts: BlogPost[] = [
           <li><strong>Network internally:</strong> Build relationships with sales, product, and finance to understand their perspectives and align marketing goals.</li>
         </ol>
         <p><em>Timeline:</em> With consistent leadership and successful campaign ownership, 3‑4 years to step into a Manager role.</p>
-        <p><strong>2026 reality:</strong> "Coordinators who can navigate the AI recruiting doom loop—standing out as humans with real results—are the ones who get promoted" [citation:2].</p>
+        <p><strong>2026 reality:</strong> "Coordinators who can navigate the AI recruiting doom loop—standing out as humans with real results—are the ones who get promoted"  .</p>
       </div>
 
       <!-- Level 4: Marketing Manager -->
@@ -4342,7 +5060,7 @@ export const blogPosts: BlogPost[] = [
           <li>Mentor future leaders and create a succession plan for your team.</li>
           <li>Champion diversity, equity, and inclusion in marketing representation and team culture.</li>
         </ul>
-        <p><strong>Manager mindset 2026:</strong> "The best marketing managers don't just execute—they create a vision that inspires both their team and their customers" [citation:3].</p>
+        <p><strong>Manager mindset 2026:</strong> "The best marketing managers don't just execute—they create a vision that inspires both their team and their customers"  .</p>
       </div>
 
       <!-- Portable skills across marketing levels -->
@@ -4364,10 +5082,10 @@ export const blogPosts: BlogPost[] = [
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
         <p>Marketing has been transformed by AI and the shift to skills‑based hiring. Here's what you need to know:</p>
         <ul>
-          <li><strong>AI handles routine tasks</strong> – content generation, ad optimiSation, and basic reporting are increasingly automated. Your value lies in strategy, ethics, and creativity [citation:3].</li>
-          <li><strong>Skills verifications matter</strong> – platforms like LinkedIn now offer skill badges based on actual usage of tools (e.g., HubSpot, Google Analytics, Meta Ads Manager) [citation:2].</li>
-          <li><strong>The human touch wins</strong> – as AI creates a "sea of sameness" in applications, candidates who show real impact and authentic storytelling stand out [citation:2].</li>
-          <li><strong>Continuous learning is essential</strong> – 71% of organisations are hiring to close skills gaps, meaning those who upskill are in demand [citation:2].</li>
+          <li><strong>AI handles routine tasks</strong> – content generation, ad optimiSation, and basic reporting are increasingly automated. Your value lies in strategy, ethics, and creativity  .</li>
+          <li><strong>Skills verifications matter</strong> – platforms like LinkedIn now offer skill badges based on actual usage of tools (e.g., HubSpot, Google Analytics, Meta Ads Manager)  .</li>
+          <li><strong>The human touch wins</strong> – as AI creates a "sea of sameness" in applications, candidates who show real impact and authentic storytelling stand out  .</li>
+          <li><strong>Continuous learning is essential</strong> – 71% of organisations are hiring to close skills gaps, meaning those who upskill are in demand  .</li>
         </ul>
         <p>To thrive, combine technical certifications with a portfolio that demonstrates results—campaigns you improved, problems you solved, and teams you influenced.</p>
       </div>
@@ -4419,7 +5137,7 @@ export const blogPosts: BlogPost[] = [
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🚀 Your Marketing Career in 2026</h2>
       <div style="background: #5e4a2e; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
         <p>Marketing offers a dynamic and rewarding path for those who blend creativity with data, and who never stop learning. In a skills‑first world, your progression depends on deliberately building and demonstrating competencies—not just accumulating years. Use the roadmaps above to identify your next step, seek feedback, and always tie your learning to real impact. Whether you're starting as an Assistant or aiming for a Manager role, the demand for skilled marketers has never been higher.</p>
-        <p style="margin-top: 1rem;">Remember: "Skills are not fixed for life. New skills can always be developed" [citation:1]. Your career is in your hands.</p>
+        <p style="margin-top: 1rem;">Remember: "Skills are not fixed for life. New skills can always be developed"  . Your career is in your hands.</p>
       </div>
 
       <blockquote style="background: linear-gradient(145deg, #e1d7c6, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #5e4a2e;">
@@ -4430,9 +5148,35 @@ export const blogPosts: BlogPost[] = [
         <span>🔍 Sources: LinkedIn 2026 Skills Data, HubSpot Academy, Google Analytics, Meta Blueprint, industry interviews</span>
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
-      </div>
-    </article>
-  `
+      </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 79,
@@ -4472,7 +5216,7 @@ export const blogPosts: BlogPost[] = [
         </div>
         
         <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #7d6b4b;">
-          <p style="font-size: 1.1rem;">In the development and humanitarian sector, high‑quality research saves lives and directs resources where they're most needed. From understanding the needs of crisis‑affected populations to evaluating what works in long‑term development, research professionals are the backbone of evidence‑based action. In 2026, skills‑based hiring means your ability to design studies, analyse data, and communicate findings matters more than your previous title [citation:1]. This guide provides a clear pathway from entry‑level to leadership, with actionable development plans for each stage.</p>
+          <p style="font-size: 1.1rem;">In the development and humanitarian sector, high‑quality research saves lives and directs resources where they're most needed. From understanding the needs of crisis‑affected populations to evaluating what works in long‑term development, research professionals are the backbone of evidence‑based action. In 2026, skills‑based hiring means your ability to design studies, analyse data, and communicate findings matters more than your previous title  . This guide provides a clear pathway from entry‑level to leadership, with actionable development plans for each stage.</p>
         </div>
       </div>
 
@@ -4554,7 +5298,7 @@ export const blogPosts: BlogPost[] = [
           <li><strong>Mentor assistants:</strong> Start guiding newer team members – this develops leadership and communication skills.</li>
         </ol>
         <p><em>Timeline:</em> 2–3 years of solid performance and upskilling can position you for a Coordinator role.</p>
-        <p><strong>2026 insight:</strong> "Research Officers who can combine technical rigor with the ability to communicate findings to non‑technical audiences are in high demand" [citation:7].</p>
+        <p><strong>2026 insight:</strong> "Research Officers who can combine technical rigor with the ability to communicate findings to non‑technical audiences are in high demand"  .</p>
       </div>
 
       <!-- Level 3: Research Coordinator -->
@@ -4588,7 +5332,7 @@ export const blogPosts: BlogPost[] = [
           <li><strong>Prepare for leadership:</strong> Take courses in strategic leadership, change management, and team development.</li>
         </ol>
         <p><em>Timeline:</em> With consistent leadership and successful research portfolios, 3‑4 years to step into a Manager role.</p>
-        <p><strong>2026 reality:</strong> "Coordinators who can navigate ethical challenges in fragile contexts and lead diverse teams are the ones who advance" [citation:3].</p>
+        <p><strong>2026 reality:</strong> "Coordinators who can navigate ethical challenges in fragile contexts and lead diverse teams are the ones who advance"  .</p>
       </div>
 
       <!-- Level 4: Research Manager -->
@@ -4620,7 +5364,7 @@ export const blogPosts: BlogPost[] = [
           <li>Mentor the next generation of research leaders and create pathways for diverse researchers.</li>
           <li>Champion ethical, participatory, and decolonised research approaches within the organisation and sector.</li>
         </ul>
-        <p><strong>Manager mindset 2026:</strong> "The best research managers don't just oversee studies – they create a culture where evidence is valued, ethical practice is non‑negotiable, and learning flows into action" [citation:3].</p>
+        <p><strong>Manager mindset 2026:</strong> "The best research managers don't just oversee studies – they create a culture where evidence is valued, ethical practice is non‑negotiable, and learning flows into action"  .</p>
       </div>
 
       <!-- Portable skills across research levels -->
@@ -4642,10 +5386,10 @@ export const blogPosts: BlogPost[] = [
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
         <p>The research landscape is being transformed by technology and the shift to skills‑based hiring. Here's what you need to know:</p>
         <ul>
-          <li><strong>AI assists, but doesn't replace</strong> – AI tools can speed up literature reviews, transcription, and even basic coding. However, interpretation, ethical judgement, and contextual understanding remain deeply human [citation:3].</li>
-          <li><strong>Skills verifications matter</strong> – platforms like LinkedIn now offer skill badges based on actual usage of tools (e.g., NVivo, SPSS, Kobo Toolbox) [citation:2]. These verified skills add credibility beyond self‑reporting.</li>
-          <li><strong>Ethics are more important than ever</strong> – with increased use of digital data, ensuring informed consent, data privacy, and community ownership is a critical skill [citation:8].</li>
-          <li><strong>Remote and mixed‑mode research</strong> – skills in remote data collection (mobile surveys, phone interviews, online focus groups) are now essential, especially in humanitarian contexts [citation:4].</li>
+          <li><strong>AI assists, but doesn't replace</strong> – AI tools can speed up literature reviews, transcription, and even basic coding. However, interpretation, ethical judgement, and contextual understanding remain deeply human  .</li>
+          <li><strong>Skills verifications matter</strong> – platforms like LinkedIn now offer skill badges based on actual usage of tools (e.g., NVivo, SPSS, Kobo Toolbox)  . These verified skills add credibility beyond self‑reporting.</li>
+          <li><strong>Ethics are more important than ever</strong> – with increased use of digital data, ensuring informed consent, data privacy, and community ownership is a critical skill  .</li>
+          <li><strong>Remote and mixed‑mode research</strong> – skills in remote data collection (mobile surveys, phone interviews, online focus groups) are now essential, especially in humanitarian contexts  .</li>
         </ul>
         <p>To stand out, combine technical certifications with a portfolio that demonstrates real‑world impact – studies you contributed to, reports you co‑authored, or ethical challenges you navigated.</p>
       </div>
@@ -4711,7 +5455,7 @@ export const blogPosts: BlogPost[] = [
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🚀 Your Research Career in 2026</h2>
       <div style="background: #5e4a2e; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
         <p>Research in the development and humanitarian sector offers a deeply meaningful career – one that directly contributes to better programmes, policies, and ultimately, lives. In a skills‑first world, your progression depends on deliberately building and demonstrating competencies, not just accumulating years. Use the roadmaps above to identify your next step, seek feedback, and always tie your learning to real impact. Whether you're starting as an Assistant or aiming for a Manager role, the demand for skilled, ethical, and adaptable researchers has never been higher.</p>
-        <p style="margin-top: 1rem;">Remember: "Skills are not fixed for life. New skills can always be developed" [citation:1]. Your career is in your hands.</p>
+        <p style="margin-top: 1rem;">Remember: "Skills are not fixed for life. New skills can always be developed"  . Your career is in your hands.</p>
       </div>
 
       <blockquote style="background: linear-gradient(145deg, #e1d7c6, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #5e4a2e;">
@@ -4723,8 +5467,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article>  `
 },
 {
   id: 80,
@@ -4764,7 +5535,7 @@ export const blogPosts: BlogPost[] = [
         </div>
         
         <div style="background: #ffffff; border-radius: 24px; padding: 1.5rem 2rem; border: 1px solid #7d6b4b;">
-          <p style="font-size: 1.1rem;">Gender‑Based Violence (GBV) programming is one of the most critical and sensitive areas in the humanitarian and development sector. It requires a unique blend of technical knowledge, survivor‑centered approaches, and strong coordination skills. In 2026, with GBV risks heightened in crises worldwide, skilled professionals are in high demand [citation:5][citation:8]. This guide provides a clear pathway from entry‑level to leadership, with actionable development plans for each stage.</p>
+          <p style="font-size: 1.1rem;">Gender‑Based Violence (GBV) programming is one of the most critical and sensitive areas in the humanitarian and development sector. It requires a unique blend of technical knowledge, survivor‑centered approaches, and strong coordination skills. In 2026, with GBV risks heightened in crises worldwide, skilled professionals are in high demand   . This guide provides a clear pathway from entry‑level to leadership, with actionable development plans for each stage.</p>
         </div>
       </div>
 
@@ -4790,7 +5561,7 @@ export const blogPosts: BlogPost[] = [
         <ul>
           <li>Welcome survivors and provide immediate, compassionate support at women‑friendly spaces or clinics.</li>
           <li>Assist in intake procedures and basic documentation while maintaining confidentiality.</li>
-          <li>Share information about available services (psychosocial, medical, legal, shelter) and support survivors in accessing them [citation:3].</li>
+          <li>Share information about available services (psychosocial, medical, legal, shelter) and support survivors in accessing them  .</li>
           <li>Support community awareness sessions on GBV, available services, and women's rights.</li>
           <li>Maintain filing systems for case files (anonymized) and activity reports.</li>
           <li>Help organise events, trainings, and community meetings (logistics, invitations, materials).</li>
@@ -4805,14 +5576,14 @@ export const blogPosts: BlogPost[] = [
         <h3 style="font-size: 1.5rem; font-weight: 500; color: #1e2f4a;">Step‑by‑step development plan to become a GBV Officer</h3>
         <ol>
           <li><strong>Build foundational GBV knowledge:</strong> Complete free online courses (e.g., UNFPA's GBV in Emergencies e‑learning, IASC guidelines). Understand core concepts: types of GBV, survivor‑centered approach, do‑no‑harm.</li>
-          <li><strong>Get certified in basic counselling skills:</strong> Training in active listening, empathy, and non‑judgmental communication is essential. Programs like the Basic Counselling Training in Papua New Guinea equip frontline workers with practical survivor support skills [citation:3][citation:6].</li>
-          <li><strong>Understand referral systems:</strong> Learn how to map services, maintain updated referral directories, and make safe referrals [citation:5].</li>
+          <li><strong>Get certified in basic counselling skills:</strong> Training in active listening, empathy, and non‑judgmental communication is essential. Programs like the Basic Counselling Training in Papua New Guinea equip frontline workers with practical survivor support skills   .</li>
+          <li><strong>Understand referral systems:</strong> Learn how to map services, maintain updated referral directories, and make safe referrals  .</li>
           <li><strong>Practice documentation:</strong> Under supervision, learn to complete intake forms and case notes while protecting confidentiality.</li>
           <li><strong>Seek mentoring:</strong> Request regular feedback from your supervisor or a senior GBV colleague.</li>
-          <li><strong>Develop self‑care strategies:</strong> GBV work can be emotionally taxing. Learn to recognise vicarious trauma and practice self‑care [citation:3].</li>
+          <li><strong>Develop self‑care strategies:</strong> GBV work can be emotionally taxing. Learn to recognise vicarious trauma and practice self‑care  .</li>
         </ol>
         <p><em>Timeline:</em> With focused effort, you can be ready for an Officer role in 12–18 months.</p>
-        <p><strong>Pro tip for 2026:</strong> Employers increasingly value verified skills. Consider certificates like Western University's "Core Skills for Practice in Intimate Partner Violence" or similar [citation:2].</p>
+        <p><strong>Pro tip for 2026:</strong> Employers increasingly value verified skills. Consider certificates like Western University's "Core Skills for Practice in Intimate Partner Violence" or similar  .</p>
       </div>
 
       <!-- Level 2: GBV Officer -->
@@ -4822,13 +5593,13 @@ export const blogPosts: BlogPost[] = [
         
         <h3 style="font-size: 1.5rem; font-weight: 500; color: #1e2f4a;">Key responsibilities</h3>
         <ul>
-          <li>Provide direct case management services (assessment, planning, implementation, follow‑up) following GBV guiding principles [citation:7].</li>
+          <li>Provide direct case management services (assessment, planning, implementation, follow‑up) following GBV guiding principles  .</li>
           <li>Conduct intake, needs assessment, and develop action plans with survivors.</li>
           <li>Facilitate support groups and life skills sessions for women and girls.</li>
           <li>Deliver basic awareness sessions to communities on GBV prevention and response.</li>
           <li>Support and supervise GBV Assistants and volunteers.</li>
           <li>Maintain accurate, confidential case files and contribute to regular reporting.</li>
-          <li>Build relationships with service providers to strengthen referral pathways [citation:5].</li>
+          <li>Build relationships with service providers to strengthen referral pathways  .</li>
         </ul>
         
         <h3 style="font-size: 1.5rem; font-weight: 500; color: #1e2f4a;">Essential skills</h3>
@@ -4839,15 +5610,15 @@ export const blogPosts: BlogPost[] = [
         
         <h3 style="font-size: 1.5rem; font-weight: 500; color: #1e2f4a;">Step‑by‑step development plan to become a GBV Coordinator</h3>
         <ol>
-          <li><strong>Master case management:</strong> Deepen your understanding of the case management cycle, risk assessment, safety planning, and documentation. Use tools like the GBVIMS (Gender‑Based Violence Information Management System) [citation:7].</li>
-          <li><strong>Develop training and facilitation skills:</strong> Learn to design and deliver training for diverse audiences. Volunteer to co‑facilitate sessions with your coordinator [citation:4].</li>
-          <li><strong>Understand the humanitarian architecture:</strong> Study the cluster system, GBV sub‑cluster, and coordination mechanisms. UNFPA's GBV AoR (Area of Responsibility) resources are valuable [citation:1].</li>
-          <li><strong>Strengthen analytical skills:</strong> Learn to analyse trends from case data, conduct safety audits, and contribute to assessments [citation:5].</li>
+          <li><strong>Master case management:</strong> Deepen your understanding of the case management cycle, risk assessment, safety planning, and documentation. Use tools like the GBVIMS (Gender‑Based Violence Information Management System)  .</li>
+          <li><strong>Develop training and facilitation skills:</strong> Learn to design and deliver training for diverse audiences. Volunteer to co‑facilitate sessions with your coordinator  .</li>
+          <li><strong>Understand the humanitarian architecture:</strong> Study the cluster system, GBV sub‑cluster, and coordination mechanisms. UNFPA's GBV AoR (Area of Responsibility) resources are valuable  .</li>
+          <li><strong>Strengthen analytical skills:</strong> Learn to analyse trends from case data, conduct safety audits, and contribute to assessments  .</li>
           <li><strong>Gain proposal experience:</strong> Shadow the proposal development process. Learn how GBV activities are budgeted and described in donor proposals.</li>
           <li><strong>Practice staff supervision:</strong> Start with mentoring new Assistants or volunteers. Learn to provide constructive feedback and support.</li>
         </ol>
         <p><em>Timeline:</em> 2–3 years of consistent performance and upskilling can position you for a Coordinator role.</p>
-        <p><strong>2026 insight:</strong> Employers look for Officers who can maintain quality casework while also contributing to broader programme development and coordination [citation:7].</p>
+        <p><strong>2026 insight:</strong> Employers look for Officers who can maintain quality casework while also contributing to broader programme development and coordination  .</p>
       </div>
 
       <!-- Level 3: GBV Coordinator -->
@@ -4857,32 +5628,32 @@ export const blogPosts: BlogPost[] = [
         
         <h3 style="font-size: 1.5rem; font-weight: 500; color: #1e2f4a;">Key responsibilities</h3>
         <ul>
-          <li>Oversee implementation of GBV programmes across multiple sites, ensuring adherence to international standards [citation:8].</li>
+          <li>Oversee implementation of GBV programmes across multiple sites, ensuring adherence to international standards  .</li>
           <li>Supervise GBV Officers and provide technical guidance on complex cases.</li>
           <li>Ensure quality of case management through regular case audits, mentoring, and refresher trainings.</li>
-          <li>Coordinate with other sectors (health, protection, shelter) to mainstream GBV risk mitigation [citation:5].</li>
-          <li>Represent the organisation in GBV sub‑cluster meetings and inter‑agency coordination forums [citation:1].</li>
+          <li>Coordinate with other sectors (health, protection, shelter) to mainstream GBV risk mitigation  .</li>
+          <li>Represent the organisation in GBV sub‑cluster meetings and inter‑agency coordination forums  .</li>
           <li>Contribute to donor reports, programme adaptations, and new proposal development.</li>
           <li>Strengthen referral systems and build relationships with service providers (health, legal, psychosocial).</li>
         </ul>
         
         <h3 style="font-size: 1.5rem; font-weight: 500; color: #1e2f4a;">Essential skills</h3>
         <ul>
-          <li><strong>Technical:</strong> Deep knowledge of GBV guiding principles, IASC guidelines, GBVIMS, protection mainstreaming, and gender analysis. Familiarity with PSEA (Prevention of Sexual Exploitation and Abuse) [citation:5][citation:8].</li>
+          <li><strong>Technical:</strong> Deep knowledge of GBV guiding principles, IASC guidelines, GBVIMS, protection mainstreaming, and gender analysis. Familiarity with PSEA (Prevention of Sexual Exploitation and Abuse)   .</li>
           <li><strong>Soft:</strong> Leadership, negotiation, stakeholder management, advocacy, mentoring, report writing.</li>
         </ul>
         
         <h3 style="font-size: 1.5rem; font-weight: 500; color: #1e2f4a;">Step‑by‑step development plan to become a GBV Manager</h3>
         <ol>
           <li><strong>Develop strategic thinking:</strong> Move from "how" to "why." Understand how GBV programming fits into broader organisational strategy and humanitarian response plans.</li>
-          <li><strong>Master budget management:</strong> Learn to develop and monitor GBV programme budgets, ensuring cost‑effectiveness and donor compliance [citation:7].</li>
+          <li><strong>Master budget management:</strong> Learn to develop and monitor GBV programme budgets, ensuring cost‑effectiveness and donor compliance  .</li>
           <li><strong>Strengthen representation skills:</strong> Practice speaking in high‑level meetings, presenting data, and advocating for GBV priorities with donors and government.</li>
           <li><strong>Deepen technical expertise:</strong> Stay updated on latest guidance (GBV AoR, UNFPA, global standards). Consider specialised training on GBV in emergencies, SGBV legal frameworks, or clinical management of rape.</li>
-          <li><strong>Build partnerships:</strong> Cultivate relationships with UN agencies, government counterparts, and local NGOs. Understand their mandates and how to collaborate effectively [citation:1].</li>
+          <li><strong>Build partnerships:</strong> Cultivate relationships with UN agencies, government counterparts, and local NGOs. Understand their mandates and how to collaborate effectively  .</li>
           <li><strong>Mentor emerging leaders:</strong> Actively develop your team members' skills and create opportunities for their growth.</li>
         </ol>
         <p><em>Timeline:</em> With consistent leadership and successful programme delivery, 3‑4 years to step into a Manager role.</p>
-        <p><strong>2026 reality:</strong> "Coordinators who can navigate complex coordination in humanitarian settings and ensure survivor‑centred quality across large teams are the ones who advance" [citation:5].</p>
+        <p><strong>2026 reality:</strong> "Coordinators who can navigate complex coordination in humanitarian settings and ensure survivor‑centred quality across large teams are the ones who advance"  .</p>
       </div>
 
       <!-- Level 4: GBV Manager -->
@@ -4892,12 +5663,12 @@ export const blogPosts: BlogPost[] = [
         
         <h3 style="font-size: 1.5rem; font-weight: 500; color: #1e2f4a;">Key responsibilities</h3>
         <ul>
-          <li>Set the strategic direction for GBV programming across the organisation or large portfolio [citation:5].</li>
+          <li>Set the strategic direction for GBV programming across the organisation or large portfolio  .</li>
           <li>Lead resource mobilisation – develop concepts, write proposals, and cultivate donor relationships.</li>
           <li>Ensure quality and accountability across all GBV projects, including adherence to ethical standards and survivor‑centered approaches.</li>
           <li>Represent the organisation at national and global level (clusters, government, donor forums).</li>
           <li>Lead, mentor, and grow the GBV team, fostering a culture of wellbeing and professional development.</li>
-          <li>Oversee GBV information management and ensure ethical data collection and use [citation:7].</li>
+          <li>Oversee GBV information management and ensure ethical data collection and use  .</li>
           <li>Champion GBV prevention and response across the organisation and with partners.</li>
         </ul>
         
@@ -4915,7 +5686,7 @@ export const blogPosts: BlogPost[] = [
           <li>Mentor the next generation of GBV leaders, especially locally‑based professionals.</li>
           <li>Champion decolonised, locally‑led GBV programming and shift power to women's rights organisations.</li>
         </ul>
-        <p><strong>Manager mindset 2026:</strong> "The most effective GBV managers combine technical excellence with deep humanity – they create environments where survivors are truly at the centre and staff feel supported to do this challenging work" [citation:3][citation:7].</p>
+        <p><strong>Manager mindset 2026:</strong> "The most effective GBV managers combine technical excellence with deep humanity – they create environments where survivors are truly at the centre and staff feel supported to do this challenging work"   .</p>
       </div>
 
       <!-- Portable skills across GBV levels -->
@@ -4923,12 +5694,12 @@ export const blogPosts: BlogPost[] = [
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
         <p>These skills remain valuable no matter your level – they help you pivot between organisations, contexts (humanitarian to development), or into adjacent fields like protection or gender equality.</p>
         <ul>
-          <li><strong>Survivor‑centered approach</strong> – the foundation of all GBV work; ensuring survivors' rights, dignity, and choices guide every interaction [citation:1][citation:5].</li>
-          <li><strong>Ethical practice & confidentiality</strong> – understanding the profound importance of privacy and informed consent [citation:3].</li>
+          <li><strong>Survivor‑centered approach</strong> – the foundation of all GBV work; ensuring survivors' rights, dignity, and choices guide every interaction   .</li>
+          <li><strong>Ethical practice & confidentiality</strong> – understanding the profound importance of privacy and informed consent  .</li>
           <li><strong>Cross‑cultural competence</strong> – working respectfully with diverse communities and understanding local gender dynamics.</li>
-          <li><strong>Self‑care & resilience</strong> – managing vicarious trauma and modelling healthy coping for colleagues [citation:3].</li>
+          <li><strong>Self‑care & resilience</strong> – managing vicarious trauma and modelling healthy coping for colleagues  .</li>
           <li><strong>Advocacy & communication</strong> – speaking up for survivors and GBV priorities in any setting.</li>
-          <li><strong>Partnership & coordination</strong> – building trust with communities, health actors, police, and women's organisations [citation:1][citation:5].</li>
+          <li><strong>Partnership & coordination</strong> – building trust with communities, health actors, police, and women's organisations   .</li>
         </ul>
       </div>
 
@@ -4937,11 +5708,11 @@ export const blogPosts: BlogPost[] = [
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
         <p>The GBV sector continues to evolve. Here's what professionals need to know:</p>
         <ul>
-          <li><strong>Increased focus on GBV in emergencies:</strong> With conflicts and climate disasters, GBV risks escalate. Skills in rapid response, mobile protection, and remote case management are highly valued [citation:1].</li>
+          <li><strong>Increased focus on GBV in emergencies:</strong> With conflicts and climate disasters, GBV risks escalate. Skills in rapid response, mobile protection, and remote case management are highly valued  .</li>
           <li><strong>Technology‑facilitated GBV:</strong> Understanding digital forms of violence (online harassment, image‑based abuse) is becoming essential.</li>
-          <li><strong>Localisation:</strong> Donors and INGOs are shifting resources to local women's organisations. Skills in partnership and capacity‑building are critical [citation:1].</li>
-          <li><strong>Skills verifications:</strong> Platforms like LinkedIn now offer skill badges for GBV competencies (e.g., case management, GBVIMS). Verified skills add credibility [citation:2].</li>
-          <li><strong>Self‑care is professional:</strong> Organisations increasingly recognise that sustainable GBV work requires staff wellbeing. Skills in managing vicarious trauma are sought after [citation:3].</li>
+          <li><strong>Localisation:</strong> Donors and INGOs are shifting resources to local women's organisations. Skills in partnership and capacity‑building are critical  .</li>
+          <li><strong>Skills verifications:</strong> Platforms like LinkedIn now offer skill badges for GBV competencies (e.g., case management, GBVIMS). Verified skills add credibility  .</li>
+          <li><strong>Self‑care is professional:</strong> Organisations increasingly recognise that sustainable GBV work requires staff wellbeing. Skills in managing vicarious trauma are sought after  .</li>
         </ul>
         <p>To stand out, combine technical certifications with a portfolio that demonstrates real impact – case studies, training materials you developed, or coordination successes.</p>
       </div>
@@ -4961,17 +5732,17 @@ export const blogPosts: BlogPost[] = [
             <tr style="border-bottom:1px solid #ccc;">
               <td style="padding: 0.75rem;"><strong>Assistant</strong></td>
               <td style="padding: 0.75rem;">Intake, referral pathways, confidentiality, basic awareness facilitation</td>
-              <td style="padding: 0.75rem;">UNFPA GBViE e‑learning, IASC Guidelines, Basic Counselling Skills [citation:3][citation:6]</td>
+              <td style="padding: 0.75rem;">UNFPA GBViE e‑learning, IASC Guidelines, Basic Counselling Skills   </td>
             </tr>
             <tr style="border-bottom:1px solid #ccc;">
               <td style="padding: 0.75rem;"><strong>Officer</strong></td>
               <td style="padding: 0.75rem;">Case management, psychosocial support, group facilitation, GBVIMS</td>
-              <td style="padding: 0.75rem;">Interagency GBV Case Management Guidelines, GBVIMS training, Western University GBV Certificate [citation:2][citation:7]</td>
+              <td style="padding: 0.75rem;">Interagency GBV Case Management Guidelines, GBVIMS training, Western University GBV Certificate   </td>
             </tr>
             <tr style="border-bottom:1px solid #ccc;">
               <td style="padding: 0.75rem;"><strong>Coordinator</strong></td>
               <td style="padding: 0.75rem;">Programme oversight, staff supervision, coordination, proposal development</td>
-              <td style="padding: 0.75rem;">GBV AoR coordination trainings, Project Management for Protection, Leadership fundamentals [citation:1][citation:8]</td>
+              <td style="padding: 0.75rem;">GBV AoR coordination trainings, Project Management for Protection, Leadership fundamentals   </td>
             </tr>
             <tr>
               <td style="padding: 0.75rem;"><strong>Manager</strong></td>
@@ -4994,11 +5765,11 @@ export const blogPosts: BlogPost[] = [
       <div style="background: #ffffff; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; border: 1px solid #7d6b4b;">
         <p>GBV work comes with unique challenges that every professional should understand:</p>
         <ul>
-          <li><strong>Emotional toll:</strong> Vicarious trauma and burnout are real. Building self‑care routines and supportive teams is essential for longevity [citation:3].</li>
-          <li><strong>Security and safety:</strong> GBV programmes often operate in volatile contexts. Risk assessment and mitigation are part of daily work [citation:5].</li>
-          <li><strong>Resistance and backlash:</strong> Challenging gender norms can provoke resistance. Skills in community engagement and conflict sensitivity are vital [citation:5].</li>
-          <li><strong>Ethical dilemmas:</strong> You'll face tough choices – balancing confidentiality with mandatory reporting, or resource constraints with survivor needs. Strong ethics and supervision help [citation:8].</li>
-          <li><strong>PSEA (Prevention of Sexual Exploitation and Abuse):</strong> All GBV professionals must model the highest standards and ensure mechanisms are in place to protect against abuse by staff [citation:5][citation:7].</li>
+          <li><strong>Emotional toll:</strong> Vicarious trauma and burnout are real. Building self‑care routines and supportive teams is essential for longevity  .</li>
+          <li><strong>Security and safety:</strong> GBV programmes often operate in volatile contexts. Risk assessment and mitigation are part of daily work  .</li>
+          <li><strong>Resistance and backlash:</strong> Challenging gender norms can provoke resistance. Skills in community engagement and conflict sensitivity are vital  .</li>
+          <li><strong>Ethical dilemmas:</strong> You'll face tough choices – balancing confidentiality with mandatory reporting, or resource constraints with survivor needs. Strong ethics and supervision help  .</li>
+          <li><strong>PSEA (Prevention of Sexual Exploitation and Abuse):</strong> All GBV professionals must model the highest standards and ensure mechanisms are in place to protect against abuse by staff   .</li>
         </ul>
       </div>
 
@@ -5006,7 +5777,7 @@ export const blogPosts: BlogPost[] = [
       <h2 style="font-size: 2rem; font-weight: 600; color: #1e2f4a; margin: 2.5rem 0 1.5rem;">🚀 Your GBV Career in 2026</h2>
       <div style="background: #5e4a2e; border-radius: 28px; padding: 1.8rem; margin-bottom: 2rem; color: white;">
         <p>GBV work is demanding, but it is also deeply meaningful. Every day, you contribute to survivors' healing and to building a world free from violence. In a skills‑first world, your progression depends on deliberately building and demonstrating competencies – not just accumulating years. Use the roadmaps above to identify your next step, seek feedback, and always tie your learning to real impact. Whether you're starting as an Assistant or aiming for a Manager role, the demand for skilled, ethical, and compassionate GBV professionals has never been higher.</p>
-        <p style="margin-top: 1rem;">Remember: "This work is at times heavy, lonely and bigger than one person – but together, as a collective, we grow stronger and create change" [citation:3]. Your career is in your hands.</p>
+        <p style="margin-top: 1rem;">Remember: "This work is at times heavy, lonely and bigger than one person – but together, as a collective, we grow stronger and create change"  . Your career is in your hands.</p>
       </div>
 
       <blockquote style="background: linear-gradient(145deg, #e1d7c6, #ffffff); border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; font-size: 1.2rem; border-left: 6px solid #5e4a2e;">
@@ -5018,8 +5789,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article>  `
 },
  {
   id: 81,
@@ -5327,8 +6125,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ complies with EEAT</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article>  `
 },
 {
   id: 82,
@@ -5655,9 +6480,36 @@ export const blogPosts: BlogPost[] = [
         <span>🔍 Sources: INEE, UNICEF, UNESCO, PM4NGOs, field interviews 2026</span>
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
-      </div>
-    </article>
-  `
+      </div> 
+  <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 83,
@@ -6051,8 +6903,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 84,
@@ -6424,8 +7303,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 85,
@@ -6821,8 +7727,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article>  `
 },
 {
   id: 86,
@@ -7218,9 +8151,35 @@ export const blogPosts: BlogPost[] = [
         <span>🔍 Sources: CIPS, CIPD, NGO administration networks, field interviews 2026</span>
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
-      </div>
-    </article>
-  `
+      </div> <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article>  `
 },
 {
   id: 87,
@@ -7617,8 +8576,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 88,
@@ -8016,8 +9002,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 89,
@@ -8414,8 +9427,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 90,
@@ -8736,8 +9776,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 91,
@@ -9053,8 +10120,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 92,
@@ -9349,8 +10443,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 93,
@@ -9656,8 +10777,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 94,
@@ -9968,8 +11116,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026<\/span>
         <span>✅ EEAT compliant<\/span>
       <\/div>
-    <\/article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 95,
@@ -10250,8 +11425,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026<\/span>
         <span>✅ EEAT compliant<\/span>
       <\/div>
-    <\/article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 96,
@@ -10530,8 +11732,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026<\/span>
         <span>✅ EEAT compliant<\/span>
       <\/div>
-    <\/article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 97,
@@ -10830,8 +12059,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026<\/span>
         <span>✅ EEAT compliant<\/span>
       <\/div>
-    <\/article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 98,
@@ -11155,8 +12411,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026<\/span>
         <span>✅ EEAT compliant<\/span>
       <\/div>
-    <\/article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 99,
@@ -11401,8 +12684,35 @@ export const blogPosts: BlogPost[] = [
         <span>✏️ Last updated: March 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
-    </article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
   id: 100,
@@ -11703,7 +13013,34 @@ export const blogPosts: BlogPost[] = [
 
       <!-- SEO TAGS -->
       <meta name="keywords" content="Grant Writing in NGOs, Donor Relations Humanitarian Sector, NGO Proposal Writing 2026, USAID grant writing, ECHO funding, grants management, resource mobilization, logical framework, humanitarian funding, proposal development">
-    <\/article>
-  `
+     <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 }
 ];

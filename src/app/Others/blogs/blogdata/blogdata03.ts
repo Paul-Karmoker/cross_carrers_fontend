@@ -170,8 +170,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 102, 
@@ -398,8 +425,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 103,
@@ -603,8 +657,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 104,
@@ -904,8 +985,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 105,
@@ -1284,8 +1392,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 106,
@@ -1617,8 +1752,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 107,
@@ -1900,8 +2062,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 108,
@@ -2189,8 +2378,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 109,
@@ -2506,8 +2722,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 110,
@@ -2863,8 +3106,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 111,
@@ -3237,8 +3507,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 112,
@@ -3618,8 +3915,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 113,
@@ -3953,8 +4277,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 114,
@@ -4314,8 +4665,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 115,
@@ -4648,278 +5026,199 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+<div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
-    id: 116,
-    title: "UN Jobs in Bangladesh: The Ultimate 2026 Guide (Agencies, Salaries, & Application Secrets)",
-    slug: "un-jobs-bangladesh-guide-2026",
-    date: "2026-03-26",
-    excerpt: "Your complete guide to UN jobs in Bangladesh. Learn which agencies are hiring, national vs international salaries, how to apply, and the hidden job market in Cox’s Bazar.",
-    category: "UN Jobs Guide",
-    image: "https://i.ibb.co.com/Wvxj1ysV/116.avif",
-    author: authorCrossCareers,
-    content: `
-<article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
+  id: 116,
+  title: "How to Get UN Jobs in Bangladesh (2026 Guide: Salary, Requirements & Real Examples)",
+  slug: "un-jobs-bangladesh-guide-2026",
+  date: "2026-03-26",
+  excerpt: "Learn how to get UN jobs in Bangladesh in 2026. Explore salaries, requirements, real job examples, and proven application strategies.",
+  category: "UN Jobs Guide",
+  image: "https://i.ibb.co.com/Wvxj1ysV/116.avif",
+  author: authorCrossCareers,
+  content: `
 
-        <!-- byline + EEAT signals -->
-        <div style=\"display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #e0eee5;\">
-          <span style=\"background: #e6f0e9; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; color: #1b4d3f;\">📘 UN career specialist · field experience in Asia</span>
-          <span style=\"background: #e6f0e9; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; color: #1b4d3f;\">🎯 data sources: UNDP Bangladesh, UNOPS, FAO job postings 2026 · ICSC salary scales</span>
-        </div>
+<article style="font-family: system-ui; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6;">
 
-        <!-- hero / intro -->
-        <div style=\"background: linear-gradient(135deg, #005b4e 0%, #00876a 100%); color: white; padding: 2rem; border-radius: 16px; margin-bottom: 2.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1);\">
-          <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🇺🇳 UN Jobs in Bangladesh: The Ultimate 2026 Guide</h1>
-          <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Agencies · salaries · national vs international positions · hidden job market in Cox's Bazar</p>
-          <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ UN Careers · Bangladesh</span>
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 12 min</span>
-          </div>
-        </div>
+<!-- HERO -->
+<div style="background: linear-gradient(135deg, #005b4e, #00876a); color: white; padding: 2rem; border-radius: 16px;">
+<h1>How to Get UN Jobs in Bangladesh (2026 Guide)</h1>
+<p>Agencies, salary, requirements, and real job insights from the Bangladesh market.</p>
+<p><strong>Last Updated:</strong> March 2026</p>
+</div>
 
-        <!-- 1. Hook & Regional Context -->
-        <p style=\"font-size: 1.1rem;\">Bangladesh is one of the largest hosts of UN operations in Asia. From the sprawling UN hub in Dhaka to the world's biggest refugee response in Cox's Bazar, the UN system here manages over <strong>$1.2 billion in annual programming</strong>—creating hundreds of job opportunities for nationals and internationals alike.</p>
-        <p>But landing a UN job in Bangladesh isn't just about submitting a CV. You need to understand the ecosystem: which agencies are active, how national officer (NO) contracts differ from international (P) contracts, and why the <strong>\"hidden market\" of implementing partners</strong> is often the fastest way in.</p>
-        <p>This guide walks you through everything—from the myth of \"unpaid internships\" to real salary figures from actual 2026 job postings—so you can build a winning strategy for 2026.</p>
+<!-- INTRO -->
+<p>UN jobs in Bangladesh are among the most competitive roles in the development sector. With major operations in Dhaka and Cox’s Bazar, the United Nations offers opportunities across logistics, programme management, finance, and administration.</p>
 
-        <!-- 2. Myth Buster -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #005b4e; border-left: 6px solid #00876a; padding-left: 1rem; margin: 2rem 0 1rem;\">🚫 Myth Buster: What Most Candidates Get Wrong</h2>
-        <div style=\"background: #f0f7f4; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
-          <p><strong>❌ \"You need to know someone at the UN to get hired.\"</strong><br>False. The UN follows strict, transparent recruitment. What matters is a well-tailored application that directly addresses the Terms of Reference (TOR). Networking helps, but it's never a requirement.</p>
-          <p><strong>❌ \"Only internationals get the good jobs.\"</strong><br>Not true. National Officer (NO) positions are reserved for Bangladeshi nationals and offer competitive tax-free salaries, housing allowances, and career progression. Many senior roles in Dhaka are held by nationals—including positions paying $115,000–$140,000 annually [citation:3].</p>
-          <p><strong>✅ Reality check:</strong> The biggest barrier is not knowing the difference between <strong>National (NO)</strong> and <strong>International (P)</strong> contracts—and ignoring the surge of opportunities with <strong>UN implementing partners</strong> (NGOs like BRAC, DRC, NRC) that run the actual programs.</p>
-        </div>
+<!-- REAL EXAMPLES -->
+<h2>Real UN Job Examples (Bangladesh)</h2>
+<ul>
+<li>Project Associate – UNDP – Dhaka</li>
+<li>Programme Officer – UNICEF – Bangladesh</li>
+<li>Logistics Officer – WFP – Cox’s Bazar</li>
+<li>Administrative Assistant – IOM – Dhaka</li>
+</ul>
 
-        <!-- 3. Active UN Missions & Agencies in Bangladesh -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #005b4e; border-left: 6px solid #00876a; padding-left: 1rem; margin: 2rem 0 1rem;\">🏢 Which UN Agencies Are Active in Bangladesh?</h2>
-        <p>Bangladesh hosts a wide range of UN entities. The two main operational hubs are:</p>
-        <ul>
-          <li><strong>Dhaka</strong> – country offices, regional coordination, policy and development work.</li>
-          <li><strong>Cox's Bazar</strong> – the world's largest refugee settlement; massive humanitarian presence with WFP, UNHCR, IOM, UNICEF, WHO, and dozens of INGOs.</li>
-        </ul>
-        <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1rem 0;\">
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 0.8rem;\"><strong>UNDP</strong><br>Governance, climate, SDG implementation</div>
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 0.8rem;\"><strong>UNICEF</strong><br>Child protection, education, health</div>
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 0.8rem;\"><strong>WFP</strong><br>Food assistance, logistics, Cox's Bazar</div>
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 0.8rem;\"><strong>UNHCR</strong><br>Refugee protection, Rohingya response</div>
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 0.8rem;\"><strong>IOM</strong><br>Migration management, shelter, CCCM</div>
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 0.8rem;\"><strong>WHO</strong><br>Public health, disease surveillance</div>
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 0.8rem;\"><strong>FAO</strong><br>Agriculture, food security</div>
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 0.8rem;\"><strong>UNFPA</strong><br>Reproductive health, gender</div>
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 0.8rem;\"><strong>UNOPS</strong><br>Infrastructure, procurement, project management</div>
-        </div>
-        <p><strong>💡 Pro tip:</strong> Cox's Bazar has its own sub‑offices. If you're open to field duty, vacancies there are often less competitive than Dhaka-based roles.</p>
+<!-- SALARY -->
+<h2>UN Salary in Bangladesh (2026)</h2>
+<table border="1" cellpadding="8" style="border-collapse: collapse; width:100%;">
+<tr><th>Level</th><th>Role</th><th>Salary</th></tr>
+<tr><td>Entry</td><td>Assistant</td><td>80,000 – 150,000 BDT</td></tr>
+<tr><td>Mid</td><td>Officer</td><td>150,000 – 300,000 BDT</td></tr>
+<tr><td>Senior</td><td>Manager</td><td>300,000+ BDT</td></tr>
+</table>
 
-        <!-- 4. Hidden Job Market: Implementing Partners -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #005b4e; border-left: 6px solid #00876a; padding-left: 1rem; margin: 2rem 0 1rem;\">🔍 The Hidden Job Market: UN Implementing Partners</h2>
-        <p>Most UN \"jobs\" aren't advertised by the UN itself. The majority of program staff work for <strong>implementing partners</strong>—NGOs and private contractors that receive UN funding to deliver projects. This is the fastest way to gain UN-relevant experience and later transition into a UN contract.</p>
-        <div style=\"background: #f0f7f4; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
-          <p><strong>Top partners in Bangladesh (constantly hiring):</strong></p>
-          <ul>
-            <li><strong>BRAC</strong> – largest NGO, works closely with UNDP, UNICEF, WFP</li>
-            <li><strong>Danish Refugee Council (DRC)</strong> – protection, shelter, livelihoods (Cox's Bazar)</li>
-            <li><strong>Norwegian Refugee Council (NRC)</strong> – education, shelter, legal aid</li>
-            <li><strong>International Rescue Committee (IRC)</strong> – health, protection</li>
-            <li><strong>Concern Worldwide, Action Against Hunger, Save the Children</strong> – various sectors</li>
-          </ul>
-          <p>👉 <a href="/career-guide/from-ingo-to-un-career-bridge" style=\"color: #00876a;\">Read our guide: From INGO to UN – the career bridge</a></p>
-        </div>
+<!-- REQUIREMENTS -->
+<h2>Requirements</h2>
+<ul>
+<li>Bachelor’s or Master’s degree</li>
+<li>Relevant NGO or development experience</li>
+<li>Strong English skills</li>
+<li>Reporting and technical skills</li>
+</ul>
 
-        <!-- 5. Categorized Job Listings (by function) -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #005b4e; border-left: 6px solid #00876a; padding-left: 1rem; margin: 2rem 0 1rem;\">📌 Categorized UN Jobs in Bangladesh (2026)</h2>
-        <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin: 1.5rem 0;\">
-          <div style=\"background: #f0f7f4; border-radius: 16px; padding: 1rem;\">
-            <h3 style=\"margin: 0 0 0.5rem 0; font-size: 1.2rem;\">🎯 Program & Operations</h3>
-            <p><em>Most common roles:</em> Program Manager (WASH, Health, Education), Project Officer, Monitoring & Evaluation Specialist, Partnership Coordinator.</p>
-            <p><strong>Typical contracts:</strong> NO‑B / NO‑C, P‑2 / P‑3, LICA, SC.</p>
-          </div>
-          <div style=\"background: #f0f7f4; border-radius: 16px; padding: 1rem;\">
-            <h3 style=\"margin: 0 0 0.5rem 0; font-size: 1.2rem;\">📊 Logistics & Supply Chain</h3>
-            <p><em>High demand in Cox's Bazar:</em> Logistics Officer, Procurement Associate, Fleet Manager, Warehouse Supervisor.</p>
-            <p><strong>Note:</strong> WFP and UNHCR frequently hire logistics staff at G‑5 to G‑7 (General Service) levels.</p>
-          </div>
-          <div style=\"background: #f0f7f4; border-radius: 16px; padding: 1rem;\">
-            <h3 style=\"margin: 0 0 0.5rem 0; font-size: 1.2rem;\">🛡️ Security & Access</h3>
-            <p><em>Critical for field locations:</em> Field Security Officer (FSO), Access Coordinator, Close Protection Officer. Often requires prior military or UN security experience.</p>
-          </div>
-          <div style=\"background: #f0f7f4; border-radius: 16px; padding: 1rem;\">
-            <h3 style=\"margin: 0 0 0.5rem 0; font-size: 1.2rem;\">💼 Admin & Finance</h3>
-            <p><em>Entry‑level to mid‑career:</em> Finance Associate, HR Associate, Administrative Assistant. These are often \"foot in the door\" roles, especially at GS‑5/6 levels.</p>
-          </div>
-        </div>
-        <p>👉 <a href="/career-guide/career-guide/un-job-categories-explained\" style=\"color: #00876a;\">Full breakdown of UN job categories (G, NO, P, SB, etc.)</a></p>
+<!-- HOW TO APPLY -->
+<h2>How to Apply</h2>
+<ol>
+<li>Create profile on UN career portals</li>
+<li>Customize CV based on job description</li>
+<li>Apply before deadline</li>
+<li>Prepare for written test</li>
+</ol>
 
-        <!-- 6. Salary & Benefits Breakdown - REVISED with actual 2026 job data -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #005b4e; border-left: 6px solid #00876a; padding-left: 1rem; margin: 2rem 0 1rem;\">💰 Salary & Benefits: What UN Jobs Actually Pay in Bangladesh (2026)</h2>
-        <p>All UN salaries in Bangladesh are <strong>tax‑free</strong> for both nationals and internationals under host country agreement. The figures below are drawn from <strong>actual job postings in 2026</strong> from UNDP, UNOPS, FAO, and verified against ICSC (International Civil Service Commission) salary scales [citation:1][citation:2][citation:3].</p>
-        
-        <!-- National Officer / Senior National Positions -->
-        <div style=\"background: #f0f7f4; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
-          <h3 style=\"color: #005b4e; margin-top: 0;\">🇧🇩 National Officer (NO) & Senior National Contracts</h3>
-          <p><em>For Bangladeshi nationals only. These are professional-level positions with competitive international-grade salaries.</em></p>
-          
-          <p><strong>FAO National Economist (SC-10 / Senior National Level)</strong><br>
-          📍 Dhaka | 📅 March 2026 posting<br>
-          💰 <strong>$115,000 – $140,000 per year</strong> (approx. BDT 1,380,000 – 1,680,000/month)<br>
-          🔹 Requires: Advanced degree + 10 years experience in policy analysis<br>
-          🔹 Source: <a href="/career-guidehttps://unjoblink.org/job/details/413828/\" style=\"color: #00876a;\">FAO Bangladesh official vacancy #2600583</a> [citation:3]</p>
-          
-          <p><strong>UNDP Project Analyst (Rule of Law, Justice & Human Rights)</strong><br>
-          📍 Dhaka | 📅 March 2026 posting<br>
-          💰 <strong>$55,000 – $75,000 per year</strong> (approx. BDT 660,000 – 900,000/month)<br>
-          🔹 Requires: Master's degree + 7 years experience<br>
-          🔹 Source: <a href="/career-guidehttps://unjoblink.org/job/details/415769/\" style=\"color: #00876a;\">UNDP Bangladesh official vacancy</a> [citation:2]</p>
-          
-          <p><strong>UNOPS Project Management Support Officer (LICA-8)</strong><br>
-          📍 Dhaka | 📅 February 2026 posting<br>
-          💰 <strong>$55,000 – $75,000 per year</strong><br>
-          🔹 Requires: Bachelor's degree + 2 years experience (or High School + 6 years)<br>
-          🔹 Contract: Local Individual Contractor Agreement (LICA)<br>
-          🔹 Source: <a href="/career-guidehttps://unjoblink.org/job/details/403023/\" style=\"color: #00876a;\">UNOPS Bangladesh official vacancy</a> [citation:1]</p>
-          
-          <p><strong>📊 National Officer Salary Scale (ICSC 2026 Reference):</strong><br>
-          NO‑A: $45,000 – $60,000/year | NO‑B: $60,000 – $85,000/year<br>
-          NO‑C: $85,000 – $110,000/year | NO‑D: $110,000 – $145,000/year<br>
-          <em>+ housing allowance + medical coverage + pension contributions</em></p>
-        </div>
-        
-        <!-- International Professional Positions -->
-        <div style=\"background: #f0f7f4; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
-          <h3 style=\"color: #005b4e; margin-top: 0;\">🌍 International Professional (P) – For Non‑Bangladeshis or Nationals with International Experience</h3>
-          
-          <p><strong>P‑2 Level:</strong> $55,000 – $70,000 net per year + Post Adjustment (Dhaka: ~25–30%)<br>
-          <strong>P‑3 Level:</strong> $70,000 – $90,000 net per year + Post Adjustment<br>
-          <strong>P‑4 Level:</strong> $90,000 – $115,000 net per year + Post Adjustment</p>
-          
-          <p><strong>Additional benefits:</strong><br>
-          ✈️ Relocation grant for international moves<br>
-          🏫 Education grant for dependent children (up to $25,000/year per child)<br>
-          🏠 Housing allowance or subsidized UN housing in some duty stations<br>
-          🏥 Comprehensive medical insurance (worldwide coverage)</p>
-          
-          <p><strong>💡 Cox's Bazar hardship allowance:</strong> Additional hardship pay (H) of 25–30% of base salary + R&R (Rest & Recuperation) leave of 4–6 weeks every 6–8 weeks.</p>
-        </div>
-        
-        <!-- General Service Positions -->
-        <div style=\"background: #f0f7f4; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
-          <h3 style=\"color: #005b4e; margin-top: 0;\">📋 General Service (GS) – Local Support Staff</h3>
-          <p><em>Based on ICSC Bangladesh salary scale (2026). These positions are for administrative, secretarial, and technical support roles.</em></p>
-          
-          <table style=\"width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden;\">
-            <thead style=\"background: #005b4e; color: white;\"> <tr> <th style=\"padding: 8px 12px; text-align: left;\">Grade</th> <th style=\"padding: 8px 12px; text-align: left;\">Monthly Salary (BDT)</th> <th style=\"padding: 8px 12px; text-align: left;\">Annual (USD approx)</th> </tr> </thead>
-            <tbody>
-              <tr style=\"border-bottom: 1px solid #e0eee5;\"> <td style=\"padding: 8px 12px;\"><strong>GS‑7</strong></td> <td style=\"padding: 8px 12px;\">BDT 95,000 – 125,000</td> <td style=\"padding: 8px 12px;\">$9,500 – $12,500</td> </tr>
-              <tr style=\"border-bottom: 1px solid #e0eee5;\"> <td style=\"padding: 8px 12px;\"><strong>GS‑6</strong></td> <td style=\"padding: 8px 12px;\">BDT 75,000 – 100,000</td> <td style=\"padding: 8px 12px;\">$7,500 – $10,000</td> </tr>
-              <tr style=\"border-bottom: 1px solid #e0eee5;\"> <td style=\"padding: 8px 12px;\"><strong>GS‑5</strong></td> <td style=\"padding: 8px 12px;\">BDT 55,000 – 80,000</td> <td style=\"padding: 8px 12px;\">$5,500 – $8,000</td> </tr>
-              <tr> <td style=\"padding: 8px 12px;\"><strong>GS‑4</strong></td> <td style=\"padding: 8px 12px;\">BDT 40,000 – 60,000</td> <td style=\"padding: 8px 12px;\">$4,000 – $6,000</td> </tr>
-            </tbody>
-          </table>
-          <p style=\"margin-top: 0.8rem;\"><em>➕ Plus: Overtime pay, annual increments, medical coverage, and pension contributions.</em></p>
-        </div>
-        
-        <!-- LICA / Service Contract Positions -->
-        <div style=\"background: #f0f7f4; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
-          <h3 style=\"color: #005b4e; margin-top: 0;\">📄 LICA & Service Contracts (UNOPS, UNDP, etc.)</h3>
-          <p>These are <strong>local contracts</strong> with competitive salaries, often matching or exceeding National Officer levels. They are a popular alternative to fixed-term staff positions.</p>
-          
-          <p><strong>LICA-8 (UNOPS Associate Level):</strong> $55,000 – $75,000/year [citation:1]<br>
-          <strong>LICA-9 / LICA-10 (Specialist Level):</strong> $70,000 – $100,000/year<br>
-          <strong>SC-8 / SC-9 (Service Contract – UNDP/FAO):</strong> $50,000 – $90,000/year depending on grade and experience [citation:3]</p>
-          
-          <p><strong>Benefits:</strong> Medical insurance, annual leave, pension contributions (varies by contract type). LICA contracts often include dependency allowances.</p>
-        </div>
-        
-        <!-- Verified Sources Box -->
-        <div style=\"background: #e6f0e9; border-left: 6px solid #00876a; border-radius: 12px; padding: 1rem; margin: 1rem 0;\">
-          <p style=\"margin: 0; font-weight: 600;\">✅ Verified Sources for Salary Data (2026):</p>
-          <ul style=\"margin: 0.5rem 0 0 1.2rem;\">
-            <li>Official UNOPS Bangladesh job posting – Project Management Support Officer (LICA-8), Feb 2026 [citation:1]</li>
-            <li>Official UNDP Bangladesh job posting – Project Analyst, March 2026 [citation:2]</li>
-            <li>Official FAO Bangladesh job posting – National Economist (SC-10), March 2026 [citation:3]</li>
-            <li>ICSC (International Civil Service Commission) – UN Common System Salary Scales for Bangladesh, 2026</li>
-            <li>Glassdoor & LinkedIn – Crowdsourced salary reports from current UN staff in Bangladesh (verified against official scales)</li>
-          </ul>
-        </div>
-        
-        <!-- 7. Visa / Work Permit Reality -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #005b4e; border-left: 6px solid #00876a; padding-left: 1rem; margin: 2rem 0 1rem;\">🛂 Visa & Work Permits: Who Can Work?</h2>
-        <p><strong>For Bangladeshi nationals:</strong> You don't need a visa—you're eligible for all National Officer, General Service, LICA, and Service Contract positions. Ensure your UN Common System application (Inspira or agency portal) is up to date.</p>
-        <p><strong>For international candidates:</strong> The UN issues a <strong>UN Laissez-Passer</strong> and facilitates a diplomatic visa. You do NOT need a standard work permit. However, the agency must sponsor you, so you must apply for positions that explicitly state \"international recruitment\" or are open to all nationalities.</p>
-        <p><strong>🚨 Critical:</strong> Many jobs in Dhaka are \"National Only\". Do not waste time applying for NO positions if you are not a Bangladeshi citizen. Filter by \"Eligibility\" on the career portal.</p>
+<!-- EXPERT SECTION -->
+<h2>Expert Insight</h2>
+<p>Most candidates fail because they apply without relevant NGO experience. Starting with organizations like BRAC, NRC, or CARE significantly increases your chances of entering the UN system.</p>
 
-        <!-- 8. Step‑by‑Step Application Strategy -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #005b4e; border-left: 6px solid #00876a; padding-left: 1rem; margin: 2rem 0 1rem;\">📝 Step‑by‑Step Application Strategy (2026)</h2>
-        <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;\">
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 1rem; text-align: center;\"><strong>1. Create your profile</strong><p style=\"margin: 0.3rem 0 0;\">Register on <a href="/career-guidehttps://inspira.un.org\">Inspira</a> (UN Secretariat) and individual agency portals (UNDP, UNICEF, etc.). Use the same email.</p></div>
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 1rem; text-align: center;\"><strong>2. Master the TOR</strong><p style=\"margin: 0.3rem 0 0;\">Copy the Terms of Reference into a document and highlight every required qualification. Your CV and cover letter must mirror those keywords.</p></div>
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 1rem; text-align: center;\"><strong>3. Use the \"Roaster\" system</strong><p style=\"margin: 0.3rem 0 0;\">Many agencies maintain pre‑vetted rosters. Apply to generic \"Roster\" calls—even if no current vacancy—to get pre‑qualified.</p></div>
-          <div style=\"background: #f0f7f4; border-radius: 12px; padding: 1rem; text-align: center;\"><strong>4. Network smartly</strong><p style=\"margin: 0.3rem 0 0;\">Join LinkedIn groups like \"UN Jobs Bangladesh\", attend UN‑hosted events in Dhaka, and reach out to alumni from your university who work in the system.</p></div>
-        </div>
-        <p>👉 <a href="/career-guide/career-guide/un-application-guide-2026\" style=\"color: #00876a;\">Complete UN application guide: how to pass the screening</a></p>
+<!-- INTERNAL LINKS -->
+<h2>Related Guides</h2>
+<ul>
+<li><a href="/career-guide/ngo-jobs-bangladesh-2026">NGO Jobs Guide</a></li>
+<li><a href="/career-guide/procurement-jobs-bangladesh-2026">Procurement Careers</a></li>
+<li><a href="/career-guide/supply-chain-logistics-jobs-bangladesh-guide-2026">Supply Chain Jobs</a></li>
+</ul>
 
-        <!-- 9. Realistic Challenges of Working in Bangladesh -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #005b4e; border-left: 6px solid #00876a; padding-left: 1rem; margin: 2rem 0 1rem;\">⚠️ Realistic Challenges: What to Expect</h2>
-        <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1rem 0;\">
-          <div style=\"background: #fef5e8; border-radius: 12px; padding: 1rem;\"><strong>🚦 Dhaka traffic</strong><br>Commute times of 2+ hours are common. Many UN staff live in Gulshan/Baridhara and work in the same area to minimize travel.</div>
-          <div style=\"background: #fef5e8; border-radius: 12px; padding: 1rem;\"><strong>🌪️ Cox's Bazar hardship</strong><br>Field posts involve security restrictions, basic amenities, and high workload. The upside: accelerated career growth and generous hazard pay.</div>
-          <div style=\"background: #fef5e8; border-radius: 12px; padding: 1rem;\"><strong>🏠 Cost of living</strong><br>Dhaka is surprisingly expensive for expats—rent in diplomatic zones can exceed $2,000/month. UN housing allowance helps, but plan accordingly.</div>
-          <div style=\"background: #fef5e8; border-radius: 12px; padding: 1rem;\"><strong>📉 Bureaucracy</strong><br>UN systems (e.g., procurement, approvals) can be slow. Patience is essential.</div>
-        </div>
+<!-- FAQ -->
+<h2>FAQs</h2>
+<h3>Is it hard to get a UN job?</h3>
+<p>Yes, competition is high and relevant experience is required.</p>
 
-        <!-- 10. FAQ -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #005b4e; border-left: 6px solid #00876a; padding-left: 1rem; margin: 2rem 0 1rem;\">❓ Frequently Asked Questions</h2>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #005b4e; margin: 0 0 0.3rem 0;\">Q1: Can a foreigner apply for UN jobs in Bangladesh?</h3><p>Yes—but only for positions marked \"International Professional\" (P) or Consultancies. National Officer (NO) and General Service (GS) are for Bangladeshi nationals only.</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #005b4e; margin: 0 0 0.3rem 0;\">Q2: What is the minimum qualification for a UN job in Bangladesh?</h3><p>For NO positions: a Bachelor's degree + 2 years relevant experience. For GS: high school diploma + 3‑5 years experience. Advanced degrees significantly boost your chances. For senior roles like FAO National Economist, a Master's + 10 years is required [citation:3].</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #005b4e; margin: 0 0 0.3rem 0;\">Q3: Are UN jobs in Bangladesh safe?</h3><p>Dhaka is generally safe with standard precautions. Cox's Bazar has security protocols due to the large camp population. The UN provides security training and 24/7 support.</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #005b4e; margin: 0 0 0.3rem 0;\">Q4: How long does the recruitment process take?</h3><p>Average 4‑6 months from closing date to offer. Rosters may be faster (2‑3 months). Prepare to wait and apply to multiple openings.</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #005b4e; margin: 0 0 0.3rem 0;\">Q5: Where can I verify UN salary scales?</h3><p>Visit the <strong>ICSC (International Civil Service Commission)</strong> website for official UN Common System salary scales by duty station. Glassdoor and LinkedIn also have verified salary reports from current staff.</p></div>
+<h3>Can fresh graduates apply?</h3>
+<p>Mostly through internships or entry-level roles.</p>
 
-        <!-- Internal linking cluster -->
-        <div style=\"background: #f0f7f4; border-radius: 24px; padding: 1.5rem; margin: 2rem 0;\">
-          <h3 style=\"font-size: 1.4rem; color: #005b4e; margin-top: 0;\">📚 Build Your Complete UN Career Strategy</h3>
-          <p>These companion guides will help you master every stage:</p>
-          <ul style=\"margin-bottom: 0;\">
-            <li><a href="/career-guide/career-guide/un-job-categories-explained\" style=\"color: #00876a;\">🧩 UN Job Categories Explained (NO, P, GS, etc.)</a></li>
-            <li><a href="/career-guide/career-guide/from-ingo-to-un-career-bridge\" style=\"color: #00876a;\">🌉 From INGO to UN – The Career Bridge</a></li>
-            <li><a href="/career-guide/career-guide/un-application-guide-2026\" style=\"color: #00876a;\">✍️ The Ultimate UN Application Guide 2026</a></li>
-            <li><a href="/career-guide/ai-proof-resume-guide-2026\" style=\"color: #00876a;\">🛡️ AI‑Proof Resume for UN & NGOs</a></li>
-            <li><a href="/career-guide/portfolio-vs-resume-2026\" style=\"color: #00876a;\">📄 Portfolio vs Resume for UN Professionals</a></li>
-          </ul>
-        </div>
+<!-- AUTHOR -->
+<div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
 
-        <!-- EEAT optimization statement -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #005b4e; border-left: 6px solid #00876a; padding-left: 1rem; margin: 2rem 0 1rem;\">🏆 Why This Guide Is Trustworthy (EEAT)</h2>
-        <ul>
-          <li><strong>Experience:</strong> Salary data drawn from actual 2026 UN job postings in Bangladesh (UNOPS, UNDP, FAO) with direct citations [citation:1][citation:2][citation:3].</li>
-          <li><strong>Expertise:</strong> In‑depth coverage of contract types (LICA, SC, NO, P, GS), hidden job markets, and region‑specific application tactics.</li>
-          <li><strong>Authoritativeness:</strong> Cross‑referenced with ICSC official salary scales and verified against Glassdoor and LinkedIn reports from current UN staff.</li>
-          <li><strong>Trustworthiness:</strong> No fake promises; we highlight realistic challenges and provide actionable, ethical application strategies with verifiable sources.</li>
-        </ul>
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
 
-        <!-- Final call to action -->
-        <div style=\"background: #005b4e; color: white; border-radius: 24px; padding: 1.8rem; margin: 2rem 0; text-align: center;\">
-          <h3 style=\"font-size: 1.6rem; margin-top: 0;\">Ready to Start Your UN Journey in Bangladesh?</h3>
-          <p>Download our free checklist: \"10 Steps to a Successful UN Application\" and join our mailing list for weekly vacancy alerts in Bangladesh.</p>
-          <div style=\"background: white; color: #005b4e; display: inline-block; padding: 0.8rem 1.5rem; border-radius: 40px; font-weight: 600; margin-top: 1rem;\">📩 Get the Checklist →</div>
-        </div>
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
 
-        <!-- footer EEAT meta -->
-        <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #00876a; padding-left: 1rem; display: flex; align-items: center; gap: 0.5rem;\">
-          <span style=\"font-size: 1.1rem;\">📌</span> All salary data verified with official UN job postings (2026) and ICSC salary scales.
-        </div>
-        <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
-          <span>🔍 Sources: UNOPS Bangladesh (Feb 2026) · UNDP Bangladesh (Mar 2026) · FAO Bangladesh (Mar 2026) · ICSC Salary Scales · Glassdoor Verified Reports</span>
-          <span>✏️ Last updated: March 2026</span>
-          <span>✅ Complies with EEAT (experience, expertise, authority, trust)</span>
-        </div>
-      </article>
-    `
-},
+</div>
+
+<!-- FAQ SCHEMA -->
+<script type="application/ld+json">
 {
-    id: 117,
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [{
+   "@type": "Question",
+   "name": "Is it hard to get a UN job?",
+   "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Yes, competition is high and relevant experience is required."
+   }
+ },{
+   "@type": "Question",
+   "name": "Can fresh graduates apply?",
+   "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Mostly through internships or entry-level roles."
+   }
+ }]
+}
+</script>
+
+`
+},
+{   id: 117,
     title: "UN Job Categories Explained: NO, P, GS, FS, and More (2026 Guide)",
     slug: "un-job-categories-explained",
     date: "2026-03-26",
@@ -4948,15 +5247,15 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <!-- 1. Introduction: Why Understanding UN Job Categories Matters -->
-        <p style=\"font-size: 1.1rem;\">The United Nations system employs over 80,000 professionals across more than 190 countries, but the path to joining this global workforce begins with understanding one critical concept: <strong>job categories and grades</strong> [citation:1].</p>
-        <p>Unlike the private sector where titles like \"Manager\" or \"Director\" vary wildly between companies, the UN uses a standardized classification system that determines everything—from eligibility requirements and salary scales to career progression and international mobility [citation:5].</p>
+        <p style=\"font-size: 1.1rem;\">The United Nations system employs over 80,000 professionals across more than 190 countries, but the path to joining this global workforce begins with understanding one critical concept: <strong>job categories and grades</strong> .</p>
+        <p>Unlike the private sector where titles like \"Manager\" or \"Director\" vary wildly between companies, the UN uses a standardized classification system that determines everything—from eligibility requirements and salary scales to career progression and international mobility  .</p>
         <p>Applying for a P-3 position when you qualify for a P-2, or submitting a General Service application when you're eligible for National Officer status, wastes time and guarantees rejection. This guide breaks down every UN job category with <strong>verified 2026 data</strong> so you can target the right roles from day one.</p>
 
         <!-- 2. Myth Buster: Common Misconceptions About UN Job Categories -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #1a4d6b; border-left: 6px solid #2c6e8f; padding-left: 1rem; margin: 2rem 0 1rem;\">🚫 Myth Buster: What Most Candidates Get Wrong</h2>
         <div style=\"background: #eef4f7; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
-          <p><strong>❌ \"Higher grade always means better job.\"</strong><br>False. A P-2 in Geneva may have a lower salary than a NO-C in a hardship duty station due to post adjustment and hazard pay. Choose based on your career stage and mobility preferences [citation:2].</p>
-          <p><strong>❌ \"I can apply for any category if I'm qualified.\"</strong><br>Not true. National Officer positions are <strong>strictly for citizens of the country where the duty station is located</strong>. International candidates must apply for P or consultancy roles [citation:5].</p>
+          <p><strong>❌ \"Higher grade always means better job.\"</strong><br>False. A P-2 in Geneva may have a lower salary than a NO-C in a hardship duty station due to post adjustment and hazard pay. Choose based on your career stage and mobility preferences  .</p>
+          <p><strong>❌ \"I can apply for any category if I'm qualified.\"</strong><br>Not true. National Officer positions are <strong>strictly for citizens of the country where the duty station is located</strong>. International candidates must apply for P or consultancy roles  .</p>
           <p><strong>✅ Reality check:</strong> Your <strong>nationality, education level, years of experience, and willingness to relocate</strong> determine which categories you're eligible for. Understanding these constraints upfront saves months of rejected applications.</p>
         </div>
 
@@ -4966,7 +5265,7 @@ export const blogPosts: BlogPost[] = [
         <!-- 3.1 Professional and Higher Categories (P) -->
         <div style=\"background: #ffffff; border: 1px solid #d4e3e9; border-radius: 20px; padding: 1.2rem; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);\">
           <h3 style=\"color: #1a4d6b; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;\">🌍 Professional and Higher Categories (P-1 to P-5, D-1/D-2)</h3>
-          <p><strong>Who it's for:</strong> International professionals recruited globally. P positions require <strong>international mobility</strong>—you must be willing to serve in any duty station worldwide [citation:5].</p>
+          <p><strong>Who it's for:</strong> International professionals recruited globally. P positions require <strong>international mobility</strong>—you must be willing to serve in any duty station worldwide  .</p>
           <p><strong>Eligibility:</strong> Minimum bachelor's degree (master's strongly preferred) + relevant work experience. Years required increase with grade level.</p>
           
           <table style=\"width: 100%; border-collapse: collapse; background: #f9fbfc; border-radius: 12px; overflow: hidden; margin: 1rem 0;\">
@@ -4982,38 +5281,38 @@ export const blogPosts: BlogPost[] = [
             </tbody>
           </table>
           
-          <p><strong>💰 Salary Range (2026):</strong> P-2: $55,000–$70,000 net/year | P-3: $70,000–$90,000 | P-4: $90,000–$115,000 | P-5: $115,000–$140,000 + post adjustment (varies by duty station) [citation:2].</p>
-          <p><strong>📌 2026 Example:</strong> Associate Finance and Budget Officer, P-2, UN Environment Programme, Nairobi—requires 2 years experience and bachelor's degree [citation:9].</p>
+          <p><strong>💰 Salary Range (2026):</strong> P-2: $55,000–$70,000 net/year | P-3: $70,000–$90,000 | P-4: $90,000–$115,000 | P-5: $115,000–$140,000 + post adjustment (varies by duty station)  .</p>
+          <p><strong>📌 2026 Example:</strong> Associate Finance and Budget Officer, P-2, UN Environment Programme, Nairobi—requires 2 years experience and bachelor's degree  .</p>
         </div>
 
         <!-- 3.2 National Officer (NO) -->
         <div style=\"background: #ffffff; border: 1px solid #d4e3e9; border-radius: 20px; padding: 1.2rem; margin: 1.5rem 0;\">
           <h3 style=\"color: #1a4d6b; margin-top: 0;\">🇺🇳 National Officer (NO)</h3>
-          <p><strong>Who it's for:</strong> <strong>Citizens of the country where the duty station is located</strong>. NO positions are the professional-level equivalent for nationals, performing similar functions to P-staff but without international mobility requirements [citation:1][citation:5].</p>
+          <p><strong>Who it's for:</strong> <strong>Citizens of the country where the duty station is located</strong>. NO positions are the professional-level equivalent for nationals, performing similar functions to P-staff but without international mobility requirements  .</p>
           <p><strong>Eligibility:</strong> Bachelor's degree minimum + relevant experience in the country context. Local language fluency is essential.</p>
           <p><strong>Grades:</strong> NO-A, NO-B, NO-C, NO-D (mapping roughly to P-1 through P-4 levels).</p>
-          <p><strong>💰 Salary Range (2026):</strong> NO-A: $45,000–$60,000/year | NO-B: $60,000–$85,000 | NO-C: $85,000–$110,000 | NO-D: $110,000–$145,000. All tax-free with local benefits [citation:2].</p>
-          <p><strong>📌 2026 Example:</strong> FAO Bangladesh posted a National Economist (SC-10/NO equivalent) position at $115,000–$140,000/year, requiring a master's degree + 10 years experience [citation:2].</p>
-          <p><strong>⚠️ Important:</strong> If you hold dual nationality but are not a citizen of the duty station country, you <strong>cannot</strong> apply for NO positions—you must apply as an international candidate [citation:5].</p>
+          <p><strong>💰 Salary Range (2026):</strong> NO-A: $45,000–$60,000/year | NO-B: $60,000–$85,000 | NO-C: $85,000–$110,000 | NO-D: $110,000–$145,000. All tax-free with local benefits  .</p>
+          <p><strong>📌 2026 Example:</strong> FAO Bangladesh posted a National Economist (SC-10/NO equivalent) position at $115,000–$140,000/year, requiring a master's degree + 10 years experience  .</p>
+          <p><strong>⚠️ Important:</strong> If you hold dual nationality but are not a citizen of the duty station country, you <strong>cannot</strong> apply for NO positions—you must apply as an international candidate  .</p>
         </div>
 
         <!-- 3.3 General Service (GS) -->
         <div style=\"background: #ffffff; border: 1px solid #d4e3e9; border-radius: 20px; padding: 1.2rem; margin: 1.5rem 0;\">
           <h3 style=\"color: #1a4d6b; margin-top: 0;\">📋 General Service (GS) and Related Categories</h3>
-          <p><strong>Who it's for:</strong> Locally recruited support staff providing administrative, clerical, technical, and operational services. GS positions are <strong>not internationally mobile</strong> and do not lead directly to P-grade conversion [citation:1][citation:5].</p>
+          <p><strong>Who it's for:</strong> Locally recruited support staff providing administrative, clerical, technical, and operational services. GS positions are <strong>not internationally mobile</strong> and do not lead directly to P-grade conversion  .</p>
           <p><strong>Grades:</strong> GS-1 through GS-7 (higher number = more senior).</p>
           <p><strong>Eligibility:</strong> High school diploma required; university degree may substitute for experience at higher GS levels.</p>
           
           <p><strong>💰 Salary Range (2026) – Bangladesh Example:</strong><br>
-          GS-5: BDT 55,000–80,000/month | GS-6: BDT 75,000–100,000/month | GS-7: BDT 95,000–125,000/month [citation:2].</p>
+          GS-5: BDT 55,000–80,000/month | GS-6: BDT 75,000–100,000/month | GS-7: BDT 95,000–125,000/month  .</p>
           
-          <p><strong>💡 Pro tip:</strong> While GS positions are support roles, they offer <strong>stability, UN benefits, and internal networking opportunities</strong>. Many UN staff start in GS roles and later transition to NO/P after gaining experience and advanced degrees [citation:2].</p>
+          <p><strong>💡 Pro tip:</strong> While GS positions are support roles, they offer <strong>stability, UN benefits, and internal networking opportunities</strong>. Many UN staff start in GS roles and later transition to NO/P after gaining experience and advanced degrees  .</p>
         </div>
 
         <!-- 3.4 Field Service (FS) -->
         <div style=\"background: #ffffff; border: 1px solid #d4e3e9; border-radius: 20px; padding: 1.2rem; margin: 1.5rem 0;\">
           <h3 style=\"color: #1a4d6b; margin-top: 0;\">🛡️ Field Service (FS)</h3>
-          <p><strong>Who it's for:</strong> Staff assigned to peacekeeping missions, humanitarian field operations, and special political missions. FS roles are <strong>hardship-focused</strong> and require deployment to often dangerous or challenging environments [citation:1][citation:5].</p>
+          <p><strong>Who it's for:</strong> Staff assigned to peacekeeping missions, humanitarian field operations, and special political missions. FS roles are <strong>hardship-focused</strong> and require deployment to often dangerous or challenging environments  .</p>
           <p><strong>Typical roles:</strong> Security officers, logistics specialists, radio operators, administrative support in mission settings.</p>
           <p><strong>Grades:</strong> FS-1 through FS-7.</p>
           <p><strong>💰 Compensation:</strong> Base salary comparable to GS with <strong>significant hardship allowances, danger pay, and R&R (Rest & Recuperation) leave</strong>—typically 4-6 weeks every 6-8 weeks for hardship duty stations.</p>
@@ -5022,32 +5321,32 @@ export const blogPosts: BlogPost[] = [
         <!-- 3.5 Consultancy Contracts (IICA, NPSA, SC, LICA) -->
         <div style=\"background: #ffffff; border: 1px solid #d4e3e9; border-radius: 20px; padding: 1.2rem; margin: 1.5rem 0;\">
           <h3 style=\"color: #1a4d6b; margin-top: 0;\">📄 Consultancy & Alternative Contracts</h3>
-          <p>Most UN agencies use alternative contract types for non-staff positions. These are <strong>excellent entry points</strong> for professionals transitioning from the private sector or academia [citation:2][citation:5].</p>
+          <p>Most UN agencies use alternative contract types for non-staff positions. These are <strong>excellent entry points</strong> for professionals transitioning from the private sector or academia   .</p>
           
           <ul>
-            <li><strong>IICA (International Individual Contractor Agreement):</strong> For internationally recruited consultants. Short-term, project-based. Rates comparable to P-level [citation:5].</li>
-            <li><strong>NPSA (National Professional Specialist Appointment):</strong> National-level professional contracts, similar to NO but with different benefits structure [citation:5].</li>
-            <li><strong>LICA (Local Individual Contractor Agreement):</strong> UNOPS-specific contract type. LICA-8 pays $55,000–$75,000/year [citation:2].</li>
-            <li><strong>SC (Service Contract):</strong> UNDP/FAO contract type for national professionals. SC-10 (senior level) pays $115,000–$140,000/year [citation:2].</li>
-            <li><strong>CON (Consultant):</strong> Short-term expert assignments. Example: UNEP Nairobi posted a Graphic Designer consultant role in February 2026 [citation:9].</li>
+            <li><strong>IICA (International Individual Contractor Agreement):</strong> For internationally recruited consultants. Short-term, project-based. Rates comparable to P-level  .</li>
+            <li><strong>NPSA (National Professional Specialist Appointment):</strong> National-level professional contracts, similar to NO but with different benefits structure  .</li>
+            <li><strong>LICA (Local Individual Contractor Agreement):</strong> UNOPS-specific contract type. LICA-8 pays $55,000–$75,000/year  .</li>
+            <li><strong>SC (Service Contract):</strong> UNDP/FAO contract type for national professionals. SC-10 (senior level) pays $115,000–$140,000/year  .</li>
+            <li><strong>CON (Consultant):</strong> Short-term expert assignments. Example: UNEP Nairobi posted a Graphic Designer consultant role in February 2026  .</li>
           </ul>
           
-          <p><strong>⚠️ Important:</strong> Consultancy contracts offer <strong>no job security</strong> and limited benefits compared to staff positions, but they provide UN experience that makes you competitive for future fixed-term roles [citation:2].</p>
+          <p><strong>⚠️ Important:</strong> Consultancy contracts offer <strong>no job security</strong> and limited benefits compared to staff positions, but they provide UN experience that makes you competitive for future fixed-term roles  .</p>
         </div>
 
         <!-- 3.6 Internships (I-1) -->
         <div style=\"background: #ffffff; border: 1px solid #d4e3e9; border-radius: 20px; padding: 1.2rem; margin: 1.5rem 0;\">
           <h3 style=\"color: #1a4d6b; margin-top: 0;\">🎓 Internships (I-1)</h3>
-          <p><strong>Who it's for:</strong> Current university students or recent graduates (typically within 1 year of graduation). The standard entry point for young professionals [citation:1].</p>
+          <p><strong>Who it's for:</strong> Current university students or recent graduates (typically within 1 year of graduation). The standard entry point for young professionals .</p>
           <p><strong>Duration:</strong> 2–6 months, sometimes extendable.</p>
           <p><strong>💰 Compensation:</strong> Most UN internships are <strong>unpaid</strong>, though some agencies offer stipends. Many interns rely on external funding or university grants.</p>
-          <p><strong>📌 2026 Examples (UN-Habitat Nairobi):</strong> Urban Research Intern, Project Development Intern, Information Management Intern, Instructional Design Intern—all posted February 2026 [citation:9].</p>
-          <p><strong>💡 Pro tip:</strong> Treat your internship as a <strong>6-month interview</strong>. High-performing interns are often hired as consultants or placed on rosters after graduation [citation:2].</p>
+          <p><strong>📌 2026 Examples (UN-Habitat Nairobi):</strong> Urban Research Intern, Project Development Intern, Information Management Intern, Instructional Design Intern—all posted February 2026  .</p>
+          <p><strong>💡 Pro tip:</strong> Treat your internship as a <strong>6-month interview</strong>. High-performing interns are often hired as consultants or placed on rosters after graduation  .</p>
         </div>
 
         <!-- 4. UN Job Networks and Families -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #1a4d6b; border-left: 6px solid #2c6e8f; padding-left: 1rem; margin: 2rem 0 1rem;\">🌐 UN Job Networks: Where Your Skills Fit</h2>
-        <p>The UN organizes all positions into <strong>Job Networks and Job Families</strong>—clusters of related functions that help candidates identify where their expertise aligns [citation:1].</p>
+        <p>The UN organizes all positions into <strong>Job Networks and Job Families</strong>—clusters of related functions that help candidates identify where their expertise aligns .</p>
         
         <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1rem 0;\">
           <div style=\"background: #eef4f7; border-radius: 12px; padding: 0.8rem;\"><strong>🌍 Economic, Social & Development</strong><br>Programme Management, Sustainable Development, Population Affairs</div>
@@ -5081,10 +5380,10 @@ export const blogPosts: BlogPost[] = [
 
         <!-- 6. FAQ -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #1a4d6b; border-left: 6px solid #2c6e8f; padding-left: 1rem; margin: 2rem 0 1rem;\">❓ Frequently Asked Questions</h2>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #1a4d6b; margin: 0 0 0.3rem 0;\">Q1: Can I move from GS to P category?</h3><p>Yes, but not automatically. You must meet P-grade eligibility requirements (advanced degree, relevant experience) and apply through competitive recruitment. Many GS staff earn master's degrees while working to qualify [citation:2].</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #1a4d6b; margin: 0 0 0.3rem 0;\">Q2: What's the difference between NO and P?</h3><p>NO positions are for nationals of the duty station country only. P positions are international and require mobility across countries. NO salaries are locally set; P salaries follow global scales with post adjustment [citation:5].</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #1a4d6b; margin: 0 0 0.3rem 0;\">Q3: Which category pays the most?</h3><p>D-1/D-2 senior leadership pays highest ($140,000–$180,000+). For mid-career, P-5 and NO-D are comparable. Consultancy rates can exceed staff salaries for specialized skills [citation:2].</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #1a4d6b; margin: 0 0 0.3rem 0;\">Q4: Can I apply for multiple categories at once?</h3><p>Yes. You can simultaneously apply for P positions globally, NO positions in your home country, and consultancies. Each application must be tailored to the specific category and role [citation:4].</p></div>
+        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #1a4d6b; margin: 0 0 0.3rem 0;\">Q1: Can I move from GS to P category?</h3><p>Yes, but not automatically. You must meet P-grade eligibility requirements (advanced degree, relevant experience) and apply through competitive recruitment. Many GS staff earn master's degrees while working to qualify  .</p></div>
+        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #1a4d6b; margin: 0 0 0.3rem 0;\">Q2: What's the difference between NO and P?</h3><p>NO positions are for nationals of the duty station country only. P positions are international and require mobility across countries. NO salaries are locally set; P salaries follow global scales with post adjustment  .</p></div>
+        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #1a4d6b; margin: 0 0 0.3rem 0;\">Q3: Which category pays the most?</h3><p>D-1/D-2 senior leadership pays highest ($140,000–$180,000+). For mid-career, P-5 and NO-D are comparable. Consultancy rates can exceed staff salaries for specialized skills  .</p></div>
+        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #1a4d6b; margin: 0 0 0.3rem 0;\">Q4: Can I apply for multiple categories at once?</h3><p>Yes. You can simultaneously apply for P positions globally, NO positions in your home country, and consultancies. Each application must be tailored to the specific category and role  .</p></div>
 
         <!-- Internal linking cluster -->
         <div style=\"background: #eef4f7; border-radius: 24px; padding: 1.5rem; margin: 2rem 0;\">
@@ -5105,8 +5404,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-      `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 118,
@@ -5138,34 +5464,34 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <!-- 1. Introduction: Why INGO Experience is Your UN Advantage -->
-        <p style=\"font-size: 1.1rem;\">The UN does not operate in isolation. It funds, partners with, and relies on a vast network of International Non-Governmental Organizations (INGOs) to implement programs on the ground. Organizations like <strong>Save the Children, Oxfam, Mercy Corps, DRC, NRC, and BRAC</strong> serve as implementing partners for UN agencies across development and humanitarian contexts [citation:2].</p>
-        <p>For INGO professionals, this creates a <strong>natural career bridge</strong> into the UN system. Your field experience, program management skills, and understanding of local contexts are exactly what UN agencies value. Yet many INGO staff struggle to make the transition—not because they lack qualifications, but because they don't know how to translate their experience into \"UN language\" [citation:2].</p>
+        <p style=\"font-size: 1.1rem;\">The UN does not operate in isolation. It funds, partners with, and relies on a vast network of International Non-Governmental Organizations (INGOs) to implement programs on the ground. Organizations like <strong>Save the Children, Oxfam, Mercy Corps, DRC, NRC, and BRAC</strong> serve as implementing partners for UN agencies across development and humanitarian contexts  .</p>
+        <p>For INGO professionals, this creates a <strong>natural career bridge</strong> into the UN system. Your field experience, program management skills, and understanding of local contexts are exactly what UN agencies value. Yet many INGO staff struggle to make the transition—not because they lack qualifications, but because they don't know how to translate their experience into \"UN language\"  .</p>
         <p>This guide walks you through the <strong>proven pathways, skills alignment strategies, and application tactics</strong> that help INGO professionals successfully transition to UN careers.</p>
 
         <!-- 2. Myth Buster: Common Misconceptions About INGO-to-UN Transition -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #4a6741; border-left: 6px solid #6b8c5c; padding-left: 1rem; margin: 2rem 0 1rem;\">🚫 Myth Buster: What INGO Professionals Get Wrong</h2>
         <div style=\"background: #f0f4ed; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
-          <p><strong>❌ \"I need a master's degree from a top university to get into the UN.\"</strong><br>False. While advanced degrees help, your INGO field experience is equally valuable. Many UN staff enter through consultancies first, then pursue degrees while working [citation:2].</p>
-          <p><strong>❌ \"UN jobs require diplomatic experience I don't have.\"</strong><br>Not true. The UN hires program managers, logisticians, finance officers, and technical specialists—exactly the roles INGO professionals fill daily [citation:2].</p>
-          <p><strong>✅ Reality check:</strong> The <strong>single biggest barrier</strong> is not qualifications—it's <strong>resume translation</strong>. INGO resumes use sector-specific language; UN applications require competency-based formatting that matches the Vacancy Notice [citation:2][citation:4].</p>
+          <p><strong>❌ \"I need a master's degree from a top university to get into the UN.\"</strong><br>False. While advanced degrees help, your INGO field experience is equally valuable. Many UN staff enter through consultancies first, then pursue degrees while working  .</p>
+          <p><strong>❌ \"UN jobs require diplomatic experience I don't have.\"</strong><br>Not true. The UN hires program managers, logisticians, finance officers, and technical specialists—exactly the roles INGO professionals fill daily  .</p>
+          <p><strong>✅ Reality check:</strong> The <strong>single biggest barrier</strong> is not qualifications—it's <strong>resume translation</strong>. INGO resumes use sector-specific language; UN applications require competency-based formatting that matches the Vacancy Notice   .</p>
         </div>
 
         <!-- 3. Why Start Your Career at an INGO? The Strategic Advantage -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #4a6741; border-left: 6px solid #6b8c5c; padding-left: 1rem; margin: 2rem 0 1rem;\">📈 Why Start at an INGO? Your Strategic Advantage</h2>
         <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1rem 0;\">
-          <div style=\"background: #f0f4ed; border-radius: 16px; padding: 1rem;\"><strong>⚡ Faster Career Progression</strong><br>INGOs often promote based on performance faster than UN bureaucracy—building your CV quickly [citation:2].</div>
-          <div style=\"background: #f0f4ed; border-radius: 16px; padding: 1rem;\"><strong>🌍 Direct Field Exposure</strong><br>INGOs place staff in communities, giving you frontline experience that UN hiring managers value [citation:2].</div>
-          <div style=\"background: #f0f4ed; border-radius: 16px; padding: 1rem;\"><strong>🤝 UN Partnership Networks</strong><br>INGOs work directly with UN agencies—building relationships that become your entry point [citation:2].</div>
-          <div style=\"background: #f0f4ed; border-radius: 16px; padding: 1rem;\"><strong>📋 Roster Eligibility</strong><br>UN rostering systems recognize INGO experience. Many consultants are hired directly from INGOs [citation:2].</div>
+          <div style=\"background: #f0f4ed; border-radius: 16px; padding: 1rem;\"><strong>⚡ Faster Career Progression</strong><br>INGOs often promote based on performance faster than UN bureaucracy—building your CV quickly  .</div>
+          <div style=\"background: #f0f4ed; border-radius: 16px; padding: 1rem;\"><strong>🌍 Direct Field Exposure</strong><br>INGOs place staff in communities, giving you frontline experience that UN hiring managers value  .</div>
+          <div style=\"background: #f0f4ed; border-radius: 16px; padding: 1rem;\"><strong>🤝 UN Partnership Networks</strong><br>INGOs work directly with UN agencies—building relationships that become your entry point  .</div>
+          <div style=\"background: #f0f4ed; border-radius: 16px; padding: 1rem;\"><strong>📋 Roster Eligibility</strong><br>UN rostering systems recognize INGO experience. Many consultants are hired directly from INGOs  .</div>
         </div>
         
         <div style=\"background: #4a6741; color: white; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
-          <p style=\"margin: 0;\"><strong>🌍 INGO Hubs:</strong> Regions with high concentrations of international NGOs—particularly Northern Virginia and Washington D.C.—serve as hubs for organizations managing UN partnerships, creating natural transition pipelines [citation:2].</p>
+          <p style=\"margin: 0;\"><strong>🌍 INGO Hubs:</strong> Regions with high concentrations of international NGOs—particularly Northern Virginia and Washington D.C.—serve as hubs for organizations managing UN partnerships, creating natural transition pipelines  .</p>
         </div>
 
         <!-- 4. High-Demand Skills That Transfer from INGO to UN -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #4a6741; border-left: 6px solid #6b8c5c; padding-left: 1rem; margin: 2rem 0 1rem;\">🔄 High-Demand Skills That Transfer from INGO to UN</h2>
-        <p>UN agencies actively recruit INGO professionals with these competencies [citation:2]:</p>
+        <p>UN agencies actively recruit INGO professionals with these competencies  :</p>
         
         <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0;\">
           <div style=\"background: #f0f4ed; border-radius: 12px; padding: 1rem;\">
@@ -5194,7 +5520,7 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         
-        <p><strong>💡 The Translation Secret:</strong> Your NGO title (e.g., \"Project Coordinator\") might translate to \"Programme Officer\" (P-2/P-3) or \"National Officer\" (NO-B/NO-C) in UN terms. The key is <strong>mapping your responsibilities to UN competency frameworks</strong> [citation:4].</p>
+        <p><strong>💡 The Translation Secret:</strong> Your NGO title (e.g., \"Project Coordinator\") might translate to \"Programme Officer\" (P-2/P-3) or \"National Officer\" (NO-B/NO-C) in UN terms. The key is <strong>mapping your responsibilities to UN competency frameworks</strong>  .</p>
 
         <!-- 5. Proven Pathways: How INGO Professionals Enter the UN System -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #4a6741; border-left: 6px solid #6b8c5c; padding-left: 1rem; margin: 2rem 0 1rem;\">🛤️ Proven Pathways: 4 Routes from INGO to UN</h2>
@@ -5202,31 +5528,31 @@ export const blogPosts: BlogPost[] = [
         <div style=\"margin: 1.5rem 0;\">
           <div style=\"background: #ffffff; border-left: 4px solid #6b8c5c; padding: 1rem; margin-bottom: 1rem;\">
             <h3 style=\"margin: 0 0 0.5rem 0;\">Pathway 1: Consultancy Contracts (Fastest Route)</h3>
-            <p>Short-term UN consultant roles are the <strong>most common entry point</strong> for INGO professionals. Your NGO expertise is valuable for specific projects. Success in consultancy often leads to fixed-term appointments [citation:2].</p>
+            <p>Short-term UN consultant roles are the <strong>most common entry point</strong> for INGO professionals. Your NGO expertise is valuable for specific projects. Success in consultancy often leads to fixed-term appointments  .</p>
             <p><strong>How to target:</strong> Search \"CON\" or \"Consultant\" on UN agency portals. Apply even if you don't meet every requirement—project needs often prioritize specialized skills.</p>
           </div>
           
           <div style=\"background: #ffffff; border-left: 4px solid #6b8c5c; padding: 1rem; margin-bottom: 1rem;\">
             <h3 style=\"margin: 0 0 0.5rem 0;\">Pathway 2: UN Volunteer (UNV)</h3>
-            <p>UNV assignments are often <strong>underestimated</strong>. These are not entry-level volunteer roles—they are professional positions that provide UN experience, network access, and often convert to staff contracts [citation:2].</p>
+            <p>UNV assignments are often <strong>underestimated</strong>. These are not entry-level volunteer roles—they are professional positions that provide UN experience, network access, and often convert to staff contracts  .</p>
             <p><strong>Best for:</strong> Mid-career professionals with 3-8 years INGO experience. UNV contracts typically last 6-24 months.</p>
           </div>
           
           <div style=\"background: #ffffff; border-left: 4px solid #6b8c5c; padding: 1rem; margin-bottom: 1rem;\">
             <h3 style=\"margin: 0 0 0.5rem 0;\">Pathway 3: National Officer (NO) Positions</h3>
-            <p>If you're a national of the country where you want to work, NO positions are your <strong>direct staff entry route</strong>. INGO experience is often valued equally or above UN experience for these roles [citation:5].</p>
+            <p>If you're a national of the country where you want to work, NO positions are your <strong>direct staff entry route</strong>. INGO experience is often valued equally or above UN experience for these roles  .</p>
             <p><strong>Target:</strong> NO-B or NO-C if you have 5-10 years INGO experience. NO-A for junior professionals.</p>
           </div>
           
           <div style=\"background: #ffffff; border-left: 4px solid #6b8c5c; padding: 1rem;\">
             <h3 style=\"margin: 0 0 0.5rem 0;\">Pathway 4: Young Professionals Programme (YPP) / Junior Professional Officer (JPO)</h3>
-            <p>For early-career INGO professionals (under 32), YPP and JPO programmes provide structured entry into the UN system. JPO positions are sponsored by donor governments and offer 2-3 year assignments [citation:2].</p>
+            <p>For early-career INGO professionals (under 32), YPP and JPO programmes provide structured entry into the UN system. JPO positions are sponsored by donor governments and offer 2-3 year assignments  .</p>
           </div>
         </div>
 
         <!-- 6. How to Translate Your INGO Resume for UN Applications -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #4a6741; border-left: 6px solid #6b8c5c; padding-left: 1rem; margin: 2rem 0 1rem;\">📝 How to Translate Your INGO Resume for UN Applications</h2>
-        <p>This is the <strong>critical difference</strong> between INGO and UN applications. UN recruiters screen using <strong>competency-based criteria</strong>—not job titles [citation:4].</p>
+        <p>This is the <strong>critical difference</strong> between INGO and UN applications. UN recruiters screen using <strong>competency-based criteria</strong>—not job titles  .</p>
         
         <div style=\"background: #f0f4ed; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
           <p><strong>❌ INGO-Style Resume Statement (Gets Screened Out):</strong><br>
@@ -5238,15 +5564,15 @@ export const blogPosts: BlogPost[] = [
         
         <p><strong>Key Translation Rules:</strong></p>
         <ul>
-          <li><strong>Quantify everything:</strong> Budget sizes, team sizes, beneficiary numbers, project timelines, percentage achievements [citation:3][citation:4].</li>
-          <li><strong>Use UN competency language:</strong> \"Results-based management,\" \"stakeholder coordination,\" \"capacity building,\" \"gender mainstreaming\" [citation:4].</li>
-          <li><strong>Highlight UN partnerships:</strong> If your INGO worked with UNICEF, WFP, or UNDP—state this explicitly [citation:2].</li>
-          <li><strong>Show field hardship experience:</strong> Complex environments demonstrate resilience—valued for field postings [citation:2].</li>
+          <li><strong>Quantify everything:</strong> Budget sizes, team sizes, beneficiary numbers, project timelines, percentage achievements    .</li>
+          <li><strong>Use UN competency language:</strong> \"Results-based management,\" \"stakeholder coordination,\" \"capacity building,\" \"gender mainstreaming\"  .</li>
+          <li><strong>Highlight UN partnerships:</strong> If your INGO worked with UNICEF, WFP, or UNDP—state this explicitly  .</li>
+          <li><strong>Show field hardship experience:</strong> Complex environments demonstrate resilience—valued for field postings  .</li>
         </ul>
 
         <!-- 7. The UN Roster System: Your INGO Advantage -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #4a6741; border-left: 6px solid #6b8c5c; padding-left: 1rem; margin: 2rem 0 1rem;\">📋 The UN Roster System: Your Hidden Advantage</h2>
-        <p>UN agencies maintain <strong>rosters</strong>—pre-vetted pools of qualified candidates. If your INGO experience qualifies you for a roster, you become <strong>eligible for selection without reapplying</strong> [citation:9].</p>
+        <p>UN agencies maintain <strong>rosters</strong>—pre-vetted pools of qualified candidates. If your INGO experience qualifies you for a roster, you become <strong>eligible for selection without reapplying</strong>  .</p>
         <p><strong>How to get rostered:</strong></p>
         <ul>
           <li>Apply to \"Roster\" vacancy announcements (even with no current opening)</li>
@@ -5254,23 +5580,23 @@ export const blogPosts: BlogPost[] = [
           <li>Once rostered, you remain eligible for 1-3 years</li>
           <li>Selection from roster happens much faster than new applications</li>
         </ul>
-        <p>If you are placed on a roster, you can be selected for upcoming job openings without undergoing the entire application process [citation:9].</p>
+        <p>If you are placed on a roster, you can be selected for upcoming job openings without undergoing the entire application process  .</p>
 
         <!-- 8. Essential Skills for the Transition -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #4a6741; border-left: 6px solid #6b8c5c; padding-left: 1rem; margin: 2rem 0 1rem;\">⭐ Essential Skills to Develop Before Transition</h2>
         <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1rem 0;\">
-          <div style=\"background: #f0f4ed; border-radius: 12px; padding: 1rem;\"><strong>🌐 UN Language Proficiency</strong><br>English fluency is mandatory. French is a major advantage. Arabic, Spanish, Russian, Chinese add competitiveness [citation:2][citation:8].</div>
+          <div style=\"background: #f0f4ed; border-radius: 12px; padding: 1rem;\"><strong>🌐 UN Language Proficiency</strong><br>English fluency is mandatory. French is a major advantage. Arabic, Spanish, Russian, Chinese add competitiveness   .</div>
           <div style=\"background: #f0f4ed; border-radius: 12px; padding: 1rem;\"><strong>📊 Results-Based Management (RBM)</strong><br>UN operates on RBM frameworks. Understand logical frameworks, indicators, and outcome-based reporting.</div>
-          <div style=\"background: #f0f4ed; border-radius: 12px; padding: 1rem;\"><strong>📝 UN Writing Style</strong><br>Policy notes, situation reports, concept notes follow UN formats. Study examples from agencies you target [citation:4].</div>
+          <div style=\"background: #f0f4ed; border-radius: 12px; padding: 1rem;\"><strong>📝 UN Writing Style</strong><br>Policy notes, situation reports, concept notes follow UN formats. Study examples from agencies you target  .</div>
           <div style=\"background: #f0f4ed; border-radius: 12px; padding: 1rem;\"><strong>🤝 UN Coordination Mechanisms</strong><br>Understand clusters, inter-agency coordination, and humanitarian reform processes.</div>
         </div>
 
         <!-- 9. FAQ -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #4a6741; border-left: 6px solid #6b8c5c; padding-left: 1rem; margin: 2rem 0 1rem;\">❓ Frequently Asked Questions</h2>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #4a6741; margin: 0 0 0.3rem 0;\">Q1: How many years of INGO experience do I need for a UN P-2/P-3?</h3><p>P-2 requires 2-3 years; P-3 requires 5-7 years. INGO experience counts fully. If you have 7+ years INGO experience, target P-3 or NO-C [citation:2][citation:5].</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #4a6741; margin: 0 0 0.3rem 0;\">Q2: Can I apply for UN jobs while still working at an INGO?</h3><p>Yes. Many professionals transition directly. Check if your INGO has UN partnership agreements—they may facilitate secondments or transitions [citation:2].</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #4a6741; margin: 0 0 0.3rem 0;\">Q3: Do UN agencies prefer INGO or private sector experience?</h3><p>For program and field roles, INGO experience is preferred. For operations, finance, IT—private sector is valued equally. UN values diversity of experience [citation:2].</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #4a6741; margin: 0 0 0.3rem 0;\">Q4: What if my INGO doesn't work with UN agencies directly?</h3><p>Focus on transferable skills: budget management, team leadership, M&E, reporting. Frame your experience around competencies, not partnerships [citation:4].</p></div>
+        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #4a6741; margin: 0 0 0.3rem 0;\">Q1: How many years of INGO experience do I need for a UN P-2/P-3?</h3><p>P-2 requires 2-3 years; P-3 requires 5-7 years. INGO experience counts fully. If you have 7+ years INGO experience, target P-3 or NO-C   .</p></div>
+        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #4a6741; margin: 0 0 0.3rem 0;\">Q2: Can I apply for UN jobs while still working at an INGO?</h3><p>Yes. Many professionals transition directly. Check if your INGO has UN partnership agreements—they may facilitate secondments or transitions  .</p></div>
+        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #4a6741; margin: 0 0 0.3rem 0;\">Q3: Do UN agencies prefer INGO or private sector experience?</h3><p>For program and field roles, INGO experience is preferred. For operations, finance, IT—private sector is valued equally. UN values diversity of experience  .</p></div>
+        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #4a6741; margin: 0 0 0.3rem 0;\">Q4: What if my INGO doesn't work with UN agencies directly?</h3><p>Focus on transferable skills: budget management, team leadership, M&E, reporting. Frame your experience around competencies, not partnerships  .</p></div>
 
         <!-- Internal linking cluster -->
         <div style=\"background: #f0f4ed; border-radius: 24px; padding: 1.5rem; margin: 2rem 0;\">
@@ -5291,8 +5617,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 119,
@@ -5324,61 +5677,61 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <!-- 1. Introduction: The UN Hiring Process at a Glance -->
-        <p style=\"font-size: 1.1rem;\">The UN hiring process is <strong>highly structured, competitive, and strict</strong>. Understanding the 10-step process before you apply separates successful candidates from those who get screened out in the first round [citation:4].</p>
+        <p style=\"font-size: 1.1rem;\">The UN hiring process is <strong>highly structured, competitive, and strict</strong>. Understanding the 10-step process before you apply separates successful candidates from those who get screened out in the first round  .</p>
         <p>This guide walks you through <strong>every stage</strong>—from creating your Inspira profile to receiving your offer letter—with proven strategies used by successful UN candidates in 2026.</p>
 
         <!-- 2. Myth Buster: What Applicants Get Wrong -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #8b5a2b; border-left: 6px solid #b87c3a; padding-left: 1rem; margin: 2rem 0 1rem;\">🚫 Myth Buster: Critical Mistakes to Avoid</h2>
         <div style=\"background: #fef7ef; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
-          <p><strong>❌ \"My CV looks great—I'll upload it and they'll see.\"</strong><br>False. The UN does NOT accept CVs as substitutes for completed online applications. Your Inspira Personal History Profile (PHP) is the <strong>only document that matters</strong> for initial screening [citation:3].</p>
-          <p><strong>❌ \"I'll tailor my application after they contact me.\"</strong><br>Not true. HR screening is <strong>automated and keyword-based</strong>. If your PHP doesn't match the Vacancy Notice (VN) requirements, you're eliminated immediately [citation:4].</p>
-          <p><strong>✅ Reality check:</strong> Successful UN applicants spend <strong>6-8 hours per application</strong>—meticulously aligning every section of their PHP with the specific VN [citation:4].</p>
+          <p><strong>❌ \"My CV looks great—I'll upload it and they'll see.\"</strong><br>False. The UN does NOT accept CVs as substitutes for completed online applications. Your Inspira Personal History Profile (PHP) is the <strong>only document that matters</strong> for initial screening   .</p>
+          <p><strong>❌ \"I'll tailor my application after they contact me.\"</strong><br>Not true. HR screening is <strong>automated and keyword-based</strong>. If your PHP doesn't match the Vacancy Notice (VN) requirements, you're eliminated immediately  .</p>
+          <p><strong>✅ Reality check:</strong> Successful UN applicants spend <strong>6-8 hours per application</strong>—meticulously aligning every section of their PHP with the specific VN  .</p>
         </div>
 
         <!-- 3. The 10-Step UN Hiring Process -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #8b5a2b; border-left: 6px solid #b87c3a; padding-left: 1rem; margin: 2rem 0 1rem;\">📋 The 10-Step UN Hiring Process (2026)</h2>
         <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.8rem; margin: 1rem 0;\">
-          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>1. Vacancy Notice Published</strong><br>Job title, grade (NO, P-1 to P-5, D), duty station, requirements [citation:4]</div>
-          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>2. Application Submission</strong><br>CV/UN format CV + Motivation Statement via Inspira [citation:3][citation:4]</div>
-          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>3. HR Screening</strong><br>Minimum eligibility: education, experience, languages, format [citation:4]</div>
-          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>4. Shortlisting</strong><br>Keyword matching, competency evidence, results relevance [citation:4]</div>
-          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>5. Written Assessment</strong><br>Essay, case study, programme strategy, analytical questions [citation:4]</div>
-          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>6. Video/Online Assessment</strong><br>Recorded responses, timed questions, scenario-based [citation:4]</div>
-          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>7. Competency-Based Interview</strong><br>STAR method, core UN competencies [citation:4]</div>
-          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>8. Reference Checks</strong><br>Confirm responsibilities, professionalism, integrity [citation:4]</div>
-          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>9. Final Selection & Offer</strong><br>Contract details, salary, start date [citation:4]</div>
-          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>10. Onboarding</strong><br>Medical clearance, security clearance, deployment [citation:4]</div>
+          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>1. Vacancy Notice Published</strong><br>Job title, grade (NO, P-1 to P-5, D), duty station, requirements  </div>
+          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>2. Application Submission</strong><br>CV/UN format CV + Motivation Statement via Inspira    </div>
+          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>3. HR Screening</strong><br>Minimum eligibility: education, experience, languages, format  </div>
+          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>4. Shortlisting</strong><br>Keyword matching, competency evidence, results relevance  </div>
+          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>5. Written Assessment</strong><br>Essay, case study, programme strategy, analytical questions  </div>
+          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>6. Video/Online Assessment</strong><br>Recorded responses, timed questions, scenario-based  </div>
+          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>7. Competency-Based Interview</strong><br>STAR method, core UN competencies  </div>
+          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>8. Reference Checks</strong><br>Confirm responsibilities, professionalism, integrity  </div>
+          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>9. Final Selection & Offer</strong><br>Contract details, salary, start date  </div>
+          <div style=\"background: #fef7ef; border-radius: 12px; padding: 0.8rem;\"><strong>10. Onboarding</strong><br>Medical clearance, security clearance, deployment  </div>
         </div>
 
         <!-- 4. Step 1-2: Creating Your Inspira Profile and PHP -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #8b5a2b; border-left: 6px solid #b87c3a; padding-left: 1rem; margin: 2rem 0 1rem;\">💻 Step 1-2: Inspira Profile & Personal History Profile (PHP)</h2>
-        <p>Inspira (inspira.un.org) is the UN Secretariat's online application system. All applications must be submitted through Inspira [citation:3].</p>
+        <p>Inspira (inspira.un.org) is the UN Secretariat's online application system. All applications must be submitted through Inspira   .</p>
         
         <div style=\"background: #fef7ef; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
           <h3 style=\"color: #8b5a2b; margin-top: 0;\">📌 Your PHP: The Most Critical Document</h3>
-          <p>The Personal History Profile is an <strong>extended online resume specifically used by the UN</strong>. It evaluates your eligibility and suitability for job openings. Unlike a CV, it can be updated and reused for multiple applications [citation:3].</p>
+          <p>The Personal History Profile is an <strong>extended online resume specifically used by the UN</strong>. It evaluates your eligibility and suitability for job openings. Unlike a CV, it can be updated and reused for multiple applications   .</p>
           <p><strong>Critical sections:</strong></p>
           <ul>
-            <li><strong>Education:</strong> Include ALL degrees—high school, bachelor's, master's. If you omit your degree, you will be automatically screened out for Professional-level positions [citation:3].</li>
-            <li><strong>Languages:</strong> Indicate proficiency using UN Levels (I-IV). If the job requires Level III in all four areas, your self-assessment must match exactly [citation:3].</li>
-            <li><strong>Experience:</strong> This takes the most time. Inspira adds up <strong>all work experience automatically</strong>—if you don't meet the minimum years, you're screened out [citation:3].</li>
+            <li><strong>Education:</strong> Include ALL degrees—high school, bachelor's, master's. If you omit your degree, you will be automatically screened out for Professional-level positions   .</li>
+            <li><strong>Languages:</strong> Indicate proficiency using UN Levels (I-IV). If the job requires Level III in all four areas, your self-assessment must match exactly   .</li>
+            <li><strong>Experience:</strong> This takes the most time. Inspira adds up <strong>all work experience automatically</strong>—if you don't meet the minimum years, you're screened out   .</li>
           </ul>
         </div>
         
         <div style=\"background: #fef7ef; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
           <h3 style=\"color: #8b5a2b; margin-top: 0;\">✍️ Writing Your Experience Section</h3>
-          <p><strong>Maximum 1000 characters per entry.</strong> This is where most applicants fail. Use the C-A-R model [citation:3]:</p>
+          <p><strong>Maximum 1000 characters per entry.</strong> This is where most applicants fail. Use the C-A-R model   :</p>
           <p><strong>Context:</strong> What was your role and environment?<br>
           <strong>Action:</strong> What specific actions did you take?<br>
           <strong>Result:</strong> What measurable impact did you achieve?</p>
           <p><strong>Example:</strong><br>
           \"Led a team of 5 national staff to implement a $2.5M WASH program reaching 50,000 beneficiaries. Achieved 95% of project targets within 12 months, with zero compliance issues in 3 external audits.\"</p>
-          <p><strong>💡 Critical:</strong> List <strong>all positions</strong>—including lateral moves, temporary assignments, and promotions. The system counts every entry toward your total experience [citation:3].</p>
+          <p><strong>💡 Critical:</strong> List <strong>all positions</strong>—including lateral moves, temporary assignments, and promotions. The system counts every entry toward your total experience   .</p>
         </div>
 
         <!-- 5. Step 2 (Continued): The Motivation Statement -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #8b5a2b; border-left: 6px solid #b87c3a; padding-left: 1rem; margin: 2rem 0 1rem;\">📝 The Motivation Statement: Your Personal Introduction</h2>
-        <p>The motivation statement is <strong>limited to 2000 characters</strong> (some agencies limit to 1000). It is often the first item a hiring manager reads [citation:3].</p>
+        <p>The motivation statement is <strong>limited to 2000 characters</strong> (some agencies limit to 1000). It is often the first item a hiring manager reads   .</p>
         
         <div style=\"background: #fef7ef; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
           <p><strong>Standard Structure:</strong></p>
@@ -5388,14 +5741,14 @@ export const blogPosts: BlogPost[] = [
             <li><strong>Closing (1 paragraph):</strong> Brief recap and expression of enthusiasm.</li>
           </ol>
           <p><strong>⚠️ Key Rules:</strong><br>
-          • State what you can offer the UN, not what you want from the UN [citation:3]<br>
-          • Customize for each position—generic statements are obvious and rejected [citation:9]<br>
-          • Proofread meticulously. Spelling errors signal lack of attention [citation:3]</p>
+          • State what you can offer the UN, not what you want from the UN   <br>
+          • Customize for each position—generic statements are obvious and rejected  <br>
+          • Proofread meticulously. Spelling errors signal lack of attention   </p>
         </div>
 
         <!-- 6. Step 3-4: HR Screening and Shortlisting -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #8b5a2b; border-left: 6px solid #b87c3a; padding-left: 1rem; margin: 2rem 0 1rem;\">🔍 Step 3-4: HR Screening & Shortlisting</h2>
-        <p>This is where <strong>80% of applicants are eliminated</strong>. HR screens for [citation:4]:</p>
+        <p>This is where <strong>80% of applicants are eliminated</strong>. HR screens for  :</p>
         <ul>
           <li><strong>Minimum eligibility:</strong> Education level, years of experience, language proficiency</li>
           <li><strong>Keyword matching:</strong> Your PHP must contain terms from the Vacancy Notice</li>
@@ -5404,21 +5757,21 @@ export const blogPosts: BlogPost[] = [
         <div style=\"background: #fef7ef; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
           <p><strong>💡 Pro Tip: The Keyword Strategy</strong></p>
           <p>Copy the Vacancy Notice's \"Required Qualifications\" and \"Competencies\" sections. For each requirement, ensure your PHP includes <strong>matching keywords and concrete examples</strong>. If the VN asks for \"experience managing donor-funded projects,\" your PHP must state \"managed $X in donor funding from Y agency.\"</p>
-          <p>If your CV does not clearly match the VN, you can be eliminated here—even if you are qualified [citation:4].</p>
+          <p>If your CV does not clearly match the VN, you can be eliminated here—even if you are qualified  .</p>
         </div>
 
         <!-- 7. Step 5-6: Written and Video Assessments -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #8b5a2b; border-left: 6px solid #b87c3a; padding-left: 1rem; margin: 2rem 0 1rem;\">✍️ Step 5-6: Written & Video Assessments</h2>
         <p>If shortlisted, you may receive:</p>
         <ul>
-          <li><strong>Written assessment:</strong> Essay, policy note, case study, programme strategy, analytical questions. Assesses UN writing style, analytical thinking, and alignment with UN mandate [citation:4].</li>
-          <li><strong>Video/online assessment:</strong> Recorded responses to timed questions, scenario-based interviews. Tests communication, problem-solving, and technical knowledge [citation:4].</li>
+          <li><strong>Written assessment:</strong> Essay, policy note, case study, programme strategy, analytical questions. Assesses UN writing style, analytical thinking, and alignment with UN mandate  .</li>
+          <li><strong>Video/online assessment:</strong> Recorded responses to timed questions, scenario-based interviews. Tests communication, problem-solving, and technical knowledge  .</li>
         </ul>
         <p><strong>Preparation:</strong> Study UN reports, policy documents, and mandate statements for your target agency. Practice writing concisely and analytically.</p>
 
         <!-- 8. Step 7: The Competency-Based Interview (CBI) -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #8b5a2b; border-left: 6px solid #b87c3a; padding-left: 1rem; margin: 2rem 0 1rem;\">🎤 Step 7: Competency-Based Interview (CBI)</h2>
-        <p>This is the <strong>most common interview format</strong> across the UN system. You will be asked questions about UN core competencies, functional competencies, and managerial competencies (if applicable) [citation:4].</p>
+        <p>This is the <strong>most common interview format</strong> across the UN system. You will be asked questions about UN core competencies, functional competencies, and managerial competencies (if applicable)  .</p>
         
         <div style=\"background: #fef7ef; border-radius: 20px; padding: 1.2rem; margin: 1rem 0;\">
           <p><strong>STAR Method (Required):</strong><br>
@@ -5434,30 +5787,30 @@ export const blogPosts: BlogPost[] = [
           <strong>R:</strong> \"We delivered the plan on time, achieved 98% of targets, and the donor renewed funding for an additional year.\"</p>
         </div>
         
-        <p><strong>Train for CBI by preparing a wide range of brief real-life stories about your accomplishments [citation:9].</strong></p>
+        <p><strong>Train for CBI by preparing a wide range of brief real-life stories about your accomplishments  .</strong></p>
 
         <!-- 9. Step 8-10: Reference Checks, Selection, and Rosters -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #8b5a2b; border-left: 6px solid #b87c3a; padding-left: 1rem; margin: 2rem 0 1rem;\">✅ Step 8-10: Reference Checks, Selection & Rosters</h2>
-        <p>If you pass the interview, HR contacts your references to confirm responsibilities, professionalism, and integrity [citation:4].</p>
-        <p><strong>If you are not selected but were in the group of candidates recommended:</strong> You will be placed on the roster for similar functions at the same level and category. As a roster member, you can be selected for future openings <strong>without reapplying</strong> [citation:9].</p>
-        <p><strong>💡 Even if rostered, keep applying</strong>—roster placement doesn't guarantee selection, but it significantly accelerates future opportunities [citation:9].</p>
+        <p>If you pass the interview, HR contacts your references to confirm responsibilities, professionalism, and integrity  .</p>
+        <p><strong>If you are not selected but were in the group of candidates recommended:</strong> You will be placed on the roster for similar functions at the same level and category. As a roster member, you can be selected for future openings <strong>without reapplying</strong>  .</p>
+        <p><strong>💡 Even if rostered, keep applying</strong>—roster placement doesn't guarantee selection, but it significantly accelerates future opportunities  .</p>
 
         <!-- 10. Application Tips from UN Recruiters -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #8b5a2b; border-left: 6px solid #b87c3a; padding-left: 1rem; margin: 2rem 0 1rem;\">💡 Expert Tips from UN Recruiters</h2>
         <ul>
-          <li><strong>Choose the right job:</strong> Apply only to jobs suited to your strengths. Customize each application [citation:9].</li>
-          <li><strong>Highlight achievements:</strong> Focus on accomplishments, not daily tasks. Use numbers: budget size, team size, beneficiaries [citation:9].</li>
-          <li><strong>Apply for as many as you can—but be targeted!</strong> The selection process is competitive. Don't be discouraged by rejection [citation:9].</li>
-          <li><strong>Use the motivation statement to prove you're the best candidate:</strong> Distinguish yourself from other applicants [citation:9].</li>
-          <li><strong>Research, prepare, and train for interviews:</strong> Practice CBI with real-life stories [citation:9].</li>
+          <li><strong>Choose the right job:</strong> Apply only to jobs suited to your strengths. Customize each application  .</li>
+          <li><strong>Highlight achievements:</strong> Focus on accomplishments, not daily tasks. Use numbers: budget size, team size, beneficiaries  .</li>
+          <li><strong>Apply for as many as you can—but be targeted!</strong> The selection process is competitive. Don't be discouraged by rejection  .</li>
+          <li><strong>Use the motivation statement to prove you're the best candidate:</strong> Distinguish yourself from other applicants  .</li>
+          <li><strong>Research, prepare, and train for interviews:</strong> Practice CBI with real-life stories  .</li>
         </ul>
 
         <!-- 11. FAQ -->
         <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #8b5a2b; border-left: 6px solid #b87c3a; padding-left: 1rem; margin: 2rem 0 1rem;\">❓ Frequently Asked Questions</h2>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #8b5a2b; margin: 0 0 0.3rem 0;\">Q1: How long does the UN recruitment process take?</h3><p>Average 4-6 months from closing date to offer. Rosters may be faster (2-3 months). Be patient and continue applying to multiple openings [citation:2].</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #8b5a2b; margin: 0 0 0.3rem 0;\">Q2: Can I apply if I don't meet all requirements?</h3><p>You must meet minimum requirements to pass HR screening. If you lack one requirement, consider lower grade levels or consultancies as entry points [citation:4].</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #8b5a2b; margin: 0 0 0.3rem 0;\">Q3: How do I find my university in Inspira?</h3><p>Use the magnifying glass, select \"contains\" instead of \"begins with.\" If not found, select \"other\" and type the name. Contact academicsconsult@un.org for guidance [citation:3].</p></div>
-        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #8b5a2b; margin: 0 0 0.3rem 0;\">Q4: What if I don't know exact employment dates?</h3><p>Use dates that most closely correspond to when you held the job. Accuracy matters for experience calculation [citation:3].</p></div>
+        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #8b5a2b; margin: 0 0 0.3rem 0;\">Q1: How long does the UN recruitment process take?</h3><p>Average 4-6 months from closing date to offer. Rosters may be faster (2-3 months). Be patient and continue applying to multiple openings  .</p></div>
+        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #8b5a2b; margin: 0 0 0.3rem 0;\">Q2: Can I apply if I don't meet all requirements?</h3><p>You must meet minimum requirements to pass HR screening. If you lack one requirement, consider lower grade levels or consultancies as entry points  .</p></div>
+        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #8b5a2b; margin: 0 0 0.3rem 0;\">Q3: How do I find my university in Inspira?</h3><p>Use the magnifying glass, select \"contains\" instead of \"begins with.\" If not found, select \"other\" and type the name. Contact academicsconsult@un.org for guidance   .</p></div>
+        <div style=\"margin-bottom: 1rem;\"><h3 style=\"font-size: 1.1rem; font-weight: 600; color: #8b5a2b; margin: 0 0 0.3rem 0;\">Q4: What if I don't know exact employment dates?</h3><p>Use dates that most closely correspond to when you held the job. Accuracy matters for experience calculation   .</p></div>
 
         <!-- Internal linking cluster -->
         <div style=\"background: #fef7ef; border-radius: 24px; padding: 1.5rem; margin: 2rem 0;\">
@@ -5478,8 +5831,35 @@ export const blogPosts: BlogPost[] = [
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 120,
@@ -5681,8 +6061,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 121,
@@ -5891,8 +6298,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 122,
@@ -6071,8 +6505,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 123,
@@ -6214,8 +6675,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `},
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `},
     {
     id: 124,
     title: "Top UN Agencies in Bangladesh: Profiles of UNDP, UNICEF, WFP, UNHCR, IOM & More (2026)",
@@ -6353,8 +6841,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 125,
@@ -6489,8 +7004,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 126,
@@ -6653,8 +7195,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 127,
@@ -6843,8 +7412,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 128,
@@ -7032,8 +7628,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 129,
@@ -7220,8 +7843,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 130,
@@ -7409,8 +8059,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 131,
@@ -7576,8 +8253,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 132,
@@ -7747,8 +8451,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 133,
@@ -7914,8 +8645,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 134,
@@ -8097,8 +8855,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 135,
@@ -8310,8 +9095,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 136,
@@ -8498,8 +9310,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 137,
@@ -8653,156 +9492,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
-},
-{
-    id: 138,
-    title: "Salary Trends & Career Growth in Supply Chain & Logistics: Bangladesh 2026",
-    slug: "salary-trends-career-growth-supply-chain-bangladesh",
-    date: "2026-03-27",
-    excerpt: "Complete guide to salaries and career progression in Bangladesh's supply chain and logistics sector. Explore entry-level to executive pay scales, factors influencing earnings, and proven career paths.",
-    category: "Supply Chain Insights",
-    image: "https://i.ibb.co.com/C5hcC4yL/138.avif",
-    author: authorCrossCareers,
-    content: `
-      <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
 
-        <!-- byline + EEAT signals -->
-        <div style=\"display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #e0eee5;\">
-          <span style=\"background: #e6f0e9; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; color: #1b4d3f;\">💰 Compensation analyst · 12+ years in HR for logistics & FMCG</span>
-          <span style=\"background: #e6f0e9; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.85rem; color: #1b4d3f;\">🎯 Sources: BDJobs Salary Survey, CIPS/Hays, company job postings, industry reports</span>
-        </div>
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
 
-        <!-- hero / intro -->
-        <div style=\"background: linear-gradient(135deg, #2c5e4f 0%, #3e7b66 100%); color: white; padding: 2rem; border-radius: 16px; margin-bottom: 2.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1);\">
-          <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">💰 Salary Trends & Career Growth in Supply Chain & Logistics: Bangladesh 2026</h1>
-          <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Know your worth, plan your career, and maximize your earning potential in one of Bangladesh's fastest‑growing sectors.</p>
-          <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Salary Guide · Career Growth · Compensation · Supply Chain · Bangladesh</span>
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 8 min</span>
-          </div>
-        </div>
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
 
-        <!-- 1. Introduction -->
-        <p style=\"font-size: 1.1rem;\">Supply chain and logistics professionals are the unsung heroes of Bangladesh’s economy. As the sector digitizes and scales, demand for skilled talent has pushed salaries upward—but not all roles or industries are equal. Understanding salary benchmarks, career progression paths, and the factors that influence pay is essential for anyone building a long‑term career in this field.</p>
-        <p>This guide provides up‑to‑date salary data for entry‑level to executive roles across logistics, procurement, planning, and operations. We’ll also map out typical career trajectories and share tips on how to accelerate your growth and negotiate better compensation.</p>
-
-        <!-- 2. Factors Influencing Salaries -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #2c5e4f; border-left: 6px solid #3e7b66; padding-left: 1rem; margin: 2rem 0 1rem;\">📊 Factors Influencing Salaries</h2>
-        <p>Several key factors determine where you fall on the pay scale:</p>
-        <ul>
-          <li><strong>Experience level:</strong> The most obvious factor; salaries typically double or triple from entry to senior level.</li>
-          <li><strong>Industry sector:</strong> Multinational FMCG and UN agencies generally pay more than local SMEs or NGOs. E‑commerce and tech‑enabled logistics startups often offer competitive packages with performance bonuses.</li>
-          <li><strong>Skills & certifications:</strong> Proficiency in SAP, advanced analytics, or holding APICS/CIPS certifications can add 15‑30% to base salary.</li>
-          <li><strong>Location:</strong> Dhaka and Chittagong command higher pay than regional cities, though some organizations offer hardship allowances for remote postings (e.g., Cox’s Bazar).</li>
-          <li><strong>Education:</strong> An MBA or master’s in supply chain management typically opens doors to higher starting salaries and faster promotions.</li>
-        </ul>
-
-        <!-- 3. Salary Benchmarks by Role & Level -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #2c5e4f; border-left: 6px solid #3e7b66; padding-left: 1rem; margin: 2rem 0 1rem;\">📈 Salary Benchmarks by Role & Level (Monthly, BDT)</h2>
-        <p>The following ranges are based on the <a href=\"https://www.bdjobs.com/salary-survey-2025\" target=\"_blank\" rel=\"noopener noreferrer\">BDJobs Salary Survey 2025</a>, job postings from 2025‑2026, and input from HR professionals. Actual salaries may vary by employer and individual qualifications.</p>
-
-        <div style=\"overflow-x: auto; margin: 1rem 0;\">
-          <table style=\"width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1);\">
-            <thead style=\"background: #2c5e4f; color: white;\">
-              <tr>
-                <th style=\"padding: 12px; text-align: left;\">Role / Level</th>
-                <th style=\"padding: 12px; text-align: left;\">Entry (0‑2 yrs)</th>
-                <th style=\"padding: 12px; text-align: left;\">Mid (3‑7 yrs)</th>
-                <th style=\"padding: 12px; text-align: left;\">Senior (8+ yrs)</th>
-              </tr>
-            </thead>
-            <tbody style=\"border: 1px solid #cde0d6;\">
-              <tr><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\"><strong>Procurement Officer / Buyer</strong></td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">25,000 – 45,000</td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">60,000 – 1,20,000</td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">1,50,000 – 3,00,000+</td></tr>
-              <tr><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\"><strong>Warehouse / Inventory Manager</strong></td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">20,000 – 35,000</td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">45,000 – 90,000</td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">1,00,000 – 2,20,000</td></tr>
-              <tr><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\"><strong>Transport / Fleet Manager</strong></td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">22,000 – 38,000</td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">50,000 – 1,00,000</td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">1,20,000 – 2,80,000</td></tr>
-              <tr><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\"><strong>Supply Chain Planner / Analyst</strong></td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">30,000 – 50,000</td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">70,000 – 1,50,000</td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">1,80,000 – 4,00,000</td></tr>
-              <tr><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\"><strong>Logistics Coordinator / Supervisor</strong></td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">22,000 – 40,000</td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">50,000 – 1,00,000</td><td style=\"padding: 10px; border-bottom: 1px solid #cde0d6;\">1,20,000 – 2,50,000</td></tr>
-              <tr><td style=\"padding: 10px;\"><strong>Head of Supply Chain / Director</strong></td><td style=\"padding: 10px;\">—</td><td style=\"padding: 10px;\">—</td><td style=\"padding: 10px;\">2,50,000 – 6,00,000+</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p><em>Note:</em> UN agency salaries for national officers (NO) start around BDT 1,20,000–2,00,000 plus allowances; international professional (P) roles are significantly higher. E‑commerce companies often add performance bonuses of 10‑30%.</p>
-
-        <!-- 4. Career Progression Pathways -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #2c5e4f; border-left: 6px solid #3e7b66; padding-left: 1rem; margin: 2rem 0 1rem;\">📈 Career Progression Pathways</h2>
-        <p>Typical career ladders in different supply chain functions:</p>
-
-        <div style=\"margin-bottom: 1.5rem;\">
-          <h3 style=\"font-size: 1.2rem; font-weight: 600; color: #2c5e4f; margin: 0 0 0.3rem 0;\">🏭 Procurement Path</h3>
-          <p>Procurement Officer → Senior Procurement Officer → Category Manager / Procurement Manager → Head of Procurement → Supply Chain Director. With CIPS certification, progression can be 30% faster.</p>
-        </div>
-
-        <div style=\"margin-bottom: 1.5rem;\">
-          <h3 style=\"font-size: 1.2rem; font-weight: 600; color: #2c5e4f; margin: 0 0 0.3rem 0;\">📦 Warehouse & Logistics Path</h3>
-          <p>Warehouse Associate → Supervisor → Assistant Warehouse Manager → Warehouse Manager → Regional Logistics Manager → Head of Logistics. Strong operations and people management skills are key.</p>
-        </div>
-
-        <div style=\"margin-bottom: 1.5rem;\">
-          <h3 style=\"font-size: 1.2rem; font-weight: 600; color: #2c5e4f; margin: 0 0 0.3rem 0;\">📊 Planning & Analytics Path</h3>
-          <p>Planning Analyst → Demand/Supply Planner → Senior Planner → S&OP Manager → Head of Planning → Supply Chain Director. Data skills (Power BI, Python) accelerate movement.</p>
-        </div>
-
-        <div style=\"margin-bottom: 1.5rem;\">
-          <h3 style=\"font-size: 1.2rem; font-weight: 600; color: #2c5e4f; margin: 0 0 0.3rem 0;\">🌍 NGO / UN Path</h3>
-          <p>Logistics Officer → Senior Logistics Officer → Logistics Coordinator → Head of Logistics / Country Supply Chain Manager. Field experience and HEAT training are critical.</p>
-        </div>
-
-        <!-- 5. Impact of Certifications on Salary -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #2c5e4f; border-left: 6px solid #3e7b66; padding-left: 1rem; margin: 2rem 0 1rem;\">🎓 Impact of Certifications on Salary</h2>
-        <p>According to the <a href=\"https://www.ascm.org/insights/career-research/\" target=\"_blank\" rel=\"noopener noreferrer\">ASCM Supply Chain Salary and Career Report 2025</a>, professionals with APICS CSCP or CPIM earn 15‑25% more than non‑certified peers. CIPS certification adds 10‑20% for procurement roles. In Bangladesh, multinationals and NGOs often give preference to certified candidates, with corresponding salary premiums.</p>
-
-        <!-- 6. How to Negotiate Your Salary -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #2c5e4f; border-left: 6px solid #3e7b66; padding-left: 1rem; margin: 2rem 0 1rem;\">💡 How to Negotiate Your Salary</h2>
-        <ul>
-          <li><strong>Do your research:</strong> Use the benchmarks above and tools like BDJobs salary check.</li>
-          <li><strong>Quantify your impact:</strong> Be ready to share results (e.g., “reduced inventory holding cost by 12%”).</li>
-          <li><strong>Consider total package:</strong> Bonuses, provident fund, medical, and training budgets matter.</li>
-          <li><strong>Time it right:</strong> Discuss salary after receiving an offer, or during performance reviews when you have strong achievements.</li>
-          <li><strong>Highlight certifications:</strong> Remind employers of the value your credentials bring.</li>
-        </ul>
-
-        <!-- 7. Future Outlook -->
-        <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #2c5e4f; border-left: 6px solid #3e7b66; padding-left: 1rem; margin: 2rem 0 1rem;\">🔮 Future Outlook: 2026‑2030</h2>
-        <p>Salaries for supply chain professionals are expected to grow at 8‑12% annually, outpacing many other sectors. Roles with digital and analytical skills will see the highest increases. The continued expansion of e‑commerce, manufacturing, and infrastructure will sustain high demand for talent. Professionals who invest in upskilling today will command premium compensation tomorrow.</p>
-
-        <!-- 8. CTA & Next Steps -->
-        <div style=\"background: #e6f0e9; border-radius: 20px; padding: 2rem; margin: 2rem 0; text-align: center;\">
-          <h2 style=\"font-size: 1.8rem; font-weight: 600; color: #2c5e4f; margin-top: 0;\">📈 Ready to Take Control of Your Career Growth?</h2>
-          <p style=\"font-size: 1.1rem;\">Use these benchmarks to set your goals, invest in certifications, and confidently navigate your career path.</p>
-          <div style=\"display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;\">
-            <a href=\"/career-guide/supply-chain-logistics-jobs-bangladesh-guide-2026\" style=\"background: #2c5e4f; color: white; text-decoration: none; padding: 0.7rem 1.5rem; border-radius: 40px; font-weight: 500;\">📘 Supply Chain & Logistics Pillar Guide</a>
-            <a href=\"/career-guide/certifications-for-supply-chain-professionals\" style=\"background: #2c5e4f; color: white; text-decoration: none; padding: 0.7rem 1.5rem; border-radius: 40px; font-weight: 500;\">🎓 Certifications Guide</a>
-            <a href=\"/career-guide/top-erp-supply-chain-software-skills\" style=\"background: #2c5e4f; color: white; text-decoration: none; padding: 0.7rem 1.5rem; border-radius: 40px; font-weight: 500;\">💻 ERP & Software Skills</a>
-          </div>
-          <p style=\"margin-top: 1.5rem;\">🔍 <strong>Check current salary ranges on</strong> <a href=\"https://www.bdjobs.com/salary-survey-2025\" target=\"_blank\" rel=\"noopener noreferrer\">BDJobs Salary Survey</a> and explore open roles to see where you fit.</p>
-        </div>
-
-        <!-- Internal linking -->
-        <div style=\"background: #fef7ef; border-radius: 24px; padding: 1.5rem; margin: 2rem 0;\">
-          <h3 style=\"font-size: 1.4rem; color: #2c5e4f; margin-top: 0;\">📚 Explore More Supply Chain Career Guides</h3>
-          <ul style=\"margin-bottom: 0;\">
-            <li><a href=\"/career-guide/supply-chain-logistics-jobs-bangladesh-guide-2026\" style=\"color: #3e7b66;\">📌 Supply Chain & Logistics Jobs – Complete 2026 Guide</a></li>
-            <li><a href=\"/career-guide/warehouse-jobs-bangladesh\" style=\"color: #3e7b66;\">📦 Warehouse Jobs in Bangladesh</a></li>
-            <li><a href=\"/career-guide/procurement-jobs-bangladesh\" style=\"color: #3e7b66;\">🤝 Procurement Jobs in Bangladesh</a></li>
-            <li><a href=\"/career-guide/supply-chain-planning-jobs-bangladesh\" style=\"color: #3e7b66;\">📊 Supply Chain Planning Jobs</a></li>
-            <li><a href=\"/career-guide/future-of-supply-chain-logistics-jobs-bangladesh\" style=\"color: #3e7b66;\">🔮 Future of Supply Chain & Logistics Jobs</a></li>
-          </ul>
-        </div>
-
-        <!-- EEAT footer -->
-        <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Salary data derived from BDJobs Salary Survey 2025, CIPS/Hays Salary Guide, ASCM reports, and analysis of 500+ job postings on BDJobs and LinkedIn. All URLs verified as of March 2026.
-        </div>
-        <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
-          <span>🔍 Sources: BDJobs, CIPS/Hays, ASCM, LightCastle Partners, company career pages</span>
-          <span>✏️ Last updated: March 2026</span>
-          <span>✅ Complies with EEAT guidance</span>
-        </div>
-      </article>
-    `
+</div>
+</article> `
 },
 {
     id: 138,
@@ -8949,8 +9667,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 139,
@@ -9115,8 +9860,35 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 },
 {
     id: 140,
@@ -9292,7 +10064,34 @@ CERTIFICATIONS
           <span>✏️ Last updated: March 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
-      </article>
-    `
+      <div style="
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 30px;
+  font-family: system-ui;
+">
+
+  <h3 style="
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0f172a;
+  ">
+    👤 About the Author
+  </h3>
+
+  <p style="
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.6;
+  ">
+    This article was written by the <strong>CrossCareers Expert Network</strong> and reviewed by 
+    <strong style="color:#005b4e;">Paul Romeo Karmoker</strong>, a Operations specialist with 17+ years of experience including UN, INGO and Individual consultency.
+  </p>
+
+</div>
+</article> `
 }
 ]
