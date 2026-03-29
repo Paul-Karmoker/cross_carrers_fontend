@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -61,6 +61,7 @@
     "react-webcam": "^7.2.0",
     "recharts": "^2.15.4",
     "rehype-highlight": "^7.0.2",
+    "sharp": "^0.33.5",
     "slick-carousel": "^1.8.1",
     "stripe": "^18.5.0",
     "swiper": "^11.2.10",
@@ -90,10 +91,12 @@
     "rollup-plugin-visualizer": "^7.0.1",
     "tailwindcss": "^3.4.19",
     "typescript": "^5.9.3",
-    "vite": "^6.4.1"
+    "vite": "^6.4.1",
+    "vite-plugin-prerender": "^1.0.8",
+    "vite-plugin-ssg": "0.1.0"
   },
-  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
-  "main": "eslint.config.js",
-  "author": "",
+  "description": "AI-powered career support platform for job seekers in Bangladesh.",
+  "main": "index.html",
+  "author": "CrossCareers",
   "license": "ISC"
 }

@@ -1,79 +1,75 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "node:url";
-import { visualizer } from "rollup-plugin-visualizer"; // added for bundle analysis
+import { visualizer } from "rollup-plugin-visualizer";
+import path from "path";
 
-export default defineConfig({
-  plugins: [
+// Define __dirname for ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default defineConfig(async ({ command }) => {
+  const plugins = [
     react(),
     visualizer({
-      open: true,                 // automatically open the report after build
-      filename: "stats.html",     // output file name
-      gzipSize: true,             // show gzipped sizes (helpful for comparison)
-      brotliSize: true,           // show brotli sizes if you use it
+      open: false, 
+      filename: "stats.html",
+      gzipSize: true,
+      brotliSize: true,
     }),
-  ],
+  ];
 
-  resolve: {
-    alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
-    },
-  },
-
-  optimizeDeps: {
-    include: [
-      "pdfjs-dist",
-      "jspdf",
-      "file-saver",
-      "mammoth",
-      "react-markdown",
-      "rehype-highlight",
-    ],
-    exclude: ["pdfjs-dist/build/pdf.worker"],
-  },
-
-  worker: {
-    format: "es",
-  },
-
-  build: {
-    target: "esnext",
-    cssCodeSplit: true,
-    chunkSizeWarningLimit: 500, // warn if chunks > 500KB
-    sourcemap: false, // disable source maps in production
-    rollupOptions: {
-      output: {
-        // Manual chunks to reduce first-load JS
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            if (id.includes("react") || id.includes("react-dom")) return "react-vendor";
-            if (id.includes("pdfjs-dist") || id.includes("jspdf")) return "pdf";
-            if (id.includes("mammoth") || id.includes("file-saver")) return "docs";
-            if (id.includes("react-markdown") || id.includes("rehype-highlight")) return "markdown";
-            return "vendor"; // everything else from node_modules
+  // Logic: Only load the prerenderer when building for production
+  // This bypasses the 'require is not defined' error in dev mode
+  if (command === 'build') {
+    try {
+      const prerender = (await import('vite-plugin-prerender')).default;
+      plugins.push(
+        prerender({
+          staticDir: path.join(process.cwd(), 'dist'),
+          // Update these routes as CrossCareers grows (e.g., /jobs, /resume-builder)
+          routes: ['/', '/about', '/contact'], 
+          rendererOptions: {
+            maxConcurrentRoutes: 1,
+            renderAfterTime: 1500, // Increased slightly to ensure React 19 finishes rendering
+            headless: true,
           }
-        },
-        chunkFileNames: "assets/js/[name]-[hash].js",
-        entryFileNames: "assets/js/[name]-[hash].js",
-        assetFileNames: ({ name }) => {
-          if (/\.(css)$/.test(name ?? "")) return "assets/css/[name]-[hash][extname]";
-          if (/\.(png|jpe?g|svg|gif|webp)$/.test(name ?? "")) return "assets/images/[name]-[hash][extname]";
-          return "assets/[name]-[hash][extname]";
-        },
+        })
+      );
+    } catch (e) {
+      console.error("Prerender plugin failed to load, skipping SEO snapshot.", e);
+    }
+  }
+
+  return {
+    plugins,
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
       },
     },
-
-    commonjsOptions: {
-      include: [/node_modules/],
+    optimizeDeps: {
+      include: [
+        "react-redux", 
+        "pdfjs-dist",
+        "jspdf",
+        "file-saver",
+        "mammoth",
+        "react-markdown",
+        "rehype-highlight",
+      ],
+      // PDF.worker and Sharp must be excluded to prevent dev server crashes
+      exclude: ["pdfjs-dist/build/pdf.worker", "sharp"],
     },
-
-    // Minify and optimize for production
-    minify: "esbuild",
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
+    build: {
+      target: "esnext",
+      rollupOptions: {
+        external: ['sharp'],
       },
+      commonjsOptions: {
+        exclude: ['sharp']
+      },
+      minify: "esbuild",
     },
-  },
+  };
 });

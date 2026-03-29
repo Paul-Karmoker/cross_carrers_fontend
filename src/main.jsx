@@ -1,57 +1,59 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { ErrorBoundary } from 'react-error-boundary';
-import { Toaster } from 'react-hot-toast';
 import { store } from './store.ts';
 import App from './App.jsx';
-import ErrorFallback from './ErrorFallback.jsx';
 import './index.css';
 
-// Initialize root
-const root = createRoot(document.getElementById('root'));
+// SAFETY CHECK: Only access 'document' if we are in the browser
+if (typeof window !== 'undefined') {
+  const rootElement = document.getElementById('root');
+  
+  if (rootElement) {
+    // Check if the server already provided some HTML (Prerendered)
+    const isPrerendered = rootElement.hasChildNodes();
 
-// Render application
-root.render(
+    const appContent = (
+      <React.StrictMode>
+        <Provider store={store}>
+          <HelmetProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </HelmetProvider>
+        </Provider>
+      </React.StrictMode>
+    );
+
+    if (isPrerendered) {
+      // Hydrate the existing HTML for better performance
+      hydrateRoot(rootElement, appContent);
+    } else {
+      // Standard render for development
+      createRoot(rootElement).render(appContent);
+    }
+
+    // Optional: Tell the prerenderer the page is ready
+    // This matches the 'renderAfterDocumentEvent' if you use it in vite.config
+    document.dispatchEvent(new Event('x-render-complete'));
+  }
+}
+
+/**
+ * THIS IS FOR PRERENDERING:
+ * This function is exported so the build tool can "see" your App
+ * and turn it into static HTML files.
+ */
+export const prerender = () => (
   <React.StrictMode>
     <Provider store={store}>
-      <ErrorBoundary
-        FallbackComponent={ErrorFallback}
-        onReset={() => window.location.reload()}
-      >
+      <HelmetProvider>
         <BrowserRouter>
-          <HelmetProvider>
-            <Toaster
-              position="top-center"
-              toastOptions={{
-                duration: 5000,
-                style: {
-                  background: '#fff',
-                  color: '#1a1a1a',
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-                  padding: '12px 20px',
-                  borderRadius: '8px',
-                },
-                success: {
-                  iconTheme: {
-                    primary: '#10b981',
-                    secondary: '#fff',
-                  },
-                },
-                error: {
-                  iconTheme: {
-                    primary: '#ef4444',
-                    secondary: '#fff',
-                  },
-                },
-              }}
-            />
-            <App />
-          </HelmetProvider>
+          <App />
         </BrowserRouter>
-      </ErrorBoundary>
+      </HelmetProvider>
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );

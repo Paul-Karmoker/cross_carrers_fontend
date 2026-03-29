@@ -21,7 +21,7 @@ const Bdjobs = lazy(() => import("./app/Others/bdjobs"));
 const Intjobs = lazy(() => import("./app/Others/intJobs"));
 const Terms = lazy(() => import("./app/Others/terms"));
 const Privacy = lazy(() => import("./app/Others/privacy"));
-const Legalpoliicy = lazy(() => import("./app/Others/legalpolicy"));
+const Legalpolicy = lazy(() => import("./app/Others/legalpolicy"));
 const Career = lazy(() => import("./app/Others/career"));
 const Signin = lazy(() => import("./app/auth/siginin"));
 const SignUp = lazy(() => import("./app/auth/siginup"));
@@ -59,6 +59,8 @@ const App = memo(() => {
   const location = useLocation();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    
     if (window.gtag) {
       window.gtag("config", "G-EKLRRCRQ9T", {
         page_path: location.pathname,
@@ -71,12 +73,11 @@ const App = memo(() => {
       <Routes>
         {/* ───── PUBLIC ROUTES ───── */}
         <Route path="/" element={<Home />} />
-        <Route path="/training-sites-worldwide" element={<Training />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/referral-program" element={<Earn />} />
         <Route path="/ngo-jobs-bangladesh" element={<Ngo />} />
-        <Route path="/legal-poliicy" element={<Legalpoliicy />} />
+        <Route path="/legal-poliicy" element={<Legalpolicy />} />
         <Route path="/career" element={<Career />} />
         <Route path="/international-ngo-jobs" element={<Ingo />} />
         <Route path="/bangladesh-jobs-sites" element={<Bdjobs />} />
@@ -100,8 +101,9 @@ const App = memo(() => {
         <Route path="/career-guide/:slug" element={<BlogPost />} />
         <Route path="/meet-the-exparts" element={<Expart />} />
         <Route path="/united-nation-jobs-bangladesh" element={<Un />} />
-        <Route path="/embassy-jobs-bangladesh/" element={<Emb />} />
-        <Route path="donor-jobs-bangladesh" element={<Donor />} />
+        <Route path="/embassy-jobs-bangladesh" element={<Emb />} />
+        <Route path="/donor-jobs-bangladesh" element={<Donor />} />
+        <Route path="/training-sites-worldwide" element={<Training />} />
 
         <Route
           path="/dbhome"

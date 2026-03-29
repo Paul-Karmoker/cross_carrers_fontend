@@ -1,4 +1,5 @@
 import { FC, useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import Navbar from "./navbar";
 import Footer from "./footer";
 import Slider from "./slider";
@@ -24,15 +25,26 @@ const Banner: FC = () => {
 
   return (
     <div className="relative bg-gray-50 py-12 px-4 overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+      {/* Background Image Banner - Low Opacity */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/back.avif" 
+          alt="CrossCareers AI Job Portal Background"
+          className="w-full h-full object-cover opacity-20" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 via-transparent to-gray-50/50"></div>
+      </div>
 
-      <div className="relative text-center max-w-4xl mx-auto">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-20 z-10"></div>
+
+      {/* Content Layer */}
+      <div className="relative z-20 text-center max-w-4xl mx-auto">
         <h1 className="text-5xl md:text-7xl font-extrabold text-gray-800 mb-2 mt-2 font-['Playfair_Display_SC'] drop-shadow-lg">
           CrossCareers
         </h1>
 
-        <h2 className="text-lg md:text-xl text-gray-600 mb-4 max-w-2xl mx-auto">
+        <h2 className="text-lg font-bold md:text-xl text-gray-600 mb-4 max-w-2xl mx-auto">
           An AI-powered career hub providing job opportunities, resume building,
           interview preparation, and productivity tools to help job seekers build
           skills and succeed in a competitive market.
@@ -61,6 +73,21 @@ const Banner: FC = () => {
 const Index: FC = () => {
   return (
     <>
+      <Helmet>
+        {/* Optimized 56-character title for Google Search */}
+        <title>AI Resume Builder & Interview Prep BD | CrossCareers</title>
+        
+        {/* Meta Description for SEO Snippet */}
+        <meta 
+          name="description" 
+          content="CrossCareers: Bangladesh's leading AI-powered job portal. Free AI resume building, interview simulations, and job listings for NGOs and international firms." 
+        />
+        
+        {/* Standard SEO Tags */}
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://crosscareers.com/" />
+      </Helmet>
+
       <Navbar />
       <Banner />
       <Slider />

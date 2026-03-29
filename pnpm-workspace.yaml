@@ -5,5 +5,7 @@ onlyBuiltDependencies:
   - es5-ext
   - esbuild
   - protobufjs
+  - puppeteer
+  - sharp
   - uglifyjs-webpack-plugin
   - unrs-resolver
