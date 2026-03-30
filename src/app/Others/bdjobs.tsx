@@ -95,7 +95,7 @@ const BdJobs: FC = () => {
     { id: 2, name: 'SmartJobs', url: 'https://smartjob.portal.gov.bd/', logo: 'https://i.ibb.co.com/FbNfXxrd/my-jobs.png' },
     { id: 3, name: 'nextjobz', url: 'https://nextjobz.com.bd/', logo: 'https://i.ibb.co.com/wrbnrMTg/next-jobs.png' },
     { id: 4, name: 'Teletalk All Jobs', url: 'https://alljobs.teletalk.com.bd/', logo: 'https://i.ibb.co.com/d4Rk8zP2/images.png' },
-    { id: 5, name: 'Jobs.com.bd', url: 'http://www.job.com.bd/', logo: 'http://job.com.bd/images/logo.gif' },
+    { id: 5, name: 'Jobs.com.bd', url: 'http://www.job.com.bd/', logo: 'https://i.ibb.co.com/CKMPh5JQ/images.avif' },
     { id: 6, name: 'Careerjet', url: 'https://www.careerjet.com.bd/', logo: 'https://i.ibb.co/jZrCpSTf/career-Jet.png' },
     { id: 7, name: 'Shomvob', url: 'https://shomvob.com/', logo: 'https://i.ibb.co/B5fwpbKm/shomvob.png' },
     { id: 8, name: 'Bikroy Jobs', url: 'https://bikroy.com/en/ads/bangladesh/jobs', logo: 'https://i.ibb.co/vC8NR6Fp/bikroy.png' },

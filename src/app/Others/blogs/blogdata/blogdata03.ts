@@ -7041,7 +7041,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Your ultimate guide to supply chain and logistics careers in Bangladesh. Explore job types, required skills, salary trends, top employers, and the future of the industry in 2026.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/126.avif",
+    image: "https://i.ibb.co.com/wFD6bkVV/126.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -7232,7 +7232,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Complete guide to warehouse careers in Bangladesh. Learn about warehouse manager, inventory controller, supervisor roles, required skills, certifications, salary trends, and how to advance in 2026.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/127.avif",
+    image: "https://i.ibb.co.com/DHFppW93/127.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -7449,7 +7449,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Complete guide to procurement careers in Bangladesh. Learn about procurement officer, buyer, category manager roles, required skills, CIPS certification, salary trends, and career progression in 2026.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/128.avif",
+    image: "https://i.ibb.co.com/rf2J2hjy/128.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -7665,7 +7665,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Complete guide to transport and fleet management careers in Bangladesh. Learn about transport manager, fleet supervisor, logistics coordinator roles, required skills, technology tools, salary trends, and career progression in 2026.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/129.avif",
+    image: "https://i.ibb.co.com/5xkNR4rk/129.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -7880,7 +7880,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Complete guide to supply chain planning careers in Bangladesh. Learn about supply chain planner, demand planner, supply chain analyst roles, required skills, ERP tools, APICS certification, salary trends, and career progression in 2026.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/130.avif",
+    image: "https://i.ibb.co.com/fYkSJZbx/130.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -8096,7 +8096,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Complete guide to the most in-demand ERP and supply chain software skills in Bangladesh. Learn which tools employers need, how to acquire these skills, and boost your career in logistics and supply chain management.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/131.avif",
+    image: "https://i.ibb.co.com/tPcqssS0/131.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -8290,7 +8290,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Complete guide to the most valuable supply chain certifications in Bangladesh. Learn about APICS CSCP, CIPS, PMP, Lean Six Sigma, and how these credentials can boost your salary and career growth in 2026.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/132.avif",
+    image: "https://i.ibb.co.com/wN8XBYb9/132.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -8488,7 +8488,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Discover how data analytics is revolutionizing logistics in Bangladesh. Learn about key tools (Power BI, Python, SQL), real-world applications, and how to build analytics skills for a future-proof career.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/133.avif",
+    image: "https://i.ibb.co.com/spnM6V4w/133.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -8682,7 +8682,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Discover the leading employers for supply chain and logistics careers in Bangladesh. From multinational FMCGs to NGOs and e-commerce giants, explore verified career pages and hiring insights for 2026.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/134.avif",
+    image: "https://i.ibb.co.com/67y1dz6r/134.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -8892,7 +8892,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Complete guide to humanitarian logistics careers in Bangladesh. Learn about supply chain roles in NGOs, required skills (coordination, security, procurement), salary trends, and how to work with UN agencies, BRAC, WFP and more in 2026.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/135.avif",
+    image: "https://i.ibb.co.com/YBXp0r3y/135.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -9132,7 +9132,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Complete guide to supply chain careers in Bangladesh's booming e-commerce sector. Learn about last-mile delivery, fulfillment center management, inventory planning roles, required skills, and salary trends at Daraz, Chaldal, and more.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/136.avif",
+    image: "https://i.ibb.co.com/wtFk0TK/136.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -9347,7 +9347,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Explore the future of supply chain and logistics careers in Bangladesh. Learn about emerging roles, technology impact (AI, automation), government initiatives, and how to prepare for the next wave of opportunities.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/137.avif",
+    image: "https://i.ibb.co.com/TByy8r0P/137.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -9529,7 +9529,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Complete guide to salaries and career progression in Bangladesh's supply chain and logistics sector. Explore entry-level to executive pay scales, factors influencing earnings, and proven career paths.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/138.avif",
+    image: "https://i.ibb.co.com/rKqQXnNw/138.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -9704,7 +9704,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Discover how AI, robotics, and digital technologies are transforming logistics in Bangladesh. Explore emerging tools, real-world applications, and the skills you need to thrive in the new era of supply chain.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/139.avif",
+    image: "https://i.ibb.co.com/chKD57pB/139.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
@@ -9897,7 +9897,7 @@ CERTIFICATIONS
     date: "2026-03-27",
     excerpt: "Learn how to build resilient supply chains in Bangladesh. Explore risk identification, mitigation strategies, business continuity planning, and the role of digital tools in managing disruptions.",
     category: "Supply Chain Management",
-    image: "https://i.ibb.co.com/C5hcC4yL/140.avif",
+    image: "https://i.ibb.co.com/xSr0XGtZ/140.avif",
     author: authorCrossCareers,
     content: `
       <article style=\"font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; max-width: 900px; margin: 0 auto; color: #1e2f3d; line-height: 1.6; background: #ffffff;\">
