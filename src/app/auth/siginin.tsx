@@ -67,7 +67,7 @@ export default function LoginPage() {
                   className="inline-block mb-6 hover:opacity-80 transition-opacity"
                 >
                   <img
-                    src="https://i.ibb.co.com/JjgzYJB3/navlogo.png"
+                    src="./public/navlogo.png"
                     alt="Cross Careers"
                     className="h-12 object-contain mx-auto"
                   />

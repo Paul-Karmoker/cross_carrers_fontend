@@ -22,7 +22,7 @@ const JobTrainingPortals: FC = () => {
   const nationalJobSites: PortalSite[] = [
     { id: 1, name: "BDJOBS", url: "https://bdjobs.com/", logo: "https://bdjobs.com/images/logo.png", category: "National" },
     { id: 2, name: "Skill Jobs", url: "https://skill.jobs/", logo: "https://i.ibb.co/gbJYgFS1/Skill-jobs.png", category: "National" },
-    { id: 3, name: "Careerjet", url: "https://www.careerjet.com.bd/", logo: "https://i.ibb.co/jZrCpSTf/career-Jet.png", category: "National" },
+    { id: 3, name: "Careerjet", url: "https://www.careerjet.com.bd/", logo: "./public/careerjet.png", category: "National" },
     { id: 4, name: "nextjobz", url: "https://nextjobz.com.bd/", logo: "https://i.ibb.co/wrbnrMTg/next-jobs.png", category: "National" },
     { id: 5, name: "Teletalk", url: "https://alljobs.teletalk.com.bd/", logo: "https://i.ibb.co/d4Rk8zP2/images.png", category: "Government" },
     { id: 6, name: "Jobs.com.bd", url: "http://www.job.com.bd/", logo: "http://job.com.bd/images/logo.gif", category: "National" },
@@ -36,7 +36,7 @@ const JobTrainingPortals: FC = () => {
   ];
 
   const trainingSites: PortalSite[] = [
-    { id: 1, name: "Coursera", url: "https://www.coursera.org/", logo: "https://i.ibb.co/1GjPmFww/course.png", category: "Online Learning" },
+    { id: 1, name: "Coursera", url: "https://www.coursera.org/", logo: "./public/coursera.png", category: "Online Learning" },
     { id: 2, name: "Kaya", url: "https://kayaconnect.org/", logo: "https://i.ibb.co/XZjfX029/Kaya.png", category: "Humanitarian" },
     { id: 3, name: "EdX", url: "https://www.edx.org/", logo: "./public/edx.png", category: "Professional" },
     { id: 4, name: "Udemy", url: "https://www.udemy.com/", logo: "./public/udemy.png", category: "Online Learning" }, // safer fallback
