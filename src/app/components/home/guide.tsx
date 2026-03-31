@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { blogPosts, BlogPost } from '../../Others/blogs/blogdata/blogdata01';
+import { blogPosts,} from '../../Others/blogs/blogdata/blogdata01';
 
 const formatDateForSEO = (dateString: string) => {
   const date = new Date(dateString);

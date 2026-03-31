@@ -1,13 +1,15 @@
 /* eslint-disable react/display-name */
-import { memo, lazy, Suspense } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { memo, Suspense, lazy, useEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import ProtectedRoute from "./utils/ProtectedRoute";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import PageLoader from "./app/components/utility/PageLoader";
 
+/* ───────── LAZY LOAD HOME SUBCOMPONENTS ───────── */
+const Home = lazy(() => import("./app/components/home/index"));
+const Banner = lazy(() => import("./app/components/home/banner"));
+const Slider = lazy(() => import("./app/components/home/slider"));
+
 /* ───────── PUBLIC PAGES ───────── */
-import Home from "./app/components/home/index";
 const Cover = lazy(() => import("./app/components/cover/index"));
 const PPTHOME = lazy(() => import("./app/components/ppt"));
 const DOCHOME = lazy(() => import("./app/components/Docx"));
@@ -30,9 +32,9 @@ const ResetPassword = lazy(() => import("./app/auth/resetpassword"));
 const OtpVarify = lazy(() => import("./app/auth/VerifyOtp"));
 const Logout = lazy(() => import("./app/auth/logout"));
 const BkashSuccess = lazy(() => import("./app/components/utility/BkashSuccess"));
-const BlogList = lazy(() => import ("./app/Others/blogs/bloglist"));
-const BlogPost = lazy(() => import ("./app/Others/blogs/blogpost"));
-const Expart = lazy(() => import ("./app/Others/experts"))
+const BlogList = lazy(() => import("./app/Others/blogs/bloglist"));
+const BlogPost = lazy(() => import("./app/Others/blogs/blogpost"));
+const Expart = lazy(() => import("./app/Others/experts"));
 
 /* ───────── TOOLS ───────── */
 const ResumeMakerHome = lazy(() => import("./app/components/ResumeMaker/Dashboard"));
@@ -55,24 +57,37 @@ const Help = lazy(() => import("./app/components/utility/Help"));
 const Setting = lazy(() => import("./app/components/utility/Setting"));
 const Release = lazy(() => import("./app/components/utility/Release"));
 
+
 const App = memo(() => {
   const location = useLocation();
 
   useEffect(() => {
+    // Scroll to top on route change
     window.scrollTo(0, 0);
-    
-    if (window.gtag) {
+
+    // Google Analytics page view
+    if (typeof window !== "undefined" && window.gtag) {
       window.gtag("config", "G-EKLRRCRQ9T", {
         page_path: location.pathname,
       });
     }
-  }, [location.pathname]);
+  }, [location.pathname]); // ✅ Correct dependency
 
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
         {/* ───── PUBLIC ROUTES ───── */}
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <Home>
+                <Suspense fallback={<div>Loading Banner...</div>}><Banner /></Suspense>
+                <Suspense fallback={<div>Loading Slider...</div>}><Slider /></Suspense>
+              </Home>
+            </Suspense>
+          }
+        />
         <Route path="/about-us" element={<About />} />
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/referral-program" element={<Earn />} />
@@ -105,97 +120,20 @@ const App = memo(() => {
         <Route path="/donor-jobs-bangladesh" element={<Donor />} />
         <Route path="/training-sites-worldwide" element={<Training />} />
 
-        <Route
-          path="/dbhome"
-          element={
-            <ProtectedRoute>
-              <Dbhome />
-            </ProtectedRoute>
-          }
-        />
+        {/* ───── PROTECTED ROUTES ───── */}
+        <Route path="/dbhome" element={<ProtectedRoute><Dbhome /></ProtectedRoute>} />
+        <Route path="/logout" element={<ProtectedRoute><Logout /></ProtectedRoute>} />
 
-        <Route
-          path="/logout"
-          element={
-            <ProtectedRoute>
-              <Logout />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* ───── FULL ACCESS (TRIAL / PREMIUM) ───── */}
-        <Route
-          path="/resume"
-          element={
-            <ProtectedRoute requireFullAccess>
-              <ResumeMakerHome />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cover"
-          element={
-            <ProtectedRoute requireFullAccess>
-              <Cover />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/ppt"
-          element={
-            <ProtectedRoute requireFullAccess>
-              <PPTHOME />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/doc"
-          element={
-            <ProtectedRoute requireFullAccess>
-              <DOCHOME />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/writtenTest"
-          element={
-            <ProtectedRoute requireFullAccess>
-              <WrittenTestHome />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/matchhome"
-          element={
-            <ProtectedRoute requireFullAccess>
-              <Matchhome />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/qahome"
-          element={
-            <ProtectedRoute requireFullAccess>
-              <Qahome />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/InterviewSimulator"
-          element={
-            <ProtectedRoute requireFullAccess>
-              <Insm />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/pricing"
-          element={
-            <ProtectedRoute requireFullAccess>
-              <UpgradePlan />
-            </ProtectedRoute>
-          }
-        />
+        {/* ───── FULL ACCESS / PREMIUM ───── */}
+        <Route path="/resume" element={<ProtectedRoute requireFullAccess><ResumeMakerHome /></ProtectedRoute>} />
+        <Route path="/cover" element={<ProtectedRoute requireFullAccess><Cover /></ProtectedRoute>} />
+        <Route path="/ppt" element={<ProtectedRoute requireFullAccess><PPTHOME /></ProtectedRoute>} />
+        <Route path="/doc" element={<ProtectedRoute requireFullAccess><DOCHOME /></ProtectedRoute>} />
+        <Route path="/writtenTest" element={<ProtectedRoute requireFullAccess><WrittenTestHome /></ProtectedRoute>} />
+        <Route path="/matchhome" element={<ProtectedRoute requireFullAccess><Matchhome /></ProtectedRoute>} />
+        <Route path="/qahome" element={<ProtectedRoute requireFullAccess><Qahome /></ProtectedRoute>} />
+        <Route path="/InterviewSimulator" element={<ProtectedRoute requireFullAccess><Insm /></ProtectedRoute>} />
+        <Route path="/pricing" element={<ProtectedRoute requireFullAccess><UpgradePlan /></ProtectedRoute>} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

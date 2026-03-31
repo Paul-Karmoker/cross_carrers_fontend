@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { fileURLToPath, URL } from "node:url";
+import { fileURLToPath } from "node:url";
 import { visualizer } from "rollup-plugin-visualizer";
 import path from "path";
 
@@ -8,32 +8,30 @@ import path from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export default defineConfig(async ({ command }) => {
-  const plugins = [
+export default defineConfig(({ command }) => {
+  const plugins: any[] = [
     react(),
     visualizer({
-      open: false, 
+      open: false,
       filename: "stats.html",
       gzipSize: true,
       brotliSize: true,
     }),
   ];
 
-  // Logic: Only load the prerenderer when building for production
-  // This bypasses the 'require is not defined' error in dev mode
-  if (command === 'build') {
+  // Prerender plugin only for production build
+  if (command === "build") {
     try {
-      const prerender = (await import('vite-plugin-prerender')).default;
+      const prerenderPlugin = require("vite-plugin-prerender").default;
       plugins.push(
-        prerender({
-          staticDir: path.join(process.cwd(), 'dist'),
-          // Update these routes as CrossCareers grows (e.g., /jobs, /resume-builder)
-          routes: ['/', '/about', '/contact'], 
+        prerenderPlugin({
+          staticDir: path.join(process.cwd(), "dist"),
+          routes: ["/", "/about", "/contact"], // add more routes as needed
           rendererOptions: {
             maxConcurrentRoutes: 1,
-            renderAfterTime: 1500, // Increased slightly to ensure React 19 finishes rendering
+            renderAfterTime: 1500,
             headless: true,
-          }
+          },
         })
       );
     } catch (e) {
@@ -50,7 +48,7 @@ export default defineConfig(async ({ command }) => {
     },
     optimizeDeps: {
       include: [
-        "react-redux", 
+        "react-redux",
         "pdfjs-dist",
         "jspdf",
         "file-saver",
@@ -58,18 +56,30 @@ export default defineConfig(async ({ command }) => {
         "react-markdown",
         "rehype-highlight",
       ],
-      // PDF.worker and Sharp must be excluded to prevent dev server crashes
       exclude: ["pdfjs-dist/build/pdf.worker", "sharp"],
     },
     build: {
       target: "esnext",
+      minify: "esbuild",
+      cssCodeSplit: true,
       rollupOptions: {
-        external: ['sharp'],
+        external: ["sharp"],
+        output: {
+          manualChunks(id: string) {
+            if (id.includes("node_modules")) {
+              if (id.includes("react")) return "vendor-react";
+              if (id.includes("react-dom")) return "vendor-react-dom";
+              if (id.includes("pdfjs-dist")) return "vendor-pdfjs";
+              if (id.includes("jspdf")) return "vendor-jspdf";
+              if (id.includes("react-markdown") || id.includes("rehype")) return "vendor-md";
+              return "vendor";
+            }
+          },
+        },
       },
       commonjsOptions: {
-        exclude: ['sharp']
+        exclude: ["sharp"],
       },
-      minify: "esbuild",
     },
   };
 });
