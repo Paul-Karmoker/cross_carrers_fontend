@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- DNS Prefetch & Preconnect for faster external resources -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
@@ -12,7 +13,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="/logo/favcon.png" />
+
+  <!-- SEO Metadata -->
   <title>AI Resume Build, Interview Prep & Jobs | CrossCareers</title>
   <meta name="description" content="Explore verified NGO, international and remote jobs. Build ATS-friendly resumes, generate cover letters, and prepare for interviews with CrossCareers." />
   <meta name="keywords" content="resume builder Bangladesh, NGO jobs, international jobs, ATS resume, interview preparation" />
@@ -20,18 +24,20 @@
   <link rel="canonical" href="https://crosscareers.com/" />
   <meta name="robots" content="index, follow" />
 
+  <!-- Open Graph -->
   <meta property="og:title" content="CrossCareers | Jobs, Resume Builder & Career Tools" />
   <meta property="og:description" content="Find jobs, build resumes, and prepare for interviews." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://crosscareers.com/" />
   <meta property="og:image" content="https://crosscareers.com/logo/favcon.png" />
 
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
-
+  <!-- Preload & Lazy-load Google Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fredoka:wght@300..700&family=Poppins:wght@400;500;600&display=swap" as="style" onload="this.rel='stylesheet'">
   <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fredoka:wght@300..700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   </noscript>
 
+  <!-- Critical CSS for sticky navbar -->
   <style>
     nav, header, .navbar {
       z-index: 99999 !important;
@@ -43,7 +49,16 @@
       z-index: 10;
     }
   </style>
+</head>
 
+<body>
+  <!-- React App Root -->
+  <div id="root"></div>
+
+  <!-- Main JS (Vite build output) -->
+  <script type="module" defer src="/src/main.jsx"></script>
+
+  <!-- Google Analytics (load after app to improve FCP) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EKLRRCRQ9T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -52,11 +67,7 @@
     gtag('config', 'G-EKLRRCRQ9T');
   </script>
 
+  <!-- Google Ads (async, non-blocking) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3909224797816763" crossorigin="anonymous"></script>
-</head>
-
-<body>
-  <div id="root"></div>
-  <script prerender type="module" src="/src/main.jsx"></script>
 </body>
 </html>

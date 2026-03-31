@@ -4,12 +4,13 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import PageLoader from "./app/components/utility/PageLoader";
 
-/* ───────── LAZY LOAD HOME SUBCOMPONENTS ───────── */
+/* ───────── LAZY LOAD COMPONENTS ───────── */
+// Home & Subcomponents
 const Home = lazy(() => import("./app/components/home/index"));
 const Banner = lazy(() => import("./app/components/home/banner"));
 const Slider = lazy(() => import("./app/components/home/slider"));
 
-/* ───────── PUBLIC PAGES ───────── */
+// Public Pages
 const Cover = lazy(() => import("./app/components/cover/index"));
 const PPTHOME = lazy(() => import("./app/components/ppt"));
 const DOCHOME = lazy(() => import("./app/components/Docx"));
@@ -36,7 +37,7 @@ const BlogList = lazy(() => import("./app/Others/blogs/bloglist"));
 const BlogPost = lazy(() => import("./app/Others/blogs/blogpost"));
 const Expart = lazy(() => import("./app/Others/experts"));
 
-/* ───────── TOOLS ───────── */
+// Tools
 const ResumeMakerHome = lazy(() => import("./app/components/ResumeMaker/Dashboard"));
 const ResumeMain = lazy(() => import("./app/components/ResumeMaker/resumeForm"));
 const WrittenTestHome = lazy(() => import("./app/components/WrittenTest/WrittenTest"));
@@ -44,7 +45,7 @@ const Matchhome = lazy(() => import("./app/components/Resumebuild/matchhome"));
 const Qahome = lazy(() => import("./app/components/QA/index"));
 const Insm = lazy(() => import("./app/components/insm/InterviewSimulator"));
 
-/* ───────── OTHERS ───────── */
+// Others
 const RemoteJobs = lazy(() => import("./app/Others/Remote"));
 const Freelancer = lazy(() => import("./app/Others/FreeLance"));
 const Un = lazy(() => import("./app/Others/Un"));
@@ -57,21 +58,19 @@ const Help = lazy(() => import("./app/components/utility/Help"));
 const Setting = lazy(() => import("./app/components/utility/Setting"));
 const Release = lazy(() => import("./app/components/utility/Release"));
 
-
+// ------------------------------------------------------------------
 const App = memo(() => {
   const location = useLocation();
 
   useEffect(() => {
-    // Scroll to top on route change
     window.scrollTo(0, 0);
 
-    // Google Analytics page view
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("config", "G-EKLRRCRQ9T", {
         page_path: location.pathname,
       });
     }
-  }, [location.pathname]); // ✅ Correct dependency
+  }, [location.pathname]);
 
   return (
     <Suspense fallback={<PageLoader />}>
@@ -80,12 +79,10 @@ const App = memo(() => {
         <Route
           path="/"
           element={
-            <Suspense fallback={<PageLoader />}>
-              <Home>
-                <Suspense fallback={<div>Loading Banner...</div>}><Banner /></Suspense>
-                <Suspense fallback={<div>Loading Slider...</div>}><Slider /></Suspense>
-              </Home>
-            </Suspense>
+            <Home>
+              <Suspense fallback={<div>Loading Banner...</div>}><Banner /></Suspense>
+              <Suspense fallback={<div>Loading Slider...</div>}><Slider /></Suspense>
+            </Home>
           }
         />
         <Route path="/about-us" element={<About />} />
@@ -135,6 +132,7 @@ const App = memo(() => {
         <Route path="/InterviewSimulator" element={<ProtectedRoute requireFullAccess><Insm /></ProtectedRoute>} />
         <Route path="/pricing" element={<ProtectedRoute requireFullAccess><UpgradePlan /></ProtectedRoute>} />
 
+        {/* ───── CATCH ALL ───── */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Suspense>
