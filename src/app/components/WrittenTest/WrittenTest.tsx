@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../home/navbar";
 import Footer from "../home/footer";
 import {
@@ -34,13 +34,14 @@ const WrittenTest: React.FC = () => {
 
   // --- Timer State ---
   const [localTime, setLocalTime] = useState<number>(0);
+  const intervalRef = useRef<number | undefined>(undefined);
 
   const [form, setForm] = useState({
     jobTitle: "",
     experienceYears: "",
     skills: "",
-    jobDescription: "", // User can now input JD
-    durationMinutes: "20", // User can now set time
+    jobDescription: "",
+    durationMinutes: "20",
   });
 
   /* ------------------ API HOOKS ------------------ */
@@ -53,7 +54,6 @@ const WrittenTest: React.FC = () => {
       skip: step !== "EXAM" || !sessionId,
     });
 
-  // Sync with server every 10 seconds for accuracy
   const { data: serverTimeData } = useGetTimeLeftQuery(sessionId!, {
     skip: step !== "EXAM" || !sessionId,
     pollingInterval: 10000,
@@ -68,34 +68,46 @@ const WrittenTest: React.FC = () => {
 
   /* ------------------ TIMER LOGIC ------------------ */
 
-  // 1. Initialize local timer when exam starts
+  // Initialize local timer when exam starts
   useEffect(() => {
     if (step === "EXAM" && localTime === 0) {
       setLocalTime(Number(form.durationMinutes) * 60);
     }
-  }, [step]);
+  }, [step, form.durationMinutes, localTime]);
 
-  // 2. Sync local clock if server time drifts
+  // Sync local clock if server time drifts
   useEffect(() => {
     if (serverTimeData?.remainingSeconds !== undefined) {
       setLocalTime(serverTimeData.remainingSeconds);
     }
   }, [serverTimeData]);
 
-  // 3. The 1-second interval ticker
+  // The 1-second interval ticker (only depends on step)
   useEffect(() => {
-    let interval: ReturnType<typeof setInterval>; // Fixed the NodeJS error
-
     if (step === "EXAM" && localTime > 0) {
-      interval = setInterval(() => {
+      intervalRef.current = window.setInterval(() => {
         setLocalTime((prev) => (prev > 0 ? prev - 1 : 0));
       }, 1000);
-    } else if (step === "EXAM" && localTime === 0) {
-      // Logic for when time runs out (optional: auto-submit)
+    } else {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = undefined;
+      }
+    }
+
+    // Auto‑submit when time reaches zero (optional)
+    if (step === "EXAM" && localTime === 0 && intervalRef.current) {
+      // If you want to automatically submit the current answer, uncomment:
+      // if (answer.trim()) handleSubmitAnswer();
       console.log("Time is up!");
     }
 
-    return () => clearInterval(interval);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = undefined;
+      }
+    };
   }, [step, localTime]);
 
   /* ------------------ HANDLERS ------------------ */
@@ -106,12 +118,19 @@ const WrittenTest: React.FC = () => {
   };
 
   const handleInit = async () => {
+    // Validate duration
+    const duration = Number(form.durationMinutes);
+    if (!form.durationMinutes || isNaN(duration) || duration <= 0) {
+      alert("Please enter a valid duration (greater than 0 minutes).");
+      return;
+    }
+
     const payload: InitSessionPayload = {
       jobTitle: form.jobTitle,
       experienceYears: Number(form.experienceYears),
       skills: form.skills.split(",").map((s) => s.trim()),
       jobDescription: form.jobDescription,
-      durationMinutes: Number(form.durationMinutes),
+      durationMinutes: duration,
     };
     const res = await initSession(payload).unwrap();
     setSessionId(res.sessionId);
@@ -209,7 +228,7 @@ const WrittenTest: React.FC = () => {
       <main className="flex-grow py-12 px-4">
         <div className="max-w-4xl mx-auto">
           {step === "FORM" && (
-            <div className="bg-white mt-12  border-[1px] overflow-hidden">
+            <div className="bg-white mt-12 border-[1px] overflow-hidden">
               <div className="p-10 bg-gradient-to-br from-emerald-500 via-teal-500 to-blue-600 text-white">
                 <h1 className="text-3xl font-black">Configure Test</h1>
                 <p className="text-slate-100 mt-2">
@@ -238,6 +257,7 @@ const WrittenTest: React.FC = () => {
                     <input
                       name="durationMinutes"
                       type="number"
+                      min="1"
                       value={form.durationMinutes}
                       onChange={handleChange}
                       className="w-full px-5 py-3 rounded-xl bg-slate-50 border outline-none focus:border-indigo-500"
@@ -298,7 +318,7 @@ const WrittenTest: React.FC = () => {
               </p>
               <button
                 onClick={handleStartExam}
-                className="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-xl flex items-center justify-center gap-3  transition-all"
+                className="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-xl flex items-center justify-center gap-3 transition-all"
               >
                 {startLoading ? "Loading..." : "Start Assessment"}{" "}
                 <ArrowRight size={20} />

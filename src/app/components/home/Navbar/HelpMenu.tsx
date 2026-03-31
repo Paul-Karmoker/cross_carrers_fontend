@@ -24,7 +24,6 @@ export default function HelpMenu() {
             <MenuItem to="/seepricing" icon={<FiTag />}>
               See plans and pricing
             </MenuItem>
-
             <MenuItem to="/terms" icon={<FiFileText />}>
               Terms of service
             </MenuItem>

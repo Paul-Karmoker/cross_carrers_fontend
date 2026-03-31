@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 export default function ResumeTemplate({ resume }) {
-  const defaultProfilePicture = 'https://via.placeholder.com/150'; // Default placeholder image
+  const defaultProfilePicture = './public/150.webp';
 
   return (
     <div className="flex bg-gray-100 min-h-screen text-gray-800">

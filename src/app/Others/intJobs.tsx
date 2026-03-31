@@ -32,7 +32,7 @@ const ITEMS_PER_PAGE = 12;
 const JOB_SITES_DATA: JobSite[] = [
   { id: 1, name: 'Reliefweb', url: 'https://reliefweb.int/jobs', image: 'https://reliefweb.int/themes/custom/common_design_subtheme/img/logos/rw-logo-desktop.svg', category: 'Humanitarian' },
   { id: 2, name: 'Idealist', url: 'https://www.idealist.org/en', image: 'https://www.idealist.org/assets/b8509b56fd9bdacd8b367a86fa5a1481ab19099f/images/logos/logo-idealist.svg', category: 'Nonprofit' },
-  { id: 3, name: 'Impactpool', url: 'https://www.impactpool.org/', image: 'https://i.ibb.co/DHvsmtQq/2.png', category: 'International' },
+  { id: 3, name: 'Impactpool', url: 'https://www.impactpool.org/', image: './public/impactpool.avif', category: 'International' },
   { id: 4, name: 'DEVEX', url: 'https://www.devex.com/jobs/search', image: 'https://i.ibb.co/Kp53TmHW/1.png', category: 'Development' },
   { id: 5, name: 'DevNetJOBS.org', url: 'https://devnetjobs.org/', image: 'https://i.ibb.co/8nyTjyR7/3.png', category: 'Development' },
   { id: 6, name: 'Coordination SUD', url: 'https://www.coordinationsud.org/espace-emploi/', image: 'https://i.ibb.co/GQCDCNV4/4.png', category: 'Humanitarian' },

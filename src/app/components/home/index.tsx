@@ -10,92 +10,107 @@ import { blogPosts } from '../../Others/blogs/blogdata';
 const formatDateForSEO = (dateString: string) => {
   const date = new Date(dateString);
   return {
-    iso: date.toISOString().split('T')[0],
-    display: date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    })
+    iso: date.toISOString().split("T")[0],
+    display: date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
   };
 };
 
-// Related articles logic (used in the SEO guide section)
-const relevantCategories = ['Career Guide', 'AI (Artificial Intelligence)', 'Interview Support', 'Resume / CV','Freelance & Remote'];
+const relevantCategories = [
+  "Career Guide",
+  "AI (Artificial Intelligence)",
+  "Interview Support",
+  "Resume / CV",
+  "Freelance & Remote",
+];
+
 const relatedArticles = blogPosts
-  .filter(post => relevantCategories.includes(post.category))
+  .filter((post) => relevantCategories.includes(post.category))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   .slice(0, 6);
 
-// Banner component with refined animation
 const Banner: FC = () => {
-  const words = ["INTERVIEW", "JOB", "RESUME/CV", "WRITTEN TEST", "DOCS MAKER", "POWERPOINT MAKER"];
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const words = [
+    "INTERVIEW",
+    "JOB",
+    "RESUME/CV",
+    "WRITTEN TEST",
+    "DOCS MAKER",
+    "POWERPOINT MAKER",
+  ];
+
+  const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setFade(false);
       setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % words.length);
+        setIndex((prev) => (prev + 1) % words.length);
         setFade(true);
-      }, 400);
-    }, 2500);
+      }, 250); // slightly faster = smoother
+    }, 2000); // faster cycle improves UX
 
     return () => clearInterval(interval);
-  }, [words.length]);
+  }, []);
 
-  return (
-    <div className="relative bg-gray-50 py-16 px-4 overflow-hidden min-h-[500px] flex items-center justify-center">
-      {/* Background Image Banner - Low Opacity */}
+   return (
+    <section className="relative bg-gray-50 py-16 px-4 overflow-hidden min-h-[500px] flex items-center justify-center">
+      
+      {/* Background Image (ONLY OPTIMIZED) */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="/back.avif" 
+        <img
+          src="/back.avif"
+          srcSet="/back.avif 1x, /back@2x.avif 2x"
+          sizes="100vw"
           alt="CrossCareers AI Job Portal Background"
-          className="w-full h-full object-cover opacity-15" 
+          className="w-full h-full object-cover"
           loading="eager"
+          decoding="async"
+          style={{ opacity: 0.15, willChange: "transform" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-transparent to-gray-50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/90 via-transparent to-gray-50/90"></div>
       </div>
 
-      {/* Background pattern layer */}
+      {/* Pattern (unchanged) */}
       <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-30 z-10"></div>
 
-      {/* Content Layer */}
+      {/* Content (unchanged) */}
       <div className="relative z-20 text-center max-w-5xl mx-auto">
-        <h1 className="text-5xl md:text-8xl font-extrabold text-gray-900 mb-4 font-['Playfair_Display_SC'] tracking-tight drop-shadow-sm">
+        <h1 className="text-5xl md:text-8xl font-extrabold text-gray-900 mb-4">
           CrossCareers
         </h1>
 
-        <p className="text-lg font-medium md:text-xl text-gray-600 mb-6 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-gray-600 mb-6 max-w-3xl mx-auto leading-relaxed">
           An AI-powered career hub providing job opportunities, resume building,
-          interview preparation, and productivity tools to help job seekers 
-          succeed in the competitive Bangladesh market.
+          interview preparation, and productivity tools to help job seekers succeed.
         </p>
 
         <h2 className="text-xl md:text-3xl text-gray-700 mb-10 font-medium">
-          <span>Bangladesh's First AI Career Support for </span>
-          <br className="md:hidden" />
+          Bangladesh's First AI Career Support for{" "}
           <span
-            className={`inline-block min-w-[200px] transition-all duration-500 transform font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent ${
-              fade ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-2"
+            className={`inline-block min-w-[200px] transition-all duration-500 font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent ${
+              fade ? "opacity-100" : "opacity-0"
             }`}
           >
-            {words[currentIndex]}
+            {words[index]}
           </span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          <a 
-            href="/career-guide"
-            className="px-10 py-4 bg-gradient-to-r from-purple-600 to-blue-700 text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:text-yellow-200 transform transition hover:-translate-y-1 active:scale-95"
-          >
-            GET YOUR CAREER TIPS
-          </a>
-        </div>
+        <a
+          href="/career-guide"
+          className="px-10 py-4 bg-gradient-to-r from-purple-600 to-blue-700 text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:text-yellow-200 transition hover:-translate-y-1"
+        >
+          GET YOUR CAREER TIPS
+        </a>
       </div>
-    </div>
+    </section>
   );
 };
+
 
 // SEO-friendly guide section (was previously defined inside Index)
 const SeoHomepageGuide: FC = () => {
