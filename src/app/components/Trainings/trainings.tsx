@@ -299,7 +299,7 @@ const Trainings: FC = () => {
                 Can't find what you're looking for?
               </h2>
               <p className="text-slate-600 mb-8">
-                Our database is constantly updating with new humanitarian
+                Our website is constantly updating with new humanitarian
                 resources and capacity building programs.
               </p>
               <button className="text-blue-600 font-semibold hover:text-blue-700 underline-offset-4 hover:underline">

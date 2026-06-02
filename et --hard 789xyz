@@ -1,0 +1,26 @@
+[33m28293b3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: commit: update -6
+[33m7b766c2[m HEAD@{1}: commit: update - 5
+[33m8528549[m HEAD@{2}: commit: update 4
+[33m69df3f4[m HEAD@{3}: commit: update3
+[33m26f1f9a[m HEAD@{4}: commit: update 2
+[33mcb700b8[m HEAD@{5}: commit: updated
+[33m691ba93[m HEAD@{6}: commit: picture added
+[33mfc32809[m HEAD@{7}: commit: index
+[33me8c448e[m HEAD@{8}: commit: latest
+[33mb385af9[m HEAD@{9}: commit: home
+[33m2e911f0[m HEAD@{10}: commit: no ads
+[33mfaf924d[m HEAD@{11}: commit: adsterra
+[33m634ddac[m HEAD@{12}: commit: monetag
+[33m62660d9[m HEAD@{13}: commit: unjobs
+[33m9718573[m HEAD@{14}: commit: blogs update 2
+[33m3968902[m HEAD@{15}: checkout: moving from paul to main
+[33mb9ff694[m[33m ([m[1;31morigin/paul[m[33m, [m[1;32mpaul[m[33m)[m HEAD@{16}: checkout: moving from main to paul
+[33m3968902[m HEAD@{17}: commit: update blogs
+[33me781d29[m HEAD@{18}: checkout: moving from paul to main
+[33mb9ff694[m[33m ([m[1;31morigin/paul[m[33m, [m[1;32mpaul[m[33m)[m HEAD@{19}: checkout: moving from main to paul
+[33me781d29[m HEAD@{20}: commit: Add bannerads.tsx to blogs data
+[33m695677f[m HEAD@{21}: checkout: moving from paul to main
+[33mb9ff694[m[33m ([m[1;31morigin/paul[m[33m, [m[1;32mpaul[m[33m)[m HEAD@{22}: commit: save blogdata03 before switching
+[33m9f6b4b2[m HEAD@{23}: checkout: moving from main to paul
+[33m695677f[m HEAD@{24}: commit: blogs update
+[33med1342b[m HEAD@{25}: clone: from https://github.com/Paul-Karmoker/cross_carrers_fontend.git
