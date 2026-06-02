@@ -25,7 +25,7 @@ const JobTrainingPortals: FC = () => {
     { id: 3, name: "Careerjet", url: "https://www.careerjet.com.bd/", logo: "./public/careerjet.png", category: "National" },
     { id: 4, name: "nextjobz", url: "https://nextjobz.com.bd/", logo: "https://i.ibb.co/wrbnrMTg/next-jobs.png", category: "National" },
     { id: 5, name: "Teletalk", url: "https://alljobs.teletalk.com.bd/", logo: "https://i.ibb.co/d4Rk8zP2/images.png", category: "Government" },
-    { id: 6, name: "Jobs.com.bd", url: "http://www.job.com.bd/", logo: "http://job.com.bd/images/logo.gif", category: "National" },
+    { id: 6, name: "Jobs.com.bd", url: "http://www.job.com.bd/", logo: "../public/jobsbd.png", category: "National" },
   ];
 
   const internationalJobSites: PortalSite[] = [

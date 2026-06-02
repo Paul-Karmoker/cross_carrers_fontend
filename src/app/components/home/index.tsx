@@ -106,6 +106,9 @@ const Banner: FC = () => {
         >
           GET YOUR CAREER TIPS
         </a>
+        <p className="mt-8 text-sm">
+          WE APOLOGIZE FOR THE ADVERTISEMENTS. TO HELP COVER OUR OPERATIONAL COSTS AND CONTINUE PROVIDING OUR SERVICES, WE RELY ON A LIMITED AMOUNT OF ADVERTISING. THANK YOU FOR YOUR UNDERSTANDING AND SUPPORT.
+        </p>
       </div>
     </section>
   );
