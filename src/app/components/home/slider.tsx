@@ -20,27 +20,27 @@ const JobTrainingPortals: FC = () => {
 
   /* ───────── DATA ───────── */
   const nationalJobSites: PortalSite[] = [
-    { id: 1, name: "BDJOBS", url: "https://bdjobs.com/", logo: "https://bdjobs.com/images/logo.png", category: "National" },
-    { id: 2, name: "Skill Jobs", url: "https://skill.jobs/", logo: "https://i.ibb.co/gbJYgFS1/Skill-jobs.png", category: "National" },
-    { id: 3, name: "Careerjet", url: "https://www.careerjet.com.bd/", logo: "./public/careerjet.png", category: "National" },
-    { id: 4, name: "nextjobz", url: "https://nextjobz.com.bd/", logo: "https://i.ibb.co/wrbnrMTg/next-jobs.png", category: "National" },
-    { id: 5, name: "Teletalk", url: "https://alljobs.teletalk.com.bd/", logo: "https://i.ibb.co/d4Rk8zP2/images.png", category: "Government" },
-    { id: 6, name: "Jobs.com.bd", url: "http://www.job.com.bd/", logo: "../public/jobsbd.png", category: "National" },
-  ];
+  { id: 1, name: "BDJOBS", url: "https://bdjobs.com/", logo: "https://bdjobs.com/images/logo.png", category: "National" },
+  { id: 2, name: "Skill Jobs", url: "https://skill.jobs/", logo: "https://i.ibb.co/gbJYgFS1/Skill-jobs.png", category: "National" },
+  { id: 3, name: "Careerjet", url: "https://www.careerjet.com.bd/", logo: "/careerjet.png", category: "National" },
+  { id: 4, name: "nextjobz", url: "https://nextjobz.com.bd/", logo: "https://i.ibb.co/wrbnrMTg/next-jobs.png", category: "National" },
+  { id: 5, name: "Teletalk", url: "https://alljobs.teletalk.com.bd/", logo: "https://i.ibb.co/d4Rk8zP2/images.png", category: "Government" },
+  { id: 6, name: "Jobs.com.bd", url: "http://www.job.com.bd/", logo: "/jobsbd.png", category: "National" },
+];
 
-  const internationalJobSites: PortalSite[] = [
-    { id: 1, name: "ReliefWeb", url: "https://reliefweb.int/jobs", logo: "https://reliefweb.int/themes/custom/common_design_subtheme/img/logos/rw-logo-desktop.svg", category: "International" },
-    { id: 2, name: "Idealist", url: "https://www.idealist.org/en", logo: "./public/idealist.jpg", category: "International" },
-    { id: 3, name: "Impactpool", url: "https://www.impactpool.org/", logo: "https://i.ibb.co/DHvsmtqQ/2.png", category: "UN Jobs" },
-    { id: 4, name: "Devex", url: "https://www.devex.com/jobs/search", logo: "https://i.ibb.co/N85f06w/dev.png", category: "International" },
-  ];
+const internationalJobSites: PortalSite[] = [
+  { id: 1, name: "ReliefWeb", url: "https://reliefweb.int/jobs", logo: "https://reliefweb.int/themes/custom/common_design_subtheme/img/logos/rw-logo-desktop.svg", category: "International" },
+  { id: 2, name: "Idealist", url: "https://www.idealist.org/en", logo: "/idealist.jpg", category: "International" },
+  { id: 3, name: "Impactpool", url: "https://www.impactpool.org/", logo: "https://i.ibb.co/DHvsmtqQ/2.png", category: "UN Jobs" },
+  { id: 4, name: "Devex", url: "https://www.devex.com/jobs/search", logo: "https://i.ibb.co/N85f06w/dev.png", category: "International" },
+];
 
-  const trainingSites: PortalSite[] = [
-    { id: 1, name: "Coursera", url: "https://www.coursera.org/", logo: "./public/coursera.png", category: "Online Learning" },
-    { id: 2, name: "Kaya", url: "https://kayaconnect.org/", logo: "https://i.ibb.co/XZjfX029/Kaya.png", category: "Humanitarian" },
-    { id: 3, name: "EdX", url: "https://www.edx.org/", logo: "./public/edx.png", category: "Professional" },
-    { id: 4, name: "Udemy", url: "https://www.udemy.com/", logo: "./public/udemy.png", category: "Online Learning" }, // safer fallback
-  ];
+const trainingSites: PortalSite[] = [
+  { id: 1, name: "Coursera", url: "https://www.coursera.org/", logo: "/coursera.png", category: "Online Learning" },
+  { id: 2, name: "Kaya", url: "https://kayaconnect.org/", logo: "https://i.ibb.co/XZjfX029/Kaya.png", category: "Humanitarian" },
+  { id: 3, name: "EdX", url: "https://www.edx.org/", logo: "/edx.png", category: "Professional" },
+  { id: 4, name: "Udemy", url: "https://www.udemy.com/", logo: "/udemy.png", category: "Online Learning" },
+];
 
   /* ───────── CARD ───────── */
   const Card: FC<CardProps> = ({ site, buttonText = "Visit Site" }) => (
