@@ -3361,7 +3361,7 @@ export const blogPosts: BlogPost[] = [
               <span style="font-size: 2rem; display: block; text-align: center;">🔍</span>
               <h4 style="text-align: center; color: #3a5a8c;">1. The Data Point (What)</h4>
               <p>State the objective fact. Show the chart.</p>
-              <p><em>"Customer support tickets spiked 40% in the last week of February."</em></p>
+              <p><em>"Customer support tickets spiked 40% in the last week of May."</em></p>
             </div>
             <div style="background: white; padding: 1.5rem; border-radius: 20px;">
               <span style="font-size: 2rem; display: block; text-align: center;">💡</span>
@@ -8234,7 +8234,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #3a5a8c; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #3a5a8c;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 ai & future skills</span>
           </div>
         </div>
@@ -8481,7 +8481,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
           <span>🔍 Sources: Industry surveys, enterprise AI adoption data, expert interviews, prompt engineering research</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -8537,7 +8537,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #1e4a6f; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #1e4a6f;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 personal finance</span>
           </div>
         </div>
@@ -8726,7 +8726,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d0de; font-size: 0.85rem; color: #1e4a6f;">
           <span>🔍 Sources: Financial planning models, ICB, Vanguard Asset Management, AIMS of Bangladesh, expert interviews</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -8782,7 +8782,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #2c6e49; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #2c6e49;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 tax & compliance</span>
           </div>
         </div>
@@ -8978,7 +8978,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d9b8; font-size: 0.85rem; color: #2c6e49;">
           <span>🔍 Sources: National Board of Revenue (NBR), Income Tax Ordinance, professional tax practitioner insights, expert interviews</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -9034,7 +9034,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #4a4e6b; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #4a4e6b;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 tax & compliance</span>
           </div>
         </div>
@@ -9171,7 +9171,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d0d9e8; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: National Board of Revenue (NBR), VAT Act, Bangladesh Customs, professional tax practitioner insights, expert interviews</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -9227,7 +9227,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #1e5f5e; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #1e5f5e;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 trade & logistics</span>
           </div>
         </div>
@@ -9420,7 +9420,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9d9; font-size: 0.85rem; color: #1e5f5e;">
           <span>🔍 Sources: National Board of Revenue (NBR), Customs Act 2023, ASYCUDA World documentation, Bangladesh Single Window (BSW), expert interviews</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -9476,7 +9476,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #4a4e6b; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #4a4e6b;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 hr & compliance</span>
           </div>
         </div>
@@ -9663,7 +9663,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d0d9e8; font-size: 0.85rem; color: #4a4e6b;">
           <span>🔍 Sources: National Board of Revenue (NBR), Bangladesh Labour Act, professional HR practices, expert interviews</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -9719,7 +9719,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #1e5f5e; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #1e5f5e;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 business guide</span>
           </div>
         </div>
@@ -9927,7 +9927,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e5f5e;">
           <span>🔍 Sources: Central Procurement Technical Unit (CPTU), Bangladesh Public Procurement Authority (BPPA), e-GP portal, official government publications</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -9983,7 +9983,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #3a5a8c; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #3a5a8c;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 career guide</span>
           </div>
         </div>
@@ -10259,7 +10259,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
           <span>🔍 Sources: Glassdoor 2026, industry salary surveys, OpenAI, Anthropic, certification bodies, expert interviews</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -10315,7 +10315,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #5e2e53; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #5e2e53;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 career guide</span>
           </div>
         </div>
@@ -10624,7 +10624,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c0d0; font-size: 0.85rem; color: #5e2e53;">
           <span>🔍 Sources: Motion Recruitment 2026 Tech Salary Guide, industry expert interviews, certification bodies</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -10680,7 +10680,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #0f4c5c; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #0f4c5c;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 career guide</span>
           </div>
         </div>
@@ -11004,7 +11004,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d4e0; font-size: 0.85rem; color: #0f4c5c;">
           <span>🔍 Sources: Glassdoor Canada, industry salary surveys, AWS/Azure/GCP certification bodies, expert interviews</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -11060,7 +11060,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #1e6f5c; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #1e6f5c;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 career guide</span>
           </div>
         </div>
@@ -11339,7 +11339,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d9d0; font-size: 0.85rem; color: #1e6f5c;">
           <span>🔍 Sources: Bureau of Labor Statistics, University of Miami Industry Outlook, industry salary surveys, expert interviews</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -11395,7 +11395,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #4a3b7c; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #4a3b7c;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 career guide</span>
           </div>
         </div>
@@ -11595,7 +11595,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d4c9f0; font-size: 0.85rem; color: #4a3b7c;">
           <span>🔍 Sources: LinkedIn Workforce Report, Ericsson talent analytics, Skip HR, City of Calgary, industry certification bodies</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -11651,7 +11651,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #2d4f7c; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #2d4f7c;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 career guide</span>
           </div>
         </div>
@@ -11826,7 +11826,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9eb; font-size: 0.85rem; color: #2d4f7c;">
           <span>🔍 Sources: FlexJobs, Payscale via CNBC, Bureau of Labor Statistics, industry expert interviews</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -11882,7 +11882,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #1e4a6f; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #1e4a6f;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 career guide</span>
           </div>
         </div>
@@ -12073,7 +12073,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c2dde8; font-size: 0.85rem; color: #1e4a6f;">
           <span>🔍 Sources: Bureau of Labor Statistics, Monster Healthcare Market Report, Doximity, Medicus, industry expert interviews</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -12129,7 +12129,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #1e3a8a; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #1e3a8a;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 career guide</span>
           </div>
         </div>
@@ -12327,7 +12327,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d0e0f0; font-size: 0.85rem; color: #1e3a8a;">
           <span>🔍 Sources: Monster Healthcare Market Report, BLS, Doximity, Medicus, industry expert interviews</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 
@@ -12383,7 +12383,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #2d3a4f; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #54708f;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 skill development</span>
           </div>
         </div>
@@ -12580,7 +12580,7 @@ export const blogPosts: BlogPost[] = [
         <!-- ========== DATA FOOTER (EEAT reinforcement) ========== -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cddeec; font-size: 0.85rem; color: #3a5c7c;">
           <span>🔍 Sources: Deel workforce report · Amrita School of Business · Symbiosis International · industry interviews</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT (expertise, authoritativeness, trust)</span>
         </div>
 

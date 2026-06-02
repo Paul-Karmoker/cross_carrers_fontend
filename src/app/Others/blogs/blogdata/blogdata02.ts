@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">🌍 Green Careers 2026: The Great Economic Shift</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">375M new roles · salaries growing · skills roadmap · expert-verified data</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 February 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · in‑depth analysis</span>
           </div>
         </div>
@@ -147,7 +147,7 @@ export const blogPosts: BlogPost[] = [
 <!-- final data source footer (EEAT reinforcement) -->
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: ILO 2025, LinkedIn Workforce Report, IRENA, WEF Green Transition</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
   <div style="
@@ -198,7 +198,7 @@ export const blogPosts: BlogPost[] = [
                         <span style="color: #1e4a6f; font-size: 0.9rem;">expertise · experience · trust</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 1rem; color: #1e4a6f;">
-                        <span style="font-size: 0.9rem;">📅 February 2026</span>
+                        <span style="font-size: 0.9rem;">📅 May 2026</span>
                         <span style="font-size: 0.9rem;">🔖 career guide</span>
                     </div>
                 </div>
@@ -306,7 +306,7 @@ export const blogPosts: BlogPost[] = [
                 <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #b8d0de; margin-bottom: 2.5rem;">The entry-level job market in 2026 presents a daunting paradox: 70% of positions advertised as "entry-level" require 2-3 years of experience. Yet this apparent contradiction dissolves when you understand that employers value demonstrated skills over formal work history. A 2026 LinkedIn study confirms that 76% of hiring managers now accept portfolio projects and freelance work as valid substitutes for traditional experience. The four strategies outlined—building a project portfolio that showcases real capabilities, mining transferable skills from every aspect of your life, pursuing strategic unpaid experience that leads to paid roles, and reframing your resume around skills rather than years—provide a comprehensive approach to breaking the catch-22. The 90-day action plan transforms theory into practice: build 2-3 portfolio projects in month one, map your transferable skills and reframe your resume in month two, and execute strategic applications in month three. Your first job is attainable—not through years of experience you don't have, but through demonstrated capability you can prove.</p>
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d0de; font-size: 0.85rem; color: #1e4a6f;">
                     <span>🔍 Sources: LinkedIn Workforce Report, labor market data, hiring manager interviews</span>
-                    <span>✏️ Last updated: March 2026</span>
+                    <span>✏️ Last updated: May 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div> <div style="
   border: 1px solid #e5e7eb;
@@ -356,7 +356,7 @@ export const blogPosts: BlogPost[] = [
                         <span style="color: #8a4a6f; font-size: 0.9rem;">expertise · experience · trust</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 1rem; color: #8a4a6f;">
-                        <span style="font-size: 0.9rem;">📅 February 2026</span>
+                        <span style="font-size: 0.9rem;">📅 May 2026</span>
                         <span style="font-size: 0.9rem;">🔖 career guide</span>
                     </div>
                 </div>
@@ -472,7 +472,7 @@ export const blogPosts: BlogPost[] = [
 
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9d9; font-size: 0.85rem; color: #8a4a6f;">
                     <span>🔍 Sources: LinkedIn data, hiring manager interviews, job search research</span>
-                    <span>✏️ Last updated: March 2026</span>
+                    <span>✏️ Last updated: May 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div> <div style="
   border: 1px solid #e5e7eb;
@@ -522,7 +522,7 @@ export const blogPosts: BlogPost[] = [
                         <span style="color: #b33c3c; font-size: 0.9rem;">expertise · experience · trust</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 1rem; color: #b33c3c;">
-                        <span style="font-size: 0.9rem;">📅 February 2026</span>
+                        <span style="font-size: 0.9rem;">📅 May 2026</span>
                         <span style="font-size: 0.9rem;">🔖 career guide</span>
                     </div>
                 </div>
@@ -650,7 +650,7 @@ export const blogPosts: BlogPost[] = [
 
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9d9; font-size: 0.85rem; color: #b33c3c;">
                     <span>🔍 Sources: Hiring research, HR industry data, mental health studies</span>
-                    <span>✏️ Last updated: March 2026</span>
+                    <span>✏️ Last updated: May 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div> <div style="
   border: 1px solid #e5e7eb;
@@ -700,7 +700,7 @@ export const blogPosts: BlogPost[] = [
                         <span style="color: #1e6f5c; font-size: 0.9rem;">expertise · experience · trust</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 1rem; color: #1e6f5c;">
-                        <span style="font-size: 0.9rem;">📅 February 2026</span>
+                        <span style="font-size: 0.9rem;">📅 May 2026</span>
                         <span style="font-size: 0.9rem;">🔖 career guide</span>
                     </div>
                 </div>
@@ -822,7 +822,7 @@ export const blogPosts: BlogPost[] = [
 
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9c9d9; font-size: 0.85rem; color: #1e6f5c;">
                     <span>🔍 Sources: LinkedIn data, employer surveys, certification platform research</span>
-                    <span>✏️ Last updated: March 2026</span>
+                    <span>✏️ Last updated: May 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
             <div style="
@@ -873,7 +873,7 @@ export const blogPosts: BlogPost[] = [
                         <span style="color: #3a5a8c; font-size: 0.9rem;">expertise · experience · trust</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 1rem; color: #3a5a8c;">
-                        <span style="font-size: 0.9rem;">📅 February 2026</span>
+                        <span style="font-size: 0.9rem;">📅 May 2026</span>
                         <span style="font-size: 0.9rem;">🔖 future of work</span>
                     </div>
                 </div>
@@ -1000,7 +1000,7 @@ export const blogPosts: BlogPost[] = [
                 <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">The rise of AI doesn't spell the end of employment—it marks the beginning of a new relationship between humans and machines. With jobs requiring AI skills growing 200% in two years and AI-proficient professionals commanding 30% higher salaries, mastering these tools is no longer optional. The industry-specific tools outlined—ChatGPT and Midjourney for marketing, Power BI Copilot for data analytics, GitHub Copilot for development, Microsoft 365 Copilot for operations—represent the current standard. But tool proficiency alone isn't enough; employers want evidence of effective application, measurable productivity gains, and workflow integration. The resume-worthy achievements framework transforms generic "AI knowledge" into compelling proof points. The 90-day accelerator provides structure: explore three tools in your field during month one, integrate them into daily work while documenting results in month two, and create portfolio projects with quantified outcomes in month three. The professionals who thrive in 2026 won't be those who resist AI, but those who master it—turning a perceived threat into their greatest career asset.</p>
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
                     <span>🔍 Sources: McKinsey, LinkedIn data, employer surveys, tool documentation</span>
-                    <span>✏️ Last updated: March 2026</span>
+                    <span>✏️ Last updated: May 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
              <div style="
@@ -1051,7 +1051,7 @@ export const blogPosts: BlogPost[] = [
                         <span style="color: #8a4a6f; font-size: 0.9rem;">expertise · experience · trust</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 1rem; color: #8a4a6f;">
-                        <span style="font-size: 0.9rem;">📅 February 2026</span>
+                        <span style="font-size: 0.9rem;">📅 May 2026</span>
                         <span style="font-size: 0.9rem;">🔖 career guide</span>
                     </div>
                 </div>
@@ -1162,7 +1162,7 @@ export const blogPosts: BlogPost[] = [
 
                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9d9; font-size: 0.85rem; color: #8a4a6f;">
                     <span>🔍 Sources: Generational workforce data, hiring manager surveys, career research</span>
-                    <span>✏️ Last updated: March 2026</span>
+                    <span>✏️ Last updated: May 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
              <div style="
@@ -1213,7 +1213,7 @@ export const blogPosts: BlogPost[] = [
                         <span style="color: #1e4a6f; font-size: 0.9rem;">expertise · experience · trust</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 1rem; color: #1e4a6f;">
-                        <span style="font-size: 0.9rem;">📅 February 2026</span>
+                        <span style="font-size: 0.9rem;">📅 May 2026</span>
                         <span style="font-size: 0.9rem;">🔖 wellness & lifestyle</span>
                     </div>
                 </div>
@@ -1339,7 +1339,7 @@ export const blogPosts: BlogPost[] = [
 
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d0de; font-size: 0.85rem; color: #1e4a6f;">
                     <span>🔍 Sources: Mental health research, job seeker surveys, wellness studies</span>
-                    <span>✏️ Last updated: March 2026</span>
+                    <span>✏️ Last updated: May 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
              <div style="
@@ -1390,7 +1390,7 @@ export const blogPosts: BlogPost[] = [
                         <span style="color: #1e6f5c; font-size: 0.9rem;">expertise · experience · trust</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 1rem; color: #1e6f5c;">
-                        <span style="font-size: 0.9rem;">📅 March 2026</span>
+                        <span style="font-size: 0.9rem;">📅 May 2026</span>
                         <span style="font-size: 0.9rem;">🔖 remote work</span>
                     </div>
                 </div>
@@ -1525,7 +1525,7 @@ export const blogPosts: BlogPost[] = [
 
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e6f5c;">
                     <span>🔍 Sources: Remote work research, global hiring data, international employment platforms</span>
-                    <span>✏️ Last updated: March 2026</span>
+                    <span>✏️ Last updated: May 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
              <div style="
@@ -1576,7 +1576,7 @@ export const blogPosts: BlogPost[] = [
                         <span style="color: #8a4a6f; font-size: 0.9rem;">expertise · experience · trust</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 1rem; color: #8a4a6f;">
-                        <span style="font-size: 0.9rem;">📅 February 2026</span>
+                        <span style="font-size: 0.9rem;">📅 May 2026</span>
                         <span style="font-size: 0.9rem;">🔖 career guide</span>
                     </div>
                 </div>
@@ -1735,7 +1735,7 @@ export const blogPosts: BlogPost[] = [
                 <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #d9c9d9; margin-bottom: 2.5rem;">With 65% of new graduates experiencing significant disappointment in their first job, the gap between expectations and reality has become a defining challenge of early career. Yet this gap isn't a failure—it's information. The five-step framework provides a structured approach to navigating this challenge. Step one: identify your core career values through systematic assessment, clarifying what truly matters beyond surface-level desires. Step two: research company culture effectively through LinkedIn analysis, informational interviews, and anonymous forums—moving beyond sanitized marketing. Step three: ask reality-revealing questions in interviews that uncover daily experience, not just highlight reels. Step four: apply meaning-making strategies in imperfect roles—focusing on learning, finding your people, connecting to purpose, creating side projects, and setting learning goals. Step five: discern when to stay (learning opportunity, career capital building) versus when to leave (toxic culture, ethical concerns, no growth). The 3-week action plan provides immediate steps: complete values assessment in week one, deeply research five target companies in weeks two-three, and begin applying meaning-making strategies in week four. Your first job isn't your last job—it's the foundation for everything that follows.</p>
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9d9; font-size: 0.85rem; color: #8a4a6f;">
                     <span>🔍 Sources: Career research, graduate surveys, workplace studies</span>
-                    <span>✏️ Last updated: March 2026</span>
+                    <span>✏️ Last updated: May 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
              <div style="
@@ -1786,7 +1786,7 @@ export const blogPosts: BlogPost[] = [
                         <span style="color: #3a5a8c; font-size: 0.9rem;">expertise · experience · trust</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 1rem; color: #3a5a8c;">
-                        <span style="font-size: 0.9rem;">📅 February 2026</span>
+                        <span style="font-size: 0.9rem;">📅 May 2026</span>
                         <span style="font-size: 0.9rem;">🔖 career development</span>
                     </div>
                 </div>
@@ -1947,7 +1947,7 @@ export const blogPosts: BlogPost[] = [
                 <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">With 89% of new hires failing due to soft skills deficiencies and 92% of talent professionals prioritizing them equally with technical skills, the message is clear: soft skills are no longer "nice to have"—they're essential for career success. The five capabilities that matter most in 2026 are communication (clarity over complexity), critical thinking (analyzing problems systematically), adaptability (thriving through change), collaboration (making teams stronger), and emotional intelligence (self-awareness and empathy). Each requires specific demonstration strategies: communication examples through writing and presentations, critical thinking through problem-solving case studies, adaptability through learning examples, collaboration through cross-functional projects, and emotional intelligence through mentoring and testimonials. The resume transformation framework turns generic claims like "excellent communication" into concrete evidence like "presented quarterly results to leadership team, receiving commendation for clarity." The 3-month development plan provides structure: assess your current soft skills and identify gaps in month one, practice deliberately through presentations and leadership opportunities in month two, and document evidence while updating your resume and portfolio in month three. Technical skills get you interviews. Soft skills get you hired—and keep you there.</p>
                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
                     <span>🔍 Sources: LinkedIn data, hiring manager surveys, workforce research</span>
-                    <span>✏️ Last updated: March 2026</span>
+                    <span>✏️ Last updated: May 2026</span>
                     <span>✅ complies with EEAT</span>
                 </div>
             <div style="
@@ -1998,7 +1998,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #1e4a6f; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #1e4a6f;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 career guide</span>
           </div>
         </div>
@@ -2186,7 +2186,7 @@ export const blogPosts: BlogPost[] = [
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #b8d0de; margin-bottom: 2.5rem;">The Bangladesh job market in 2026 presents unprecedented challenges: 4.63% unemployment affecting 2.7 million people, with 900,000 university graduates among them. Yet within this competitive landscape, understanding which path you're on—survival or strategic—determines your approach. Survival seekers need rapid income through targeted industries like NGOs, retail, logistics, and call centers, with quick skill upgrades in MS Office and communication, leveraging networks where 36% find jobs. Strategic seekers must invest in personal branding, measurable achievements on LinkedIn, and selective applications aligned with 3-year plans. Both paths require the universal skill stack: communication, digital literacy, emotional intelligence, problem-solving, and learning agility. The harsh realities—13.5% graduate unemployment, shrinking female participation, network dependency—are balanced by opportunities in NGOs, the digital economy, startups, and government programs. Your current status is temporary. Your strategy determines your future.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d0de; font-size: 0.85rem; color: #1e4a6f;">
           <span>🔍 Sources: BBS labor data, HR insights, Cross Careers analysis</span>
-          <span>✏️ Last updated: February 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT</span>
         </div>
        <div style="
@@ -2237,7 +2237,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #1e6f5c; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #1e6f5c;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 AI & career</span>
           </div>
         </div>
@@ -2369,7 +2369,7 @@ export const blogPosts: BlogPost[] = [
 
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e6f5c;">
           <span>🔍 Sources: Tool documentation, user reviews, hands‑on testing</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT</span>
         </div>
        <div style="
@@ -2420,7 +2420,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #3a5a8c; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #3a5a8c;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 AI & career</span>
           </div>
         </div>
@@ -2517,7 +2517,7 @@ export const blogPosts: BlogPost[] = [
         <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9f0; margin-bottom: 2.5rem;">The AI revolution isn’t about replacing humans—it’s about augmenting them. By mastering prompt engineering, data literacy, ethics, ML basics, and industry‑specific tools, you position yourself as an indispensable AI‑augmented professional. Start today; the wave is still building.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9f0; font-size: 0.85rem; color: #3a5a8c;">
           <span>🔍 Sources: Industry reports, Coursera, edX, LinkedIn Learning</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT</span>
         </div>
        <div style="
@@ -2641,7 +2641,7 @@ export const blogPosts: BlogPost[] = [
 
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9d9; font-size: 0.85rem; color: #8a4a6f;">
           <span>🔍 Sources: Generational studies, mentoring research, industry examples</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT</span>
         </div>
        <div style="
@@ -2692,7 +2692,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #1e4a6f; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #1e4a6f;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 career development</span>
           </div>
         </div>
@@ -2793,7 +2793,7 @@ export const blogPosts: BlogPost[] = [
 
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b8d0de; font-size: 0.85rem; color: #1e4a6f;">
           <span>🔍 Sources: LinkedIn Learning, Harvard Business Review, industry case studies</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT</span>
         </div>
        <div style="
@@ -2844,7 +2844,7 @@ export const blogPosts: BlogPost[] = [
             <span style="color: #b33c3c; font-size: 0.9rem;">expertise · experience · trust</span>
           </div>
           <div style="display: flex; align-items: center; gap: 1rem; color: #b33c3c;">
-            <span style="font-size: 0.9rem;">📅 February 2026</span>
+            <span style="font-size: 0.9rem;">📅 May 2026</span>
             <span style="font-size: 0.9rem;">🔖 finance & tech</span>
           </div>
         </div>
@@ -2954,7 +2954,7 @@ export const blogPosts: BlogPost[] = [
 
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #d9c9d9; font-size: 0.85rem; color: #b33c3c;">
           <span>🔍 Sources: Tool documentation, Gartner, industry analyst reports</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT</span>
         </div>
        <div style="
@@ -3005,7 +3005,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #1e6f5c; font-size: 0.9rem;">expertise · experience · trust</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #1e6f5c;">
-          <span style="font-size: 0.9rem;">📅 February 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 interview guide</span>
         </div>
       </div>
@@ -3136,7 +3136,7 @@ export const blogPosts: BlogPost[] = [
       <p style="font-size: 1.2rem; background: #ffffff; border-radius: 24px; padding: 2rem; border: 1px solid #c9d9c9; margin-bottom: 2.5rem;">Mastering these seven questions will help you navigate any NGO interview with confidence. Remember to tailor your answers to the specific organization, use concrete examples, and demonstrate your genuine commitment to humanitarian principles. Good luck!</p>
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9d9c9; font-size: 0.85rem; color: #1e6f5c;">
         <span>🔍 Sources: UNHCR, BRAC, PSEA Network, CHS Alliance</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div>
     <div style="
@@ -3187,7 +3187,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #0033a0; font-size: 0.9rem;">inspira · p11 · applications</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #0033a0;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 application guide</span>
         </div>
       </div>
@@ -3274,7 +3274,7 @@ export const blogPosts: BlogPost[] = [
     
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b3c4d9; font-size: 0.85rem; color: #0033a0;">
         <span>🔍 Sources: UN Careers, Inspira Guide, P11 Handbook</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div> <div style="
   border: 1px solid #e5e7eb;
@@ -3323,7 +3323,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #b8860b; font-size: 0.9rem;">salary · benefits · steps</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #b8860b;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 negotiation guide</span>
         </div>
       </div>
@@ -3415,7 +3415,7 @@ export const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #c9b58b; font-size: 0.85rem; color: #b8860b;">
         <span>🔍 Sources: ICSC, UN Compensation Package, HR Handbooks</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div> <div style="
   border: 1px solid #e5e7eb;
@@ -3465,7 +3465,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #2c5a8c; font-size: 0.9rem;">p-level · g-level · no</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #2c5a8c;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 reference guide</span>
         </div>
       </div>
@@ -3572,7 +3572,7 @@ export const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7f9fbf; font-size: 0.85rem; color: #2c5a8c;">
         <span>🔍 Sources: UN Careers Portal, CEB, HR Handbook</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div> <div style="
   border: 1px solid #e5e7eb;
@@ -3622,7 +3622,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #1e4a6d; font-size: 0.9rem;">prompt-engineering · data-annotation</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #1e4a6d;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 skills guide</span>
         </div>
       </div>
@@ -3741,7 +3741,7 @@ export const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #4a7b9d; font-size: 0.85rem; color: #1e4a6d;">
         <span>🔍 Sources: LinkedIn Jobs on the Rise 2026, ACM CareerNews, Economic Times, China.org.cn</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div> <div style="
   border: 1px solid #e5e7eb;
@@ -3791,7 +3791,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #8b5a2b; font-size: 0.9rem;">leadership · storytelling · adaptability</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #8b5a2b;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 human skills</span>
         </div>
       </div>
@@ -3909,7 +3909,7 @@ export const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #b58b5b; font-size: 0.85rem; color: #8b5a2b;">
         <span>🔍 Sources: Degreed Skills Report 2026, Forbes, Economic Times, Arcadia University</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div> <div style="
   border: 1px solid #e5e7eb;
@@ -3959,7 +3959,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #002868; font-size: 0.9rem;">AI hiring · salary trends · talent shortage</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #002868;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 north america</span>
         </div>
       </div>
@@ -4154,7 +4154,7 @@ export const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #0056b3; font-size: 0.85rem; color: #002868;">
         <span>🔍 Sources: Aquent Salary Guide 2026, TD Economics, Indeed Hiring Lab, Payscale, DevEngine, IDP Connect</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div> <div style="
   border: 1px solid #e5e7eb;
@@ -4204,7 +4204,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #1e3a5f; font-size: 0.9rem;">NACE survey · salary projections</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #1e3a5f;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 education guide</span>
         </div>
       </div>
@@ -4383,7 +4383,7 @@ export const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #2c5a8c; font-size: 0.85rem; color: #1e3a5f;">
         <span>🔍 Sources: NACE Winter 2026 Salary Survey, CNBC, VnExpress, UAC Australia</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div> <div style="
   border: 1px solid #e5e7eb;
@@ -4433,7 +4433,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #5e4a2e; font-size: 0.9rem;">portable skills · career mobility</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #5e4a2e;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 career guide</span>
         </div>
       </div>
@@ -4570,7 +4570,7 @@ export const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7d6b4b; font-size: 0.85rem; color: #5e4a2e;">
         <span>🔍 Sources: LinkedIn, ACM CareerNews, Forbes, Degreed, Economic Times</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div> <div style="
   border: 1px solid #e5e7eb;
@@ -4621,7 +4621,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #5e4a2e; font-size: 0.9rem;">career pathway · skills‑first</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #5e4a2e;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 career guide</span>
         </div>
       </div>
@@ -4841,7 +4841,7 @@ export const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7d6b4b; font-size: 0.85rem; color: #5e4a2e;">
         <span>🔍 Sources: ALNAP, UNEG, PM4NGOs, LinkedIn Skills Data 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div>
      <div style="
@@ -4893,7 +4893,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #5e4a2e; font-size: 0.9rem;">career pathway · skills‑first</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #5e4a2e;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 career guide</span>
         </div>
       </div>
@@ -5146,7 +5146,7 @@ export const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7d6b4b; font-size: 0.85rem; color: #5e4a2e;">
         <span>🔍 Sources: LinkedIn 2026 Skills Data, HubSpot Academy, Google Analytics, Meta Blueprint, industry interviews</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div> <div style="
   border: 1px solid #e5e7eb;
@@ -5197,7 +5197,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #5e4a2e; font-size: 0.9rem;">career pathway · skills‑first</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #5e4a2e;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 career guide</span>
         </div>
       </div>
@@ -5464,7 +5464,7 @@ export const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7d6b4b; font-size: 0.85rem; color: #5e4a2e;">
         <span>🔍 Sources: ALNAP, ELRHA, LSHTM, IDS, LinkedIn Skills Data 2026, UNEG</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div>
      <div style="
@@ -5516,7 +5516,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #5e4a2e; font-size: 0.9rem;">career pathway · skills‑first</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #5e4a2e;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 career guide</span>
         </div>
       </div>
@@ -5786,7 +5786,7 @@ export const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7d6b4b; font-size: 0.85rem; color: #5e4a2e;">
         <span>🔍 Sources: UNFPA, GBV AoR, Save the Children, Interagency GBV Guidelines, LinkedIn Skills Data 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div>
      <div style="
@@ -5838,7 +5838,7 @@ export const blogPosts: BlogPost[] = [
           <span style="color: #5e4a2e; font-size: 0.9rem;">career pathway · skills‑first</span>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; color: #5e4a2e;">
-          <span style="font-size: 0.9rem;">📅 March 2026</span>
+          <span style="font-size: 0.9rem;">📅 May 2026</span>
           <span style="font-size: 0.9rem;">🔖 career guide</span>
         </div>
       </div>
@@ -6122,7 +6122,7 @@ export const blogPosts: BlogPost[] = [
       
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #7d6b4b; font-size: 0.85rem; color: #5e4a2e;">
         <span>🔍 Sources: PM4NGOs, ALNAP, UNHCR, UNDP, LinkedIn Skills Data 2026, IASC guidelines</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ complies with EEAT</span>
       </div>
      <div style="
@@ -6173,7 +6173,7 @@ export const blogPosts: BlogPost[] = [
         <h1 style="font-size: 2.8rem; font-weight: 700; margin: 0.5rem 0 1rem; line-height: 1.2; color: #0a2942;">Education in Development:<br>Your 2026 Career Roadmap from Assistant to Manager</h1>
         <p style="font-size: 1.3rem; color: #4a5f73; max-width: 800px; margin: 0 0 1.5rem 0;">A practical, step‑by‑step guide to growing your career in education programming — no matter where you're starting.</p>
         <div style="display: flex; gap: 1.5rem; color: #6b7c8b; font-size: 0.95rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem;">
-          <span>📅 March 19, 2026</span>
+          <span>📅 May 19, 2026</span>
           <span>⏱ 12 min read</span>
           <span>👥 4 levels · 1 roadmap</span>
         </div>
@@ -6478,7 +6478,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #e2e8f0; font-size: 0.85rem; color: #5f6b7a;">
         <span>🔍 Sources: INEE, UNICEF, UNESCO, PM4NGOs, field interviews 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div> 
   <div style="
@@ -6536,7 +6536,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; font-size: 1rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
             <span>⏱️ 10 min read</span>
             <span>🔥 4 levels · 1 mission</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
           </div>
         </div>
       </div>
@@ -6900,7 +6900,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #e2e8f0; font-size: 0.85rem; color: #5f6b7a;">
         <span>🔍 Sources: Sphere, CHS Alliance, IASC, OCHA, field interviews 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
      <div style="
@@ -6958,7 +6958,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; font-size: 1rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
             <span>⏱️ 11 min read</span>
             <span>📐 4 levels · 1 foundation</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
           </div>
         </div>
       </div>
@@ -7300,7 +7300,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #d9e2e8; font-size: 0.85rem; color: #5f6b7a;">
         <span>🔍 Sources: Shelter Cluster, UNHCR, IFRC, Sphere, field interviews 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
      <div style="
@@ -7358,7 +7358,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.8rem; font-size: 1rem;">
             <span>⏱️ 12 min read</span>
             <span>🎯 4 levels · 1 mission</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
             <span>✏️ v2.0</span>
           </div>
         </div>
@@ -7724,7 +7724,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E2E8F0; font-size: 0.85rem; color: #5f6b7a;">
         <span>🔍 Sources: PM4NGOs, ALNAP, UNDP, field interviews 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
      <div style="
@@ -7782,7 +7782,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; border-top: 1px solid #C0D6E4; padding-top: 1.5rem; font-size: 0.95rem; color: #3A546D;">
             <span>⏱️ 10 min read</span>
             <span>📊 4 levels · 1 foundation</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
           </div>
         </div>
       </div>
@@ -8149,7 +8149,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #D9E5EF; font-size: 0.85rem; color: #5f6b7a;">
         <span>🔍 Sources: CIPS, CIPD, NGO administration networks, field interviews 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div> <div style="
   border: 1px solid #e5e7eb;
@@ -8206,7 +8206,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.8rem; font-size: 1rem;">
             <span>⏱️ 11 min read</span>
             <span>📊 4 levels · 1 bottom line</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
           </div>
         </div>
       </div>
@@ -8573,7 +8573,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E2E8F0; font-size: 0.85rem; color: #5f6b7a;">
         <span>🔍 Sources: ACCA, CPA, CIMA, NGO finance networks, field interviews 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
      <div style="
@@ -8631,7 +8631,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; border-top: 1px solid #FFE6CC; padding-top: 1.5rem; color: #4A627A;">
             <span>⏱️ 10 min read</span>
             <span>👥 4 levels · 1 purpose</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
           </div>
         </div>
       </div>
@@ -8999,7 +8999,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #F0E4D8; font-size: 0.85rem; color: #5f6b7a;">
         <span>🔍 Sources: CIPD, SHRM, LinkedIn Skills Data 2026, CHS Alliance</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
      <div style="
@@ -9057,7 +9057,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; border-top: 1px solid rgba(242,201,76,0.3); padding-top: 1.5rem;">
             <span>⏱️ 10 min read</span>
             <span>🚛 4 levels · 1 mission</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
           </div>
         </div>
       </div>
@@ -9424,7 +9424,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E2E8F0; font-size: 0.85rem; color: #5f6b7a;">
         <span>🔍 Sources: CIPS, UN Procurement, CHS Alliance, field interviews 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
      <div style="
@@ -9482,7 +9482,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(245,166,35,0.3); font-size: 0.9rem;">
             <span>⏱️ 11 min read</span>
             <span>📦 4 levels · 1 supply chain</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
           </div>
         </div>
       </div>
@@ -9773,7 +9773,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E2DCCF; font-size: 0.8rem; color: #5F6C6A;">
         <span>🔍 Sources: CILT, Fritz Institute, Logistics Cluster, field interviews 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
      <div style="
@@ -9832,7 +9832,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #334155;">
             <span>⏱️ 12 min read</span>
             <span>⛓️ 4 links · 1 chain</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
           </div>
         </div>
       </div>
@@ -10117,7 +10117,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #cbd5e1; font-size: 0.8rem; color: #475569;">
         <span>🔍 Sources: CSCMP, CIPS, Fritz Institute, field interviews 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
      <div style="
@@ -10176,7 +10176,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #2A9D8F;">
             <span>⏱️ 12 min read</span>
             <span>🌉 4 levels · 1 bridge</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
           </div>
         </div>
       </div>
@@ -10440,7 +10440,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E9C46A; font-size: 0.8rem;">
         <span>🔍 Sources: INGO forums, government liaison networks, field interviews 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
      <div style="
@@ -10499,7 +10499,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #2C5282;">
             <span>⏱️ 12 min read</span>
             <span>🛡️ 4 levels · 1 mission</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
           </div>
         </div>
       </div>
@@ -10774,7 +10774,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E2E8F0; font-size: 0.8rem;">
         <span>🔍 Sources: CHS Alliance, IASC PSEA, Keeping Children Safe, field interviews 2026</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
      <div style="
@@ -10832,7 +10832,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #3A5E7A;">
             <span>⏱️ 18 min read</span>
             <span>🚛 8 sections · 1 practical toolkit</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
             <span>✏️ Expert level</span>
           </div>
         </div>
@@ -11113,7 +11113,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E2E2E2; font-size: 0.8rem;">
         <span>🔍 Sources: ISO 39001, global fleet benchmarks, author’s 15 years of field experience<\/span>
-        <span>✏️ Last updated: March 2026<\/span>
+        <span>✏️ Last updated: May 2026<\/span>
         <span>✅ EEAT compliant<\/span>
       <\/div>
      <div style="
@@ -11171,7 +11171,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #4A6741;">
             <span>⏱️ 18 min read</span>
             <span>📦 10 sections · 1 complete toolkit</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
             <span>✏️ Expert level</span>
           </div>
         </div>
@@ -11422,7 +11422,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E2E2E2; font-size: 0.8rem;">
         <span>🔍 Sources: ISO 9001 warehouse practices, global supply chain standards, author’s 18 years of field experience<\/span>
-        <span>✏️ Last updated: March 2026<\/span>
+        <span>✏️ Last updated: May 2026<\/span>
         <span>✅ EEAT compliant<\/span>
       <\/div>
      <div style="
@@ -11480,7 +11480,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #4A6382;">
             <span>⏱️ 20 min read</span>
             <span>👥 9 sections · complete HR toolkit</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
             <span>✏️ Expert level</span>
           </div>
         </div>
@@ -11729,7 +11729,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E2E2E2; font-size: 0.8rem;">
         <span>🔍 Sources: CIPD, SHRM, author’s 16+ years of HR & operations experience<\/span>
-        <span>✏️ Last updated: March 2026<\/span>
+        <span>✏️ Last updated: May 2026<\/span>
         <span>✅ EEAT compliant<\/span>
       <\/div>
      <div style="
@@ -11787,7 +11787,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #2F6B53;">
             <span>⏱️ 22 min read</span>
             <span>💰 10 sections · complete finance toolkit</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
             <span>✏️ Expert level</span>
           </div>
         </div>
@@ -12056,7 +12056,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E2E2E2; font-size: 0.8rem;">
         <span>🔍 Sources: ACCA, IFRS, donor guidelines (USAID, ECHO), author’s 16+ years of finance and operations experience<\/span>
-        <span>✏️ Last updated: March 2026<\/span>
+        <span>✏️ Last updated: May 2026<\/span>
         <span>✅ EEAT compliant<\/span>
       <\/div>
      <div style="
@@ -12114,7 +12114,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #3F7E8C;">
             <span>⏱️ 28 min read</span>
             <span>🚛 12 sections · complete supply chain toolkit</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
             <span>✏️ Expert level</span>
           </div>
         </div>
@@ -12408,7 +12408,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E2E2E2; font-size: 0.8rem;">
         <span>🔍 Sources: CIPS, CILT, HELP Logistics, author’s 16+ years of procurement and logistics experience (WFP, USAID, DCA, NRC, IRC)<\/span>
-        <span>✏️ Last updated: March 2026<\/span>
+        <span>✏️ Last updated: May 2026<\/span>
         <span>✅ EEAT compliant<\/span>
       <\/div>
      <div style="
@@ -12466,7 +12466,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #2A8A7A;">
             <span>⏱️ 15 min read</span>
             <span>🤝 8 sections · practical framework</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
             <span>✏️ Expert level</span>
           </div>
         </div>
@@ -12681,7 +12681,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E2E2E2; font-size: 0.8rem;">
         <span>🔍 Sources: Grand Bargain, NEAR Network, ALNAP, author’s 16+ years of experience working with WFP, DCA, NRC, and local partners in Bangladesh</span>
-        <span>✏️ Last updated: March 2026</span>
+        <span>✏️ Last updated: May 2026</span>
         <span>✅ EEAT compliant</span>
       </div>
      <div style="
@@ -12739,7 +12739,7 @@ export const blogPosts: BlogPost[] = [
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #4A7C9C;">
             <span>⏱️ 18 min read</span>
             <span>📝 11 sections · complete toolkit</span>
-            <span>📅 March 2026</span>
+            <span>📅 May 2026</span>
             <span>✏️ Expert level</span>
           </div>
         </div>
@@ -13007,7 +13007,7 @@ export const blogPosts: BlogPost[] = [
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 2rem; padding: 1rem 0; border-top: 2px solid #E2E2E2; font-size: 0.8rem;">
         <span>🔍 Sources: USAID, ECHO, FCDO, Grand Bargain, author’s 15+ years of experience in grant management and donor relations<\/span>
-        <span>✏️ Last updated: March 2026<\/span>
+        <span>✏️ Last updated: May 2026<\/span>
         <span>✅ EEAT compliant<\/span>
       <\/div>
 

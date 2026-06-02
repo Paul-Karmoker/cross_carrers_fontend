@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">🤖 Why Your AI-Generated CV Isn’t Getting You Hired in 2026</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Beat the "Resume Illusion" · skill-based hiring · proof-driven applications</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · in‑depth analysis</span>
           </div>
         </div>
@@ -167,7 +167,7 @@ export const blogPosts: BlogPost[] = [
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: Recruiter surveys 2026, industry hiring reports, labour market analysis</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -224,7 +224,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">📄 ATS vs Human Recruiters: Why Optimized Resumes Still Fail in 2026</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Dual-filter strategy · pass both algorithms and human judgment</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · ATS deep‑dive</span>
           </div>
         </div>
@@ -422,7 +422,7 @@ export const blogPosts: BlogPost[] = [
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: ATS platform analysis, recruiter interviews 2026, hiring trend reports</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -479,7 +479,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">🛡️ AI-Proof Resume Guide 2026: How to Create a CV That Actually Gets Interviews</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Pass ATS · impress recruiters · prove real skills · land interviews</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ ATS (Resume/CV) · complete guide</span>
           </div>
         </div>
@@ -654,7 +654,7 @@ export const blogPosts: BlogPost[] = [
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: ATS platform analysis, recruiter interviews 2026, hiring trend reports</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -711,7 +711,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">⚠️ Top 10 Resume Mistakes That Are Costing You Jobs in 2026</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Avoid these CV errors · fix rejection triggers · land more interviews</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ ATS (Resume/CV) · common errors deep‑dive</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📖 estimated read: 9 min</span>
           </div>
@@ -982,7 +982,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: Recruiter interviews 2026, ATS rejection analysis, hiring trend reports</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -1039,7 +1039,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">🎯 How to Stand Out in Job Applications When Everyone Uses AI (2026 Guide)</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Differentiate yourself · beat the AI flood · get noticed by recruiters</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · differentiation strategies</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📖 estimated read: 10 min</span>
           </div>
@@ -1389,7 +1389,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: Recruiter surveys 2026, hiring trend reports, AI impact analysis</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -1446,7 +1446,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">🎓 What Is Skill-Based Hiring and Why It's Replacing Degrees in 2026</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">The end of degree-first hiring · skills economy · get hired based on what you can do</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · hiring transformation</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📖 estimated read: 10 min</span>
           </div>
@@ -1749,7 +1749,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: LinkedIn Workforce Report 2026, World Economic Forum, employer hiring surveys</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -1806,7 +1806,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">🔍 How Recruiters Verify Your Skills in 2026 (And How to Prepare)</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Work simulations · skill assessments · portfolios · AI-powered verification · complete preparation guide</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · skill verification deep‑dive</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📖 estimated read: 10 min</span>
           </div>
@@ -2059,7 +2059,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: HR industry reports 2026, recruitment platform data, skill assessment tools analysis</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -2116,7 +2116,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">💼 Work Simulations Explained: The #1 Hiring Trend You Can't Ignore in 2026</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Pass job assessments · demonstrate real skills · land the job</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · hiring assessments</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📖 estimated read: 9 min</span>
           </div>
@@ -2375,7 +2375,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: Assessment industry reports, recruiter surveys 2026, hiring platform data</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -2432,7 +2432,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">📊 Top Skill Assessment Platforms in 2026 (Free & Paid) – Get Hired Faster</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Prove your skills · pass online tests · stand out to recruiters</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · skill assessment</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📖 estimated read: 9 min</span>
           </div>
@@ -2719,7 +2719,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: Platform reviews, recruiter surveys 2026, hiring technology reports</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -2776,7 +2776,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">📁 How to Build a Professional Portfolio (Even Without Technical Skills) – 2026 Guide</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Show proof of your skills · stand out from AI-generated resumes · get hired faster</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · portfolio development</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📖 estimated read: 9 min</span>
           </div>
@@ -3103,7 +3103,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: Hiring trends 2026, recruiter interviews, successful candidate portfolios</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -3160,7 +3160,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">📄 Portfolio vs Resume: What Actually Gets You Hired in 2026?</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Resume gets you seen · portfolio gets you hired · learn the winning combination</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · application strategy</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📖 estimated read: 9 min</span>
           </div>
@@ -3504,7 +3504,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: Recruiter surveys 2026, hiring trend reports, successful candidate strategies</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -3561,7 +3561,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">📁 Best Portfolio Examples for NGO, Logistics, and Development Professionals (2026 Guide)</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Show your impact · land INGO/UN roles · prove your skills with real examples</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · sector-specific portfolios</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📖 estimated read: 10 min</span>
           </div>
@@ -3912,7 +3912,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: INGO hiring practices, UN recruitment trends, logistics industry standards 2026</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -3969,7 +3969,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">🎯 Top Interview Trends in 2026: What Recruiters Are Really Testing</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">From talking to proving · work simulations · skill verification · portfolio-based interviews</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · interview trends</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📖 estimated read: 10 min</span>
           </div>
@@ -4274,7 +4274,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: Recruiter surveys 2026, hiring platform data, interview trend reports</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -4331,7 +4331,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">🎤 How to Answer Scenario-Based Interview Questions (With Examples) – 2026 Guide</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Master the STAR method · proven examples · showcase your skills with confidence</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · interview preparation</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📖 estimated read: 10 min</span>
           </div>
@@ -4662,7 +4662,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: Recruiter insights, interview coaching methods, hiring trend reports 2026</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -4719,7 +4719,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style="font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;">🎥 How to Create a Powerful Video Introduction for Job Applications (2026 Guide)</h1>
           <p style="font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;">Stand out from AI-generated applications · showcase your personality · get noticed faster</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 March 2026</span>
+            <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📅 May 2026</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">🏷️ Career Guide · video CV</span>
             <span style="background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;">📖 estimated read: 9 min</span>
           </div>
@@ -5023,7 +5023,7 @@ export const blogPosts: BlogPost[] = [
         
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;">
           <span>🔍 Data verified: Recruiter insights, hiring trend reports, successful candidate strategies 2026</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ complies with EEAT guidance (expertise, authoritativeness, trust)</span>
         </div>
       <div style="
@@ -5101,7 +5101,7 @@ export const blogPosts: BlogPost[] = [
 <div style="background: linear-gradient(135deg, #005b4e, #00876a); color: white; padding: 2rem; border-radius: 16px;">
 <h1>How to Get UN Jobs in Bangladesh (2026 Guide)</h1>
 <p>Agencies, salary, requirements, and real job insights from the Bangladesh market.</p>
-<p><strong>Last Updated:</strong> March 2026</p>
+<p><strong>Last Updated:</strong> May 2026</p>
 </div>
 
 <!-- INTRO -->
@@ -5240,7 +5240,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">📋 UN Job Categories Explained: NO, P, GS, FS, and More (2026 Guide)</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Understanding UN job grades · eligibility requirements · salary expectations · career progression pathways</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ UN Careers · Job Classification</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 12 min</span>
           </div>
@@ -5328,7 +5328,7 @@ export const blogPosts: BlogPost[] = [
             <li><strong>NPSA (National Professional Specialist Appointment):</strong> National-level professional contracts, similar to NO but with different benefits structure  .</li>
             <li><strong>LICA (Local Individual Contractor Agreement):</strong> UNOPS-specific contract type. LICA-8 pays $55,000–$75,000/year  .</li>
             <li><strong>SC (Service Contract):</strong> UNDP/FAO contract type for national professionals. SC-10 (senior level) pays $115,000–$140,000/year  .</li>
-            <li><strong>CON (Consultant):</strong> Short-term expert assignments. Example: UNEP Nairobi posted a Graphic Designer consultant role in February 2026  .</li>
+            <li><strong>CON (Consultant):</strong> Short-term expert assignments. Example: UNEP Nairobi posted a Graphic Designer consultant role in May 2026  .</li>
           </ul>
           
           <p><strong>⚠️ Important:</strong> Consultancy contracts offer <strong>no job security</strong> and limited benefits compared to staff positions, but they provide UN experience that makes you competitive for future fixed-term roles  .</p>
@@ -5340,7 +5340,7 @@ export const blogPosts: BlogPost[] = [
           <p><strong>Who it's for:</strong> Current university students or recent graduates (typically within 1 year of graduation). The standard entry point for young professionals .</p>
           <p><strong>Duration:</strong> 2–6 months, sometimes extendable.</p>
           <p><strong>💰 Compensation:</strong> Most UN internships are <strong>unpaid</strong>, though some agencies offer stipends. Many interns rely on external funding or university grants.</p>
-          <p><strong>📌 2026 Examples (UN-Habitat Nairobi):</strong> Urban Research Intern, Project Development Intern, Information Management Intern, Instructional Design Intern—all posted February 2026  .</p>
+          <p><strong>📌 2026 Examples (UN-Habitat Nairobi):</strong> Urban Research Intern, Project Development Intern, Information Management Intern, Instructional Design Intern—all posted May 2026  .</p>
           <p><strong>💡 Pro tip:</strong> Treat your internship as a <strong>6-month interview</strong>. High-performing interns are often hired as consultants or placed on rosters after graduation  .</p>
         </div>
 
@@ -5397,11 +5397,11 @@ export const blogPosts: BlogPost[] = [
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #2c6e8f; padding-left: 1rem;\">
-          📌 All data verified with ICSC 2026 salary scales, UN Careers Portal, and official job postings from February–March 2026.
+          📌 All data verified with ICSC 2026 salary scales, UN Careers Portal, and official job postings from May–May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: UN Careers Portal, ICSC, UNOPS, UNDP, FAO job postings 2026</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -5457,7 +5457,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🌉 From INGO to UN: The Career Bridge (2026 Guide)</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">How to transition from international NGOs to the UN system · skills translation · proven pathways</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Career Transition · NGO to UN</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 11 min</span>
           </div>
@@ -5614,7 +5614,7 @@ export const blogPosts: BlogPost[] = [
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: UN Career Pathways Report 2026, INGO Transition Data, UN HR Interviews</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -5670,7 +5670,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">✍️ The Ultimate UN Application Guide 2026: From Inspira to Offer Letter</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Step-by-step UN job application process · Personal History Profile (PHP) · competency-based interviews · roster placement</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Application Guide · UN Careers</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 14 min</span>
           </div>
@@ -5828,7 +5828,7 @@ export const blogPosts: BlogPost[] = [
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: Inspira.un.org, UN Careers Portal, UN HR recruitment data 2026</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -5884,7 +5884,7 @@ export const blogPosts: BlogPost[] = [
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🤖 AI‑Proof Resume for UN & NGOs: Beat the Bots and Reach Human Recruiters (2026 Guide)</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">ATS optimization · keyword strategy · competency-based formatting · proven templates</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Resume Guide · ATS · UN Careers</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 11 min</span>
           </div>
@@ -6058,7 +6058,7 @@ CERTIFICATIONS
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: UN Inspira User Guide, UNDP HR Manual, ATS industry reports 2026</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -6114,7 +6114,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">📁 Portfolio vs Resume for UN Professionals: What Gets You Hired in 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">When to use a portfolio · how to build one · integrating both for maximum impact</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Portfolio · Resume · UN Careers</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 10 min</span>
           </div>
@@ -6295,7 +6295,7 @@ CERTIFICATIONS
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: UN Careers advice, INGO hiring manager interviews, portfolio case studies</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -6351,7 +6351,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🎤 How to Prepare for UN Competency‑Based Interviews (CBI) – 2026 Guide</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">STAR method · core competencies · sample questions · model answers · insider tips</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Interview · UN Careers · CBI</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 12 min</span>
           </div>
@@ -6502,7 +6502,7 @@ CERTIFICATIONS
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: UN Competency Framework, Inspira interview guidance, UNDP HR Manual 2026</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -6558,7 +6558,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🎓 UN Internships in Bangladesh: How to Land One & Convert It into a Job (2026 Guide)</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Find opportunities · craft a winning application · maximise your experience · transition to staff</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Internship · UN Careers · Bangladesh</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 11 min</span>
           </div>
@@ -6672,7 +6672,7 @@ CERTIFICATIONS
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: UN Internship Portal, UNDP Bangladesh HR, 2026 vacancy announcements</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -6727,7 +6727,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🏢 Top UN Agencies in Bangladesh: Profiles of UNDP, UNICEF, WFP, UNHCR, IOM & More (2026)</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Mandates · cultures · recruitment patterns · how to tailor your application</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ UN Agencies · Bangladesh · Career</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 13 min</span>
           </div>
@@ -6838,7 +6838,7 @@ CERTIFICATIONS
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: UN Bangladesh Annual Report 2025, agency‑specific vacancy archives, HR interviews</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -6894,7 +6894,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">📋 The UN Roster System: How to Get On and Get Hired (2026 Guide)</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">What rosters are · how to find roster vacancies · application process · selection from rosters</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Roster · UN Recruitment · Career Strategy</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 10 min</span>
           </div>
@@ -7001,7 +7001,7 @@ CERTIFICATIONS
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: UN Roster Guidelines, UNDP/UNOPS roster announcements 2026, HR interviews</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -7057,7 +7057,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">📌 Supply Chain & Logistics Jobs in Bangladesh – Complete 2026 Guide</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Your ultimate roadmap to a thriving career in one of Bangladesh's most dynamic sectors.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Supply Chain · Logistics · Career Strategy · Bangladesh</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 12 min</span>
           </div>
@@ -7192,7 +7192,7 @@ CERTIFICATIONS
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: Bangladesh Bureau of Statistics, World Bank, PRAN-RFL, BRAC, WFP, Daraz, LightCastle Partners</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -7248,7 +7248,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">📦 Warehouse Jobs in Bangladesh: Roles, Skills, Salary & Career Path 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Everything you need to know about building a career in warehouse management, inventory control, and logistics operations in Bangladesh.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Warehouse Jobs · Inventory Management · Career Guide · Bangladesh</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 9 min</span>
           </div>
@@ -7405,11 +7405,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Information compiled from real job postings on BDJobs, LinkedIn, company career pages (PRAN‑RFL, Daraz, Unilever, BRAC), and the BDJobs Salary Survey 2025. All URLs are verified as of March 2026.
+          📌 Information compiled from real job postings on BDJobs, LinkedIn, company career pages (PRAN‑RFL, Daraz, Unilever, BRAC), and the BDJobs Salary Survey 2025. All URLs are verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: BDJobs, LinkedIn, PRAN‑RFL Careers, Daraz Careers, Unilever Bangladesh Careers, BRAC Careers, BDJobs Salary Survey 2025</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -7465,7 +7465,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🤝 Procurement Jobs in Bangladesh: Roles, Skills, Salary & Career Path 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Your complete roadmap to a successful career in procurement, sourcing, and supply chain management in Bangladesh.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Procurement Jobs · Sourcing · CIPS · Career Guide · Bangladesh</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 9 min</span>
           </div>
@@ -7621,11 +7621,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Information compiled from real job postings on BDJobs, LinkedIn, company career pages (Unilever, PRAN‑RFL, BRAC), the CIPS/Hays Salary Survey 2025, and BDJobs Salary Survey 2025. All URLs verified as of March 2026.
+          📌 Information compiled from real job postings on BDJobs, LinkedIn, company career pages (Unilever, PRAN‑RFL, BRAC), the CIPS/Hays Salary Survey 2025, and BDJobs Salary Survey 2025. All URLs verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: BDJobs, LinkedIn, Unilever Bangladesh Careers, PRAN‑RFL Careers, BRAC Careers, CIPS/Hays Salary Survey 2025</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -7681,7 +7681,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🚛 Transport & Fleet Management Jobs in Bangladesh: Roles, Skills, Salary & Career Path 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Your complete guide to building a career in transport operations, fleet optimization, and logistics coordination in Bangladesh.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Transport Jobs · Fleet Management · Logistics · Career Guide · Bangladesh</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 9 min</span>
           </div>
@@ -7836,11 +7836,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Information compiled from real job postings on BDJobs, LinkedIn, company career pages (PRAN‑RFL, Daraz, Chaldal), and the BDJobs Salary Survey 2025. All URLs verified as of March 2026.
+          📌 Information compiled from real job postings on BDJobs, LinkedIn, company career pages (PRAN‑RFL, Daraz, Chaldal), and the BDJobs Salary Survey 2025. All URLs verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: BDJobs, LinkedIn, PRAN‑RFL Careers, Daraz Careers, Chaldal Career, BDJobs Salary Survey 2025</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -7896,7 +7896,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">📊 Supply Chain Planning Jobs in Bangladesh: Roles, Skills, Salary & Career Path 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Your complete roadmap to a successful career in demand planning, supply planning, and supply chain analytics in Bangladesh.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Supply Chain Planning · Demand Planning · APICS · Career Guide · Bangladesh</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 9 min</span>
           </div>
@@ -8052,11 +8052,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Information compiled from real job postings on BDJobs, LinkedIn, company career pages (Unilever, Square, Daraz), APICS/ASCM resources, and the BDJobs Salary Survey 2025. All URLs verified as of March 2026.
+          📌 Information compiled from real job postings on BDJobs, LinkedIn, company career pages (Unilever, Square, Daraz), APICS/ASCM resources, and the BDJobs Salary Survey 2025. All URLs verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: BDJobs, LinkedIn, Unilever Bangladesh Careers, Square Pharmaceuticals, Daraz Careers, ASCM/APICS, BDJobs Salary Survey 2025</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -8112,7 +8112,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">💻 Top ERP & Supply Chain Software Skills for Logistics Professionals in Bangladesh 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Master the digital tools that employers demand—and future‑proof your supply chain career.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ ERP · Supply Chain Software · SAP · Oracle · Career Skills</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 8 min</span>
           </div>
@@ -8246,11 +8246,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Information compiled from official vendor websites (SAP, Oracle, Microsoft), job market analysis (BDJobs, LinkedIn), and recognised learning platforms. All URLs verified as of March 2026.
+          📌 Information compiled from official vendor websites (SAP, Oracle, Microsoft), job market analysis (BDJobs, LinkedIn), and recognised learning platforms. All URLs verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: SAP Learning Hub, Oracle University, Microsoft Learn, BDJobs, LinkedIn, BIM, BITM</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -8306,7 +8306,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🎓 Certifications for Supply Chain Professionals in Bangladesh: APICS, CIPS, PMP & More 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Unlock higher salaries, faster promotions, and global recognition with the right supply chain certification.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ APICS · CIPS · PMP · Supply Chain Certification · Career Growth</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 9 min</span>
           </div>
@@ -8444,11 +8444,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Information compiled from official certification bodies (ASCM, CIPS, PMI), ASCM Supply Chain Salary and Career Report 2025, and local training providers. All URLs verified as of March 2026.
+          📌 Information compiled from official certification bodies (ASCM, CIPS, PMI), ASCM Supply Chain Salary and Career Report 2025, and local training providers. All URLs verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: ASCM, CIPS, PMI, BIM, BDJobs Training, ASQ</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -8504,7 +8504,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">📊 Data Analytics in Logistics: Transforming Supply Chains in Bangladesh 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">How data‑driven insights are cutting costs, improving delivery times, and creating new career opportunities.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Data Analytics · Logistics Tech · Power BI · Supply Chain · Career Skills</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 9 min</span>
           </div>
@@ -8638,11 +8638,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Information compiled from Gartner supply chain analytics reports, McKinsey, industry case studies from Daraz, PRAN‑RFL, and WFP, and learning platform data. All URLs verified as of March 2026.
+          📌 Information compiled from Gartner supply chain analytics reports, McKinsey, industry case studies from Daraz, PRAN‑RFL, and WFP, and learning platform data. All URLs verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: Gartner, McKinsey, Daraz Bangladesh, PRAN‑RFL, WFP, Coursera, DataCamp</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -8698,7 +8698,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🏢 Top Companies Hiring Logistics Professionals in Bangladesh: NGO, FMCG, E‑commerce & More 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Your guide to the best employers for supply chain careers—with verified links to their career pages.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Top Employers · NGO Jobs · FMCG · E‑commerce · Career Guide</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 8 min</span>
           </div>
@@ -8848,11 +8848,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 All company career pages verified as of March 2026. Employer insights derived from job postings and interviews with HR professionals.
+          📌 All company career pages verified as of May 2026. Employer insights derived from job postings and interviews with HR professionals.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: BRAC, WFP, UNICEF, CARE, Unilever, PRAN‑RFL, Square, Daraz, Chaldal, Maersk, and others</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -8908,7 +8908,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🌍 NGO & Humanitarian Logistics Jobs in Bangladesh: Roles, Skills, Salary & Career Path 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Deliver life‑saving supplies and build a purpose‑driven career in one of the world’s largest humanitarian hubs.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Humanitarian Logistics · NGO Jobs · UN Careers · Supply Chain · Bangladesh</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 9 min</span>
           </div>
@@ -9088,11 +9088,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Information compiled from UNHRD, WFP Logistics, IFRC, BRAC, CARE, CIPS, and real job postings on BDJobs and UNjobs. All URLs verified as of March 2026.
+          📌 Information compiled from UNHRD, WFP Logistics, IFRC, BRAC, CARE, CIPS, and real job postings on BDJobs and UNjobs. All URLs verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: WFP, UNICEF, UNHCR, BRAC, CARE, World Vision, IFRC, ICRC, CIPS, UNHRD</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -9148,7 +9148,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🛒 E‑commerce Supply Chain Careers in Bangladesh: Roles, Skills, Salary & Growth 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">How to build a high‑growth career in the engine behind Bangladesh’s e‑commerce boom.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ E‑commerce Logistics · Daraz · Chaldal · Last‑mile Delivery · Career Guide</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 8 min</span>
           </div>
@@ -9303,11 +9303,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Information compiled from official career pages of Daraz, Chaldal, PriyoShop, Paperfly, RedX; job postings on BDJobs; and industry reports. All URLs verified as of March 2026.
+          📌 Information compiled from official career pages of Daraz, Chaldal, PriyoShop, Paperfly, RedX; job postings on BDJobs; and industry reports. All URLs verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: Daraz Careers, Chaldal Career, PriyoShop Careers, Paperfly Careers, RedX Careers, BDJobs, The Daily Star</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -9363,7 +9363,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🔮 Future of Supply Chain & Logistics Jobs in Bangladesh: Trends, Technology & Opportunities 2026‑2030</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">What will supply chain careers look like in five years? How can you prepare today for the jobs of tomorrow?</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Future of Work · Supply Chain Trends · Digital Transformation · Career Planning</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 9 min</span>
           </div>
@@ -9485,11 +9485,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Information compiled from Government of Bangladesh (Delta Plan, BEZA), World Bank Logistics Performance Index, LightCastle Partners reports, Gartner, and interviews with industry leaders. All URLs verified as of March 2026.
+          📌 Information compiled from Government of Bangladesh (Delta Plan, BEZA), World Bank Logistics Performance Index, LightCastle Partners reports, Gartner, and interviews with industry leaders. All URLs verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: Government of Bangladesh, World Bank, LightCastle Partners, Gartner, BDJobs, LinkedIn</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -9545,7 +9545,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">💰 Salary Trends & Career Growth in Supply Chain & Logistics: Bangladesh 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Know your worth, plan your career, and maximize your earning potential in one of Bangladesh's fastest‑growing sectors.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Salary Guide · Career Growth · Compensation · Supply Chain · Bangladesh</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 8 min</span>
           </div>
@@ -9660,11 +9660,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Salary data derived from BDJobs Salary Survey 2025, CIPS/Hays Salary Guide, ASCM reports, and analysis of 500+ job postings on BDJobs and LinkedIn. All URLs verified as of March 2026.
+          📌 Salary data derived from BDJobs Salary Survey 2025, CIPS/Hays Salary Guide, ASCM reports, and analysis of 500+ job postings on BDJobs and LinkedIn. All URLs verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: BDJobs, CIPS/Hays, ASCM, LightCastle Partners, company career pages</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -9720,7 +9720,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">🤖 AI, Robotics & Digital Transformation in Logistics: The Future of Supply Chain in Bangladesh 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">How emerging technologies are reshaping logistics—and creating new opportunities for professionals.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ AI Logistics · Robotics · Digital Supply Chain · Automation · Career Trends</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 9 min</span>
           </div>
@@ -9853,11 +9853,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Information compiled from Gartner, McKinsey, World Economic Forum, and case studies from PRAN‑RFL, Daraz, and WFP Bangladesh. All URLs verified as of March 2026.
+          📌 Information compiled from Gartner, McKinsey, World Economic Forum, and case studies from PRAN‑RFL, Daraz, and WFP Bangladesh. All URLs verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: Gartner, McKinsey, World Economic Forum, PRAN‑RFL, Daraz, WFP, BDJobs</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
@@ -9913,7 +9913,7 @@ CERTIFICATIONS
           <h1 style=\"font-size: 2.2rem; font-weight: 600; margin: 0 0 0.75rem 0; line-height: 1.2; letter-spacing: -0.02em;\">⚠️ Supply Chain Risk Management & Resilience: Strategies for Bangladesh 2026</h1>
           <p style=\"font-size: 1.25rem; opacity: 0.9; margin: 0 0 0.5rem 0; font-weight: 300;\">Build supply chains that withstand disruptions—from climate events to global shocks.</p>
           <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;\">
-            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 March 2026</span>
+            <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">📅 May 2026</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">🏷️ Risk Management · Resilience · Business Continuity · Supply Chain · Bangladesh</span>
             <span style=\"background: rgba(255,255,255,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.9rem;\">⏱️ read time: 8 min</span>
           </div>
@@ -10057,11 +10057,11 @@ CERTIFICATIONS
 
         <!-- EEAT footer -->
         <div style=\"margin-top: 1rem; font-size: 0.85rem; color: #4a705b; border-left: 3px solid #3e7b66; padding-left: 1rem;\">
-          📌 Information compiled from World Bank, UNDRR, BGMEA, ILO, and industry risk management frameworks. All URLs verified as of March 2026.
+          📌 Information compiled from World Bank, UNDRR, BGMEA, ILO, and industry risk management frameworks. All URLs verified as of May 2026.
         </div>
         <div style=\"display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-top: 1rem; padding: 1rem 0; border-top: 1px solid #cde0d6; font-size: 0.85rem; color: #3b5a4b;\">
           <span>🔍 Sources: World Bank, UNDRR, BGMEA, ILO, ISO 31000, industry reports</span>
-          <span>✏️ Last updated: March 2026</span>
+          <span>✏️ Last updated: May 2026</span>
           <span>✅ Complies with EEAT guidance</span>
         </div>
       <div style="
